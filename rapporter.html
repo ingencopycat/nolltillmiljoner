@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rapporter</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="brand-wrap">
+                <div class="brand-mark">N</div>
+                <div class="brand-text">
+                    <span class="brand-name">NOLL TILL MILJONER</span>
+                </div>
+            </div>
+
+            <nav class="main-nav" aria-label="Huvudnavigering">
+                <a href="index.html">Hem</a>
+                <a href="calculator.html">Kalkylator</a>
+                <a href="calculator.html">Investeringar</a>
+                <a href="makro.html">Makro</a>
+                <a href="rapporter.html">Rapporter</a>
+                <a href="community.html">Community</a>
+            </nav>
+
+            <button id="mobileNavToggle" class="nav-toggle" type="button" aria-label="Öppna meny" aria-expanded="false">
+                ☰
+            </button>
+
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Växla tema">
+                <span class="toggle-icon">☀️</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card page-card">
+            <div class="page-intro">
+                <span class="section-kicker">Rapporter</span>
+                <h1>Rapporter</h1>
+                <p>Kommande veckas viktigaste bolagsrapporter.</p>
+            </div>
+
+            <div class="archive-layout">
+                <div class="week-visual" id="weekVisual">
+                    <div class="week-visual-content">
+                        <span id="currentWeekLabel">Vecka 36</span>
+                        <h2 id="currentWeekTitle">Vecka 36</h2>
+                    </div>
+                </div>
+
+                <aside>
+                    <div class="section-heading">
+                        <div>
+                            <span class="section-kicker">Arkiv</span>
+                            <h2>Tidigare veckor</h2>
+                        </div>
+                    </div>
+
+                    <div class="archive-list" id="weekArchive"></div>
+                </aside>
+            </div>
+
+            <div class="hero-actions" style="margin-top: 28px;">
+                <a href="index.html" class="secondary-btn">Tillbaka till startsidan</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="week-pages.js"></script>
+</body>
+</html>

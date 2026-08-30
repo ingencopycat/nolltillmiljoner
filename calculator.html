@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nolltillmiljoner | Kalkylator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="brand-wrap">
+                <div class="brand-mark">N</div>
+                <div class="brand-text">
+                    <span class="brand-name">NOLL TILL MILJONER</span>
+                    <span class="brand-subtitle">Investeringskalkylator</span>
+                </div>
+            </div>
+
+            <nav class="main-nav" aria-label="Huvudnavigering">
+                <a href="index.html">Hem</a>
+                <a href="calculator.html">Kalkylator</a>
+                <a href="calculator.html">Investeringar</a>
+                <a href="makro.html">Makro</a>
+                <a href="rapporter.html">Rapporter</a>
+                <a href="community.html">Community</a>
+            </nav>
+
+            <button id="mobileNavToggle" class="nav-toggle" type="button" aria-label="Öppna meny" aria-expanded="false">
+                ☰
+            </button>
+
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Växla tema">
+                <span class="toggle-icon">☀️</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card calculator-card">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">Kalkylator</span>
+                    <h2>Ränta-på-ränta</h2>
+                </div>
+            </div>
+
+            <div class="mode-toggle" role="tablist" aria-label="Välj kalkyläge">
+                <button type="button" class="mode-tab active" data-mode="growth" aria-selected="true">Tillväxt</button>
+                <button type="button" class="mode-tab" data-mode="dividend" aria-selected="false">Utdelning</button>
+            </div>
+
+            <div id="growth-mode-panel" class="mode-panel">
+                <form id="calculator-form" class="calculator-form">
+                    <div class="form-grid">
+                        <div class="field-group">
+                            <label for="startkapital">Startkapital</label>
+                            <input id="startkapital" name="startkapital" type="number" min="0" step="1000" value="100000" />
+                        </div>
+
+                        <div class="field-group">
+                            <label for="manadssparande">Månadssparande</label>
+                            <input id="manadssparande" name="manadssparande" type="number" min="0" step="100" value="3000" />
+                        </div>
+
+                        <div class="field-group">
+                            <label for="avkastning">Årlig avkastning (%)</label>
+                            <input id="avkastning" name="avkastning" type="number" min="0" step="0.1" value="7" />
+                        </div>
+
+                        <div class="field-group">
+                            <label for="avgift">Årlig avgift (%)</label>
+                            <input id="avgift" name="avgift" type="number" min="0" step="0.05" value="0.5" />
+                        </div>
+
+                        <div class="field-group">
+                            <label for="inflation">Årlig inflation (%)</label>
+                            <input id="inflation" name="inflation" type="number" min="0" step="0.1" value="2.5" />
+                        </div>
+
+                        <div class="field-group">
+                            <label for="ar">Antal år</label>
+                            <input id="ar" name="ar" type="number" min="1" step="1" value="10" />
+                        </div>
+                    </div>
+
+                    <button type="submit">Beräkna</button>
+                </form>
+
+                <div class="results" aria-live="polite">
+                    <div class="result-box highlight">
+                        <span class="label">Slutvärde i framtida kronor</span>
+                        <strong id="slutvarde" class="result-value">0 kr</strong>
+                    </div>
+                    <div class="result-box">
+                        <span class="label">Värde i dagens penningvärde</span>
+                        <strong id="dagens-varde" class="result-value">0 kr</strong>
+                    </div>
+                    <div class="result-box">
+                        <span class="label">Totalt insatt kapital</span>
+                        <strong id="insatt-kapital" class="result-value">0 kr</strong>
+                    </div>
+                    <div class="result-box">
+                        <span class="label">Avkastning</span>
+                        <strong id="avkastning-resultat" class="result-value">0 kr</strong>
+                    </div>
+                </div>
+
+                <div class="chart-panel">
+                    <div class="chart-header">
+                        <h3>Portföljutveckling</h3>
+                    </div>
+                    <div class="chart-wrap">
+                        <canvas id="investmentChart" aria-label="Graf över portföljens utveckling"></canvas>
+                    </div>
+                </div>
+
+                <p class="note"><em>"Beräkningen antar att månadssparandet görs i slutet av varje månad och att den angivna årsavkastningen är effektiv."</em></p>
+            </div>
+
+            <div id="dividend-mode-panel" class="mode-panel hidden">
+                <form id="dividend-form" class="calculator-form">
+                    <div class="form-grid">
+                        <div class="field-group">
+                            <label for="dividend-startkapital">Startkapital</label>
+                            <input id="dividend-startkapital" name="dividend-startkapital" type="number" min="0" step="1000" value="100000" />
+                        </div>
+
+                        <div class="field-group">
+                            <label for="dividend-manadssparande">Månadssparande</label>
+                            <input id="dividend-manadssparande" name="dividend-manadssparande" type="number" min="0" step="100" value="3000" />
+                        </div>
+
+                        <div class="field-group">
+                            <label for="dividend-avkastning">Årlig avkastning (%)</label>
+                            <input id="dividend-avkastning" name="dividend-avkastning" type="number" min="0" step="0.1" value="7" />
+                            <small class="field-help">Värdeutveckling i portföljen</small>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="dividend-direktavkastning">Direktavkastning (%)</label>
+                            <input id="dividend-direktavkastning" name="dividend-direktavkastning" type="number" min="0" step="0.1" value="4" />
+                            <small class="field-help">Utdelning från innehavet</small>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="dividend-tillvaxt">Årlig utdelningstillväxt (%)</label>
+                            <input id="dividend-tillvaxt" name="dividend-tillvaxt" type="number" min="0" step="0.1" value="3" />
+                        </div>
+
+                        <div class="field-group">
+                            <label for="dividend-avgift">Årlig avgift (%)</label>
+                            <input id="dividend-avgift" name="dividend-avgift" type="number" min="0" step="0.05" value="0.2" />
+                        </div>
+
+                        <div class="field-group">
+                            <label for="dividend-ar">Antal år</label>
+                            <input id="dividend-ar" name="dividend-ar" type="number" min="1" step="1" value="10" />
+                        </div>
+
+                        <div class="field-group">
+                            <label for="dividend-aterinvestera">Återinvestera utdelning</label>
+                            <select id="dividend-aterinvestera" name="dividend-aterinvestera">
+                                <option value="true" selected>Ja</option>
+                                <option value="false">Nej</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit">Beräkna</button>
+                </form>
+
+                <div class="results" aria-live="polite">
+                    <div class="result-box highlight">
+                        <span class="label">Portföljvärde</span>
+                        <strong id="dividend-portfoljvarde" class="result-value">0 kr</strong>
+                    </div>
+                    <div class="result-box">
+                        <span class="label">Årlig utdelning</span>
+                        <strong id="dividend-arlig-utdelning" class="result-value">0 kr</strong>
+                    </div>
+                    <div class="result-box">
+                        <span class="label">Månadsutdelning</span>
+                        <strong id="dividend-manadsutdelning" class="result-value">0 kr</strong>
+                    </div>
+                    <div class="result-box">
+                        <span id="dividend-result-label" class="label">Utdelning utbetald</span>
+                        <strong id="dividend-mottagna" class="result-value">0 kr</strong>
+                    </div>
+                    <div class="result-box">
+                        <span class="label">Totalt insatt kapital</span>
+                        <strong id="dividend-insatt-kapital" class="result-value">0 kr</strong>
+                    </div>
+                </div>
+
+                <div class="chart-panel">
+                    <div class="chart-header">
+                        <h3>Utdelningsutveckling</h3>
+                    </div>
+                    <div class="chart-wrap">
+                        <canvas id="dividendChart" aria-label="Graf över portföljvärde och utdelning"></canvas>
+                    </div>
+                </div>
+
+                <p class="note"><em>"Utdelningsmodellen simulerar månadsvis och återinvesterar utdelningen om det valda alternativet är aktiverat."</em></p>
+            </div>
+        </section>
+
+        <section class="comparison-section">
+            <div class="section-heading comparison-heading">
+                <div>
+                    <span class="section-kicker">Scenario</span>
+                    <h2>Jämför avkastningsscenarier</h2>
+                </div>
+            </div>
+
+            <div class="scenario-grid" id="scenarioGrid"></div>
+
+            <div class="scenario-chart-panel">
+                <div class="chart-header">
+                    <h3>Slutvärde per scenario</h3>
+                </div>
+                <div class="chart-wrap small-chart-wrap">
+                    <canvas id="scenarioChart" aria-label="Jämförelse mellan avkastningsscenarier"></canvas>
+                </div>
+            </div>
+
+            <p class="scenario-note">Scenarierna visar avkastning före avgifter och är endast illustrativa. Historisk avkastning är ingen garanti för framtida avkastning.</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
