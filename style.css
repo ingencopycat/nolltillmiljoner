@@ -130,16 +130,44 @@ body.light-theme .topbar-inner {
   display: grid;
   place-items: center;
   cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  position: relative;
 }
 
 .theme-toggle:hover {
-  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.08);
   border-color: rgba(94, 163, 255, 0.4);
 }
 
 .toggle-icon {
-  font-size: 1.1rem;
+  font-size: 1.8rem;
+  line-height: 1;
+  display: inline-block;
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
+}
+
+.toggle-icon-sun {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.toggle-icon-moon {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
+body.light-theme .toggle-icon-sun {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
+body.light-theme .toggle-icon-moon {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .container {

@@ -584,10 +584,11 @@ function applyTheme(theme) {
   document.body.classList.toggle('dark-theme', !isLight);
 
   if (themeToggle) {
-    const toggleIcon = themeToggle.querySelector('.toggle-icon');
-    if (toggleIcon) {
-      toggleIcon.textContent = isLight ? '🌙' : '☀️';
-    }
+    // Update tooltip and aria-label based on NEXT theme (what will happen on click)
+    const nextTheme = isLight ? 'dark' : 'light';
+    const tooltipText = nextTheme === 'light' ? 'Växla till ljust läge' : 'Växla till mörkt läge';
+    themeToggle.setAttribute('title', tooltipText);
+    themeToggle.setAttribute('aria-label', tooltipText);
   }
 }
 
