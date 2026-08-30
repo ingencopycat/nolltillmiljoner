@@ -747,11 +747,18 @@ body.light-theme .scenario-chart-panel {
   padding: 20px;
 }
 
+.discord-section {
+  padding: 32px;
+  box-shadow: 0 8px 24px rgba(2, 6, 17, 0.2);
+}
+
 .discord-image-wrap {
   border: 1px solid var(--border);
   border-radius: 18px;
   overflow: hidden;
   background: rgba(4, 10, 16, 0.5);
+  margin-bottom: 8px;
+  box-shadow: 0 4px 16px rgba(2, 6, 17, 0.25);
 }
 
 .discord-image {
@@ -762,9 +769,10 @@ body.light-theme .scenario-chart-panel {
 }
 
 .discord-copy {
-  margin: 18px 0 0;
+  margin: 22px 0 0;
   color: var(--muted);
   line-height: 1.7;
+  font-size: 1.02rem;
 }
 
 .small-heading {
