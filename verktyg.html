@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Makro</title>
+    <title>Verktyg</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -18,7 +18,7 @@
 
             <nav class="main-nav" aria-label="Huvudnavigering">
                 <a href="index.html">Hem</a>
-                <a href="verktyg.html">Verktyg</a>
+                <a href="verktyg.html" class="active" aria-current="page">Verktyg</a>
                 <a href="investeringar.html">Investeringar</a>
                 <a href="makro.html">Makro</a>
                 <a href="rapporter.html">Rapporter</a>
@@ -39,38 +39,41 @@
     <main class="container">
         <section class="card page-card">
             <div class="page-intro">
-                <span class="section-kicker">Makro</span>
-                <h1>Makro</h1>
-                <p>Veckans viktigaste makrohändelser.</p>
+                <span class="section-kicker">Verktyg</span>
+                <h1>Verktyg</h1>
+                <p>Verktyg för att räkna, jämföra och förstå din ekonomi.</p>
             </div>
 
-            <div class="archive-layout">
-                <div class="week-visual" id="weekVisual">
-                    <div class="week-visual-content">
-                        <span id="currentWeekLabel">Vecka 36</span>
-                        <h2 id="currentWeekTitle">Vecka 36</h2>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <h3>Investeringskalkylator</h3>
+                    <p>Räkna på kapitalets utveckling, sparande, avkastning och utdelningar.</p>
+                    <div class="card-link">
+                        <a href="calculator.html" class="secondary-btn">Öppna verktyget</a>
                     </div>
-                </div>
+                </article>
 
-                <aside>
-                    <div class="section-heading">
-                        <div>
-                            <span class="section-kicker">Arkiv</span>
-                            <h2>Tidigare veckor</h2>
-                        </div>
-                    </div>
+                <article class="feature-card">
+                    <h3>Amorteringskalkylator</h3>
+                    <p>Se hur ditt lån och din amortering utvecklas över tid.</p>
+                    <span class="badge">Kommer snart</span>
+                </article>
 
-                    <div class="archive-list" id="weekArchive"></div>
-                </aside>
-            </div>
+                <article class="feature-card">
+                    <h3>FIRE-kalkylator</h3>
+                    <p>Räkna på vägen mot ekonomisk frihet.</p>
+                    <span class="badge">Kommer snart</span>
+                </article>
 
-            <div class="hero-actions" style="margin-top: 28px;">
-                <a href="index.html" class="secondary-btn">Tillbaka till startsidan</a>
+                <article class="feature-card">
+                    <h3>Fondavgifter</h3>
+                    <p>Jämför hur olika fondavgifter påverkar ditt kapital över tid.</p>
+                    <span class="badge">Kommer snart</span>
+                </article>
             </div>
         </section>
     </main>
 
     <script src="script.js"></script>
-    <script src="week-pages.js"></script>
 </body>
 </html>
