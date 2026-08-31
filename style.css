@@ -401,6 +401,10 @@ button:active {
   display: none;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .results {
   margin-top: 30px;
   display: grid;

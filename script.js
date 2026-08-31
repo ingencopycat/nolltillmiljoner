@@ -38,6 +38,14 @@ function setActiveMode(mode) {
       panel.classList.toggle('hidden', key !== selectedMode);
     }
   });
+
+  // Refresh scenario when switching modes
+  renderScenarioComparison();
+}
+
+function getActiveMode() {
+  const activeTab = document.querySelector('.mode-tab.active');
+  return activeTab ? activeTab.dataset.mode : 'growth';
 }
 
 function getInputs() {
@@ -214,7 +222,19 @@ function renderChart() {
 }
 
 function renderScenarioComparison() {
-  const { startCapital, monthlySavings, years } = getInputs();
+  const activeMode = getActiveMode();
+  let startCapital, monthlySavings, years;
+
+  if (activeMode === 'dividend') {
+    startCapital = Number(document.getElementById('dividend-startkapital').value) || 0;
+    monthlySavings = Number(document.getElementById('dividend-manadssparande').value) || 0;
+    years = Number(document.getElementById('dividend-ar').value) || 0;
+  } else {
+    startCapital = Number(document.getElementById('startkapital').value) || 0;
+    monthlySavings = Number(document.getElementById('manadssparande').value) || 0;
+    years = Number(document.getElementById('ar').value) || 0;
+  }
+
   const scenarioReturns = [7, 10, 20];
   const scenarioValues = scenarioReturns.map((scenarioReturn) => {
     const result = calculateProjection(startCapital, monthlySavings, scenarioReturn, 0, years);
@@ -560,17 +580,40 @@ function calculateDividendInvestment() {
   document.getElementById('dividend-insatt-kapital').textContent = formatCurrency(result.totalInvested);
 
   renderDividendChart();
+  renderScenarioComparison();
 }
 
 function calculateInvestment() {
   const { startCapital, monthlySavings, annualReturn, annualFee, annualInflation, years } = getInputs();
   const result = calculateProjection(startCapital, monthlySavings, annualReturn, annualFee, years);
 
+  // Calculate real value (inflation-adjusted)
   const inflationRate = annualInflation / 100;
   const realValue = result.futureValue / Math.pow(1 + inflationRate, years);
 
-  document.getElementById('slutvarde').textContent = formatCurrency(result.futureValue);
+  // Show/hide the "Värde i dagens penningvärde" based on inflation
+  const dagensVardeBox = document.getElementById('dagens-varde-box');
+  if (dagensVardeBox) {
+    dagensVardeBox.classList.toggle('hidden', annualInflation === 0);
+  }
   document.getElementById('dagens-varde').textContent = formatCurrency(realValue);
+
+  // Calculate total fees paid
+  let totalFees = 0;
+  if (annualFee > 0) {
+    // Calculate value without fees for comparison
+    const resultWithoutFees = calculateProjection(startCapital, monthlySavings, annualReturn, 0, years);
+    totalFees = resultWithoutFees.futureValue - result.futureValue;
+  }
+
+  // Show/hide the "Avgifter totalt" based on fee amount
+  const avgifterBox = document.getElementById('avgifter-totalt-box');
+  if (avgifterBox) {
+    avgifterBox.classList.toggle('hidden', annualFee === 0);
+  }
+  document.getElementById('avgifter-totalt').textContent = formatCurrency(totalFees);
+
+  document.getElementById('slutvarde').textContent = formatCurrency(result.futureValue);
   document.getElementById('insatt-kapital').textContent = formatCurrency(result.totalInvested);
   document.getElementById('avkastning-resultat').textContent = formatCurrency(result.earnings);
 
