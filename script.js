@@ -1,5 +1,6 @@
 const form = document.getElementById('calculator-form');
 const dividendForm = document.getElementById('dividend-form');
+const feeForm = document.getElementById('avgifts-form');
 const themeToggle = document.getElementById('themeToggle');
 const modeTabs = document.querySelectorAll('.mode-tab');
 const modePanels = {
@@ -11,6 +12,7 @@ const navMenu = document.querySelector('.main-nav');
 let investmentChart = null;
 let scenarioChart = null;
 let dividendChart = null;
+let feeComparisonChart = null;
 
 function formatCurrency(value) {
   return new Intl.NumberFormat('sv-SE', {
@@ -329,6 +331,224 @@ function renderScenarioComparison() {
       }
     }
   });
+}
+
+function calculateFeeComparisonProjection(startCapital, monthlySavings, annualReturn, years, annualFee) {
+  const annualRate = annualReturn / 100;
+  const feeRate = annualFee / 100;
+  const effectiveAnnualRate = (1 + annualRate) * (1 - feeRate) - 1;
+  const monthlyRate = Math.pow(1 + effectiveAnnualRate, 1 / 12) - 1;
+  const months = years * 12;
+
+  let futureValue = startCapital;
+
+  if (months > 0) {
+    futureValue = startCapital * Math.pow(1 + monthlyRate, months);
+
+    if (monthlyRate !== 0) {
+      futureValue += monthlySavings * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
+    } else {
+      futureValue += monthlySavings * months;
+    }
+  }
+
+  const totalInvested = startCapital + monthlySavings * months;
+  const totalFees = 0;
+
+  return {
+    futureValue,
+    totalInvested,
+    totalFees,
+    monthlyRate,
+    effectiveAnnualRate
+  };
+}
+
+function renderFeeComparisonChart() {
+  const chartCanvas = document.getElementById('avgifterChart');
+  if (!chartCanvas) {
+    return;
+  }
+
+  if (feeComparisonChart) {
+    feeComparisonChart.destroy();
+  }
+
+  const startCapital = Number(document.getElementById('avgifter-startkapital').value) || 0;
+  const monthlySavings = Number(document.getElementById('avgifter-manadssparande').value) || 0;
+  const annualReturn = Number(document.getElementById('avgifter-avkastning').value) || 0;
+  const years = Number(document.getElementById('avgifter-ar').value) || 0;
+  const feeA = Number(document.getElementById('avgifter-a').value) || 0;
+  const feeB = Number(document.getElementById('avgifter-b').value) || 0;
+
+  const labels = ['0'];
+  const seriesA = [startCapital];
+  const seriesB = [startCapital];
+
+  const months = Math.max(1, years * 12);
+  const annualRate = annualReturn / 100;
+  const effectiveA = (1 + annualRate) * (1 - feeA / 100) - 1;
+  const effectiveB = (1 + annualRate) * (1 - feeB / 100) - 1;
+  const monthlyA = Math.pow(1 + effectiveA, 1 / 12) - 1;
+  const monthlyB = Math.pow(1 + effectiveB, 1 / 12) - 1;
+
+  let portfolioA = startCapital;
+  let portfolioB = startCapital;
+
+  for (let month = 1; month <= months; month += 1) {
+    portfolioA = portfolioA * (1 + monthlyA) + monthlySavings;
+    portfolioB = portfolioB * (1 + monthlyB) + monthlySavings;
+
+    if (month % 12 === 0 || month === months) {
+      labels.push(String(Math.floor(month / 12)));
+      seriesA.push(portfolioA);
+      seriesB.push(portfolioB);
+    }
+  }
+
+  const colors = getChartColors();
+
+  feeComparisonChart = new Chart(chartCanvas, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Investering A',
+          data: seriesA,
+          borderColor: colors.primary,
+          backgroundColor: 'rgba(61, 217, 198, 0.12)',
+          borderWidth: 3,
+          pointRadius: 0,
+          fill: false,
+          tension: 0.35
+        },
+        {
+          label: 'Investering B',
+          data: seriesB,
+          borderColor: colors.accent,
+          backgroundColor: 'rgba(94, 163, 255, 0.08)',
+          borderWidth: 3,
+          pointRadius: 0,
+          fill: false,
+          tension: 0.35
+        }
+      ]
+    },
+    options: {
+      maintainAspectRatio: false,
+      responsive: true,
+      interaction: {
+        mode: 'nearest',
+        intersect: false
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: colors.text,
+            usePointStyle: true,
+            pointStyle: 'circle',
+            boxWidth: 8,
+            padding: 16
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: function (context) {
+              return `${context.dataset.label}: ${formatCurrency(context.parsed.y)}`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'År',
+            color: colors.muted
+          },
+          ticks: {
+            color: colors.muted,
+            maxTicksLimit: 8
+          },
+          grid: {
+            color: colors.grid
+          },
+          border: {
+            display: false
+          }
+        },
+        y: {
+          ticks: {
+            color: colors.muted,
+            callback: function (value) {
+              return `${Math.round(value / 1000)}k`;
+            }
+          },
+          grid: {
+            color: colors.grid
+          },
+          border: {
+            display: false
+          }
+        }
+      }
+    }
+  });
+}
+
+function calculateFeeComparison() {
+  const startCapital = Number(document.getElementById('avgifter-startkapital').value) || 0;
+  const monthlySavings = Number(document.getElementById('avgifter-manadssparande').value) || 0;
+  const annualReturn = Number(document.getElementById('avgifter-avkastning').value) || 0;
+  const years = Number(document.getElementById('avgifter-ar').value) || 0;
+  const feeA = Number(document.getElementById('avgifter-a').value) || 0;
+  const feeB = Number(document.getElementById('avgifter-b').value) || 0;
+
+  const withoutFeeA = calculateProjection(startCapital, monthlySavings, annualReturn, 0, years);
+  const withoutFeeB = calculateProjection(startCapital, monthlySavings, annualReturn, 0, years);
+  const withFeeA = calculateProjection(startCapital, monthlySavings, annualReturn, feeA, years);
+  const withFeeB = calculateProjection(startCapital, monthlySavings, annualReturn, feeB, years);
+
+  const totalFeeA = withoutFeeA.futureValue - withFeeA.futureValue;
+  const totalFeeB = withoutFeeB.futureValue - withFeeB.futureValue;
+
+  const difference = Math.abs(withFeeA.futureValue - withFeeB.futureValue);
+  const aLower = withFeeA.futureValue < withFeeB.futureValue;
+  const bLower = withFeeB.futureValue < withFeeA.futureValue;
+
+  const differenceElement = document.getElementById('avgifter-skillnad');
+  if (differenceElement) {
+    if (feeA === feeB) {
+      differenceElement.textContent = 'Ingen skillnad i slutvärde från avgifter';
+    } else if (aLower) {
+      differenceElement.textContent = `Investering A ger lägre slutvärde med ${formatCurrency(difference)} jämfört med investering B över ${years} år.`;
+    } else if (bLower) {
+      differenceElement.textContent = `Investering B ger lägre slutvärde med ${formatCurrency(difference)} jämfört med investering A över ${years} år.`;
+    } else {
+      differenceElement.textContent = 'Ingen skillnad i slutvärde från avgifter';
+    }
+  }
+
+  document.getElementById('avgifter-a-slutvarde').textContent = formatCurrency(withFeeA.futureValue);
+  document.getElementById('avgifter-b-slutvarde').textContent = formatCurrency(withFeeB.futureValue);
+  document.getElementById('avgifter-a-kostnad').textContent = formatCurrency(totalFeeA);
+  document.getElementById('avgifter-b-kostnad').textContent = formatCurrency(totalFeeB);
+
+  renderFeeComparisonChart();
+}
+
+function initFeeComparisonPage() {
+  if (!feeForm) {
+    return;
+  }
+
+  feeForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    calculateFeeComparison();
+  });
+
+  calculateFeeComparison();
 }
 
 function getDividendInputs() {
@@ -762,4 +982,7 @@ if (form) {
 }
 if (dividendForm) {
   calculateDividendInvestment();
+}
+if (feeForm) {
+  initFeeComparisonPage();
 }
