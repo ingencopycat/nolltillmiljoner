@@ -160,6 +160,11 @@
                         </div>
 
                         <div class="field-group">
+                            <label for="dividend-inflation">Årlig inflation (%)</label>
+                            <input id="dividend-inflation" name="dividend-inflation" type="number" min="0" step="0.1" value="2.5" />
+                        </div>
+
+                        <div class="field-group">
                             <label for="dividend-ar">Antal år</label>
                             <input id="dividend-ar" name="dividend-ar" type="number" min="1" step="1" value="10" />
                         </div>
@@ -180,6 +185,14 @@
                     <div class="result-box highlight">
                         <span class="label">Portföljvärde</span>
                         <strong id="dividend-portfoljvarde" class="result-value">0 kr</strong>
+                    </div>
+                    <div class="result-box hidden" id="dividend-dagens-varde-box">
+                        <span class="label">Värde i dagens penningvärde</span>
+                        <strong id="dividend-dagens-varde" class="result-value">0 kr</strong>
+                    </div>
+                    <div class="result-box hidden" id="dividend-avgifter-totalt-box">
+                        <span class="label">Avgifter totalt</span>
+                        <strong id="dividend-avgifter-totalt" class="result-value">0 kr</strong>
                     </div>
                     <div class="result-box">
                         <span class="label">Årlig utdelning</span>

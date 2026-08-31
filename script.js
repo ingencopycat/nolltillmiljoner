@@ -339,6 +339,7 @@ function getDividendInputs() {
     annualFee: Number(document.getElementById('dividend-avgift').value) || 0,
     dividendYield: Number(document.getElementById('dividend-direktavkastning').value) || 0,
     dividendGrowth: Number(document.getElementById('dividend-tillvaxt').value) || 0,
+    annualInflation: Number(document.getElementById('dividend-inflation').value) || 0,
     years: Number(document.getElementById('dividend-ar').value) || 0,
     reinvestDividends: document.getElementById('dividend-aterinvestera').value === 'true'
   };
@@ -572,6 +573,33 @@ function calculateDividendInvestment() {
   const reinvestDividends = document.getElementById('dividend-aterinvestera').value === 'true';
 
   updateDividendResultLabel();
+
+  // Calculate inflation-adjusted value
+  const inflationRate = inputs.annualInflation / 100;
+  const realValue = result.portfolioValue / Math.pow(1 + inflationRate, inputs.years);
+
+  // Show/hide the "Värde i dagens penningvärde" based on inflation
+  const dividendDagensVardeBox = document.getElementById('dividend-dagens-varde-box');
+  if (dividendDagensVardeBox) {
+    dividendDagensVardeBox.classList.toggle('hidden', inputs.annualInflation === 0);
+  }
+  document.getElementById('dividend-dagens-varde').textContent = formatCurrency(realValue);
+
+  // Calculate total fees paid
+  let totalFees = 0;
+  if (inputs.annualFee > 0) {
+    // Calculate value without fees for comparison
+    const inputsWithoutFees = { ...inputs, annualFee: 0 };
+    const resultWithoutFees = calculateDividendProjection(inputsWithoutFees);
+    totalFees = resultWithoutFees.portfolioValue - result.portfolioValue;
+  }
+
+  // Show/hide the "Avgifter totalt" based on fee amount
+  const dividendAvgifterBox = document.getElementById('dividend-avgifter-totalt-box');
+  if (dividendAvgifterBox) {
+    dividendAvgifterBox.classList.toggle('hidden', inputs.annualFee === 0);
+  }
+  document.getElementById('dividend-avgifter-totalt').textContent = formatCurrency(totalFees);
 
   document.getElementById('dividend-portfoljvarde').textContent = formatCurrency(result.portfolioValue);
   document.getElementById('dividend-arlig-utdelning').textContent = formatCurrency(result.annualDividend);
