@@ -1112,6 +1112,61 @@ function updateLeverageInputsFromMode() {
   amountField.classList.toggle('hidden', !amountSelected);
 }
 
+function calculateLeverageComparisonAlternative({ equity, loanAmount, loanRate, expectedReturn, years, amortization }) {
+  const monthlyRate = Math.pow(1 + expectedReturn / 100, 1 / 12) - 1;
+  const months = Math.max(1, years * 12);
+  const baseAssetValue = (equity + loanAmount) * Math.pow(1 + expectedReturn / 100, years);
+
+  const amortizeScenario = calculateLeverageProjection({
+    equity,
+    loanAmount,
+    loanRate,
+    expectedReturn,
+    years,
+    amortization,
+    inflation: 0
+  });
+
+  const noAmortScenario = calculateLeverageProjection({
+    equity,
+    loanAmount,
+    loanRate,
+    expectedReturn,
+    years,
+    amortization: 0,
+    inflation: 0
+  });
+
+  let investmentValue = 0;
+  let remainingDebtForInvestment = loanAmount;
+  let actualAmortizationUsed = 0;
+
+  for (let month = 1; month <= months; month += 1) {
+    const payment = Math.min(amortization, remainingDebtForInvestment);
+    if (payment <= 0) {
+      break;
+    }
+
+    investmentValue = (investmentValue + payment) * (1 + monthlyRate);
+    remainingDebtForInvestment = Math.max(0, remainingDebtForInvestment - payment);
+    actualAmortizationUsed += payment;
+  }
+
+  const investAlternativeFinalNet = baseAssetValue + investmentValue - noAmortScenario.finalDebt - noAmortScenario.totalLoanCost;
+  const amortizeAlternativeFinalNet = amortizeScenario.finalWithLeverage;
+  const difference = investAlternativeFinalNet - amortizeAlternativeFinalNet;
+  const interestSaved = noAmortScenario.totalLoanCost - amortizeScenario.totalLoanCost;
+
+  return {
+    amortizeAlternativeFinalNet,
+    investAlternativeFinalNet,
+    difference,
+    interestSaved,
+    investmentFutureValue: investmentValue,
+    actualAmortizationUsed
+  };
+}
+
 function calculateLeverage() {
   const inputs = getLeverageInputs();
   const loanAmount = inputs.loanAmount;
@@ -1188,6 +1243,37 @@ function calculateLeverage() {
   } else {
     nominalBox.classList.add('hidden');
     realBox.classList.add('hidden');
+  }
+
+  const alternativeSection = document.getElementById('leverage-amortize-vs-invest-section');
+  if (alternativeSection) {
+    if (inputs.amortization > 0) {
+      const comparison = calculateLeverageComparisonAlternative(inputs);
+      const amountEl = document.getElementById('leverage-amortize-final');
+      const investEl = document.getElementById('leverage-invest-final');
+      const diffEl = document.getElementById('leverage-alternative-difference');
+      const diffMetaEl = document.getElementById('leverage-alternative-difference-meta');
+      const interestSavedEl = document.getElementById('leverage-interest-saved');
+      const investmentFvEl = document.getElementById('leverage-investment-fv');
+
+      amountEl.textContent = formatCurrency(comparison.amortizeAlternativeFinalNet);
+      investEl.textContent = formatCurrency(comparison.investAlternativeFinalNet);
+      diffEl.textContent = formatCurrency(comparison.difference);
+      interestSavedEl.textContent = formatCurrency(comparison.interestSaved);
+      investmentFvEl.textContent = formatCurrency(comparison.investmentFutureValue);
+
+      if (comparison.difference > 0) {
+        diffMetaEl.textContent = `${formatCurrency(comparison.difference)} mer genom att investera`;
+      } else if (comparison.difference < 0) {
+        diffMetaEl.textContent = `${formatCurrency(Math.abs(comparison.difference))} mer genom att amortera`;
+      } else {
+        diffMetaEl.textContent = '0 kr skillnad';
+      }
+
+      alternativeSection.classList.remove('hidden');
+    } else {
+      alternativeSection.classList.add('hidden');
+    }
   }
 
   const chartCanvas = document.getElementById('leverageChart');

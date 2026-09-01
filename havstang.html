@@ -197,6 +197,50 @@
                 </div>
             </div>
 
+            <div id="leverage-amortize-vs-invest-section" class="comparison-section hidden" style="margin-top: 28px;">
+                <div class="section-heading comparison-heading">
+                    <div>
+                        <span class="section-kicker">Jämförelse</span>
+                        <h2>Amortera eller investera?</h2>
+                    </div>
+                </div>
+
+                <p class="comparison-summary" style="margin: 0 0 18px; color: var(--muted);">Jämför vad som händer om samma månadsbelopp används till amortering eller investeras istället.</p>
+
+                <div class="scenario-grid leverage-comparison-grid">
+                    <article class="scenario-card">
+                        <h3>Amortera</h3>
+                        <p class="scenario-value" id="leverage-amortize-final">0 kr</p>
+                        <div class="scenario-meta">Lägre skuld och räntekostnad</div>
+                    </article>
+
+                    <article class="scenario-card">
+                        <h3>Investera istället</h3>
+                        <p class="scenario-value" id="leverage-invest-final">0 kr</p>
+                        <div class="scenario-meta">Amorteringsbeloppet investeras varje månad</div>
+                    </article>
+
+                    <article class="scenario-card">
+                        <h3>Skillnad</h3>
+                        <p class="scenario-value" id="leverage-alternative-difference">0 kr</p>
+                        <div class="scenario-meta" id="leverage-alternative-difference-meta">0 kr skillnad</div>
+                    </article>
+                </div>
+
+                <div class="scenario-grid leverage-comparison-grid" style="margin-top: 16px;">
+                    <article class="scenario-card">
+                        <h3>Ränta sparad</h3>
+                        <p class="scenario-value" id="leverage-interest-saved">0 kr</p>
+                        <div class="scenario-meta">Skillnad i total lånekostnad</div>
+                    </article>
+                    <article class="scenario-card">
+                        <h3>Slutvärde av investeringar</h3>
+                        <p class="scenario-value" id="leverage-investment-fv">0 kr</p>
+                        <div class="scenario-meta">Månatliga investeringar växer med avkastningen</div>
+                    </article>
+                </div>
+            </div>
+
             <div class="chart-panel" style="margin-top: 28px;">
                 <div class="chart-header">
                     <h3>Eget kapital och skuld över tid</h3>
