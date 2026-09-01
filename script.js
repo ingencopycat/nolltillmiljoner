@@ -1056,11 +1056,10 @@ function calculateLeverageProjection({ equity, loanAmount, loanRate, expectedRet
 
     totalInterest += interestPayment;
     totalPrincipalPaid += amortizationPayment;
-    assetValue -= interestPayment;
     remainingDebt = Math.max(0, remainingDebt - amortizationPayment);
 
     const projectedNoLeverage = equity * Math.pow(1 + expectedReturn / 100, month / 12);
-    const projectedLeveragedEquity = Math.max(0, assetValue - remainingDebt);
+    const projectedLeveragedEquity = Math.max(0, assetValue - remainingDebt - totalInterest);
 
     finalWithoutLeverage = projectedNoLeverage;
     finalWithLeverage = projectedLeveragedEquity;
