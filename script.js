@@ -2,6 +2,7 @@ const form = document.getElementById('calculator-form');
 const dividendForm = document.getElementById('dividend-form');
 const feeForm = document.getElementById('avgifts-form');
 const leverageForm = document.getElementById('leverage-form');
+const recoveryForm = document.getElementById('recovery-form');
 const themeToggle = document.getElementById('themeToggle');
 const modeTabs = document.querySelectorAll('.mode-tab[data-mode]');
 const leverageModeTabs = document.querySelectorAll('.mode-tab[data-leverage-mode]');
@@ -1413,6 +1414,122 @@ function initLeveragePage() {
 
   updateLeverageInputsFromMode();
   calculateLeverage();
+}
+
+function calculateRecoveryRequiredGain(dropPercent, amount) {
+  if (dropPercent < 0 || dropPercent >= 100) {
+    throw new Error('Nedgång måste vara mellan 0 och 100 %.');
+  }
+
+  if (amount !== null && amount !== undefined && amount < 0) {
+    throw new Error('Investerat belopp får inte vara negativt.');
+  }
+
+  const loss = dropPercent / 100;
+  const requiredGain = (1 / (1 - loss) - 1) * 100;
+  const currentValue = amount === null || amount === undefined || Number.isNaN(amount) ? null : amount * (1 - loss);
+  const lossAmount = amount === null || amount === undefined || Number.isNaN(amount) ? null : amount - currentValue;
+  const recoveredValue = amount === null || amount === undefined || Number.isNaN(amount) ? null : currentValue * (1 + requiredGain / 100);
+
+  return {
+    requiredGain,
+    currentValue,
+    lossAmount,
+    recoveredValue
+  };
+}
+
+function formatPercent(value) {
+  const formatted = new Intl.NumberFormat('sv-SE', {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 1
+  }).format(value);
+
+  return value > 0 ? `+${formatted} %` : `${formatted} %`;
+}
+
+function initRecoveryPage() {
+  if (!recoveryForm) {
+    return;
+  }
+
+  recoveryForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const dropField = document.getElementById('recovery-nedgang');
+    const amountField = document.getElementById('recovery-belopp');
+    const errorBox = document.getElementById('recovery-error');
+    const summary = document.getElementById('recovery-summary');
+
+    const dropPercent = Number(dropField.value);
+    const amountValue = amountField.value === '' ? null : Number(amountField.value);
+
+    const errorText = document.getElementById('recovery-error');
+    errorText.textContent = 'Ogiltigt värde.';
+
+    if (dropField.value === '' || Number.isNaN(dropPercent) || dropPercent < 0 || dropPercent >= 100) {
+      errorText.textContent = 'Nedgång måste vara ett värde mellan 0 % och mindre än 100 %.';
+      errorBox.classList.remove('hidden');
+      return;
+    }
+
+    if (amountValue !== null && amountValue < 0) {
+      errorText.textContent = 'Investerat belopp får inte vara negativt.';
+      errorBox.classList.remove('hidden');
+      return;
+    }
+
+    errorBox.classList.add('hidden');
+
+    try {
+      const calculation = calculateRecoveryRequiredGain(dropPercent, amountValue);
+      const requiredGainEl = document.getElementById('recovery-required-gain');
+
+      requiredGainEl.textContent = formatPercent(calculation.requiredGain);
+
+      summary.textContent = `Efter en nedgång på ${dropPercent.toFixed(1).replace(/\.0$/, '')} % krävs en uppgång på ${new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 0, maximumFractionDigits: 1 }).format(calculation.requiredGain)} % för att komma tillbaka till startvärdet.`;
+
+      const amountBoxes = [
+        document.getElementById('recovery-start-value-box'),
+        document.getElementById('recovery-after-drop-box'),
+        document.getElementById('recovery-loss-box'),
+        document.getElementById('recovery-recovered-box')
+      ];
+
+      if (amountValue !== null) {
+        amountBoxes.forEach((box) => box.classList.remove('hidden'));
+        document.getElementById('recovery-start-value').textContent = formatCurrency(amountValue);
+        document.getElementById('recovery-after-drop').textContent = formatCurrency(calculation.currentValue);
+        document.getElementById('recovery-loss').textContent = formatCurrency(calculation.lossAmount);
+        document.getElementById('recovery-recovered').textContent = formatCurrency(calculation.recoveredValue);
+      } else {
+        amountBoxes.forEach((box) => box.classList.add('hidden'));
+      }
+
+      const visualStart = document.getElementById('recovery-visual-start');
+      const visualDrop = document.getElementById('recovery-visual-drop');
+      const visualAfter = document.getElementById('recovery-visual-after');
+      const visualGain = document.getElementById('recovery-visual-gain');
+      const visualRecovered = document.getElementById('recovery-visual-recovered');
+
+      const startValue = amountValue !== null ? amountValue : 100;
+      const afterDropValue = amountValue !== null ? calculation.currentValue : 100 * (1 - dropPercent / 100);
+      const recoveredValue = amountValue !== null ? calculation.recoveredValue : 100 * (1 + calculation.requiredGain / 100);
+
+      visualStart.textContent = amountValue !== null ? formatCurrency(startValue) : '100';
+      visualDrop.textContent = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 0, maximumFractionDigits: 1 }).format(dropPercent);
+      visualAfter.textContent = amountValue !== null ? formatCurrency(afterDropValue) : new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 0, maximumFractionDigits: 1 }).format(afterDropValue);
+      visualGain.textContent = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 0, maximumFractionDigits: 1 }).format(calculation.requiredGain);
+      visualRecovered.textContent = amountValue !== null ? formatCurrency(recoveredValue) : new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 0, maximumFractionDigits: 1 }).format(recoveredValue);
+    } catch (error) {
+      errorBox.classList.remove('hidden');
+      errorBox.textContent = error.message;
+    }
+  });
+}
+
+if (recoveryForm) {
+  initRecoveryPage();
 }
 
 if (leverageForm) {

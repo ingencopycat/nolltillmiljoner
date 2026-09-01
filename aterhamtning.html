@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Återhämtningskalkylator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a href="index.html" class="brand-wrap">
+                <div class="brand-mark">N</div>
+                <div class="brand-text">
+                    <span class="brand-name">NOLL TILL MILJONER</span>
+                    <span class="brand-subtitle">Investeringskalkylator</span>
+                </div>
+            </a>
+
+            <nav class="main-nav" aria-label="Huvudnavigering">
+                <a href="index.html">Hem</a>
+                <a href="verktyg.html" class="active" aria-current="page">Verktyg</a>
+                <a href="investeringar.html">Investeringar</a>
+                <a href="makro.html">Makro</a>
+                <a href="rapporter.html">Rapporter</a>
+                <a href="community.html">Community</a>
+            </nav>
+
+            <button id="mobileNavToggle" class="nav-toggle" type="button" aria-label="Öppna meny" aria-expanded="false">
+                ☰
+            </button>
+
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Växla tema" title="Växla tema">
+                <span class="toggle-icon toggle-icon-sun">🌞</span>
+                <span class="toggle-icon toggle-icon-moon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card calculator-card">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">Återhämtningskalkylator</span>
+                    <h2>Återhämtningskalkylator</h2>
+                </div>
+            </div>
+
+            <p class="note" style="margin-top: 0; margin-bottom: 20px;">
+                Se hur mycket en investering måste stiga för att återhämta en nedgång.
+            </p>
+
+            <form id="recovery-form" class="calculator-form">
+                <div class="form-grid">
+                    <div class="field-group">
+                        <label for="recovery-nedgang">Nedgång (%)</label>
+                        <input id="recovery-nedgang" name="recovery-nedgang" type="number" min="0" max="99.999" step="0.1" placeholder="50" required />
+                    </div>
+
+                    <div class="field-group">
+                        <label for="recovery-belopp">Investerat belopp (valfritt)</label>
+                        <input id="recovery-belopp" name="recovery-belopp" type="number" min="0" step="1000" placeholder="100000" />
+                    </div>
+                </div>
+
+                <button type="submit">Beräkna</button>
+            </form>
+
+            <div id="recovery-error" class="hidden" style="margin-top: 12px; padding: 10px 12px; border-radius: 12px; background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.35); color: #fca5a5; font-weight: 600;">
+                Ogiltigt värde.
+            </div>
+
+            <div class="results" aria-live="polite" style="margin-top: 24px;">
+                <div class="result-box highlight" style="grid-column: 1 / -1;">
+                    <span class="label">Krävs för återhämtning</span>
+                    <strong id="recovery-required-gain" class="result-value">0 %</strong>
+                </div>
+
+                <div class="result-box hidden" id="recovery-start-value-box">
+                    <span class="label">Startvärde</span>
+                    <strong id="recovery-start-value" class="result-value">0 kr</strong>
+                </div>
+
+                <div class="result-box hidden" id="recovery-after-drop-box">
+                    <span class="label">Efter nedgång</span>
+                    <strong id="recovery-after-drop" class="result-value">0 kr</strong>
+                </div>
+
+                <div class="result-box hidden" id="recovery-loss-box">
+                    <span class="label">Förlust</span>
+                    <strong id="recovery-loss" class="result-value">0 kr</strong>
+                </div>
+
+                <div class="result-box hidden" id="recovery-recovered-box">
+                    <span class="label">Värde efter återhämtning</span>
+                    <strong id="recovery-recovered" class="result-value">0 kr</strong>
+                </div>
+            </div>
+
+            <p id="recovery-summary" class="note" style="margin-top: 18px; margin-bottom: 18px;">
+                Fyll i nedgång för att se hur mycket som krävs för att återhämta investeringen.
+            </p>
+
+            <div class="chart-panel" style="margin-top: 12px;">
+                <div class="chart-header">
+                    <h3>Återhämtning</h3>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: center; padding: 20px 0 8px; color: var(--text);">
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 110px; padding: 12px 10px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,0.02);">
+                        <span style="font-size: 0.8rem; color: var(--muted);">Start</span>
+                        <strong id="recovery-visual-start">100</strong>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; color: var(--muted);">↓ -<span id="recovery-visual-drop">0</span>%</div>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 110px; padding: 12px 10px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,0.02);">
+                        <span style="font-size: 0.8rem; color: var(--muted);">Efter nedgång</span>
+                        <strong id="recovery-visual-after">0</strong>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; color: var(--muted);">↑ +<span id="recovery-visual-gain">0</span>%</div>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 110px; padding: 12px 10px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,0.02);">
+                        <span style="font-size: 0.8rem; color: var(--muted);">Efter återhämtning</span>
+                        <strong id="recovery-visual-recovered">0</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
