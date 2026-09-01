@@ -1,8 +1,10 @@
 const form = document.getElementById('calculator-form');
 const dividendForm = document.getElementById('dividend-form');
 const feeForm = document.getElementById('avgifts-form');
+const leverageForm = document.getElementById('leverage-form');
 const themeToggle = document.getElementById('themeToggle');
-const modeTabs = document.querySelectorAll('.mode-tab');
+const modeTabs = document.querySelectorAll('.mode-tab[data-mode]');
+const leverageModeTabs = document.querySelectorAll('.mode-tab[data-leverage-mode]');
 const modePanels = {
   growth: document.getElementById('growth-mode-panel'),
   dividend: document.getElementById('dividend-mode-panel')
@@ -13,6 +15,7 @@ let investmentChart = null;
 let scenarioChart = null;
 let dividendChart = null;
 let feeComparisonChart = null;
+let leverageChart = null;
 
 function formatCurrency(value) {
   return new Intl.NumberFormat('sv-SE', {
@@ -23,7 +26,7 @@ function formatCurrency(value) {
 }
 
 function setActiveMode(mode) {
-  if (!modeTabs.length) {
+  if (!modeTabs.length || !document.getElementById('growth-mode-panel') || !document.getElementById('dividend-mode-panel')) {
     return;
   }
 
@@ -224,6 +227,18 @@ function renderChart() {
 }
 
 function renderScenarioComparison() {
+  const scenarioGrid = document.getElementById('scenarioGrid');
+  if (!scenarioGrid) {
+    return;
+  }
+
+  const hasGrowthInputs = document.getElementById('startkapital') && document.getElementById('manadssparande') && document.getElementById('ar');
+  const hasDividendInputs = document.getElementById('dividend-startkapital') && document.getElementById('dividend-manadssparande') && document.getElementById('dividend-ar');
+
+  if (!hasGrowthInputs && !hasDividendInputs) {
+    return;
+  }
+
   const activeMode = getActiveMode();
   let startCapital, monthlySavings, years;
 
@@ -247,11 +262,6 @@ function renderScenarioComparison() {
       earnings: result.earnings
     };
   });
-
-  const scenarioGrid = document.getElementById('scenarioGrid');
-  if (!scenarioGrid) {
-    return;
-  }
 
   scenarioGrid.innerHTML = scenarioValues.map((scenario) => `
     <article class="scenario-card">
@@ -985,4 +995,348 @@ if (dividendForm) {
 }
 if (feeForm) {
   initFeeComparisonPage();
+}
+
+function getLeverageInputs() {
+  const equity = Number(document.getElementById('leverage-eget-kapital').value) || 0;
+  const loanMode = document.querySelector('input[name="leverage-lanemode"]:checked')?.value || 'amount';
+  const loanRatioValue = Number(document.getElementById('leverage-belangningsgrad').value) || 0;
+  const loanRatio = loanRatioValue / 100;
+  const loanAmountInput = Number(document.getElementById('leverage-lanebelopp').value) || 0;
+  const loanAmount = loanMode === 'ratio' ? (equity * loanRatio) / Math.max(0.0001, 1 - loanRatio) : loanAmountInput;
+
+  return {
+    equity,
+    loanAmount: Math.max(0, loanAmount),
+    loanRate: Number(document.getElementById('leverage-ranta').value) || 0,
+    expectedReturn: Number(document.getElementById('leverage-avkastning').value) || 0,
+    years: Number(document.getElementById('leverage-ar').value) || 0,
+    amortization: Number(document.getElementById('leverage-amortering').value) || 0,
+    inflation: Number(document.getElementById('leverage-inflation').value) || 0,
+    mode: document.querySelector('.leverage-mode-tab.active') ? document.querySelector('.leverage-mode-tab.active').dataset.leverageMode : 'bostad',
+    loanMode,
+    loanRatio
+  };
+}
+
+function getLeverageLoanRatio(equity, loanAmount) {
+  const totalValue = equity + loanAmount;
+  if (totalValue <= 0) {
+    return 0;
+  }
+  return loanAmount / totalValue;
+}
+
+function calculateLeverageProjection({ equity, loanAmount, loanRate, expectedReturn, years, amortization, inflation }) {
+  const totalAssetValue = equity + loanAmount;
+  const loanRatio = getLeverageLoanRatio(equity, loanAmount);
+  const monthlyLoanRate = Math.pow(1 + loanRate / 100, 1 / 12) - 1;
+  const annualGrowthRate = expectedReturn / 100;
+  const months = Math.max(1, years * 12);
+
+  let remainingDebt = loanAmount;
+  let totalInterest = 0;
+  let totalPrincipalPaid = 0;
+  const labels = ['0'];
+  const noLeverageSeries = [equity];
+  const leverageSeries = [equity];
+  const debtSeries = [remainingDebt];
+
+  let noLeverageValue = equity;
+  let leveragedEquity = equity;
+
+  for (let month = 1; month <= months; month += 1) {
+    const monthlyAssetGrowth = Math.pow(1 + annualGrowthRate, 1 / 12) - 1;
+    const assetValue = totalAssetValue * Math.pow(1 + annualGrowthRate, month / 12);
+
+    noLeverageValue = equity * Math.pow(1 + annualGrowthRate, month / 12);
+
+    const monthlyInterest = remainingDebt * monthlyLoanRate;
+    const monthlyPrincipal = Math.min(amortization, remainingDebt);
+    totalInterest += monthlyInterest;
+    totalPrincipalPaid += monthlyPrincipal;
+    remainingDebt = Math.max(0, remainingDebt - monthlyPrincipal);
+
+    leveragedEquity = Math.max(0, assetValue - remainingDebt);
+
+    labels.push(String(Math.floor(month / 12)));
+    noLeverageSeries.push(noLeverageValue);
+    leverageSeries.push(leveragedEquity);
+    debtSeries.push(remainingDebt);
+  }
+
+  const finalWithoutLeverage = noLeverageValue;
+  const finalWithLeverage = leveragedEquity;
+  const finalDebt = remainingDebt;
+  const roe = equity > 0 ? ((finalWithLeverage - equity) / equity) * 100 : 0;
+  const nominalFinalValue = finalWithLeverage;
+  const realFinalValue = inflation > 0 ? nominalFinalValue / Math.pow(1 + inflation / 100, years) : nominalFinalValue;
+
+  return {
+    totalAssetValue,
+    loanAmount,
+    equity,
+    loanRatio,
+    annualLoanCost: loanAmount * (loanRate / 100),
+    totalLoanCost: totalInterest,
+    totalAmortization: totalPrincipalPaid,
+    finalWithoutLeverage,
+    finalWithLeverage,
+    finalDebt,
+    roe,
+    nominalFinalValue,
+    realFinalValue,
+    labels,
+    noLeverageSeries,
+    leverageSeries,
+    debtSeries,
+    leverageMultiple: equity > 0 ? totalAssetValue / equity : 0
+  };
+}
+
+function updateLeverageInputsFromMode() {
+  const ratioField = document.querySelector('.leverage-field-ratio');
+  const amountField = document.querySelector('.leverage-field-amount');
+
+  if (!ratioField || !amountField) {
+    return;
+  }
+
+  const amountSelected = document.querySelector('input[name="leverage-lanemode"]:checked')?.value === 'amount';
+  ratioField.classList.toggle('hidden', amountSelected);
+  amountField.classList.toggle('hidden', !amountSelected);
+}
+
+function calculateLeverage() {
+  const inputs = getLeverageInputs();
+  const loanRatio = inputs.loanMode === 'ratio' ? inputs.loanRatio : (inputs.loanAmount / Math.max(0.0001, inputs.equity + inputs.loanAmount));
+  const loanAmount = inputs.loanMode === 'ratio' ? (inputs.equity * inputs.loanRatio) / Math.max(0.0001, 1 - inputs.loanRatio) : inputs.loanAmount;
+  const result = calculateLeverageProjection({
+    equity: inputs.equity,
+    loanAmount,
+    loanRate: inputs.loanRate,
+    expectedReturn: inputs.expectedReturn,
+    years: inputs.years,
+    amortization: inputs.amortization,
+    inflation: inputs.inflation
+  });
+
+  const totalValue = inputs.equity + loanAmount;
+  const computedRatio = totalValue > 0 ? loanAmount / totalValue : 0;
+  const leverageMultiple = inputs.equity > 0 ? totalValue / inputs.equity : 0;
+
+  if (inputs.loanMode === 'ratio') {
+    document.getElementById('leverage-lanebelopp').value = loanAmount.toFixed(0);
+  }
+  document.getElementById('leverage-belangningsgrad').value = (computedRatio * 100).toFixed(1);
+
+  const totalValueEl = document.getElementById('leverage-totalt-tillgangsvarde');
+  const loanValueEl = document.getElementById('leverage-lanebelopp');
+  const equityValueEl = document.getElementById('leverage-eget-kapital-ut');
+  const ratioEl = document.getElementById('leverage-belaggningsgrad');
+  const leverageEl = document.getElementById('leverage-havstang');
+  const annualCostEl = document.getElementById('leverage-arlig-rantekostnad');
+  const totalCostEl = document.getElementById('leverage-total-rantekostnad');
+  const amortizationEl = document.getElementById('leverage-total-amortering');
+  const debtEl = document.getElementById('leverage-kvarvarande-skuld');
+  const roeEl = document.getElementById('leverage-roe');
+  const noLeverageValueEl = document.getElementById('leverage-utan-slutvarde');
+  const withLeverageValueEl = document.getElementById('leverage-med-slutvarde');
+  const differenceEl = document.getElementById('leverage-skillnad');
+  const differenceMetaEl = document.getElementById('leverage-skillnad-meta');
+  const breakevenEl = document.getElementById('leverage-breakeven');
+  const realBox = document.getElementById('leverage-real-box');
+  const nominalBox = document.getElementById('leverage-nominellt-box');
+
+  totalValueEl.textContent = formatCurrency(totalValue);
+  loanValueEl.textContent = formatCurrency(loanAmount);
+  equityValueEl.textContent = formatCurrency(inputs.equity);
+  ratioEl.textContent = `${(computedRatio * 100).toFixed(1)} %`;
+  leverageEl.textContent = `${leverageMultiple.toFixed(2)}x`;
+  annualCostEl.textContent = formatCurrency(result.annualLoanCost);
+  totalCostEl.textContent = formatCurrency(result.totalLoanCost);
+  amortizationEl.textContent = formatCurrency(result.totalAmortization);
+  debtEl.textContent = formatCurrency(result.finalDebt);
+  roeEl.textContent = `${result.roe.toFixed(1)} %`;
+  noLeverageValueEl.textContent = formatCurrency(result.finalWithoutLeverage);
+  withLeverageValueEl.textContent = formatCurrency(result.finalWithLeverage);
+
+  const diff = result.finalWithLeverage - result.finalWithoutLeverage;
+  differenceEl.textContent = formatCurrency(Math.abs(diff));
+  differenceMetaEl.textContent = diff >= 0 ? 'Mer eget kapital med hävstång' : 'Sämre eget kapital med hävstång';
+
+  breakevenEl.textContent = `${Math.max(0, inputs.loanRate).toFixed(2)} %`;
+
+  if (inputs.inflation > 0) {
+    nominalBox.classList.remove('hidden');
+    realBox.classList.remove('hidden');
+    document.getElementById('leverage-nominellt').textContent = formatCurrency(result.nominalFinalValue);
+    document.getElementById('leverage-real').textContent = formatCurrency(result.realFinalValue);
+  } else {
+    nominalBox.classList.add('hidden');
+    realBox.classList.add('hidden');
+  }
+
+  const scenarioGrid = document.getElementById('leverage-scenario-grid');
+  if (scenarioGrid) {
+    const scenarios = [-50, -30, -20, -10, 0, 5, 10, 20];
+    scenarioGrid.innerHTML = scenarios.map((scenarioReturn) => {
+      const assetValue = totalValue * (1 + scenarioReturn / 100);
+      const equityWithout = inputs.equity * (1 + scenarioReturn / 100);
+      const equityWith = Math.max(0, assetValue - result.finalDebt);
+      const effect = equityWith - equityWithout;
+      return `
+        <article class="scenario-card">
+          <h3>${scenarioReturn > 0 ? '+' : ''}${scenarioReturn}%</h3>
+          <p class="scenario-value">${formatCurrency(assetValue)}</p>
+          <div class="scenario-meta">Utan hävstång: ${formatCurrency(equityWithout)}<br>Med hävstång: ${formatCurrency(equityWith)}<br>Effekt: ${formatCurrency(effect)}</div>
+        </article>
+      `;
+    }).join('');
+  }
+
+  const chartCanvas = document.getElementById('leverageChart');
+  if (!chartCanvas) {
+    return;
+  }
+
+  if (leverageChart) {
+    leverageChart.destroy();
+  }
+
+  const colors = getChartColors();
+  leverageChart = new Chart(chartCanvas, {
+    type: 'line',
+    data: {
+      labels: result.labels,
+      datasets: [
+        {
+          label: 'Eget kapital utan hävstång',
+          data: result.noLeverageSeries,
+          borderColor: colors.primary,
+          backgroundColor: 'rgba(61, 217, 198, 0.12)',
+          borderWidth: 3,
+          pointRadius: 0,
+          fill: false,
+          tension: 0.35
+        },
+        {
+          label: 'Eget kapital med hävstång',
+          data: result.leverageSeries,
+          borderColor: colors.accent,
+          backgroundColor: 'rgba(94, 163, 255, 0.08)',
+          borderWidth: 3,
+          pointRadius: 0,
+          fill: false,
+          tension: 0.35
+        },
+        {
+          label: 'Skuld',
+          data: result.debtSeries,
+          borderColor: '#ffd166',
+          backgroundColor: 'rgba(255, 209, 102, 0.08)',
+          borderWidth: 2,
+          pointRadius: 0,
+          fill: false,
+          tension: 0.35
+        }
+      ]
+    },
+    options: {
+      maintainAspectRatio: false,
+      responsive: true,
+      interaction: {
+        mode: 'nearest',
+        intersect: false
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: colors.text,
+            usePointStyle: true,
+            pointStyle: 'circle',
+            boxWidth: 8,
+            padding: 16
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: function (context) {
+              return `${context.dataset.label}: ${formatCurrency(context.parsed.y)}`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'År',
+            color: colors.muted
+          },
+          ticks: {
+            color: colors.muted,
+            maxTicksLimit: 8
+          },
+          grid: {
+            color: colors.grid
+          },
+          border: {
+            display: false
+          }
+        },
+        y: {
+          ticks: {
+            color: colors.muted,
+            callback: function (value) {
+              return `${Math.round(value / 1000)}k`;
+            }
+          },
+          grid: {
+            color: colors.grid
+          },
+          border: {
+            display: false
+          }
+        }
+      }
+    }
+  });
+}
+
+function initLeveragePage() {
+  if (!leverageForm) {
+    return;
+  }
+
+  document.querySelectorAll('input[name="leverage-lanemode"]').forEach((radio) => {
+    radio.addEventListener('change', function () {
+      updateLeverageInputsFromMode();
+      calculateLeverage();
+    });
+  });
+
+  leverageModeTabs.forEach((button) => {
+    button.addEventListener('click', function () {
+      leverageModeTabs.forEach((tab) => {
+        const isActive = tab === button;
+        tab.classList.toggle('active', isActive);
+        tab.setAttribute('aria-selected', String(isActive));
+      });
+      calculateLeverage();
+    });
+  });
+
+  leverageForm.addEventListener('input', calculateLeverage);
+  leverageForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    calculateLeverage();
+  });
+
+  updateLeverageInputsFromMode();
+  calculateLeverage();
+}
+
+if (leverageForm) {
+  initLeveragePage();
 }

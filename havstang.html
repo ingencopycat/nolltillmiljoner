@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hävstång</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a href="index.html" class="brand-wrap">
+                <div class="brand-mark">N</div>
+                <div class="brand-text">
+                    <span class="brand-name">NOLL TILL MILJONER</span>
+                    <span class="brand-subtitle">Investeringskalkylator</span>
+                </div>
+            </a>
+
+            <nav class="main-nav" aria-label="Huvudnavigering">
+                <a href="index.html">Hem</a>
+                <a href="verktyg.html" class="active" aria-current="page">Verktyg</a>
+                <a href="investeringar.html">Investeringar</a>
+                <a href="makro.html">Makro</a>
+                <a href="rapporter.html">Rapporter</a>
+                <a href="community.html">Community</a>
+            </nav>
+
+            <button id="mobileNavToggle" class="nav-toggle" type="button" aria-label="Öppna meny" aria-expanded="false">
+                ☰
+            </button>
+
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Växla tema" title="Växla tema">
+                <span class="toggle-icon toggle-icon-sun">🌞</span>
+                <span class="toggle-icon toggle-icon-moon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card calculator-card">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">Hävstång</span>
+                    <h2>Hävstångskalkylator</h2>
+                </div>
+            </div>
+
+            <div class="mode-toggle leverage-mode-toggle" role="tablist" aria-label="Välj användningsområde">
+                <button type="button" class="mode-tab leverage-mode-tab active" data-leverage-mode="bostad" aria-selected="true">Bostad</button>
+                <button type="button" class="mode-tab leverage-mode-tab" data-leverage-mode="varde" aria-selected="false">Värdepapper</button>
+            </div>
+
+            <form id="leverage-form" class="calculator-form">
+                <div class="form-grid">
+                    <div class="field-group">
+                        <label for="leverage-eget-kapital">Eget kapital</label>
+                        <input id="leverage-eget-kapital" name="leverage-eget-kapital" type="number" min="0" step="1000" value="1000000" />
+                    </div>
+
+                    <div class="field-group">
+                        <label for="leverage-lanemode">Lånebelopp eller belåningsgrad</label>
+                        <div class="segment-control" id="leverage-lanemode">
+                            <label class="segment-option">
+                                <input type="radio" name="leverage-lanemode" value="amount" checked />
+                                <span>Lånebelopp</span>
+                            </label>
+                            <label class="segment-option">
+                                <input type="radio" name="leverage-lanemode" value="ratio" />
+                                <span>Belåningsgrad</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="field-group leverage-field leverage-field-amount">
+                        <label for="leverage-lanebelopp">Lånebelopp</label>
+                        <input id="leverage-lanebelopp" name="leverage-lanebelopp" type="number" min="0" step="5000" value="250000" />
+                    </div>
+
+                    <div class="field-group leverage-field leverage-field-ratio hidden">
+                        <label for="leverage-belangningsgrad">Belåningsgrad (%)</label>
+                        <input id="leverage-belangningsgrad" name="leverage-belangningsgrad" type="number" min="0" max="100" step="0.1" value="20" />
+                    </div>
+
+                    <div class="field-group">
+                        <label for="leverage-ranta">Ränta på lånet (%)</label>
+                        <input id="leverage-ranta" name="leverage-ranta" type="number" min="0" step="0.05" value="3.5" />
+                    </div>
+
+                    <div class="field-group">
+                        <label for="leverage-avkastning">Förväntad årlig avkastning (%)</label>
+                        <input id="leverage-avkastning" name="leverage-avkastning" type="number" min="-100" step="0.1" value="7" />
+                    </div>
+
+                    <div class="field-group">
+                        <label for="leverage-ar">Antal år</label>
+                        <input id="leverage-ar" name="leverage-ar" type="number" min="1" step="1" value="15" />
+                    </div>
+
+                    <div class="field-group">
+                        <label for="leverage-amortering">Amortering per månad</label>
+                        <input id="leverage-amortering" name="leverage-amortering" type="number" min="0" step="500" value="0" />
+                    </div>
+                </div>
+
+                <details class="advanced-settings">
+                    <summary>Avancerade inställningar</summary>
+                    <div class="advanced-settings-body">
+                        <div class="field-group advanced-field">
+                            <label for="leverage-inflation">Inflation (%)</label>
+                            <input id="leverage-inflation" name="leverage-inflation" type="number" min="0" step="0.1" value="0" />
+                        </div>
+                    </div>
+                </details>
+
+                <button type="submit">Beräkna</button>
+            </form>
+
+            <div class="results" aria-live="polite">
+                <div class="result-box">
+                    <span class="label">Totalt tillgångsvärde</span>
+                    <strong id="leverage-totalt-tillgangsvarde" class="result-value">0 kr</strong>
+                </div>
+                <div class="result-box">
+                    <span class="label">Lånebelopp</span>
+                    <strong id="leverage-lanebelopp" class="result-value">0 kr</strong>
+                </div>
+                <div class="result-box">
+                    <span class="label">Eget kapital</span>
+                    <strong id="leverage-eget-kapital-ut" class="result-value">0 kr</strong>
+                </div>
+                <div class="result-box">
+                    <span class="label">Belåningsgrad</span>
+                    <strong id="leverage-belaggningsgrad" class="result-value">0 %</strong>
+                </div>
+                <div class="result-box">
+                    <span class="label">Hävstång</span>
+                    <strong id="leverage-havstang" class="result-value">1,00x</strong>
+                </div>
+                <div class="result-box">
+                    <span class="label">Årlig räntekostnad</span>
+                    <strong id="leverage-arlig-rantekostnad" class="result-value">0 kr</strong>
+                </div>
+                <div class="result-box">
+                    <span class="label">Total räntekostnad</span>
+                    <strong id="leverage-total-rantekostnad" class="result-value">0 kr</strong>
+                </div>
+                <div class="result-box">
+                    <span class="label">Total amortering</span>
+                    <strong id="leverage-total-amortering" class="result-value">0 kr</strong>
+                </div>
+                <div class="result-box">
+                    <span class="label">Kvarvarande skuld</span>
+                    <strong id="leverage-kvarvarande-skuld" class="result-value">0 kr</strong>
+                </div>
+                <div class="result-box highlight">
+                    <span class="label">Avkastning på eget kapital</span>
+                    <strong id="leverage-roe" class="result-value">0 %</strong>
+                </div>
+                <div class="result-box hidden" id="leverage-nominellt-box">
+                    <span class="label">Nominellt slutvärde</span>
+                    <strong id="leverage-nominellt" class="result-value">0 kr</strong>
+                </div>
+                <div class="result-box hidden" id="leverage-real-box">
+                    <span class="label">Värde i dagens penningvärde</span>
+                    <strong id="leverage-real" class="result-value">0 kr</strong>
+                </div>
+            </div>
+
+            <div class="comparison-section" style="margin-top: 28px;">
+                <div class="section-heading comparison-heading">
+                    <div>
+                        <span class="section-kicker">Jämförelse</span>
+                        <h2>Utan hävstång vs med hävstång</h2>
+                    </div>
+                </div>
+
+                <div class="scenario-grid leverage-comparison-grid">
+                    <article class="scenario-card">
+                        <h3>Utan hävstång</h3>
+                        <p class="scenario-value" id="leverage-utan-slutvarde">0 kr</p>
+                        <div class="scenario-meta">Endast eget kapital</div>
+                    </article>
+
+                    <article class="scenario-card">
+                        <h3>Med hävstång</h3>
+                        <p class="scenario-value" id="leverage-med-slutvarde">0 kr</p>
+                        <div class="scenario-meta">Eget kapital + lånat kapital</div>
+                    </article>
+
+                    <article class="scenario-card">
+                        <h3>Skillnad</h3>
+                        <p class="scenario-value" id="leverage-skillnad">0 kr</p>
+                        <div class="scenario-meta" id="leverage-skillnad-meta">Jämförelse av eget kapital</div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="chart-panel" style="margin-top: 28px;">
+                <div class="chart-header">
+                    <h3>Eget kapital och skuld över tid</h3>
+                </div>
+                <div class="chart-wrap">
+                    <canvas id="leverageChart" aria-label="Graf över eget kapital med och utan hävstång"></canvas>
+                </div>
+            </div>
+
+            <div class="comparison-section" style="margin-top: 28px;">
+                <div class="section-heading comparison-heading">
+                    <div>
+                        <span class="section-kicker">Scenario</span>
+                        <h2>Scenarioanalys</h2>
+                    </div>
+                </div>
+
+                <div class="scenario-grid leverage-scenario-grid" id="leverage-scenario-grid"></div>
+            </div>
+
+            <div class="result-box" style="margin-top: 28px; max-width: 640px;">
+                <span class="label">Break-even (ungefärlig)</span>
+                <strong id="leverage-breakeven" class="result-value">0 %</strong>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
