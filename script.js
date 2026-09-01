@@ -1071,7 +1071,8 @@ function calculateLeverageProjection({ equity, loanAmount, loanRate, expectedRet
   }
 
   const finalDebt = remainingDebt;
-  const roe = equity > 0 ? ((finalWithLeverage - equity) / equity) * 100 : 0;
+  const totalEquityContributed = equity + totalPrincipalPaid;
+  const roe = totalEquityContributed > 0 ? ((finalWithLeverage - totalEquityContributed) / totalEquityContributed) * 100 : 0;
   const nominalFinalValue = finalWithLeverage;
   const realFinalValue = inflation > 0 ? nominalFinalValue / Math.pow(1 + inflation / 100, years) : nominalFinalValue;
 
@@ -1089,6 +1090,7 @@ function calculateLeverageProjection({ equity, loanAmount, loanRate, expectedRet
     roe,
     nominalFinalValue,
     realFinalValue,
+    totalEquityContributed,
     labels,
     noLeverageSeries,
     leverageSeries,
@@ -1162,12 +1164,20 @@ function calculateLeverage() {
   noLeverageValueEl.textContent = formatCurrency(result.finalWithoutLeverage);
   withLeverageValueEl.textContent = formatCurrency(result.finalWithLeverage);
 
-  const diff = result.finalWithLeverage - result.finalWithoutLeverage;
-  differenceEl.textContent = formatCurrency(Math.abs(diff));
-  differenceMetaEl.textContent = diff >= 0 ? 'Mer eget kapital med hävstång' : 'Sämre eget kapital med hävstång';
+  const adjustedLeveragedEquity = result.finalWithLeverage - result.totalAmortization;
+  const diff = adjustedLeveragedEquity - result.finalWithoutLeverage;
+  differenceEl.textContent = formatCurrency(diff);
 
-  if (typeof result.finalWithLeverage === 'number' && typeof result.finalWithoutLeverage === 'number') {
-    differenceEl.textContent = formatCurrency(result.finalWithLeverage - result.finalWithoutLeverage);
+  if (diff > 0) {
+    differenceMetaEl.textContent = 'Mer eget kapital med hävstång';
+  } else if (diff < 0) {
+    differenceMetaEl.textContent = 'Mindre eget kapital med hävstång';
+  } else {
+    differenceMetaEl.textContent = 'Ingen skillnad';
+  }
+
+  if (result.totalAmortization > 0) {
+    differenceMetaEl.textContent += ' • Justerat för inbetald amortering';
   }
 
   if (inputs.inflation > 0) {
