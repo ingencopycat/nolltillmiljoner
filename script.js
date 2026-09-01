@@ -1514,7 +1514,7 @@ function initRecoveryPage() {
 
       const startValue = amountValue !== null ? amountValue : 100;
       const afterDropValue = amountValue !== null ? calculation.currentValue : 100 * (1 - dropPercent / 100);
-      const recoveredValue = amountValue !== null ? calculation.recoveredValue : 100 * (1 + calculation.requiredGain / 100);
+      const recoveredValue = amountValue !== null ? calculation.recoveredValue : afterDropValue * (1 + calculation.requiredGain / 100);
 
       visualStart.textContent = amountValue !== null ? formatCurrency(startValue) : '100';
       visualDrop.textContent = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 0, maximumFractionDigits: 1 }).format(dropPercent);

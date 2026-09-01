@@ -105,20 +105,30 @@
                 <div class="chart-header">
                     <h3>Återhämtning</h3>
                 </div>
-                <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: center; padding: 20px 0 8px; color: var(--text);">
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 110px; padding: 12px 10px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,0.02);">
-                        <span style="font-size: 0.8rem; color: var(--muted);">Start</span>
-                        <strong id="recovery-visual-start">100</strong>
+                <div style="display: flex; flex-wrap: wrap; align-items: stretch; justify-content: center; gap: 10px; padding: 20px 0 8px; color: var(--text);">
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-width: 118px; padding: 14px 12px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,0.02);">
+                        <span style="font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted);">Startvärde</span>
+                        <strong id="recovery-visual-start" style="font-size: clamp(1.25rem, 2vw, 1.9rem); line-height: 1.2;">100</strong>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 8px; color: var(--muted);">↓ -<span id="recovery-visual-drop">0</span>%</div>
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 110px; padding: 12px 10px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,0.02);">
-                        <span style="font-size: 0.8rem; color: var(--muted);">Efter nedgång</span>
-                        <strong id="recovery-visual-after">0</strong>
+
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-width: 86px; padding: 8px 6px; color: var(--muted);">
+                        <span style="font-size: 1.3rem; line-height: 1;">↓</span>
+                        <span style="font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase;">-<span id="recovery-visual-drop">0</span>%</span>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 8px; color: var(--muted);">↑ +<span id="recovery-visual-gain">0</span>%</div>
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 110px; padding: 12px 10px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,0.02);">
-                        <span style="font-size: 0.8rem; color: var(--muted);">Efter återhämtning</span>
-                        <strong id="recovery-visual-recovered">0</strong>
+
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-width: 118px; padding: 14px 12px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,0.02);">
+                        <span style="font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted);">Efter nedgång</span>
+                        <strong id="recovery-visual-after" style="font-size: clamp(1.25rem, 2vw, 1.9rem); line-height: 1.2;">0</strong>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-width: 86px; padding: 8px 6px; color: var(--muted);">
+                        <span style="font-size: 1.3rem; line-height: 1;">↑</span>
+                        <span style="font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase;">+<span id="recovery-visual-gain">0</span>%</span>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-width: 118px; padding: 14px 12px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,0.02);">
+                        <span style="font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted);">Tillbaka på startvärdet</span>
+                        <strong id="recovery-visual-recovered" style="font-size: clamp(1.25rem, 2vw, 1.9rem); line-height: 1.2;">0</strong>
                     </div>
                 </div>
             </div>
