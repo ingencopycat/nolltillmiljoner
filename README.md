@@ -1,263 +1,296 @@
 # Noll till Miljoner
 
-Noll till Miljoner är en svensk webbplats om investeringar, ekonomi och community.
+Noll till Miljoner är en statisk svensk investeringswebbplats byggd i HTML, CSS och JavaScript. Syftet är att samla investeringstänkande, makroinnehåll, verktyg och community i en enkel, lättläst webbplats med en konsekvent design.
 
-Målet är att bygga en enkel men professionell plattform med:
+Webbplatsen är inte ett ramverk eller app-projekt utan ett GitHub Pages-vänligt, multi-page-projekt med gemensam styling och gemensam JavaScript-kod för grundfunktionalitet som navigation, tema och kalkylatorer.
 
-* Investeringsanalyser
-* Makroekonomi
-* Veckovisa rapporter
-* Kalkylatorer och verktyg
-* Community via Discord
-* Instagram/content
-* Framtida funktioner och verktyg
+## Projektets huvudsakliga syfte
 
-Webbplats:
-https://nolltillmiljoner.se/
+Projektet kombinerar:
 
----
+- investeringar och finansiell förståelse
+- pedagogiska kalkylatorer
+- makro- och marknadsanalys i veckobaserad form
+- community via Discord
+- en enkel digital närvaro via Instagram
 
-## Projektstruktur
+Målet är att göra ekonomiska koncept mer konkreta och lättförståeliga genom enkel interaktion, tydliga resultat och konsekvent design.
 
-### Huvudsidor
+## Nuvarande sidstruktur och navigation
 
-* `index.html` — Startsida
-* `calculator.html` — Kalkylatorer
-* `makro.html` — Makroekonomi
-* `rapporter.html` — Veckans bolagsrapporter
-* `community.html` — Community/Discord
+Alla sidor använder samma topbar-nav och gemensam dark/light mode.
 
-### Kod
+### Huvudnavigation
 
-* `style.css` — Gemensam styling
-* `script.js` — JavaScript och funktionalitet
+- Hem: index.html
+- Verktyg: verktyg.html
+- Investeringar: investeringar.html
+- Makro: makro.html
+- Rapporter: rapporter.html
+- Community: community.html
 
-### Bilder
+Gemensam header med:
 
-Bilder organiseras under:
+- brand/logotype
+- mobilmeny
+- dark/light mode-toggle
+- samma navigeringsmönster på de flesta sidor
 
-```text
-images/
-├── makro/
-├── rapporter/
-└── discord/
-```
+## Nuvarande sidor
 
-Makro- och rapportbilder använder veckonummer, exempelvis:
+### index.html
 
-```text
-images/makro/week-36.png
-images/rapporter/week-36.png
-```
+Startsidan är enkel och minimal. Den innehåller den gemensamma headern/navigationen, tema-toggle och standardlayout för webbplatsen. I nuvarande implementation är den inte en stor dynamisk startsida utan snarare en koncern-/entrésida med samma global struktur som resten av webbplatsen.
 
-Discord-bilden:
+### verktyg.html
 
-```text
-images/discord/discord.png
-```
+Verktygshubben visar tillgängliga verktyg som korta cards med beskrivningar och länkar. Det är den centrala katalogen för uppsatta kalkylatorer.
 
----
+Aktiva verktyg i dagsläget:
 
-## Veckovisa Makro- och Rapportbilder
+- Investeringar / Ränta-på-ränta
+- Jämför avgifter
+- Hävstångskalkylator
+- Återhämtningskalkylator
 
-Makro och Rapporter är i första hand visuella sidor.
+Det finns även placeholders för framtida verktyg som inte är aktiva ännu, till exempel amorteringskalkylator och FIRE-kalkylator.
 
-Varje vecka publiceras en ny bild.
+### calculator.html
 
-Exempel:
+Huvudkalkylatorn för investeringar. Den har separata lägen för:
 
-```text
-Vecka 36
-Vecka 37
-Vecka 38
-```
+- Tillväxt
+- Utdelning
 
-Den senaste veckan ska visas först.
+Detta är samma grundmodell som identifierats i webbplatsens aktuella implementation. Kalkylatorn visar:
 
-Äldre veckor ska finnas kvar som ett arkiv och kunna väljas separat.
+- startkapital
+- månadssparande
+- årlig avkastning
+- avgift
+- inflation
+- antal år
+- slutvärde och ev. värde i dagens penningvärde
+- totalt insatt kapital
+- avkastning
+- portföljutveckling via Chart.js
 
-Viktigt:
+Kalkylatorn använder samma designsystem som resten av webbplatsen och har samma global navigation, tema och resultatrutor som andra kalkylatorer.
 
-Om en ny vecka ännu inte har publicerats ska den inte visas.
+### avgifter.html
 
-Exempel:
+Jämför avgifter är ett separat bearbetat verktyg för att jämföra hur olika avgifter påverkar kapitalets utveckling över tid. Det innehåller:
 
-Om den senaste publicerade veckan är vecka 36 ska sidan endast visa:
+- startkapital
+- månadssparande
+- avkastning
+- tidsperiod
+- avgiftsnivå för två investeringar
+- slutvärdesjämförelse
+- total avgiftskostnad
+- graf via Chart.js
 
-* Vecka 36
+Detta är ett tydligt verktyg för att jämföra två alternativ med samma grundantaganden men olika avgifter.
 
-När vecka 37 läggs till ska sidan automatiskt kunna visa:
+### havstang.html
 
-* Vecka 37
-* Vecka 36
+Hävstångskalkylatorn är ett av de mest kompletta verktygen i projektet. Den har:
 
-Visa aldrig framtida eller ännu ej skapade veckor.
+- eget kapital
+- lånebelopp eller belåningsgrad
+- ränta på lånet
+- förväntad årlig avkastning
+- antal år
+- amortering per månad
+- optional inflation i avancerade inställningar
+- olika lägen för bostad respektive värdepapper
+- resultatkort med bland annat:
+  - totalt tillgångsvärde
+  - lånebelopp
+  - eget kapital
+  - belåningsgrad
+  - hävstång
+  - årlig räntekostnad
+  - total räntekostnad
+  - total amortering
+  - kvarvarande skuld
+  - total avkastning på insatt kapital
 
----
+Den inkluderar också:"Utan hävstång vs med hävstång" jämförelse, samt en separat sektion för "Amortera eller investera?" när amortering finns. Den senare jämför samma månadsbelopp i två scenarier:
 
-## Discord
+- amortera
+- investera istället
 
-Discord är den huvudsakliga community-plattformen.
+Det är en särskild jämförelse som inte ersätter den huvudsakliga leveranskalkylen, men är en separat alternativanalys för att visa skillnad mellan att amortera eller placera samma belopp.
 
-Discord invite:
+### aterhamtning.html
 
-https://discord.gg/wvvDZ6CeCY
+Återhämtningskalkylatorn är ett enklare verktyg som visar hur mycket en investering måste öka för att återhämta sig efter en nedgång.
 
-Discord-bilden finns här:
+Det fokuserar på en enda fråga:
 
-```text
-images/discord/discord.png
-```
+- Hur mycket måste investeringen stiga för att återhämta en viss procentuell nedgång?
 
-Community-sidan ska vara enkel och fokuserad på Discord.
+Verktyget visar:
 
-Discord-bilden ska inte behöva vara klickbar.
+- nedgång i procent
+- valfritt investerat belopp
+- krävande återhämtningsprocent
+- startvärde, värde efter nedgång, förlust och återhämtat värde om belopp anges
+- enkel visuell sekvens för återhämtning
+- tydlig felhantering för ogiltiga värden
 
-Knappen "Gå med i Discord" ska länka till Discord-inviten och öppna länken i en ny flik.
+Det är avsiktligt ett enklare, mer pedagogiskt verktyg jämfört med hävstångskalkylatorn.
 
----
+### makro.html
 
-## Instagram
+Makro-sidan visar ett veckobaserat makroinnehåll i en enkel bild-/arkiv-layout. Den använder en weeks data struktur i JavaScript och visar den senaste publicerade veckan först med arkiv för tidigare veckor.
 
-Instagram är ägarens personliga konto och används för att bygga community och dokumentera resan.
+Det finns en "weekVisual"-panel och en lista för tidigare veckor. Detta är en enkel statisk arkivlayout, inte ett fullfjädrat CMS.
 
-Instagram:
+### rapporter.html
 
-https://www.instagram.com/ingencopycat/
+Rapporter-sidan följer samma mönster som Makro-sidan: veckobaserat innehåll i bild-/arkivformat. Syftet är att presentera ett veckovisa rapportflöde med senaste bilden först och tidigare veckor i arkiv.
 
-En kompakt Instagram-CTA ska finnas längst ner på webbplatsens sidor så att besökare kan hitta Instagram oavsett vilken sida de landar på.
+### community.html
 
-CTA:
+Community-sidan är fokuserad på Discord. Den visar:
 
-**Följ min resa från noll till miljoner.**
+- Discord-bild
+- kort text om communityn
+- knapp för att gå med i Discord
 
-Text:
+Discord-invitelänken är kopplad direkt i knappen och öppnar i ny flik.
 
-**Jag delar investeringar, idéer, analyser och resan längs vägen.**
+## Gemensam webbplatsstruktur
 
-Knapp:
+Det finns ett konsekvent designmönster i hela projektet:
 
-**Följ på Instagram**
+- samma header
+- samma nav
+- samma theme-toggle
+- samma card- och result-box-typografi
+- samma spacing och CTA-knappar
+- samma footer/Instagram-promo
+- samma åtkomst till verktyg från tools hub
 
----
+## Gemensam design och global funktionalitet
 
-## Navigation
+### Gemensam CSS
 
-Huvudnavigationen ska använda:
+`style.css` är den centrala designfilen. Den hanterar:
 
-* Hem
-* Kalkylator
-* Investeringar
-* Makro
-* Rapporter
-* Community
+- global layout
+- cards, buttons, inputs, forms
+- result boxes
+- charts and panels
+- dark/light mode
+- responsive layout
+- navigation styling
+- community/Discord styling
 
-Använd "Rapporter", inte "Earnings".
+### Gemensam JavaScript
 
----
+`script.js` är den centrala logikfilen. Den ansvarar för:
 
-## Designprinciper
+- dark/light mode
+- navigering/på mobiler
+- återkommande Instagram-promo i footern
+- kalkylator-/tool-initiering
+- beräkningar och rendering för flera olika formulär
+- Chart.js-visualiseringar
+- vissa tillstånds- och UI-uppdateringar som delas mellan sidor
 
-Webbplatsen ska kännas:
+Det finns flera separata funktioner i filen, inklusive kalkylatorberäkningar för:
 
-* Modern
-* Ren
-* Professionell
-* Enkel
-* Mörk/finansiell i sin grundkänsla
-* Lätt att använda på både desktop och mobil
+- generell investering
+- utdelning
+- avgifter
+- hävstång
+- återhämtning
 
-Undvik:
+### Theme / dark-light mode
 
-* Onödig AI-genererad text
-* Överdrivna sektioner
-* Fyllnadskort
-* Funktioner som inte efterfrågats
-* Att göra designen mer komplicerad än nödvändigt
+Projektet använder ett gemensamt tema-system med localStorage. Detta betyder att användarens val sparas mellan sidor och sessioner. Temat växlar mellan dark och light via en knapp i topbaren.
 
-Prioritera innehåll och funktion framför dekoration.
+### Instagram/footer-lösning
 
----
+En gemensam footer-promo injectas av JavaScript och läggs till på sidorna via `injectInstagramPromo()`. Detta gör att Instagram-CTA:n visas konsekvent på flera sidor utan att duplicera HTML i varje fil.
 
-## Viktiga regler för ändringar
+### Chart.js
 
-När du ändrar projektet:
+Chart.js används i flera verktyg för att visualisera utveckling och jämförelser, bland annat i:
 
-1. Läs relevanta befintliga filer innan du gör ändringar.
-2. Behåll befintlig funktionalitet om användaren inte uttryckligen ber om att ändra den.
-3. Ändra så få filer som möjligt.
-4. Ändra inte kalkylatorns beräkningar om det inte uttryckligen efterfrågas.
-5. Ändra inte Makro- eller Rapportsidornas funktionalitet när du arbetar med andra delar.
-6. Kontrollera att desktop och mobil fortfarande fungerar.
-7. Kontrollera länkar och bilder efter ändringar.
-8. Undvik att skapa duplicerad kod om en befintlig lösning kan återanvändas.
-9. Håll implementationen enkel och kompatibel med GitHub Pages.
-10. Fråga användaren innan större strukturella förändringar görs.
+- `calculator.html`
+- `avgifter.html`
+- `havstang.html`
 
----
+Det är fortfarande en del av nuvarande implementation när grafiska samband behövs. Det finns ingen Chart.js-graf för återhämtningskalkylatorn.
 
-## Git / Publicering
+## Week pages och arkivmodell
 
-Projektet använder Git och GitHub.
+`week-pages.js` hanterar veckobaserat innehåll för Makro och Rapporter. Den förutsätter att bilder finns i mapparna:
 
-GitHub repository:
+- images/makro/
+- images/rapporter/
 
-https://github.com/ingencopycat/nolltillmiljoner
+Det aktuella mönstret är en enkel, statisk arkivmodell där:
 
-Publicering sker via GitHub Pages.
+- senaste veckan visas först
+- tidigare veckor finns i arkivet
+- bild kan öppnas i lightbox
+- användaren kan växla mellan veckor i arkivet
 
-Normalt arbetsflöde:
+## Custom domain / hosting
 
-```text
-Ändra med Copilot
-↓
-Testa lokalt
-↓
-Keep Changes
-↓
-Commit
-↓
-Push / Sync Changes
-↓
-GitHub
-↓
-GitHub Pages
-↓
-nolltillmiljoner.se
-```
+Projektet finns i en statisk webbappstruktur som är passande för GitHub Pages.
 
-Ändringar ska inte publiceras genom att manuellt ladda upp filer på GitHub om Git kan användas.
+Det finns en `CNAME`-fil som visar att en custom domain används, och webbplatsen är avsedd att publiceras via GitHub Pages. Den aktuella strukturen är anpassad för statisk hosting utan backend eller dynamiska tjänster.
 
-Använd inte `git push --force` utan uttryckligt godkännande.
+## Utvecklingsprinciper i projektet
 
----
+Följande principer används i praktiken och bör fortsätta gälla för future arbete:
 
-## Hur Copilot ska arbeta
+- Simple by default, powerful when needed
+- Behåll designen konsekvent mellan sidor
+- Återanvänd befintlig CSS och JavaScript när det är rimligt
+- Undvik onödig komplexitet
+- Ändra inte fungerande beräkningslogik när en uppgift bara gäller design eller text
+- Kalkylatorer ska vara pedagogiska och matematiskt neutrala
+- Testa beräkningar med konkreta kontrollfall
+- Resultat ska normalt uppdateras via "Beräkna" när verktyget är byggt på det sättet, inte automatiskt vid varje inputförändring
+- Mobil och dark/light mode ska alltid bevaras vid nya funktioner
 
-När en ny uppgift ges:
+## Väsentliga filer
 
-1. Läs denna README.
-2. Inspektera relevanta filer i projektet.
-3. Förstå hur befintlig funktionalitet fungerar.
-4. Föreslå eller genomför den minsta rimliga ändringen.
-5. Ändra inte orelaterade delar.
-6. Kontrollera att befintliga funktioner fortfarande fungerar.
-7. Testa lokalt om möjligt.
-8. Beskriv kort vilka filer som ändrades och varför.
+- `index.html` — start/landing page
+- `verktyg.html` — verktygshub
+- `calculator.html` — investeringskalkylator med Tillväxt/Utdelning
+- `avgifter.html` — avgiftsjämförelseverktyg
+- `havstang.html` — hävstångskalkylator
+- `aterhamtning.html` — återhämtningskalkylator
+- `makro.html` — veckobaserad makrosida
+- `rapporter.html` — veckobaserade rapporter
+- `community.html` — Discord/community-sida
+- `style.css` — global designsystem
+- `script.js` — global JS-logik, tema, kalkylatorfunktioner, charts
+- `week-pages.js` — veckovisa makro/rapportbilder
+- `CNAME` — custom domain-konfiguration
+- `images/` — bilder för community, makro och rapporter
 
-När användaren uttryckligen ber om en designändring ska befintlig design återanvändas istället för att skapa ett helt nytt designsystem.
+## Kort sammanfattning för framtida arbete
 
----
+Projektet är en statisk, enkel och konsekvent investeringswebbplats med:
 
-## Framtida idéer
+- gemensam header/navigation
+- återanvändbar CSS/JS
+- flera pedagogiska kalkylatorer
+- veckobaserat makro/rapportflöde
+- community-sida för Discord
+- Instagram CTA via gemensam JS
+- GitHub Pages / custom domain setup
 
-Följande funktioner kan komma senare:
-
-* Investeringsanalyser
-* Bolagsrapporter
-* Makroekonomiska analyser
-* Veckans earnings
-* Fler investeringskalkylatorer
+Detta README ska användas som onboarding för att snabbt förstå den faktiska struktur och funktionalitet som finns idag, utan att beskriva äldre eller övergångsmodell som inte längre stämmer.
 * Finansiella verktyg
 * Forum
 * Community-funktioner
