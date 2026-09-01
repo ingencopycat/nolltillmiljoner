@@ -1000,10 +1000,12 @@ if (feeForm) {
 function getLeverageInputs() {
   const equity = Number(document.getElementById('leverage-eget-kapital').value) || 0;
   const loanMode = document.querySelector('input[name="leverage-lanemode"]:checked')?.value || 'amount';
-  const loanRatioValue = Number(document.getElementById('leverage-belangningsgrad').value) || 0;
-  const loanRatio = loanRatioValue / 100;
-  const loanAmountInput = Number(document.getElementById('leverage-lanebelopp').value) || 0;
-  const loanAmount = loanMode === 'ratio' ? (equity * loanRatio) / Math.max(0.0001, 1 - loanRatio) : loanAmountInput;
+  const loanRatioValue = Number(document.getElementById('leverage-belangningsgrad-input').value) || 0;
+  const loanRatio = Math.min(Math.max(loanRatioValue / 100, 0), 0.99);
+  const loanAmountInput = Number(document.getElementById('leverage-lanebelopp-input').value) || 0;
+  const loanAmount = loanMode === 'ratio'
+    ? (equity * loanRatio) / Math.max(0.0001, 1 - loanRatio)
+    : loanAmountInput;
 
   return {
     equity,
@@ -1030,43 +1032,45 @@ function getLeverageLoanRatio(equity, loanAmount) {
 function calculateLeverageProjection({ equity, loanAmount, loanRate, expectedReturn, years, amortization, inflation }) {
   const totalAssetValue = equity + loanAmount;
   const loanRatio = getLeverageLoanRatio(equity, loanAmount);
-  const monthlyLoanRate = Math.pow(1 + loanRate / 100, 1 / 12) - 1;
-  const annualGrowthRate = expectedReturn / 100;
+  const monthlyAssetReturn = Math.pow(1 + expectedReturn / 100, 1 / 12) - 1;
+  const monthlyDebtRate = loanRate / 100 / 12;
   const months = Math.max(1, years * 12);
 
   let remainingDebt = loanAmount;
   let totalInterest = 0;
   let totalPrincipalPaid = 0;
+  let assetValue = totalAssetValue;
   const labels = ['0'];
   const noLeverageSeries = [equity];
   const leverageSeries = [equity];
   const debtSeries = [remainingDebt];
 
-  let noLeverageValue = equity;
-  let leveragedEquity = equity;
+  let finalWithoutLeverage = equity;
+  let finalWithLeverage = equity;
 
   for (let month = 1; month <= months; month += 1) {
-    const monthlyAssetGrowth = Math.pow(1 + annualGrowthRate, 1 / 12) - 1;
-    const assetValue = totalAssetValue * Math.pow(1 + annualGrowthRate, month / 12);
+    assetValue *= 1 + monthlyAssetReturn;
 
-    noLeverageValue = equity * Math.pow(1 + annualGrowthRate, month / 12);
+    const interestPayment = remainingDebt * monthlyDebtRate;
+    const amortizationPayment = Math.min(amortization, remainingDebt);
 
-    const monthlyInterest = remainingDebt * monthlyLoanRate;
-    const monthlyPrincipal = Math.min(amortization, remainingDebt);
-    totalInterest += monthlyInterest;
-    totalPrincipalPaid += monthlyPrincipal;
-    remainingDebt = Math.max(0, remainingDebt - monthlyPrincipal);
+    assetValue -= interestPayment;
+    totalInterest += interestPayment;
+    totalPrincipalPaid += amortizationPayment;
+    remainingDebt = Math.max(0, remainingDebt - amortizationPayment);
 
-    leveragedEquity = Math.max(0, assetValue - remainingDebt);
+    const projectedNoLeverage = equity * Math.pow(1 + monthlyAssetReturn, month);
+    const projectedLeveragedEquity = Math.max(0, assetValue - remainingDebt);
+
+    finalWithoutLeverage = projectedNoLeverage;
+    finalWithLeverage = projectedLeveragedEquity;
 
     labels.push(String(Math.floor(month / 12)));
-    noLeverageSeries.push(noLeverageValue);
-    leverageSeries.push(leveragedEquity);
+    noLeverageSeries.push(finalWithoutLeverage);
+    leverageSeries.push(finalWithLeverage);
     debtSeries.push(remainingDebt);
   }
 
-  const finalWithoutLeverage = noLeverageValue;
-  const finalWithLeverage = leveragedEquity;
   const finalDebt = remainingDebt;
   const roe = equity > 0 ? ((finalWithLeverage - equity) / equity) * 100 : 0;
   const nominalFinalValue = finalWithLeverage;
@@ -1109,8 +1113,10 @@ function updateLeverageInputsFromMode() {
 
 function calculateLeverage() {
   const inputs = getLeverageInputs();
-  const loanRatio = inputs.loanMode === 'ratio' ? inputs.loanRatio : (inputs.loanAmount / Math.max(0.0001, inputs.equity + inputs.loanAmount));
-  const loanAmount = inputs.loanMode === 'ratio' ? (inputs.equity * inputs.loanRatio) / Math.max(0.0001, 1 - inputs.loanRatio) : inputs.loanAmount;
+  const loanAmount = inputs.loanAmount;
+  const totalValue = inputs.equity + loanAmount;
+  const computedRatio = totalValue > 0 ? loanAmount / totalValue : 0;
+  const leverageMultiple = inputs.equity > 0 ? totalValue / inputs.equity : 0;
   const result = calculateLeverageProjection({
     equity: inputs.equity,
     loanAmount,
@@ -1121,19 +1127,16 @@ function calculateLeverage() {
     inflation: inputs.inflation
   });
 
-  const totalValue = inputs.equity + loanAmount;
-  const computedRatio = totalValue > 0 ? loanAmount / totalValue : 0;
-  const leverageMultiple = inputs.equity > 0 ? totalValue / inputs.equity : 0;
+  const loanInput = document.getElementById('leverage-lanebelopp-input');
+  const ratioInput = document.getElementById('leverage-belangningsgrad-input');
 
-  if (inputs.loanMode === 'ratio') {
-    document.getElementById('leverage-lanebelopp').value = loanAmount.toFixed(0);
-  }
-  document.getElementById('leverage-belangningsgrad').value = (computedRatio * 100).toFixed(1);
+  loanInput.value = loanAmount.toFixed(0);
+  ratioInput.value = (computedRatio * 100).toFixed(1);
 
   const totalValueEl = document.getElementById('leverage-totalt-tillgangsvarde');
-  const loanValueEl = document.getElementById('leverage-lanebelopp');
+  const loanValueEl = document.getElementById('leverage-lanebelopp-result');
   const equityValueEl = document.getElementById('leverage-eget-kapital-ut');
-  const ratioEl = document.getElementById('leverage-belaggningsgrad');
+  const ratioEl = document.getElementById('leverage-belangningsgrad-result');
   const leverageEl = document.getElementById('leverage-havstang');
   const annualCostEl = document.getElementById('leverage-arlig-rantekostnad');
   const totalCostEl = document.getElementById('leverage-total-rantekostnad');
@@ -1144,7 +1147,6 @@ function calculateLeverage() {
   const withLeverageValueEl = document.getElementById('leverage-med-slutvarde');
   const differenceEl = document.getElementById('leverage-skillnad');
   const differenceMetaEl = document.getElementById('leverage-skillnad-meta');
-  const breakevenEl = document.getElementById('leverage-breakeven');
   const realBox = document.getElementById('leverage-real-box');
   const nominalBox = document.getElementById('leverage-nominellt-box');
 
@@ -1165,8 +1167,6 @@ function calculateLeverage() {
   differenceEl.textContent = formatCurrency(Math.abs(diff));
   differenceMetaEl.textContent = diff >= 0 ? 'Mer eget kapital med hävstång' : 'Sämre eget kapital med hävstång';
 
-  breakevenEl.textContent = `${Math.max(0, inputs.loanRate).toFixed(2)} %`;
-
   if (inputs.inflation > 0) {
     nominalBox.classList.remove('hidden');
     realBox.classList.remove('hidden');
@@ -1175,24 +1175,6 @@ function calculateLeverage() {
   } else {
     nominalBox.classList.add('hidden');
     realBox.classList.add('hidden');
-  }
-
-  const scenarioGrid = document.getElementById('leverage-scenario-grid');
-  if (scenarioGrid) {
-    const scenarios = [-50, -30, -20, -10, 0, 5, 10, 20];
-    scenarioGrid.innerHTML = scenarios.map((scenarioReturn) => {
-      const assetValue = totalValue * (1 + scenarioReturn / 100);
-      const equityWithout = inputs.equity * (1 + scenarioReturn / 100);
-      const equityWith = Math.max(0, assetValue - result.finalDebt);
-      const effect = equityWith - equityWithout;
-      return `
-        <article class="scenario-card">
-          <h3>${scenarioReturn > 0 ? '+' : ''}${scenarioReturn}%</h3>
-          <p class="scenario-value">${formatCurrency(assetValue)}</p>
-          <div class="scenario-meta">Utan hävstång: ${formatCurrency(equityWithout)}<br>Med hävstång: ${formatCurrency(equityWith)}<br>Effekt: ${formatCurrency(effect)}</div>
-        </article>
-      `;
-    }).join('');
   }
 
   const chartCanvas = document.getElementById('leverageChart');
@@ -1312,7 +1294,6 @@ function initLeveragePage() {
   document.querySelectorAll('input[name="leverage-lanemode"]').forEach((radio) => {
     radio.addEventListener('change', function () {
       updateLeverageInputsFromMode();
-      calculateLeverage();
     });
   });
 
@@ -1323,11 +1304,9 @@ function initLeveragePage() {
         tab.classList.toggle('active', isActive);
         tab.setAttribute('aria-selected', String(isActive));
       });
-      calculateLeverage();
     });
   });
 
-  leverageForm.addEventListener('input', calculateLeverage);
   leverageForm.addEventListener('submit', function (event) {
     event.preventDefault();
     calculateLeverage();
