@@ -1054,12 +1054,12 @@ function calculateLeverageProjection({ equity, loanAmount, loanRate, expectedRet
     const interestPayment = remainingDebt * monthlyDebtRate;
     const amortizationPayment = Math.min(amortization, remainingDebt);
 
-    assetValue -= interestPayment;
     totalInterest += interestPayment;
     totalPrincipalPaid += amortizationPayment;
+    assetValue -= interestPayment;
     remainingDebt = Math.max(0, remainingDebt - amortizationPayment);
 
-    const projectedNoLeverage = equity * Math.pow(1 + monthlyAssetReturn, month);
+    const projectedNoLeverage = equity * Math.pow(1 + expectedReturn / 100, month / 12);
     const projectedLeveragedEquity = Math.max(0, assetValue - remainingDebt);
 
     finalWithoutLeverage = projectedNoLeverage;
@@ -1166,6 +1166,10 @@ function calculateLeverage() {
   const diff = result.finalWithLeverage - result.finalWithoutLeverage;
   differenceEl.textContent = formatCurrency(Math.abs(diff));
   differenceMetaEl.textContent = diff >= 0 ? 'Mer eget kapital med hävstång' : 'Sämre eget kapital med hävstång';
+
+  if (typeof result.finalWithLeverage === 'number' && typeof result.finalWithoutLeverage === 'number') {
+    differenceEl.textContent = formatCurrency(result.finalWithLeverage - result.finalWithoutLeverage);
+  }
 
   if (inputs.inflation > 0) {
     nominalBox.classList.remove('hidden');
