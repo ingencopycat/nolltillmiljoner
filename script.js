@@ -122,8 +122,12 @@ function getChartColors() {
   return {
     text: style.getPropertyValue('--text').trim() || '#edf6ff',
     muted: style.getPropertyValue('--muted').trim() || '#9bb0c4',
-    primary: '#3dd9c6',
-    accent: '#5ea3ff',
+    primary: style.getPropertyValue('--primary').trim() || '#3dd9c6',
+    primarySoft: style.getPropertyValue('--primary-soft').trim() || 'rgba(61, 217, 198, 0.12)',
+    accent: style.getPropertyValue('--accent').trim() || '#5ea3ff',
+    accentSoft: style.getPropertyValue('--accent-soft').trim() || 'rgba(94, 163, 255, 0.08)',
+    warning: style.getPropertyValue('--warning').trim() || '#ffd166',
+    danger: style.getPropertyValue('--danger').trim() || '#ff6b6b',
     grid: style.getPropertyValue('--border').trim() || 'rgba(148, 163, 184, 0.18)'
   };
 }
@@ -150,7 +154,7 @@ function renderChart() {
           label: 'Portföljens totala värde',
           data: portfolioValues,
           borderColor: colors.primary,
-          backgroundColor: 'rgba(61, 217, 198, 0.12)',
+          backgroundColor: colors.primarySoft,
           borderWidth: 3,
           pointRadius: 0,
           fill: true,
@@ -160,7 +164,7 @@ function renderChart() {
           label: 'Totalt insatt kapital',
           data: investedValues,
           borderColor: colors.accent,
-          backgroundColor: 'rgba(94, 163, 255, 0.08)',
+          backgroundColor: colors.accentSoft,
           borderWidth: 2,
           pointRadius: 0,
           fill: false,
@@ -431,7 +435,7 @@ function renderFeeComparisonChart() {
           label: 'Investering A',
           data: seriesA,
           borderColor: colors.primary,
-          backgroundColor: 'rgba(61, 217, 198, 0.12)',
+          backgroundColor: colors.primarySoft,
           borderWidth: 3,
           pointRadius: 0,
           fill: false,
@@ -441,7 +445,7 @@ function renderFeeComparisonChart() {
           label: 'Investering B',
           data: seriesB,
           borderColor: colors.accent,
-          backgroundColor: 'rgba(94, 163, 255, 0.08)',
+          backgroundColor: colors.accentSoft,
           borderWidth: 3,
           pointRadius: 0,
           fill: false,
@@ -679,7 +683,7 @@ function renderDividendChart() {
           label: 'Portföljvärde',
           data: result.portfolioValues,
           borderColor: colors.primary,
-          backgroundColor: 'rgba(61, 217, 198, 0.12)',
+          backgroundColor: colors.primarySoft,
           borderWidth: 3,
           pointRadius: 0,
           fill: true,
@@ -690,7 +694,7 @@ function renderDividendChart() {
           label: 'Årlig utdelning',
           data: result.annualDividendValues,
           borderColor: colors.accent,
-          backgroundColor: 'rgba(94, 163, 255, 0.08)',
+          backgroundColor: colors.accentSoft,
           borderWidth: 2,
           pointRadius: 0,
           fill: false,
@@ -700,7 +704,7 @@ function renderDividendChart() {
         {
           label: 'Månadsutdelning',
           data: result.monthlyDividendValues,
-          borderColor: '#ffd166',
+          borderColor: colors.warning,
           backgroundColor: 'rgba(255, 209, 102, 0.08)',
           borderWidth: 2,
           pointRadius: 0,
@@ -1299,7 +1303,7 @@ function calculateLeverage() {
           label: 'Eget kapital utan hävstång',
           data: result.noLeverageSeries,
           borderColor: colors.primary,
-          backgroundColor: 'rgba(61, 217, 198, 0.12)',
+          backgroundColor: colors.primarySoft,
           borderWidth: 3,
           pointRadius: 0,
           fill: false,
@@ -1309,7 +1313,7 @@ function calculateLeverage() {
           label: 'Eget kapital med hävstång',
           data: result.leverageSeries,
           borderColor: colors.accent,
-          backgroundColor: 'rgba(94, 163, 255, 0.08)',
+          backgroundColor: colors.accentSoft,
           borderWidth: 3,
           pointRadius: 0,
           fill: false,
@@ -1318,7 +1322,7 @@ function calculateLeverage() {
         {
           label: 'Skuld',
           data: result.debtSeries,
-          borderColor: '#ffd166',
+          borderColor: colors.warning,
           backgroundColor: 'rgba(255, 209, 102, 0.08)',
           borderWidth: 2,
           pointRadius: 0,
@@ -1478,7 +1482,7 @@ function addDailyMoveInput() {
     const removeBtn = document.createElement('button');
     removeBtn.type = 'button';
     removeBtn.className = 'ghost-btn';
-    removeBtn.style.cssText = 'width: auto; padding: 10px 12px; margin-bottom: 0; background: rgba(255, 50, 50, 0.1); color: #ff3232; border-color: rgba(255, 50, 50, 0.3);';
+    removeBtn.style.cssText = 'width: auto; padding: 10px 12px; margin-bottom: 0; background: rgba(255, 50, 50, 0.1); color: var(--danger); border-color: rgba(255, 50, 50, 0.3);';
     removeBtn.textContent = '✕';
     removeBtn.addEventListener('click', function(e) {
       e.preventDefault();
@@ -1497,7 +1501,7 @@ function addDailyMoveInput() {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'ghost-btn';
-      btn.style.cssText = 'width: auto; padding: 10px 12px; margin-bottom: 0; background: rgba(255, 50, 50, 0.1); color: #ff3232; border-color: rgba(255, 50, 50, 0.3);';
+      btn.style.cssText = 'width: auto; padding: 10px 12px; margin-bottom: 0; background: rgba(255, 50, 50, 0.1); color: var(--danger); border-color: rgba(255, 50, 50, 0.3);';
       btn.textContent = '✕';
       const dayNum = parseInt(w.dataset.dayNumber);
       btn.addEventListener('click', function(e) {
@@ -1652,7 +1656,7 @@ function renderDailyLeverageChart(underlyingValues, leveragedValues, havstang) {
           label: 'Underliggande (1x)',
           data: underlyingValues,
           borderColor: colors.accent,
-          backgroundColor: 'rgba(94, 163, 255, 0.12)',
+          backgroundColor: colors.accentSoft,
           borderWidth: 2,
           pointRadius: 4,
           pointBackgroundColor: colors.accent,
@@ -1663,7 +1667,7 @@ function renderDailyLeverageChart(underlyingValues, leveragedValues, havstang) {
           label: `Daglig hävstång (${havstang}x)`,
           data: leveragedValues,
           borderColor: colors.primary,
-          backgroundColor: 'rgba(61, 217, 198, 0.12)',
+          backgroundColor: colors.primarySoft,
           borderWidth: 3,
           pointRadius: 4,
           pointBackgroundColor: colors.primary,
@@ -1757,8 +1761,8 @@ function renderDailyLeverageTable(dayDetails, startBelopp, underlyingValues) {
     row.style.cssText = 'border-bottom: 1px solid var(--border);';
     row.innerHTML = `
       <td style="padding: 12px 8px; text-align: left;">Dag ${detail.day}</td>
-      <td style="padding: 12px 8px; text-align: right; color: ${detail.move >= 0 ? 'var(--success)' : '#ff6b6b'};">${formatPercent(detail.move)}</td>
-      <td style="padding: 12px 8px; text-align: right; color: ${detail.leveragedMove >= 0 ? 'var(--success)' : '#ff6b6b'};">${formatPercent(detail.leveragedMove)}</td>
+      <td style="padding: 12px 8px; text-align: right; color: ${detail.move >= 0 ? 'var(--success)' : 'var(--danger)'};">${formatPercent(detail.move)}</td>
+      <td style="padding: 12px 8px; text-align: right; color: ${detail.leveragedMove >= 0 ? 'var(--success)' : 'var(--danger)'};">${formatPercent(detail.leveragedMove)}</td>
       <td style="padding: 12px 8px; text-align: right; color: var(--text);">${formatCurrency(detail.underlyingValue)}</td>
       <td style="padding: 12px 8px; text-align: right; color: var(--text);">${formatCurrency(detail.leveragedValue)}</td>
       <td style="padding: 12px 8px; text-align: right; color: var(--muted);">${formatCurrency(detail.dailyFeeAmount)}</td>
