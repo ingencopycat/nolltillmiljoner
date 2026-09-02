@@ -1606,9 +1606,6 @@ function calculateDailyLeverage() {
 
   const leveragedReturn = ((leveragedValue / startBelopp) - 1) * 100;
 
-  // Simple leverage comparison (just multiply total return by leverage)
-  const simpleLeveragedReturn = underlyingReturn * havstang;
-
   // Update result boxes
   document.getElementById('daily-underlying-value').textContent = formatCurrency(underlyingValue);
   document.getElementById('daily-underlying-return').textContent = formatPercent(underlyingReturn);
@@ -1616,11 +1613,6 @@ function calculateDailyLeverage() {
   document.getElementById('daily-leveraged-value').textContent = formatCurrency(leveragedValue);
   document.getElementById('daily-leveraged-return').textContent = formatPercent(leveragedReturn);
   document.getElementById('daily-total-fees').textContent = formatCurrency(totalFees);
-
-  document.getElementById('daily-simple-comparison-label').textContent = `${havstang}x`;
-  document.getElementById('daily-actual-comparison-label').textContent = `${havstang}x`;
-  document.getElementById('daily-simple-comparison').textContent = formatPercent(simpleLeveragedReturn);
-  document.getElementById('daily-actual-comparison').textContent = formatPercent(leveragedReturn);
 
   // Render chart
   renderDailyLeverageChart(underlyingValues, leveragedValues, havstang);
