@@ -212,35 +212,28 @@
                     <div class="result-box">
                         <span class="label">Underliggande (1x)</span>
                         <strong id="daily-underlying-value" class="result-value">0 kr</strong>
-                    </div>
-                    <div class="result-box">
-                        <span class="label">Underliggande utveckling</span>
-                        <strong id="daily-underlying-return" class="result-value">0 %</strong>
+                        <span id="daily-underlying-return" class="result-meta" style="display: block; margin-top: 8px; color: var(--muted);">0 %</span>
                     </div>
                     <div class="result-box">
                         <span class="label" id="daily-leverage-label">Daglig hävstång (3x)</span>
                         <strong id="daily-leveraged-value" class="result-value">0 kr</strong>
-                    </div>
-                    <div class="result-box">
-                        <span class="label">Hävstångsrörelse</span>
-                        <strong id="daily-leveraged-return" class="result-value">0 %</strong>
+                        <span id="daily-leveraged-return" class="result-meta" style="display: block; margin-top: 8px; color: var(--muted);">0 %</span>
                     </div>
                     <div class="result-box">
                         <span class="label">Total avgift</span>
                         <strong id="daily-total-fees" class="result-value">0 kr</strong>
                     </div>
-                    <div class="result-box">
-                        <span class="label">Enkel jämförelse (3x av periodens utveckling)</span>
-                        <strong id="daily-simple-leverage-value" class="result-value">0 kr</strong>
-                    </div>
-                    <div class="result-box">
-                        <span class="label">Skillnad (faktisk vs enkel)</span>
-                        <strong id="daily-difference-value" class="result-value">0 kr</strong>
-                    </div>
-                    <div class="result-box">
-                        <span class="label">Skillnad i procentenheter</span>
-                        <strong id="daily-difference-percent" class="result-value">0 pp</strong>
-                    </div>
+                </div>
+
+                <div style="margin-top: 16px; padding: 16px 18px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255, 255, 255, 0.02);">
+                    <p style="margin: 0; color: var(--muted); line-height: 1.6;">
+                        <strong style="color: var(--text);">Enkel <span id="daily-simple-comparison-label">3x</span>-jämförelse:</strong>
+                        <span id="daily-simple-comparison">0 %</span>
+                    </p>
+                    <p style="margin: 6px 0 0; color: var(--muted); line-height: 1.6;">
+                        <strong style="color: var(--text);">Faktisk daglig <span id="daily-actual-comparison-label">3x</span>:</strong>
+                        <span id="daily-actual-comparison">0 %</span>
+                    </p>
                 </div>
 
                 <!-- Graf för daglig hävstång -->

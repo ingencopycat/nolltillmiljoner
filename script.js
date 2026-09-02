@@ -1608,22 +1608,19 @@ function calculateDailyLeverage() {
 
   // Simple leverage comparison (just multiply total return by leverage)
   const simpleLeveragedReturn = underlyingReturn * havstang;
-  const simpleLeveragedValue = startBelopp * (1 + simpleLeveragedReturn / 100);
-
-  // Difference
-  const differenceValue = leveragedValue - simpleLeveragedValue;
-  const differencePercent = leveragedReturn - simpleLeveragedReturn;
 
   // Update result boxes
   document.getElementById('daily-underlying-value').textContent = formatCurrency(underlyingValue);
-  document.getElementById('daily-underlying-return').textContent = formatPercent(underlyingReturn) + ' %';
+  document.getElementById('daily-underlying-return').textContent = formatPercent(underlyingReturn);
   document.getElementById('daily-leverage-label').textContent = `Daglig hävstång (${havstang}x)`;
   document.getElementById('daily-leveraged-value').textContent = formatCurrency(leveragedValue);
-  document.getElementById('daily-leveraged-return').textContent = formatPercent(leveragedReturn) + ' %';
+  document.getElementById('daily-leveraged-return').textContent = formatPercent(leveragedReturn);
   document.getElementById('daily-total-fees').textContent = formatCurrency(totalFees);
-  document.getElementById('daily-simple-leverage-value').textContent = formatCurrency(simpleLeveragedValue);
-  document.getElementById('daily-difference-value').textContent = formatCurrency(differenceValue);
-  document.getElementById('daily-difference-percent').textContent = formatPercent(differencePercent) + ' pp';
+
+  document.getElementById('daily-simple-comparison-label').textContent = `${havstang}x`;
+  document.getElementById('daily-actual-comparison-label').textContent = `${havstang}x`;
+  document.getElementById('daily-simple-comparison').textContent = formatPercent(simpleLeveragedReturn);
+  document.getElementById('daily-actual-comparison').textContent = formatPercent(leveragedReturn);
 
   // Render chart
   renderDailyLeverageChart(underlyingValues, leveragedValues, havstang);
@@ -1765,8 +1762,8 @@ function renderDailyLeverageTable(dayDetails, startBelopp, underlyingValues) {
     row.style.cssText = 'border-bottom: 1px solid var(--border);';
     row.innerHTML = `
       <td style="padding: 12px 8px; text-align: left;">Dag ${detail.day}</td>
-      <td style="padding: 12px 8px; text-align: right; color: ${detail.move >= 0 ? 'var(--success)' : '#ff6b6b'};">${formatPercent(detail.move)}%</td>
-      <td style="padding: 12px 8px; text-align: right; color: ${detail.leveragedMove >= 0 ? 'var(--success)' : '#ff6b6b'};">${formatPercent(detail.leveragedMove)}%</td>
+      <td style="padding: 12px 8px; text-align: right; color: ${detail.move >= 0 ? 'var(--success)' : '#ff6b6b'};">${formatPercent(detail.move)}</td>
+      <td style="padding: 12px 8px; text-align: right; color: ${detail.leveragedMove >= 0 ? 'var(--success)' : '#ff6b6b'};">${formatPercent(detail.leveragedMove)}</td>
       <td style="padding: 12px 8px; text-align: right; color: var(--text);">${formatCurrency(detail.underlyingValue)}</td>
       <td style="padding: 12px 8px; text-align: right; color: var(--text);">${formatCurrency(detail.leveragedValue)}</td>
       <td style="padding: 12px 8px; text-align: right; color: var(--muted);">${formatCurrency(detail.dailyFeeAmount)}</td>
