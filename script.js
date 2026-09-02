@@ -3,6 +3,7 @@ const dividendForm = document.getElementById('dividend-form');
 const feeForm = document.getElementById('avgifts-form');
 const leverageForm = document.getElementById('leverage-form');
 const recoveryForm = document.getElementById('recovery-form');
+const dailyLeverageForm = document.getElementById('daily-leverage-form');
 const themeToggle = document.getElementById('themeToggle');
 const modeTabs = document.querySelectorAll('.mode-tab[data-mode]');
 const leverageModeTabs = document.querySelectorAll('.mode-tab[data-leverage-mode]');
@@ -17,6 +18,8 @@ let scenarioChart = null;
 let dividendChart = null;
 let feeComparisonChart = null;
 let leverageChart = null;
+let dailyLeverageChart = null;
+let currentLeverageMode = 'bostad';
 
 function formatCurrency(value) {
   return new Intl.NumberFormat('sv-SE', {
@@ -1399,11 +1402,8 @@ function initLeveragePage() {
 
   leverageModeTabs.forEach((button) => {
     button.addEventListener('click', function () {
-      leverageModeTabs.forEach((tab) => {
-        const isActive = tab === button;
-        tab.classList.toggle('active', isActive);
-        tab.setAttribute('aria-selected', String(isActive));
-      });
+      const mode = button.dataset.leverageMode;
+      setLeverageMode(mode);
     });
   });
 
@@ -1414,6 +1414,409 @@ function initLeveragePage() {
 
   updateLeverageInputsFromMode();
   calculateLeverage();
+  
+  // Initialize daily leverage form if it exists
+  if (dailyLeverageForm) {
+    dailyLeverageForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      calculateDailyLeverage();
+    });
+
+    const addDayBtn = document.getElementById('daily-add-day-btn');
+    if (addDayBtn) {
+      addDayBtn.addEventListener('click', addDailyMoveInput);
+    }
+
+    initializeDailyLeverage();
+  }
+}
+
+// ========== DAGLIG HÄVSTÅNG FUNCTIONS ==========
+
+function initializeDailyLeverage() {
+  const container = document.getElementById('daily-moves-container');
+  if (!container) return;
+
+  // Clear any existing inputs
+  container.innerHTML = '';
+
+  // Add default 2 days
+  addDailyMoveInput();
+  addDailyMoveInput();
+
+  // Calculate with defaults
+  calculateDailyLeverage();
+}
+
+function addDailyMoveInput() {
+  const container = document.getElementById('daily-moves-container');
+  if (!container) return;
+
+  const dayCount = container.querySelectorAll('.daily-move-input-wrapper').length + 1;
+  
+  const wrapper = document.createElement('div');
+  wrapper.className = 'daily-move-input-wrapper';
+  wrapper.style.cssText = 'display: flex; gap: 12px; align-items: flex-end;';
+  wrapper.dataset.dayNumber = dayCount;
+
+  const defaultValue = dayCount === 1 ? -10 : 10;
+  const fieldGroup = document.createElement('div');
+  fieldGroup.className = 'field-group';
+  fieldGroup.style.cssText = 'flex: 1;';
+  fieldGroup.innerHTML = `
+    <label style="font-size: 0.9rem;">Dag ${dayCount}</label>
+    <input type="number" class="daily-move-input" data-day="${dayCount}" value="${defaultValue}" step="0.1" />
+  `;
+
+  wrapper.appendChild(fieldGroup);
+  
+  // Add remove button (only if there's already at least one day)
+  if (container.querySelectorAll('.daily-move-input-wrapper').length > 0) {
+    const removeBtn = document.createElement('button');
+    removeBtn.type = 'button';
+    removeBtn.className = 'ghost-btn';
+    removeBtn.style.cssText = 'width: auto; padding: 10px 12px; margin-bottom: 0; background: rgba(255, 50, 50, 0.1); color: #ff3232; border-color: rgba(255, 50, 50, 0.3);';
+    removeBtn.textContent = '✕';
+    removeBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      removeDailyMoveInput(dayCount);
+    });
+    wrapper.appendChild(removeBtn);
+  }
+
+  container.appendChild(wrapper);
+
+  // Update remove buttons visibility for all wrappers
+  const allWrappers = container.querySelectorAll('.daily-move-input-wrapper');
+  allWrappers.forEach((w, idx) => {
+    const existingBtn = w.querySelector('button');
+    if (allWrappers.length > 1 && !existingBtn) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'ghost-btn';
+      btn.style.cssText = 'width: auto; padding: 10px 12px; margin-bottom: 0; background: rgba(255, 50, 50, 0.1); color: #ff3232; border-color: rgba(255, 50, 50, 0.3);';
+      btn.textContent = '✕';
+      const dayNum = parseInt(w.dataset.dayNumber);
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        removeDailyMoveInput(dayNum);
+      });
+      w.appendChild(btn);
+    } else if (allWrappers.length === 1 && existingBtn) {
+      existingBtn.remove();
+    }
+  });
+}
+
+function removeDailyMoveInput(dayNumber) {
+  const container = document.getElementById('daily-moves-container');
+  if (!container) return;
+
+  const wrappers = container.querySelectorAll('.daily-move-input-wrapper');
+  if (wrappers.length <= 1) return; // Must keep at least one day
+
+  const wrapper = Array.from(wrappers).find(w => parseInt(w.dataset.dayNumber) === dayNumber);
+  if (wrapper) wrapper.remove();
+
+  // Re-number remaining days
+  container.querySelectorAll('.daily-move-input-wrapper').forEach((w, idx) => {
+    w.dataset.dayNumber = idx + 1;
+    const label = w.querySelector('label');
+    if (label) label.textContent = `Dag ${idx + 1}`;
+    const input = w.querySelector('input');
+    if (input) input.dataset.day = idx + 1;
+  });
+}
+
+function getDailyLeverageInputs() {
+  const startBelopp = Number(document.getElementById('daily-startbelopp')?.value) || 0;
+  const havstang = Number(document.getElementById('daily-havstang')?.value) || 1;
+  const dailyFee = Number(document.getElementById('daily-avgift')?.value) || 0;
+
+  const container = document.getElementById('daily-moves-container');
+  const moves = [];
+  if (container) {
+    container.querySelectorAll('.daily-move-input').forEach((input) => {
+      moves.push(Number(input.value) || 0);
+    });
+  }
+
+  return { startBelopp, havstang, dailyFee, moves };
+}
+
+function calculateDailyLeverage() {
+  const { startBelopp, havstang, dailyFee, moves } = getDailyLeverageInputs();
+
+  if (moves.length === 0 || startBelopp <= 0) {
+    return;
+  }
+
+  // Calculate underlying (1x)
+  let underlyingValue = startBelopp;
+  const underlyingValues = [startBelopp];
+  
+  moves.forEach((move) => {
+    underlyingValue *= (1 + move / 100);
+    underlyingValues.push(underlyingValue);
+  });
+
+  const underlyingReturn = ((underlyingValue / startBelopp) - 1) * 100;
+
+  // Calculate leveraged (with daily reset)
+  let leveragedValue = startBelopp;
+  const leveragedValues = [startBelopp];
+  let totalFees = 0;
+  const dayDetails = [];
+
+  moves.forEach((move, idx) => {
+    const leveragedMove = move * havstang;
+    const valueAfterMove = leveragedValue * (1 + leveragedMove / 100);
+    
+    // Ensure value doesn't go below 0
+    if (valueAfterMove < 0) {
+      leveragedValue = 0;
+      dayDetails.push({
+        day: idx + 1,
+        move,
+        leveragedMove,
+        underlyingValue: underlyingValues[idx + 1],
+        leveragedValue: 0,
+        dailyFeeAmount: 0
+      });
+      leveragedValues.push(0);
+      return;
+    }
+
+    // Calculate and deduct daily fee
+    const dailyFeeAmount = leveragedValue > 0 ? valueAfterMove * (dailyFee / 100) : 0;
+    leveragedValue = Math.max(0, valueAfterMove - dailyFeeAmount);
+    totalFees += dailyFeeAmount;
+
+    dayDetails.push({
+      day: idx + 1,
+      move,
+      leveragedMove,
+      underlyingValue: underlyingValues[idx + 1],
+      leveragedValue,
+      dailyFeeAmount
+    });
+
+    leveragedValues.push(leveragedValue);
+  });
+
+  const leveragedReturn = ((leveragedValue / startBelopp) - 1) * 100;
+
+  // Simple leverage comparison (just multiply total return by leverage)
+  const simpleLeveragedReturn = underlyingReturn * havstang;
+  const simpleLeveragedValue = startBelopp * (1 + simpleLeveragedReturn / 100);
+
+  // Difference
+  const differenceValue = leveragedValue - simpleLeveragedValue;
+  const differencePercent = leveragedReturn - simpleLeveragedReturn;
+
+  // Update result boxes
+  document.getElementById('daily-underlying-value').textContent = formatCurrency(underlyingValue);
+  document.getElementById('daily-underlying-return').textContent = formatPercent(underlyingReturn) + ' %';
+  document.getElementById('daily-leverage-label').textContent = `Daglig hävstång (${havstang}x)`;
+  document.getElementById('daily-leveraged-value').textContent = formatCurrency(leveragedValue);
+  document.getElementById('daily-leveraged-return').textContent = formatPercent(leveragedReturn) + ' %';
+  document.getElementById('daily-total-fees').textContent = formatCurrency(totalFees);
+  document.getElementById('daily-simple-leverage-value').textContent = formatCurrency(simpleLeveragedValue);
+  document.getElementById('daily-difference-value').textContent = formatCurrency(differenceValue);
+  document.getElementById('daily-difference-percent').textContent = formatPercent(differencePercent) + ' pp';
+
+  // Render chart
+  renderDailyLeverageChart(underlyingValues, leveragedValues, havstang);
+
+  // Render table
+  renderDailyLeverageTable(dayDetails, startBelopp, underlyingValues);
+}
+
+function renderDailyLeverageChart(underlyingValues, leveragedValues, havstang) {
+  const chartCanvas = document.getElementById('dailyLeverageChart');
+  if (!chartCanvas) return;
+
+  const labels = [];
+  for (let i = 0; i < underlyingValues.length; i++) {
+    if (i === 0) {
+      labels.push('Start');
+    } else {
+      labels.push(`Dag ${i}`);
+    }
+  }
+
+  const colors = getChartColors();
+
+  if (dailyLeverageChart) {
+    dailyLeverageChart.destroy();
+  }
+
+  dailyLeverageChart = new Chart(chartCanvas, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Underliggande (1x)',
+          data: underlyingValues,
+          borderColor: colors.accent,
+          backgroundColor: 'rgba(94, 163, 255, 0.12)',
+          borderWidth: 2,
+          pointRadius: 4,
+          pointBackgroundColor: colors.accent,
+          fill: true,
+          tension: 0.35
+        },
+        {
+          label: `Daglig hävstång (${havstang}x)`,
+          data: leveragedValues,
+          borderColor: colors.primary,
+          backgroundColor: 'rgba(61, 217, 198, 0.12)',
+          borderWidth: 3,
+          pointRadius: 4,
+          pointBackgroundColor: colors.primary,
+          fill: true,
+          tension: 0.35
+        }
+      ]
+    },
+    options: {
+      maintainAspectRatio: false,
+      responsive: true,
+      interaction: {
+        mode: 'nearest',
+        intersect: false
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: colors.text,
+            usePointStyle: true,
+            pointStyle: 'circle',
+            boxWidth: 8,
+            padding: 16
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: function (context) {
+              return `${context.dataset.label}: ${formatCurrency(context.parsed.y)}`;
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          title: {
+            display: true,
+            text: 'Värde (kr)',
+            color: colors.muted
+          },
+          ticks: {
+            color: colors.muted,
+            callback: function (value) {
+              return formatCurrency(value);
+            }
+          },
+          grid: {
+            color: colors.grid
+          }
+        },
+        x: {
+          title: {
+            display: true,
+            text: 'Dag',
+            color: colors.muted
+          },
+          ticks: {
+            color: colors.muted
+          },
+          grid: {
+            color: colors.grid
+          }
+        }
+      }
+    }
+  });
+}
+
+function renderDailyLeverageTable(dayDetails, startBelopp, underlyingValues) {
+  const tbody = document.getElementById('daily-leverage-table-body');
+  if (!tbody) return;
+
+  tbody.innerHTML = '';
+
+  // Start row
+  const startRow = document.createElement('tr');
+  startRow.style.cssText = 'border-bottom: 1px solid var(--border);';
+  startRow.innerHTML = `
+    <td style="padding: 12px 8px; text-align: left;">Start</td>
+    <td style="padding: 12px 8px; text-align: right;">–</td>
+    <td style="padding: 12px 8px; text-align: right;">–</td>
+    <td style="padding: 12px 8px; text-align: right; color: var(--text);">${formatCurrency(startBelopp)}</td>
+    <td style="padding: 12px 8px; text-align: right; color: var(--text);">${formatCurrency(startBelopp)}</td>
+    <td style="padding: 12px 8px; text-align: right;">–</td>
+  `;
+  tbody.appendChild(startRow);
+
+  // Day rows
+  dayDetails.forEach((detail) => {
+    const row = document.createElement('tr');
+    row.style.cssText = 'border-bottom: 1px solid var(--border);';
+    row.innerHTML = `
+      <td style="padding: 12px 8px; text-align: left;">Dag ${detail.day}</td>
+      <td style="padding: 12px 8px; text-align: right; color: ${detail.move >= 0 ? 'var(--success)' : '#ff6b6b'};">${formatPercent(detail.move)}%</td>
+      <td style="padding: 12px 8px; text-align: right; color: ${detail.leveragedMove >= 0 ? 'var(--success)' : '#ff6b6b'};">${formatPercent(detail.leveragedMove)}%</td>
+      <td style="padding: 12px 8px; text-align: right; color: var(--text);">${formatCurrency(detail.underlyingValue)}</td>
+      <td style="padding: 12px 8px; text-align: right; color: var(--text);">${formatCurrency(detail.leveragedValue)}</td>
+      <td style="padding: 12px 8px; text-align: right; color: var(--muted);">${formatCurrency(detail.dailyFeeAmount)}</td>
+    `;
+    tbody.appendChild(row);
+  });
+}
+
+function setLeverageMode(mode) {
+  currentLeverageMode = mode;
+
+  // Update tab active states
+  leverageModeTabs.forEach((tab) => {
+    const isActive = tab.dataset.leverageMode === mode;
+    tab.classList.toggle('active', isActive);
+    tab.setAttribute('aria-selected', String(isActive));
+  });
+
+  // Hide/show mode-specific content
+  const modeContents = document.querySelectorAll('.leverage-mode-content');
+  modeContents.forEach((content) => {
+    const contentMode = content.dataset.leverageMode;
+    let shouldShow = false;
+
+    if (contentMode === 'bostad-varde') {
+      shouldShow = (mode === 'bostad' || mode === 'varde');
+    } else if (contentMode === 'daglig') {
+      shouldShow = (mode === 'daglig');
+    }
+
+    if (shouldShow) {
+      content.classList.remove('hidden');
+      content.style.display = '';
+    } else {
+      content.classList.add('hidden');
+      content.style.display = 'none';
+    }
+  });
+
+  // Show/hide specific comparison sections
+  const amortizeSection = document.getElementById('leverage-amortize-vs-invest-section');
+  if (amortizeSection) {
+    if (mode === 'bostad') {
+      amortizeSection.classList.remove('hidden');
+      amortizeSection.style.display = '';
+    } else {
+      amortizeSection.classList.add('hidden');
+      amortizeSection.style.display = 'none';
+    }
+  }
 }
 
 function calculateRecoveryRequiredGain(dropPercent, amount) {

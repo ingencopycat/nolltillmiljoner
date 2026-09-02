@@ -1144,11 +1144,38 @@ body.light-theme .scenario-chart-panel {
   margin-top: 18px;
 }
 
+/* Leverage mode visibility */
+.leverage-mode-content.hidden {
+  display: none !important;
+}
+
+/* Daily leverage styling */
+.daily-leverage-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  color: var(--text);
+  box-shadow: none;
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
 @media (max-width: 860px) {
   .feature-grid,
   .community-grid,
   .upcoming-grid,
   .home-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .daily-leverage-results {
     grid-template-columns: 1fr;
   }
 
