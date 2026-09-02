@@ -918,7 +918,7 @@ function injectInstagramPromo() {
   promo.innerHTML = `
     <div class="instagram-footer-inner">
       <div class="instagram-footer-copy">
-        <h3>Följ min resa från noll till miljoner.</h3>
+        <h3>Följ min resa från <span class="brand-zero">NOLL</span> <span class="brand-neutral">TILL</span> <span class="brand-million">MILJONER</span>.</h3>
         <p>Jag delar investeringar, idéer, analyser och resan längs vägen.</p>
       </div>
       <div class="community-actions">
