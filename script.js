@@ -1465,7 +1465,10 @@ function addDailyMoveInput() {
   fieldGroup.style.cssText = 'flex: 1;';
   fieldGroup.innerHTML = `
     <label style="font-size: 0.9rem;">Dag ${dayCount}</label>
-    <input type="number" class="daily-move-input" data-day="${dayCount}" value="${defaultValue}" step="0.1" />
+    <div class="daily-move-input-wrap">
+      <input type="number" class="daily-move-input" data-day="${dayCount}" value="${defaultValue}" step="0.1" />
+      <span class="daily-move-input-suffix" aria-hidden="true">%</span>
+    </div>
   `;
 
   wrapper.appendChild(fieldGroup);

@@ -328,6 +328,33 @@ select {
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
+.daily-move-input-wrap {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+.daily-move-input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
+
+.daily-move-input-suffix {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  padding: 0 14px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-left: none;
+  border-radius: 0 14px 14px 0;
+  background: rgba(148, 163, 184, 0.08);
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
 body.light-theme input,
 body.light-theme select {
   background: rgba(245, 249, 255, 0.9);
