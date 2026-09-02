@@ -1051,6 +1051,16 @@ body.light-theme .scenario-chart-panel {
     padding: 24px 18px;
   }
 
+  .feature-card,
+  .upcoming-card,
+  .community-card {
+    padding: 20px 18px;
+  }
+
+  .secondary-btn {
+    width: 100%;
+  }
+
   .community-actions {
     flex-direction: column;
   }
@@ -1220,6 +1230,41 @@ body.light-theme .scenario-chart-panel {
   .upcoming-grid,
   .home-hero {
     grid-template-columns: 1fr;
+  }
+
+  .feature-grid,
+  .community-grid,
+  .upcoming-grid,
+  .page-card,
+  .feature-card,
+  .upcoming-card,
+  .community-card,
+  .container,
+  .card {
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .feature-card,
+  .upcoming-card,
+  .community-card {
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .feature-card h3,
+  .upcoming-card h3,
+  .community-card h3 {
+    font-size: clamp(1.35rem, 5vw, 1.6rem);
+    line-height: 1.2;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .secondary-btn {
+    max-width: 100%;
+    white-space: normal;
   }
 
   .daily-leverage-results {
