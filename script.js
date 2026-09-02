@@ -19,7 +19,7 @@ let dividendChart = null;
 let feeComparisonChart = null;
 let leverageChart = null;
 let dailyLeverageChart = null;
-let currentLeverageMode = 'bostad';
+let currentLeverageMode = 'belaning';
 
 function formatCurrency(value) {
   return new Intl.NumberFormat('sv-SE', {
@@ -1019,7 +1019,7 @@ function getLeverageInputs() {
     years: Number(document.getElementById('leverage-ar').value) || 0,
     amortization: Number(document.getElementById('leverage-amortering').value) || 0,
     inflation: Number(document.getElementById('leverage-inflation').value) || 0,
-    mode: document.querySelector('.leverage-mode-tab.active') ? document.querySelector('.leverage-mode-tab.active').dataset.leverageMode : 'bostad',
+    mode: document.querySelector('.leverage-mode-tab.active') ? document.querySelector('.leverage-mode-tab.active').dataset.leverageMode : 'belaning',
     loanMode,
     loanRatio
   };
@@ -1784,7 +1784,7 @@ function setLeverageMode(mode) {
     let shouldShow = false;
 
     if (contentMode === 'bostad-varde') {
-      shouldShow = (mode === 'bostad' || mode === 'varde');
+      shouldShow = (mode === 'belaning' || mode === 'bostad' || mode === 'varde');
     } else if (contentMode === 'daglig') {
       shouldShow = (mode === 'daglig');
     }
@@ -1801,7 +1801,7 @@ function setLeverageMode(mode) {
   // Show/hide specific comparison sections
   const amortizeSection = document.getElementById('leverage-amortize-vs-invest-section');
   if (amortizeSection) {
-    if (mode === 'bostad') {
+    if (mode === 'belaning' || mode === 'bostad') {
       amortizeSection.classList.remove('hidden');
       amortizeSection.style.display = '';
     } else {
