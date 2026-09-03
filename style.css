@@ -1479,6 +1479,7 @@ body.light-theme .resource-card {
 }
 
 .youtube-post {
+  width: min(92%, 1100px);
   min-width: 0;
   max-width: 100%;
   background: transparent;
@@ -1488,9 +1489,13 @@ body.light-theme .resource-card {
   padding: 0;
 }
 
+.homepage-content .resource-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .youtube-media {
   width: 100%;
-  max-width: 750px;
+  max-width: 1100px;
   aspect-ratio: 16 / 9;
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -1631,7 +1636,7 @@ body.light-theme .resource-card {
 }
 
 .ai-summary-body {
-  width: min(100%, 750px);
+  width: 100%;
   display: grid;
   gap: 16px;
   margin-top: 14px;
@@ -1672,6 +1677,7 @@ body.light-theme .resource-card {
 }
 
 .summary-content {
+  width: min(100%, 880px);
   color: var(--muted);
   font-size: 0.92rem;
   line-height: 1.7;
@@ -1697,6 +1703,10 @@ body.light-theme .resource-card {
 }
 
 @media (max-width: 480px) {
+  .youtube-post {
+    width: 100%;
+  }
+
   .topbar {
     padding: 16px 14px 0;
   }
