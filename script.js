@@ -939,6 +939,51 @@ function injectInstagramPromo() {
   }
 }
 
+function initYoutubePosts() {
+  document.addEventListener('click', function (event) {
+    const preview = event.target.closest('[data-youtube-preview]');
+    if (preview) {
+      const post = preview.closest('[data-youtube-post]');
+      const media = preview.closest('[data-youtube-media]');
+      const videoId = preview.dataset.videoId;
+
+      if (!post || !media || !videoId || media.querySelector('iframe')) {
+        return;
+      }
+
+      const player = document.createElement('iframe');
+      player.className = 'youtube-player';
+      player.src = `https://www.youtube.com/embed/${encodeURIComponent(videoId)}?autoplay=1`;
+      player.title = preview.getAttribute('aria-label') || 'YouTube-video';
+      player.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      player.allowFullscreen = true;
+      media.replaceChildren(player);
+      return;
+    }
+
+    const languageButton = event.target.closest('[data-summary-language]');
+    if (!languageButton) {
+      return;
+    }
+
+    const post = languageButton.closest('[data-youtube-post]');
+    if (!post) {
+      return;
+    }
+
+    const selectedLanguage = languageButton.dataset.summaryLanguage;
+    post.querySelectorAll('[data-summary-language]').forEach((button) => {
+      const isSelected = button === languageButton;
+      button.classList.toggle('is-active', isSelected);
+      button.setAttribute('aria-pressed', String(isSelected));
+    });
+
+    post.querySelectorAll('[data-summary-content]').forEach((content) => {
+      content.hidden = content.dataset.summaryContent !== selectedLanguage;
+    });
+  });
+}
+
 if (mobileNavToggle && navMenu) {
   mobileNavToggle.addEventListener('click', function () {
     navMenu.classList.toggle('open');
@@ -992,6 +1037,7 @@ if (dividendToggle) {
 
 initTheme();
 injectInstagramPromo();
+initYoutubePosts();
 if (modeTabs.length) {
   setActiveMode('growth');
 }
