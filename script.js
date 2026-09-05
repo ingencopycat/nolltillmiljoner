@@ -974,7 +974,8 @@ function renderPostMedia(post, preview = false) {
   if (post.media.type === 'carousel') {
     const firstImage = post.media.images[0];
     if (preview) {
-      return `<div class="post-preview-image"><img src="${escapePostText(firstImage.src)}" alt="${escapePostText(firstImage.alt)}" loading="lazy" /></div>`;
+      const previewPosition = post.previewPosition || 'top';
+      return `<div class="post-preview-image"><img src="${escapePostText(firstImage.src)}" alt="${escapePostText(firstImage.alt)}" loading="lazy" style="object-position: ${escapePostText(previewPosition)};" /></div>`;
     }
     return `<div class="post-carousel" data-carousel tabindex="0" aria-label="Bildkarusell för ${escapePostText(post.title)}">
       <div class="carousel-viewport"><div class="carousel-track">${post.media.images.map((image, index) => `<img class="carousel-slide" src="${escapePostText(image.src)}" alt="${escapePostText(image.alt)}" loading="${index === 0 ? 'eager' : 'lazy'}" data-carousel-slide />`).join('')}</div></div>
@@ -986,6 +987,85 @@ function renderPostMedia(post, preview = false) {
 
   return '';
 }
+
+function createImageLightbox(images, startIndex = 0, onChange = null) {
+  const existing = document.querySelector('.lightbox-overlay');
+  if (existing) existing.remove();
+
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox-overlay';
+  const content = document.createElement('div');
+  content.className = 'lightbox-content';
+  const image = document.createElement('img');
+  image.className = 'lightbox-image';
+  const closeButton = document.createElement('button');
+  closeButton.type = 'button';
+  closeButton.className = 'lightbox-close';
+  closeButton.setAttribute('aria-label', 'Stäng bild');
+  closeButton.textContent = '×';
+  const previousButton = document.createElement('button');
+  previousButton.type = 'button';
+  previousButton.className = 'lightbox-nav lightbox-prev';
+  previousButton.setAttribute('aria-label', 'Föregående bild');
+  previousButton.textContent = '←';
+  const nextButton = document.createElement('button');
+  nextButton.type = 'button';
+  nextButton.className = 'lightbox-nav lightbox-next';
+  nextButton.setAttribute('aria-label', 'Nästa bild');
+  nextButton.textContent = '→';
+  const position = document.createElement('span');
+  position.className = 'lightbox-position';
+
+  let current = (startIndex + images.length) % images.length;
+  const render = () => {
+    const item = images[current];
+    image.src = item.src;
+    image.alt = item.alt || 'Bild';
+    position.textContent = images.length > 1 ? `${current + 1} / ${images.length}` : '';
+    previousButton.hidden = images.length < 2;
+    nextButton.hidden = images.length < 2;
+    if (onChange) onChange(current);
+  };
+  const move = (offset) => {
+    current = (current + offset + images.length) % images.length;
+    render();
+  };
+  const close = () => {
+    overlay.remove();
+    document.body.style.overflow = overlay.dataset.previousOverflow || '';
+    document.removeEventListener('keydown', handleKeydown);
+  };
+  const handleKeydown = (event) => {
+    if (event.key === 'Escape') close();
+    if (event.key === 'ArrowLeft') move(-1);
+    if (event.key === 'ArrowRight') move(1);
+  };
+
+  content.append(closeButton, previousButton, image, nextButton, position);
+  overlay.appendChild(content);
+  overlay.addEventListener('click', (event) => { if (event.target === overlay) close(); });
+  closeButton.addEventListener('click', close);
+  previousButton.addEventListener('click', () => move(-1));
+  nextButton.addEventListener('click', () => move(1));
+  let touchStartX = 0;
+  overlay.addEventListener('touchstart', (event) => {
+    const touch = event.changedTouches?.[0] || event.touches?.[0];
+    if (touch) touchStartX = touch.screenX;
+  }, { passive: true });
+  overlay.addEventListener('touchend', (event) => {
+    const touch = event.changedTouches?.[0] || event.touches?.[0];
+    if (!touch) return;
+    const distance = touch.screenX - touchStartX;
+    if (Math.abs(distance) > 40) move(distance < 0 ? 1 : -1);
+  }, { passive: true });
+  overlay.dataset.previousOverflow = document.body.style.overflow;
+  document.body.style.overflow = 'hidden';
+  document.body.appendChild(overlay);
+  document.addEventListener('keydown', handleKeydown);
+  render();
+}
+
+window.NTMLightbox = { open: createImageLightbox };
 
 function renderPostPreview(post) {
   return `<article class="post-card resource-card">
@@ -1044,6 +1124,12 @@ function initCarousels() {
     carousel.addEventListener('keydown', (event) => {
       if (event.key === 'ArrowLeft') showSlide(current - 1);
       if (event.key === 'ArrowRight') showSlide(current + 1);
+    });
+    slides.forEach((slide, slideIndex) => {
+      slide.classList.add('carousel-slide-clickable');
+      slide.addEventListener('click', () => {
+        window.NTMLightbox.open([...slides].map((item) => ({ src: item.src, alt: item.alt })), slideIndex, showSlide);
+      });
     });
     carousel.addEventListener('touchstart', (event) => { touchStartX = event.changedTouches[0].screenX; }, { passive: true });
     carousel.addEventListener('touchend', (event) => {

@@ -20,42 +20,10 @@ const title = document.getElementById('currentWeekTitle');
 const weeks = Object.keys(weekData).sort((a, b) => Number(b) - Number(a));
 const latestWeek = weeks[0];
 
-function closeLightbox() {
-  const lightbox = document.querySelector('.lightbox-overlay');
-  if (lightbox) {
-    lightbox.remove();
-  }
-}
-
 function openLightbox(imageUrl) {
-  const overlay = document.createElement('div');
-  overlay.className = 'lightbox-overlay';
-
-  const content = document.createElement('div');
-  content.className = 'lightbox-content';
-
-  const img = document.createElement('img');
-  img.src = imageUrl;
-  img.alt = 'Veckans bild';
-  img.className = 'lightbox-image';
-
-  const closeButton = document.createElement('button');
-  closeButton.type = 'button';
-  closeButton.className = 'lightbox-close';
-  closeButton.setAttribute('aria-label', 'Stäng bild');
-  closeButton.textContent = '×';
-  closeButton.addEventListener('click', closeLightbox);
-
-  content.appendChild(closeButton);
-  content.appendChild(img);
-  overlay.appendChild(content);
-  document.body.appendChild(overlay);
-
-  overlay.addEventListener('click', function (event) {
-    if (event.target === overlay) {
-      closeLightbox();
-    }
-  });
+  if (window.NTMLightbox) {
+    window.NTMLightbox.open([{ src: imageUrl, alt: 'Veckans bild' }]);
+  }
 }
 
 function renderWeek(weekKey) {
@@ -99,11 +67,5 @@ if (visual) {
   });
   visual.setAttribute('tabindex', '0');
 }
-
-document.addEventListener('keydown', function (event) {
-  if (event.key === 'Escape') {
-    closeLightbox();
-  }
-});
 
 renderWeek(latestWeek);

@@ -5,6 +5,7 @@ const NTM_POSTS = [
     slug: 'ai-portfolj',
     category: 'Portfölj',
     tags: ['AI', 'Semiconductors', 'Infrastruktur', 'Cybersecurity'],
+    previewPosition: 'top',
     excerpt: 'AI är mycket mer än bara Nvidia och datacenter. Här är hur bolagen i min AI-portfölj hänger ihop genom hela kedjan – från råmaterial och halvledare till infrastruktur, cybersäkerhet och slutprodukter.',
     media: {
       type: 'carousel',
