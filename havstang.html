@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hävstång</title>
+        <title>Hävstångskalkylator – Belåning &amp; daglig hävstång | NTM</title>
+        <meta name="description" content="Räkna på hävstång i investeringar. Se hur belåning, låneränta och daglig hävstång som X2, X3 och X5 påverkar uppgångar, nedgångar och resultat över tid." />
+        <link rel="canonical" href="https://nolltillmiljoner.se/havstang.html" />
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Hävstångskalkylator",
+            "url": "https://nolltillmiljoner.se/havstang.html",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "All",
+            "description": "Kalkylator för belåning av en portfölj och daglig hävstång med dagliga marknadsrörelser."
+        }
+        </script>
 </head>
 <body>
     <header class="topbar">
@@ -39,12 +52,18 @@
         </div>
     </header>
 
-    <main class="container">
+    <main class="container tool-landing">
+        <header class="page-intro tool-intro">
+            <span class="section-kicker">Kalkylator</span>
+            <h1>Hävstångskalkylator</h1>
+            <p>Räkna på hur hävstång påverkar en investering. Jämför belåning av en portfölj eller simulera daglig hävstång som X2, X3 och X5 – både när marknaden går upp och när den går ner.</p>
+        </header>
+
         <section class="card calculator-card">
             <div class="section-heading">
                 <div>
                     <span class="section-kicker">Hävstång</span>
-                    <h2>Hävstångskalkylator</h2>
+                    <h2>Räkna på belåning och daglig hävstång</h2>
                 </div>
             </div>
 
@@ -350,6 +369,102 @@
                 </div>
             </div>
 
+        </section>
+
+        <div class="education-content">
+            <section class="education-section">
+                <h2>Vad är hävstång?</h2>
+                <p>Hävstång innebär att du får en större marknadsexponering än det kapital du själv har satt in. Med 10 000 kr och 2x exponering motsvarar det ungefär 20 000 kr i marknadsexponering före räntekostnader och produktspecifika effekter. Det förstorar både uppgångar och nedgångar.</p>
+            </section>
+
+            <section class="education-section">
+                <h2>Så fungerar belåning av en portfölj</h2>
+                <p>Vid portföljbelåning kombineras eget kapital med lånat kapital. Exempelvis ger 100 000 kr i eget kapital och 50 000 kr i lån totalt 150 000 kr investerat. Det motsvarar 1,5x exponering i förhållande till det egna kapitalet.</p>
+                <p>Marknadsrörelsen påverkar hela det investerade beloppet, medan skulden finns kvar även om portföljvärdet faller. Låneräntan minskar resultatet över tid. Kalkylatorn visar därför både tillgångsvärde, skuld, räntekostnad och resultat på insatt kapital.</p>
+            </section>
+
+            <section class="education-section">
+                <h2>Exempel – uppgång och nedgång med hävstång</h2>
+                <p>Förenklat exempel före finansieringskostnader och andra produktkostnader. Resultatet visar avkastningen på eget kapital när exponeringen hålls konstant.</p>
+                <div class="example-table-wrap">
+                    <table class="example-table">
+                        <caption>Effekt av en enkel marknadsrörelse</caption>
+                        <thead><tr><th scope="col">Exponering</th><th scope="col">Underliggande +10 %</th><th scope="col">Underliggande −10 %</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row">1,0x</th><td>+10 %</td><td>−10 %</td></tr>
+                            <tr><th scope="row">1,5x</th><td>+15 %</td><td>−15 %</td></tr>
+                            <tr><th scope="row">2,0x</th><td>+20 %</td><td>−20 %</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="education-section">
+                <h2>Vad är daglig hävstång?</h2>
+                <p>Daglig hävstång avser normalt ett mål för hur ett instrument ska följa den underliggande tillgångens rörelse under en enskild handelsdag. Om den underliggande stiger 2 % på en dag blir en förenklad 2x-rörelse ungefär +4 % och en 3x-rörelse ungefär +6 %, före avgifter, finansiering, spread och tracking-effekter.</p>
+                <p>Vid en nedgång förstoras förlusten på motsvarande sätt. Olika Bull/Bear-produkter, ETF:er, certifikat, warranter och turbos har dessutom olika villkor och ska inte behandlas som identiska instrument.</p>
+            </section>
+
+            <section class="education-section">
+                <h2>Varför blir X3 inte alltid tre gånger avkastningen?</h2>
+                <p>Daglig återställning och ränta-på-ränta gör att ordningen på rörelserna spelar roll. I ett förenklat exempel startar den underliggande på 100 och går +10 % följt av −10 %: 100 → 110 → 99, alltså −1 % totalt. Ett förenklat 3x-instrument går då 100 → 130 → 91, alltså −9 %.</p>
+                <p>Detta är en matematisk illustration före avgifter, finansiering och tracking-effekter. 3x över flera dagar är därför inte automatiskt tre gånger den underliggande tillgångens totala fler-dagarsavkastning.</p>
+            </section>
+
+            <section class="education-section">
+                <h2>Volatilitet och hävstång</h2>
+                <p>I en ryckig marknad kan daglig återställning och växlande upp- och nedgångar arbeta mot investeraren. I en stark och ihållande trend kan den dagliga kapitaliseringen i stället förstärka utvecklingen i trendens riktning. Det är vägen dit, inte bara start- och slutnivån, som påverkar utfallet.</p>
+            </section>
+
+            <section class="education-section">
+                <h2>Belåning eller daglig hävstång – vad är skillnaden?</h2>
+                <div class="example-table-wrap">
+                    <table class="example-table">
+                        <caption>Översikt över två olika sätt att skapa hävstång</caption>
+                        <thead><tr><th scope="col">Belåning</th><th scope="col">Daglig hävstång</th></tr></thead>
+                        <tbody>
+                            <tr><td>Lån ökar kapitalet i portföljen</td><td>Instrumentet siktar på en daglig multipel</td></tr>
+                            <tr><td>Räntekostnad och kvarvarande skuld</td><td>Avgifter, finansiering och produktvillkor</td></tr>
+                            <tr><td>Ingen automatisk daglig reset i denna modell</td><td>Daglig reset gör fler-dagarsresultatet vägberoende</td></tr>
+                            <tr><td>Utfallet beror på tillgångsvärde och skuld</td><td>Utfallet beror på dagliga rörelser och instrumentets konstruktion</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="education-section">
+                <h2>Så räknas hävstång</h2>
+                <p class="formula" aria-label="Hävstång är lika med totalt investerat kapital delat med eget kapital"><var>Hävstång</var> = <var>Totalt investerat kapital</var> / <var>Eget kapital</var></p>
+                <p>Exempel: 150 000 / 100 000 = 1,5x.</p>
+                <p class="formula" aria-label="Produktens dagsavkastning är ungefär lika med underliggande dagsavkastning gånger hävstång"><var>Produktens dagsavkastning</var> ≈ <var>Underliggande dagsavkastning</var> × <var>hävstång</var></p>
+                <p>Den andra formeln är en förenklad relation för en dag och beskriver inte hela resultatet över flera dagar eller alla verkliga produkter.</p>
+            </section>
+
+            <section class="education-section">
+                <h2>Risker med hävstång</h2>
+                <p>Hävstång förstorar förluster lika väl som vinster. En stor nedgång kräver en oproportionerligt större uppgång för att återhämtas. Lån medför räntekostnader och dagliga hävstångsprodukter kan påverkas av reset, avgifter, spread, finansiering, tracking och andra villkor. Läs alltid villkoren för det specifika instrumentet. <a href="aterhamtning.html">Se hur mycket en investering behöver stiga för att återhämta en nedgång</a>.</p>
+            </section>
+        </div>
+
+        <section class="faq-section" aria-labelledby="faq-heading">
+            <h2 id="faq-heading">Vanliga frågor</h2>
+            <details><summary>Vad betyder hävstång i aktier och investeringar?</summary><p>Det betyder att marknadsexponeringen är större än det egna kapitalet. Därför förstoras både uppgångar och nedgångar.</p></details>
+            <details><summary>Hur räknar man ut hävstång?</summary><p>Dela totalt investerat kapital med eget kapital. 150 000 kr investerat med 100 000 kr eget kapital motsvarar 1,5x.</p></details>
+            <details><summary>Vad betyder 2x eller 3x hävstång?</summary><p>För daglig hävstång är det normalt ett mål för ungefär två eller tre gånger den underliggande tillgångens dagsrörelse, före produktens kostnader och avvikelser.</p></details>
+            <details><summary>Kan man förlora mer med hävstång?</summary><p>Förlusterna förstoras. Vid portföljbelåning finns dessutom en skuld som ska betalas även om tillgångarna faller. Villkoren skiljer sig mellan olika instrument.</p></details>
+            <details><summary>Varför blir 3x inte alltid tre gånger avkastningen?</summary><p>Daglig reset och kapitalisering gör fler-dagarsresultatet beroende av ordningen på de dagliga rörelserna.</p></details>
+            <details><summary>Vad betyder daglig återställning?</summary><p>Instrumentets mål för hävstång beräknas om vid varje handelsdags slut, så nästa dags utveckling utgår från det nya värdet.</p></details>
+            <details><summary>Vad är skillnaden mellan belåning och Bull/Bear-produkter?</summary><p>Belåning är ett lån kopplat till din portfölj. Bull/Bear-produkter är finansiella instrument med egna villkor, kostnader och ofta daglig återställning.</p></details>
+            <details><summary>Hur påverkar låneränta en belånad portfölj?</summary><p>Räntan är en kostnad som minskar resultatet. Ju längre lånet finns och ju högre räntan är, desto större blir påverkan.</p></details>
+        </section>
+
+        <section class="related-tools" aria-labelledby="related-tools-heading">
+            <div class="section-heading"><div><span class="section-kicker">Fler verktyg</span><h2 id="related-tools-heading">Relaterade verktyg</h2></div></div>
+            <div class="feature-grid">
+                <article class="feature-card"><h3>Återhämtningskalkylator</h3><p>Räkna på vilken uppgång som krävs efter en nedgång.</p><a href="aterhamtning.html" class="secondary-btn">Öppna återhämtning</a></article>
+                <article class="feature-card"><h3>Jämför avgifter</h3><p>Se hur avgifter påverkar kapitalets utveckling över tid.</p><a href="avgifter.html" class="secondary-btn">Jämför avgifter</a></article>
+                <article class="feature-card"><h3>Ränta på ränta</h3><p>Utforska hur tid, sparande och avkastning samverkar.</p><a href="ranta-pa-ranta.html" class="secondary-btn">Räkna på sparande</a></article>
+            </div>
         </section>
     </main>
 
