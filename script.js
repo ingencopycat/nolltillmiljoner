@@ -939,6 +939,186 @@ function injectInstagramPromo() {
   }
 }
 
+function escapePostText(value) {
+  return String(value).replace(/[&<>'"]/g, (character) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    "'": '&#39;',
+    '"': '&quot;'
+  }[character]));
+}
+
+function formatPostDate(date) {
+  return new Intl.DateTimeFormat('sv-SE', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(`${date}T12:00:00`));
+}
+
+function getPostUrl(slug) {
+  return `post.html?post=${encodeURIComponent(slug)}`;
+}
+
+function renderPostTags(post) {
+  return post.tags.map((tag) => `<a class="post-tag" href="inlagg.html?tag=${encodeURIComponent(tag)}">${escapePostText(tag)}</a>`).join('');
+}
+
+function renderPostMedia(post, preview = false) {
+  if (post.media.type === 'youtube') {
+    return `<div class="youtube-media" data-youtube-media>
+      <button class="youtube-preview" type="button" data-youtube-preview data-video-id="${escapePostText(post.media.videoId)}" aria-label="Spela upp ${escapePostText(post.title)}">
+        <img src="https://img.youtube.com/vi/${encodeURIComponent(post.media.videoId)}/maxresdefault.jpg" alt="Förhandsvisning av ${escapePostText(post.title)}" loading="${preview ? 'lazy' : 'eager'}" />
+        <span class="youtube-play" aria-hidden="true">▶</span>
+      </button>
+    </div>`;
+  }
+
+  if (post.media.type === 'carousel') {
+    const firstImage = post.media.images[0];
+    if (preview) {
+      return `<div class="post-preview-image"><img src="${escapePostText(firstImage.src)}" alt="${escapePostText(firstImage.alt)}" loading="lazy" /></div>`;
+    }
+    return `<div class="post-carousel" data-carousel tabindex="0" aria-label="Bildkarusell för ${escapePostText(post.title)}">
+      <div class="carousel-viewport"><div class="carousel-track">${post.media.images.map((image, index) => `<img class="carousel-slide" src="${escapePostText(image.src)}" alt="${escapePostText(image.alt)}" loading="${index === 0 ? 'eager' : 'lazy'}" data-carousel-slide />`).join('')}</div></div>
+      <button class="carousel-button carousel-prev" type="button" data-carousel-prev aria-label="Föregående bild">←</button>
+      <button class="carousel-button carousel-next" type="button" data-carousel-next aria-label="Nästa bild">→</button>
+      <div class="carousel-footer"><span data-carousel-position>1 / ${post.media.images.length}</span><div class="carousel-dots" role="tablist" aria-label="Välj bild">${post.media.images.map((image, index) => `<button type="button" class="carousel-dot${index === 0 ? ' is-active' : ''}" data-carousel-dot="${index}" role="tab" aria-label="Visa bild ${index + 1}" aria-selected="${index === 0}"></button>`).join('')}</div></div>
+    </div>`;
+  }
+
+  return '';
+}
+
+function renderPostPreview(post) {
+  return `<article class="post-card resource-card">
+    ${renderPostMedia(post, true)}
+    <div class="post-card-body">
+      <div class="post-meta"><span>${escapePostText(post.category)}</span><time datetime="${post.date}">${formatPostDate(post.date)}</time></div>
+      <h3 class="resource-card-title"><a href="${getPostUrl(post.slug)}">${escapePostText(post.title)}</a></h3>
+      <p class="post-excerpt">${escapePostText(post.excerpt)}</p>
+      <div class="post-tags">${renderPostTags(post)}</div>
+      <a class="resource-card-link" href="${getPostUrl(post.slug)}">Läs inlägget →</a>
+    </div>
+  </article>`;
+}
+
+function renderPostView(post) {
+  const summary = post.summary ? `<details class="ai-summary"><summary>AI-sammanfattning</summary><div class="ai-summary-body">
+    <div class="summary-language-toggle" role="group" aria-label="Välj språk för sammanfattningen">
+      <button type="button" class="summary-language-button is-active" data-summary-language="sv" aria-pressed="true">Svenska</button>
+      <button type="button" class="summary-language-button" data-summary-language="en" aria-pressed="false">English</button>
+    </div>
+    ${Object.entries(post.summary).map(([language, paragraphs]) => `<div class="summary-content" data-summary-content="${language}"${language === 'en' ? ' hidden' : ''}>${paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join('')}<p class="summary-disclaimer">${escapePostText(post.disclaimer)}</p></div>`).join('')}
+  </div></details>` : '';
+
+  return `<article class="post-article ${post.media.type === 'youtube' ? 'youtube-post' : ''}" data-youtube-post>
+    <header class="post-header"><div class="post-meta"><span>${escapePostText(post.category)}</span><time datetime="${post.date}">${formatPostDate(post.date)}</time></div><h1>${escapePostText(post.title)}</h1><div class="post-tags">${renderPostTags(post)}</div><p class="post-lead">${escapePostText(post.excerpt)}</p></header>
+    <div class="post-media">${renderPostMedia(post)}</div>
+    ${post.content ? `<div class="post-content">${post.content}</div>` : ''}
+    <div class="post-actions">${post.media.externalUrl ? `<a class="secondary-btn" href="${escapePostText(post.media.externalUrl)}" target="_blank" rel="noopener noreferrer">Se på YouTube ↗</a>` : ''}${post.instagramUrl ? `<a class="secondary-btn" href="${escapePostText(post.instagramUrl)}" target="_blank" rel="noopener noreferrer">Ursprungligen publicerat på Instagram ↗</a>` : ''}<button type="button" class="secondary-btn" data-copy-link>Kopiera länk</button><span class="copy-feedback" data-copy-feedback role="status" aria-live="polite"></span></div>
+    ${summary}
+  </article>`;
+}
+
+function initCarousels() {
+  document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+    const track = carousel.querySelector('.carousel-track');
+    const slides = carousel.querySelectorAll('[data-carousel-slide]');
+    const position = carousel.querySelector('[data-carousel-position]');
+    const dots = carousel.querySelectorAll('[data-carousel-dot]');
+    let current = 0;
+    let touchStartX = 0;
+
+    const showSlide = (index) => {
+      current = (index + slides.length) % slides.length;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      position.textContent = `${current + 1} / ${slides.length}`;
+      dots.forEach((dot, dotIndex) => {
+        const active = dotIndex === current;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-selected', String(active));
+      });
+    };
+
+    carousel.querySelector('[data-carousel-prev]').addEventListener('click', () => showSlide(current - 1));
+    carousel.querySelector('[data-carousel-next]').addEventListener('click', () => showSlide(current + 1));
+    dots.forEach((dot) => dot.addEventListener('click', () => showSlide(Number(dot.dataset.carouselDot))));
+    carousel.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') showSlide(current - 1);
+      if (event.key === 'ArrowRight') showSlide(current + 1);
+    });
+    carousel.addEventListener('touchstart', (event) => { touchStartX = event.changedTouches[0].screenX; }, { passive: true });
+    carousel.addEventListener('touchend', (event) => {
+      const distance = event.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(distance) > 40) showSlide(current + (distance < 0 ? 1 : -1));
+    }, { passive: true });
+  });
+}
+
+function initPostSystem() {
+  if (typeof NTM_POSTS === 'undefined') return;
+  const posts = [...NTM_POSTS].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const latestPosts = document.getElementById('latestPosts');
+  if (latestPosts) latestPosts.innerHTML = posts.slice(0, 3).map(renderPostPreview).join('');
+
+  const archive = document.getElementById('postArchive');
+  if (archive) {
+    const search = document.getElementById('postSearch');
+    const category = document.getElementById('postCategory');
+    const tag = new URLSearchParams(window.location.search).get('tag') || '';
+    const categories = ['Alla', 'Analys', 'Portfölj', 'Utbildning', 'Makro', 'Video'];
+    category.innerHTML = categories.map((item) => `<button type="button" class="filter-button${item === 'Alla' ? ' is-active' : ''}" data-category="${item}">${item}</button>`).join('');
+    let page = 1;
+    const renderArchive = () => {
+      const query = search.value.trim().toLowerCase();
+      const selectedCategory = category.querySelector('.is-active')?.dataset.category || 'Alla';
+      const filtered = posts.filter((post) => {
+        const matchesQuery = !query || [post.title, post.excerpt, post.category, ...post.tags].join(' ').toLowerCase().includes(query);
+        const matchesCategory = selectedCategory === 'Alla' || post.category === selectedCategory;
+        const matchesTag = !tag || post.tags.some((item) => item.toLowerCase() === tag.toLowerCase());
+        return matchesQuery && matchesCategory && matchesTag;
+      });
+      const pageCount = Math.ceil(filtered.length / 9);
+      page = Math.min(page, Math.max(1, pageCount));
+      const visible = filtered.slice((page - 1) * 9, page * 9);
+      document.getElementById('postResults').innerHTML = visible.length ? visible.map(renderPostPreview).join('') : '<p class="empty-state">Inga inlägg hittades.</p>';
+      const pagination = document.getElementById('postPagination');
+      pagination.innerHTML = pageCount > 1 ? Array.from({ length: pageCount }, (_, index) => `<button type="button" class="pagination-button${index + 1 === page ? ' is-active' : ''}" data-page="${index + 1}">${index + 1}</button>`).join('') : '';
+      pagination.querySelectorAll('[data-page]').forEach((button) => button.addEventListener('click', () => { page = Number(button.dataset.page); renderArchive(); }));
+    };
+    category.addEventListener('click', (event) => { const button = event.target.closest('[data-category]'); if (!button) return; category.querySelectorAll('[data-category]').forEach((item) => item.classList.remove('is-active')); button.classList.add('is-active'); page = 1; renderArchive(); });
+    search.addEventListener('input', () => { page = 1; renderArchive(); });
+    renderArchive();
+  }
+
+  const postView = document.getElementById('postView');
+  if (postView) {
+    const slug = new URLSearchParams(window.location.search).get('post');
+    const post = posts.find((item) => item.slug === slug);
+    postView.innerHTML = post ? renderPostView(post) : '<div class="not-found"><h1>Inlägget hittades inte</h1><p>Kontrollera länken eller gå tillbaka till arkivet.</p><a class="primary-btn" href="inlagg.html">Till alla inlägg</a></div>';
+    const copyButton = postView.querySelector('[data-copy-link]');
+    if (copyButton) copyButton.addEventListener('click', async () => {
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(window.location.href);
+        } else {
+          const fallback = document.createElement('textarea');
+          fallback.value = window.location.href;
+          fallback.setAttribute('readonly', '');
+          fallback.style.position = 'fixed';
+          fallback.style.opacity = '0';
+          document.body.appendChild(fallback);
+          fallback.select();
+          document.execCommand('copy');
+          fallback.remove();
+        }
+        postView.querySelector('[data-copy-feedback]').textContent = 'Kopierad!';
+      } catch (error) {
+        postView.querySelector('[data-copy-feedback]').textContent = 'Kunde inte kopiera länken.';
+      }
+    });
+  }
+  initCarousels();
+}
+
 function initYoutubePosts() {
   document.addEventListener('click', function (event) {
     const preview = event.target.closest('[data-youtube-preview]');
@@ -1038,6 +1218,7 @@ if (dividendToggle) {
 initTheme();
 injectInstagramPromo();
 initYoutubePosts();
+initPostSystem();
 if (modeTabs.length) {
   setActiveMode('growth');
 }

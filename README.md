@@ -24,7 +24,7 @@ Alla sidor använder samma topbar-nav och gemensam dark/light mode.
 
 - Hem: index.html
 - Verktyg: verktyg.html
-- Investeringar: investeringar.html
+- Inlägg: inlagg.html
 - Makro: makro.html
 - Rapporter: rapporter.html
 - Community: community.html
