@@ -971,17 +971,21 @@ function renderPostMedia(post, preview = false) {
     </div>`;
   }
 
-  if (post.media.type === 'carousel') {
-    const firstImage = post.media.images[0];
+  if (post.media.type === 'carousel' || post.media.type === 'image') {
+    const images = post.media.type === 'carousel' ? post.media.images : [post.media.image];
+    const firstImage = images[0];
     if (preview) {
       const previewPosition = post.previewPosition || 'top';
-      return `<div class="post-preview-image"><img src="${escapePostText(firstImage.src)}" alt="${escapePostText(firstImage.alt)}" loading="lazy" style="object-position: ${escapePostText(previewPosition)};" /></div>`;
+      return `<div class="post-preview-image" data-post-preview-media data-post-slug="${escapePostText(post.slug)}" tabindex="0" role="button" aria-label="Öppna bild för ${escapePostText(post.title)}"><img src="${escapePostText(firstImage.src)}" alt="${escapePostText(firstImage.alt)}" loading="lazy" style="object-position: ${escapePostText(previewPosition)};" /></div>`;
+    }
+    if (post.media.type === 'image') {
+      return `<div class="post-single-image" data-post-detail-media data-post-slug="${escapePostText(post.slug)}"><img class="carousel-slide-clickable" src="${escapePostText(firstImage.src)}" alt="${escapePostText(firstImage.alt)}" data-post-image /></div>`;
     }
     return `<div class="post-carousel" data-carousel tabindex="0" aria-label="Bildkarusell för ${escapePostText(post.title)}">
-      <div class="carousel-viewport"><div class="carousel-track">${post.media.images.map((image, index) => `<img class="carousel-slide" src="${escapePostText(image.src)}" alt="${escapePostText(image.alt)}" loading="${index === 0 ? 'eager' : 'lazy'}" data-carousel-slide />`).join('')}</div></div>
+      <div class="carousel-viewport"><div class="carousel-track">${images.map((image, index) => `<img class="carousel-slide" src="${escapePostText(image.src)}" alt="${escapePostText(image.alt)}" loading="${index === 0 ? 'eager' : 'lazy'}" data-carousel-slide />`).join('')}</div></div>
       <button class="carousel-button carousel-prev" type="button" data-carousel-prev aria-label="Föregående bild">←</button>
       <button class="carousel-button carousel-next" type="button" data-carousel-next aria-label="Nästa bild">→</button>
-      <div class="carousel-footer"><span data-carousel-position>1 / ${post.media.images.length}</span><div class="carousel-dots" role="tablist" aria-label="Välj bild">${post.media.images.map((image, index) => `<button type="button" class="carousel-dot${index === 0 ? ' is-active' : ''}" data-carousel-dot="${index}" role="tab" aria-label="Visa bild ${index + 1}" aria-selected="${index === 0}"></button>`).join('')}</div></div>
+      <div class="carousel-footer"><span data-carousel-position>1 / ${images.length}</span><div class="carousel-dots" role="tablist" aria-label="Välj bild">${images.map((image, index) => `<button type="button" class="carousel-dot${index === 0 ? ' is-active' : ''}" data-carousel-dot="${index}" role="tab" aria-label="Visa bild ${index + 1}" aria-selected="${index === 0}"></button>`).join('')}</div></div>
     </div>`;
   }
 
@@ -1068,7 +1072,7 @@ function createImageLightbox(images, startIndex = 0, onChange = null) {
 window.NTMLightbox = { open: createImageLightbox };
 
 function renderPostPreview(post) {
-  return `<article class="post-card resource-card">
+  return `<article class="post-card resource-card" data-youtube-post>
     ${renderPostMedia(post, true)}
     <div class="post-card-body">
       <div class="post-meta"><span>${escapePostText(post.category)}</span><time datetime="${post.date}">${formatPostDate(post.date)}</time></div>
@@ -1078,6 +1082,32 @@ function renderPostPreview(post) {
       <a class="resource-card-link" href="${getPostUrl(post.slug)}">Läs inlägget →</a>
     </div>
   </article>`;
+}
+
+function getPostImages(post) {
+  if (post.media.type === 'carousel') return post.media.images;
+  if (post.media.type === 'image') return [post.media.image];
+  return [];
+}
+
+function initPostPreviewLightboxes() {
+  document.querySelectorAll('[data-post-preview-media]').forEach((preview) => {
+    const post = NTM_POSTS.find((item) => item.slug === preview.dataset.postSlug);
+    if (!post) return;
+    const open = () => window.NTMLightbox.open(getPostImages(post));
+    preview.addEventListener('click', open);
+    preview.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        open();
+      }
+    });
+  });
+  document.querySelectorAll('[data-post-detail-media]').forEach((media) => {
+    const post = NTM_POSTS.find((item) => item.slug === media.dataset.postSlug);
+    if (!post) return;
+    media.querySelector('img')?.addEventListener('click', () => window.NTMLightbox.open(getPostImages(post)));
+  });
 }
 
 function renderPostView(post) {
@@ -1202,6 +1232,7 @@ function initPostSystem() {
       }
     });
   }
+  initPostPreviewLightboxes();
   initCarousels();
 }
 
