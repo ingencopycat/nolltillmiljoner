@@ -1,6 +1,11 @@
 const isMakroPage = window.location.pathname.toLowerCase().includes('makro');
 
 const weekData = {
+  '37': {
+    title: 'Vecka 37',
+    label: 'Vecka 37',
+    image: isMakroPage ? './images/makro/week-37.png' : './images/rapporter/week-37.png'
+  },
   '36': {
     title: 'Vecka 36',
     label: 'Vecka 36',
