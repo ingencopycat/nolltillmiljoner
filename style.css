@@ -775,6 +775,153 @@ body.light-theme .hero-panel {
   line-height: 1.7;
 }
 
+.tool-intro {
+  max-width: 780px;
+  margin-top: 18px;
+}
+
+.tool-intro p {
+  font-size: 1.04rem;
+}
+
+.education-content,
+.faq-section,
+.related-tools {
+  margin-top: 34px;
+}
+
+.education-section {
+  padding: 6px 0 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.education-section h2,
+.faq-section h2,
+.related-tools h2 {
+  margin: 0 0 12px;
+  color: var(--highlight);
+  font-size: clamp(1.45rem, 2.3vw, 2rem);
+  letter-spacing: -0.03em;
+}
+
+.education-section p,
+.faq-section p {
+  max-width: 760px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.education-section a,
+.faq-section a {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.example-table-wrap {
+  max-width: 760px;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.example-table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.example-table caption {
+  padding: 14px 16px;
+  color: var(--muted);
+  text-align: left;
+  font-size: 0.86rem;
+}
+
+.example-table th,
+.example-table td {
+  padding: 13px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.example-table th {
+  color: var(--text);
+}
+
+.example-table td {
+  color: var(--muted);
+}
+
+.formula {
+  display: inline-block;
+  margin: 8px 0;
+  padding: 14px 18px;
+  border-left: 3px solid var(--primary);
+  background: var(--primary-soft);
+  color: var(--text) !important;
+  font-size: 1.25rem;
+}
+
+.formula-definitions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 760px;
+}
+
+.formula-definitions div {
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.formula-definitions dt {
+  color: var(--text);
+  font-weight: 800;
+}
+
+.formula-definitions dd {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
+.faq-section {
+  max-width: 820px;
+}
+
+.faq-section details {
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+}
+
+.faq-section summary {
+  cursor: pointer;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.faq-section details p {
+  margin-bottom: 0;
+}
+
+.related-tools .feature-grid {
+  margin-top: 18px;
+}
+
+@media (max-width: 720px) {
+  .formula-definitions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .formula-definitions {
+    grid-template-columns: 1fr;
+  }
+}
+
 .archive-layout {
   display: grid;
   grid-template-columns: 1.6fr 0.9fr;

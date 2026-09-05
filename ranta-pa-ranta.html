@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ränta på ränta kalkylator – Räkna på ditt sparande | NTM</title>
+    <meta name="description" content="Räkna ut ränta på ränta med startkapital och månadssparande. Se hur avkastning, avgifter och inflation påverkar ditt sparande över tid." />
+    <link rel="canonical" href="https://nolltillmiljoner.se/ranta-pa-ranta.html" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Ränta på ränta-kalkylator",
+      "url": "https://nolltillmiljoner.se/ranta-pa-ranta.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "description": "Kalkylator för att räkna på sparande, avkastning, avgifter och inflation över tid."
+    }
+    </script>
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a href="index.html" class="brand-wrap">
+                <img class="brand-logo" src="images/ntm-logo.png.png" alt="NTM" />
+                <div class="brand-text">
+                    <span class="brand-name"><span class="brand-zero">NOLL</span> <span class="brand-neutral">TILL</span> <span class="brand-million">MILJONER</span></span>
+                    <span class="brand-subtitle">Investeringskalkylator</span>
+                </div>
+            </a>
+
+            <nav class="main-nav" aria-label="Huvudnavigering">
+                <a href="index.html">Hem</a>
+                <a href="verktyg.html">Verktyg</a>
+                <a href="inlagg.html">Inlägg</a>
+                <a href="makro.html">Makro</a>
+                <a href="rapporter.html">Rapporter</a>
+                <a href="resurser.html">Resurser</a>
+                <a href="community.html">Community</a>
+            </nav>
+
+            <button id="mobileNavToggle" class="nav-toggle" type="button" aria-label="Öppna meny" aria-expanded="false">☰</button>
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Växla tema" title="Växla tema">
+                <span class="toggle-icon toggle-icon-sun">🌞</span>
+                <span class="toggle-icon toggle-icon-moon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container tool-landing">
+        <header class="page-intro tool-intro">
+            <span class="section-kicker">Kalkylator</span>
+            <h1>Ränta på ränta-kalkylator</h1>
+            <p>Räkna ut hur ditt sparande kan växa över tid med ränta på ränta. Ange startkapital, månadssparande och förväntad avkastning – och se även hur avgifter och inflation påverkar resultatet.</p>
+        </header>
+
+        <section class="card calculator-card" aria-labelledby="calculator-heading">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">Enkelt att börja</span>
+                    <h2 id="calculator-heading">Räkna på ditt sparande</h2>
+                </div>
+            </div>
+
+            <div class="mode-toggle" role="tablist" aria-label="Välj kalkyläge">
+                <button type="button" class="mode-tab active" data-mode="growth" aria-selected="true">Tillväxt</button>
+                <button type="button" class="mode-tab" data-mode="dividend" aria-selected="false">Utdelning</button>
+            </div>
+
+            <div id="growth-mode-panel" class="mode-panel">
+                <form id="calculator-form" class="calculator-form">
+                    <div class="form-grid">
+                        <div class="field-group"><label for="startkapital">Startkapital</label><input id="startkapital" name="startkapital" type="number" min="0" step="1000" value="100000" /></div>
+                        <div class="field-group"><label for="manadssparande">Månadssparande</label><input id="manadssparande" name="manadssparande" type="number" min="0" step="100" value="3000" /></div>
+                        <div class="field-group"><label for="avkastning">Årlig avkastning (%)</label><input id="avkastning" name="avkastning" type="number" min="0" step="0.1" value="7" /></div>
+                        <div class="field-group"><label for="avgift">Årlig avgift (%)</label><input id="avgift" name="avgift" type="number" min="0" step="0.05" value="0.5" /></div>
+                        <div class="field-group"><label for="inflation">Årlig inflation (%)</label><input id="inflation" name="inflation" type="number" min="0" step="0.1" value="2.5" /></div>
+                        <div class="field-group"><label for="ar">Antal år</label><input id="ar" name="ar" type="number" min="1" step="1" value="10" /></div>
+                    </div>
+                    <button type="submit">Beräkna</button>
+                </form>
+
+                <div class="results" aria-live="polite">
+                    <div class="result-box highlight"><span class="label">Slutvärde i framtida kronor</span><strong id="slutvarde" class="result-value">0 kr</strong></div>
+                    <div class="result-box" id="dagens-varde-box"><span class="label">Värde i dagens penningvärde</span><strong id="dagens-varde" class="result-value">0 kr</strong></div>
+                    <div class="result-box hidden" id="avgifter-totalt-box"><span class="label">Avgifter totalt</span><strong id="avgifter-totalt" class="result-value">0 kr</strong></div>
+                    <div class="result-box"><span class="label">Totalt insatt kapital</span><strong id="insatt-kapital" class="result-value">0 kr</strong></div>
+                    <div class="result-box"><span class="label">Avkastning</span><strong id="avkastning-resultat" class="result-value">0 kr</strong></div>
+                </div>
+
+                <div class="chart-panel"><div class="chart-header"><h3>Portföljutveckling</h3></div><div class="chart-wrap"><canvas id="investmentChart" aria-label="Graf över portföljens utveckling"></canvas></div></div>
+                <p class="note"><em>Beräkningen antar att månadssparandet görs i slutet av varje månad och att den angivna årsavkastningen är effektiv.</em></p>
+            </div>
+
+            <div id="dividend-mode-panel" class="mode-panel hidden">
+                <form id="dividend-form" class="calculator-form">
+                    <div class="form-grid">
+                        <div class="field-group"><label for="dividend-startkapital">Startkapital</label><input id="dividend-startkapital" name="dividend-startkapital" type="number" min="0" step="1000" value="100000" /></div>
+                        <div class="field-group"><label for="dividend-manadssparande">Månadssparande</label><input id="dividend-manadssparande" name="dividend-manadssparande" type="number" min="0" step="100" value="3000" /></div>
+                        <div class="field-group"><label for="dividend-avkastning">Årlig avkastning (%)</label><input id="dividend-avkastning" name="dividend-avkastning" type="number" min="0" step="0.1" value="7" /><small class="field-help">Värdeutveckling i portföljen</small></div>
+                        <div class="field-group"><label for="dividend-direktavkastning">Direktavkastning (%)</label><input id="dividend-direktavkastning" name="dividend-direktavkastning" type="number" min="0" step="0.1" value="4" /><small class="field-help">Utdelning från innehavet</small></div>
+                        <div class="field-group"><label for="dividend-tillvaxt">Årlig utdelningstillväxt (%)</label><input id="dividend-tillvaxt" name="dividend-tillvaxt" type="number" min="0" step="0.1" value="3" /></div>
+                        <div class="field-group"><label for="dividend-avgift">Årlig avgift (%)</label><input id="dividend-avgift" name="dividend-avgift" type="number" min="0" step="0.05" value="0.2" /></div>
+                        <div class="field-group"><label for="dividend-inflation">Årlig inflation (%)</label><input id="dividend-inflation" name="dividend-inflation" type="number" min="0" step="0.1" value="2.5" /></div>
+                        <div class="field-group"><label for="dividend-ar">Antal år</label><input id="dividend-ar" name="dividend-ar" type="number" min="1" step="1" value="10" /></div>
+                        <div class="field-group"><label for="dividend-aterinvestera">Återinvestera utdelning</label><select id="dividend-aterinvestera" name="dividend-aterinvestera"><option value="true" selected>Ja</option><option value="false">Nej</option></select></div>
+                    </div>
+                    <button type="submit">Beräkna</button>
+                </form>
+                <div class="results" aria-live="polite">
+                    <div class="result-box highlight"><span class="label">Portföljvärde</span><strong id="dividend-portfoljvarde" class="result-value">0 kr</strong></div>
+                    <div class="result-box hidden" id="dividend-dagens-varde-box"><span class="label">Värde i dagens penningvärde</span><strong id="dividend-dagens-varde" class="result-value">0 kr</strong></div>
+                    <div class="result-box hidden" id="dividend-avgifter-totalt-box"><span class="label">Avgifter totalt</span><strong id="dividend-avgifter-totalt" class="result-value">0 kr</strong></div>
+                    <div class="result-box"><span class="label">Årlig utdelning</span><strong id="dividend-arlig-utdelning" class="result-value">0 kr</strong></div>
+                    <div class="result-box"><span class="label">Månadsutdelning</span><strong id="dividend-manadsutdelning" class="result-value">0 kr</strong></div>
+                    <div class="result-box"><span id="dividend-result-label" class="label">Utdelning utbetald</span><strong id="dividend-mottagna" class="result-value">0 kr</strong></div>
+                    <div class="result-box"><span class="label">Totalt insatt kapital</span><strong id="dividend-insatt-kapital" class="result-value">0 kr</strong></div>
+                </div>
+                <div class="chart-panel"><div class="chart-header"><h3>Utdelningsutveckling</h3></div><div class="chart-wrap"><canvas id="dividendChart" aria-label="Graf över portföljvärde och utdelning"></canvas></div></div>
+                <p class="note"><em>Utdelningsmodellen simulerar månadsvis och återinvesterar utdelningen om det valda alternativet är aktiverat.</em></p>
+            </div>
+        </section>
+
+        <section class="comparison-section" aria-labelledby="scenario-heading">
+            <div class="section-heading comparison-heading"><div><span class="section-kicker">Scenario</span><h2 id="scenario-heading">Jämför avkastningsscenarier</h2></div></div>
+            <div class="scenario-grid" id="scenarioGrid"></div>
+            <div class="scenario-chart-panel"><div class="chart-header"><h3>Slutvärde per scenario</h3></div><div class="chart-wrap small-chart-wrap"><canvas id="scenarioChart" aria-label="Jämförelse mellan avkastningsscenarier"></canvas></div></div>
+            <p class="scenario-note">Scenarierna visar avkastning före avgifter och är endast illustrativa. Historisk avkastning är ingen garanti för framtida avkastning.</p>
+        </section>
+
+        <div class="education-content">
+            <section class="education-section"><h2>Vad är ränta på ränta?</h2><p>Ränta på ränta betyder att avkastningen får möjlighet att skapa ytterligare avkastning. När kapitalet växer blir basen för framtida utveckling större. Utfallet beror på sparande, avgifter, tid och den avkastning du antar, och är inte en garanti för framtida resultat.</p></section>
+            <section class="education-section"><h2>Exempel på ränta på ränta</h2><p>Med 100 000 kr i startkapital, 1 000 kr i månadssparande, 8 % årlig avkastning, 0 % avgift och 0 % inflation blir utvecklingen följande:</p><div class="example-table-wrap"><table class="example-table"><caption>Illustrativ utveckling med samma beräkningsmodell som kalkylatorn</caption><thead><tr><th scope="col">Efter</th><th scope="col">Slutvärde</th><th scope="col">Insatt kapital</th></tr></thead><tbody><tr><th scope="row">10 år</th><td data-example-value="10">Beräknar...</td><td data-example-invested="10">Beräknar...</td></tr><tr><th scope="row">20 år</th><td data-example-value="20">Beräknar...</td><td data-example-invested="20">Beräknar...</td></tr><tr><th scope="row">30 år</th><td data-example-value="30">Beräknar...</td><td data-example-invested="30">Beräknar...</td></tr></tbody></table></div><p class="note">8 % är ett illustrativt antagande, inte en prognos eller garanti om framtida avkastning.</p></section>
+            <section class="education-section"><h2>Ränta på ränta med månadssparande</h2><p>Regelbundna insättningar ger kapitalet fler möjligheter att växa över tid, men varje månadsinsättning får olika lång tid på sig. Kalkylatorn ovan tar automatiskt med månadssparandet i beräkningen.</p></section>
+            <section class="education-section"><h2>Hur påverkar avgifter ränta på ränta?</h2><p>En årlig avgift minskar det kapital som kan fortsätta växa. Skillnaden kan bli större ju längre spartiden är. <a href="avgifter.html">Jämför hur olika avgifter påverkar ditt sparande</a> i NTM:s avgiftskalkylator.</p></section>
+            <section class="education-section"><h2>Hur påverkar inflation ditt sparande?</h2><p>Det framtida nominella värdet visar hur många kronor kapitalet kan motsvara då. Värdet i dagens penningvärde räknar i stället om beloppet med den angivna inflationen och ger en enklare bild av köpkraften över tid.</p></section>
+            <section class="education-section"><h2>Formel för ränta på ränta</h2><p>Den grundläggande formeln för ett engångsbelopp är:</p><p class="formula" aria-label="A är lika med P gånger parentes ett plus r parentes upphöjt till t"><var>A</var> = <var>P</var> × (1 + <var>r</var>)<sup><var>t</var></sup></p><dl class="formula-definitions"><div><dt><var>A</var></dt><dd>slutvärde</dd></div><div><dt><var>P</var></dt><dd>startkapital</dd></div><div><dt><var>r</var></dt><dd>årlig ränta eller avkastning som decimal</dd></div><div><dt><var>t</var></dt><dd>antal år</dd></div></dl><p>Formeln antar ett engångsbelopp och beskriver inte ensam månadssparande. Återkommande insättningar behöver räknas separat, vilket kalkylatorn gör automatiskt.</p></section>
+        </div>
+
+        <section class="faq-section" aria-labelledby="faq-heading"><h2 id="faq-heading">Vanliga frågor</h2><details><summary>Vad betyder ränta på ränta?</summary><p>Det betyder att tidigare avkastning ligger kvar och själv kan bidra till framtida avkastning.</p></details><details><summary>Hur räknar man ut ränta på ränta?</summary><p>För ett engångsbelopp kan du använda <var>A</var> = <var>P</var> × (1 + <var>r</var>)<sup><var>t</var></sup>. Månadssparande, avgifter och inflation behöver räknas med utöver grundformeln.</p></details><details><summary>Hur fungerar ränta på ränta med månadssparande?</summary><p>Varje insättning läggs till kapitalet och får möjlighet att växa under den återstående spartiden.</p></details><details><summary>Hur påverkar avgifter ränta på ränta?</summary><p>Avgifter minskar den avkastning som kan stanna kvar i kapitalet och växa vidare.</p></details><details><summary>Hur påverkar inflation resultatet?</summary><p>Inflation minskar köpkraften. Därför kan värdet i dagens penningvärde vara lägre än det nominella framtida värdet.</p></details><details><summary>Vilken avkastning ska jag använda i kalkylatorn?</summary><p>Använd ett försiktigt scenario som du vill undersöka. Framtida avkastning är osäker, så kalkylatorn ska användas för scenarier och inte som en prognos.</p></details></section>
+
+        <section class="related-tools" aria-labelledby="related-tools-heading"><div class="section-heading"><div><span class="section-kicker">Fler verktyg</span><h2 id="related-tools-heading">Relaterade verktyg</h2></div></div><div class="feature-grid"><article class="feature-card"><h3>Jämför avgifter</h3><p>Se hur olika avgiftsnivåer kan påverka kapitalets utveckling över tid.</p><a href="avgifter.html" class="secondary-btn">Jämför avgifter</a></article><article class="feature-card"><h3>Återhämtningskalkylator</h3><p>Räkna på vilken uppgång som krävs efter en nedgång.</p><a href="aterhamtning.html" class="secondary-btn">Öppna återhämtning</a></article></div></section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+      [10, 20, 30].forEach(function (years) {
+        var result = calculateProjection(100000, 1000, 8, 0, years);
+        document.querySelector('[data-example-value="' + years + '"]').textContent = formatCurrency(result.futureValue);
+        document.querySelector('[data-example-invested="' + years + '"]').textContent = formatCurrency(result.totalInvested);
+      });
+    </script>
+</body>
+</html>

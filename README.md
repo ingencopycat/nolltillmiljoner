@@ -55,7 +55,7 @@ Aktiva verktyg i dagsläget:
 
 Det finns även placeholders för framtida verktyg som inte är aktiva ännu, till exempel amorteringskalkylator och FIRE-kalkylator.
 
-### calculator.html
+### ranta-pa-ranta.html
 
 Huvudkalkylatorn för investeringar. Den har separata lägen för:
 
@@ -221,7 +221,7 @@ En gemensam footer-promo injectas av JavaScript och läggs till på sidorna via 
 
 Chart.js används i flera verktyg för att visualisera utveckling och jämförelser, bland annat i:
 
-- `calculator.html`
+- `ranta-pa-ranta.html`
 - `avgifter.html`
 - `havstang.html`
 
@@ -265,7 +265,7 @@ Följande principer används i praktiken och bör fortsätta gälla för future 
 
 - `index.html` — start/landing page
 - `verktyg.html` — verktygshub
-- `calculator.html` — investeringskalkylator med Tillväxt/Utdelning
+- `ranta-pa-ranta.html` — investeringskalkylator med Tillväxt/Utdelning
 - `avgifter.html` — avgiftsjämförelseverktyg
 - `havstang.html` — hävstångskalkylator
 - `aterhamtning.html` — återhämtningskalkylator
