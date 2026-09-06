@@ -1057,6 +1057,27 @@ body.light-theme .hero-panel {
   background: rgba(255, 255, 255, 0.01);
 }
 
+.ntm-macro-group {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  padding: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.ntm-macro-events {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.ntm-macro-event-row {
+  min-width: 0;
+}
+
 .ntm-event-time {
   display: inline-flex;
   align-items: center;
@@ -1346,6 +1367,16 @@ body.light-theme .hero-panel {
     gap: 8px;
     padding: 8px 6px;
     border-radius: 10px;
+  }
+
+  .ntm-macro-group {
+    gap: 8px;
+    padding: 7px 6px;
+    border-radius: 10px;
+  }
+
+  .ntm-macro-events {
+    gap: 6px;
   }
 
   .ntm-empty-state {

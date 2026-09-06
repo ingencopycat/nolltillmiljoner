@@ -1520,11 +1520,17 @@ function renderWeeklyEvents(now = getNtmNow()) {
     macroList.innerHTML = '<p class="ntm-empty-state">Inga större makrohändelser idag.</p>';
   } else {
     macroList.innerHTML = Object.values(macroGroups).map((events) => `
-      <div class="ntm-event-item">
+      <div class="ntm-macro-group">
         <span class="ntm-event-time">${formatEventTime(events[0], weeklyRecords.macroTimezone)}</span>
-        <div class="ntm-event-copy">
-          <strong>${events.map((event) => escapePostText(event.eventName || 'Makrohändelse')).join(', ')}</strong>
-          <small>${events.map((event) => [event.period, event.forecast, event.previous].filter(Boolean).join(' · ')).filter(Boolean).join('  |  ')}</small>
+        <div class="ntm-macro-events">
+          ${events.map((event) => `
+            <div class="ntm-macro-event-row">
+              <div class="ntm-event-copy">
+                <strong>${escapePostText(event.eventName || 'Makrohändelse')}</strong>
+                ${(event.period || event.forecast || event.previous) ? `<small>${[event.period, event.forecast, event.previous].filter(Boolean).join(' · ')}</small>` : ''}
+              </div>
+            </div>
+          `).join('')}
         </div>
       </div>
     `).join('');
