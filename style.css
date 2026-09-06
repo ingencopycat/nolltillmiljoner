@@ -920,10 +920,10 @@ body.light-theme .hero-panel {
 .ntm-extra-market-toggle {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   background: transparent;
-  border: none;
+  border: 1px solid transparent;
   color: var(--muted);
   font-size: 0.78rem;
   font-weight: 600;
@@ -932,18 +932,35 @@ body.light-theme .hero-panel {
   padding: 8px 6px;
   cursor: pointer;
   border-radius: 8px;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
   box-sizing: border-box;
 }
 
-.ntm-extra-market-toggle:hover,
+.ntm-extra-market-toggle-inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ntm-extra-market-toggle:hover {
+    color: var(--highlight);
+    background: rgba(255, 255, 255, 0.03);
+    border-color: var(--border);
+  }
+}
+
 .ntm-extra-market-toggle:focus-visible {
   color: var(--highlight);
   background: rgba(255, 255, 255, 0.03);
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 .ntm-toggle-arrow {
-  font-size: 0.88rem;
+  font-size: 0.78rem;
+  line-height: 1;
   transition: transform 0.2s ease;
 }
 
