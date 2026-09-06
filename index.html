@@ -71,17 +71,23 @@
             </div>
 
             <div class="ntm-market-overview">
-                <div class="ntm-widget-header">
+                <button id="ntmMarketToggle" class="ntm-mobile-market-toggle" type="button" aria-expanded="false" aria-controls="ntmMarketContent">
                     <span class="section-kicker section-kicker-small">Marknad</span>
-                </div>
-                <div id="ntmTradingViewWidget" class="tradingview-widget-wrap" aria-live="polite"></div>
+                    <span class="ntm-mobile-market-icon" aria-hidden="true">+</span>
+                </button>
 
-                <div class="ntm-extra-market-section">
-                    <button id="ntmExtraMarketToggle" class="ntm-extra-market-toggle" type="button" aria-expanded="false" aria-controls="ntmExtraMarketList">
-                        <span>Viktig marknadsdata</span>
-                        <span class="ntm-toggle-arrow" aria-hidden="true">↓</span>
-                    </button>
-                    <div id="ntmExtraMarketList" class="ntm-extra-market-list hidden" aria-hidden="true">
+                <div id="ntmMarketContent" class="ntm-market-content">
+                    <div class="ntm-widget-header">
+                        <span class="section-kicker section-kicker-small">Marknad</span>
+                    </div>
+                    <div id="ntmTradingViewWidget" class="tradingview-widget-wrap" aria-live="polite"></div>
+
+                    <div class="ntm-extra-market-section">
+                        <button id="ntmExtraMarketToggle" class="ntm-extra-market-toggle" type="button" aria-expanded="false" aria-controls="ntmExtraMarketList">
+                            <span>Viktig marknadsdata</span>
+                            <span class="ntm-toggle-arrow" aria-hidden="true">↓</span>
+                        </button>
+                        <div id="ntmExtraMarketList" class="ntm-extra-market-list hidden" aria-hidden="true">
                         <a href="https://www.tradingview.com/symbols/OMXSTO-OMXS30/" target="_blank" rel="noopener noreferrer" class="ntm-extra-market-item">
                             <div class="ntm-extra-market-info">
                                 <span class="ntm-extra-market-name">OMXS30</span>
@@ -117,6 +123,7 @@
                             </div>
                             <span class="ntm-extra-market-arrow" aria-hidden="true">↗</span>
                         </a>
+                        </div>
                     </div>
                 </div>
             </div>

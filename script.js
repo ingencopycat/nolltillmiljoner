@@ -1413,6 +1413,40 @@ function initExtraMarketToggle() {
   });
 }
 
+function initMobileMarketToggle() {
+  const toggleBtn = document.getElementById('ntmMarketToggle');
+  const content = document.getElementById('ntmMarketContent');
+  if (!toggleBtn || !content) return;
+
+  const isMobile = () => window.matchMedia('(max-width: 720px)').matches;
+  let wasMobile = isMobile();
+  const setExpanded = (expanded) => {
+    toggleBtn.setAttribute('aria-expanded', String(expanded));
+    content.setAttribute('aria-hidden', String(!expanded));
+    content.classList.toggle('is-expanded', expanded);
+
+    const icon = toggleBtn.querySelector('.ntm-mobile-market-icon');
+    if (icon) {
+      icon.textContent = expanded ? '−' : '+';
+    }
+  };
+
+  setExpanded(!isMobile());
+
+  toggleBtn.addEventListener('click', () => {
+    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+    setExpanded(!isExpanded);
+  });
+
+  window.addEventListener('resize', () => {
+    const currentlyMobile = isMobile();
+    if (currentlyMobile !== wasMobile) {
+      setExpanded(!currentlyMobile);
+      wasMobile = currentlyMobile;
+    }
+  });
+}
+
 const NTM_DISPLAY_TIMEZONE = 'Europe/Stockholm';
 const NTM_PRIORITY = { low: 1, medium: 2, high: 3 };
 
@@ -1521,6 +1555,7 @@ function initNtmToday() {
   updateGreeting();
   renderMarketStatus();
   renderTradingViewWidgetWhenReady();
+  initMobileMarketToggle();
   initExtraMarketToggle();
   renderWeeklyEvents();
   setInterval(() => {
