@@ -1098,6 +1098,8 @@ body.light-theme .hero-panel {
 @media (max-width: 720px) {
   .ntm-today-shell {
     padding: 22px 18px 14px;
+    min-width: 0;
+    overflow: hidden;
   }
 
   .ntm-today-header,
@@ -1117,6 +1119,49 @@ body.light-theme .hero-panel {
   .ntm-today-panels,
   .tradingview-widget-wrap {
     grid-template-columns: 1fr;
+  }
+
+  .tradingview-widget-wrap,
+  .ntm-market-card,
+  .ntm-market-card-body,
+  .ntm-market-card tv-single-ticker {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .ntm-market-card-body,
+  .ntm-market-card tv-single-ticker {
+    overflow: hidden;
+  }
+
+  .ntm-extra-market-toggle {
+    min-height: 40px;
+    padding: 8px 6px;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+  }
+
+  .ntm-extra-market-list {
+    grid-template-columns: 1fr;
+  }
+
+  .ntm-panel-header {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .ntm-panel-header .section-kicker-small {
+    font-size: 0.60rem;
+    padding: 5px 7px;
+  }
+
+  .ntm-panel-header .text-link {
+    font-size: 0.78rem;
+    line-height: 1.3;
   }
 }
 

@@ -1016,7 +1016,7 @@ function updateGreeting() {
     return;
   }
 
-  const now = new Date();
+  const now = getNtmNow();
   const hour = now.getHours();
 
   let greeting = 'God dag';
@@ -1068,6 +1068,33 @@ function buildExchangeDate(date, timeZone, timeString) {
 function getDateKeyInZone(date, timeZone) {
   const parts = getZonedDateParts(date, timeZone);
   return `${parts.year}-${parts.month}-${parts.day}`;
+}
+
+function getNtmPreviewDateKey() {
+  const value = new URLSearchParams(window.location.search).get('ntmDate');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value || '')) {
+    return null;
+  }
+
+  const [year, month, day] = value.split('-').map(Number);
+  const calendarCheck = new Date(Date.UTC(year, month - 1, day));
+  if (calendarCheck.getUTCFullYear() !== year || calendarCheck.getUTCMonth() !== month - 1 || calendarCheck.getUTCDate() !== day) {
+    return null;
+  }
+
+  return value;
+}
+
+function getNtmNow() {
+  const previewDateKey = getNtmPreviewDateKey();
+  if (!previewDateKey) {
+    return new Date();
+  }
+
+  const [year, month, day] = previewDateKey.split('-').map(Number);
+  const localNoonAsUtc = new Date(Date.UTC(year, month - 1, day, 12, 0, 0));
+  const offsetMinutes = getTimeZoneOffsetMinutes(localNoonAsUtc, NTM_DISPLAY_TIMEZONE);
+  return new Date(localNoonAsUtc.getTime() - offsetMinutes * 60000);
 }
 
 function formatClockDuration(milliseconds) {
@@ -1282,7 +1309,7 @@ function renderMarketStatus() {
       return;
     }
 
-    const status = getMarketStatus(key, new Date());
+    const status = getMarketStatus(key, getNtmNow());
     stateEl.textContent = status.statusLabel;
     timerEl.textContent = status.countdownText;
     timerEl.title = status.detail;
@@ -1357,6 +1384,16 @@ function renderTradingViewWidget() {
   }).join('');
 }
 
+function renderTradingViewWidgetWhenReady() {
+  renderTradingViewWidget();
+
+  if (window.customElements && typeof window.customElements.whenDefined === 'function') {
+    window.customElements.whenDefined('tv-single-ticker').then(() => {
+      renderTradingViewWidget();
+    });
+  }
+}
+
 function initExtraMarketToggle() {
   const toggleBtn = document.getElementById('ntmExtraMarketToggle');
   const listEl = document.getElementById('ntmExtraMarketList');
@@ -1420,7 +1457,7 @@ function getPriorityValue(priority) {
   return NTM_PRIORITY[priority] || 0;
 }
 
-function renderWeeklyEvents(now = new Date()) {
+function renderWeeklyEvents(now = getNtmNow()) {
   const macroList = document.getElementById('ntmMacroList');
   const earningsList = document.getElementById('ntmEarningsList');
   if (!macroList || !earningsList) {
@@ -1483,7 +1520,7 @@ function renderWeeklyEvents(now = new Date()) {
 function initNtmToday() {
   updateGreeting();
   renderMarketStatus();
-  renderTradingViewWidget();
+  renderTradingViewWidgetWhenReady();
   initExtraMarketToggle();
   renderWeeklyEvents();
   setInterval(() => {
@@ -1887,11 +1924,19 @@ if (dividendToggle) {
   });
 }
 
-initTheme();
-initNtmToday();
-injectInstagramPromo();
-initYoutubePosts();
-initPostSystem();
+function initPage() {
+  initTheme();
+  initNtmToday();
+  injectInstagramPromo();
+  initYoutubePosts();
+  initPostSystem();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPage, { once: true });
+} else {
+  initPage();
+}
 if (modeTabs.length) {
   setActiveMode('growth');
 }
