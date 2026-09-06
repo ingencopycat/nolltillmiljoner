@@ -1422,6 +1422,7 @@ function initMobileMarketToggle() {
   let wasMobile = isMobile();
   const setExpanded = (expanded) => {
     toggleBtn.setAttribute('aria-expanded', String(expanded));
+    toggleBtn.setAttribute('aria-label', expanded ? 'Dölj marknadsdata' : 'Visa marknadsdata');
     content.setAttribute('aria-hidden', String(!expanded));
     content.classList.toggle('is-expanded', expanded);
 

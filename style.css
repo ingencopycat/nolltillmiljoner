@@ -1178,14 +1178,18 @@ body.light-theme .hero-panel {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: auto;
+    flex: 0 0 auto;
     min-height: 40px;
-    padding: 5px 4px;
+    padding: 4px;
     border: 0;
     border-radius: 8px;
     background: transparent;
+    box-shadow: none;
     color: var(--muted);
     cursor: pointer;
+    font: inherit;
+    appearance: none;
     box-sizing: border-box;
   }
 
@@ -1226,8 +1230,10 @@ body.light-theme .hero-panel {
     visibility: visible;
   }
 
-  .ntm-market-content .ntm-widget-header {
-    display: none;
+  .ntm-market-overview > .ntm-widget-header {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0;
   }
 
   .ntm-widget-header {

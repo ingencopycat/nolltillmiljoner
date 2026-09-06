@@ -71,15 +71,14 @@
             </div>
 
             <div class="ntm-market-overview">
-                <button id="ntmMarketToggle" class="ntm-mobile-market-toggle" type="button" aria-expanded="false" aria-controls="ntmMarketContent">
+                <div class="ntm-widget-header">
                     <span class="section-kicker section-kicker-small">Marknad</span>
-                    <span class="ntm-mobile-market-icon" aria-hidden="true">+</span>
-                </button>
+                    <button id="ntmMarketToggle" class="ntm-mobile-market-toggle" type="button" aria-label="Visa marknadsdata" aria-expanded="false" aria-controls="ntmMarketContent">
+                        <span class="ntm-mobile-market-icon" aria-hidden="true">+</span>
+                    </button>
+                </div>
 
                 <div id="ntmMarketContent" class="ntm-market-content">
-                    <div class="ntm-widget-header">
-                        <span class="section-kicker section-kicker-small">Marknad</span>
-                    </div>
                     <div id="ntmTradingViewWidget" class="tradingview-widget-wrap" aria-live="polite"></div>
 
                     <div class="ntm-extra-market-section">
