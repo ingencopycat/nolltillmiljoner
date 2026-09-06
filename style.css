@@ -1255,6 +1255,16 @@ body.light-theme .hero-panel {
     line-height: 1;
   }
 
+  /* Pixel-measured optical correction: the "+" glyph's ink sits ~0.5px left/low of its box center */
+  .ntm-mobile-market-toggle[aria-expanded="false"] .ntm-mobile-market-icon {
+    transform: translate(0.5px, -0.5px);
+  }
+
+  /* Pixel-measured optical correction: the "−" glyph's ink sits ~0.5px low (already centered horizontally) */
+  .ntm-mobile-market-toggle[aria-expanded="true"] .ntm-mobile-market-icon {
+    transform: translateY(-0.5px);
+  }
+
   .ntm-market-content {
     max-height: 0;
     overflow: hidden;
@@ -1267,6 +1277,7 @@ body.light-theme .hero-panel {
     max-height: 5000px;
     opacity: 1;
     visibility: visible;
+    padding-top: 12px;
   }
 
   .ntm-market-overview > .ntm-widget-header {
