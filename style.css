@@ -1042,6 +1042,11 @@ body.light-theme .hero-panel {
   margin-bottom: 10px;
 }
 
+.ntm-panel-header .section-kicker-small,
+.ntm-panel-header .text-link {
+  margin: 0;
+}
+
 .ntm-event-list {
   display: grid;
   gap: 10px;
@@ -1108,10 +1113,19 @@ body.light-theme .hero-panel {
 }
 
 .ntm-empty-state {
+  margin: 0;
   color: var(--muted);
   font-size: 0.94rem;
   line-height: 1.4;
   padding: 4px 2px;
+}
+
+.ntm-event-panel.is-empty {
+  padding-bottom: 10px;
+}
+
+.ntm-event-panel.is-empty .ntm-panel-header {
+  margin-bottom: 6px;
 }
 
 .ntm-more-link {

@@ -1516,9 +1516,12 @@ function renderWeeklyEvents(now = getNtmNow()) {
     return groups;
   }, {});
 
+  const macroPanel = macroList.closest('.ntm-event-panel');
   if (!relevantMacroItems.length) {
     macroList.innerHTML = '<p class="ntm-empty-state">Inga större makrohändelser idag.</p>';
+    macroPanel?.classList.add('is-empty');
   } else {
+    macroPanel?.classList.remove('is-empty');
     macroList.innerHTML = Object.values(macroGroups).map((events) => `
       <div class="ntm-macro-group">
         <span class="ntm-event-time">${formatEventTime(events[0], weeklyRecords.macroTimezone)}</span>
@@ -1536,10 +1539,13 @@ function renderWeeklyEvents(now = getNtmNow()) {
     `).join('');
   }
 
+  const earningsPanel = earningsList.closest('.ntm-event-panel');
   if (!earningsItems.length) {
     earningsList.innerHTML = '<p class="ntm-empty-state">Inga större bolagsrapporter idag.</p>';
+    earningsPanel?.classList.add('is-empty');
     return;
   }
+  earningsPanel?.classList.remove('is-empty');
 
   const selectedEarnings = earningsItems.slice(0, 3);
   const remaining = Math.max(0, earningsItems.length - selectedEarnings.length);
