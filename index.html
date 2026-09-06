@@ -38,6 +38,108 @@
     </header>
 
     <main class="container">
+        <section class="card ntm-today-shell" id="ntmIdag" aria-labelledby="ntm-today-heading">
+            <div class="ntm-today-header">
+                <div class="ntm-greeting-wrap">
+                    <h2 id="ntm-today-heading">God dag</h2>
+                    <p id="ntmGreetingContext">Här är läget inför dagen.</p>
+                </div>
+            </div>
+
+            <div class="ntm-market-status-grid" aria-label="Marknadstatus">
+                <article class="market-status-card" data-market-card="stockholm">
+                    <div class="market-status-head">
+                        <span class="market-flag" aria-hidden="true">🇸🇪</span>
+                        <span class="market-name">Stockholm</span>
+                    </div>
+                    <div class="market-status-body">
+                        <span class="market-status-state" data-market-state="stockholm">Laddar…</span>
+                        <span class="market-status-countdown" data-market-timer="stockholm"></span>
+                    </div>
+                </article>
+
+                <article class="market-status-card" data-market-card="usa">
+                    <div class="market-status-head">
+                        <span class="market-flag" aria-hidden="true">🇺🇸</span>
+                        <span class="market-name">USA</span>
+                    </div>
+                    <div class="market-status-body">
+                        <span class="market-status-state" data-market-state="usa">Laddar…</span>
+                        <span class="market-status-countdown" data-market-timer="usa"></span>
+                    </div>
+                </article>
+            </div>
+
+            <div class="ntm-market-overview">
+                <div class="ntm-widget-header">
+                    <span class="section-kicker section-kicker-small">Marknad</span>
+                </div>
+                <div id="ntmTradingViewWidget" class="tradingview-widget-wrap" aria-live="polite"></div>
+
+                <div class="ntm-extra-market-section">
+                    <button id="ntmExtraMarketToggle" class="ntm-extra-market-toggle" type="button" aria-expanded="false" aria-controls="ntmExtraMarketList">
+                        <span>Viktig marknadsdata</span>
+                        <span class="ntm-toggle-arrow" aria-hidden="true">↓</span>
+                    </button>
+                    <div id="ntmExtraMarketList" class="ntm-extra-market-list hidden" aria-hidden="true">
+                        <a href="https://www.tradingview.com/symbols/OMXSTO-OMXS30/" target="_blank" rel="noopener noreferrer" class="ntm-extra-market-item">
+                            <div class="ntm-extra-market-info">
+                                <span class="ntm-extra-market-name">OMXS30</span>
+                                <span class="ntm-extra-market-desc">Svenska börsen</span>
+                            </div>
+                            <span class="ntm-extra-market-arrow" aria-hidden="true">↗</span>
+                        </a>
+                        <a href="https://www.tradingview.com/symbols/TVC-NDQ/" target="_blank" rel="noopener noreferrer" class="ntm-extra-market-item">
+                            <div class="ntm-extra-market-info">
+                                <span class="ntm-extra-market-name">Nasdaq 100</span>
+                                <span class="ntm-extra-market-desc">Amerikanskt tillväxt- och techindex</span>
+                            </div>
+                            <span class="ntm-extra-market-arrow" aria-hidden="true">↗</span>
+                        </a>
+                        <a href="https://www.tradingview.com/symbols/SP-SPX/" target="_blank" rel="noopener noreferrer" class="ntm-extra-market-item">
+                            <div class="ntm-extra-market-info">
+                                <span class="ntm-extra-market-name">S&P 500</span>
+                                <span class="ntm-extra-market-desc">Breda amerikanska aktiemarknaden</span>
+                            </div>
+                            <span class="ntm-extra-market-arrow" aria-hidden="true">↗</span>
+                        </a>
+                        <a href="https://www.tradingview.com/symbols/TVC-VIX/" target="_blank" rel="noopener noreferrer" class="ntm-extra-market-item">
+                            <div class="ntm-extra-market-info">
+                                <span class="ntm-extra-market-name">VIX</span>
+                                <span class="ntm-extra-market-desc">Volatilitet & marknadsrisk</span>
+                            </div>
+                            <span class="ntm-extra-market-arrow" aria-hidden="true">↗</span>
+                        </a>
+                        <a href="https://www.tradingview.com/symbols/TVC-US10Y/" target="_blank" rel="noopener noreferrer" class="ntm-extra-market-item">
+                            <div class="ntm-extra-market-info">
+                                <span class="ntm-extra-market-name">US 10Y</span>
+                                <span class="ntm-extra-market-desc">Amerikansk 10-årsränta</span>
+                            </div>
+                            <span class="ntm-extra-market-arrow" aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ntm-today-panels">
+                <article class="ntm-event-panel">
+                    <div class="ntm-panel-header">
+                        <span class="section-kicker section-kicker-small">Makro</span>
+                        <a class="text-link" href="makro.html">Visa hela makro →</a>
+                    </div>
+                    <div id="ntmMacroList" class="ntm-event-list"></div>
+                </article>
+
+                <article class="ntm-event-panel">
+                    <div class="ntm-panel-header">
+                        <span class="section-kicker section-kicker-small">Rapporter</span>
+                        <a class="text-link" href="rapporter.html">Visa alla rapporter →</a>
+                    </div>
+                    <div id="ntmEarningsList" class="ntm-event-list"></div>
+                </article>
+            </div>
+        </section>
+
         <section class="card page-card homepage-content">
             <section class="resource-category" aria-labelledby="latest-posts-heading">
                 <div class="category-header">
@@ -50,6 +152,9 @@
         </section>
     </main>
 
+    <script src="data/market-calendar.js"></script>
+    <script src="data/weekly-events.js"></script>
+    <script type="module" src="https://widgets.tradingview-widget.com/w/en/tv-single-ticker.js"></script>
     <script src="posts.js"></script>
     <script src="script.js"></script>
 </body>

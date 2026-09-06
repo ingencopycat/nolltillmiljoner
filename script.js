@@ -939,6 +939,560 @@ function injectInstagramPromo() {
   }
 }
 
+const NTM_TODAY_MESSAGE_POOLS = {
+  morning: [
+    'Här är läget inför dagen.',
+    'Vad händer på marknaden idag?',
+    'Dagens marknad på 30 sekunder.'
+  ],
+  day: [
+    'Så här ser marknaden ut just nu.',
+    'En snabb koll innan dagen är slut.',
+    'Det viktigaste att hålla koll på idag.'
+  ],
+  evening: [
+    'Så här ser marknaden ut just nu.',
+    'En snabb koll innan dagen är slut.',
+    'Läget just nu innan du går vidare.'
+  ],
+  night: [
+    'Marknaden sover. Du tydligen inte.',
+    'Midnight research? Vi dömer inte.',
+    'Aldrig för sent att kika på sparandet.'
+  ],
+  weekend: [
+    'Börsen är stängd. Det är okej att ta en paus ibland.',
+    'Ingen öppningsklocka idag. Perfekt läge att zooma ut.',
+    'Marknaden tar helg. Graferna finns kvar på måndag.'
+  ]
+};
+
+function safeSessionStorageGet(key) {
+  try {
+    return window.sessionStorage.getItem(key);
+  } catch (error) {
+    return null;
+  }
+}
+
+function safeSessionStorageSet(key, value) {
+  try {
+    window.sessionStorage.setItem(key, value);
+  } catch (error) {
+    // Ignore storage restrictions in private browsing or restricted contexts.
+  }
+}
+
+function getTimeSegment(date = new Date()) {
+  const hour = date.getHours();
+
+  if (hour >= 5 && hour < 11) return 'morning';
+  if (hour >= 11 && hour < 17) return 'day';
+  if (hour >= 17 && hour < 23) return 'evening';
+  return 'night';
+}
+
+function pickSessionMessage(date = new Date()) {
+  const segment = getTimeSegment(date);
+  const weekend = [0, 6].includes(date.getDay());
+  const pool = weekend ? NTM_TODAY_MESSAGE_POOLS.weekend : NTM_TODAY_MESSAGE_POOLS[segment] || NTM_TODAY_MESSAGE_POOLS.day;
+  const dateKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+  const key = `ntm-greeting-${dateKey}-${segment}`;
+  const existing = safeSessionStorageGet(key);
+  if (existing) {
+    return existing;
+  }
+
+  const index = Math.abs(date.getHours() + date.getMinutes() + date.getDate()) % pool.length;
+  const message = pool[index];
+  safeSessionStorageSet(key, message);
+  return message;
+}
+
+function updateGreeting() {
+  const heading = document.getElementById('ntm-today-heading');
+  const context = document.getElementById('ntmGreetingContext');
+  if (!heading || !context) {
+    return;
+  }
+
+  const now = new Date();
+  const hour = now.getHours();
+
+  let greeting = 'God dag';
+  if (hour >= 5 && hour < 11) greeting = 'God morgon';
+  else if (hour >= 11 && hour < 17) greeting = 'God dag';
+  else if (hour >= 17 && hour < 23) greeting = 'God kväll';
+  else greeting = 'Nattuggla?';
+
+  heading.textContent = greeting;
+  context.textContent = pickSessionMessage(now);
+}
+
+function getZonedDateParts(date, timeZone) {
+  const formatter = new Intl.DateTimeFormat('en-CA', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  });
+
+  const values = {};
+  formatter.formatToParts(date).forEach((part) => {
+    if (part.type !== 'literal') {
+      values[part.type] = part.value;
+    }
+  });
+
+  return values;
+}
+
+function getTimeZoneOffsetMinutes(date, timeZone) {
+  const utcValue = new Date(date.toLocaleString('en-US', { timeZone: 'UTC' })).getTime();
+  const zoneValue = new Date(date.toLocaleString('en-US', { timeZone })).getTime();
+  return (zoneValue - utcValue) / 60000;
+}
+
+function buildExchangeDate(date, timeZone, timeString) {
+  const parts = getZonedDateParts(date, timeZone);
+  const [hours, minutes] = timeString.split(':').map(Number);
+  const utcValue = Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day), hours, minutes, 0);
+  const offsetMinutes = getTimeZoneOffsetMinutes(new Date(utcValue), timeZone);
+  return new Date(utcValue - offsetMinutes * 60000);
+}
+
+function getDateKeyInZone(date, timeZone) {
+  const parts = getZonedDateParts(date, timeZone);
+  return `${parts.year}-${parts.month}-${parts.day}`;
+}
+
+function formatClockDuration(milliseconds) {
+  if (!Number.isFinite(milliseconds) || milliseconds <= 0) {
+    return 'nu';
+  }
+
+  const totalMinutes = Math.ceil(milliseconds / 60000);
+  const days = Math.floor(totalMinutes / (24 * 60));
+  const remainingMinutes = totalMinutes % (24 * 60);
+  const hours = Math.floor(remainingMinutes / 60);
+  const minutes = remainingMinutes % 60;
+
+  if (days > 0) {
+    const dayLabel = days === 1 ? '1 dag' : `${days} dagar`;
+    return `${dayLabel} ${hours}h ${minutes}m`;
+  }
+
+  if (hours > 0) {
+    return `${hours}h ${minutes}m`;
+  }
+
+  return `${minutes}m`;
+}
+
+function getMarketCalendar(exchangeKey) {
+  return window.NTM_MARKET_CALENDAR && window.NTM_MARKET_CALENDAR[exchangeKey] ? window.NTM_MARKET_CALENDAR[exchangeKey] : null;
+}
+
+function getDaySchedule(exchangeKey, dateKey, dayOfWeek, calendar) {
+  if (dayOfWeek === 0 || dayOfWeek === 6) {
+    return { isTradingDay: false, isClosed: true, reason: 'weekend' };
+  }
+
+  const [yearStr] = dateKey.split('-');
+  const year = Number(yearStr);
+  const yearData = calendar.years && calendar.years[year];
+
+  if (!yearData) {
+    return {
+      isTradingDay: null,
+      isUnknownYear: true,
+      openTimeStr: calendar.regularOpen,
+      closeTimeStr: calendar.regularClose
+    };
+  }
+
+  const isClosed = Array.isArray(yearData.closed) && yearData.closed.includes(dateKey);
+  if (isClosed) {
+    return { isTradingDay: false, isClosed: true, reason: 'holiday' };
+  }
+
+  const isHalfDay = Array.isArray(yearData.halfDays) && yearData.halfDays.includes(dateKey);
+  const closeTimeStr = isHalfDay && calendar.halfDayClose ? calendar.halfDayClose : calendar.regularClose;
+
+  return {
+    isTradingDay: true,
+    isClosed: false,
+    isHalfDay,
+    openTimeStr: calendar.regularOpen,
+    closeTimeStr
+  };
+}
+
+function getNextTradingDay(exchangeKey, startDate, calendar) {
+  const timezone = calendar.timezone || 'UTC';
+  const cursor = new Date(startDate);
+
+  for (let day = 1; day <= 30; day += 1) {
+    cursor.setDate(cursor.getDate() + 1);
+    const dateKey = getDateKeyInZone(cursor, timezone);
+    const parts = getZonedDateParts(cursor, timezone);
+    const d = new Date(Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day)));
+    const dayOfWeek = d.getUTCDay();
+
+    const schedule = getDaySchedule(exchangeKey, dateKey, dayOfWeek, calendar);
+
+    if (schedule.isUnknownYear) {
+      return {
+        date: cursor,
+        dateKey,
+        isUnknownYear: true,
+        openTimeStr: schedule.openTimeStr,
+        closeTimeStr: schedule.closeTimeStr
+      };
+    }
+
+    if (schedule.isTradingDay) {
+      return {
+        date: cursor,
+        dateKey,
+        isHalfDay: schedule.isHalfDay,
+        openTimeStr: schedule.openTimeStr,
+        closeTimeStr: schedule.closeTimeStr
+      };
+    }
+  }
+
+  return null;
+}
+
+function getMarketStatus(exchangeKey, now = new Date()) {
+  const calendar = getMarketCalendar(exchangeKey);
+  if (!calendar || !calendar.timezone || !calendar.regularOpen || !calendar.regularClose) {
+    return {
+      isOpen: null,
+      statusLabel: 'Data saknas',
+      countdownText: 'Kalender saknas',
+      detail: 'Marknadskalendern saknas eller är ofullständig.'
+    };
+  }
+
+  const timezone = calendar.timezone;
+  const dateKey = getDateKeyInZone(now, timezone);
+  const parts = getZonedDateParts(now, timezone);
+  const d = new Date(Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day)));
+  const dayOfWeek = d.getUTCDay();
+
+  const todaySchedule = getDaySchedule(exchangeKey, dateKey, dayOfWeek, calendar);
+
+  if (todaySchedule.isUnknownYear) {
+    return {
+      isOpen: null,
+      statusLabel: 'Kalender saknas',
+      countdownText: 'Kalenderdata saknas för året',
+      detail: `Kalenderdata saknas för år ${parts.year}.`
+    };
+  }
+
+  if (!todaySchedule.isTradingDay) {
+    const nextTradingDay = getNextTradingDay(exchangeKey, now, calendar);
+    if (!nextTradingDay || nextTradingDay.isUnknownYear) {
+      return {
+        isOpen: false,
+        statusLabel: 'Stängd',
+        countdownText: 'Kalenderdata saknas för nästa år',
+        detail: 'Kalenderdata saknas för framtida år.'
+      };
+    }
+
+    const nextOpenTime = buildExchangeDate(nextTradingDay.date, timezone, nextTradingDay.openTimeStr);
+    const diffMs = nextOpenTime - now;
+
+    return {
+      isOpen: false,
+      statusLabel: 'Stängd',
+      countdownText: nextOpenTime ? `Öppnar om ${formatClockDuration(diffMs)}` : 'Kalender saknas',
+      detail: nextOpenTime
+        ? `Nästa öppning ${new Intl.DateTimeFormat('sv-SE', { day: 'numeric', month: 'short', timeZone: timezone }).format(nextOpenTime)} kl. ${nextTradingDay.openTimeStr}`
+        : 'Ingen öppen tid tillgänglig.'
+    };
+  }
+
+  const openTime = buildExchangeDate(now, timezone, todaySchedule.openTimeStr);
+  const closeTime = buildExchangeDate(now, timezone, todaySchedule.closeTimeStr);
+
+  if (now >= openTime && now < closeTime) {
+    const diffMs = closeTime - now;
+    const dayTypeLabel = todaySchedule.isHalfDay ? ' (Halvdag)' : '';
+    return {
+      isOpen: true,
+      statusLabel: '● Öppen',
+      countdownText: `Stänger om ${formatClockDuration(diffMs)}`,
+      detail: `Öppettider ${todaySchedule.openTimeStr}–${todaySchedule.closeTimeStr}${dayTypeLabel}`
+    };
+  }
+
+  if (now < openTime) {
+    const diffMs = openTime - now;
+    const dayTypeLabel = todaySchedule.isHalfDay ? ' (Halvdag)' : '';
+    return {
+      isOpen: false,
+      statusLabel: 'Stängd',
+      countdownText: `Öppnar om ${formatClockDuration(diffMs)}`,
+      detail: `Öppnar idag kl. ${todaySchedule.openTimeStr}${dayTypeLabel}`
+    };
+  }
+
+  const nextTradingDay = getNextTradingDay(exchangeKey, now, calendar);
+  if (!nextTradingDay || nextTradingDay.isUnknownYear) {
+    return {
+      isOpen: false,
+      statusLabel: 'Stängd',
+      countdownText: 'Kalenderdata saknas för nästa år',
+      detail: 'Kalenderdata saknas för framtida år.'
+    };
+  }
+
+  const nextOpenTime = buildExchangeDate(nextTradingDay.date, timezone, nextTradingDay.openTimeStr);
+  const diffMs = nextOpenTime - now;
+
+  return {
+    isOpen: false,
+    statusLabel: 'Stängd',
+    countdownText: nextOpenTime ? `Öppnar om ${formatClockDuration(diffMs)}` : 'Kalender saknas',
+    detail: nextOpenTime
+      ? `Nästa öppning ${new Intl.DateTimeFormat('sv-SE', { day: 'numeric', month: 'short', timeZone: timezone }).format(nextOpenTime)} kl. ${nextTradingDay.openTimeStr}`
+      : 'Ingen öppen tid tillgänglig.'
+  };
+}
+
+function renderMarketStatus() {
+  const rates = [
+    { key: 'stockholm', title: 'Stockholm' },
+    { key: 'usa', title: 'USA' }
+  ];
+
+  rates.forEach(({ key, title }) => {
+    const stateEl = document.querySelector(`[data-market-state="${key}"]`);
+    const timerEl = document.querySelector(`[data-market-timer="${key}"]`);
+    if (!stateEl || !timerEl) {
+      return;
+    }
+
+    const status = getMarketStatus(key, new Date());
+    stateEl.textContent = status.statusLabel;
+    timerEl.textContent = status.countdownText;
+    timerEl.title = status.detail;
+    stateEl.title = status.detail;
+  });
+}
+
+const NTM_MARKET_INSTRUMENTS = [
+  {
+    id: 'oil',
+    name: 'Olja',
+    provider: 'tradingview',
+    symbol: 'TVC:UKOIL',
+    status: 'active'
+  },
+  {
+    id: 'gold',
+    name: 'Guld',
+    provider: 'tradingview',
+    symbol: 'TVC:GOLD',
+    status: 'active'
+  },
+  {
+    id: 'silver',
+    name: 'Silver',
+    provider: 'tradingview',
+    symbol: 'TVC:SILVER',
+    status: 'active'
+  },
+  {
+    id: 'usdsek',
+    name: 'USD/SEK',
+    provider: 'tradingview',
+    symbol: 'FX_IDC:USDSEK',
+    status: 'active'
+  },
+  {
+    id: 'bitcoin',
+    name: 'Bitcoin',
+    provider: 'tradingview',
+    symbol: 'BITSTAMP:BTCUSD',
+    status: 'active'
+  },
+  {
+    id: 'ethereum',
+    name: 'Ethereum',
+    provider: 'tradingview',
+    symbol: 'BITSTAMP:ETHUSD',
+    status: 'active'
+  }
+];
+
+function renderTradingViewWidget() {
+  const container = document.getElementById('ntmTradingViewWidget');
+  if (!container) {
+    return;
+  }
+
+  const theme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
+
+  container.innerHTML = NTM_MARKET_INSTRUMENTS.map((item) => {
+    return `
+      <article class="ntm-market-card" aria-label="${item.name} prisuppdatering">
+        <div class="ntm-market-card-header">
+          <span>${item.name}</span>
+        </div>
+        <div class="ntm-market-card-body">
+          <tv-single-ticker symbol="${item.symbol}" theme="${theme}" locale="sv" transparent></tv-single-ticker>
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+
+function initExtraMarketToggle() {
+  const toggleBtn = document.getElementById('ntmExtraMarketToggle');
+  const listEl = document.getElementById('ntmExtraMarketList');
+  if (!toggleBtn || !listEl) return;
+
+  toggleBtn.addEventListener('click', () => {
+    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+    const nextState = !isExpanded;
+    toggleBtn.setAttribute('aria-expanded', String(nextState));
+    listEl.classList.toggle('hidden', !nextState);
+    listEl.setAttribute('aria-hidden', String(!nextState));
+
+    const arrow = toggleBtn.querySelector('.ntm-toggle-arrow');
+    if (arrow) {
+      arrow.textContent = nextState ? '↑' : '↓';
+    }
+  });
+}
+
+const NTM_DISPLAY_TIMEZONE = 'Europe/Stockholm';
+const NTM_PRIORITY = { low: 1, medium: 2, high: 3 };
+
+function getTodayDateKey(date = new Date()) {
+  return getDateKeyInZone(date, NTM_DISPLAY_TIMEZONE);
+}
+
+function getSourceDateTime(dateKey, time, timeZone) {
+  const [year, month, day] = dateKey.split('-').map(Number);
+  const [hours, minutes] = time.split(':').map(Number);
+  const utcValue = Date.UTC(year, month - 1, day, hours, minutes, 0);
+  const offsetMinutes = getTimeZoneOffsetMinutes(new Date(utcValue), timeZone);
+  return new Date(utcValue - offsetMinutes * 60000);
+}
+
+function formatEventTime(event, sourceTimezone) {
+  if (!event.time) {
+    return 'Tid ej angiven';
+  }
+
+  return new Intl.DateTimeFormat('sv-SE', {
+    timeZone: NTM_DISPLAY_TIMEZONE,
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  }).format(getSourceDateTime(event.date, event.time, sourceTimezone));
+}
+
+function getWeeklyRecords() {
+  const weeklyEvents = window.NTM_WEEKLY_EVENTS || {};
+  const macroWeek = Object.values(weeklyEvents.macroWeeks || {})[0];
+  const earningsWeek = Object.values(weeklyEvents.earningsWeeks || {})[0];
+
+  return {
+    macro: macroWeek ? macroWeek.events : weeklyEvents.macro || [],
+    macroTimezone: macroWeek ? macroWeek.sourceTimezone : 'America/New_York',
+    earnings: earningsWeek ? earningsWeek.reports : weeklyEvents.earnings || []
+  };
+}
+
+function getPriorityValue(priority) {
+  return NTM_PRIORITY[priority] || 0;
+}
+
+function renderWeeklyEvents(now = new Date()) {
+  const macroList = document.getElementById('ntmMacroList');
+  const earningsList = document.getElementById('ntmEarningsList');
+  if (!macroList || !earningsList) {
+    return;
+  }
+
+  const weeklyRecords = getWeeklyRecords();
+  const todayKey = getTodayDateKey(now);
+
+  const macroItems = weeklyRecords.macro.filter((event) => event && event.date === todayKey);
+  const earningsItems = weeklyRecords.earnings
+    .filter((event) => event && event.date === todayKey)
+    .sort((a, b) => getPriorityValue(b.priority) - getPriorityValue(a.priority));
+
+  const highestMacroPriority = Math.max(...macroItems.map((event) => getPriorityValue(event.priority)), 0);
+  const relevantMacroItems = macroItems.filter((event) => getPriorityValue(event.priority) === (highestMacroPriority >= getPriorityValue('medium') ? highestMacroPriority : 0));
+  const macroGroups = relevantMacroItems.reduce((groups, event) => {
+    const key = event.time || 'unknown';
+    groups[key] = groups[key] || [];
+    groups[key].push(event);
+    return groups;
+  }, {});
+
+  if (!relevantMacroItems.length) {
+    macroList.innerHTML = '<p class="ntm-empty-state">Inga större makrohändelser idag.</p>';
+  } else {
+    macroList.innerHTML = Object.values(macroGroups).map((events) => `
+      <div class="ntm-event-item">
+        <span class="ntm-event-time">${formatEventTime(events[0], weeklyRecords.macroTimezone)}</span>
+        <div class="ntm-event-copy">
+          <strong>${events.map((event) => escapePostText(event.eventName || 'Makrohändelse')).join(', ')}</strong>
+          <small>${events.map((event) => [event.period, event.forecast, event.previous].filter(Boolean).join(' · ')).filter(Boolean).join('  |  ')}</small>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  if (!earningsItems.length) {
+    earningsList.innerHTML = '<p class="ntm-empty-state">Inga större bolagsrapporter idag.</p>';
+    return;
+  }
+
+  const selectedEarnings = earningsItems.slice(0, 3);
+  const remaining = Math.max(0, earningsItems.length - selectedEarnings.length);
+
+  earningsList.innerHTML = selectedEarnings.map((event) => {
+    const timingText = event.timing === 'before-open' ? 'Före öppning' : event.timing === 'after-close' ? 'Efter stängning' : 'Tidpunkt ej angiven';
+    return `
+      <div class="ntm-event-item">
+        <span class="ntm-event-time">${escapePostText(event.ticker || 'BOL')}</span>
+        <div class="ntm-event-copy">
+          <strong>${escapePostText(event.companyName || 'Bolag')}</strong>
+          <small>${timingText}</small>
+        </div>
+      </div>
+    `;
+  }).join('') + (remaining > 0 ? `<a class="text-link ntm-more-link" href="rapporter.html">Visa ${remaining} till →</a>` : '');
+}
+
+function initNtmToday() {
+  updateGreeting();
+  renderMarketStatus();
+  renderTradingViewWidget();
+  initExtraMarketToggle();
+  renderWeeklyEvents();
+  setInterval(() => {
+    updateGreeting();
+    renderMarketStatus();
+    renderWeeklyEvents();
+  }, 60000);
+}
+
 function escapePostText(value) {
   return String(value).replace(/[&<>'"]/g, (character) => ({
     '&': '&amp;',
@@ -1298,6 +1852,7 @@ if (themeToggle) {
     const nextTheme = isLight ? 'dark' : 'light';
     localStorage.setItem('investment-theme', nextTheme);
     applyTheme(nextTheme);
+    renderTradingViewWidget();
 
     if (form) {
       renderChart();
@@ -1333,6 +1888,7 @@ if (dividendToggle) {
 }
 
 initTheme();
+initNtmToday();
 injectInstagramPromo();
 initYoutubePosts();
 initPostSystem();
