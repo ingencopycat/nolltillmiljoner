@@ -4,6 +4,7 @@ const feeForm = document.getElementById('avgifts-form');
 const leverageForm = document.getElementById('leverage-form');
 const recoveryForm = document.getElementById('recovery-form');
 const dailyLeverageForm = document.getElementById('daily-leverage-form');
+const fireCalculatorForm = document.getElementById('fire-form');
 const themeToggle = document.getElementById('themeToggle');
 const modeTabs = document.querySelectorAll('.mode-tab[data-mode]');
 const leverageModeTabs = document.querySelectorAll('.mode-tab[data-leverage-mode]');
@@ -22,11 +23,16 @@ let dailyLeverageChart = null;
 let currentLeverageMode = 'belaning';
 
 function formatCurrency(value) {
+  const numericValue = Number(value);
+  if (!Number.isFinite(numericValue)) {
+    return '0 kr';
+  }
+
   return new Intl.NumberFormat('sv-SE', {
     style: 'currency',
     currency: 'SEK',
     maximumFractionDigits: 0
-  }).format(value);
+  }).format(numericValue);
 }
 
 function setActiveMode(mode) {
@@ -885,6 +891,612 @@ function calculateInvestment() {
 
   renderChart();
   renderScenarioComparison();
+}
+
+function formatPercent(value, digits = 1) {
+  const numericValue = Number(value);
+  if (!Number.isFinite(numericValue)) {
+    return `0${digits > 0 ? ',' : ''}${digits > 0 ? '0'.repeat(digits) : ''} %`;
+  }
+  return `${numericValue.toFixed(digits).replace('.', ',')} %`;
+}
+
+function formatYearsAndMonths(months) {
+  if (!Number.isFinite(months) || months < 0) {
+    return '—';
+  }
+
+  const totalMonths = Math.round(months);
+  const years = Math.floor(totalMonths / 12);
+  const remainderMonths = totalMonths % 12;
+
+  if (totalMonths === 0) {
+    return '0 mån';
+  }
+
+  if (years === 0) {
+    return `${remainderMonths} mån`;
+  }
+
+  if (remainderMonths === 0) {
+    return `${years} år`;
+  }
+
+  return `${years} år ${remainderMonths} mån`;
+}
+
+function formatAgeYears(ageYears) {
+  if (!Number.isFinite(ageYears) || ageYears < 0) {
+    return '—';
+  }
+
+  const years = Math.floor(ageYears);
+  const totalMonths = Math.round((ageYears - years) * 12);
+  const months = totalMonths === 12 ? 0 : totalMonths;
+  const normalizedYears = totalMonths === 12 ? years + 1 : years;
+
+  if (months === 0) {
+    return `${normalizedYears} år`;
+  }
+
+  return `${normalizedYears} år ${months} mån`;
+}
+
+function calculateRealReturn(nominalReturn, inflationRate) {
+  const nominalRate = Number.isFinite(nominalReturn) ? nominalReturn / 100 : 0;
+  const inflation = Number.isFinite(inflationRate) ? inflationRate / 100 : 0;
+
+  if (Math.abs(1 + inflation) < 1e-12) {
+    return 0;
+  }
+
+  return ((1 + nominalRate) / (1 + inflation)) - 1;
+}
+
+function getFireInputs() {
+  return {
+    monthlyExpenses: Math.max(0, Number(document.getElementById('fire-monthly-expenses').value) || 0),
+    currentCapital: Math.max(0, Number(document.getElementById('fire-current-capital').value) || 0),
+    monthlySavings: Math.max(0, Number(document.getElementById('fire-monthly-savings').value) || 0),
+    nominalReturn: Number(document.getElementById('fire-return').value) || 0,
+    inflation: Number(document.getElementById('fire-inflation').value) || 0,
+    withdrawalRate: Number(document.getElementById('fire-withdrawal-rate').value) || 0,
+    currentAge: Math.max(0, Number(document.getElementById('fire-age').value) || 0)
+  };
+}
+
+function simulateFire(inputs) {
+  const monthlyExpenses = Math.max(0, Number(inputs.monthlyExpenses) || 0);
+  const currentCapital = Math.max(0, Number(inputs.currentCapital) || 0);
+  const monthlySavings = Math.max(0, Number(inputs.monthlySavings) || 0);
+  const nominalReturn = Number.isFinite(inputs.nominalReturn) ? inputs.nominalReturn : 0;
+  const inflation = Number.isFinite(inputs.inflation) ? inputs.inflation : 0;
+  const withdrawalRate = Number.isFinite(inputs.withdrawalRate) ? inputs.withdrawalRate : 0;
+  const currentAge = Number.isFinite(inputs.currentAge) ? inputs.currentAge : 0;
+
+  const realAnnualReturn = calculateRealReturn(nominalReturn, inflation);
+  const fireTarget = withdrawalRate > 0 ? (monthlyExpenses * 12) / (withdrawalRate / 100) : Number.POSITIVE_INFINITY;
+  const monthlyRate = Number.isFinite(realAnnualReturn) ? Math.pow(1 + realAnnualReturn, 1 / 12) - 1 : 0;
+  const maxMonths = 1200;
+
+  const series = [{ month: 0, value: currentCapital }];
+  let portfolio = currentCapital;
+  let reached = false;
+  let reachedMonth = 0;
+  let reachedAge = currentAge;
+  let finalValue = currentCapital;
+  let fireStartValue = currentCapital;
+  let unreachable = false;
+
+  if (Number.isFinite(fireTarget) && fireTarget > 0) {
+    if (currentCapital >= fireTarget) {
+      reached = true;
+      reachedMonth = 0;
+      reachedAge = currentAge;
+      fireStartValue = currentCapital;
+    }
+
+    for (let month = 1; month <= maxMonths; month += 1) {
+      portfolio = portfolio * (1 + monthlyRate) + monthlySavings;
+      series.push({ month, value: portfolio });
+      finalValue = portfolio;
+
+      if (!reached && portfolio >= fireTarget) {
+        reached = true;
+        reachedMonth = month;
+        reachedAge = currentAge + month / 12;
+        fireStartValue = portfolio;
+      }
+    }
+
+    if (!reached && monthlyRate <= 0 && portfolio < fireTarget) {
+      unreachable = true;
+    }
+
+    if (!reached && series.length >= maxMonths + 1) {
+      unreachable = true;
+    }
+  } else if (withdrawalRate <= 0) {
+    unreachable = true;
+  }
+
+  const alreadyAtFire = Number.isFinite(fireTarget) && currentCapital >= fireTarget;
+  const progressPercent = Number.isFinite(fireTarget) && fireTarget > 0 ? Math.min(100, Math.max(0, (currentCapital / fireTarget) * 100)) : 0;
+  const capitalRemaining = Number.isFinite(fireTarget) && fireTarget > currentCapital ? Math.max(0, fireTarget - currentCapital) : 0;
+
+  return {
+    monthlyExpenses,
+    currentCapital,
+    monthlySavings,
+    nominalReturn,
+    inflation,
+    withdrawalRate,
+    currentAge,
+    realAnnualReturn,
+    fireTarget,
+    reached,
+    alreadyAtFire,
+    reachedMonth,
+    reachedAge,
+    finalValue,
+    fireStartValue,
+    progressPercent,
+    capitalRemaining,
+    unreachable,
+    series,
+    monthlyRate
+  };
+}
+
+function buildFireChartSeries(simulation) {
+  const values = simulation.series;
+  const dataPoints = [];
+  const labels = [];
+  const maxYears = simulation.reached
+    ? Math.max(10, Math.ceil(simulation.reachedMonth / 12) + 5)
+    : Math.max(10, Math.ceil((values.length - 1) / 12));
+
+  for (let year = 0; year <= maxYears; year += 1) {
+    const monthIndex = year * 12;
+    const point = values[Math.min(monthIndex, values.length - 1)];
+    labels.push(String(year));
+    dataPoints.push(point ? point.value : values[values.length - 1].value);
+  }
+
+  const targetLine = labels.map(() => Number.isFinite(simulation.fireTarget) ? simulation.fireTarget : 0);
+
+  return { labels, dataPoints, targetLine };
+}
+
+function buildPostFireProjection(simulation) {
+  if (!simulation || !Number.isFinite(simulation.fireTarget) || !simulation.reached) {
+    return null;
+  }
+
+  const monthlyExpenses = Math.max(0, Number(simulation.monthlyExpenses) || 0);
+  const fireStartValue = Number.isFinite(simulation.fireStartValue) ? simulation.fireStartValue : simulation.currentCapital;
+  const realAnnualReturn = Number.isFinite(simulation.realAnnualReturn) ? simulation.realAnnualReturn : 0;
+  const monthlyRate = Number.isFinite(realAnnualReturn) ? Math.pow(1 + realAnnualReturn, 1 / 12) - 1 : 0;
+  const months = 30 * 12;
+  const series = [{ month: 0, value: fireStartValue, withdrawal: 0 }];
+  let portfolio = fireStartValue;
+
+  for (let month = 1; month <= months; month += 1) {
+    // Order used: first monthly real growth, then monthly real withdrawal.
+    portfolio = portfolio * (1 + monthlyRate);
+    const withdrawal = Math.min(Math.max(0, portfolio), monthlyExpenses);
+    portfolio = Math.max(0, portfolio - withdrawal);
+    series.push({ month, value: portfolio, withdrawal });
+  }
+
+  return { series, fireStartValue, monthlyExpenses, monthlyRate };
+}
+
+function buildPostFireChartSeries(simulation) {
+  const postFireProjection = buildPostFireProjection(simulation);
+  if (!postFireProjection) {
+    return { labels: ['0'], dataPoints: [0], targetLine: [0] };
+  }
+
+  const labels = [];
+  const dataPoints = [];
+  const targetLine = [];
+  const values = postFireProjection.series;
+
+  for (let year = 0; year <= 30; year += 1) {
+    const monthIndex = year * 12;
+    const point = values[Math.min(monthIndex, values.length - 1)];
+    labels.push(String(year));
+    dataPoints.push(point ? Math.max(0, Number(point.value) || 0) : 0);
+    targetLine.push(Number.isFinite(simulation.fireTarget) ? simulation.fireTarget : 0);
+  }
+
+  return { labels, dataPoints, targetLine };
+}
+
+function getPostFireStatus(projection) {
+  const finalPoint = projection.series[projection.series.length - 1];
+  const finalValue = Math.max(0, Number(finalPoint?.value) || 0);
+  const depletionMonth = projection.series.findIndex((point) => Number(point.value) <= 0 && point.month > 0);
+
+  if (depletionMonth >= 0) {
+    return {
+      type: 'depleted',
+      title: 'Kapitalet tar slut',
+      text: `Med dessa antaganden tar kapitalet slut efter cirka ${formatYearsAndMonths(depletionMonth)}.`,
+      finalValue,
+      depletionMonth
+    };
+  }
+
+  if (finalValue > projection.fireStartValue) {
+    return {
+      type: 'grows',
+      title: 'Kapitalet växer',
+      text: 'Med dessa antaganden är portföljvärdet högre efter 30 år trots uttagen.',
+      finalValue,
+      depletionMonth: -1
+    };
+  }
+
+  return {
+    type: 'declines',
+    title: 'Kapitalet minskar',
+    text: 'Portföljen finns kvar efter 30 år, men kapitalet är lägre än när FIRE började.',
+    finalValue,
+    depletionMonth: -1
+  };
+}
+
+function formatDepletionTime(totalMonths) {
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+
+  if (years === 0) {
+    return `${months} ${months === 1 ? 'månad' : 'månader'}`;
+  }
+
+  if (months === 0) {
+    return `${years} år`;
+  }
+
+  return `${years} år ${months} ${months === 1 ? 'månad' : 'månader'}`;
+}
+
+function updateFirePostFireCallout(simulation) {
+  const callout = document.getElementById('fire-post-fire-callout');
+  const message = document.getElementById('fire-post-fire-message');
+  if (!callout || !message) {
+    return;
+  }
+
+  const projection = buildPostFireProjection(simulation);
+  if (!projection) {
+    callout.hidden = true;
+    return;
+  }
+
+  const status = getPostFireStatus(projection);
+  callout.classList.remove('is-growing', 'is-declining', 'is-depleted');
+  callout.classList.add(`is-${status.type === 'grows' ? 'growing' : status.type === 'declines' ? 'declining' : 'depleted'}`);
+
+  if (status.type === 'grows') {
+    message.textContent = 'Efter FIRE: Kapitalet fortsätter växa med dessa antaganden.';
+  } else if (status.type === 'declines') {
+    message.textContent = 'Observera: Du når ditt beräknade FIRE-mål, men kapitalet minskar efter FIRE.';
+  } else {
+    message.textContent = `Observera: Du når ditt beräknade FIRE-mål, men med dessa antaganden tar kapitalet slut efter cirka ${formatDepletionTime(status.depletionMonth)}.`;
+  }
+
+  callout.hidden = false;
+}
+
+function updateFireChartSummary(simulation) {
+  const summaryEl = document.getElementById('fire-chart-summary');
+  const noteEl = document.getElementById('fire-chart-note');
+  if (!summaryEl || !noteEl) {
+    return;
+  }
+
+  const currentView = document.querySelector('.chart-view-tab.is-active')?.dataset.fireChartView || 'path';
+  if (currentView !== 'post-fire') {
+    summaryEl.hidden = true;
+    noteEl.hidden = true;
+    return;
+  }
+
+  if (!simulation || !Number.isFinite(simulation.fireTarget) || !simulation.reached) {
+    summaryEl.innerHTML = '<strong>Efter FIRE</strong><br>FIRE-målet är ännu inte nått med dessa antaganden.';
+    summaryEl.hidden = false;
+    noteEl.hidden = false;
+    return;
+  }
+
+  const projection = buildPostFireProjection(simulation);
+  if (!projection) {
+    summaryEl.innerHTML = '<strong>Efter FIRE</strong><br>FIRE-målet är ännu inte nått med dessa antaganden.';
+    summaryEl.hidden = false;
+    noteEl.hidden = false;
+    return;
+  }
+
+  const postFireStatus = getPostFireStatus(projection);
+  const finalValue = postFireStatus.finalValue;
+  const totalWithdrawn = projection.series.reduce((sum, point) => sum + (Number(point.withdrawal) || 0), 0);
+  const differencePct = projection.fireStartValue > 0 ? ((finalValue - projection.fireStartValue) / projection.fireStartValue) * 100 : 0;
+  const highWithdrawalDepletion = postFireStatus.type === 'depleted' && simulation.withdrawalRate >= 5;
+  const horizonValue = postFireStatus.type === 'depleted'
+    ? `Slut efter: ${formatYearsAndMonths(postFireStatus.depletionMonth)}`
+    : `Efter 30 år: ${formatCurrency(finalValue)}`;
+
+  summaryEl.innerHTML = `
+    <div class="fire-post-fire-status"><strong>Status: ${postFireStatus.title}</strong><span>${postFireStatus.text}</span></div>
+    <div>${horizonValue}</div>
+    <div>Totalt uttaget: ${formatCurrency(totalWithdrawn)}</div>
+    <div>Skillnad från FIRE-start: ${differencePct >= 0 ? '+' : ''}${differencePct.toFixed(1).replace('.', ',')} %</div>
+    ${highWithdrawalDepletion ? '<p class="fire-chart-warning">Den valda uttagsnivån ger ett lägre FIRE-tal, men prognosen visar att kapitalet inte räcker hela 30-årsperioden.</p>' : ''}
+  `;
+  summaryEl.hidden = false;
+  noteEl.hidden = false;
+}
+
+function renderFireChart(simulation) {
+  const canvas = document.getElementById('fireChart');
+  if (!canvas) {
+    return;
+  }
+
+  if (window.fireChartInstance) {
+    window.fireChartInstance.destroy();
+  }
+
+  const colors = getChartColors();
+  const chartView = document.querySelector('.chart-view-tab.is-active')?.dataset.fireChartView || 'path';
+  const isPostFire = chartView === 'post-fire';
+
+  const { labels, dataPoints, targetLine } = isPostFire ? buildPostFireChartSeries(simulation) : buildFireChartSeries(simulation);
+  const primaryLabel = isPostFire ? 'Portfölj efter uttag' : 'Portföljvärde';
+  const xAxisTitle = isPostFire ? 'År efter FIRE' : 'År från nu';
+  const yAxisTitle = 'Kapital i dagens kronor';
+
+  window.fireChartInstance = new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: primaryLabel,
+          data: dataPoints,
+          borderColor: colors.primary,
+          backgroundColor: colors.primarySoft,
+          borderWidth: 3,
+          pointRadius: 0,
+          fill: true,
+          tension: 0.35
+        },
+        {
+          label: 'FIRE-target',
+          data: targetLine,
+          borderColor: colors.accent,
+          backgroundColor: 'transparent',
+          borderWidth: 2,
+          borderDash: [7, 7],
+          pointRadius: 0,
+          fill: false,
+          tension: 0
+        }
+      ]
+    },
+    options: {
+      maintainAspectRatio: false,
+      responsive: true,
+      interaction: {
+        mode: 'nearest',
+        intersect: false
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: colors.text,
+            usePointStyle: true,
+            pointStyle: 'circle',
+            boxWidth: 8,
+            padding: 16
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: function (context) {
+              return `${context.dataset.label}: ${formatCurrency(context.parsed.y)}`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: xAxisTitle,
+            color: colors.muted
+          },
+          ticks: {
+            color: colors.muted,
+            maxTicksLimit: 8
+          },
+          grid: {
+            color: colors.grid
+          },
+          border: {
+            display: false
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: yAxisTitle,
+            color: colors.muted
+          },
+          ticks: {
+            color: colors.muted,
+            callback: function (value) {
+              return `${Math.round(value / 1000)}k`;
+            }
+          },
+          grid: {
+            color: colors.grid
+          },
+          border: {
+            display: false
+          }
+        }
+      }
+    }
+  });
+
+  updateFireChartSummary(simulation);
+}
+
+function updateFireResults(simulation) {
+  const fireTargetResult = document.getElementById('fire-target-result');
+  const fireTimeResult = document.getElementById('fire-time-result');
+  const fireAgeResult = document.getElementById('fire-age-result');
+  const fireProgressCurrent = document.getElementById('fire-progress-current');
+  const fireProgressTarget = document.getElementById('fire-progress-target');
+  const fireProgressPercent = document.getElementById('fire-progress-percent');
+  const fireProgressBar = document.getElementById('fire-progress-bar');
+  const fireCapitalRemaining = document.getElementById('fire-kapital-kvar');
+  const fireRealReturn = document.getElementById('fire-real-avkastning');
+  const fireStatus = document.getElementById('fire-status');
+  const fireSummary = document.getElementById('fire-summary');
+
+  if (fireTargetResult) {
+    fireTargetResult.textContent = Number.isFinite(simulation.fireTarget) ? formatCurrency(simulation.fireTarget) : 'Ej beräknat';
+  }
+
+  if (fireTimeResult) {
+    if (simulation.reached && simulation.reachedMonth === 0) {
+      fireTimeResult.textContent = 'Redan nått';
+    } else if (simulation.unreachable || !Number.isFinite(simulation.fireTarget)) {
+      fireTimeResult.textContent = 'Över 100 år';
+    } else {
+      fireTimeResult.textContent = formatYearsAndMonths(simulation.reachedMonth);
+    }
+  }
+
+  if (fireAgeResult) {
+    if (simulation.reached && simulation.reachedMonth === 0) {
+      fireAgeResult.textContent = 'Nu';
+    } else if (simulation.unreachable || !Number.isFinite(simulation.fireTarget)) {
+      fireAgeResult.textContent = '—';
+    } else if (simulation.currentAge > 0) {
+      fireAgeResult.textContent = formatAgeYears(simulation.currentAge + simulation.reachedMonth / 12);
+    } else {
+      fireAgeResult.textContent = '—';
+    }
+  }
+
+  if (fireProgressCurrent) {
+    fireProgressCurrent.textContent = formatCurrency(simulation.currentCapital);
+  }
+
+  if (fireProgressTarget) {
+    fireProgressTarget.textContent = Number.isFinite(simulation.fireTarget) ? formatCurrency(simulation.fireTarget) : '—';
+  }
+
+  if (fireProgressPercent) {
+    const percent = simulation.progressPercent;
+    fireProgressPercent.textContent = `${percent.toFixed(1).replace('.', ',')} %`;
+  }
+
+  if (fireProgressBar) {
+    const percent = simulation.progressPercent;
+    fireProgressBar.style.width = `${percent}%`;
+  }
+
+  if (fireCapitalRemaining) {
+    if (simulation.alreadyAtFire) {
+      fireCapitalRemaining.textContent = '0 kr';
+    } else if (Number.isFinite(simulation.fireTarget)) {
+      fireCapitalRemaining.textContent = formatCurrency(simulation.capitalRemaining);
+    } else {
+      fireCapitalRemaining.textContent = '—';
+    }
+  }
+
+  if (fireRealReturn) {
+    fireRealReturn.textContent = formatPercent(simulation.realAnnualReturn * 100, 1);
+  }
+
+  if (fireStatus) {
+    if (simulation.alreadyAtFire) {
+      fireStatus.textContent = 'Du har nått ditt beräknade FIRE-mål.';
+    } else if (simulation.unreachable) {
+      fireStatus.textContent = 'Det ser inte ut som att målet kan nås med dessa antaganden inom 100 år.';
+    } else if (Number.isFinite(simulation.fireTarget)) {
+      fireStatus.textContent = `${formatCurrency(simulation.capitalRemaining)} kvar till FIRE.`;
+    } else {
+      fireStatus.textContent = 'Uttagsnivån måste vara större än 0 för att ett FIRE-tal ska kunna beräknas.';
+    }
+  }
+
+  if (fireSummary) {
+    const spendingText = `${formatCurrency(simulation.monthlyExpenses)} i månadsutgifter`;
+    const impactText = `${formatPercent(simulation.nominalReturn, 1)} nominell avkastning och ${formatPercent(simulation.inflation, 1)} inflation`;
+
+    const fireTargetText = Number.isFinite(simulation.fireTarget) ? formatCurrency(simulation.fireTarget) : 'ett odefinierat FIRE-tal';
+
+    if (simulation.alreadyAtFire) {
+      fireSummary.textContent = `Med ${spendingText} behöver du cirka ${fireTargetText} för att nå ditt FIRE-mål vid en uttagsnivå på ${simulation.withdrawalRate.toFixed(1).replace('.', ',')} %. Du har idag ${formatCurrency(simulation.currentCapital)} investerat och sparar ${formatCurrency(simulation.monthlySavings)} per månad. Med ${impactText} motsvarar det cirka ${formatPercent(simulation.realAnnualReturn * 100, 1)} real avkastning. Med dessa antaganden har du redan nått ditt beräknade FIRE-mål.`;
+    } else if (simulation.unreachable) {
+      fireSummary.textContent = `Med ${spendingText} behöver du cirka ${fireTargetText} för att nå ditt FIRE-mål vid en uttagsnivå på ${simulation.withdrawalRate.toFixed(1).replace('.', ',')} %. Du har idag ${formatCurrency(simulation.currentCapital)} investerat och sparar ${formatCurrency(simulation.monthlySavings)} per månad. Med ${impactText} motsvarar det cirka ${formatPercent(simulation.realAnnualReturn * 100, 1)} real avkastning. Med dessa antaganden beräknas det inte vara möjligt att nå målet inom 100 år.`;
+    } else {
+      const timeText = simulation.reachedMonth > 0 ? `om cirka ${formatYearsAndMonths(simulation.reachedMonth)}` : 'om cirka 0 mån';
+      const ageText = simulation.currentAge > 0 ? ` Det motsvarar ungefär ${formatAgeYears(simulation.currentAge + simulation.reachedMonth / 12)}.` : '';
+      fireSummary.textContent = `Med ${spendingText} behöver du cirka ${fireTargetText} för att nå ditt FIRE-mål vid en uttagsnivå på ${simulation.withdrawalRate.toFixed(1).replace('.', ',')} %. Du har idag ${formatCurrency(simulation.currentCapital)} investerat och sparar ${formatCurrency(simulation.monthlySavings)} per månad. Med ${impactText} motsvarar det cirka ${formatPercent(simulation.realAnnualReturn * 100, 1)} real avkastning. Med dessa antaganden når du målet ${timeText}.${ageText}`;
+    }
+  }
+
+  updateFirePostFireCallout(simulation);
+}
+
+function calculateFireProjection() {
+  const inputs = getFireInputs();
+  const simulation = simulateFire(inputs);
+  window.latestFireSimulation = simulation;
+  updateFireResults(simulation);
+  renderFireChart(simulation);
+}
+
+function setFireChartView(view) {
+  const tabButtons = document.querySelectorAll('.chart-view-tab');
+  if (!tabButtons.length) {
+    return;
+  }
+
+  const selectedView = view === 'post-fire' ? 'post-fire' : 'path';
+  tabButtons.forEach((button) => {
+    const isSelected = button.dataset.fireChartView === selectedView;
+    button.classList.toggle('is-active', isSelected);
+    button.setAttribute('aria-selected', String(isSelected));
+  });
+
+  if (window.latestFireSimulation) {
+    renderFireChart(window.latestFireSimulation);
+  }
+}
+
+function showPostFireProjection() {
+  setFireChartView('post-fire');
+
+  const chartPanel = document.querySelector('.chart-panel');
+  if (!chartPanel) {
+    return;
+  }
+
+  const bounds = chartPanel.getBoundingClientRect();
+  if (bounds.top < 0 || bounds.bottom > window.innerHeight) {
+    chartPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
 }
 
 function applyTheme(theme) {
@@ -1958,6 +2570,10 @@ if (themeToggle) {
     if (dividendForm) {
       renderDividendChart();
     }
+
+    if (fireCalculatorForm) {
+      calculateFireProjection();
+    }
   });
 }
 
@@ -1966,6 +2582,28 @@ if (form) {
     event.preventDefault();
     calculateInvestment();
   });
+}
+
+if (fireCalculatorForm) {
+  fireCalculatorForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    calculateFireProjection();
+  });
+
+  fireCalculatorForm.addEventListener('input', function () {
+    calculateFireProjection();
+  });
+}
+
+document.querySelectorAll('.chart-view-tab').forEach((button) => {
+  button.addEventListener('click', function () {
+    setFireChartView(button.dataset.fireChartView || 'path');
+  });
+});
+
+const firePostFireCallout = document.getElementById('fire-post-fire-callout');
+if (firePostFireCallout) {
+  firePostFireCallout.addEventListener('click', showPostFireProjection);
 }
 
 if (dividendForm) {
@@ -2007,6 +2645,9 @@ if (dividendForm) {
 }
 if (feeForm) {
   initFeeComparisonPage();
+}
+if (fireCalculatorForm) {
+  calculateFireProjection();
 }
 
 function getLeverageInputs() {
