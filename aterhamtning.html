@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Återhämtningskalkylator</title>
+    <title>Återhämtningskalkylator – Hur mycket krävs efter en nedgång? | NTM</title>
+    <meta name="description" content="Se hur mycket en aktie eller investering måste stiga för att återhämta en nedgång. En förlust på 50 % kräver till exempel en uppgång på 100 % för att nå tillbaka till startvärdet." />
+    <link rel="canonical" href="https://nolltillmiljoner.se/aterhamtning.html" />
     <link rel="stylesheet" href="style.css" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Återhämtningskalkylator",
+      "url": "https://nolltillmiljoner.se/aterhamtning.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "description": "Kalkylator för att räkna ut hur stor procentuell uppgång som krävs för att återhämta en nedgång."
+    }
+    </script>
 </head>
 <body>
     <header class="topbar">
@@ -45,12 +58,18 @@
         </div>
     </header>
 
-    <main class="container">
-        <section class="card calculator-card">
+    <main class="container tool-landing">
+        <header class="page-intro tool-intro">
+            <span class="section-kicker">Kalkylator</span>
+            <h1>Återhämtningskalkylator</h1>
+            <p>Se hur mycket en aktie eller investering måste stiga för att återhämta en nedgång. Ju större förlusten är, desto större procentuell uppgång krävs för att komma tillbaka till samma värde.</p>
+        </header>
+
+        <section class="card calculator-card" aria-labelledby="calculator-heading">
             <div class="section-heading">
                 <div>
-                    <span class="section-kicker">Återhämtningskalkylator</span>
-                    <h2>Återhämtningskalkylator</h2>
+                    <span class="section-kicker">Återhämtning</span>
+                    <h2 id="calculator-heading">Räkna på återhämtning</h2>
                 </div>
             </div>
 
@@ -141,9 +160,97 @@
                 </div>
             </div>
         </section>
+
+        <div class="education-content">
+            <section class="education-section">
+                <h2>Varför krävs en större uppgång efter en nedgång?</h2>
+                <p>En investering värd 10 000 kr som faller 50 % är nu värd 5 000 kr. För att komma tillbaka till 10 000 kr måste värdet därefter dubblas – alltså en uppgång på 100 %, inte 50 %.</p>
+                <p>Anledningen är att nedgången och återhämtningen räknas från två olika startvärden. Nedgången räknas från det högre, ursprungliga värdet, medan återhämtningen räknas från det lägre värdet efter nedgången. Det är den här asymmetrin som är hela poängen med sidan.</p>
+            </section>
+
+            <section class="education-section">
+                <h2>Nedgång och återhämtning – exempel</h2>
+                <p>Tabellen visar hur stor uppgång som krävs efter olika nedgångar, beräknat med samma formel som kalkylatorn ovan.</p>
+                <div class="example-table-wrap">
+                    <table class="example-table">
+                        <caption>Krävd uppgång efter en given nedgång</caption>
+                        <thead><tr><th scope="col">Nedgång</th><th scope="col">Uppgång som krävs</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row">−10 %</th><td data-recovery-value="10">Beräknar...</td></tr>
+                            <tr><th scope="row">−20 %</th><td data-recovery-value="20">Beräknar...</td></tr>
+                            <tr><th scope="row">−30 %</th><td data-recovery-value="30">Beräknar...</td></tr>
+                            <tr><th scope="row">−40 %</th><td data-recovery-value="40">Beräknar...</td></tr>
+                            <tr><th scope="row">−50 %</th><td data-recovery-value="50">Beräknar...</td></tr>
+                            <tr><th scope="row">−60 %</th><td data-recovery-value="60">Beräknar...</td></tr>
+                            <tr><th scope="row">−70 %</th><td data-recovery-value="70">Beräknar...</td></tr>
+                            <tr><th scope="row">−80 %</th><td data-recovery-value="80">Beräknar...</td></tr>
+                            <tr><th scope="row">−90 %</th><td data-recovery-value="90">Beräknar...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="education-section">
+                <h2>Så räknas återhämtningen ut</h2>
+                <p class="formula" aria-label="Krävd återhämtning är lika med förlust delat med ett minus förlust"><var>Krävd återhämtning</var> = <var>förlust</var> / (1 − <var>förlust</var>)</p>
+                <p>Exempel med 30 % nedgång: 0,30 / (1 − 0,30) = 0,30 / 0,70 ≈ 0,4286, alltså ungefär +42,9 %.</p>
+                <p>Formeln utgår från en enskild nedgång och återhämtning till samma startvärde. Avgifter, skatt, in- och utbetalningar samt ytterligare kursrörelser under tiden är inte automatiskt inräknade om inte kalkylatorn uttryckligen anger det.</p>
+            </section>
+
+            <section class="education-section">
+                <h2>Vad är drawdown?</h2>
+                <p>Drawdown beskriver hur mycket en investering eller portfölj har fallit från en tidigare toppnivå. Om en portfölj toppar på 100 000 kr och sedan är värd 80 000 kr är drawdownen 20 %.</p>
+                <p>För att återhämta sig från den drawdownen och nå tillbaka till 100 000 kr måste de återstående 80 000 kr öka med 25 %, inte 20 %. Drawdown och den krävda återhämtningsprocenten är alltså inte samma tal.</p>
+            </section>
+
+            <section class="education-section">
+                <h2>Varför stora nedgångar är svårare att återhämta</h2>
+                <p>En liten nedgång kräver bara en något större uppgång för att återhämtas. Men sambandet accelererar ju närmare 100 % förlusten kommer: −10 % kräver +11,1 %, −50 % kräver +100 % och −90 % kräver hela +900 %.</p>
+                <p>Det här är matematik, inte en prognos om hur svårt det är för en viss aktie eller portfölj att faktiskt återhämta sig.</p>
+            </section>
+
+            <section class="education-section">
+                <h2>Vad händer vid en nedgång på 100 %?</h2>
+                <p>En nedgång på 100 % innebär att investeringens värde nått noll. När basen är noll kan ingen procentuell uppgång matematiskt föra värdet tillbaka till det tidigare nivån – vilken procentsats man än multiplicerar med noll blir resultatet fortfarande noll.</p>
+                <p>Därför behåndlar kalkylatorn ovan 100 % som en matematisk gräns och visar ett tydligt felmeddelande istället för ett missvisande resultat som Infinity.</p>
+            </section>
+        </div>
+
+        <section class="faq-section" aria-labelledby="faq-heading">
+            <h2 id="faq-heading">Vanliga frågor</h2>
+            <details><summary>Hur mycket måste en aktie stiga efter en nedgång?</summary><p>Det beror på hur stor nedgången är. Uppgången som krävs räknas som förlust / (1 − förlust), och blir alltid större än själva nedgången i procent.</p></details>
+            <details><summary>Hur mycket måste en aktie gå upp efter 50 % nedgång?</summary><p>En nedgång på 50 % kräver en uppgång på 100 % för att nå tillbaka till startvärdet.</p></details>
+            <details><summary>Varför räcker inte en uppgång på 50 % efter en nedgång på 50 %?</summary><p>Eftersom nedgången räknas från det högre startvärdet medan uppgången räknas från det lägre värdet efter nedgången. En uppgång på 50 % från det halverade värdet räcker därför bara till 75 % av det ursprungliga värdet.</p></details>
+            <details><summary>Hur mycket krävs för att återhämta en förlust på 20 %?</summary><p>En nedgång på 20 % kräver en uppgång på 25 % för att återhämtas.</p></details>
+            <details><summary>Vad betyder drawdown?</summary><p>Drawdown är hur mycket en investering eller portfölj har fallit från sin senaste toppnivå, uttryckt i procent.</p></details>
+            <details><summary>Kan man återhämta en förlust på 100 %?</summary><p>Nej. Vid en förlust på 100 % är värdet noll, och ingen ändlig procentuell uppgång kan matematiskt föra ett nollvärde tillbaka till ett positivt värde. Kalkylatorn visar därför ett felmeddelande vid 100 % nedgång.</p></details>
+            <details><summary>Hur räknar kalkylatorn?</summary><p>Kalkylatorn använder formeln förlust / (1 − förlust) för att räkna ut hur stor procentuell uppgång som krävs från värdet efter nedgången för att nå tillbaka till startvärdet.</p></details>
+        </section>
+
+        <section class="related-tools" aria-labelledby="related-tools-heading">
+            <div class="section-heading"><div><span class="section-kicker">Fler verktyg</span><h2 id="related-tools-heading">Relaterade verktyg</h2></div></div>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <h3>Hävstångskalkylator</h3>
+                    <p>Hävstång kan ge större procentuella nedgångar – och därmed ännu större krävd återhämtning. Se hur belåning och daglig hävstång påverkar resultatet.</p>
+                    <a href="havstang.html" class="secondary-btn">Öppna hävstångskalkylatorn</a>
+                </article>
+                <article class="feature-card">
+                    <h3>Ränta på ränta-kalkylatorn</h3>
+                    <p>Förstå hur kapital växer över tid när nedgångar undviks eller återhämtas.</p>
+                    <a href="ranta-pa-ranta.html" class="secondary-btn">Öppna ränta på ränta</a>
+                </article>
+            </div>
+        </section>
     </main>
 
     <script src="script.js"></script>
+    <script>
+      [10, 20, 30, 40, 50, 60, 70, 80, 90].forEach(function (dropPercent) {
+        var result = calculateRecoveryRequiredGain(dropPercent, null);
+        document.querySelector('[data-recovery-value="' + dropPercent + '"]').textContent = formatPercent(result.requiredGain);
+      });
+    </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aa20af56e8ea486192758214e83971ee"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
