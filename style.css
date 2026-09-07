@@ -716,6 +716,15 @@ body.light-theme .scenario-chart-panel {
   height: 42px;
   border-radius: 12px;
   cursor: pointer;
+  padding: 0;
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.mobile-theme-row {
+  display: none;
 }
 
 .home-hero {
@@ -2227,6 +2236,34 @@ body.light-theme .community-card {
   .nav-toggle {
     display: grid;
     place-items: center;
+  }
+
+  .topbar-inner > #themeToggle {
+    display: none;
+  }
+
+  .mobile-theme-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mobile-theme-label {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .mobile-theme-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .mobile-theme-btn .toggle-icon {
+    font-size: 1.3rem;
   }
 }
 

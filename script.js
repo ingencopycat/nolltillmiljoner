@@ -892,13 +892,16 @@ function applyTheme(theme) {
   document.body.classList.toggle('light-theme', isLight);
   document.body.classList.toggle('dark-theme', !isLight);
 
-  if (themeToggle) {
-    // Update tooltip and aria-label based on NEXT theme (what will happen on click)
-    const nextTheme = isLight ? 'dark' : 'light';
-    const tooltipText = nextTheme === 'light' ? 'Växla till ljust läge' : 'Växla till mörkt läge';
-    themeToggle.setAttribute('title', tooltipText);
-    themeToggle.setAttribute('aria-label', tooltipText);
-  }
+  // Update tooltip and aria-label based on NEXT theme (what will happen on click)
+  const nextTheme = isLight ? 'dark' : 'light';
+  const tooltipText = nextTheme === 'light' ? 'Växla till ljust läge' : 'Växla till mörkt läge';
+
+  [themeToggle, document.getElementById('mobileThemeToggle')].forEach((toggleBtn) => {
+    if (toggleBtn) {
+      toggleBtn.setAttribute('title', tooltipText);
+      toggleBtn.setAttribute('aria-label', tooltipText);
+    }
+  });
 }
 
 function initTheme() {
@@ -1924,6 +1927,14 @@ if (mobileNavToggle && navMenu) {
   mobileNavToggle.addEventListener('click', function () {
     navMenu.classList.toggle('open');
     mobileNavToggle.setAttribute('aria-expanded', String(navMenu.classList.contains('open')));
+  });
+}
+
+const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+if (mobileThemeToggle && themeToggle) {
+  // Reuses the existing theme toggle handler/state instead of duplicating it.
+  mobileThemeToggle.addEventListener('click', function () {
+    themeToggle.click();
   });
 }
 
