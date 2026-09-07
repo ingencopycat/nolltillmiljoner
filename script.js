@@ -2589,10 +2589,6 @@ if (fireCalculatorForm) {
     event.preventDefault();
     calculateFireProjection();
   });
-
-  fireCalculatorForm.addEventListener('input', function () {
-    calculateFireProjection();
-  });
 }
 
 document.querySelectorAll('.chart-view-tab').forEach((button) => {

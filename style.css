@@ -677,6 +677,10 @@ body.light-theme .result-box {
   cursor: pointer;
 }
 
+.calculator-form:has(.fire-post-fire-callout:not([hidden])) + .fire-results {
+  margin-top: 14px;
+}
+
 .fire-post-fire-callout.is-declining {
   border-color: rgba(255, 209, 102, 0.42);
 }
