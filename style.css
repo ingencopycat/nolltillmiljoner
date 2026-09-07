@@ -1216,8 +1216,9 @@ body.light-theme .hero-panel {
   }
 
   .market-status-countdown {
-    font-size: 0.82rem;
-    overflow-wrap: anywhere;
+    font-size: 0.64rem;
+    line-height: 1.2;
+    white-space: nowrap;
   }
 
   .ntm-market-overview {
