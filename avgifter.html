@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jämför avgifter</title>
+    <title>Fondavgiftskalkylator – Jämför fondavgifter | NTM</title>
+    <meta name="description" content="Räkna ut och jämför hur olika fondavgifter påverkar ditt sparande över tid. Se hur en låg och en hög fondavgift skiljer sig åt i slutvärde med NTM:s fondavgiftskalkylator." />
+    <link rel="canonical" href="https://nolltillmiljoner.se/avgifter.html" />
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Fondavgiftskalkylator",
+      "url": "https://nolltillmiljoner.se/avgifter.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "description": "Kalkylator för att jämföra hur två olika årliga fondavgifter påverkar kapitalets utveckling över tid."
+    }
+    </script>
 </head>
 <body>
     <header class="topbar">
@@ -46,12 +59,18 @@
         </div>
     </header>
 
-    <main class="container">
-        <section class="card calculator-card">
+    <main class="container tool-landing">
+        <header class="page-intro tool-intro">
+            <span class="section-kicker">Kalkylator</span>
+            <h1>Fondavgiftskalkylator</h1>
+            <p>Se hur mycket fondavgifter kan kosta över tid. Jämför två olika avgifter och se hur de påverkar ditt kapital och din avkastning.</p>
+        </header>
+
+        <section class="card calculator-card" aria-labelledby="calculator-heading">
             <div class="section-heading">
                 <div>
-                    <span class="section-kicker">Jämför avgifter</span>
-                    <h2>Jämför avgifter</h2>
+                    <span class="section-kicker">Jämför fondavgifter</span>
+                    <h2 id="calculator-heading">Räkna på fondavgift</h2>
                 </div>
             </div>
 
@@ -130,10 +149,95 @@
                     <canvas id="avgifterChart" aria-label="Graf över jämförelse mellan avgifter"></canvas>
                 </div>
             </div>
+            <p class="note"><em>Kalkylatorn drar den angivna årliga avgiften löpande från den antagna avkastningen för respektive investering. Övriga förutsättningar (startkapital, månadssparande, avkastning och antal år) är desamma för Investering A och B.</em></p>
+        </section>
+
+        <div class="education-content">
+            <section class="education-section">
+                <h2>Vad kostar en fondavgift över tid?</h2>
+                <p>En årlig fondavgift på någon enstaka procent kan se liten ut från år till år, men den dras löpande från kapitalet och påverkar därför resultatet varje enskilt år den gäller.</p>
+                <p>Den verkliga kostnaden är inte bara avgiften i sig. Pengarna som går till avgiften kan inte längre generera framtida avkastning, vilket är en alternativkostnad utöver den direkta kostnaden. Det är därför skillnaden mellan en låg och en hög fondavgift tenderar att växa ju längre spartiden är.</p>
+            </section>
+
+            <section class="education-section">
+                <h2>Så fungerar fondavgifter</h2>
+                <p>En fond tar normalt ut löpande kostnader uttryckt som en procentandel av fondförmögenheten per år. Denna kostnad dras kontinuerligt och syns sällan som en separat räkning till spararen.</p>
+                <p>Begreppen "fondavgift", "förvaltningsavgift" och fondens totala kostnader hänger ihop men är inte alltid exakt samma sak. En fonds totala kostnad kan innehålla mer än själva förvaltningsavgiften. Jämför därför alltid fondens aktuella faktablad när du utvärderar en riktig fond, snarare än att anta att en enskild procentsats täcker alla kostnader.</p>
+            </section>
+
+            <section class="education-section">
+                <h2>Varför små avgiftsskillnader blir stora</h2>
+                <p>Tänk dig två investeringar som startar med samma kapital och får samma avkastning före avgift, men där den ena har en lägre årlig avgift än den andra.</p>
+                <p>Under ett enskilt år kan skillnaden se liten ut. Men över 20–30 år blir skillnaden betydligt större, eftersom investeringen med högre avgift förlorar både avgiften i sig och den framtida avkastning som just den delen av kapitalet annars hade kunnat generera. Det är samma princip som ränta på ränta, fast i motsatt riktning.</p>
+            </section>
+
+            <section class="education-section">
+                <h2>Exempel: 0,2 % vs 1,2 % fondavgift</h2>
+                <p>Exemplet nedan använder samma beräkningsmodell som kalkylatorn ovan: 100 000 kr i startkapital, 3 000 kr i månadssparande och 7 % antagen årlig avkastning före avgift.</p>
+                <div class="example-table-wrap">
+                    <table class="example-table">
+                        <caption>Illustrativ jämförelse, beräknad med samma modell som kalkylatorn</caption>
+                        <thead><tr><th scope="col">Efter</th><th scope="col">0,2 % avgift</th><th scope="col">1,2 % avgift</th><th scope="col">Skillnad</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row">10 år</th><td data-fee-low="10">Beräknar...</td><td data-fee-high="10">Beräknar...</td><td data-fee-diff="10">Beräknar...</td></tr>
+                            <tr><th scope="row">20 år</th><td data-fee-low="20">Beräknar...</td><td data-fee-high="20">Beräknar...</td><td data-fee-diff="20">Beräknar...</td></tr>
+                            <tr><th scope="row">30 år</th><td data-fee-low="30">Beräknar...</td><td data-fee-high="30">Beräknar...</td><td data-fee-diff="30">Beräknar...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="note">Exemplet är illustrativt och bygger på ett antaget, inte garanterat, avkastningsscenario. Det är inte en prognos för någon specifik fond.</p>
+            </section>
+
+            <section class="education-section">
+                <h2>Vad är en rimlig fondavgift?</h2>
+                <p>Det finns inget enskilt avgiftsläge som är universellt "bra" eller "dåligt". Rimlig nivå beror på fondtyp, strategi och förvaltningsstil – en bred indexfond har till exempel normalt lägre avgifter än en aktivt förvaltad nischfond.</p>
+                <p>Allt annat lika lämnar en lägre avgift mer av avkastningen kvar hos spararen. Samtidigt bör man jämföra både kostnad och vad man faktiskt får för den kostnaden, snarare än att enbart välja den billigaste fonden. NTM rekommenderar inte enskilda fonder.</p>
+            </section>
+
+            <section class="education-section">
+                <h2>Fondavgift och förvaltningsavgift – vad är skillnaden?</h2>
+                <p>Förvaltningsavgiften är kostnaden för att förvalta och administrera fonden. Bredare kostnadsmått kan därutöver innehålla ytterligare löpande kostnader, vilket gör att fondens totala kostnad ibland skiljer sig från enbart förvaltningsavgiften.</p>
+                <p>Fondbolag kan presentera kostnadsmått på olika sätt. Använd alltid fondens aktuella officiella dokumentation, till exempel faktabladet, när du utvärderar en riktig fond.</p>
+            </section>
+        </div>
+
+        <section class="faq-section" aria-labelledby="faq-heading">
+            <h2 id="faq-heading">Vanliga frågor</h2>
+            <details><summary>Vad är en fondavgift?</summary><p>En fondavgift är en löpande kostnad, oftast uttryckt i procent per år, som dras från fondens kapital för förvaltning och drift.</p></details>
+            <details><summary>Hur mycket påverkar fondavgiften mitt sparande?</summary><p>Ju längre spartid och ju högre avgift, desto större blir effekten. Det beror på att avgiften även minskar den framtida avkastning som just det beloppet annars hade kunnat generera.</p></details>
+            <details><summary>Är 1 % fondavgift mycket?</summary><p>Det beror på fondtyp och strategi. En nivå som är rimlig för en aktivt förvaltad fond kan vara hög för en bred indexfond. Jämför alltid avgiften med vad du faktiskt får för den.</p></details>
+            <details><summary>Vad är skillnaden mellan fondavgift och förvaltningsavgift?</summary><p>Förvaltningsavgiften är en del av fondens totala kostnader. Den totala kostnaden kan innehålla fler avgifter än bara förvaltningsavgiften, så kontrollera alltid fondens aktuella faktablad.</p></details>
+            <details><summary>Hur räknar kalkylatorn på avgiften?</summary><p>Kalkylatorn drar den angivna årliga avgiften löpande från den antagna avkastningen för respektive investering, månad för månad.</p></details>
+            <details><summary>Påverkar fondavgiften ränta på ränta?</summary><p>Ja. En avgift minskar det kapital som kan generera framtida avkastning, vilket gör att effekten växer över tid – samma mekanism som ränta på ränta, fast i motsatt riktning.</p></details>
+        </section>
+
+        <section class="related-tools" aria-labelledby="related-tools-heading">
+            <div class="section-heading"><div><span class="section-kicker">Fler verktyg</span><h2 id="related-tools-heading">Relaterade verktyg</h2></div></div>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <h3>Ränta på ränta-kalkylatorn</h3>
+                    <p>Förstå hur kapital växer över tid – och varför avgifter över samma tid gör motsatt effekt.</p>
+                    <a href="ranta-pa-ranta.html" class="secondary-btn">Öppna ränta på ränta</a>
+                </article>
+                <article class="feature-card">
+                    <h3>Hävstångskalkylator</h3>
+                    <p>Se hur belåning och daglig hävstång påverkar uppgångar, nedgångar och kostnader.</p>
+                    <a href="havstang.html" class="secondary-btn">Öppna hävstångskalkylatorn</a>
+                </article>
+            </div>
         </section>
     </main>
 
     <script src="script.js"></script>
+    <script>
+      [10, 20, 30].forEach(function (years) {
+        var low = calculateProjection(100000, 3000, 7, 0.2, years);
+        var high = calculateProjection(100000, 3000, 7, 1.2, years);
+        document.querySelector('[data-fee-low="' + years + '"]').textContent = formatCurrency(low.futureValue);
+        document.querySelector('[data-fee-high="' + years + '"]').textContent = formatCurrency(high.futureValue);
+        document.querySelector('[data-fee-diff="' + years + '"]').textContent = formatCurrency(low.futureValue - high.futureValue);
+      });
+    </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aa20af56e8ea486192758214e83971ee"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
