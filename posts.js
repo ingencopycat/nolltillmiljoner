@@ -1,5 +1,40 @@
 const NTM_POSTS = [
   {
+    title: 'Palantir väljer Nebius som föredragen partner för Sovereign AI',
+    date: '2026-09-08',
+    slug: 'palantir-nebius-sovereign-ai',
+    category: 'Nyheter',
+    tags: ['Nebius', 'Palantir', 'Sovereign AI'],
+    previewPosition: 'top',
+    excerpt: 'Palantir väljer Nebius som sin föredragna partner för Sovereign AI-infrastruktur – ett nytt partnerskap som integrerar Nebius AI-infrastruktur med Palantirs plattform.',
+    media: {
+      type: 'carousel',
+      images: [
+        { src: 'images/posts/nebius-2026-09-08/01.png', alt: 'Palantir och Nebius i partnerskapet för Sovereign AI' },
+        { src: 'images/posts/nebius-2026-09-08/02.png', alt: 'Nebius AI-infrastruktur och Palantirs plattform' },
+        { src: 'images/posts/nebius-2026-09-08/03.png', alt: 'Sovereign AI-infrastruktur från Nebius och Palantir' }
+      ]
+    },
+    content: '<p>Palantir väljer Nebius som sin föredragna partner för Sovereign AI-infrastruktur.</p><p>Det nya partnerskapet innebär att Nebius AI-cloud, compute och inference ska integreras med Palantirs plattform och erbjudas till berättigade kommersiella kunder.</p><p>Tanken är att företag ska kunna köra och utveckla egna AI-modeller på Nebius infrastruktur – samtidigt som de behåller kontrollen över sin data, sina modeller och sin compute.</p><p>Bolagen ska även samarbeta för att få ny AI-kapacitet online snabbare, bland annat genom modulära datacenter på platser där kraft redan finns tillgänglig.</p><p>För Nebius tycker jag framför allt att detta är ytterligare ett kvitto på deras plattform. Palantir hade kunnat välja många infrastrukturpartners – men väljer Nebius som sin föredragna partner inom Sovereign AI.</p><p>Efter ett starkt Q2 fortsätter Nebius alltså att bygga både kapacitet, kundrelationer och partnerskap.</p><p><strong>Disclosure:</strong> Jag äger aktier i Nebius.</p>'
+  },
+  {
+    title: 'Bank of America ser 65% uppsida i ASML – High-NA EUV tar nästa steg',
+    date: '2026-09-08',
+    slug: 'asml-bank-of-america-high-na-euv',
+    category: 'Nyheter',
+    tags: ['ASML', 'High-NA EUV'],
+    previewPosition: 'top',
+    excerpt: 'Bank of America upprepar köp på ASML med riktkurs €2 452 samtidigt som nästa generations High-NA EUV närmar sig bredare användning.',
+    media: {
+      type: 'carousel',
+      images: [
+        { src: 'images/posts/asml-2026-09-08/01.png', alt: 'ASML och Bank of Americas riktkurs' },
+        { src: 'images/posts/asml-2026-09-08/02.png', alt: 'High-NA EUV och nästa steg i tekniken' }
+      ]
+    },
+    content: '<p>Bank of America upprepar KÖP på ASML med en riktkurs på €2 452 – cirka 65% över dagens nivå.</p><p>Samtidigt fortsätter nyheterna kring nästa generations High-NA EUV.</p><p>Samsung planerar att använda tekniken i DRAM-produktion från 2028, medan TSMC siktar på avancerad högvolymproduktion från 2030.</p><p>ASML arbetar dessutom tillsammans med industrin på större 12-tums fotomasker. Lyckas övergången väntas produktiviteten i High-NA-systemen kunna öka med omkring 40%.</p><p>Det stärker det långsiktiga caset: mer avancerade AI-chip kräver allt mer avancerad tillverkning – där ASML sitter i en unik position.</p><p>Efter Q2 höjde ASML även prognosen för 2026 till €43–45 miljarder i omsättning och 54–56% bruttomarginal.</p><p><strong>Disclosure:</strong> Jag äger aktier i ASML.</p>'
+  },
+  {
     title: 'Så hänger min AI-portfölj ihop',
     date: '2026-09-05',
     slug: 'ai-portfolj',

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Verktyg</title>
+    <title>Verktyg | Noll till Miljoner</title>
+    <meta name="description" content="Smarta kalkylatorer och verktyg för investeringar och privatekonomi." />
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -49,55 +50,106 @@
             <div class="page-intro">
                 <span class="section-kicker">Verktyg</span>
                 <h1>Verktyg</h1>
-                <p>Verktyg för att räkna, jämföra och förstå din ekonomi.</p>
+                <p>Smarta kalkylatorer och verktyg för investeringar och privatekonomi.</p>
             </div>
 
-            <div class="feature-grid">
-                <article class="feature-card">
-                    <h3>Ränta på ränta-kalkylator</h3>
-                    <p>Räkna på kapitalets utveckling, sparande, avkastning och utdelningar.</p>
-                    <div class="card-link">
-                        <a href="ranta-pa-ranta.html" class="secondary-btn">Öppna kalkylatorn</a>
-                    </div>
-                </article>
+            <div class="tools-directory" data-tools-directory>
+                <label class="tools-search-label" for="tool-search">Sök bland verktyg</label>
+                <input id="tool-search" class="tools-search" type="search" placeholder="Sök bland verktyg..." autocomplete="off" />
 
-                <article class="feature-card">
-                    <h3>Amorteringskalkylator</h3>
-                    <p>Se hur ditt lån och din amortering utvecklas över tid.</p>
-                    <span class="badge">Kommer snart</span>
-                </article>
+                <div class="tools-filters" role="group" aria-label="Filtrera verktyg efter kategori">
+                    <button class="tools-filter is-active" type="button" data-tool-filter="all" aria-pressed="true">Alla</button>
+                    <button class="tools-filter" type="button" data-tool-filter="investera-spara" aria-pressed="false">Investera &amp; spara</button>
+                    <button class="tools-filter" type="button" data-tool-filter="risk-havstang" aria-pressed="false">Risk &amp; hävstång</button>
+                    <button class="tools-filter" type="button" data-tool-filter="lan-privatekonomi" aria-pressed="false">Lån &amp; privatekonomi</button>
+                    <button class="tools-filter" type="button" data-tool-filter="skatt" aria-pressed="false">Skatt</button>
+                    <button class="tools-filter" type="button" data-tool-filter="aktier-analys" aria-pressed="false">Aktier &amp; analys</button>
+                </div>
 
-                <article class="feature-card">
-                    <h3>FIRE-kalkylator</h3>
-                    <p>Räkna på vägen mot ekonomisk frihet.</p>
-                    <div class="card-link">
-                        <a href="fire-kalkylator.html" class="secondary-btn">Öppna verktyget</a>
-                    </div>
-                </article>
+                <p class="tools-empty-state" id="tools-empty-state" hidden aria-live="polite">Inga verktyg matchade din sökning.</p>
 
-                <article class="feature-card">
-                    <h3>Jämför avgifter</h3>
-                    <p>Jämför hur olika avgifter påverkar ditt kapital över tid.</p>
-                    <div class="card-link">
-                        <a href="avgifter.html" class="secondary-btn">Öppna verktyget</a>
+                <section class="tools-category" data-tool-category="investera-spara" aria-labelledby="tools-investera-heading">
+                    <h2 id="tools-investera-heading" class="tools-category-heading"><button class="tools-category-toggle" type="button" aria-expanded="true"><span class="tools-category-title">Investera &amp; spara</span><span class="tools-category-count" aria-hidden="true"></span><span class="tools-category-chevron" aria-hidden="true"></span></button></h2>
+                    <div class="tools-grid">
+                        <article class="feature-card tool-card" data-tool-card data-category="investera-spara" data-status="available" data-search="investeringskalkylator ränta på ränta sparande avkastning utdelning tillväxt">
+                            <h3>Investeringskalkylator</h3><p>Se hur ditt sparande kan utvecklas över tid.</p>
+                            <div class="tool-labels" aria-label="Funktioner"><span>Tillväxt</span><span>Utdelning</span></div>
+                            <div class="card-link"><a href="ranta-pa-ranta.html" class="secondary-btn">Öppna verktyget &rarr;</a></div>
+                        </article>
+                        <article class="feature-card tool-card" data-tool-card data-category="investera-spara" data-status="available" data-search="fire ekonomisk frihet pension uttag kapital sparande">
+                            <h3>FIRE-kalkylator</h3><p>Räkna på vägen mot ekonomisk frihet.</p>
+                            <div class="tool-labels" aria-label="Funktioner"><span>Vägen till FIRE</span><span>Efter FIRE</span></div>
+                            <div class="card-link"><a href="fire-kalkylator.html" class="secondary-btn">Öppna verktyget &rarr;</a></div>
+                        </article>
+                        <article class="feature-card tool-card" data-tool-card data-category="investera-spara" data-status="available" data-search="avgifter fondavgift fond etf kostnad kapital">
+                            <h3>Jämför avgifter</h3><p>Se hur olika avgifter påverkar ditt kapital över tid.</p>
+                            <div class="card-link"><a href="avgifter.html" class="secondary-btn">Öppna verktyget &rarr;</a></div>
+                        </article>
+                        <article class="feature-card tool-card" data-tool-card data-category="investera-spara" data-status="available" data-search="sparmål sparande månadssparande mål miljon miljonär tid till mål spara framtida värde kapital ränta på ränta hur mycket behöver jag spara">
+                            <h3>Sparmålskalkylator</h3><p>Räkna ut hur mycket du behöver spara och hur lång tid det tar att nå ditt mål.</p>
+                            <div class="tool-labels" aria-label="Funktioner"><span>Månadssparande</span><span>Tid till mål</span><span>Målkapital</span></div>
+                            <div class="card-link"><a href="sparmalskalkylator.html" class="secondary-btn">Öppna verktyget &rarr;</a></div>
+                        </article>
                     </div>
-                </article>
+                </section>
 
-                <article class="feature-card">
-                    <h3>Hävstångskalkylator</h3>
-                    <p>Jämför belåning och daglig hävstång och se hur uppgångar, nedgångar och kostnader påverkar resultatet.</p>
-                    <div class="card-link">
-                        <a href="havstang.html" class="secondary-btn">Öppna hävstångskalkylatorn</a>
+                <section class="tools-category" data-tool-category="risk-havstang" aria-labelledby="tools-risk-heading">
+                    <h2 id="tools-risk-heading" class="tools-category-heading"><button class="tools-category-toggle" type="button" aria-expanded="true"><span class="tools-category-title">Risk &amp; hävstång</span><span class="tools-category-count" aria-hidden="true"></span><span class="tools-category-chevron" aria-hidden="true"></span></button></h2>
+                    <div class="tools-grid">
+                        <article class="feature-card tool-card" data-tool-card data-category="risk-havstang" data-status="available" data-search="hävstång belåning lån ränta daglig hävstång värdepapper bostad">
+                            <h3>Hävstångskalkylator</h3><p>Räkna på belåning och hur hävstång påverkar resultatet.</p>
+                            <div class="tool-labels" aria-label="Funktioner"><span>Belåning</span><span>Daglig hävstång</span></div>
+                            <div class="card-link"><a href="havstang.html" class="secondary-btn">Öppna verktyget &rarr;</a></div>
+                        </article>
+                        <article class="feature-card tool-card" data-tool-card data-category="risk-havstang" data-status="available" data-search="återhämtning nedgång förlust drawdown uppgång investering">
+                            <h3>Återhämtningskalkylator</h3><p>Se hur mycket en investering måste stiga efter en nedgång.</p>
+                            <div class="card-link"><a href="aterhamtning.html" class="secondary-btn">Öppna verktyget &rarr;</a></div>
+                        </article>
                     </div>
-                </article>
+                </section>
 
-                <article class="feature-card">
-                    <h3>Återhämtningskalkylator</h3>
-                    <p>Se hur mycket en investering måste stiga för att återhämta en nedgång.</p>
-                    <div class="card-link">
-                        <a href="aterhamtning.html" class="secondary-btn">Öppna verktyget</a>
+                <section class="tools-category" data-tool-category="lan-privatekonomi" aria-labelledby="tools-lan-heading">
+                    <h2 id="tools-lan-heading" class="tools-category-heading"><button class="tools-category-toggle" type="button" aria-expanded="true"><span class="tools-category-title">Lån &amp; privatekonomi</span><span class="tools-category-count" aria-hidden="true"></span><span class="tools-category-chevron" aria-hidden="true"></span></button></h2>
+                    <div class="tools-grid">
+                        <article class="feature-card tool-card" data-tool-card data-category="lan-privatekonomi" data-status="available" data-search="bolån bostad lägenhet hus amortering amorteringskrav ränta bolåneränta kontantinsats belåningsgrad 90% 10% månadskostnad lån">
+                            <h3>Bolånekalkylator</h3><p>Räkna på bolån, kontantinsats, amortering och ränta.</p>
+                            <div class="tool-labels" aria-label="Funktioner"><span>Bolån</span><span>Amortering</span><span>Ränta</span></div>
+                            <div class="card-link"><a href="bolanekalkylator.html" class="secondary-btn">Öppna verktyget &rarr;</a></div>
+                        </article>
                     </div>
-                </article>
+                </section>
+
+                <section class="tools-category" data-tool-category="skatt" aria-labelledby="tools-skatt-heading">
+                    <h2 id="tools-skatt-heading" class="tools-category-heading"><button class="tools-category-toggle" type="button" aria-expanded="true"><span class="tools-category-title">Skatt</span><span class="tools-category-count" aria-hidden="true"></span><span class="tools-category-chevron" aria-hidden="true"></span></button></h2>
+                    <div class="tools-grid">
+                        <article class="feature-card tool-card" data-tool-card data-category="skatt" data-status="available" data-search="ISK skatt schablonskatt schablonintäkt kapitalunderlag 300 000 investeringssparkonto">
+                            <h3>ISK-skattkalkylator</h3><p>Räkna ut skatt, kapitalunderlag och skattefritt belopp på ISK.</p>
+                            <div class="tool-labels" aria-label="Beräkningslägen"><span>Enkel</span><span>Detaljerad</span></div>
+                            <div class="card-link"><a href="isk-skattkalkylator.html" class="secondary-btn">Öppna verktyget &rarr;</a></div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="tools-category" data-tool-category="aktier-analys" aria-labelledby="tools-aktier-heading">
+                    <h2 id="tools-aktier-heading" class="tools-category-heading"><button class="tools-category-toggle" type="button" aria-expanded="true"><span class="tools-category-title">Aktier &amp; analys</span><span class="tools-category-count" aria-hidden="true"></span><span class="tools-category-chevron" aria-hidden="true"></span></button></h2>
+                    <div class="tools-grid">
+                        <article class="feature-card tool-card" data-tool-card data-category="aktier-analys" data-status="available" data-search="aktie aktievärdering värdering P/E PE forward PE PEG EPS vinst aktiepris CAGR bull bear scenario">
+                            <h3>Aktievärderingskalkylator</h3><p>Testa P/E, PEG, vinsttillväxt och framtida aktiepris.</p>
+                            <div class="tool-labels" aria-label="Funktioner"><span>P/E</span><span>PEG</span><span>Scenarier</span></div>
+                            <div class="card-link"><a href="aktievarderingskalkylator.html" class="secondary-btn">Öppna verktyget &rarr;</a></div>
+                        </article>
+                        <article class="feature-card tool-card" data-tool-card data-category="aktier-analys" data-status="available" data-search="CAGR avkastning årsavkastning årlig avkastning totalavkastning procent utveckling investering performance compound ränta på ränta">
+                            <h3>Avkastningskalkylator</h3><p>Räkna ut CAGR, totalavkastning och genomsnittlig årlig avkastning.</p>
+                            <div class="tool-labels" aria-label="Funktioner"><span>CAGR</span><span>Totalavkastning</span><span>Årsavkastning</span></div>
+                            <div class="card-link"><a href="avkastningskalkylator.html" class="secondary-btn">Öppna verktyget &rarr;</a></div>
+                        </article>
+                        <article class="feature-card tool-card" data-tool-card data-category="aktier-analys" data-status="available" data-search="GAV genomsnittligt inköpspris snittpris aktieköp DCA köp average price positionsstorlek position size risk stop loss stop-loss aktier courtage">
+                            <h3>Aktieköpskalkylator</h3><p>Räkna ut GAV, DCA och positionsstorlek.</p>
+                            <div class="tool-labels" aria-label="Funktioner"><span>GAV</span><span>DCA</span><span>Positionsstorlek</span></div>
+                            <div class="card-link"><a href="aktiekopskalkylator.html" class="secondary-btn">Öppna verktyget &rarr;</a></div>
+                        </article>
+                    </div>
+                </section>
             </div>
         </section>
     </main>
