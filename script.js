@@ -5,6 +5,8 @@ const leverageForm = document.getElementById('leverage-form');
 const recoveryForm = document.getElementById('recovery-form');
 const dailyLeverageForm = document.getElementById('daily-leverage-form');
 const fireCalculatorForm = document.getElementById('fire-form');
+const fireGoalForm = document.getElementById('fire-goal-form');
+const fireWithdrawalForm = document.getElementById('fire-withdrawal-form');
 const iskCalculatorForm = document.getElementById('isk-form');
 const iskModeTabs = document.querySelectorAll('.isk-mode-tab[data-isk-mode]');
 const stockValuationForm = document.getElementById('stock-valuation-form');
@@ -37,6 +39,8 @@ let returnChart = null;
 let purchaseChart = null;
 let goalChart = null;
 let mortgageChart = null;
+let fireGoalChart = null;
+let fireWithdrawalChart = null;
 let currentLeverageMode = 'belaning';
 
 function formatCurrency(value) {
@@ -1476,6 +1480,144 @@ function updateFireResults(simulation) {
   updateFirePostFireCallout(simulation);
 }
 
+function getFireGoalInputs() {
+  return {
+    monthlyExpenses: Math.max(0, Number(document.getElementById('fire-goal-monthly-expenses')?.value) || 0),
+    currentCapital: Math.max(0, Number(document.getElementById('fire-goal-current-capital')?.value) || 0),
+    currentAge: Math.max(0, Number(document.getElementById('fire-goal-current-age')?.value) || 0),
+    desiredAge: Math.max(0, Number(document.getElementById('fire-goal-age')?.value) || 0),
+    nominalReturn: Number(document.getElementById('fire-goal-return')?.value) || 0,
+    inflation: Number(document.getElementById('fire-goal-inflation')?.value) || 0,
+    withdrawalRate: Number(document.getElementById('fire-goal-withdrawal-rate')?.value) || 0
+  };
+}
+
+function simulateFireGoal(inputs) {
+  const yearsToGoal = inputs.desiredAge - inputs.currentAge;
+  const monthsToGoal = yearsToGoal * 12;
+  const realAnnualReturn = calculateRealReturn(inputs.nominalReturn, inputs.inflation);
+  const monthlyRate = Math.pow(Math.max(0, 1 + realAnnualReturn), 1 / 12) - 1;
+  const fireTarget = inputs.withdrawalRate > 0 ? (inputs.monthlyExpenses * 12) / (inputs.withdrawalRate / 100) : Number.POSITIVE_INFINITY;
+
+  if (inputs.desiredAge <= inputs.currentAge) return { valid: false, message: 'Önskad FIRE-ålder måste vara högre än nuvarande ålder.' };
+  if (inputs.withdrawalRate <= 0 || !Number.isFinite(fireTarget)) return { valid: false, message: 'Uttagsnivån måste vara större än 0 för att FIRE-målet ska kunna beräknas.' };
+
+  const futureValueCurrentCapital = inputs.currentCapital * Math.pow(1 + monthlyRate, monthsToGoal);
+  const growthFactor = monthlyRate === 0 ? monthsToGoal : (Math.pow(1 + monthlyRate, monthsToGoal) - 1) / monthlyRate;
+  const requiredMonthlyContribution = Math.max(0, (fireTarget - futureValueCurrentCapital) / growthFactor);
+  const series = [{ month: 0, value: inputs.currentCapital }];
+  let portfolio = inputs.currentCapital;
+  for (let month = 1; month <= monthsToGoal; month += 1) {
+    portfolio = portfolio * (1 + monthlyRate) + requiredMonthlyContribution;
+    series.push({ month, value: Math.max(0, portfolio) });
+  }
+  return { valid: true, ...inputs, yearsToGoal, monthsToGoal, realAnnualReturn, fireTarget, requiredMonthlyContribution, series };
+}
+
+function renderFireGoalChart(simulation) {
+  const canvas = document.getElementById('fireGoalChart');
+  if (!canvas || !simulation?.valid || typeof Chart === 'undefined') return;
+  fireGoalChart?.destroy();
+  const colors = getChartColors();
+  const sampled = simulation.series.filter((point) => point.month % 12 === 0 || point.month === simulation.monthsToGoal);
+  fireGoalChart = new Chart(canvas, {
+    type: 'line',
+    data: { labels: sampled.map((point) => String(Math.round(point.month / 12))), datasets: [
+      { label: 'Portföljvärde', data: sampled.map((point) => point.value), borderColor: colors.primary, backgroundColor: colors.primarySoft, borderWidth: 3, pointRadius: 0, fill: true, tension: 0.35 },
+      { label: 'FIRE-tal', data: sampled.map(() => simulation.fireTarget), borderColor: colors.accent, borderDash: [7, 7], borderWidth: 2, pointRadius: 0, fill: false }
+    ] },
+    options: { maintainAspectRatio: false, responsive: true, interaction: { mode: 'nearest', intersect: false }, plugins: { legend: { labels: { color: colors.text, usePointStyle: true, pointStyle: 'circle', boxWidth: 8 } }, tooltip: { callbacks: { label: (context) => `${context.dataset.label}: ${formatCurrency(context.parsed.y)}` } } }, scales: { x: { title: { display: true, text: 'År från nu', color: colors.muted }, ticks: { color: colors.muted, maxTicksLimit: 8 }, grid: { color: colors.grid } }, y: { title: { display: true, text: 'Kapital i dagens kronor', color: colors.muted }, ticks: { color: colors.muted, callback: (value) => `${Math.round(value / 1000)}k` }, grid: { color: colors.grid } } } }
+  });
+}
+
+function calculateFireGoal() {
+  const simulation = simulateFireGoal(getFireGoalInputs());
+  window.latestFireGoalCalculation = simulation;
+  const status = document.getElementById('fire-goal-status');
+  if (!simulation.valid) {
+    if (status) status.textContent = simulation.message;
+    return;
+  }
+  document.getElementById('fire-goal-savings-result').textContent = `${formatCurrency(simulation.requiredMonthlyContribution)}/mån`;
+  document.getElementById('fire-goal-target-result').textContent = formatCurrency(simulation.fireTarget);
+  document.getElementById('fire-goal-time-result').textContent = formatYearsAndMonths(simulation.monthsToGoal);
+  document.getElementById('fire-goal-age-result').textContent = `${simulation.desiredAge} år`;
+  document.getElementById('fire-goal-capital-result').textContent = formatCurrency(simulation.currentCapital);
+  document.getElementById('fire-goal-real-return-result').textContent = formatPercent(simulation.realAnnualReturn * 100, 1);
+  if (status) status.textContent = simulation.requiredMonthlyContribution === 0
+    ? `Med dina antaganden behöver du inte sätta in mer kapital för att nå ditt FIRE-mål vid ${simulation.desiredAge}.`
+    : `För att nå ${formatCurrency(simulation.fireTarget)} vid ${simulation.desiredAge} års ålder krävs cirka ${formatCurrency(simulation.requiredMonthlyContribution)} per månad.`;
+  renderFireGoalChart(simulation);
+}
+
+function getFireWithdrawalInputs() {
+  return {
+    startCapital: Math.max(0, Number(document.getElementById('fire-withdrawal-capital')?.value) || 0),
+    monthlyWithdrawal: Math.max(0, Number(document.getElementById('fire-withdrawal-amount')?.value) || 0),
+    nominalReturn: Number(document.getElementById('fire-withdrawal-return')?.value) || 0,
+    inflation: Math.max(0, Number(document.getElementById('fire-withdrawal-inflation')?.value) || 0),
+    annualFee: Math.max(0, Number(document.getElementById('fire-withdrawal-fee')?.value) || 0),
+    inflationLinked: document.getElementById('fire-withdrawal-inflation-linked')?.value === 'yes'
+  };
+}
+
+function simulateFireWithdrawal(inputs) {
+  const annualReturnAfterFee = (1 + inputs.nominalReturn / 100) * (1 - inputs.annualFee / 100) - 1;
+  const monthlyReturn = Math.pow(Math.max(0, 1 + annualReturnAfterFee), 1 / 12) - 1;
+  const monthlyInflation = Math.pow(1 + inputs.inflation / 100, 1 / 12) - 1;
+  const maxMonths = 1200;
+  const series = [{ month: 0, value: inputs.startCapital, withdrawal: 0 }];
+  let portfolio = inputs.startCapital;
+  let totalWithdrawn = 0;
+  let depletionMonth = null;
+  for (let month = 1; month <= maxMonths; month += 1) {
+    portfolio *= 1 + monthlyReturn;
+    const plannedWithdrawal = inputs.monthlyWithdrawal * (inputs.inflationLinked ? Math.pow(1 + monthlyInflation, month) : 1);
+    const actualWithdrawal = Math.min(Math.max(0, portfolio), plannedWithdrawal);
+    portfolio = Math.max(0, portfolio - actualWithdrawal);
+    totalWithdrawn += actualWithdrawal;
+    series.push({ month, value: portfolio, withdrawal: actualWithdrawal });
+    if (portfolio <= 0) { depletionMonth = month; break; }
+  }
+  return { ...inputs, annualReturnAfterFee, monthlyReturn, monthlyInflation, series, totalWithdrawn, depletionMonth, survivedHorizon: depletionMonth === null };
+}
+
+function renderFireWithdrawalChart(simulation) {
+  const canvas = document.getElementById('fireWithdrawalChart');
+  if (!canvas || typeof Chart === 'undefined') return;
+  fireWithdrawalChart?.destroy();
+  const colors = getChartColors();
+  const sampled = simulation.series.filter((point) => point.month % 12 === 0 || point.month === simulation.series[simulation.series.length - 1].month);
+  fireWithdrawalChart = new Chart(canvas, {
+    type: 'line',
+    data: { labels: sampled.map((point) => String(Math.round(point.month / 12))), datasets: [{ label: 'Portföljvärde', data: sampled.map((point) => point.value), borderColor: colors.primary, backgroundColor: colors.primarySoft, borderWidth: 3, pointRadius: 0, fill: true, tension: 0.35 }] },
+    options: { maintainAspectRatio: false, responsive: true, interaction: { mode: 'nearest', intersect: false }, plugins: { legend: { labels: { color: colors.text, usePointStyle: true, pointStyle: 'circle', boxWidth: 8 } }, tooltip: { callbacks: { label: (context) => `${context.dataset.label}: ${formatCurrency(context.parsed.y)}` } } }, scales: { x: { title: { display: true, text: 'År', color: colors.muted }, ticks: { color: colors.muted, maxTicksLimit: 8 }, grid: { color: colors.grid } }, y: { title: { display: true, text: 'Portföljvärde', color: colors.muted }, ticks: { color: colors.muted, callback: (value) => `${Math.round(value / 1000)}k` }, grid: { color: colors.grid } } } }
+  });
+}
+
+function calculateFireWithdrawal() {
+  const simulation = simulateFireWithdrawal(getFireWithdrawalInputs());
+  window.latestFireWithdrawalCalculation = simulation;
+  const finalPoint = simulation.series[simulation.series.length - 1];
+  document.getElementById('fire-withdrawal-duration-result').textContent = simulation.survivedHorizon ? '100+ år' : formatYearsAndMonths(simulation.depletionMonth);
+  document.getElementById('fire-withdrawal-start-result').textContent = formatCurrency(simulation.startCapital);
+  document.getElementById('fire-withdrawal-monthly-result').textContent = `${formatCurrency(simulation.monthlyWithdrawal)}/mån`;
+  document.getElementById('fire-withdrawal-first-year-result').textContent = formatCurrency(simulation.series.slice(1, 13).reduce((sum, point) => sum + point.withdrawal, 0));
+  document.getElementById('fire-withdrawal-total-result').textContent = formatCurrency(simulation.totalWithdrawn);
+  document.getElementById('fire-withdrawal-net-return-result').textContent = formatPercent(simulation.annualReturnAfterFee * 100, 2);
+  document.getElementById('fire-withdrawal-final-result').textContent = formatCurrency(finalPoint.value);
+  const point10 = simulation.series.find((point) => point.month === 120);
+  const point30 = simulation.series.find((point) => point.month === 360);
+  document.getElementById('fire-withdrawal-10-result-box').hidden = !point10;
+  document.getElementById('fire-withdrawal-30-result-box').hidden = !point30;
+  document.getElementById('fire-withdrawal-10-result').textContent = point10 ? formatCurrency(point10.value) : '—';
+  document.getElementById('fire-withdrawal-30-result').textContent = point30 ? formatCurrency(point30.value) : '—';
+  document.getElementById('fire-withdrawal-status').textContent = simulation.survivedHorizon
+    ? 'Med dessa antaganden täcks uttagen av kapitalets utveckling tillräckligt väl för att portföljen inte ska ta slut inom den 100-åriga beräkningsperioden.'
+    : `Med dessa antaganden minskar kapitalet över tid och beräknas ta slut efter cirka ${formatYearsAndMonths(simulation.depletionMonth)}.`;
+  renderFireWithdrawalChart(simulation);
+}
+
 function calculateFireProjection() {
   const inputs = getFireInputs();
   const simulation = simulateFire(inputs);
@@ -2591,6 +2733,12 @@ if (themeToggle) {
     if (fireCalculatorForm) {
       calculateFireProjection();
     }
+    if (window.latestFireGoalCalculation?.valid) {
+      renderFireGoalChart(window.latestFireGoalCalculation);
+    }
+    if (window.latestFireWithdrawalCalculation) {
+      renderFireWithdrawalChart(window.latestFireWithdrawalCalculation);
+    }
   });
 }
 
@@ -2605,6 +2753,55 @@ if (fireCalculatorForm) {
   fireCalculatorForm.addEventListener('submit', function (event) {
     event.preventDefault();
     calculateFireProjection();
+  });
+}
+
+function syncFireGoalInputsFromPath() {
+  const pairs = [
+    ['fire-monthly-expenses', 'fire-goal-monthly-expenses'],
+    ['fire-current-capital', 'fire-goal-current-capital'],
+    ['fire-age', 'fire-goal-current-age'],
+    ['fire-return', 'fire-goal-return'],
+    ['fire-inflation', 'fire-goal-inflation'],
+    ['fire-withdrawal-rate', 'fire-goal-withdrawal-rate']
+  ];
+  pairs.forEach(([sourceId, targetId]) => {
+    const source = document.getElementById(sourceId);
+    const target = document.getElementById(targetId);
+    if (source && target) target.value = source.value;
+  });
+}
+
+function setFireMainMode(mode) {
+  const selectedMode = ['path', 'goal', 'withdrawal'].includes(mode) ? mode : 'path';
+  if (selectedMode === 'goal') syncFireGoalInputsFromPath();
+  document.querySelectorAll('.fire-mode-tab').forEach((tab) => {
+    const active = tab.dataset.fireMode === selectedMode;
+    tab.classList.toggle('is-active', active);
+    tab.setAttribute('aria-selected', String(active));
+  });
+  document.querySelectorAll('.fire-mode-panel').forEach((panel) => {
+    const active = panel.dataset.fireModePanel === selectedMode;
+    panel.classList.toggle('hidden', !active);
+    panel.hidden = !active;
+  });
+}
+
+document.querySelectorAll('.fire-mode-tab').forEach((button) => {
+  button.addEventListener('click', () => setFireMainMode(button.dataset.fireMode));
+});
+
+if (fireGoalForm) {
+  fireGoalForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    calculateFireGoal();
+  });
+}
+
+if (fireWithdrawalForm) {
+  fireWithdrawalForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    calculateFireWithdrawal();
   });
 }
 

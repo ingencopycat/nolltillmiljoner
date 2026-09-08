@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FIRE-kalkylator – När blir du ekonomiskt fri? | Noll till Miljoner</title>
-    <meta name="description" content="Räkna ut ditt FIRE-tal, hur mycket kapital du behöver för ekonomisk frihet och ungefär hur lång tid det kan ta att nå målet." />
+    <meta name="description" content="Räkna ut när du når FIRE, hur mycket du behöver spara till ett valt FIRE-mål och hur länge ett kapital räcker vid uttag." />
     <link rel="canonical" href="https://nolltillmiljoner.se/fire-kalkylator.html" />
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -16,7 +16,7 @@
       "url": "https://nolltillmiljoner.se/fire-kalkylator.html",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "All",
-      "description": "Kalkylator för att räkna ut FIRE-tal, ekonomiskt oberoende och ungefärlig tid till ekonomisk frihet.",
+    "description": "Kalkylator för att räkna ut när du når FIRE, hur mycket du behöver spara till ett valt mål och hur länge ett kapital räcker vid uttag.",
       "publisher": {
         "@type": "Organization",
         "name": "Noll till Miljoner"
@@ -130,17 +130,24 @@
         <header class="page-intro tool-intro">
             <span class="section-kicker">Kalkylator</span>
             <h1>FIRE-kalkylator</h1>
-            <p>Räkna ut hur mycket kapital du behöver för ekonomisk frihet och hur lång tid det kan ta att nå dit.</p>
+            <p>Se när du kan nå FIRE, vad som krävs för ett valt mål och hur länge ett kapital räcker.</p>
         </header>
 
         <section class="card calculator-card" aria-labelledby="fire-calculator-heading">
             <div class="section-heading">
                 <div>
                     <span class="section-kicker">FIRE</span>
-                    <h2 id="fire-calculator-heading">Beräkna ditt FIRE-tal</h2>
+                    <h2 id="fire-calculator-heading">FIRE-kalkylator</h2>
                 </div>
             </div>
 
+            <div class="fire-mode-tabs" role="tablist" aria-label="Välj FIRE-läge">
+                <button type="button" class="fire-mode-tab is-active" data-fire-mode="path" role="tab" aria-selected="true" aria-controls="fire-path-panel">Vägen till FIRE</button>
+                <button type="button" class="fire-mode-tab" data-fire-mode="goal" role="tab" aria-selected="false" aria-controls="fire-goal-panel">Mitt FIRE-mål</button>
+                <button type="button" class="fire-mode-tab" data-fire-mode="withdrawal" role="tab" aria-selected="false" aria-controls="fire-withdrawal-panel">Uttag</button>
+            </div>
+
+            <div id="fire-path-panel" class="fire-mode-panel" data-fire-mode-panel="path" role="tabpanel">
             <form id="fire-form" class="calculator-form">
                 <div class="form-grid">
                     <div class="field-group">
@@ -260,6 +267,64 @@
 
             <p class="fire-summary" id="fire-summary">Med 25 000 kr i månadsutgifter behöver du cirka 7 500 000 kr för att nå ditt FIRE-mål vid en uttagsnivå på 4 %. Du har idag 500 000 kr investerat och sparar 10 000 kr per månad. Med 7 % nominell avkastning och 2 % inflation motsvarar det cirka 4,9 % real avkastning. Med dessa antaganden beräknas du nå målet om cirka 21 år.</p>
             <p class="note"><em>Detta är en planeringsmodell. Den bygger på antaganden om avkastning, inflation, sparande och levnadskostnader och är inte en garanti för framtida resultat.</em></p>
+            </div>
+
+            <div id="fire-goal-panel" class="fire-mode-panel hidden" data-fire-mode-panel="goal" role="tabpanel" hidden>
+                <div class="fire-mode-question">
+                    <span class="section-kicker">Mitt FIRE-mål</span>
+                    <h3>Vad krävs för att bli ekonomiskt fri när jag vill?</h3>
+                </div>
+                <form id="fire-goal-form" class="calculator-form">
+                    <div class="form-grid">
+                        <div class="field-group"><label for="fire-goal-monthly-expenses">Månadsutgifter som ekonomiskt fri</label><input id="fire-goal-monthly-expenses" type="number" min="0" step="100" value="25000" /></div>
+                        <div class="field-group"><label for="fire-goal-current-capital">Investerat kapital idag</label><input id="fire-goal-current-capital" type="number" min="0" step="1000" value="500000" /></div>
+                        <div class="field-group"><label for="fire-goal-current-age">Nuvarande ålder</label><input id="fire-goal-current-age" type="number" min="0" max="120" step="1" value="30" /></div>
+                        <div class="field-group"><label for="fire-goal-age">Önskad FIRE-ålder</label><input id="fire-goal-age" type="number" min="0" max="120" step="1" value="45" /></div>
+                    </div>
+                    <details class="advanced-settings" open><summary>Antaganden</summary><div class="advanced-settings-body"><div class="form-grid fire-assumptions-grid">
+                        <div class="field-group"><label for="fire-goal-return">Förväntad årlig avkastning (%)</label><input id="fire-goal-return" type="number" min="-100" max="100" step="0.01" value="7" /></div>
+                        <div class="field-group"><label for="fire-goal-inflation">Inflation (%)</label><input id="fire-goal-inflation" type="number" min="0" max="100" step="0.01" value="2" /></div>
+                        <div class="field-group"><label for="fire-goal-withdrawal-rate">Uttagsnivå (%)</label><input id="fire-goal-withdrawal-rate" type="number" min="0" max="100" step="0.01" value="4" /></div>
+                    </div></div></details>
+                    <button type="submit">Beräkna</button>
+                </form>
+                <div class="results fire-results fire-goal-results" aria-live="polite">
+                    <div class="result-box highlight fire-primary-result"><span class="label">Månadssparande som krävs</span><strong id="fire-goal-savings-result" class="result-value">—</strong></div>
+                    <div class="result-box"><span class="label">FIRE-tal</span><strong id="fire-goal-target-result" class="result-value">—</strong></div>
+                    <div class="result-box"><span class="label">Tid till målet</span><strong id="fire-goal-time-result" class="result-value">—</strong></div>
+                    <div class="result-box"><span class="label">Målet nås vid</span><strong id="fire-goal-age-result" class="result-value">—</strong></div>
+                    <div class="result-box"><span class="label">Kapital idag</span><strong id="fire-goal-capital-result" class="result-value">—</strong></div>
+                    <div class="result-box"><span class="label">Beräknad real avkastning</span><strong id="fire-goal-real-return-result" class="result-value">—</strong></div>
+                </div>
+                <div class="fire-status" id="fire-goal-status" aria-live="polite">Fyll i antaganden och klicka på Beräkna.</div>
+                <div class="chart-panel"><div class="chart-header chart-header-row"><h3>Projektion mot FIRE-målet</h3></div><div class="chart-wrap"><canvas id="fireGoalChart" aria-label="Graf över vägen mot FIRE-målet"></canvas></div><p class="fire-chart-note">Projektionen använder real avkastning och månadssparande i slutet av varje månad.</p></div>
+            </div>
+
+            <div id="fire-withdrawal-panel" class="fire-mode-panel hidden" data-fire-mode-panel="withdrawal" role="tabpanel" hidden>
+                <div class="fire-mode-question"><span class="section-kicker">Uttag</span><h3>Hur länge räcker mitt kapital?</h3><p>Jag har ett investerat kapital och tar ut ett belopp varje månad.</p></div>
+                <form id="fire-withdrawal-form" class="calculator-form">
+                    <div class="form-grid">
+                        <div class="field-group"><label for="fire-withdrawal-capital">Startkapital</label><input id="fire-withdrawal-capital" type="number" min="0" step="1000" value="7500000" /></div>
+                        <div class="field-group"><label for="fire-withdrawal-amount">Uttag per månad</label><input id="fire-withdrawal-amount" type="number" min="0" step="100" value="25000" /></div>
+                        <div class="field-group"><label for="fire-withdrawal-return">Förväntad årlig avkastning (%)</label><input id="fire-withdrawal-return" type="number" min="-100" max="100" step="0.01" value="7" /></div>
+                        <div class="field-group"><label for="fire-withdrawal-inflation">Inflation (%)</label><input id="fire-withdrawal-inflation" type="number" min="0" max="100" step="0.01" value="2" /></div>
+                        <div class="field-group"><label for="fire-withdrawal-fee">Årlig avgift (%)</label><input id="fire-withdrawal-fee" type="number" min="0" max="100" step="0.01" value="0.20" /></div>
+                        <div class="field-group"><label for="fire-withdrawal-inflation-linked">Uttagen följer inflationen</label><select id="fire-withdrawal-inflation-linked"><option value="yes" selected>Ja</option><option value="no">Nej</option></select></div>
+                    </div>
+                    <button type="submit">Beräkna</button>
+                </form>
+                <div class="results fire-results fire-withdrawal-results" aria-live="polite">
+                    <div class="result-box highlight fire-primary-result"><span class="label">Hur länge räcker kapitalet?</span><strong id="fire-withdrawal-duration-result" class="result-value">—</strong></div>
+                    <div class="result-box"><span class="label">Startkapital</span><strong id="fire-withdrawal-start-result" class="result-value">—</strong></div>
+                    <div class="result-box"><span class="label">Startuttag per månad</span><strong id="fire-withdrawal-monthly-result" class="result-value">—</strong></div>
+                    <div class="result-box"><span class="label">Första årets totala uttag</span><strong id="fire-withdrawal-first-year-result" class="result-value">—</strong></div>
+                    <div class="result-box"><span class="label">Total uttagen summa</span><strong id="fire-withdrawal-total-result" class="result-value">—</strong></div>
+                    <div class="result-box"><span class="label">Avkastning efter avgift</span><strong id="fire-withdrawal-net-return-result" class="result-value">—</strong></div>
+                </div>
+                <div class="fire-withdrawal-snapshots" aria-live="polite"><div id="fire-withdrawal-10-result-box"><span>Kapital efter 10 år</span><strong id="fire-withdrawal-10-result">—</strong></div><div id="fire-withdrawal-30-result-box"><span>Kapital efter 30 år</span><strong id="fire-withdrawal-30-result">—</strong></div><div><span>Slutkapital</span><strong id="fire-withdrawal-final-result">—</strong></div></div>
+                <div class="fire-status" id="fire-withdrawal-status" aria-live="polite">Fyll i antaganden och klicka på Beräkna.</div>
+                <div class="chart-panel"><div class="chart-header chart-header-row"><h3>Kapitalets utveckling</h3></div><div class="chart-wrap"><canvas id="fireWithdrawalChart" aria-label="Graf över kapitalets utveckling vid uttag"></canvas></div><p class="fire-chart-note">Detta är en projektion baserad på konstant avkastning och månadsvisa uttag.</p></div>
+            </div>
         </section>
 
         <div class="education-content">
