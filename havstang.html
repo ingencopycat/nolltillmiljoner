@@ -79,7 +79,7 @@
                 <button type="button" class="mode-tab leverage-mode-tab" data-leverage-mode="daglig" aria-selected="false">Daglig Hävstång</button>
             </div>
 
-            <p class="note" style="margin: 0 0 24px;">Räkna på belåning och hävstång för exempelvis bostad eller värdepapper. Se hur lån, ränta, amortering och värdeutveckling påverkar resultatet över tid.</p>
+            <p class="calculator-intro">Räkna på belåning och hävstång för exempelvis bostad eller värdepapper. Se hur lån, ränta, amortering och värdeutveckling påverkar resultatet över tid.</p>
 
             <form id="leverage-form" class="calculator-form leverage-mode-content" data-leverage-mode="bostad-varde">
                 <div class="form-grid">
@@ -199,7 +199,7 @@
 
             <!-- DAGLIG HÄVSTÅNG SEKTION -->
             <div class="leverage-mode-content hidden" data-leverage-mode="daglig" style="display: none;">
-                <p class="note" style="margin: 0 0 24px;">Dagliga hävstångsinstrument återställer sin hävstång varje handelsdag. Därför kan utvecklingen över flera dagar skilja sig mycket från att bara multiplicera marknadens totala utveckling med hävstången. Testa olika dagliga rörelser och se hur daglig reset och avgift påverkar resultatet.</p>
+                <p class="calculator-intro">Dagliga hävstångsinstrument återställer sin hävstång varje handelsdag. Därför kan utvecklingen över flera dagar skilja sig mycket från att bara multiplicera marknadens totala utveckling med hävstången. Testa olika dagliga rörelser och se hur daglig reset och avgift påverkar resultatet.</p>
 
                 <form id="daily-leverage-form" class="calculator-form">
                     <div class="form-grid">
@@ -235,7 +235,7 @@
                 </form>
 
                 <!-- Resultat för daglig hävstång -->
-                <div class="results daily-leverage-results" aria-live="polite" style="margin-top: 24px;">
+                <div class="results daily-leverage-results" aria-live="polite">
                     <div class="result-box">
                         <span class="label">Underliggande (1x)</span>
                         <strong id="daily-underlying-value" class="result-value">0 kr</strong>
@@ -253,7 +253,7 @@
                 </div>
 
                 <!-- Graf för daglig hävstång -->
-                <div class="chart-panel" style="margin-top: 28px;">
+                <div class="chart-panel">
                     <div class="chart-header">
                         <h3>Utveckling dag för dag</h3>
                     </div>
@@ -294,7 +294,7 @@
                 </div>
             </div>
 
-            <div class="comparison-section leverage-mode-content" data-leverage-mode="bostad-varde" style="margin-top: 28px;">
+            <div class="comparison-section leverage-mode-content" data-leverage-mode="bostad-varde">
                 <div class="section-heading comparison-heading">
                     <div>
                         <span class="section-kicker">Jämförelse</span>
@@ -367,7 +367,7 @@
                 </div>
             </div>
 
-            <div class="chart-panel leverage-mode-content" data-leverage-mode="bostad-varde" style="margin-top: 28px;">
+            <div class="chart-panel leverage-mode-content" data-leverage-mode="bostad-varde">
                 <div class="chart-header">
                     <h3>Eget kapital och skuld över tid</h3>
                 </div>

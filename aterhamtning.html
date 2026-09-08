@@ -73,7 +73,7 @@
                 </div>
             </div>
 
-            <p class="note" style="margin-top: 0; margin-bottom: 20px;">
+            <p class="calculator-intro">
                 Se hur mycket en investering måste stiga för att återhämta en nedgång.
             </p>
 
@@ -93,12 +93,12 @@
                 <button type="submit">Beräkna</button>
             </form>
 
-            <div id="recovery-error" class="hidden" style="margin-top: 12px; padding: 10px 12px; border-radius: 12px; background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.35); color: var(--danger); font-weight: 600;">
+            <div id="recovery-error" class="calculator-message is-error hidden">
                 Ogiltigt värde.
             </div>
 
-            <div class="results" aria-live="polite" style="margin-top: 24px;">
-                <div class="result-box highlight" style="grid-column: 1 / -1;">
+            <div class="results" aria-live="polite">
+                <div class="result-box highlight result-box--wide">
                     <span class="label">Krävs för återhämtning</span>
                     <strong id="recovery-required-gain" class="result-value">0 %</strong>
                 </div>
@@ -124,11 +124,11 @@
                 </div>
             </div>
 
-            <p id="recovery-summary" class="note" style="margin-top: 18px; margin-bottom: 18px;">
+            <p id="recovery-summary" class="note">
                 Fyll i nedgång för att se hur mycket som krävs för att återhämta investeringen.
             </p>
 
-            <div class="chart-panel" style="margin-top: 12px;">
+            <div class="chart-panel">
                 <div class="chart-header">
                     <h3>Återhämtning</h3>
                 </div>
