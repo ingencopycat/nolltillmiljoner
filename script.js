@@ -2304,7 +2304,6 @@ function renderWeeklyEvents(now = getNtmNow()) {
             <div class="ntm-macro-event-row">
               <div class="ntm-event-copy">
                 <strong>${escapePostText(event.eventName || 'Makrohändelse')}</strong>
-                ${(event.period || event.forecast || event.previous) ? `<small>${[event.period, event.forecast, event.previous].filter(Boolean).join(' · ')}</small>` : ''}
               </div>
             </div>
           `).join('')}

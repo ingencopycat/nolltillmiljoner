@@ -1787,7 +1787,7 @@ body.light-theme .hero-panel {
 
 .ntm-macro-events {
   display: grid;
-  gap: 7px;
+  gap: 5px;
   min-width: 0;
 }
 
@@ -2121,7 +2121,7 @@ body.light-theme .hero-panel {
   }
 
   .ntm-macro-events {
-    gap: 6px;
+    gap: 3px;
   }
 
   .ntm-empty-state {
