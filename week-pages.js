@@ -15,6 +15,7 @@ const earningsWeekData = {
 
 const archiveContainer = document.getElementById('weekArchive');
 const upcomingContainer = document.getElementById('upcomingWeeks');
+const currentWeekContainer = document.getElementById('currentWeekNavigation');
 const showMoreArchiveButton = document.getElementById('showMoreArchive');
 const visual = document.getElementById('weekVisual');
 const label = document.getElementById('currentWeekLabel');
@@ -32,6 +33,25 @@ function compareIsoWeekKeys(firstKey, secondKey) {
   const second = parseIsoWeekKey(secondKey);
   if (!first || !second) return 0;
   return first.year - second.year || first.week - second.week;
+}
+
+function getIsoWeekStartDate(weekKey) {
+  const parsed = parseIsoWeekKey(weekKey);
+  if (!parsed) return null;
+  const date = new Date(Date.UTC(parsed.year, 0, 4));
+  const day = date.getUTCDay() || 7;
+  date.setUTCDate(date.getUTCDate() - day + 1 + ((parsed.week - 1) * 7));
+  return date;
+}
+
+function getFollowingIsoWeekKeys(currentWeekKey, count) {
+  const currentStart = getIsoWeekStartDate(currentWeekKey);
+  if (!currentStart) return [];
+  return Array.from({ length: count }, (_, index) => {
+    const weekStart = new Date(currentStart);
+    weekStart.setUTCDate(weekStart.getUTCDate() + ((index + 1) * 7));
+    return getIsoWeekKeyForDate(weekStart);
+  });
 }
 
 function getIsoWeekKeyForDate(date = new Date()) {
@@ -99,11 +119,30 @@ function formatMacroVal(val) {
   return String(val);
 }
 
+function getRenderableMacroEvents(week) {
+  if (!week || !Array.isArray(week.events)) return [];
+
+  const normalizeFn = (window.NTM_MACRO && window.NTM_MACRO.normalizeMacroEvent) || function (event, timezone) {
+    return { ...event, swedishDate: event.date, swedishTime: event.time || 'Tid ej angiven', hasTime: !!event.time, timestamp: 0 };
+  };
+
+  return week.events
+    .map((event) => normalizeFn(event, week.sourceTimezone))
+    .filter(Boolean)
+    .sort((first, second) => {
+      if (first.swedishDate !== second.swedishDate) {
+        return first.swedishDate.localeCompare(second.swedishDate);
+      }
+      return first.timestamp - second.timestamp;
+    });
+}
+
 function renderMacroWeek(weekKey, macroWeeks) {
   const week = macroWeeks[weekKey];
   if (!week) return;
 
-  const hasEvents = Array.isArray(week.events) && week.events.length > 0;
+  const normalizedEvents = getRenderableMacroEvents(week);
+  const hasEvents = normalizedEvents.length > 0;
   const hasFallbackImage = typeof week.fallbackImage === 'string' && week.fallbackImage.trim().length > 0;
   const weekLabel = formatIsoWeekLabel(weekKey);
 
@@ -111,20 +150,6 @@ function renderMacroWeek(weekKey, macroWeeks) {
     if (visual) visual.classList.add('hidden');
     if (structuredContainer) {
       structuredContainer.classList.remove('hidden');
-
-      const normalizeFn = (window.NTM_MACRO && window.NTM_MACRO.normalizeMacroEvent) || function (e, tz) {
-        return { ...e, swedishDate: e.date, swedishTime: e.time || 'Tid ej angiven', hasTime: !!e.time, timestamp: 0 };
-      };
-
-      const normalizedEvents = week.events
-        .map((e) => normalizeFn(e, week.sourceTimezone))
-        .filter(Boolean)
-        .sort((a, b) => {
-          if (a.swedishDate !== b.swedishDate) {
-            return a.swedishDate.localeCompare(b.swedishDate);
-          }
-          return a.timestamp - b.timestamp;
-        });
 
       const daysMap = {};
       normalizedEvents.forEach((ev) => {
@@ -271,10 +296,7 @@ function renderMacroWeek(weekKey, macroWeeks) {
 function renderMacroArchive(selectedWeekKey, macroWeeks, currentWeekKey) {
   const startArchiveKey = '2026-W36';
   const weekKeys = Object.keys(macroWeeks).filter((key) => parseIsoWeekKey(key));
-  const upcomingKeys = weekKeys
-    .filter((key) => compareIsoWeekKeys(key, currentWeekKey) > 0)
-    .sort(compareIsoWeekKeys)
-    .slice(0, 4);
+  const upcomingKeys = getFollowingIsoWeekKeys(currentWeekKey, 4);
   const pastKeys = weekKeys
     .filter((key) => compareIsoWeekKeys(key, startArchiveKey) >= 0 && compareIsoWeekKeys(key, currentWeekKey) < 0)
     .sort((first, second) => compareIsoWeekKeys(second, first));
@@ -283,9 +305,22 @@ function renderMacroArchive(selectedWeekKey, macroWeeks, currentWeekKey) {
     const activeClass = weekKey === selectedWeekKey ? 'active' : '';
     return `<button type="button" class="archive-item ${activeClass}" data-week="${weekKey}">${escapeText(formatIsoWeekLabel(weekKey))}</button>`;
   };
+  const renderUpcomingItem = (weekKey) => {
+    const hasRenderableEvents = getRenderableMacroEvents(macroWeeks[weekKey]).length > 0;
+    const activeClass = weekKey === selectedWeekKey ? 'active' : '';
+    const disabledClass = hasRenderableEvents ? '' : ' is-disabled';
+    const disabledAttribute = hasRenderableEvents ? '' : ' disabled aria-disabled="true"';
+    const statusText = hasRenderableEvents ? '' : ' · Ej inlagt ännu';
+    return `<button type="button" class="archive-item${disabledClass} ${activeClass}" data-week="${weekKey}"${disabledAttribute}>${escapeText(formatIsoWeekLabel(weekKey) + statusText)}</button>`;
+  };
+  const currentActiveClass = selectedWeekKey === currentWeekKey ? 'active' : '';
+
+  if (currentWeekContainer) {
+    currentWeekContainer.innerHTML = `<button type="button" class="archive-item ${currentActiveClass}" data-week="${currentWeekKey}">Denna vecka · ${escapeText(formatIsoWeekLabel(currentWeekKey))}</button>`;
+  }
 
   if (upcomingContainer) {
-    upcomingContainer.innerHTML = upcomingKeys.map(renderButton).join('') || '<p class="ntm-empty-state">Inga kommande veckor med data.</p>';
+    upcomingContainer.innerHTML = upcomingKeys.map(renderUpcomingItem).join('');
   }
   if (archiveContainer) {
     archiveContainer.innerHTML = visiblePastKeys.map(renderButton).join('') || '<p class="ntm-empty-state">Inga tidigare veckor.</p>';
@@ -294,9 +329,9 @@ function renderMacroArchive(selectedWeekKey, macroWeeks, currentWeekKey) {
     showMoreArchiveButton.classList.toggle('hidden', pastKeys.length <= 8);
   }
 
-  [upcomingContainer, archiveContainer].forEach((container) => {
+  [currentWeekContainer, upcomingContainer, archiveContainer].forEach((container) => {
     if (!container) return;
-    container.querySelectorAll('.archive-item').forEach((button) => {
+    container.querySelectorAll('.archive-item:not(:disabled)').forEach((button) => {
       button.addEventListener('click', () => {
         renderMacroWeek(button.dataset.week, macroWeeks);
         renderMacroArchive(button.dataset.week, macroWeeks, currentWeekKey);

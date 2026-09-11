@@ -290,6 +290,66 @@ END:VCALENDAR"""
         self.assertEqual(events[1]['date'], '2026-09-11')
         self.assertEqual(events[1]['time'], '08:30')
 
+    def test_supported_calendar_event_without_period_is_preserved(self):
+        """A dated JOLTS calendar event remains visible without coupling an unverified result."""
+        ics_text = """BEGIN:VCALENDAR
+BEGIN:VEVENT
+UID:jolts-2026-09-29@bls.gov
+DTSTART;TZID=US-Eastern:20260929T100000
+SUMMARY:Job Openings and Labor Turnover Survey
+END:VEVENT
+END:VCALENDAR"""
+        calendar_events = parse_ics_calendar(ics_text)
+        macro_weeks = {}
+
+        added, updated = sync_scheduled_weeks_from_calendar(macro_weeks, calendar_events)
+
+        self.assertEqual(added, 1)
+        self.assertEqual(updated, 0)
+        event = macro_weeks['2026-W40']['events'][0]
+        self.assertEqual(event['date'], '2026-09-29')
+        self.assertEqual(event['time'], '10:00')
+        self.assertEqual(event['eventName'], 'JOLTS Job Openings')
+        self.assertIsNone(event['period'])
+        self.assertIsNone(event['refYear'])
+        self.assertIsNone(event['actual'])
+
+    def test_calendar_uid_backfills_legacy_event_without_duplicate(self):
+        """A newly verified UID updates an older same-day event that has no UID."""
+        macro_weeks = {
+            '2026-W40': {
+                'weekNumber': 40,
+                'year': 2026,
+                'events': [{
+                    'id': 'us-jolts-job-openings-2026-09-29',
+                    'date': '2026-09-29',
+                    'time': '10:00',
+                    'eventName': 'JOLTS Job Openings',
+                    'period': 'Jul.',
+                    'refYear': 2026,
+                    'actual': '7.27M'
+                }]
+            }
+        }
+        calendar_events = [{
+            'uid': 'jolts-2026-09-29@bls.gov',
+            'date': '2026-09-29',
+            'time': '10:00',
+            'summary': 'Job Openings and Labor Turnover Survey',
+            'description': ''
+        }]
+
+        added, updated = sync_scheduled_weeks_from_calendar(macro_weeks, calendar_events)
+
+        self.assertEqual(added, 0)
+        self.assertEqual(updated, 1)
+        self.assertEqual(len(macro_weeks['2026-W40']['events']), 1)
+        self.assertEqual(
+            macro_weeks['2026-W40']['events'][0]['calUid'],
+            'jolts-2026-09-29@bls.gov::us-jolts-job-openings'
+        )
+        self.assertEqual(macro_weeks['2026-W40']['events'][0]['actual'], '7.27M')
+
     def test_empty_api_data_returns_none(self):
         """API series with empty data list must not produce fake updates."""
         mock_empty_series = {

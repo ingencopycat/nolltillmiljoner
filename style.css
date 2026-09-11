@@ -2918,6 +2918,13 @@ body.light-theme .macro-details-body {
   color: var(--highlight);
 }
 
+.archive-item.is-disabled,
+.archive-item:disabled {
+  cursor: not-allowed;
+  color: var(--muted);
+  opacity: 0.58;
+}
+
 .community-page {
   display: grid;
   gap: 24px;

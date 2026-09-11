@@ -375,7 +375,11 @@ def sync_scheduled_weeks_from_calendar(macro_weeks, calendar_events):
             fallback_year=target_year
         )
 
-        if not period_label:
+        matched_defs = [
+            idef for idef in indicator_defs
+            if idef['match'] in summary_lower
+        ]
+        if not matched_defs:
             continue
 
         week_key = get_iso_week_from_date(ev_date)
@@ -395,79 +399,83 @@ def sync_scheduled_weeks_from_calendar(macro_weeks, calendar_events):
 
         week = macro_weeks[week_key]
 
-        for idef in indicator_defs:
-            if idef['match'] in summary_lower:
-                for ind_key in idef['indicators']:
-                    template = EVENT_SERIES_MAPPING.get(ind_key)
-                    if not template:
-                        continue
+        for idef in matched_defs:
+            for ind_key in idef['indicators']:
+                template = EVENT_SERIES_MAPPING.get(ind_key)
+                if not template:
+                    continue
 
-                    stable_id = f"{ind_key}-{ev_date}"
-                    found_ev = None
-                    found_week_key = None
+                stable_id = f"{ind_key}-{ev_date}"
+                found_ev = None
+                found_week_key = None
 
-                    # A verified calendar UID identifies one publication. Only legacy
-                    # events without UIDs may fall back to indicator and period.
-                    scoped_uid = f"{cal_uid}::{ind_key}" if cal_uid else ''
+                # A verified calendar UID identifies one publication. Only legacy
+                # events without UIDs may fall back to indicator and period.
+                scoped_uid = f"{cal_uid}::{ind_key}" if cal_uid else ''
 
-                    for w_k, w_v in macro_weeks.items():
-                        for existing_ev in w_v.get('events', []):
-                            ex_id = existing_ev.get('id', '')
-                            ex_ref_yr = existing_ev.get('refYear', int(existing_ev.get('date', '2026-01-01').split('-')[0]))
+                for w_k, w_v in macro_weeks.items():
+                    for existing_ev in w_v.get('events', []):
+                        ex_id = existing_ev.get('id', '')
+                        ex_ref_yr = existing_ev.get('refYear', int(existing_ev.get('date', '2026-01-01').split('-')[0]))
 
-                            is_same_indicator = (ex_id == stable_id) or (ex_id.startswith(ind_key) and existing_ev.get('eventName') == template['eventName'])
-                            is_same_period = (existing_ev.get('period') == period_label and ex_ref_yr == ref_year)
-                            existing_uid = existing_ev.get('calUid', '')
-                            is_same_uid = bool(
-                                cal_uid and existing_uid in (cal_uid, scoped_uid)
-                            )
-                            is_legacy_period_match = not scoped_uid and not existing_ev.get('calUid') and is_same_period
+                        is_same_indicator = (ex_id == stable_id) or (ex_id.startswith(ind_key) and existing_ev.get('eventName') == template['eventName'])
+                        is_same_period = bool(period_label and existing_ev.get('period') == period_label and ex_ref_yr == ref_year)
+                        existing_uid = existing_ev.get('calUid', '')
+                        is_same_uid = bool(
+                            cal_uid and existing_uid in (cal_uid, scoped_uid)
+                        )
+                        is_legacy_period_match = not scoped_uid and not existing_ev.get('calUid') and is_same_period
+                        is_legacy_id_match = not existing_uid and ex_id == stable_id
 
-                            if is_same_indicator and (is_same_uid or is_legacy_period_match):
-                                found_ev = existing_ev
-                                found_week_key = w_k
-                                break
-                        if found_ev:
+                        if is_same_indicator and (is_same_uid or is_legacy_period_match or is_legacy_id_match):
+                            found_ev = existing_ev
+                            found_week_key = w_k
                             break
-
                     if found_ev:
-                        date_changed = (found_ev.get('date') != ev_date)
-                        time_changed = (found_ev.get('time') != ev_time)
-                        week_changed = (found_week_key != week_key)
+                        break
 
-                        if date_changed or time_changed or week_changed:
-                            found_ev['date'] = ev_date
-                            found_ev['time'] = ev_time
-                            found_ev['id'] = stable_id
+                if found_ev:
+                    date_changed = (found_ev.get('date') != ev_date)
+                    time_changed = (found_ev.get('time') != ev_time)
+                    week_changed = (found_week_key != week_key)
+                    period_changed = bool(period_label and found_ev.get('period') != period_label)
+                    ref_year_changed = bool(period_label and found_ev.get('refYear') != ref_year)
+                    uid_changed = bool(scoped_uid and found_ev.get('calUid') != scoped_uid)
+
+                    if date_changed or time_changed or week_changed or period_changed or ref_year_changed or uid_changed:
+                        found_ev['date'] = ev_date
+                        found_ev['time'] = ev_time
+                        found_ev['id'] = stable_id
+                        if period_label:
                             found_ev['refYear'] = ref_year
                             found_ev['period'] = period_label
-                            if scoped_uid:
-                                found_ev['calUid'] = scoped_uid
-
-                            if week_changed and found_week_key in macro_weeks:
-                                macro_weeks[found_week_key]['events'].remove(found_ev)
-                                week['events'].append(found_ev)
-                            updated_events += 1
-                    else:
-                        new_ev = {
-                            'id': stable_id,
-                            'date': ev_date,
-                            'time': ev_time,
-                            'country': 'USA',
-                            'eventName': template['eventName'],
-                            'period': period_label,
-                            'refYear': ref_year,
-                            'forecast': None,
-                            'previous': None,
-                            'actual': None,
-                            'priority': template['priority'],
-                            'source': template['source'],
-                            'sourceUrl': template['sourceUrl']
-                        }
                         if scoped_uid:
-                            new_ev['calUid'] = scoped_uid
-                        week['events'].append(new_ev)
-                        added_events += 1
+                            found_ev['calUid'] = scoped_uid
+
+                        if week_changed and found_week_key in macro_weeks:
+                            macro_weeks[found_week_key]['events'].remove(found_ev)
+                            week['events'].append(found_ev)
+                        updated_events += 1
+                else:
+                    new_ev = {
+                        'id': stable_id,
+                        'date': ev_date,
+                        'time': ev_time,
+                        'country': 'USA',
+                        'eventName': template['eventName'],
+                        'period': period_label,
+                        'refYear': ref_year if period_label else None,
+                        'forecast': None,
+                        'previous': None,
+                        'actual': None,
+                        'priority': template['priority'],
+                        'source': template['source'],
+                        'sourceUrl': template['sourceUrl']
+                    }
+                    if scoped_uid:
+                        new_ev['calUid'] = scoped_uid
+                    week['events'].append(new_ev)
+                    added_events += 1
 
     return added_events, updated_events
 
