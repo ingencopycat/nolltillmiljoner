@@ -1,6 +1,11 @@
 const isMakroPage = window.location.pathname.toLowerCase().includes('makro');
 
 const earningsWeekData = {
+  '2026-W38': {
+    title: 'Vecka 38',
+    label: 'Vecka 38',
+    image: './images/rapporter/week-38.png'
+  },
   '2026-W37': {
     title: 'Vecka 37',
     label: 'Vecka 37',
