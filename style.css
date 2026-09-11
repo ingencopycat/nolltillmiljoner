@@ -746,6 +746,79 @@ body.light-theme .calc-status-banner.calc-status-stale {
   font-weight: 500;
 }
 
+.saved-scenarios {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0 24px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--panel);
+}
+
+.saved-scenarios .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.saved-scenarios-heading,
+.saved-scenarios-controls,
+.saved-scenario-save-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.saved-scenarios-heading {
+  justify-content: space-between;
+}
+
+.saved-scenarios-heading h3 {
+  margin: 4px 0 0;
+  font-size: 1rem;
+}
+
+.saved-scenarios-count {
+  color: var(--muted);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.saved-scenarios-controls select,
+.saved-scenario-save-row input {
+  min-width: 0;
+  flex: 1;
+}
+
+.saved-scenario-status {
+  min-height: 1.2em;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 720px) {
+  .saved-scenarios-controls,
+  .saved-scenario-save-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .saved-scenarios-controls select,
+  .saved-scenarios-controls button,
+  .saved-scenario-save-row input,
+  .saved-scenario-save-row button {
+    width: 100%;
+  }
+}
+
 /* Neutral state: hide results, charts, summaries */
 [data-calc-state="neutral"] .results,
 [data-calc-state="neutral"] .compact-results,

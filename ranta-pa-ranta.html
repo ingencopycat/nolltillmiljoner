@@ -76,6 +76,29 @@
                 <button type="button" class="mode-tab" data-mode="dividend" aria-selected="false">Utdelning</button>
             </div>
 
+            <section class="saved-scenarios" id="saved-scenarios" aria-labelledby="saved-scenarios-heading">
+                <div class="saved-scenarios-heading">
+                    <div>
+                        <span class="section-kicker">Lokalt i webbläsaren</span>
+                        <h3 id="saved-scenarios-heading">Sparade scenarier</h3>
+                    </div>
+                    <span class="saved-scenarios-count" id="saved-scenarios-count">0/10</span>
+                </div>
+                <div class="saved-scenarios-controls">
+                    <select id="saved-scenario-select" aria-label="Välj sparat scenario">
+                        <option value="">Välj ett scenario</option>
+                    </select>
+                    <button type="button" class="secondary-btn" id="load-scenario" disabled>Ladda</button>
+                    <button type="button" class="ghost-btn" id="delete-scenario" disabled>Radera</button>
+                </div>
+                <div class="saved-scenario-save-row">
+                    <label class="sr-only" for="saved-scenario-name">Namn på scenario</label>
+                    <input id="saved-scenario-name" type="text" maxlength="60" placeholder="Namn på nytt scenario" autocomplete="off" />
+                    <button type="button" class="ghost-btn" id="save-scenario">Spara scenario</button>
+                </div>
+                <p class="saved-scenario-status" id="saved-scenario-status" role="status" aria-live="polite"></p>
+            </section>
+
             <div id="growth-mode-panel" class="mode-panel">
                 <form id="calculator-form" class="calculator-form">
                     <div class="form-grid">

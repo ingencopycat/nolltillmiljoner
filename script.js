@@ -128,6 +128,13 @@ class CalcState {
     }
   }
 
+  setStaleFromLoad() {
+    if (this.state === 'neutral') {
+      this.state = 'calculated';
+    }
+    this.setStale();
+  }
+
   calculate() {
     if (!this.onCalculate) return;
 
@@ -162,6 +169,116 @@ class CalcState {
     }
   }
 }
+
+const SCENARIO_STORAGE_KEY = 'investment-scenarios-v1';
+
+function readScenarioStore() {
+  try {
+    if (!window.localStorage) {
+      return { data: { version: 1, calculators: {} }, error: 'Lokal lagring är inte tillgänglig.' };
+    }
+    const raw = window.localStorage.getItem(SCENARIO_STORAGE_KEY);
+    if (!raw) {
+      return { data: { version: 1, calculators: {} }, error: null };
+    }
+    const parsed = JSON.parse(raw);
+    if (!parsed || parsed.version !== 1 || typeof parsed.calculators !== 'object') {
+      return { data: { version: 1, calculators: {} }, error: 'Sparade scenarier kunde inte läsas.' };
+    }
+    return { data: parsed, error: null };
+  } catch (error) {
+    return { data: { version: 1, calculators: {} }, error: 'Sparade scenarier kunde inte läsas.' };
+  }
+}
+
+function getSavedScenarios(calculatorId) {
+  const result = readScenarioStore();
+  const scenarios = result.data.calculators[calculatorId];
+  return {
+    scenarios: Array.isArray(scenarios) ? scenarios : [],
+    error: result.error
+  };
+}
+
+function writeScenarioStore(data) {
+  try {
+    if (!window.localStorage) return false;
+    window.localStorage.setItem(SCENARIO_STORAGE_KEY, JSON.stringify(data));
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+function createScenarioId() {
+  if (window.crypto?.randomUUID) return window.crypto.randomUUID();
+  return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+}
+
+function saveScenario(calculatorId, scenario, maxScenarios = 10) {
+  const result = readScenarioStore();
+  const scenarios = Array.isArray(result.data.calculators[calculatorId])
+    ? result.data.calculators[calculatorId]
+    : [];
+  if (scenarios.length >= maxScenarios) {
+    return { ok: false, error: `Du kan spara högst ${maxScenarios} scenarier.` };
+  }
+  const storedScenario = {
+    id: createScenarioId(),
+    name: scenario.name,
+    createdAt: new Date().toISOString(),
+    mode: scenario.mode,
+    inputs: scenario.inputs
+  };
+  result.data.calculators[calculatorId] = [storedScenario, ...scenarios];
+  return writeScenarioStore(result.data)
+    ? { ok: true, scenario: storedScenario }
+    : { ok: false, error: 'Scenariot kunde inte sparas lokalt.' };
+}
+
+function deleteScenario(calculatorId, scenarioId) {
+  const result = readScenarioStore();
+  const scenarios = Array.isArray(result.data.calculators[calculatorId])
+    ? result.data.calculators[calculatorId]
+    : [];
+  result.data.calculators[calculatorId] = scenarios.filter((scenario) => scenario.id !== scenarioId);
+  return writeScenarioStore(result.data);
+}
+
+function snapshotForm(form) {
+  const inputs = {};
+  if (!form) return inputs;
+  form.querySelectorAll('input[id], select[id], textarea[id]').forEach((control) => {
+    inputs[control.id] = {
+      type: control.type || control.tagName.toLowerCase(),
+      value: control.value,
+      checked: control.type === 'checkbox' || control.type === 'radio' ? control.checked : undefined
+    };
+  });
+  return inputs;
+}
+
+function restoreFormSnapshot(form, inputs) {
+  if (!form || !inputs || typeof inputs !== 'object') return;
+  Object.entries(inputs).forEach(([id, saved]) => {
+    const control = form.querySelector(`#${CSS.escape(id)}`);
+    if (!control || !saved) return;
+    if (saved.type === 'checkbox' || saved.type === 'radio') {
+      control.checked = Boolean(saved.checked);
+    } else {
+      control.value = saved.value ?? '';
+    }
+  });
+}
+
+window.NTMScenarioStorage = {
+  key: SCENARIO_STORAGE_KEY,
+  get: getSavedScenarios,
+  save: saveScenario,
+  remove: deleteScenario,
+  snapshotForm,
+  restoreFormSnapshot
+};
 
 let growthCalcState = null;
 let dividendCalcState = null;
@@ -4785,6 +4902,105 @@ if (dividendForm) {
     onCalculate: calculateDividendInvestment
   });
 }
+
+function initSavedInvestmentScenarios() {
+  const scenarioSelect = document.getElementById('saved-scenario-select');
+  const saveButton = document.getElementById('save-scenario');
+  const loadButton = document.getElementById('load-scenario');
+  const deleteButton = document.getElementById('delete-scenario');
+  const nameInput = document.getElementById('saved-scenario-name');
+  const statusElement = document.getElementById('saved-scenario-status');
+  const countElement = document.getElementById('saved-scenarios-count');
+  if (!scenarioSelect || !saveButton || !loadButton || !deleteButton || !nameInput) return;
+
+  const calculatorId = 'ranta-pa-ranta';
+  const maxScenarios = 10;
+  const getModeForm = (mode) => mode === 'dividend' ? dividendForm : form;
+  const getModeState = (mode) => mode === 'dividend' ? dividendCalcState : growthCalcState;
+  let scenarios = [];
+
+  const setStatus = (message, isError = false) => {
+    if (!statusElement) return;
+    statusElement.textContent = message;
+    statusElement.classList.toggle('is-error', isError);
+  };
+
+  const render = (selectedId = scenarioSelect.value) => {
+    const result = window.NTMScenarioStorage.get(calculatorId);
+    scenarios = result.scenarios;
+    scenarioSelect.innerHTML = '<option value="">Välj ett scenario</option>';
+    scenarios.forEach((scenario) => {
+      const option = document.createElement('option');
+      option.value = scenario.id;
+      option.textContent = `${scenario.name} (${scenario.mode === 'dividend' ? 'Utdelning' : 'Tillväxt'})`;
+      scenarioSelect.appendChild(option);
+    });
+    scenarioSelect.value = scenarios.some((scenario) => scenario.id === selectedId) ? selectedId : '';
+    const hasSelection = Boolean(scenarioSelect.value);
+    loadButton.disabled = !hasSelection;
+    deleteButton.disabled = !hasSelection;
+    if (countElement) countElement.textContent = `${scenarios.length}/${maxScenarios}`;
+    if (result.error) setStatus(result.error, true);
+  };
+
+  scenarioSelect.addEventListener('change', () => {
+    const hasSelection = Boolean(scenarioSelect.value);
+    loadButton.disabled = !hasSelection;
+    deleteButton.disabled = !hasSelection;
+  });
+
+  saveButton.addEventListener('click', () => {
+    const name = nameInput.value.trim();
+    if (!name) {
+      setStatus('Ange ett namn på scenariot.', true);
+      nameInput.focus();
+      return;
+    }
+    const mode = getActiveMode();
+    const result = window.NTMScenarioStorage.save(calculatorId, {
+      name,
+      mode,
+      inputs: window.NTMScenarioStorage.snapshotForm(getModeForm(mode))
+    }, maxScenarios);
+    if (!result.ok) {
+      setStatus(result.error, true);
+      return;
+    }
+    nameInput.value = '';
+    render(result.scenario.id);
+    setStatus('Scenariot sparades lokalt.');
+  });
+
+  loadButton.addEventListener('click', () => {
+    const scenario = scenarios.find((item) => item.id === scenarioSelect.value);
+    if (!scenario) return;
+    const hadExistingResult = [growthCalcState, dividendCalcState]
+      .some((state) => state?.state === 'calculated' || state?.state === 'stale');
+    setActiveMode(scenario.mode);
+    window.NTMScenarioStorage.restoreFormSnapshot(getModeForm(scenario.mode), scenario.inputs);
+    const modeState = getModeState(scenario.mode);
+    if (hadExistingResult) {
+      modeState?.setStaleFromLoad();
+    } else {
+      modeState?.setNeutral();
+    }
+    setStatus('Scenariot laddades. Klicka på Beräkna för att uppdatera resultatet.');
+  });
+
+  deleteButton.addEventListener('click', () => {
+    const scenarioId = scenarioSelect.value;
+    if (!scenarioId || !window.NTMScenarioStorage.remove(calculatorId, scenarioId)) {
+      setStatus('Scenariot kunde inte raderas.', true);
+      return;
+    }
+    render('');
+    setStatus('Scenariot raderades.');
+  });
+
+  render();
+}
+
+initSavedInvestmentScenarios();
 if (feeForm) {
   initFeeComparisonPage();
 }
