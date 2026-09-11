@@ -346,7 +346,21 @@ function renderMacroArchive(selectedWeekKey, macroWeeks, currentWeekKey) {
   });
 }
 
-function renderEarningsWeek(weekKey, weeksData) {
+function getReportWeekStatus(weekKey, currentWeekKey) {
+  if (weekKey === currentWeekKey) return 'Aktuell';
+  return compareIsoWeekKeys(weekKey, currentWeekKey) > 0 ? 'Kommande' : 'Arkiv';
+}
+
+function getInitialEarningsWeek(weeksData, currentWeekKey) {
+  const keys = Object.keys(weeksData).filter((key) => parseIsoWeekKey(key));
+  if (weeksData[currentWeekKey]) return currentWeekKey;
+  const nextWeek = keys
+    .filter((key) => compareIsoWeekKeys(key, currentWeekKey) > 0)
+    .sort(compareIsoWeekKeys)[0];
+  return nextWeek || keys.sort((first, second) => compareIsoWeekKeys(second, first))[0] || currentWeekKey;
+}
+
+function renderEarningsWeek(weekKey, weeksData, currentWeekKey = getIsoWeekKeyForDate()) {
   const item = weeksData[weekKey];
   if (!item) return;
 
@@ -366,15 +380,18 @@ function renderEarningsWeek(weekKey, weeksData) {
   }
 
   if (archiveContainer) {
-    const keys = Object.keys(weeksData).sort((a, b) => b.localeCompare(a));
+    const keys = Object.keys(weeksData)
+      .filter((key) => parseIsoWeekKey(key))
+      .sort((first, second) => compareIsoWeekKeys(second, first));
     archiveContainer.innerHTML = keys.map((wk) => {
       const activeClass = wk === weekKey ? 'active' : '';
-      return `<button type="button" class="archive-item ${activeClass}" data-week="${wk}">${escapeText(weeksData[wk].title)}</button>`;
+      const status = getReportWeekStatus(wk, currentWeekKey);
+      return `<button type="button" class="archive-item ${activeClass}" data-week="${wk}" aria-label="${escapeText(`${status}: ${weeksData[wk].title}`)}"><span class="archive-item-status">${escapeText(status)}</span> ${escapeText(weeksData[wk].title)}</button>`;
     }).join('');
 
     archiveContainer.querySelectorAll('.archive-item').forEach((button) => {
       button.addEventListener('click', function () {
-        renderEarningsWeek(this.dataset.week, weeksData);
+        renderEarningsWeek(this.dataset.week, weeksData, currentWeekKey);
       });
     });
   }
@@ -404,7 +421,7 @@ if (isMakroPage) {
   renderMacroWeek(currentWeekKey, displayMacroWeeks);
   renderMacroArchive(currentWeekKey, displayMacroWeeks, currentWeekKey);
 } else {
-  const weekKeys = Object.keys(earningsWeekData).sort((a, b) => b.localeCompare(a));
-  const latest = weekKeys[0] || '2026-W37';
-  renderEarningsWeek(latest, earningsWeekData);
+  const currentWeekKey = getIsoWeekKeyForDate();
+  const initialWeek = getInitialEarningsWeek(earningsWeekData, currentWeekKey);
+  renderEarningsWeek(initialWeek, earningsWeekData, currentWeekKey);
 }

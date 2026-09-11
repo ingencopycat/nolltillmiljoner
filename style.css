@@ -2985,6 +2985,16 @@ body.light-theme .macro-details-body {
   font-weight: 700;
 }
 
+.archive-item-status {
+  display: inline-block;
+  margin-right: 4px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 .archive-item.active {
   border-color: rgba(61, 217, 198, 0.3);
   background: rgba(61, 217, 198, 0.08);
