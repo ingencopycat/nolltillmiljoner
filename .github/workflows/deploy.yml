@@ -1,0 +1,80 @@
+name: Deploy and Update NTM Website
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    # Runs Monday through Friday at 12:35, 14:35 and 16:35 UTC (08:35, 10:35, 12:35 ET)
+    - cron: '35 12,14,16 * * 1-5'
+  workflow_dispatch:
+
+concurrency:
+  group: pages-and-macro
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  update-macro-and-build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run Unit & Regression Tests
+        run: |
+          python tests/test_macro.py
+
+      - name: Update Macroeconomic Data
+        env:
+          BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+        run: |
+          python scripts/update_macro.py
+          python tests/test_macro.py
+
+      - name: Commit data changes if updated
+        run: |
+          # Differentiate meaningful macro data changes from timestamp-only checks
+          DATA_CHANGES=$(git diff -U0 data/weekly-events.js | grep -v "lastFetchAttempt" | grep "^+[^+]" || true)
+          if [ -n "$DATA_CHANGES" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add data/weekly-events.js
+            git commit -m "chore(macro): update official macroeconomic data [skip ci]"
+            git push
+          else
+            echo "No material data content changes. Skipping git commit."
+          fi
+
+      - name: Stage Public Site Artifacts
+        run: |
+          python scripts/stage_site.py _site
+
+          echo "Staged site contents:"
+          ls -la _site
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

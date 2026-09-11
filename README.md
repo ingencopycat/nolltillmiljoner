@@ -156,14 +156,29 @@ Central, data-driven architecture — **new posts are added to `posts.js`, never
 
 ## Makro and Rapporter
 
-`makro.html` and `rapporter.html` share one system driven by `week-pages.js`:
+- `makro.html` renders native structured macroeconomic events from `data/weekly-events.js` (`macroWeeks`), grouped by Swedish calendar day (`Europe/Stockholm`) with time, country, actual/forecast/previous and optional details/sources. Older weeks with only images fall back to the image visual and lightbox.
+- `rapporter.html` continues to be driven by `week-pages.js` with weekly images from `images/rapporter/` and lightbox.
 
-- A `weekData` map in `week-pages.js` keys week numbers to `{ title, label, image }`.
-- `isMakroPage` picks the image directory: `images/makro/week-NN.png` or `images/rapporter/week-NN.png`.
-- The latest week is shown first in a large visual panel (click opens the shared lightbox); earlier weeks are listed in the archive sidebar and switch the visual when clicked.
-- **To add a week**: add the image to the right directory and add one entry at the top of `weekData`. Nothing else changes.
+### Automated Macro Data & Deployment
 
-Note: the *Makro/Rapporter pages* (weekly images) are separate from the *Makro idag/Rapporter idag homepage panels* (daily events from `data/weekly-events.js`).
+Macroeconomic data is updated via `scripts/update_macro.py` and GitHub Actions (`.github/workflows/deploy.yml`):
+- **Live Automated Source:** U.S. Bureau of Labor Statistics (BLS) Public API.
+  - Queries exact series (e.g. `CES0000000001` for Nonfarm Payrolls, `LNS14000000` for Unemployment Rate, `CUSR0000SA0` / `CUUR0000SA0` for CPI, `WPSFD4` for PPI, `PRS85006092` for Productivity, `JTS000000000000000JOL` for JOLTS).
+  - Matches strictly by Year + Period (e.g. `2026 M08`, `2026 Q02`).
+  - Auto-populates upcoming weeks and events from the official BLS 2026 release schedule (`BLS_OFFICIAL_SCHEDULE_2026`).
+- **Call Budget:** Runs via cron on trading weekdays (12:35, 14:35, 16:35 UTC) using 1 batch request per run = 3 requests/day (well within the BLS 25 req/day unauthenticated / 500 req/day authenticated limit).
+- **GitHub Pages Deployment:** Uses the official `actions/deploy-pages@v4` workflow. In GitHub Repository Settings, ensure **Settings → Pages → Build and deployment → Source** is set to **"GitHub Actions"**.
+
+### Adding or updating Macro Data manually
+
+1. **Add a new macro week / event**:
+   If adding an event not in the official BLS calendar, add an entry to `macroWeeks` in `data/weekly-events.js` with a stable `id`, date, time, country, and `period`.
+2. **Missing values**:
+   Forecasts and outcomes without verified public sources or redistribution rights are kept as `null` and rendered as `"–"`. Real zeros must be written as `'0%'` or `'0'`.
+3. **Historical image archive**:
+   Weeks without structured events specify `fallbackImage: './images/makro/week-NN.png'` and `events: []`.
+
+- **Rapporter**: To add a reporting week, add the image to `images/rapporter/week-NN.png` and add the entry to `earningsWeekData` in `week-pages.js`.
 
 ## Resurser
 

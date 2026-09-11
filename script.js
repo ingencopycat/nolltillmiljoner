@@ -43,6 +43,142 @@ let fireGoalChart = null;
 let fireWithdrawalChart = null;
 let currentLeverageMode = 'belaning';
 
+/* Calculation State Manager */
+class CalcState {
+  constructor({ id, container, form, onCalculate, onReset, errorElementId }) {
+    this.id = id;
+    this.container = typeof container === 'string' ? document.querySelector(container) : container;
+    this.form = typeof form === 'string' ? document.querySelector(form) : form;
+    this.onCalculate = onCalculate;
+    this.onReset = onReset;
+    this.errorElementId = errorElementId;
+    this.state = 'neutral';
+    this.statusBanner = null;
+
+    this.init();
+  }
+
+  init() {
+    if (!this.container) return;
+
+    this.statusBanner = this.container.querySelector('.calc-status-banner');
+    if (!this.statusBanner) {
+      this.statusBanner = document.createElement('div');
+      this.statusBanner.className = 'calc-status-banner calc-status-neutral';
+      this.statusBanner.setAttribute('role', 'status');
+      this.statusBanner.setAttribute('aria-live', 'polite');
+
+      const formEl = this.form || this.container.querySelector('form');
+      if (formEl) {
+        formEl.after(this.statusBanner);
+      } else {
+        this.container.prepend(this.statusBanner);
+      }
+    }
+
+    this.setNeutral();
+
+    if (this.form) {
+      this.form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        this.calculate();
+      });
+
+      this.form.addEventListener('input', () => this.handleInputChange());
+      this.form.addEventListener('change', () => this.handleInputChange());
+      this.form.addEventListener('reset', () => {
+        setTimeout(() => this.setNeutral(), 0);
+      });
+    }
+  }
+
+  handleInputChange() {
+    if (this.state === 'calculated') {
+      this.setStale();
+    }
+  }
+
+  setNeutral() {
+    this.state = 'neutral';
+    if (this.container) {
+      this.container.setAttribute('data-calc-state', 'neutral');
+    }
+    if (this.statusBanner) {
+      this.statusBanner.className = 'calc-status-banner calc-status-neutral';
+      this.statusBanner.innerHTML = '<p>Ange dina värden och klicka på Beräkna.</p>';
+      this.statusBanner.hidden = false;
+    }
+    if (this.errorElementId) {
+      const errEl = document.getElementById(this.errorElementId);
+      if (errEl) errEl.classList.add('hidden');
+    }
+    if (this.onReset) this.onReset();
+  }
+
+  setStale() {
+    if (this.state === 'neutral') return;
+    this.state = 'stale';
+    if (this.container) {
+      this.container.setAttribute('data-calc-state', 'stale');
+    }
+    if (this.statusBanner) {
+      this.statusBanner.className = 'calc-status-banner calc-status-stale';
+      this.statusBanner.innerHTML = '<p>⚡ Värdena har ändrats. Klicka på Beräkna för att uppdatera resultatet.</p>';
+      this.statusBanner.hidden = false;
+    }
+  }
+
+  calculate() {
+    if (!this.onCalculate) return;
+
+    if (this.errorElementId) {
+      const errEl = document.getElementById(this.errorElementId);
+      if (errEl) errEl.classList.add('hidden');
+    }
+
+    const result = this.onCalculate();
+    const isSuccess = result === true || (result && typeof result === 'object' && result.success);
+
+    if (isSuccess) {
+      this.state = 'calculated';
+      if (this.container) {
+        this.container.setAttribute('data-calc-state', 'calculated');
+      }
+      if (this.statusBanner) {
+        this.statusBanner.className = 'calc-status-banner hidden';
+        this.statusBanner.innerHTML = '';
+        this.statusBanner.hidden = true;
+      }
+    } else {
+      const errorMessage = typeof result === 'string'
+        ? result
+        : (result && result.error) || 'Ange giltiga värden i alla fält och klicka på Beräkna.';
+
+      if (this.statusBanner) {
+        this.statusBanner.className = 'calc-status-banner calc-status-error';
+        this.statusBanner.innerHTML = `<p>⚠️ ${errorMessage}</p>`;
+        this.statusBanner.hidden = false;
+      }
+    }
+  }
+}
+
+let growthCalcState = null;
+let dividendCalcState = null;
+let feeCalcState = null;
+let recoveryCalcState = null;
+let leverageCalcState = null;
+let dailyLeverageCalcState = null;
+let firePathCalcState = null;
+let fireGoalCalcState = null;
+let fireWithdrawalCalcState = null;
+let iskCalcState = null;
+let stockValuationCalcState = null;
+let returnCalcState = null;
+let purchaseCalcState = null;
+let goalCalcState = null;
+let mortgageCalcState = null;
+
 function formatCurrency(value) {
   const numericValue = Number(value);
   if (!Number.isFinite(numericValue)) {
@@ -75,8 +211,8 @@ function setActiveMode(mode) {
     }
   });
 
-  // Refresh scenario when switching modes
-  renderScenarioComparison();
+  if (growthCalcState) growthCalcState.setNeutral();
+  if (dividendCalcState) dividendCalcState.setNeutral();
 }
 
 function getActiveMode() {
@@ -543,12 +679,20 @@ function renderFeeComparisonChart() {
 }
 
 function calculateFeeComparison() {
-  const startCapital = Number(document.getElementById('avgifter-startkapital').value) || 0;
-  const monthlySavings = Number(document.getElementById('avgifter-manadssparande').value) || 0;
-  const annualReturn = Number(document.getElementById('avgifter-avkastning').value) || 0;
-  const years = Number(document.getElementById('avgifter-ar').value) || 0;
-  const feeA = Number(document.getElementById('avgifter-a').value) || 0;
-  const feeB = Number(document.getElementById('avgifter-b').value) || 0;
+  if (!feeForm) {
+    return false;
+  }
+
+  const startCapital = Number(document.getElementById('avgifter-startkapital').value);
+  const monthlySavings = Number(document.getElementById('avgifter-manadssparande').value);
+  const annualReturn = Number(document.getElementById('avgifter-avkastning').value);
+  const years = Number(document.getElementById('avgifter-ar').value);
+  const feeA = Number(document.getElementById('avgifter-a').value);
+  const feeB = Number(document.getElementById('avgifter-b').value);
+
+  if (!Number.isFinite(years) || years < 1 || startCapital < 0 || monthlySavings < 0 || annualReturn < 0 || feeA < 0 || feeB < 0) {
+    return 'Ange giltiga värden (antal år måste vara minst 1).';
+  }
 
   const withoutFeeA = calculateProjection(startCapital, monthlySavings, annualReturn, 0, years);
   const withoutFeeB = calculateProjection(startCapital, monthlySavings, annualReturn, 0, years);
@@ -581,6 +725,7 @@ function calculateFeeComparison() {
   document.getElementById('avgifter-b-kostnad').textContent = formatCurrency(totalFeeB);
 
   renderFeeComparisonChart();
+  return true;
 }
 
 function initFeeComparisonPage() {
@@ -588,12 +733,12 @@ function initFeeComparisonPage() {
     return;
   }
 
-  feeForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    calculateFeeComparison();
+  feeCalcState = new CalcState({
+    id: 'fee',
+    container: feeForm.closest('.calculator-card') || feeForm.parentElement,
+    form: feeForm,
+    onCalculate: calculateFeeComparison
   });
-
-  calculateFeeComparison();
 }
 
 function getDividendInputs() {
@@ -834,6 +979,10 @@ function renderDividendChart() {
 
 function calculateDividendInvestment() {
   const inputs = getDividendInputs();
+  if (!Number.isFinite(inputs.years) || inputs.years < 1 || inputs.startCapital < 0 || inputs.monthlySavings < 0 || inputs.annualFee < 0 || inputs.annualInflation < 0 || inputs.dividendYield < 0 || inputs.dividendGrowth < 0) {
+    return 'Ange giltiga värden i alla fält (antal år måste vara minst 1).';
+  }
+
   const result = calculateDividendProjection(inputs);
   const reinvestDividends = document.getElementById('dividend-aterinvestera').value === 'true';
 
@@ -874,10 +1023,15 @@ function calculateDividendInvestment() {
 
   renderDividendChart();
   renderScenarioComparison();
+  return true;
 }
 
 function calculateInvestment() {
   const { startCapital, monthlySavings, annualReturn, annualFee, annualInflation, years } = getInputs();
+  if (!Number.isFinite(years) || years < 1 || startCapital < 0 || monthlySavings < 0 || annualFee < 0 || annualInflation < 0) {
+    return 'Ange giltiga värden i alla fält (antal år måste vara minst 1).';
+  }
+
   const result = calculateProjection(startCapital, monthlySavings, annualReturn, annualFee, years);
 
   // Calculate real value (inflation-adjusted)
@@ -912,6 +1066,7 @@ function calculateInvestment() {
 
   renderChart();
   renderScenarioComparison();
+  return true;
 }
 
 function formatPercent(value, digits = 1) {
@@ -1531,12 +1686,16 @@ function renderFireGoalChart(simulation) {
 }
 
 function calculateFireGoal() {
-  const simulation = simulateFireGoal(getFireGoalInputs());
+  const inputs = getFireGoalInputs();
+  if (inputs.monthlyExpenses <= 0 || inputs.withdrawalRate <= 0 || !Number.isFinite(inputs.monthlyExpenses) || !Number.isFinite(inputs.withdrawalRate)) {
+    return 'Månadsutgifter och uttagsnivå måste vara större än 0.';
+  }
+  const simulation = simulateFireGoal(inputs);
   window.latestFireGoalCalculation = simulation;
   const status = document.getElementById('fire-goal-status');
   if (!simulation.valid) {
     if (status) status.textContent = simulation.message;
-    return;
+    return simulation.message || 'Angivna värden är ogiltiga.';
   }
   document.getElementById('fire-goal-savings-result').textContent = `${formatCurrency(simulation.requiredMonthlyContribution)}/mån`;
   document.getElementById('fire-goal-target-result').textContent = formatCurrency(simulation.fireTarget);
@@ -1548,6 +1707,7 @@ function calculateFireGoal() {
     ? `Med dina antaganden behöver du inte sätta in mer kapital för att nå ditt FIRE-mål vid ${simulation.desiredAge}.`
     : `För att nå ${formatCurrency(simulation.fireTarget)} vid ${simulation.desiredAge} års ålder krävs cirka ${formatCurrency(simulation.requiredMonthlyContribution)} per månad.`;
   renderFireGoalChart(simulation);
+  return true;
 }
 
 function getFireWithdrawalInputs() {
@@ -1596,7 +1756,11 @@ function renderFireWithdrawalChart(simulation) {
 }
 
 function calculateFireWithdrawal() {
-  const simulation = simulateFireWithdrawal(getFireWithdrawalInputs());
+  const inputs = getFireWithdrawalInputs();
+  if (inputs.startCapital <= 0 || inputs.monthlyWithdrawal <= 0 || !Number.isFinite(inputs.startCapital) || !Number.isFinite(inputs.monthlyWithdrawal)) {
+    return 'Portföljvärde och månadsutgifter måste vara större än 0.';
+  }
+  const simulation = simulateFireWithdrawal(inputs);
   window.latestFireWithdrawalCalculation = simulation;
   const finalPoint = simulation.series[simulation.series.length - 1];
   document.getElementById('fire-withdrawal-duration-result').textContent = simulation.survivedHorizon ? '100+ år' : formatYearsAndMonths(simulation.depletionMonth);
@@ -1616,14 +1780,19 @@ function calculateFireWithdrawal() {
     ? 'Med dessa antaganden täcks uttagen av kapitalets utveckling tillräckligt väl för att portföljen inte ska ta slut inom den 100-åriga beräkningsperioden.'
     : `Med dessa antaganden minskar kapitalet över tid och beräknas ta slut efter cirka ${formatYearsAndMonths(simulation.depletionMonth)}.`;
   renderFireWithdrawalChart(simulation);
+  return true;
 }
 
 function calculateFireProjection() {
   const inputs = getFireInputs();
+  if (inputs.monthlyExpenses <= 0 || inputs.withdrawalRate <= 0 || !Number.isFinite(inputs.monthlyExpenses) || !Number.isFinite(inputs.withdrawalRate)) {
+    return 'Månadsutgifter och uttagsnivå måste vara större än 0.';
+  }
   const simulation = simulateFire(inputs);
   window.latestFireSimulation = simulation;
   updateFireResults(simulation);
   renderFireChart(simulation);
+  return true;
 }
 
 function setFireChartView(view) {
@@ -2250,6 +2419,102 @@ function formatEventTime(event, sourceTimezone) {
   }).format(getSourceDateTime(event.date, event.time, sourceTimezone));
 }
 
+function normalizeMacroEvent(event, defaultTimezone = 'America/New_York') {
+  if (!event || !event.date) return null;
+  const timezone = event.timezone || defaultTimezone || 'America/New_York';
+  const hasTime = typeof event.time === 'string' && event.time.trim().length > 0;
+
+  if (hasTime) {
+    const dateTime = getSourceDateTime(event.date, event.time, timezone);
+    const swedishDate = getDateKeyInZone(dateTime, NTM_DISPLAY_TIMEZONE);
+    const swedishTime = new Intl.DateTimeFormat('sv-SE', {
+      timeZone: NTM_DISPLAY_TIMEZONE,
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    }).format(dateTime);
+
+    return {
+      ...event,
+      hasTime: true,
+      timezone,
+      dateTime,
+      timestamp: dateTime.getTime(),
+      swedishDate,
+      swedishTime
+    };
+  }
+
+  return {
+    ...event,
+    hasTime: false,
+    timezone,
+    dateTime: null,
+    timestamp: new Date(`${event.date}T00:00:00Z`).getTime(),
+    swedishDate: event.date,
+    swedishTime: 'Tid ej angiven'
+  };
+}
+
+function getAllNormalizedMacroEvents() {
+  const weeklyEvents = window.NTM_WEEKLY_EVENTS || {};
+  const macroWeeks = weeklyEvents.macroWeeks || {};
+  const allEvents = [];
+
+  Object.values(macroWeeks).forEach((week) => {
+    if (Array.isArray(week.events)) {
+      week.events.forEach((event) => {
+        const normalized = normalizeMacroEvent(event, week.sourceTimezone);
+        if (normalized) {
+          allEvents.push(normalized);
+        }
+      });
+    }
+  });
+
+  return allEvents;
+}
+
+function formatMacroValue(val) {
+  if (val === null || val === undefined || val === '') {
+    return '–';
+  }
+  return String(val);
+}
+
+function getIsoWeekDateRange(isoWeekKey) {
+  const match = String(isoWeekKey).match(/^(\d{4})-W(\d{1,2})$/i);
+  if (!match) return null;
+  const year = parseInt(match[1], 10);
+  const week = parseInt(match[2], 10);
+
+  const jan4 = new Date(Date.UTC(year, 0, 4));
+  const dayOfWeek = jan4.getUTCDay() || 7;
+  const week1Mon = new Date(jan4.getTime() - (dayOfWeek - 1) * 86400000);
+  const targetMon = new Date(week1Mon.getTime() + (week - 1) * 7 * 86400000);
+  const targetSun = new Date(targetMon.getTime() + 6 * 86400000);
+
+  const startDay = targetMon.getUTCDate();
+  const endDay = targetSun.getUTCDate();
+  const startMonth = new Intl.DateTimeFormat('sv-SE', { month: 'long', timeZone: 'UTC' }).format(targetMon);
+  const endMonth = new Intl.DateTimeFormat('sv-SE', { month: 'long', timeZone: 'UTC' }).format(targetSun);
+
+  if (startMonth === endMonth) {
+    return `${startDay}–${endDay} ${startMonth} ${year}`;
+  }
+  return `${startDay} ${startMonth} – ${endDay} ${endMonth} ${year}`;
+}
+
+window.NTM_MACRO = {
+  normalizeMacroEvent,
+  getAllNormalizedMacroEvents,
+  formatMacroValue,
+  getIsoWeekDateRange,
+  getSourceDateTime,
+  getDateKeyInZone,
+  NTM_DISPLAY_TIMEZONE
+};
+
 function getWeeklyRecords() {
   const weeklyEvents = window.NTM_WEEKLY_EVENTS || {};
   const macroWeek = Object.values(weeklyEvents.macroWeeks || {})[0];
@@ -2276,7 +2541,11 @@ function renderWeeklyEvents(now = getNtmNow()) {
   const weeklyRecords = getWeeklyRecords();
   const todayKey = getTodayDateKey(now);
 
-  const macroItems = weeklyRecords.macro.filter((event) => event && event.date === todayKey);
+  const allMacro = getAllNormalizedMacroEvents();
+  const macroItems = allMacro
+    .filter((event) => event.swedishDate === todayKey)
+    .sort((a, b) => a.timestamp - b.timestamp);
+
   const earningsItems = weeklyRecords.earnings
     .filter((event) => event && event.date === todayKey)
     .sort((a, b) => getPriorityValue(b.priority) - getPriorityValue(a.priority));
@@ -2284,7 +2553,7 @@ function renderWeeklyEvents(now = getNtmNow()) {
   const highestMacroPriority = Math.max(...macroItems.map((event) => getPriorityValue(event.priority)), 0);
   const relevantMacroItems = macroItems.filter((event) => getPriorityValue(event.priority) === (highestMacroPriority >= getPriorityValue('medium') ? highestMacroPriority : 0));
   const macroGroups = relevantMacroItems.reduce((groups, event) => {
-    const key = event.time || 'unknown';
+    const key = event.hasTime ? event.swedishTime : 'Tid ej angiven';
     groups[key] = groups[key] || [];
     groups[key].push(event);
     return groups;
@@ -2296,9 +2565,9 @@ function renderWeeklyEvents(now = getNtmNow()) {
     macroPanel?.classList.add('is-empty');
   } else {
     macroPanel?.classList.remove('is-empty');
-    macroList.innerHTML = Object.values(macroGroups).map((events) => `
+    macroList.innerHTML = Object.entries(macroGroups).map(([timeLabel, events]) => `
       <div class="ntm-macro-group">
-        <span class="ntm-event-time">${formatEventTime(events[0], weeklyRecords.macroTimezone)}</span>
+        <span class="ntm-event-time">${escapePostText(timeLabel)}</span>
         <div class="ntm-macro-events">
           ${events.map((event) => `
             <div class="ntm-macro-event-row">
@@ -2720,38 +2989,24 @@ if (themeToggle) {
     applyTheme(nextTheme);
     renderTradingViewWidget();
 
-    if (form) {
+    if (form && growthCalcState?.state === 'calculated') {
       renderChart();
       renderScenarioComparison();
     }
 
-    if (dividendForm) {
+    if (dividendForm && dividendCalcState?.state === 'calculated') {
       renderDividendChart();
     }
 
-    if (fireCalculatorForm) {
+    if (fireCalculatorForm && firePathCalcState?.state === 'calculated') {
       calculateFireProjection();
     }
-    if (window.latestFireGoalCalculation?.valid) {
+    if (window.latestFireGoalCalculation?.valid && fireGoalCalcState?.state === 'calculated') {
       renderFireGoalChart(window.latestFireGoalCalculation);
     }
-    if (window.latestFireWithdrawalCalculation) {
+    if (window.latestFireWithdrawalCalculation && fireWithdrawalCalcState?.state === 'calculated') {
       renderFireWithdrawalChart(window.latestFireWithdrawalCalculation);
     }
-  });
-}
-
-if (form) {
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
-    calculateInvestment();
-  });
-}
-
-if (fireCalculatorForm) {
-  fireCalculatorForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    calculateFireProjection();
   });
 }
 
@@ -2784,25 +3039,15 @@ function setFireMainMode(mode) {
     panel.classList.toggle('hidden', !active);
     panel.hidden = !active;
   });
+
+  if (firePathCalcState) firePathCalcState.setNeutral();
+  if (fireGoalCalcState) fireGoalCalcState.setNeutral();
+  if (fireWithdrawalCalcState) fireWithdrawalCalcState.setNeutral();
 }
 
 document.querySelectorAll('.fire-mode-tab').forEach((button) => {
   button.addEventListener('click', () => setFireMainMode(button.dataset.fireMode));
 });
-
-if (fireGoalForm) {
-  fireGoalForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    calculateFireGoal();
-  });
-}
-
-if (fireWithdrawalForm) {
-  fireWithdrawalForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    calculateFireWithdrawal();
-  });
-}
 
 const ISK_TAX_RULES = {
   2026: {
@@ -2814,23 +3059,57 @@ const ISK_TAX_RULES = {
   }
 };
 
-function parseNonNegativeNumber(value) {
-  const parsedValue = Number.parseFloat(String(value || '').replace(/\s/g, '').replace(',', '.'));
-  return Number.isFinite(parsedValue) && parsedValue >= 0 ? parsedValue : 0;
+function parseIskField(id, isOptional = false) {
+  const el = document.getElementById(id);
+  if (!el) return isOptional ? 0 : null;
+  const raw = el.value.trim();
+  if (raw === '') {
+    return isOptional ? 0 : null;
+  }
+  const parsed = Number.parseFloat(raw.replace(/\s/g, '').replace(',', '.'));
+  if (!Number.isFinite(parsed) || parsed < 0) {
+    return NaN;
+  }
+  return parsed;
 }
 
 function calculateIskTax() {
   const rules = ISK_TAX_RULES[2026];
   const activePanel = document.querySelector('.isk-mode-panel:not(.hidden)') || document.getElementById('isk-simple-panel');
-  const allowanceAlreadyUsed = parseNonNegativeNumber(document.getElementById('isk-allowance-used').value);
+  const allowanceAlreadyUsed = parseIskField('isk-allowance-used', true);
+
+  if (Number.isNaN(allowanceAlreadyUsed)) {
+    return 'Ange ett giltigt belopp för skattefri grundnivå.';
+  }
+
   let capitalBasis;
 
   if (activePanel && activePanel.id === 'isk-detailed-panel') {
-    const values = ['isk-value-jan', 'isk-value-apr', 'isk-value-jul', 'isk-value-oct', 'isk-deposits', 'isk-transfers']
-      .map((id) => parseNonNegativeNumber(document.getElementById(id).value));
-    capitalBasis = values.reduce((total, value) => total + value, 0) / 4;
+    const jan = parseIskField('isk-value-jan');
+    const apr = parseIskField('isk-value-apr');
+    const jul = parseIskField('isk-value-jul');
+    const oct = parseIskField('isk-value-oct');
+    const deposits = parseIskField('isk-deposits', true);
+    const transfers = parseIskField('isk-transfers', true);
+
+    if (jan === null || apr === null || jul === null || oct === null) {
+      return 'Ange ett kapitalbelopp.';
+    }
+    if (Number.isNaN(jan) || Number.isNaN(apr) || Number.isNaN(jul) || Number.isNaN(oct) || Number.isNaN(deposits) || Number.isNaN(transfers)) {
+      return 'Ange ett kapitalbelopp.';
+    }
+
+    capitalBasis = (jan + apr + jul + oct + deposits + transfers) / 4;
   } else {
-    capitalBasis = parseNonNegativeNumber(document.getElementById('isk-capital-basis').value);
+    const simpleBasis = parseIskField('isk-capital-basis');
+    if (simpleBasis === null || Number.isNaN(simpleBasis)) {
+      return 'Ange ett kapitalbelopp.';
+    }
+    capitalBasis = simpleBasis;
+  }
+
+  if (capitalBasis < 0 || !Number.isFinite(capitalBasis)) {
+    return 'Ange ett kapitalbelopp.';
   }
 
   const availableAllowance = Math.max(rules.taxFreeAllowance - allowanceAlreadyUsed, 0);
@@ -2855,12 +3134,16 @@ function calculateIskTax() {
         ? `Beräkningen tar hänsyn till att ${formatCurrency(allowanceAlreadyUsed)} av grundnivån redan används på annat sparande.`
         : 'Beräkningen använder hela den tillgängliga skattefria grundnivån på ditt sammanlagda sparande.';
   }
+
+  return true;
 }
 
 if (iskCalculatorForm) {
-  iskCalculatorForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    calculateIskTax();
+  iskCalcState = new CalcState({
+    id: 'isk',
+    container: iskCalculatorForm.closest('.calculator-card') || iskCalculatorForm.parentElement,
+    form: iskCalculatorForm,
+    onCalculate: calculateIskTax
   });
 }
 
@@ -2876,6 +3159,8 @@ if (iskModeTabs.length) {
       document.querySelectorAll('.isk-mode-panel').forEach((panel) => {
         panel.classList.toggle('hidden', panel.id !== `isk-${selectedMode}-panel`);
       });
+
+      if (iskCalcState) iskCalcState.setNeutral();
     });
   });
 }
@@ -2989,8 +3274,15 @@ function buildStockChartSeries(currentPrice, currentEPS, growthPercent, years, f
 
 function renderStockSimpleResults() {
   const currency = document.getElementById('stock-currency').value || 'SEK';
-  const currentPrice = Math.max(parseStockNumber(document.getElementById('stock-price').value), 0);
-  const currentEPS = parseStockNumber(document.getElementById('stock-eps').value);
+  const currentPriceInput = document.getElementById('stock-price').value;
+  const currentEPSInput = document.getElementById('stock-eps').value;
+  const currentPrice = parseStockNumber(currentPriceInput);
+  const currentEPS = parseStockNumber(currentEPSInput);
+
+  if (currentPrice <= 0 || currentEPS === 0 || !Number.isFinite(currentPrice) || !Number.isFinite(currentEPS)) {
+    return 'Aktiekurs måste vara större än 0 och vinst per aktie (EPS) får inte vara 0.';
+  }
+
   const growthPercent = parseStockNumber(document.getElementById('stock-growth').value);
   const years = Math.max(Math.floor(parseStockNumber(document.getElementById('stock-years').value)), 1);
   const futurePE = Math.max(parseStockNumber(document.getElementById('stock-future-pe').value), 0);
@@ -3013,18 +3305,26 @@ function renderStockSimpleResults() {
   if (message) {
     message.textContent = currentEPS <= 0 || model.futureEPS <= 0
       ? 'P/E-baserad värdering fungerar normalt inte när vinsten per aktie är negativ.'
-      : 'Resultatet är en scenarioanalys baserad på dina antaganden om vinsttillväxt och framtida P/E – inte en prognos eller garanti.';
+      : 'Beräkningen bygger på dina antaganden om vinsttillväxt och framtida P/E. Utdelningar ingår inte.';
   }
 
   const series = buildStockChartSeries(currentPrice, currentEPS, growthPercent, years, futurePE);
   renderStockChart('simple', series, currency);
   document.getElementById('stock-future-eps-year-label').textContent = String(years);
+  return true;
 }
 
 function renderStockScenarioResults() {
   const currency = document.getElementById('scenario-currency').value || 'SEK';
-  const currentPrice = Math.max(parseStockNumber(document.getElementById('scenario-price').value), 0);
-  const currentEPS = parseStockNumber(document.getElementById('scenario-eps').value);
+  const currentPriceInput = document.getElementById('scenario-price').value;
+  const currentEPSInput = document.getElementById('scenario-eps').value;
+  const currentPrice = parseStockNumber(currentPriceInput);
+  const currentEPS = parseStockNumber(currentEPSInput);
+
+  if (currentPrice <= 0 || currentEPS === 0 || !Number.isFinite(currentPrice) || !Number.isFinite(currentEPS)) {
+    return 'Aktiekurs måste vara större än 0 och vinst per aktie (EPS) får inte vara 0.';
+  }
+
   const years = Math.max(Math.floor(parseStockNumber(document.getElementById('scenario-years').value)), 1);
   const scenarios = ['bear', 'base', 'bull'].map((key) => ({
     key,
@@ -3055,17 +3355,24 @@ function renderStockScenarioResults() {
     })());
   };
   renderStockChart('scenario', { labels, bear: buildSeries('bear'), base: buildSeries('base'), bull: buildSeries('bull') }, currency);
+  return true;
+}
+
+function calculateStockValuation() {
+  const activeMode = document.querySelector('.stock-mode-tab.active')?.dataset.stockMode || 'simple';
+  if (activeMode === 'scenarios') {
+    return renderStockScenarioResults();
+  } else {
+    return renderStockSimpleResults();
+  }
 }
 
 if (stockValuationForm) {
-  stockValuationForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    const activeMode = document.querySelector('.stock-mode-tab.active')?.dataset.stockMode || 'simple';
-    if (activeMode === 'scenarios') {
-      renderStockScenarioResults();
-    } else {
-      renderStockSimpleResults();
-    }
+  stockValuationCalcState = new CalcState({
+    id: 'stock',
+    container: stockValuationForm.closest('.calculator-card') || stockValuationForm.parentElement,
+    form: stockValuationForm,
+    onCalculate: calculateStockValuation
   });
 }
 
@@ -3084,6 +3391,8 @@ if (stockModeTabs.length) {
       document.querySelectorAll('.stock-results-panel').forEach((panel) => {
         panel.classList.toggle('hidden', panel.id !== `stock-${selectedMode}-results`);
       });
+
+      if (stockValuationCalcState) stockValuationCalcState.setNeutral();
     });
   });
 }
@@ -3186,13 +3495,11 @@ function calculateTotalReturnMode() {
   const endValue = parseReturnNumber(document.getElementById('total-end-value').value);
 
   if (startValue === null || endValue === null || startValue < 0 || endValue < 0) {
-    setReturnMessage('Ange värden som är noll eller större.', true);
-    return;
+    return 'Ange värden som är noll eller större.';
   }
 
   if (startValue <= 0) {
-    setReturnMessage('Startvärdet måste vara större än 0 för att procentuell avkastning ska kunna räknas ut.', true);
-    return;
+    return 'Startvärdet måste vara större än 0 för att procentuell avkastning ska kunna räknas ut.';
   }
 
   const totalReturn = (endValue / startValue) - 1;
@@ -3203,6 +3510,7 @@ function calculateTotalReturnMode() {
   document.getElementById('total-end-result').textContent = formatReturnCurrency(endValue, currency);
   setReturnMessage('Detta är en enkel förändring mellan startvärde och slutvärde. Den tar inte hänsyn till tidpunkter för insättningar eller uttag.');
   renderReturnChart(['Start', 'Slut'], [startValue, endValue], 'Värdeutveckling', currency);
+  return true;
 }
 
 function getReturnPeriodLabel(years, months) {
@@ -3219,13 +3527,11 @@ function calculateCagrMode() {
   const months = parseReturnNumber(document.getElementById('cagr-months').value);
 
   if (startValue === null || endValue === null || years === null || months === null || startValue <= 0 || endValue <= 0) {
-    setReturnMessage('Startvärde, slutvärde och period måste vara större än 0.', true);
-    return;
+    return 'Startvärde, slutvärde och period måste vara större än 0.';
   }
 
   if (!Number.isInteger(years) || !Number.isInteger(months) || years < 0 || months < 0 || months > 11 || (years === 0 && months === 0)) {
-    setReturnMessage('Ange hela år och mellan 0 och 11 månader. Perioden måste vara längre än 0.', true);
-    return;
+    return 'Ange hela år och mellan 0 och 11 månader. Perioden måste vara längre än 0.';
   }
 
   const totalYears = years + (months / 12);
@@ -3245,6 +3551,7 @@ function calculateCagrMode() {
   const labels = Array.from({ length: chartSteps + 1 }, (_, index) => index === chartSteps ? periodLabel : `${index} år`);
   const values = labels.map((_, index) => startValue * Math.pow(1 + cagr, Math.min(index, totalYears)));
   renderReturnChart(labels, values, 'Utveckling motsvarande beräknad CAGR', currency);
+  return true;
 }
 
 function addAnnualReturnRow(value = '0') {
@@ -3282,13 +3589,11 @@ function calculateAnnualReturnMode() {
   const returns = inputs.map((input) => parseReturnNumber(input.value));
 
   if (returns.some((value) => value === null)) {
-    setReturnMessage('Fyll i en årsavkastning för varje år.', true);
-    return;
+    return 'Fyll i en årsavkastning för varje år.';
   }
 
   if (returns.some((value) => value < -100)) {
-    setReturnMessage('En årsavkastning kan inte vara lägre än -100 %.', true);
-    return;
+    return 'En årsavkastning kan inte vara lägre än -100 %.';
   }
 
   const growthFactor = returns.reduce((factor, value) => factor * (1 + (value / 100)), 1);
@@ -3308,23 +3613,57 @@ function calculateAnnualReturnMode() {
   document.getElementById('annual-count-result').textContent = String(returns.length);
   setReturnMessage('Det aritmetiska snittet tar inte hänsyn till ränta-på-ränta-effekten. CAGR visar den årliga avkastning som hade gett samma slutresultat.');
   renderReturnChart(['Start', ...returns.map((_, index) => `År ${index + 1}`)], cumulativeValues, 'Utveckling från 100 startpunkter');
+  return true;
+}
+
+function calculateReturnTool() {
+  const activeMode = document.querySelector('.return-mode-tab.active')?.dataset.returnMode || 'cagr';
+  if (activeMode === 'total') {
+    return calculateTotalReturnMode();
+  } else if (activeMode === 'annual') {
+    return calculateAnnualReturnMode();
+  } else {
+    return calculateCagrMode();
+  }
 }
 
 if (returnCalculatorForm) {
-  returnCalculatorForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    const activeMode = document.querySelector('.return-mode-tab.active')?.dataset.returnMode || 'cagr';
-    if (activeMode === 'total') {
-      calculateTotalReturnMode();
-    } else if (activeMode === 'annual') {
-      calculateAnnualReturnMode();
-    } else {
-      calculateCagrMode();
-    }
+  returnCalcState = new CalcState({
+    id: 'return',
+    container: returnCalculatorForm.closest('.calculator-card') || returnCalculatorForm.parentElement,
+    form: returnCalculatorForm,
+    onCalculate: calculateReturnTool
   });
 
-  document.getElementById('add-annual-year')?.addEventListener('click', () => addAnnualReturnRow());
-  document.getElementById('remove-annual-year')?.addEventListener('click', removeAnnualReturnRow);
+  document.getElementById('add-annual-year')?.addEventListener('click', () => {
+    addAnnualReturnRow();
+    returnCalculatorForm.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+  document.getElementById('remove-annual-year')?.addEventListener('click', () => {
+    removeAnnualReturnRow();
+    returnCalculatorForm.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+}
+
+if (returnModeTabs.length) {
+  returnModeTabs.forEach((button) => {
+    button.addEventListener('click', function () {
+      const selectedMode = button.dataset.returnMode || 'cagr';
+      returnModeTabs.forEach((tab) => {
+        const isActive = tab === button;
+        tab.classList.toggle('active', isActive);
+        tab.setAttribute('aria-selected', String(isActive));
+      });
+      document.querySelectorAll('.return-mode-panel').forEach((panel) => {
+        panel.classList.toggle('hidden', panel.id !== `return-${selectedMode}-panel`);
+      });
+      document.querySelectorAll('.return-results-panel').forEach((panel) => {
+        panel.classList.toggle('hidden', panel.id !== `return-${selectedMode}-results`);
+      });
+
+      if (returnCalcState) returnCalcState.setNeutral();
+    });
+  });
 }
 
 if (returnModeTabs.length) {
@@ -3416,14 +3755,12 @@ function calculateGavMode() {
   const brokerage = parsePurchaseNumber(document.getElementById('gav-brokerage').value);
 
   if ([existingShares, currentAverage, newShares, newSharePrice, brokerage].some((value) => value === null || value < 0)) {
-    setPurchaseMessage('Ange noll eller större värden för aktier, priser och courtage.', true);
-    return;
+    return 'Ange noll eller större värden för aktier, priser och courtage.';
   }
 
   const totalShares = existingShares + newShares;
   if (totalShares <= 0) {
-    setPurchaseMessage('Totalt antal aktier måste vara större än 0.', true);
-    return;
+    return 'Totalt antal aktier måste vara större än 0.';
   }
 
   const existingCost = existingShares * currentAverage;
@@ -3444,6 +3781,7 @@ function calculateGavMode() {
       ? `Ditt GAV stiger från ${formatPurchaseCurrency(currentAverage, currency)} till ${formatPurchaseCurrency(newAverage, currency)} efter köpet.`
       : 'Ditt GAV är oförändrat efter köpet.');
   renderPurchaseChart(['Före köp', 'Efter köp'], [currentAverage, newAverage], currency);
+  return true;
 }
 
 function addDcaPurchaseRow(values = {}) {
@@ -3494,16 +3832,14 @@ function calculateDcaMode() {
     const price = parsePurchaseNumber(priceInput.value);
     const brokerage = parsePurchaseNumber(brokerageInput.value);
     if ([shares, price, brokerage].some((value) => value === null || value < 0)) {
-      setPurchaseMessage('Varje ifyllt köp måste ha noll eller större värden för aktier, pris och courtage.', true);
-      return;
+      return 'Varje ifyllt köp måste ha noll eller större värden för aktier, pris och courtage.';
     }
     purchases.push({ shares, price, brokerage });
   }
 
   const totalShares = purchases.reduce((sum, purchase) => sum + purchase.shares, 0);
   if (!purchases.length || totalShares <= 0) {
-    setPurchaseMessage('Ange minst ett köp med totalt antal aktier större än 0.', true);
-    return;
+    return 'Ange minst ett köp med totalt antal aktier större än 0.';
   }
 
   const totalBrokerage = purchases.reduce((sum, purchase) => sum + purchase.brokerage, 0);
@@ -3527,6 +3863,7 @@ function calculateDcaMode() {
   document.getElementById('dca-high-result').textContent = formatPurchaseCurrency(Math.max(...prices), currency);
   setPurchaseMessage('GAV väger varje köp efter antal aktier och kostnad. Det är därför inte samma sak som att bara ta snittet av inköpspriserna.');
   renderPurchaseChart(purchases.map((_, index) => `Köp ${index + 1}`), cumulativeAverages, currency);
+  return true;
 }
 
 function calculatePositionSizeMode() {
@@ -3538,16 +3875,13 @@ function calculatePositionSizeMode() {
   const maxPositionPercent = parsePurchaseNumber(document.getElementById('position-max-percent').value);
 
   if ([portfolioValue, riskPercent, entryPrice, stopPrice].some((value) => value === null)) {
-    setPurchaseMessage('Fyll i alla obligatoriska positionsfält.', true);
-    return;
+    return 'Fyll i alla obligatoriska positionsfält.';
   }
   if (portfolioValue <= 0 || riskPercent <= 0 || entryPrice <= 0 || stopPrice < 0 || stopPrice >= entryPrice) {
-    setPurchaseMessage('Portfölj, risk och ingångspris måste vara större än 0. Stop-loss måste ligga under ingångspriset.', true);
-    return;
+    return 'Portfölj, risk och ingångspris måste vara större än 0. Stop-loss måste ligga under ingångspriset.';
   }
   if (maxPositionPercent !== null && maxPositionPercent <= 0) {
-    setPurchaseMessage('Maximal positionsstorlek måste vara större än 0 om den används.', true);
-    return;
+    return 'Maximal positionsstorlek måste vara större än 0 om den används.';
   }
 
   const riskAmount = portfolioValue * (riskPercent / 100);
@@ -3567,23 +3901,57 @@ function calculatePositionSizeMode() {
   document.getElementById('position-percent-result').textContent = formatStockNumber(positionPercent);
   document.getElementById('position-risk-share-result').textContent = formatPurchaseCurrency(riskPerShare, currency);
   setPurchaseMessage(`Med ${formatReturnPercent(riskPercent).replace('+', '')} risk och en stop-loss ${formatPurchaseCurrency(riskPerShare, currency)} under ingångspriset motsvarar det maximalt ${shares.toLocaleString('sv-SE')} aktier.`);
+  return true;
+}
+
+function calculatePurchaseTool() {
+  const activeMode = document.querySelector('.purchase-mode-tab.active')?.dataset.purchaseMode || 'gav';
+  if (activeMode === 'dca') {
+    return calculateDcaMode();
+  } else if (activeMode === 'position') {
+    return calculatePositionSizeMode();
+  } else {
+    return calculateGavMode();
+  }
 }
 
 if (purchaseCalculatorForm) {
-  purchaseCalculatorForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    const activeMode = document.querySelector('.purchase-mode-tab.active')?.dataset.purchaseMode || 'gav';
-    if (activeMode === 'dca') {
-      calculateDcaMode();
-    } else if (activeMode === 'position') {
-      calculatePositionSizeMode();
-    } else {
-      calculateGavMode();
-    }
+  purchaseCalcState = new CalcState({
+    id: 'purchase',
+    container: purchaseCalculatorForm.closest('.calculator-card') || purchaseCalculatorForm.parentElement,
+    form: purchaseCalculatorForm,
+    onCalculate: calculatePurchaseTool
   });
 
-  document.getElementById('add-dca-purchase')?.addEventListener('click', () => addDcaPurchaseRow());
-  document.getElementById('remove-dca-purchase')?.addEventListener('click', removeDcaPurchaseRow);
+  document.getElementById('add-dca-purchase')?.addEventListener('click', () => {
+    addDcaPurchaseRow();
+    purchaseCalculatorForm.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+  document.getElementById('remove-dca-purchase')?.addEventListener('click', () => {
+    removeDcaPurchaseRow();
+    purchaseCalculatorForm.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+}
+
+if (purchaseModeTabs.length) {
+  purchaseModeTabs.forEach((button) => {
+    button.addEventListener('click', function () {
+      const selectedMode = button.dataset.purchaseMode || 'gav';
+      purchaseModeTabs.forEach((tab) => {
+        const isActive = tab === button;
+        tab.classList.toggle('active', isActive);
+        tab.setAttribute('aria-selected', String(isActive));
+      });
+      document.querySelectorAll('.purchase-mode-panel').forEach((panel) => {
+        panel.classList.toggle('hidden', panel.id !== `purchase-${selectedMode}-panel`);
+      });
+      document.querySelectorAll('.purchase-results-panel').forEach((panel) => {
+        panel.classList.toggle('hidden', panel.id !== `purchase-${selectedMode}-results`);
+      });
+
+      if (purchaseCalcState) purchaseCalcState.setNeutral();
+    });
+  });
 }
 
 if (purchaseModeTabs.length) {
@@ -3620,14 +3988,43 @@ function formatGoalPercent(value) {
     : '–';
 }
 
-function formatGoalPeriod(months) {
-  if (!Number.isFinite(months)) {
+function formatGoalDate(months) {
+  if (!Number.isFinite(months) || months < 0) {
     return '–';
   }
 
-  const years = Math.floor(months / 12);
-  const remainingMonths = months % 12;
+  const date = new Date();
+  date.setMonth(date.getMonth() + Math.round(months));
+  return new Intl.DateTimeFormat('sv-SE', { month: 'long', year: 'numeric' }).format(date);
+}
+
+function formatGoalPeriod(months) {
+  if (!Number.isFinite(months) || months < 0) {
+    return '–';
+  }
+
+  const totalMonths = Math.round(months);
+  const years = Math.floor(totalMonths / 12);
+  const remainingMonths = totalMonths % 12;
+
+  if (totalMonths === 0) {
+    return '0 mån';
+  }
+
+  if (years === 0) {
+    return `${remainingMonths} mån`;
+  }
+
   return `${years} år${remainingMonths > 0 ? ` ${remainingMonths} mån` : ''}`;
+}
+
+function setGoalMessage(message, isError = false) {
+  const messageElement = document.getElementById('goal-message');
+  if (!messageElement) {
+    return;
+  }
+  messageElement.textContent = message;
+  messageElement.classList.toggle('is-error', isError);
 }
 
 function getGoalAssumptions(prefix) {
@@ -3774,19 +4171,16 @@ function calculateRequiredMonthlySavings() {
   const assumptions = getGoalAssumptions('goal-monthly');
 
   if (target === null || start === null || years === null || target <= 0 || start < 0 || years <= 0 || !Number.isInteger(years)) {
-    setGoalMessage('Målkapital måste vara större än 0. Startkapital och antal år måste vara giltiga och noll eller större.', true);
-    return;
+    return 'Målkapital måste vara större än 0. Startkapital och antal år måste vara giltiga och noll eller större.';
   }
   if (assumptions.error) {
-    setGoalMessage(assumptions.error, true);
-    return;
+    return assumptions.error;
   }
 
   const months = years * 12;
   const futureStart = projectGoalValue(start, 0, assumptions.monthlyRate, months);
   if (futureStart === null) {
-    setGoalMessage('Antagandena ger ett för stort eller ogiltigt beräkningsvärde.', true);
-    return;
+    return 'Antagandena ger ett för stort eller ogiltigt beräkningsvärde.';
   }
   const remainingFutureValue = target - futureStart;
   let monthlySavings = 0;
@@ -3797,8 +4191,7 @@ function calculateRequiredMonthlySavings() {
       : remainingFutureValue * assumptions.monthlyRate / (growthFactor - 1);
   }
   if (!Number.isFinite(monthlySavings) || monthlySavings < 0) {
-    setGoalMessage('Det gick inte att beräkna ett giltigt månadssparande med dessa antaganden.', true);
-    return;
+    return 'Det gick inte att beräkna ett giltigt månadssparande med dessa antaganden.';
   }
 
   const ownSavings = start + (monthlySavings * months);
@@ -3819,6 +4212,7 @@ function calculateRequiredMonthlySavings() {
   updateGoalNote(assumptions.moneyMode);
   updateGoalProgress(start, target, true);
   renderGoalChart(buildGoalPath(start, monthlySavings, assumptions.monthlyRate, months), currency, target, assumptions.moneyMode);
+  return true;
 }
 
 function calculateTimeToGoal() {
@@ -3829,12 +4223,10 @@ function calculateTimeToGoal() {
   const assumptions = getGoalAssumptions('goal-time');
 
   if (target === null || start === null || monthlySavings === null || target <= 0 || start < 0 || monthlySavings < 0) {
-    setGoalMessage('Målkapital måste vara större än 0. Startkapital och månadssparande måste vara noll eller större.', true);
-    return;
+    return 'Målkapital måste vara större än 0. Startkapital och månadssparande måste vara noll eller större.';
   }
   if (assumptions.error) {
-    setGoalMessage(assumptions.error, true);
-    return;
+    return assumptions.error;
   }
 
   let months = start >= target ? 0 : null;
@@ -3854,7 +4246,7 @@ function calculateTimeToGoal() {
   const resultMonths = reached ? months : 1200;
   const projectedValue = reached ? (months === 0 ? start : value) : projectGoalValue(start, monthlySavings, assumptions.monthlyRate, 1200);
   const totalInvested = start + (monthlySavings * resultMonths);
-  const estimatedReturn = reached ? target - totalInvested : null;
+  const estimatedReturn = reached ? projectedValue - totalInvested : null;
   document.getElementById('time-result').textContent = reached ? formatGoalPeriod(months) : 'Ej uppnått';
   document.getElementById('time-date-result').textContent = reached ? formatGoalDate(months) : '–';
   document.getElementById('time-target-result').textContent = formatGoalCurrency(target, currency);
@@ -3869,6 +4261,7 @@ function calculateTimeToGoal() {
     path.values[path.values.length - 1] = projectedValue;
   }
   renderGoalChart(path, currency, target, assumptions.moneyMode);
+  return true;
 }
 
 function calculateTargetCapital() {
@@ -3879,19 +4272,16 @@ function calculateTargetCapital() {
   const assumptions = getGoalAssumptions('goal-capital');
 
   if (start === null || monthlySavings === null || years === null || start < 0 || monthlySavings < 0 || years <= 0 || !Number.isInteger(years)) {
-    setGoalMessage('Startkapital, månadssparande och antal år måste vara giltiga och noll eller större. Antal år måste vara större än 0.', true);
-    return;
+    return 'Startkapital, månadssparande och antal år måste vara giltiga och noll eller större. Antal år måste vara större än 0.';
   }
   if (assumptions.error) {
-    setGoalMessage(assumptions.error, true);
-    return;
+    return assumptions.error;
   }
 
   const months = years * 12;
   const futureValue = projectGoalValue(start, monthlySavings, assumptions.monthlyRate, months);
   if (futureValue === null) {
-    setGoalMessage('Antagandena ger ett för stort eller ogiltigt beräkningsvärde.', true);
-    return;
+    return 'Antagandena ger ett för stort eller ogiltigt beräkningsvärde.';
   }
   const totalInvested = start + (monthlySavings * months);
   const estimatedReturn = futureValue - totalInvested;
@@ -3905,34 +4295,26 @@ function calculateTargetCapital() {
   updateGoalNote(assumptions.moneyMode);
   updateGoalProgress(0, 0, false);
   renderGoalChart(buildGoalPath(start, monthlySavings, assumptions.monthlyRate, months), currency, null, assumptions.moneyMode);
+  return true;
 }
 
-function formatGoalDate(months) {
-  const date = new Date();
-  date.setMonth(date.getMonth() + months);
-  return new Intl.DateTimeFormat('sv-SE', { year: 'numeric', month: 'long' }).format(date);
-}
-
-function setGoalMessage(message, isError = false) {
-  const messageElement = document.getElementById('goal-message');
-  if (!messageElement) {
-    return;
+function calculateGoalTool() {
+  const activeMode = document.querySelector('.goal-mode-tab.active')?.dataset.goalMode || 'monthly';
+  if (activeMode === 'time') {
+    return calculateTimeToGoal();
+  } else if (activeMode === 'capital') {
+    return calculateTargetCapital();
+  } else {
+    return calculateRequiredMonthlySavings();
   }
-  messageElement.textContent = message;
-  messageElement.classList.toggle('is-error', isError);
 }
 
 if (goalCalculatorForm) {
-  goalCalculatorForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    const activeMode = document.querySelector('.goal-mode-tab.active')?.dataset.goalMode || 'monthly';
-    if (activeMode === 'time') {
-      calculateTimeToGoal();
-    } else if (activeMode === 'capital') {
-      calculateTargetCapital();
-    } else {
-      calculateRequiredMonthlySavings();
-    }
+  goalCalcState = new CalcState({
+    id: 'goal',
+    container: goalCalculatorForm.closest('.calculator-card') || goalCalculatorForm.parentElement,
+    form: goalCalculatorForm,
+    onCalculate: calculateGoalTool
   });
 }
 
@@ -3951,6 +4333,8 @@ if (goalModeTabs.length) {
       document.querySelectorAll('.goal-results-panel').forEach((panel) => {
         panel.classList.toggle('hidden', panel.id !== `goal-${selectedMode}-results`);
       });
+
+      if (goalCalcState) goalCalcState.setNeutral();
     });
   });
 }
@@ -4055,8 +4439,7 @@ function calculateMortgageMode() {
   const customAmortization = parseMortgageNumber(document.getElementById('mortgage-custom-amortization').value);
 
   if ([homePrice, cashContribution, interestRate].some((value) => value === null) || homePrice <= 0 || cashContribution < 0 || interestRate < 0 || (amortizationMode === 'custom' && (customAmortization === null || customAmortization < 0))) {
-    setMortgageMessage('Ange ett bostadspris större än 0 och giltiga, noll eller större värden.', true);
-    return;
+    return 'Ange ett bostadspris större än 0 och giltiga, noll eller större värden.';
   }
 
   const loanAmount = Math.max(homePrice - cashContribution, 0);
@@ -4091,6 +4474,7 @@ function calculateMortgageMode() {
     ? 'Kontantinsatsen ligger under 10 % av bostadens pris enligt bolånetaket för nya bostadsköp från 1 april 2026.'
     : 'Den angivna kontantinsatsen når minst 10 % av bostadens pris.';
   renderMortgageChart(['0'], [loanAmount], homePrice, currency);
+  return true;
 }
 
 function simulateMortgage(loanAmount, propertyValue, interestRate, amortizationMode, customAmortization, years) {
@@ -4142,8 +4526,7 @@ function calculateAmortizationMode() {
   const customRate = parseMortgageNumber(document.getElementById('amortization-custom-rate').value);
 
   if ([loanAmount, propertyValue, interestRate, years].some((value) => value === null) || loanAmount < 0 || propertyValue <= 0 || interestRate < 0 || years < 1 || years > 50 || !Number.isInteger(years) || (mode === 'custom' && (customRate === null || customRate < 0))) {
-    setMortgageMessage('Ange ett giltigt bolån, bostadsvärde, ränta och en projektion på 1–50 hela år.', true);
-    return;
+    return 'Ange ett giltigt bolån, bostadsvärde, ränta och en projektion på 1–50 hela år.';
   }
 
   const result = simulateMortgage(loanAmount, propertyValue, interestRate, mode, customRate || 0, years);
@@ -4157,6 +4540,7 @@ function calculateAmortizationMode() {
   setMortgageMessage(result.balance === 0 ? `Lånet är återbetalt efter cirka ${formatThresholdTime(result.paidOffMonth, result.balance)}.` : 'Detta är en illustrativ projektion. Bankens amorteringsunderlag och villkor kan påverka exakt timing.');
   document.getElementById('amortization-start-ltv').textContent = formatMortgagePercent(initialLtv * 100);
   renderMortgageChart(result.labels, result.values, propertyValue, currency);
+  return true;
 }
 
 function calculateInterestMode() {
@@ -4168,8 +4552,7 @@ function calculateInterestMode() {
   const customRate = parseMortgageNumber(document.getElementById('interest-custom-amortization').value);
 
   if ([loanAmount, propertyValue, currentRate].some((value) => value === null) || loanAmount < 0 || propertyValue <= 0 || currentRate < 0 || (mode === 'custom' && (customRate === null || customRate < 0))) {
-    setMortgageMessage('Ange giltiga värden för bolån, bostadsvärde, ränta och amortering.', true);
-    return;
+    return 'Ange giltiga värden för bolån, bostadsvärde, ränta och amortering.';
   }
 
   const ltv = loanAmount / propertyValue;
@@ -4181,15 +4564,22 @@ function calculateInterestMode() {
   document.getElementById('interest-point-result').textContent = formatMortgageCurrency(loanAmount * 0.01 / 12, currency);
   document.getElementById('interest-table-body').innerHTML = rows.map((row, index) => `<tr><th scope="row">${index === 0 ? '−1 procentenhet' : index === 1 ? 'Nuvarande' : `+${index} procentenhet${index > 1 ? 'er' : ''}`}</th><td>${formatMortgageCurrency(row.monthlyInterest, currency)}</td><td>${formatMortgageCurrency(monthlyAmortization, currency)}</td><td>${formatMortgageCurrency(row.monthlyPayment, currency)}</td><td>${index === 1 ? '–' : formatMortgageCurrency(row.monthlyPayment - rows[1].monthlyPayment, currency)}</td></tr>`).join('');
   setMortgageMessage('Räntejämförelsen visar hur samma lån och amortering påverkas av olika räntescenarier.');
+  return true;
+}
+
+function calculateMortgageTool() {
+  const activeMode = document.querySelector('.mortgage-mode-tab.active')?.dataset.mortgageMode || 'mortgage';
+  if (activeMode === 'amortization') return calculateAmortizationMode();
+  else if (activeMode === 'interest') return calculateInterestMode();
+  else return calculateMortgageMode();
 }
 
 if (mortgageCalculatorForm) {
-  mortgageCalculatorForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    const activeMode = document.querySelector('.mortgage-mode-tab.active')?.dataset.mortgageMode || 'mortgage';
-    if (activeMode === 'amortization') calculateAmortizationMode();
-    else if (activeMode === 'interest') calculateInterestMode();
-    else calculateMortgageMode();
+  mortgageCalcState = new CalcState({
+    id: 'mortgage',
+    container: mortgageCalculatorForm.closest('.calculator-card') || mortgageCalculatorForm.parentElement,
+    form: mortgageCalculatorForm,
+    onCalculate: calculateMortgageTool
   });
 
   ['mortgage-amortization-mode', 'amortization-mode', 'interest-amortization-mode'].forEach((id) => {
@@ -4211,6 +4601,8 @@ if (mortgageModeTabs.length) {
       });
       document.querySelectorAll('.mortgage-mode-panel').forEach((panel) => panel.classList.toggle('hidden', panel.id !== `mortgage-${selectedMode}-panel`));
       document.querySelectorAll('.mortgage-results-panel').forEach((panel) => panel.classList.toggle('hidden', panel.id !== `mortgage-${selectedMode}-results`));
+
+      if (mortgageCalcState) mortgageCalcState.setNeutral();
     });
   });
 }
@@ -4378,16 +4770,47 @@ if (modeTabs.length) {
   setActiveMode('growth');
 }
 if (form) {
-  calculateInvestment();
+  growthCalcState = new CalcState({
+    id: 'growth',
+    container: '#growth-mode-panel',
+    form: '#calculator-form',
+    onCalculate: calculateInvestment
+  });
 }
 if (dividendForm) {
-  calculateDividendInvestment();
+  dividendCalcState = new CalcState({
+    id: 'dividend',
+    container: '#dividend-mode-panel',
+    form: '#dividend-form',
+    onCalculate: calculateDividendInvestment
+  });
 }
 if (feeForm) {
   initFeeComparisonPage();
 }
 if (fireCalculatorForm) {
-  calculateFireProjection();
+  firePathCalcState = new CalcState({
+    id: 'firePath',
+    container: document.querySelector('.fire-mode-panel[data-fire-mode-panel="path"]') || fireCalculatorForm.parentElement,
+    form: fireCalculatorForm,
+    onCalculate: calculateFireProjection
+  });
+}
+if (fireGoalForm) {
+  fireGoalCalcState = new CalcState({
+    id: 'fireGoal',
+    container: document.querySelector('.fire-mode-panel[data-fire-mode-panel="goal"]') || fireGoalForm.parentElement,
+    form: fireGoalForm,
+    onCalculate: calculateFireGoal
+  });
+}
+if (fireWithdrawalForm) {
+  fireWithdrawalCalcState = new CalcState({
+    id: 'fireWithdrawal',
+    container: document.querySelector('.fire-mode-panel[data-fire-mode-panel="withdrawal"]') || fireWithdrawalForm.parentElement,
+    form: fireWithdrawalForm,
+    onCalculate: calculateFireWithdrawal
+  });
 }
 
 function getLeverageInputs() {
@@ -4562,6 +4985,10 @@ function calculateLeverageComparisonAlternative({ equity, loanAmount, loanRate, 
 
 function calculateLeverage() {
   const inputs = getLeverageInputs();
+  if (inputs.equity <= 0 || inputs.years < 1 || !Number.isFinite(inputs.equity) || !Number.isFinite(inputs.years)) {
+    return 'Eget kapital och antal år måste vara större än 0.';
+  }
+
   const loanAmount = inputs.loanAmount;
   const totalValue = inputs.equity + loanAmount;
   const computedRatio = totalValue > 0 ? loanAmount / totalValue : 0;
@@ -4671,7 +5098,7 @@ function calculateLeverage() {
 
   const chartCanvas = document.getElementById('leverageChart');
   if (!chartCanvas) {
-    return;
+    return true;
   }
 
   if (leverageChart) {
@@ -4776,6 +5203,7 @@ function calculateLeverage() {
       }
     }
   });
+  return true;
 }
 
 function initLeveragePage() {
@@ -4796,24 +5224,29 @@ function initLeveragePage() {
     });
   });
 
-  leverageForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    calculateLeverage();
+  leverageCalcState = new CalcState({
+    id: 'leverage',
+    container: leverageForm.closest('.calculator-card') || leverageForm.parentElement,
+    form: leverageForm,
+    onCalculate: calculateLeverage
   });
 
   updateLeverageInputsFromMode();
-  calculateLeverage();
-  
-  // Initialize daily leverage form if it exists
+
   if (dailyLeverageForm) {
-    dailyLeverageForm.addEventListener('submit', function (event) {
-      event.preventDefault();
-      calculateDailyLeverage();
+    dailyLeverageCalcState = new CalcState({
+      id: 'dailyLeverage',
+      container: dailyLeverageForm.closest('.leverage-mode-content') || dailyLeverageForm.parentElement,
+      form: dailyLeverageForm,
+      onCalculate: calculateDailyLeverage
     });
 
     const addDayBtn = document.getElementById('daily-add-day-btn');
     if (addDayBtn) {
-      addDayBtn.addEventListener('click', addDailyMoveInput);
+      addDayBtn.addEventListener('click', () => {
+        addDailyMoveInput();
+        dailyLeverageForm.dispatchEvent(new Event('input', { bubbles: true }));
+      });
     }
 
     initializeDailyLeverage();
@@ -4826,15 +5259,116 @@ function initializeDailyLeverage() {
   const container = document.getElementById('daily-moves-container');
   if (!container) return;
 
-  // Clear any existing inputs
   container.innerHTML = '';
-
-  // Add default 2 days
   addDailyMoveInput();
   addDailyMoveInput();
+}
 
-  // Calculate with defaults
-  calculateDailyLeverage();
+function removeDailyMoveInput(dayNumber) {
+  const container = document.getElementById('daily-moves-container');
+  if (!container) return;
+
+  const wrappers = container.querySelectorAll('.daily-move-input-wrapper');
+  if (wrappers.length <= 1) return;
+
+  const wrapper = Array.from(wrappers).find(w => parseInt(w.dataset.dayNumber) === dayNumber);
+  if (wrapper) wrapper.remove();
+
+  container.querySelectorAll('.daily-move-input-wrapper').forEach((w, idx) => {
+    w.dataset.dayNumber = idx + 1;
+    const label = w.querySelector('label');
+    if (label) label.textContent = `Dag ${idx + 1}`;
+    const input = w.querySelector('input');
+    if (input) input.dataset.day = idx + 1;
+  });
+
+  dailyLeverageForm?.dispatchEvent(new Event('input', { bubbles: true }));
+}
+
+function getDailyLeverageInputs() {
+  const startBelopp = Number(document.getElementById('daily-startbelopp')?.value) || 0;
+  const havstang = Number(document.getElementById('daily-havstang')?.value) || 1;
+  const dailyFee = Number(document.getElementById('daily-avgift')?.value) || 0;
+
+  const container = document.getElementById('daily-moves-container');
+  const moves = [];
+  if (container) {
+    container.querySelectorAll('.daily-move-input').forEach((input) => {
+      moves.push(Number(input.value) || 0);
+    });
+  }
+
+  return { startBelopp, havstang, dailyFee, moves };
+}
+
+function calculateDailyLeverage() {
+  const { startBelopp, havstang, dailyFee, moves } = getDailyLeverageInputs();
+
+  if (moves.length === 0 || startBelopp <= 0 || !Number.isFinite(startBelopp) || !Number.isFinite(havstang) || havstang <= 0 || !Number.isFinite(dailyFee) || dailyFee < 0) {
+    return 'Startbelopp och hävstång måste vara större än 0, och daglig avgift noll eller större.';
+  }
+
+  let underlyingValue = startBelopp;
+  const underlyingValues = [startBelopp];
+
+  moves.forEach((move) => {
+    underlyingValue *= (1 + move / 100);
+    underlyingValues.push(underlyingValue);
+  });
+
+  const underlyingReturn = ((underlyingValue / startBelopp) - 1) * 100;
+
+  let leveragedValue = startBelopp;
+  const leveragedValues = [startBelopp];
+  let totalFees = 0;
+  const dayDetails = [];
+
+  moves.forEach((move, idx) => {
+    const leveragedMove = move * havstang;
+    const valueAfterMove = leveragedValue * (1 + leveragedMove / 100);
+
+    if (valueAfterMove < 0) {
+      leveragedValue = 0;
+      dayDetails.push({
+        day: idx + 1,
+        move,
+        leveragedMove,
+        underlyingValue: underlyingValues[idx + 1],
+        leveragedValue: 0,
+        dailyFeeAmount: 0
+      });
+      leveragedValues.push(0);
+      return;
+    }
+
+    const dailyFeeAmount = leveragedValue > 0 ? valueAfterMove * (dailyFee / 100) : 0;
+    leveragedValue = Math.max(0, valueAfterMove - dailyFeeAmount);
+    totalFees += dailyFeeAmount;
+
+    dayDetails.push({
+      day: idx + 1,
+      move,
+      leveragedMove,
+      underlyingValue: underlyingValues[idx + 1],
+      leveragedValue,
+      dailyFeeAmount
+    });
+
+    leveragedValues.push(leveragedValue);
+  });
+
+  const leveragedReturn = ((leveragedValue / startBelopp) - 1) * 100;
+
+  document.getElementById('daily-underlying-value').textContent = formatCurrency(underlyingValue);
+  document.getElementById('daily-underlying-return').textContent = formatPercent(underlyingReturn);
+  document.getElementById('daily-leverage-label').textContent = `Daglig hävstång (${havstang}x)`;
+  document.getElementById('daily-leveraged-value').textContent = formatCurrency(leveragedValue);
+  document.getElementById('daily-leveraged-return').textContent = formatPercent(leveragedReturn);
+  document.getElementById('daily-total-fees').textContent = formatCurrency(totalFees);
+
+  renderDailyLeverageChart(underlyingValues, leveragedValues, havstang);
+  renderDailyLeverageTable(dayDetails, startBelopp, underlyingValues);
+  return true;
 }
 
 function addDailyMoveInput() {
@@ -5198,6 +5732,9 @@ function setLeverageMode(mode) {
       amortizeSection.style.display = 'none';
     }
   }
+
+  if (leverageCalcState) leverageCalcState.setNeutral();
+  if (dailyLeverageCalcState) dailyLeverageCalcState.setNeutral();
 }
 
 function calculateRecoveryRequiredGain(dropPercent, amount) {
@@ -5232,70 +5769,66 @@ function formatPercent(value) {
   return value > 0 ? `+${formatted} %` : `${formatted} %`;
 }
 
-function initRecoveryPage() {
+function calculateRecoveryPage() {
   if (!recoveryForm) {
-    return;
+    return false;
   }
 
-  recoveryForm.addEventListener('submit', function (event) {
-    event.preventDefault();
+  const dropField = document.getElementById('recovery-nedgang');
+  const amountField = document.getElementById('recovery-belopp');
+  const summary = document.getElementById('recovery-summary');
 
-    const dropField = document.getElementById('recovery-nedgang');
-    const amountField = document.getElementById('recovery-belopp');
-    const errorBox = document.getElementById('recovery-error');
-    const summary = document.getElementById('recovery-summary');
+  const dropPercent = Number(dropField.value);
+  const amountValue = amountField.value === '' ? null : Number(amountField.value);
 
-    const dropPercent = Number(dropField.value);
-    const amountValue = amountField.value === '' ? null : Number(amountField.value);
+  if (dropField.value === '' || Number.isNaN(dropPercent) || dropPercent <= 0 || dropPercent >= 100) {
+    return 'Nedgång måste vara ett värde mellan 0 % och mindre än 100 %.';
+  }
 
-    const errorText = document.getElementById('recovery-error');
-    errorText.textContent = 'Ogiltigt värde.';
+  if (amountValue !== null && (!Number.isFinite(amountValue) || amountValue < 0)) {
+    return 'Investerat belopp får inte vara negativt.';
+  }
 
-    if (dropField.value === '' || Number.isNaN(dropPercent) || dropPercent < 0 || dropPercent >= 100) {
-      errorText.textContent = 'Nedgång måste vara ett värde mellan 0 % och mindre än 100 %.';
-      errorBox.classList.remove('hidden');
-      return;
-    }
+  try {
+    const calculation = calculateRecoveryRequiredGain(dropPercent, amountValue);
+    const requiredGainEl = document.getElementById('recovery-required-gain');
 
-    if (amountValue !== null && amountValue < 0) {
-      errorText.textContent = 'Investerat belopp får inte vara negativt.';
-      errorBox.classList.remove('hidden');
-      return;
-    }
-
-    errorBox.classList.add('hidden');
-
-    try {
-      const calculation = calculateRecoveryRequiredGain(dropPercent, amountValue);
-      const requiredGainEl = document.getElementById('recovery-required-gain');
-
+    if (requiredGainEl) {
       requiredGainEl.textContent = formatPercent(calculation.requiredGain);
+    }
 
+    if (summary) {
       summary.textContent = `Efter en nedgång på ${dropPercent.toFixed(1).replace(/\.0$/, '')} % krävs en uppgång på ${new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 0, maximumFractionDigits: 1 }).format(calculation.requiredGain)} % för att komma tillbaka till startvärdet.`;
+    }
 
-      const amountBoxes = [
-        document.getElementById('recovery-start-value-box'),
-        document.getElementById('recovery-after-drop-box'),
-        document.getElementById('recovery-loss-box'),
-        document.getElementById('recovery-recovered-box')
-      ];
+    const amountBoxes = [
+      document.getElementById('recovery-start-value-box'),
+      document.getElementById('recovery-after-drop-box'),
+      document.getElementById('recovery-loss-box'),
+      document.getElementById('recovery-recovered-box')
+    ];
 
-      if (amountValue !== null) {
-        amountBoxes.forEach((box) => box.classList.remove('hidden'));
-        document.getElementById('recovery-start-value').textContent = formatCurrency(amountValue);
-        document.getElementById('recovery-after-drop').textContent = formatCurrency(calculation.currentValue);
-        document.getElementById('recovery-loss').textContent = formatCurrency(calculation.lossAmount);
-        document.getElementById('recovery-recovered').textContent = formatCurrency(calculation.recoveredValue);
-      } else {
-        amountBoxes.forEach((box) => box.classList.add('hidden'));
-      }
+    if (amountValue !== null) {
+      amountBoxes.forEach((box) => box?.classList.remove('hidden'));
+      const startValEl = document.getElementById('recovery-start-value');
+      const afterDropEl = document.getElementById('recovery-after-drop');
+      const lossEl = document.getElementById('recovery-loss');
+      const recoveredEl = document.getElementById('recovery-recovered');
+      if (startValEl) startValEl.textContent = formatCurrency(amountValue);
+      if (afterDropEl) afterDropEl.textContent = formatCurrency(calculation.currentValue);
+      if (lossEl) lossEl.textContent = formatCurrency(calculation.lossAmount);
+      if (recoveredEl) recoveredEl.textContent = formatCurrency(calculation.recoveredValue);
+    } else {
+      amountBoxes.forEach((box) => box?.classList.add('hidden'));
+    }
 
-      const visualStart = document.getElementById('recovery-visual-start');
-      const visualDrop = document.getElementById('recovery-visual-drop');
-      const visualAfter = document.getElementById('recovery-visual-after');
-      const visualGain = document.getElementById('recovery-visual-gain');
-      const visualRecovered = document.getElementById('recovery-visual-recovered');
+    const visualStart = document.getElementById('recovery-visual-start');
+    const visualDrop = document.getElementById('recovery-visual-drop');
+    const visualAfter = document.getElementById('recovery-visual-after');
+    const visualGain = document.getElementById('recovery-visual-gain');
+    const visualRecovered = document.getElementById('recovery-visual-recovered');
 
+    if (visualStart) {
       const startValue = amountValue !== null ? amountValue : 100;
       const afterDropValue = amountValue !== null ? calculation.currentValue : 100 * (1 - dropPercent / 100);
       const recoveredValue = amountValue !== null ? calculation.recoveredValue : afterDropValue * (1 + calculation.requiredGain / 100);
@@ -5305,10 +5838,25 @@ function initRecoveryPage() {
       visualAfter.textContent = amountValue !== null ? formatCurrency(afterDropValue) : new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 0, maximumFractionDigits: 1 }).format(afterDropValue);
       visualGain.textContent = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 0, maximumFractionDigits: 1 }).format(calculation.requiredGain);
       visualRecovered.textContent = amountValue !== null ? formatCurrency(recoveredValue) : new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 0, maximumFractionDigits: 1 }).format(recoveredValue);
-    } catch (error) {
-      errorBox.classList.remove('hidden');
-      errorBox.textContent = error.message;
     }
+
+    return true;
+  } catch (error) {
+    return error.message || 'Ett fel uppstod vid beräkningen.';
+  }
+}
+
+function initRecoveryPage() {
+  if (!recoveryForm) {
+    return;
+  }
+
+  recoveryCalcState = new CalcState({
+    id: 'recovery',
+    container: recoveryForm.closest('.calculator-card') || recoveryForm.parentElement,
+    form: recoveryForm,
+    onCalculate: calculateRecoveryPage,
+    errorElementId: 'recovery-error'
   });
 }
 

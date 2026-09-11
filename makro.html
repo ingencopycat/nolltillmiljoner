@@ -53,22 +53,37 @@
             </div>
 
             <div class="archive-layout">
-                <div class="week-visual" id="weekVisual">
-                    <div class="week-visual-content">
-                        <span id="currentWeekLabel">Vecka 37</span>
-                        <h2 id="currentWeekTitle">Vecka 37</h2>
+                <div class="week-main" id="weekMain">
+                    <div class="week-visual hidden" id="weekVisual">
+                        <div class="week-visual-content">
+                            <span id="currentWeekLabel">Vecka 37</span>
+                            <h2 id="currentWeekTitle">Vecka 37</h2>
+                        </div>
                     </div>
+                    <div id="macroStructuredContent" class="macro-structured-view"></div>
                 </div>
 
                 <aside>
-                    <div class="section-heading">
-                        <div>
-                            <span class="section-kicker">Arkiv</span>
-                            <h2>Tidigare veckor</h2>
+                    <div class="archive-section" id="upcomingWeeksSection">
+                        <div class="section-heading">
+                            <div>
+                                <span class="section-kicker">Planerat</span>
+                                <h2>Kommande veckor</h2>
+                            </div>
                         </div>
+                        <div class="archive-list" id="upcomingWeeks"></div>
                     </div>
 
-                    <div class="archive-list" id="weekArchive"></div>
+                    <div class="archive-section" id="pastWeeksSection">
+                        <div class="section-heading">
+                            <div>
+                                <span class="section-kicker">Arkiv</span>
+                                <h2>Tidigare veckor</h2>
+                            </div>
+                        </div>
+                        <div class="archive-list" id="weekArchive"></div>
+                        <button type="button" class="secondary-btn archive-more-btn hidden" id="showMoreArchive">Visa fler</button>
+                    </div>
                 </aside>
             </div>
 
@@ -78,6 +93,7 @@
         </section>
     </main>
 
+    <script src="data/weekly-events.js"></script>
     <script src="script.js"></script>
     <script src="week-pages.js"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aa20af56e8ea486192758214e83971ee"}'></script><!-- End Cloudflare Web Analytics -->

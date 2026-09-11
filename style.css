@@ -697,6 +697,124 @@ body.light-theme .result-box {
   color: var(--danger);
 }
 
+/* Calculation State System */
+.calc-status-banner {
+  margin: 20px 0;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.calc-status-banner p {
+  margin: 0;
+  color: inherit;
+}
+
+.calc-status-banner.calc-status-neutral {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--border);
+  color: var(--muted);
+}
+
+body.light-theme .calc-status-banner.calc-status-neutral {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.calc-status-banner.calc-status-stale {
+  background: rgba(255, 209, 102, 0.12);
+  border-color: rgba(255, 209, 102, 0.4);
+  border-left: 4px solid var(--warning, #ffd166);
+  color: var(--text);
+  font-weight: 500;
+}
+
+body.light-theme .calc-status-banner.calc-status-stale {
+  background: rgba(217, 119, 6, 0.1);
+  color: #92400e;
+}
+
+.calc-status-banner.calc-status-error {
+  background: rgba(255, 107, 107, 0.12);
+  border-color: rgba(255, 107, 107, 0.4);
+  border-left: 4px solid var(--danger, #ff6b6b);
+  color: var(--danger);
+  font-weight: 500;
+}
+
+/* Neutral state: hide results, charts, summaries */
+[data-calc-state="neutral"] .results,
+[data-calc-state="neutral"] .compact-results,
+[data-calc-state="neutral"] .stock-results-panel,
+[data-calc-state="neutral"] .chart-panel,
+[data-calc-state="neutral"] .chart-wrap,
+[data-calc-state="neutral"] .info-callout,
+[data-calc-state="neutral"] .calculator-summary,
+[data-calc-state="neutral"] .comparison-section,
+[data-calc-state="neutral"] .stock-message,
+[data-calc-state="neutral"] .return-message,
+[data-calc-state="neutral"] .purchase-message,
+[data-calc-state="neutral"] .goal-message,
+[data-calc-state="neutral"] .mortgage-message,
+[data-calc-state="neutral"] .goal-progress-panel,
+[data-calc-state="neutral"] .fire-progress-panel,
+[data-calc-state="neutral"] .fire-post-fire-callout,
+[data-calc-state="neutral"] .mortgage-sensitivity,
+[data-calc-state="neutral"] .mortgage-amortering-box,
+[data-calc-state="neutral"] .stock-scenario-table-wrap,
+[data-calc-state="neutral"] #leverage-comparison-results,
+[data-calc-state="neutral"] #recovery-results,
+[data-calc-state="neutral"] #recovery-summary,
+[data-calc-state="neutral"] #daily-leverage-results {
+  display: none !important;
+}
+
+/* Stale state: mark output areas as out-of-date */
+[data-calc-state="stale"] .results,
+[data-calc-state="stale"] .compact-results,
+[data-calc-state="stale"] .stock-results-panel,
+[data-calc-state="stale"] .chart-panel,
+[data-calc-state="stale"] .info-callout,
+[data-calc-state="stale"] .calculator-summary,
+[data-calc-state="stale"] .comparison-section,
+[data-calc-state="stale"] .stock-message,
+[data-calc-state="stale"] .return-message,
+[data-calc-state="stale"] .purchase-message,
+[data-calc-state="stale"] .goal-message,
+[data-calc-state="stale"] .mortgage-message,
+[data-calc-state="stale"] .goal-progress-panel,
+[data-calc-state="stale"] .fire-progress-panel,
+[data-calc-state="stale"] .mortgage-sensitivity,
+[data-calc-state="stale"] .mortgage-amortering-box,
+[data-calc-state="stale"] #leverage-comparison-results,
+[data-calc-state="stale"] #recovery-results,
+[data-calc-state="stale"] #recovery-summary,
+[data-calc-state="stale"] #daily-leverage-results {
+  position: relative;
+  opacity: 0.82;
+}
+
+[data-calc-state="stale"] .chart-wrap::before {
+  content: "Inaktuellt resultat – klicka på Beräkna för att uppdatera";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(255, 209, 102, 0.95);
+  color: #121d29;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
 .compact-results {
   margin-top: 0;
 }
@@ -2373,6 +2491,284 @@ body.light-theme .hero-panel {
   border-color: rgba(94, 163, 255, 0.3);
 }
 
+/* Macro Structured View */
+.macro-structured-view {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.macro-week-header {
+  margin-bottom: 8px;
+}
+
+.macro-week-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.macro-image-toggle-btn {
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.macro-image-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent);
+}
+
+.macro-update-status {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 6px;
+  letter-spacing: 0.01em;
+}
+
+.macro-revised-tag {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffd166;
+  background: rgba(255, 209, 102, 0.15);
+  border: 1px solid rgba(255, 209, 102, 0.4);
+  border-radius: 4px;
+  padding: 1px 4px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.macro-week-header h2 {
+  margin: 4px 0 6px;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  color: var(--text);
+}
+
+.macro-date-range {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.macro-days-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.macro-day-group {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 18px 20px;
+}
+
+body.light-theme .macro-day-group {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.macro-day-title {
+  margin: 0 0 14px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.macro-day-bullet {
+  font-size: 1rem;
+}
+
+.macro-events-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.macro-event-card {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.macro-event-card:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.macro-event-card:first-child {
+  padding-top: 0;
+}
+
+.macro-event-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.macro-event-time {
+  font-family: var(--font-mono, monospace), var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary);
+  min-width: 52px;
+  padding-top: 2px;
+}
+
+.macro-event-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.macro-event-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.macro-event-title {
+  font-size: 0.98rem;
+  color: var(--text);
+}
+
+.macro-country-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: rgba(94, 163, 255, 0.12);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.macro-period-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+body.light-theme .macro-period-pill {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.macro-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-top: 6px;
+  max-width: 380px;
+}
+
+body.light-theme .macro-metrics {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.macro-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.macro-metric-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.macro-metric-val {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.macro-metric-val.has-actual {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.macro-details {
+  margin-top: 8px;
+  font-size: 0.82rem;
+}
+
+.macro-details summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 500;
+  user-select: none;
+}
+
+.macro-details summary:hover {
+  text-decoration: underline;
+}
+
+.macro-details-body {
+  margin-top: 6px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+body.light-theme .macro-details-body {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.macro-details-body p {
+  margin: 0;
+}
+
+.macro-details-body p + p {
+  margin-top: 6px;
+}
+
+.macro-source a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+@media (max-width: 540px) {
+  .macro-event-main {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .macro-event-time {
+    min-width: auto;
+  }
+
+  .macro-metrics {
+    max-width: 100%;
+  }
+}
+
 .lightbox-overlay {
   position: fixed;
   inset: 0;
@@ -2493,6 +2889,15 @@ body.light-theme .hero-panel {
 .archive-list {
   display: grid;
   gap: 12px;
+}
+
+.archive-section + .archive-section {
+  margin-top: 28px;
+}
+
+.archive-more-btn {
+  width: 100%;
+  margin-top: 12px;
 }
 
 .archive-item {
