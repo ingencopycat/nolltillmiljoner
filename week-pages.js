@@ -116,7 +116,8 @@ function formatMacroVal(val) {
   if (val === null || val === undefined || val === '') {
     return '–';
   }
-  return String(val);
+  const text = String(val);
+  return /^-0(?:[.,]0+)?%?$/.test(text) ? text.slice(1) : text;
 }
 
 function getRenderableMacroEvents(week) {

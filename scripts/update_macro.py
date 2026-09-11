@@ -24,6 +24,8 @@ import shutil
 import tempfile
 import urllib.request
 import urllib.error
+import urllib.parse
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 
 WORKSPACE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -47,6 +49,22 @@ BLS_SERIES_DEFINITIONS = {
     'CUSR0000SA0L1E': {'name': 'Core CPI (SA, MoM)', 'type': 'mom_pct', 'sourceUrl': 'https://www.bls.gov/cpi/'},
     'CUUR0000SA0L1E': {'name': 'Core CPI (NSA, YoY)', 'type': 'yoy_pct', 'sourceUrl': 'https://www.bls.gov/cpi/'}
 }
+
+FRED_SERIES_DEFINITIONS = {
+    'us-consumer-credit-': {'series': 'TOTALSL', 'unit': 'millions of dollars', 'seasonal': 'seasonally adjusted', 'transform': 'delta_billions', 'sourceUrl': 'https://fred.stlouisfed.org/series/TOTALSL'},
+    'us-industrial-production-': {'series': 'INDPRO', 'unit': 'index 2017=100', 'seasonal': 'seasonally adjusted', 'transform': 'mom_pct', 'sourceUrl': 'https://fred.stlouisfed.org/series/INDPRO'},
+    'us-capacity-utilization-': {'series': 'TCU', 'unit': 'percent', 'seasonal': 'seasonally adjusted', 'transform': 'level_pct', 'sourceUrl': 'https://fred.stlouisfed.org/series/TCU'}
+}
+
+BEA_EVENT_DEFINITIONS = {
+    'us-gdp-': {'table': 'T10101', 'frequency': 'Q', 'descriptions': ('Gross domestic product',), 'unit': 'Millions of dollars', 'transform': 'level', 'sourceUrl': 'https://apps.bea.gov/iTable/?ReqID=19'},
+    'us-pce-price-index-': {'table': 'T40100', 'frequency': 'M', 'descriptions': ('Personal consumption expenditures',), 'unit': 'Index 2017=100', 'transform': 'level', 'sourceUrl': 'https://apps.bea.gov/iTable/?ReqID=19'},
+    'us-core-pce-price-index-': {'table': 'T40100', 'frequency': 'M', 'descriptions': ('Personal consumption expenditures excluding food and energy',), 'unit': 'Index 2017=100', 'transform': 'level', 'sourceUrl': 'https://apps.bea.gov/iTable/?ReqID=19'},
+    'us-personal-income-': {'table': 'T20100', 'frequency': 'M', 'descriptions': ('Personal income',), 'unit': 'Millions of dollars', 'transform': 'level', 'sourceUrl': 'https://apps.bea.gov/iTable/?ReqID=19'},
+    'us-personal-spending-': {'table': 'T20100', 'frequency': 'M', 'descriptions': ('Personal consumption expenditures',), 'unit': 'Millions of dollars', 'transform': 'level', 'sourceUrl': 'https://apps.bea.gov/iTable/?ReqID=19'}
+}
+
+TREASURY_EVENT_PREFIX = 'us-treasury-balance-'
 
 # Mapping indicator event templates to series
 EVENT_SERIES_MAPPING = {
@@ -491,7 +509,7 @@ def derive_required_fetch_years(macro_weeks):
             if ev_date:
                 try:
                     ev_yr = int(ev_date.split('-')[0])
-                    ref_yr = ev.get('refYear', ev_yr)
+                    ref_yr = ev.get('refYear') or ev_yr
                     needed_years.add(ref_yr)
                     needed_years.add(ref_yr - 1)
                     needed_years.add(ref_yr - 2)
@@ -521,6 +539,194 @@ def fetch_bls_data(series_ids, start_year, end_year, api_key=None):
         status = res.get('status')
         series_results = res.get('Results', {}).get('series', [])
         return status, series_results
+
+def fetch_fred_series(series_id, start_year, end_year):
+    url = 'https://fred.stlouisfed.org/graph/fredgraph.csv?' + urllib.parse.urlencode({
+        'id': series_id,
+        'cosd': f'{start_year}-01-01',
+        'coed': f'{end_year}-12-31'
+    })
+    request = urllib.request.Request(url, headers={'User-Agent': 'NTM-Macro/1.0'})
+    with urllib.request.urlopen(request, timeout=15) as response:
+        text = response.read().decode('utf-8', errors='replace')
+    return parse_fred_csv(text)
+
+def parse_fred_csv(text):
+    observations = {}
+    for line in text.splitlines()[1:]:
+        fields = line.split(',')
+        if len(fields) != 2 or fields[1] in ('', '.', 'NA'):
+            continue
+        try:
+            observations[fields[0][:7]] = float(fields[1])
+        except ValueError:
+            continue
+    return observations
+
+def fetch_bea_table(table_name, frequency, years, api_key):
+    if not api_key:
+        return []
+    params = {
+        'UserID': api_key,
+        'method': 'GETDATA',
+        'datasetname': 'NIPA',
+        'TableName': table_name,
+        'Frequency': frequency,
+        'Year': ','.join(str(year) for year in sorted(years)),
+        'ResultFormat': 'JSON'
+    }
+    url = 'https://apps.bea.gov/api/data/?' + urllib.parse.urlencode(params)
+    with urllib.request.urlopen(url, timeout=15) as response:
+        payload = json.loads(response.read().decode('utf-8'))
+    error = payload.get('BEAAPI', {}).get('Results', {}).get('Error')
+    if error:
+        raise RuntimeError(error.get('APIErrorDescription', 'BEA API error'))
+    return payload.get('BEAAPI', {}).get('Results', {}).get('Data', [])
+
+def fetch_treasury_monthly_balance(year):
+    params = urllib.parse.urlencode({
+        'filter': f'record_date:gte:{year}-01-01,record_date:lte:{year}-12-31',
+        'page[size]': 1000
+    })
+    url = f'https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/mts/mts_table_1?{params}'
+    request = urllib.request.Request(url, headers={'User-Agent': 'NTM-Macro/1.0'})
+    with urllib.request.urlopen(request, timeout=15) as response:
+        payload = json.loads(response.read().decode('utf-8'))
+    return parse_treasury_rows(payload.get('data', []), year)
+
+def parse_treasury_rows(rows, year):
+    values = {}
+    for row in rows:
+        if row.get('record_type_cd') != 'MTH' or row.get('current_month_dfct_sur_amt') in (None, 'null'):
+            continue
+        month = row.get('classification_desc', '').lower()
+        if month in MONTH_NAMES:
+            values[(year, MONTH_NAMES[month])] = float(row['current_month_dfct_sur_amt']) / 1_000_000_000
+    return values
+
+def calculate_delta(values, year, month):
+    current = values.get((year, month))
+    previous_year, previous_month = get_preceding_month(year, month)
+    previous = values.get((previous_year, previous_month))
+    if current is None or previous is None:
+        return None
+    return current - previous
+
+def parse_provider_period(period_text):
+    month = parse_period_month(period_text)
+    if month:
+        return 'M', month
+    quarter = parse_period_quarter(period_text)
+    if quarter:
+        return 'Q', quarter
+    return None, None
+
+def format_provider_value(value, transform):
+    if transform == 'level_pct':
+        return f'{value:.1f}%'
+    if transform == 'delta_billions':
+        return f'{value / 1000:.0f}B'
+    return f'{value:g}'
+
+def fetch_dol_weekly_claims(start_year, end_year):
+    """Fetch national seasonally adjusted initial claims from official ETA XML."""
+    payload = urllib.parse.urlencode({
+        'level': 'us',
+        'strtdate': str(start_year),
+        'enddate': str(end_year),
+        'filetype': 'xml',
+        'submit': 'Submit',
+        'final_yr': str(end_year + 1)
+    }).encode('ascii')
+    request = urllib.request.Request(
+        'https://oui.doleta.gov/unemploy/wkclaims/report.asp',
+        data=payload,
+        headers={'Content-Type': 'application/x-www-form-urlencoded'}
+    )
+    with urllib.request.urlopen(request, timeout=15) as response:
+        root = ET.fromstring(response.read())
+
+    claims = {}
+    for week in root.findall('week'):
+        date_text = week.findtext('weekEnded', '').strip()
+        try:
+            week_date = datetime.strptime(date_text, '%m/%d/%Y').date()
+            initial_claims = week.findtext('InitialClaims/SA', '').replace(',', '').strip()
+            if initial_claims:
+                claims[week_date.isoformat()] = float(initial_claims)
+        except (ValueError, TypeError):
+            continue
+    return claims
+
+def fetch_census_wholesale_inventories(year):
+    """Fetch seasonally adjusted MWTS inventories from the official Census CSV export."""
+    query = urllib.parse.urlencode({
+        'format': 'csv',
+        'mode': 'report',
+        'submit': 'GET DATA',
+        'program': 'MWTS',
+        'startYear': str(year),
+        'endYear': str(year),
+        'categories[0]': '42',
+        'dataType': 'IM',
+        'geoLevel': 'US',
+        'adjusted': 'true',
+        'notAdjusted': 'false',
+        'errorData': 'false'
+    })
+    request = urllib.request.Request(
+        f'https://www.census.gov/econ_export/?{query}',
+        headers={'User-Agent': 'NTM-Macro/1.0'}
+    )
+    with urllib.request.urlopen(request, timeout=15) as response:
+        text = response.read().decode('utf-8', errors='replace')
+
+    values = {}
+    for line in text.splitlines():
+        match = re.match(r'^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-(\d{4}),([\d.]+)$', line.strip())
+        if match:
+            month = MONTH_NAMES[match.group(1).lower()]
+            values[(int(match.group(2)), month)] = float(match.group(3))
+    return values
+
+def fetch_census_eits_levels(program, category, data_type, year):
+    """Fetch one seasonally adjusted Census EITS level series from its CSV export."""
+    query = urllib.parse.urlencode({
+        'format': 'csv',
+        'mode': 'report',
+        'submit': 'GET DATA',
+        'program': program,
+        'startYear': str(year),
+        'endYear': str(year),
+        'categories[0]': category,
+        'dataType': data_type,
+        'geoLevel': 'US',
+        'adjusted': 'true',
+        'notAdjusted': 'false',
+        'errorData': 'false'
+    })
+    request = urllib.request.Request(
+        f'https://www.census.gov/econ_export/?{query}',
+        headers={'User-Agent': 'NTM-Macro/1.0'}
+    )
+    with urllib.request.urlopen(request, timeout=15) as response:
+        text = response.read().decode('utf-8', errors='replace')
+
+    values = {}
+    for line in text.splitlines():
+        match = re.match(r'^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-(\d{4}),([\d.]+)$', line.strip())
+        if match:
+            month = MONTH_NAMES[match.group(1).lower()]
+            values[(int(match.group(2)), month)] = float(match.group(3))
+    return values
+
+def calculate_monthly_change(values, year, month):
+    current = values.get((year, month))
+    previous_year, previous_month = get_preceding_month(year, month)
+    previous = values.get((previous_year, previous_month))
+    if current is None or previous in (None, 0):
+        return None
+    return f"{((current / previous) - 1) * 100:.1f}%"
 
 def parse_js_object(js_str):
     s = js_str.strip()
@@ -634,6 +840,94 @@ def update_macro_data():
     except Exception as e:
         print(f"[BLS Fetch Error] {e}. Existing data preserved.")
 
+    dol_claims = {}
+    census_inventories = {}
+    census_eits = {}
+    fred_results = {}
+    bea_results = {}
+    treasury_results = {}
+    try:
+        if any(event.get('id', '').startswith('us-jobless-claims-') for week in macro_weeks.values() for event in week.get('events', [])):
+            dol_claims = fetch_dol_weekly_claims(start_year, end_year)
+            print(f"[DOL Success] Received {len(dol_claims)} weekly claims observations.")
+    except Exception as e:
+        print(f"[DOL Fetch Error] {e}. Existing claims data preserved.")
+
+    try:
+        wholesale_years = {
+            int(event.get('refYear') or event.get('date', '2026-01-01').split('-')[0])
+            for week in macro_weeks.values()
+            for event in week.get('events', [])
+            if event.get('id', '').startswith('us-wholesale-trade-')
+        }
+        for wholesale_year in wholesale_years:
+            census_inventories[wholesale_year] = fetch_census_wholesale_inventories(wholesale_year)
+            print(f"[Census Success] Received MWTS inventory data for {wholesale_year}.")
+    except Exception as e:
+        print(f"[Census Fetch Error] {e}. Existing wholesale data preserved.")
+
+    census_eits_specs = {
+        'us-construction-spending-': ('vip', 'AXXXX', 'T'),
+        'us-factory-orders-': ('m3', 'MTM', 'NO')
+    }
+    try:
+        eits_years = {
+            int(event.get('refYear') or event.get('date', '2026-01-01').split('-')[0])
+            for week in macro_weeks.values()
+            for event in week.get('events', [])
+            for prefix in census_eits_specs
+            if event.get('id', '').startswith(prefix)
+        }
+        for prefix, spec in census_eits_specs.items():
+            if any(event.get('id', '').startswith(prefix) for week in macro_weeks.values() for event in week.get('events', [])):
+                for eits_year in eits_years:
+                    census_eits[(prefix, eits_year)] = fetch_census_eits_levels(*spec, eits_year)
+                    print(f"[Census Success] Received {spec[0].upper()} data for {eits_year}.")
+    except Exception as e:
+        print(f"[Census EITS Error] {e}. Existing Census event data preserved.")
+
+    try:
+        for prefix, spec in FRED_SERIES_DEFINITIONS.items():
+            if any(event.get('id', '').startswith(prefix) for week in macro_weeks.values() for event in week.get('events', [])):
+                fred_results[prefix] = fetch_fred_series(spec['series'], start_year, end_year)
+                print(f"[FRED Success] Received {spec['series']} observations.")
+    except Exception as e:
+        print(f"[FRED Error] {e}. Existing Federal Reserve data preserved.")
+
+    try:
+        treasury_years = {
+            int(event.get('refYear') or event.get('date', '2026-01-01').split('-')[0])
+            for week in macro_weeks.values()
+            for event in week.get('events', [])
+            if event.get('id', '').startswith(TREASURY_EVENT_PREFIX)
+        }
+        for treasury_year in treasury_years:
+            treasury_results[treasury_year] = fetch_treasury_monthly_balance(treasury_year)
+            print(f"[FiscalData Success] Received MTS data for {treasury_year}.")
+    except Exception as e:
+        print(f"[FiscalData Error] {e}. Existing Treasury data preserved.")
+
+    bea_key = os.environ.get('BEA_API_KEY')
+    try:
+        bea_years = {
+            int(event.get('refYear') or event.get('date', '2026-01-01').split('-')[0])
+            for week in macro_weeks.values()
+            for event in week.get('events', [])
+            for prefix in BEA_EVENT_DEFINITIONS
+            if event.get('id', '').startswith(prefix)
+        }
+        for prefix, spec in BEA_EVENT_DEFINITIONS.items():
+            if bea_key and any(event.get('id', '').startswith(prefix) for week in macro_weeks.values() for event in week.get('events', [])):
+                rows = fetch_bea_table(spec['table'], spec['frequency'], bea_years, bea_key)
+                bea_results[prefix] = [
+                    row for row in rows
+                    if any(row.get('LineDescription', '').strip().lower() == description.lower() for description in spec['descriptions'])
+                    and row.get('CL_UNIT', '').strip().lower() == spec['unit'].lower()
+                ]
+                print(f"[BEA Success] Received {len(bea_results[prefix])} matched {spec['table']} rows.")
+    except Exception as e:
+        print(f"[BEA Error] {e}. Existing BEA data preserved.")
+
     # 3. Update events with exact period lookups
     updates_count = 0
     sorted_prefixes = sorted(EVENT_SERIES_MAPPING.keys(), key=len, reverse=True)
@@ -643,6 +937,135 @@ def update_macro_data():
         for event in events:
             ev_id = event.get('id', '')
             matched_mapping = None
+
+            provider_prefix = next((prefix for prefix in FRED_SERIES_DEFINITIONS if ev_id.startswith(prefix)), None)
+            if provider_prefix and provider_prefix in fred_results:
+                spec = FRED_SERIES_DEFINITIONS[provider_prefix]
+                month = parse_period_month(event.get('period'))
+                year = int(event.get('refYear') or event.get('date', '2026-01-01').split('-')[0])
+                current = fred_results[provider_prefix].get(f'{year}-{month:02d}') if month else None
+                previous_year, previous_month = get_preceding_month(year, month) if month else (None, None)
+                previous = fred_results[provider_prefix].get(f'{previous_year}-{previous_month:02d}') if month else None
+                value = None
+                previous_value = None
+                if current is not None and previous is not None:
+                    if spec['transform'] == 'delta_billions':
+                        value = (current - previous) / 1000
+                        previous_previous_year, previous_previous_month = get_preceding_month(previous_year, previous_month)
+                        prior = fred_results[provider_prefix].get(f'{previous_previous_year}-{previous_previous_month:02d}')
+                        previous_value = (previous - prior) / 1000 if prior is not None else None
+                    elif spec['transform'] == 'mom_pct':
+                        value = ((current / previous) - 1) * 100 if previous else None
+                    elif spec['transform'] == 'level_pct':
+                        value = current
+                if value is not None:
+                    event['actual'] = f'{value:.1f}%' if spec['transform'] in ('mom_pct', 'level_pct') else f'{value:.0f}B'
+                    event['officialBaseline'] = event['actual']
+                if previous_value is not None:
+                    event['previous'] = f'{previous_value:.0f}B'
+                continue
+
+            if ev_id.startswith(TREASURY_EVENT_PREFIX) and treasury_results:
+                year = int(event.get('refYear') or event.get('date', '2026-01-01').split('-')[0])
+                month = parse_period_month(event.get('period'))
+                values = treasury_results.get(year, {})
+                value = values.get((year, month)) if month else None
+                previous_year, previous_month = get_preceding_month(year, month) if month else (None, None)
+                previous = values.get((previous_year, previous_month)) if month else None
+                if value is not None:
+                    event['actual'] = f'{value:.0f}B'
+                    event['officialBaseline'] = event['actual']
+                if previous is not None:
+                    event['previous'] = f'{previous:.0f}B'
+                continue
+
+            bea_prefix = next((prefix for prefix in BEA_EVENT_DEFINITIONS if ev_id.startswith(prefix)), None)
+            if bea_prefix and bea_prefix in bea_results:
+                spec = BEA_EVENT_DEFINITIONS[bea_prefix]
+                period_type, period_number = parse_provider_period(event.get('period'))
+                year = int(event.get('refYear') or event.get('date', '2026-01-01').split('-')[0])
+                period_key = f'{year}M{period_number:02d}' if period_type == 'M' else f'{year}Q{period_number}' if period_type == 'Q' else None
+                rows = {row.get('TimePeriod'): row for row in bea_results[bea_prefix]}
+                row = rows.get(period_key)
+                if row and row.get('DataValue') not in (None, '', '...'):
+                    event['actual'] = row['DataValue']
+                    event['officialBaseline'] = row['DataValue']
+                    previous_key = None
+                    if period_type == 'M':
+                        previous_year, previous_month = get_preceding_month(year, period_number)
+                        previous_key = f'{previous_year}M{previous_month:02d}'
+                    elif period_type == 'Q':
+                        previous_year, previous_quarter = get_preceding_quarter(year, period_number)
+                        previous_key = f'{previous_year}Q{previous_quarter}'
+                    previous_row = rows.get(previous_key)
+                    if previous_row and previous_row.get('DataValue') not in (None, '', '...'):
+                        event['previous'] = previous_row['DataValue']
+                continue
+
+            if ev_id.startswith('us-jobless-claims-') and dol_claims:
+                claim_period = re.search(r'(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sept|Sep|Oct|Nov|Dec)[a-z.]*\.?\s+(\d{1,2})', event.get('period', ''), re.IGNORECASE)
+                if claim_period:
+                    month = MONTH_NAMES[claim_period.group(1)[:3].lower()]
+                    claim_year = int(event.get('date', '2026-01-01').split('-')[0])
+                    claim_date = datetime(claim_year, month, int(claim_period.group(2))).date()
+                    actual_claims = dol_claims.get(claim_date.isoformat())
+                    prior_claims = dol_claims.get((claim_date - timedelta(days=7)).isoformat())
+                    if actual_claims is not None:
+                        verified_actual = f"{actual_claims / 1000:.0f}K"
+                        if event.get('actual') != verified_actual:
+                            if event.get('actual') is not None and event.get('officialBaseline'):
+                                event['isRevised'] = True
+                            event['actual'] = verified_actual
+                            event['officialBaseline'] = verified_actual
+                            updates_count += 1
+                    if prior_claims is not None:
+                        event['previous'] = f"{prior_claims / 1000:.0f}K"
+                continue
+
+            if ev_id.startswith('us-wholesale-trade-') and census_inventories:
+                wholesale_year = int(event.get('refYear') or event.get('date', '2026-01-01').split('-')[0])
+                wholesale_month = parse_period_month(event.get('period'))
+                values = census_inventories.get(wholesale_year, {})
+                actual_wholesale = calculate_monthly_change(values, wholesale_year, wholesale_month) if wholesale_month else None
+                if wholesale_month and wholesale_month == 1 and (wholesale_year - 1) not in census_inventories:
+                    try:
+                        census_inventories[wholesale_year - 1] = fetch_census_wholesale_inventories(wholesale_year - 1)
+                        values = {**census_inventories[wholesale_year - 1], **values}
+                    except Exception as e:
+                        print(f"[Census Fetch Error] {e}. Existing wholesale data preserved.")
+                previous_month = wholesale_month - 1 if wholesale_month and wholesale_month > 1 else 12 if wholesale_month else None
+                previous_year = wholesale_year if wholesale_month and wholesale_month > 1 else wholesale_year - 1 if wholesale_month else None
+                previous_wholesale = calculate_monthly_change(values, previous_year, previous_month) if previous_month else None
+                if actual_wholesale is not None:
+                    if event.get('actual') != actual_wholesale:
+                        if event.get('actual') is not None and event.get('officialBaseline'):
+                            event['isRevised'] = True
+                        event['actual'] = actual_wholesale
+                        event['officialBaseline'] = actual_wholesale
+                        updates_count += 1
+                if previous_wholesale is not None:
+                    event['previous'] = previous_wholesale
+                continue
+
+            eits_prefix = next((prefix for prefix in census_eits_specs if ev_id.startswith(prefix)), None)
+            if eits_prefix:
+                eits_year = int(event.get('refYear') or event.get('date', '2026-01-01').split('-')[0])
+                eits_month = parse_period_month(event.get('period'))
+                eits_values = census_eits.get((eits_prefix, eits_year), {})
+                actual_eits = calculate_monthly_change(eits_values, eits_year, eits_month) if eits_month else None
+                previous_eits = None
+                if eits_month:
+                    previous_year, previous_month = get_preceding_month(eits_year, eits_month)
+                    previous_eits = calculate_monthly_change(eits_values, previous_year, previous_month)
+                if actual_eits is not None and event.get('actual') != actual_eits:
+                    if event.get('actual') is not None and event.get('officialBaseline'):
+                        event['isRevised'] = True
+                    event['actual'] = actual_eits
+                    event['officialBaseline'] = actual_eits
+                    updates_count += 1
+                if previous_eits is not None:
+                    event['previous'] = previous_eits
+                continue
 
             for prefix in sorted_prefixes:
                 if ev_id.startswith(prefix) or event.get('eventName') == EVENT_SERIES_MAPPING[prefix]['eventName']:

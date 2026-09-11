@@ -165,7 +165,9 @@ Macroeconomic data is updated via `scripts/update_macro.py` and GitHub Actions (
 - **Live Automated Source:** U.S. Bureau of Labor Statistics (BLS) Public API.
   - Queries exact series (e.g. `CES0000000001` for Nonfarm Payrolls, `LNS14000000` for Unemployment Rate, `CUSR0000SA0` / `CUUR0000SA0` for CPI, `WPSFD4` for PPI, `PRS85006092` for Productivity, `JTS000000000000000JOL` for JOLTS).
   - Matches strictly by Year + Period (e.g. `2026 M08`, `2026 Q02`).
-  - Auto-populates upcoming weeks and events from the official BLS 2026 release schedule (`BLS_OFFICIAL_SCHEDULE_2026`).
+   - Auto-populates upcoming weeks and events from the official BLS 2026 release schedule (`BLS_OFFICIAL_SCHEDULE_2026`).
+- **Additional official providers:** Federal Reserve series via FRED CSV (`TOTALSL`, `INDPRO`, `TCU`), BEA NIPA tables (`T10101`, `T20100`, `T40100`) when `BEA_API_KEY` is configured, and Treasury FiscalData MTS for monthly deficit/surplus.
+- **Provider safety:** Provider rules match exact event period, series/table, units and seasonal adjustment. Missing periods or provider/network failures preserve existing values. BEA credentials are supplied only through the optional `BEA_API_KEY` GitHub secret.
 - **Call Budget:** Runs via cron on trading weekdays (12:35, 14:35, 16:35 UTC) using 1 batch request per run = 3 requests/day (well within the BLS 25 req/day unauthenticated / 500 req/day authenticated limit).
 - **GitHub Pages Deployment:** Uses the official `actions/deploy-pages@v4` workflow. In GitHub Repository Settings, ensure **Settings → Pages → Build and deployment → Source** is set to **"GitHub Actions"**.
 

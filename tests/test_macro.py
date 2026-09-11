@@ -41,6 +41,16 @@ from update_macro import (
     sync_scheduled_weeks_from_calendar,
     derive_required_fetch_years
 )
+from update_macro import (
+    calculate_monthly_change,
+    calculate_delta,
+    format_provider_value,
+    parse_provider_period,
+    parse_fred_csv,
+    parse_treasury_rows,
+    FRED_SERIES_DEFINITIONS,
+    BEA_EVENT_DEFINITIONS,
+)
 from stage_site import (
     REQUIRED_FILES,
     REQUIRED_DIRECTORIES,
@@ -349,6 +359,102 @@ END:VCALENDAR"""
             'jolts-2026-09-29@bls.gov::us-jolts-job-openings'
         )
         self.assertEqual(macro_weeks['2026-W40']['events'][0]['actual'], '7.27M')
+
+    def test_census_wholesale_monthly_change_uses_exact_months(self):
+        """Wholesale inventory change must use the July and June observations."""
+        values = {
+            (2026, 6): 946687.0,
+            (2026, 7): 958854.0,
+        }
+        self.assertEqual(calculate_monthly_change(values, 2026, 7), '1.3%')
+
+    def test_census_vip_construction_uses_july_and_june_levels(self):
+        """VIP total construction must calculate July MoM from the exact SA levels."""
+        values = {(2026, 6): 2167698.0, (2026, 7): 2157581.0}
+        self.assertEqual(calculate_monthly_change(values, 2026, 7), '-0.5%')
+
+    def test_census_m3_factory_orders_uses_new_orders_not_another_period(self):
+        """M3 New Orders must use July versus June and reject missing June."""
+        values = {(2026, 6): 657790.0, (2026, 7): 663616.0, (2026, 5): 658836.0}
+        self.assertEqual(calculate_monthly_change(values, 2026, 7), '0.9%')
+        self.assertIsNone(calculate_monthly_change({(2026, 7): 663616.0}, 2026, 7))
+
+    def test_census_period_mismatch_does_not_overwrite_existing_actual(self):
+        """A level for another month cannot replace an existing valid event value."""
+        values = {(2026, 6): 657790.0, (2026, 8): 670000.0}
+        self.assertIsNone(calculate_monthly_change(values, 2026, 7))
+
+    def test_provider_period_parser_rejects_unknown_period(self):
+        self.assertEqual(parse_provider_period('Jul.'), ('M', 7))
+        self.assertEqual(parse_provider_period('Q2'), ('Q', 2))
+        self.assertEqual(parse_provider_period('unverified'), (None, None))
+
+    def test_federal_reserve_consumer_credit_delta_uses_adjacent_months(self):
+        values = {(2026, 6): 5_044_000.0, (2026, 7): 5_186_204.0, (2026, 5): 5_000_000.0}
+        self.assertEqual(calculate_delta(values, 2026, 7), 142204.0)
+        self.assertEqual(format_provider_value(calculate_delta(values, 2026, 7), 'delta_billions'), '142B')
+
+    def test_federal_reserve_level_and_missing_period_do_not_fabricate(self):
+        fred_values = {'2026-07': 102.9939, '2026-06': 102.2}
+        self.assertEqual(fred_values.get('2026-07'), 102.9939)
+        self.assertIsNone(fred_values.get('2026-08'))
+
+    def test_provider_series_definitions_are_exact_and_seasonally_adjusted(self):
+        self.assertEqual(FRED_SERIES_DEFINITIONS['us-consumer-credit-']['series'], 'TOTALSL')
+        self.assertEqual(FRED_SERIES_DEFINITIONS['us-industrial-production-']['series'], 'INDPRO')
+        self.assertEqual(FRED_SERIES_DEFINITIONS['us-capacity-utilization-']['series'], 'TCU')
+        self.assertTrue(all(spec['seasonal'] == 'seasonally adjusted' for spec in FRED_SERIES_DEFINITIONS.values()))
+        self.assertEqual(BEA_EVENT_DEFINITIONS['us-gdp-']['table'], 'T10101')
+        self.assertEqual(BEA_EVENT_DEFINITIONS['us-pce-price-index-']['table'], 'T40100')
+
+    def test_fred_csv_and_fiscaldata_period_parsers_match_exact_month(self):
+        fred = parse_fred_csv('DATE,TOTALSL\n2026-06-01,5044000\n2026-07-01,5186204\n2026-08-01,.\n')
+        self.assertEqual(fred['2026-07'], 5186204.0)
+        self.assertNotIn('2026-08', fred)
+
+        treasury = parse_treasury_rows([
+            {'record_type_cd': 'MTH', 'classification_desc': 'July', 'current_month_dfct_sur_amt': '-432000000000'},
+            {'record_type_cd': 'D', 'classification_desc': 'July', 'current_month_dfct_sur_amt': '999'},
+        ], 2026)
+        self.assertEqual(treasury[(2026, 7)], -432.0)
+
+    def test_treasury_provider_uses_calendar_year_window(self):
+        """FiscalData must retrieve all publication dates in the reference year."""
+        import update_macro
+        captured = {}
+        original_request = update_macro.urllib.request.urlopen
+
+        class Response:
+            def __enter__(self):
+                return self
+            def __exit__(self, *args):
+                return False
+            def read(self):
+                return b'{"data": []}'
+
+        def fake_urlopen(request, timeout):
+            captured['url'] = request.full_url
+            return Response()
+
+        update_macro.urllib.request.urlopen = fake_urlopen
+        try:
+            update_macro.fetch_treasury_monthly_balance(2026)
+        finally:
+            update_macro.urllib.request.urlopen = original_request
+        self.assertIn('record_date%3Agte%3A2026-01-01', captured['url'])
+        self.assertIn('record_date%3Alte%3A2026-12-31', captured['url'])
+
+    def test_bea_rows_require_exact_period_and_unit_match(self):
+        rows = [
+            {'TimePeriod': '2026M07', 'LineDescription': 'Personal income', 'CL_UNIT': 'Millions of dollars', 'DataValue': '100'},
+            {'TimePeriod': '2026M06', 'LineDescription': 'Personal income', 'CL_UNIT': 'Millions of dollars', 'DataValue': '99'},
+            {'TimePeriod': '2026M07', 'LineDescription': 'Personal income', 'CL_UNIT': 'Percent change', 'DataValue': '9.9'},
+        ]
+        exact = [row for row in rows if row['LineDescription'] == 'Personal income' and row['CL_UNIT'] == 'Millions of dollars']
+        by_period = {row['TimePeriod']: row['DataValue'] for row in exact}
+        self.assertEqual(by_period.get('2026M07'), '100')
+        self.assertEqual(by_period.get('2026M06'), '99')
+        self.assertIsNone(by_period.get('2026M08'))
 
     def test_empty_api_data_returns_none(self):
         """API series with empty data list must not produce fake updates."""

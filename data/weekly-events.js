@@ -30,11 +30,12 @@ const macroWeeks = {
         "eventName": "Consumer Credit",
         "period": "Jul.",
         "forecast": null,
-        "previous": "142B",
-        "actual": null,
+        "previous": "15B",
+        "actual": "18B",
         "priority": "low",
         "source": "Federal Reserve",
-        "sourceUrl": "https://www.federalreserve.gov/releases/g19/"
+        "sourceUrl": "https://www.federalreserve.gov/releases/g19/",
+        "officialBaseline": "18B"
       },
       {
         "id": "us-jobless-claims-2026-09-10",
@@ -58,11 +59,12 @@ const macroWeeks = {
         "eventName": "Monthly Wholesale Trade",
         "period": "Jul.",
         "forecast": null,
-        "previous": "0.2%",
-        "actual": null,
+        "previous": "0.4%",
+        "actual": "1.3%",
         "priority": "low",
         "source": "U.S. Census Bureau",
-        "sourceUrl": "https://www.census.gov/wholesale/"
+        "sourceUrl": "https://www.census.gov/wholesale/",
+        "officialBaseline": "1.3%"
       },
       {
         "id": "us-existing-home-sales-2026-09-10",
@@ -100,11 +102,12 @@ const macroWeeks = {
         "eventName": "Monthly Treasury Balance",
         "period": "Aug.",
         "forecast": null,
-        "previous": "-432B",
-        "actual": null,
+        "previous": "432B",
+        "actual": "345B",
         "priority": "low",
         "source": "U.S. Department of the Treasury",
-        "sourceUrl": "https://fiscaldata.treasury.gov/"
+        "sourceUrl": "https://fiscaldata.treasury.gov/",
+        "officialBaseline": "345B"
       },
       {
         "id": "us-ppi-2026-09-10",
@@ -118,7 +121,8 @@ const macroWeeks = {
         "actual": "0.4%",
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/ppi/"
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "a7af97b6-948d-4235-9a1c-7d961818b90a::us-ppi"
       },
       {
         "id": "us-ppi-core-mm-2026-09-10",
@@ -134,7 +138,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
         "officialBaseline": "0.4%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "a7af97b6-948d-4235-9a1c-7d961818b90a::us-ppi-core-mm"
       },
       {
         "id": "us-ppi-yy-2026-09-10",
@@ -150,7 +155,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
         "officialBaseline": "0.4%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "a7af97b6-948d-4235-9a1c-7d961818b90a::us-ppi-yy"
       },
       {
         "id": "us-cpi-2026-09-11",
@@ -164,7 +170,8 @@ const macroWeeks = {
         "actual": "0.4%",
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/cpi/"
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "fe9a4ba6-c2ef-44bc-b859-985ffee9a2d8::us-cpi"
       },
       {
         "id": "us-core-cpi-mm-2026-09-11",
@@ -178,7 +185,8 @@ const macroWeeks = {
         "actual": "0.3%",
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/cpi/"
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "fe9a4ba6-c2ef-44bc-b859-985ffee9a2d8::us-core-cpi-mm"
       },
       {
         "id": "us-cpi-yy-2026-09-11",
@@ -194,7 +202,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
         "officialBaseline": "0.4%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "fe9a4ba6-c2ef-44bc-b859-985ffee9a2d8::us-cpi-yy"
       },
       {
         "id": "us-cpi-core-yy-2026-09-11",
@@ -210,7 +219,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
         "officialBaseline": "0.4%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "fe9a4ba6-c2ef-44bc-b859-985ffee9a2d8::us-cpi-core-yy"
       }
     ]
   },
@@ -259,11 +269,12 @@ const macroWeeks = {
         "eventName": "Construction Spending, M/M%",
         "period": "Jul.",
         "forecast": null,
-        "previous": "-0.3%",
-        "actual": null,
+        "previous": "-0.0%",
+        "actual": "-0.5%",
         "priority": "low",
         "source": "U.S. Census Bureau",
-        "sourceUrl": "https://www.census.gov/construction/c30/"
+        "sourceUrl": "https://www.census.gov/construction/c30/",
+        "officialBaseline": "-0.5%"
       },
       {
         "id": "us-factory-orders-2026-09-02",
@@ -273,11 +284,12 @@ const macroWeeks = {
         "eventName": "Factory Orders, M/M%",
         "period": "Jul.",
         "forecast": null,
-        "previous": "-3.3%",
-        "actual": null,
+        "previous": "-0.2%",
+        "actual": "0.9%",
         "priority": "medium",
         "source": "U.S. Census Bureau",
-        "sourceUrl": "https://www.census.gov/manufacturing/m3/"
+        "sourceUrl": "https://www.census.gov/manufacturing/m3/",
+        "officialBaseline": "0.9%"
       },
       {
         "id": "us-fed-beige-book-2026-09-02",
@@ -334,7 +346,8 @@ const macroWeeks = {
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/lpc/",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "c965633c-5d34-4361-ae0e-43fb8246d81f::us-nonfarm-productivity"
       },
       {
         "id": "us-unit-labor-costs-2026-09-03",
@@ -349,7 +362,8 @@ const macroWeeks = {
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/lpc/",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "c965633c-5d34-4361-ae0e-43fb8246d81f::us-unit-labor-costs"
       },
       {
         "id": "us-sp-services-pmi-2026-09-03",
@@ -392,7 +406,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "1c7576d6-e1c9-43d1-8b9b-b77055fb9e82::us-nonfarm-payrolls"
       },
       {
         "id": "us-unemployment-rate-2026-09-04",
@@ -407,7 +422,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cps/",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "1c7576d6-e1c9-43d1-8b9b-b77055fb9e82::us-unemployment-rate"
       },
       {
         "id": "us-avg-hourly-earnings-mm-2026-09-04",
@@ -422,7 +438,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "1c7576d6-e1c9-43d1-8b9b-b77055fb9e82::us-avg-hourly-earnings-mm"
       },
       {
         "id": "us-avg-hourly-earnings-yy-2026-09-04",
@@ -437,7 +454,24 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "1c7576d6-e1c9-43d1-8b9b-b77055fb9e82::us-avg-hourly-earnings-yy"
+      },
+      {
+        "id": "us-jolts-job-openings-2026-09-01",
+        "date": "2026-09-01",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "6e84e4f7-fcbb-432e-923b-faddd9b12359::us-jolts-job-openings"
       }
     ]
   },
@@ -461,7 +495,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/ces/"
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "4438aaee-63df-49b2-982c-b687e048bdd9::us-nonfarm-payrolls"
       },
       {
         "id": "us-unemployment-rate-2026-10-02",
@@ -475,7 +510,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/cps/"
+        "sourceUrl": "https://www.bls.gov/cps/",
+        "calUid": "4438aaee-63df-49b2-982c-b687e048bdd9::us-unemployment-rate"
       },
       {
         "id": "us-avg-hourly-earnings-mm-2026-10-02",
@@ -489,7 +525,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/ces/"
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "4438aaee-63df-49b2-982c-b687e048bdd9::us-avg-hourly-earnings-mm"
       },
       {
         "id": "us-avg-hourly-earnings-yy-2026-10-02",
@@ -503,7 +540,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/ces/"
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "4438aaee-63df-49b2-982c-b687e048bdd9::us-avg-hourly-earnings-yy"
       },
       {
         "id": "us-jolts-job-openings-2026-09-29",
@@ -518,7 +556,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/jlt/",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "45aff633-36ac-4279-b455-92488fd7199c::us-jolts-job-openings"
       }
     ]
   },
@@ -542,7 +581,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/ppi/"
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "03948fcf-4437-4e00-9077-3d6e372ebae4::us-ppi"
       },
       {
         "id": "us-ppi-core-mm-2026-10-15",
@@ -556,7 +596,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/ppi/"
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "03948fcf-4437-4e00-9077-3d6e372ebae4::us-ppi-core-mm"
       },
       {
         "id": "us-ppi-yy-2026-10-15",
@@ -570,7 +611,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/ppi/"
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "03948fcf-4437-4e00-9077-3d6e372ebae4::us-ppi-yy"
       },
       {
         "id": "us-cpi-2026-10-14",
@@ -584,7 +626,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/cpi/"
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "7d17bd53-87ad-4c74-a328-528f5e2b1e82::us-cpi"
       },
       {
         "id": "us-core-cpi-mm-2026-10-14",
@@ -598,7 +641,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/cpi/"
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "7d17bd53-87ad-4c74-a328-528f5e2b1e82::us-core-cpi-mm"
       },
       {
         "id": "us-cpi-yy-2026-10-14",
@@ -612,7 +656,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/cpi/"
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "7d17bd53-87ad-4c74-a328-528f5e2b1e82::us-cpi-yy"
       },
       {
         "id": "us-cpi-core-yy-2026-10-14",
@@ -626,7 +671,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/cpi/"
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "7d17bd53-87ad-4c74-a328-528f5e2b1e82::us-cpi-core-yy"
       }
     ]
   },
@@ -646,7 +692,88 @@ const macroWeeks = {
     "title": "Vecka 2, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-jolts-job-openings-2025-01-07",
+        "date": "2025-01-07",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "946068e9-b0b9-417b-b65f-033b3065825e::us-jolts-job-openings"
+      },
+      {
+        "id": "us-nonfarm-payrolls-2025-01-10",
+        "date": "2025-01-10",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Payrolls",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "3a09855e-d5c6-45b2-a74f-2429f44d0418::us-nonfarm-payrolls"
+      },
+      {
+        "id": "us-unemployment-rate-2025-01-10",
+        "date": "2025-01-10",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unemployment Rate",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cps/",
+        "calUid": "3a09855e-d5c6-45b2-a74f-2429f44d0418::us-unemployment-rate"
+      },
+      {
+        "id": "us-avg-hourly-earnings-mm-2025-01-10",
+        "date": "2025-01-10",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "3a09855e-d5c6-45b2-a74f-2429f44d0418::us-avg-hourly-earnings-mm"
+      },
+      {
+        "id": "us-avg-hourly-earnings-yy-2025-01-10",
+        "date": "2025-01-10",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "3a09855e-d5c6-45b2-a74f-2429f44d0418::us-avg-hourly-earnings-yy"
+      }
+    ]
   },
   "2025-W03": {
     "weekNumber": 3,
@@ -655,7 +782,136 @@ const macroWeeks = {
     "title": "Vecka 3, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-ppi-2025-01-14",
+        "date": "2025-01-14",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "b50a5dae-d0eb-4336-82a1-3340e52c526d::us-ppi"
+      },
+      {
+        "id": "us-ppi-core-mm-2025-01-14",
+        "date": "2025-01-14",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Ex-Food & Energy PPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "b50a5dae-d0eb-4336-82a1-3340e52c526d::us-ppi-core-mm"
+      },
+      {
+        "id": "us-ppi-yy-2025-01-14",
+        "date": "2025-01-14",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "b50a5dae-d0eb-4336-82a1-3340e52c526d::us-ppi-yy"
+      },
+      {
+        "id": "us-cpi-2025-01-15",
+        "date": "2025-01-15",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "6f82e6b8-8b66-4da2-a29c-72643b3440bb::us-cpi"
+      },
+      {
+        "id": "us-core-cpi-mm-2025-01-15",
+        "date": "2025-01-15",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Core CPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "6f82e6b8-8b66-4da2-a29c-72643b3440bb::us-core-cpi-mm"
+      },
+      {
+        "id": "us-cpi-yy-2025-01-15",
+        "date": "2025-01-15",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "6f82e6b8-8b66-4da2-a29c-72643b3440bb::us-cpi-yy"
+      },
+      {
+        "id": "us-cpi-core-yy-2025-01-15",
+        "date": "2025-01-15",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI Core, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "6f82e6b8-8b66-4da2-a29c-72643b3440bb::us-cpi-core-yy"
+      },
+      {
+        "id": "us-jolts-job-openings-2025-01-17",
+        "date": "2025-01-17",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "dab4c010-a9b0-4918-83cc-d2cdf3922c15::us-jolts-job-openings"
+      }
+    ]
   },
   "2025-W04": {
     "weekNumber": 4,
@@ -695,7 +951,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "fca4738e-3d69-44c6-b6f7-d7c03910c39b::us-nonfarm-productivity"
       },
       {
         "id": "us-unit-labor-costs-2025-02-06",
@@ -709,7 +966,88 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "fca4738e-3d69-44c6-b6f7-d7c03910c39b::us-unit-labor-costs"
+      },
+      {
+        "id": "us-jolts-job-openings-2025-02-04",
+        "date": "2025-02-04",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "da9e7e6f-024a-4de1-bbeb-23238e1635a9::us-jolts-job-openings"
+      },
+      {
+        "id": "us-nonfarm-payrolls-2025-02-07",
+        "date": "2025-02-07",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Payrolls",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "68643498-d873-4647-bff9-98b3c842680e::us-nonfarm-payrolls"
+      },
+      {
+        "id": "us-unemployment-rate-2025-02-07",
+        "date": "2025-02-07",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unemployment Rate",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cps/",
+        "calUid": "68643498-d873-4647-bff9-98b3c842680e::us-unemployment-rate"
+      },
+      {
+        "id": "us-avg-hourly-earnings-mm-2025-02-07",
+        "date": "2025-02-07",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "68643498-d873-4647-bff9-98b3c842680e::us-avg-hourly-earnings-mm"
+      },
+      {
+        "id": "us-avg-hourly-earnings-yy-2025-02-07",
+        "date": "2025-02-07",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "68643498-d873-4647-bff9-98b3c842680e::us-avg-hourly-earnings-yy"
       }
     ]
   },
@@ -720,7 +1058,120 @@ const macroWeeks = {
     "title": "Vecka 7, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-cpi-2025-02-12",
+        "date": "2025-02-12",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "b3b35b41-7a08-4a33-bbd0-a79a75b3292e::us-cpi"
+      },
+      {
+        "id": "us-core-cpi-mm-2025-02-12",
+        "date": "2025-02-12",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Core CPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "b3b35b41-7a08-4a33-bbd0-a79a75b3292e::us-core-cpi-mm"
+      },
+      {
+        "id": "us-cpi-yy-2025-02-12",
+        "date": "2025-02-12",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "b3b35b41-7a08-4a33-bbd0-a79a75b3292e::us-cpi-yy"
+      },
+      {
+        "id": "us-cpi-core-yy-2025-02-12",
+        "date": "2025-02-12",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI Core, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "b3b35b41-7a08-4a33-bbd0-a79a75b3292e::us-cpi-core-yy"
+      },
+      {
+        "id": "us-ppi-2025-02-13",
+        "date": "2025-02-13",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "1e742731-f402-4848-b990-80ea456380bd::us-ppi"
+      },
+      {
+        "id": "us-ppi-core-mm-2025-02-13",
+        "date": "2025-02-13",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Ex-Food & Energy PPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "1e742731-f402-4848-b990-80ea456380bd::us-ppi-core-mm"
+      },
+      {
+        "id": "us-ppi-yy-2025-02-13",
+        "date": "2025-02-13",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "1e742731-f402-4848-b990-80ea456380bd::us-ppi-yy"
+      }
+    ]
   },
   "2025-W08": {
     "weekNumber": 8,
@@ -729,7 +1180,24 @@ const macroWeeks = {
     "title": "Vecka 8, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-jolts-job-openings-2025-02-19",
+        "date": "2025-02-19",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "cf233ce0-ed47-410e-a327-5211456f893e::us-jolts-job-openings"
+      }
+    ]
   },
   "2025-W09": {
     "weekNumber": 9,
@@ -747,7 +1215,104 @@ const macroWeeks = {
     "title": "Vecka 10, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-nonfarm-productivity-2025-03-06",
+        "date": "2025-03-06",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Productivity, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "21fd490e-b3c6-4cf4-88ce-577331d66c00::us-nonfarm-productivity"
+      },
+      {
+        "id": "us-unit-labor-costs-2025-03-06",
+        "date": "2025-03-06",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unit Labor Costs, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "21fd490e-b3c6-4cf4-88ce-577331d66c00::us-unit-labor-costs"
+      },
+      {
+        "id": "us-nonfarm-payrolls-2025-03-07",
+        "date": "2025-03-07",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Payrolls",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "1b23034a-2da3-4cc0-8261-64285cc182fc::us-nonfarm-payrolls"
+      },
+      {
+        "id": "us-unemployment-rate-2025-03-07",
+        "date": "2025-03-07",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unemployment Rate",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cps/",
+        "calUid": "1b23034a-2da3-4cc0-8261-64285cc182fc::us-unemployment-rate"
+      },
+      {
+        "id": "us-avg-hourly-earnings-mm-2025-03-07",
+        "date": "2025-03-07",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "1b23034a-2da3-4cc0-8261-64285cc182fc::us-avg-hourly-earnings-mm"
+      },
+      {
+        "id": "us-avg-hourly-earnings-yy-2025-03-07",
+        "date": "2025-03-07",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "1b23034a-2da3-4cc0-8261-64285cc182fc::us-avg-hourly-earnings-yy"
+      }
+    ]
   },
   "2025-W11": {
     "weekNumber": 11,
@@ -756,7 +1321,136 @@ const macroWeeks = {
     "title": "Vecka 11, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-jolts-job-openings-2025-03-11",
+        "date": "2025-03-11",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "6263d7b8-4d72-4bab-a458-cc7df51fbcf1::us-jolts-job-openings"
+      },
+      {
+        "id": "us-cpi-2025-03-12",
+        "date": "2025-03-12",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "59d48516-e044-4386-a612-07c202004c88::us-cpi"
+      },
+      {
+        "id": "us-core-cpi-mm-2025-03-12",
+        "date": "2025-03-12",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Core CPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "59d48516-e044-4386-a612-07c202004c88::us-core-cpi-mm"
+      },
+      {
+        "id": "us-cpi-yy-2025-03-12",
+        "date": "2025-03-12",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "59d48516-e044-4386-a612-07c202004c88::us-cpi-yy"
+      },
+      {
+        "id": "us-cpi-core-yy-2025-03-12",
+        "date": "2025-03-12",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI Core, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "59d48516-e044-4386-a612-07c202004c88::us-cpi-core-yy"
+      },
+      {
+        "id": "us-ppi-2025-03-13",
+        "date": "2025-03-13",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "9b80b51c-82b8-4bc1-b9b7-7ec487956bd9::us-ppi"
+      },
+      {
+        "id": "us-ppi-core-mm-2025-03-13",
+        "date": "2025-03-13",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Ex-Food & Energy PPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "9b80b51c-82b8-4bc1-b9b7-7ec487956bd9::us-ppi-core-mm"
+      },
+      {
+        "id": "us-ppi-yy-2025-03-13",
+        "date": "2025-03-13",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "9b80b51c-82b8-4bc1-b9b7-7ec487956bd9::us-ppi-yy"
+      }
+    ]
   },
   "2025-W12": {
     "weekNumber": 12,
@@ -765,7 +1459,88 @@ const macroWeeks = {
     "title": "Vecka 12, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-nonfarm-payrolls-2025-03-20",
+        "date": "2025-03-20",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "Nonfarm Payrolls",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "84004118-20cb-44c0-a8ef-75d2a6db4f03::us-nonfarm-payrolls"
+      },
+      {
+        "id": "us-unemployment-rate-2025-03-20",
+        "date": "2025-03-20",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "Unemployment Rate",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cps/",
+        "calUid": "84004118-20cb-44c0-a8ef-75d2a6db4f03::us-unemployment-rate"
+      },
+      {
+        "id": "us-avg-hourly-earnings-mm-2025-03-20",
+        "date": "2025-03-20",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "84004118-20cb-44c0-a8ef-75d2a6db4f03::us-avg-hourly-earnings-mm"
+      },
+      {
+        "id": "us-avg-hourly-earnings-yy-2025-03-20",
+        "date": "2025-03-20",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "84004118-20cb-44c0-a8ef-75d2a6db4f03::us-avg-hourly-earnings-yy"
+      },
+      {
+        "id": "us-jolts-job-openings-2025-03-20",
+        "date": "2025-03-20",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "b3037a41-c65d-4bfb-a25b-a96b36c96a2a::us-jolts-job-openings"
+      }
+    ]
   },
   "2025-W13": {
     "weekNumber": 13,
@@ -783,7 +1558,88 @@ const macroWeeks = {
     "title": "Vecka 14, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-jolts-job-openings-2025-04-01",
+        "date": "2025-04-01",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "fd10ed33-734a-4c95-8026-d6060aeeb03a::us-jolts-job-openings"
+      },
+      {
+        "id": "us-nonfarm-payrolls-2025-04-04",
+        "date": "2025-04-04",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Payrolls",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "3cad2249-ae83-47cd-8836-baa56252e778::us-nonfarm-payrolls"
+      },
+      {
+        "id": "us-unemployment-rate-2025-04-04",
+        "date": "2025-04-04",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unemployment Rate",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cps/",
+        "calUid": "3cad2249-ae83-47cd-8836-baa56252e778::us-unemployment-rate"
+      },
+      {
+        "id": "us-avg-hourly-earnings-mm-2025-04-04",
+        "date": "2025-04-04",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "3cad2249-ae83-47cd-8836-baa56252e778::us-avg-hourly-earnings-mm"
+      },
+      {
+        "id": "us-avg-hourly-earnings-yy-2025-04-04",
+        "date": "2025-04-04",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "3cad2249-ae83-47cd-8836-baa56252e778::us-avg-hourly-earnings-yy"
+      }
+    ]
   },
   "2025-W15": {
     "weekNumber": 15,
@@ -792,7 +1648,120 @@ const macroWeeks = {
     "title": "Vecka 15, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-cpi-2025-04-10",
+        "date": "2025-04-10",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "d2e7e7b6-3f62-4182-a62c-0af2f3e1914d::us-cpi"
+      },
+      {
+        "id": "us-core-cpi-mm-2025-04-10",
+        "date": "2025-04-10",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Core CPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "d2e7e7b6-3f62-4182-a62c-0af2f3e1914d::us-core-cpi-mm"
+      },
+      {
+        "id": "us-cpi-yy-2025-04-10",
+        "date": "2025-04-10",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "d2e7e7b6-3f62-4182-a62c-0af2f3e1914d::us-cpi-yy"
+      },
+      {
+        "id": "us-cpi-core-yy-2025-04-10",
+        "date": "2025-04-10",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI Core, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "d2e7e7b6-3f62-4182-a62c-0af2f3e1914d::us-cpi-core-yy"
+      },
+      {
+        "id": "us-ppi-2025-04-11",
+        "date": "2025-04-11",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "62358080-3e02-4101-bf53-ccee01117800::us-ppi"
+      },
+      {
+        "id": "us-ppi-core-mm-2025-04-11",
+        "date": "2025-04-11",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Ex-Food & Energy PPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "62358080-3e02-4101-bf53-ccee01117800::us-ppi-core-mm"
+      },
+      {
+        "id": "us-ppi-yy-2025-04-11",
+        "date": "2025-04-11",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "62358080-3e02-4101-bf53-ccee01117800::us-ppi-yy"
+      }
+    ]
   },
   "2025-W16": {
     "weekNumber": 16,
@@ -801,7 +1770,24 @@ const macroWeeks = {
     "title": "Vecka 16, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-jolts-job-openings-2025-04-16",
+        "date": "2025-04-16",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "589af86f-0f7b-4221-a1b3-bf5942e70130::us-jolts-job-openings"
+      }
+    ]
   },
   "2025-W17": {
     "weekNumber": 17,
@@ -823,7 +1809,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "a964b423-05b4-40aa-9ed1-1ff2ebe995bb::us-nonfarm-productivity"
       },
       {
         "id": "us-unit-labor-costs-2025-04-24",
@@ -837,7 +1824,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "a964b423-05b4-40aa-9ed1-1ff2ebe995bb::us-unit-labor-costs"
       }
     ]
   },
@@ -862,7 +1850,72 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/jlt/",
-        "officialBaseline": "7.24M"
+        "officialBaseline": "7.24M",
+        "calUid": "cb197ab0-e07f-48d9-8441-7124c5672863::us-jolts-job-openings"
+      },
+      {
+        "id": "us-nonfarm-payrolls-2025-05-02",
+        "date": "2025-05-02",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Payrolls",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "b0ce221a-4647-4e7e-8508-9f12efc6bef9::us-nonfarm-payrolls"
+      },
+      {
+        "id": "us-unemployment-rate-2025-05-02",
+        "date": "2025-05-02",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unemployment Rate",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cps/",
+        "calUid": "b0ce221a-4647-4e7e-8508-9f12efc6bef9::us-unemployment-rate"
+      },
+      {
+        "id": "us-avg-hourly-earnings-mm-2025-05-02",
+        "date": "2025-05-02",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "b0ce221a-4647-4e7e-8508-9f12efc6bef9::us-avg-hourly-earnings-mm"
+      },
+      {
+        "id": "us-avg-hourly-earnings-yy-2025-05-02",
+        "date": "2025-05-02",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "b0ce221a-4647-4e7e-8508-9f12efc6bef9::us-avg-hourly-earnings-yy"
       }
     ]
   },
@@ -873,7 +1926,40 @@ const macroWeeks = {
     "title": "Vecka 19, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-nonfarm-productivity-2025-05-08",
+        "date": "2025-05-08",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Productivity, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "0b1a3087-17e3-45b0-bf4f-b912331358a3::us-nonfarm-productivity"
+      },
+      {
+        "id": "us-unit-labor-costs-2025-05-08",
+        "date": "2025-05-08",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unit Labor Costs, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "0b1a3087-17e3-45b0-bf4f-b912331358a3::us-unit-labor-costs"
+      }
+    ]
   },
   "2025-W20": {
     "weekNumber": 20,
@@ -882,7 +1968,120 @@ const macroWeeks = {
     "title": "Vecka 20, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-cpi-2025-05-13",
+        "date": "2025-05-13",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "8ec23e31-a77d-4528-842a-b784c502e71f::us-cpi"
+      },
+      {
+        "id": "us-core-cpi-mm-2025-05-13",
+        "date": "2025-05-13",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Core CPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "8ec23e31-a77d-4528-842a-b784c502e71f::us-core-cpi-mm"
+      },
+      {
+        "id": "us-cpi-yy-2025-05-13",
+        "date": "2025-05-13",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "8ec23e31-a77d-4528-842a-b784c502e71f::us-cpi-yy"
+      },
+      {
+        "id": "us-cpi-core-yy-2025-05-13",
+        "date": "2025-05-13",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI Core, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "8ec23e31-a77d-4528-842a-b784c502e71f::us-cpi-core-yy"
+      },
+      {
+        "id": "us-ppi-2025-05-15",
+        "date": "2025-05-15",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "e751c4ff-78a2-4e7f-a9a3-bc49a52b8bfe::us-ppi"
+      },
+      {
+        "id": "us-ppi-core-mm-2025-05-15",
+        "date": "2025-05-15",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Ex-Food & Energy PPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "e751c4ff-78a2-4e7f-a9a3-bc49a52b8bfe::us-ppi-core-mm"
+      },
+      {
+        "id": "us-ppi-yy-2025-05-15",
+        "date": "2025-05-15",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "e751c4ff-78a2-4e7f-a9a3-bc49a52b8bfe::us-ppi-yy"
+      }
+    ]
   },
   "2025-W21": {
     "weekNumber": 21,
@@ -891,7 +2090,24 @@ const macroWeeks = {
     "title": "Vecka 21, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-jolts-job-openings-2025-05-20",
+        "date": "2025-05-20",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "811dcee6-37b9-4622-a2ef-76afb46f646a::us-jolts-job-openings"
+      }
+    ]
   },
   "2025-W22": {
     "weekNumber": 22,
@@ -900,7 +2116,40 @@ const macroWeeks = {
     "title": "Vecka 22, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-nonfarm-productivity-2025-05-29",
+        "date": "2025-05-29",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "Nonfarm Productivity, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "5ddeec7c-5bca-40cd-bfaf-8128d36432a5::us-nonfarm-productivity"
+      },
+      {
+        "id": "us-unit-labor-costs-2025-05-29",
+        "date": "2025-05-29",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "Unit Labor Costs, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "5ddeec7c-5bca-40cd-bfaf-8128d36432a5::us-unit-labor-costs"
+      }
+    ]
   },
   "2025-W23": {
     "weekNumber": 23,
@@ -909,7 +2158,120 @@ const macroWeeks = {
     "title": "Vecka 23, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-jolts-job-openings-2025-06-03",
+        "date": "2025-06-03",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "a084c851-8fb2-42af-ad7e-0564c2166551::us-jolts-job-openings"
+      },
+      {
+        "id": "us-nonfarm-productivity-2025-06-05",
+        "date": "2025-06-05",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Productivity, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "5853f9a1-f4be-4d83-a687-1e2954fbdaba::us-nonfarm-productivity"
+      },
+      {
+        "id": "us-unit-labor-costs-2025-06-05",
+        "date": "2025-06-05",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unit Labor Costs, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "5853f9a1-f4be-4d83-a687-1e2954fbdaba::us-unit-labor-costs"
+      },
+      {
+        "id": "us-nonfarm-payrolls-2025-06-06",
+        "date": "2025-06-06",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Payrolls",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "fb505fcf-ca7d-4794-b90d-c09285750652::us-nonfarm-payrolls"
+      },
+      {
+        "id": "us-unemployment-rate-2025-06-06",
+        "date": "2025-06-06",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unemployment Rate",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cps/",
+        "calUid": "fb505fcf-ca7d-4794-b90d-c09285750652::us-unemployment-rate"
+      },
+      {
+        "id": "us-avg-hourly-earnings-mm-2025-06-06",
+        "date": "2025-06-06",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "fb505fcf-ca7d-4794-b90d-c09285750652::us-avg-hourly-earnings-mm"
+      },
+      {
+        "id": "us-avg-hourly-earnings-yy-2025-06-06",
+        "date": "2025-06-06",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "fb505fcf-ca7d-4794-b90d-c09285750652::us-avg-hourly-earnings-yy"
+      }
+    ]
   },
   "2025-W24": {
     "weekNumber": 24,
@@ -918,7 +2280,120 @@ const macroWeeks = {
     "title": "Vecka 24, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-cpi-2025-06-11",
+        "date": "2025-06-11",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "f73a23b1-d725-4051-93a8-5b19541438ad::us-cpi"
+      },
+      {
+        "id": "us-core-cpi-mm-2025-06-11",
+        "date": "2025-06-11",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Core CPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "f73a23b1-d725-4051-93a8-5b19541438ad::us-core-cpi-mm"
+      },
+      {
+        "id": "us-cpi-yy-2025-06-11",
+        "date": "2025-06-11",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "f73a23b1-d725-4051-93a8-5b19541438ad::us-cpi-yy"
+      },
+      {
+        "id": "us-cpi-core-yy-2025-06-11",
+        "date": "2025-06-11",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI Core, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "f73a23b1-d725-4051-93a8-5b19541438ad::us-cpi-core-yy"
+      },
+      {
+        "id": "us-ppi-2025-06-12",
+        "date": "2025-06-12",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "b347db3a-5a98-485a-a6c9-6b00519f336d::us-ppi"
+      },
+      {
+        "id": "us-ppi-core-mm-2025-06-12",
+        "date": "2025-06-12",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Ex-Food & Energy PPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "b347db3a-5a98-485a-a6c9-6b00519f336d::us-ppi-core-mm"
+      },
+      {
+        "id": "us-ppi-yy-2025-06-12",
+        "date": "2025-06-12",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "b347db3a-5a98-485a-a6c9-6b00519f336d::us-ppi-yy"
+      }
+    ]
   },
   "2025-W25": {
     "weekNumber": 25,
@@ -927,7 +2402,24 @@ const macroWeeks = {
     "title": "Vecka 25, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-jolts-job-openings-2025-06-18",
+        "date": "2025-06-18",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "74872bc6-7f6b-49ad-b552-5a9fd239f0eb::us-jolts-job-openings"
+      }
+    ]
   },
   "2025-W26": {
     "weekNumber": 26,
@@ -936,7 +2428,40 @@ const macroWeeks = {
     "title": "Vecka 26, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-nonfarm-productivity-2025-06-26",
+        "date": "2025-06-26",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "Nonfarm Productivity, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "093ed703-ca2d-41be-89d4-15c99d5b5846::us-nonfarm-productivity"
+      },
+      {
+        "id": "us-unit-labor-costs-2025-06-26",
+        "date": "2025-06-26",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "Unit Labor Costs, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "093ed703-ca2d-41be-89d4-15c99d5b5846::us-unit-labor-costs"
+      }
+    ]
   },
   "2025-W27": {
     "weekNumber": 27,
@@ -945,7 +2470,88 @@ const macroWeeks = {
     "title": "Vecka 27, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-jolts-job-openings-2025-07-01",
+        "date": "2025-07-01",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "b8ae66c9-4594-456e-8d22-a470289ccc27::us-jolts-job-openings"
+      },
+      {
+        "id": "us-nonfarm-payrolls-2025-07-03",
+        "date": "2025-07-03",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Payrolls",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "7d36662a-e652-4966-a432-df5d287cac50::us-nonfarm-payrolls"
+      },
+      {
+        "id": "us-unemployment-rate-2025-07-03",
+        "date": "2025-07-03",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unemployment Rate",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cps/",
+        "calUid": "7d36662a-e652-4966-a432-df5d287cac50::us-unemployment-rate"
+      },
+      {
+        "id": "us-avg-hourly-earnings-mm-2025-07-03",
+        "date": "2025-07-03",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "7d36662a-e652-4966-a432-df5d287cac50::us-avg-hourly-earnings-mm"
+      },
+      {
+        "id": "us-avg-hourly-earnings-yy-2025-07-03",
+        "date": "2025-07-03",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "7d36662a-e652-4966-a432-df5d287cac50::us-avg-hourly-earnings-yy"
+      }
+    ]
   },
   "2025-W29": {
     "weekNumber": 29,
@@ -954,7 +2560,120 @@ const macroWeeks = {
     "title": "Vecka 29, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-cpi-2025-07-15",
+        "date": "2025-07-15",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "d30c34fd-1203-40c0-9ab0-6597c73e283c::us-cpi"
+      },
+      {
+        "id": "us-core-cpi-mm-2025-07-15",
+        "date": "2025-07-15",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Core CPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "d30c34fd-1203-40c0-9ab0-6597c73e283c::us-core-cpi-mm"
+      },
+      {
+        "id": "us-cpi-yy-2025-07-15",
+        "date": "2025-07-15",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "d30c34fd-1203-40c0-9ab0-6597c73e283c::us-cpi-yy"
+      },
+      {
+        "id": "us-cpi-core-yy-2025-07-15",
+        "date": "2025-07-15",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI Core, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "d30c34fd-1203-40c0-9ab0-6597c73e283c::us-cpi-core-yy"
+      },
+      {
+        "id": "us-ppi-2025-07-16",
+        "date": "2025-07-16",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "eba09448-0a16-4a46-aaa5-a6b4f19f99ab::us-ppi"
+      },
+      {
+        "id": "us-ppi-core-mm-2025-07-16",
+        "date": "2025-07-16",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Ex-Food & Energy PPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "eba09448-0a16-4a46-aaa5-a6b4f19f99ab::us-ppi-core-mm"
+      },
+      {
+        "id": "us-ppi-yy-2025-07-16",
+        "date": "2025-07-16",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "eba09448-0a16-4a46-aaa5-a6b4f19f99ab::us-ppi-yy"
+      }
+    ]
   },
   "2025-W30": {
     "weekNumber": 30,
@@ -963,7 +2682,24 @@ const macroWeeks = {
     "title": "Vecka 30, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-jolts-job-openings-2025-07-23",
+        "date": "2025-07-23",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "a827954c-7258-4664-8970-7866033d0a2a::us-jolts-job-openings"
+      }
+    ]
   },
   "2025-W31": {
     "weekNumber": 31,
@@ -972,7 +2708,88 @@ const macroWeeks = {
     "title": "Vecka 31, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-jolts-job-openings-2025-07-29",
+        "date": "2025-07-29",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "59a32117-a10e-47d5-bc6f-0c8c56b0c2b1::us-jolts-job-openings"
+      },
+      {
+        "id": "us-nonfarm-payrolls-2025-08-01",
+        "date": "2025-08-01",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Payrolls",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "34502125-7780-406b-8369-c6441f68badb::us-nonfarm-payrolls"
+      },
+      {
+        "id": "us-unemployment-rate-2025-08-01",
+        "date": "2025-08-01",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unemployment Rate",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cps/",
+        "calUid": "34502125-7780-406b-8369-c6441f68badb::us-unemployment-rate"
+      },
+      {
+        "id": "us-avg-hourly-earnings-mm-2025-08-01",
+        "date": "2025-08-01",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "34502125-7780-406b-8369-c6441f68badb::us-avg-hourly-earnings-mm"
+      },
+      {
+        "id": "us-avg-hourly-earnings-yy-2025-08-01",
+        "date": "2025-08-01",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "34502125-7780-406b-8369-c6441f68badb::us-avg-hourly-earnings-yy"
+      }
+    ]
   },
   "2025-W32": {
     "weekNumber": 32,
@@ -981,7 +2798,40 @@ const macroWeeks = {
     "title": "Vecka 32, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-nonfarm-productivity-2025-08-07",
+        "date": "2025-08-07",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Productivity, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "2c993aac-35b6-423e-bd82-b5139dfd4d90::us-nonfarm-productivity"
+      },
+      {
+        "id": "us-unit-labor-costs-2025-08-07",
+        "date": "2025-08-07",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unit Labor Costs, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "2c993aac-35b6-423e-bd82-b5139dfd4d90::us-unit-labor-costs"
+      }
+    ]
   },
   "2025-W33": {
     "weekNumber": 33,
@@ -990,7 +2840,136 @@ const macroWeeks = {
     "title": "Vecka 33, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-cpi-2025-08-12",
+        "date": "2025-08-12",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "52433b48-f897-4a25-885e-376c7a5e1386::us-cpi"
+      },
+      {
+        "id": "us-core-cpi-mm-2025-08-12",
+        "date": "2025-08-12",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Core CPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "52433b48-f897-4a25-885e-376c7a5e1386::us-core-cpi-mm"
+      },
+      {
+        "id": "us-cpi-yy-2025-08-12",
+        "date": "2025-08-12",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "52433b48-f897-4a25-885e-376c7a5e1386::us-cpi-yy"
+      },
+      {
+        "id": "us-cpi-core-yy-2025-08-12",
+        "date": "2025-08-12",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI Core, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "52433b48-f897-4a25-885e-376c7a5e1386::us-cpi-core-yy"
+      },
+      {
+        "id": "us-jolts-job-openings-2025-08-13",
+        "date": "2025-08-13",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "5264a200-fd6b-4cd7-9bdf-523605bd7ae9::us-jolts-job-openings"
+      },
+      {
+        "id": "us-ppi-2025-08-14",
+        "date": "2025-08-14",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "6144a127-39b1-4ce2-9004-780834bdc001::us-ppi"
+      },
+      {
+        "id": "us-ppi-core-mm-2025-08-14",
+        "date": "2025-08-14",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Ex-Food & Energy PPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "6144a127-39b1-4ce2-9004-780834bdc001::us-ppi-core-mm"
+      },
+      {
+        "id": "us-ppi-yy-2025-08-14",
+        "date": "2025-08-14",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "6144a127-39b1-4ce2-9004-780834bdc001::us-ppi-yy"
+      }
+    ]
   },
   "2025-W34": {
     "weekNumber": 34,
@@ -1030,7 +3009,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "9930a5ba-a7cb-4ae3-9df2-0ebc8b14e3e6::us-nonfarm-productivity"
       },
       {
         "id": "us-unit-labor-costs-2025-09-04",
@@ -1044,7 +3024,88 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "9930a5ba-a7cb-4ae3-9df2-0ebc8b14e3e6::us-unit-labor-costs"
+      },
+      {
+        "id": "us-jolts-job-openings-2025-09-03",
+        "date": "2025-09-03",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "c9a0f2cd-4ca6-4db7-88d0-e644fc701f5a::us-jolts-job-openings"
+      },
+      {
+        "id": "us-nonfarm-payrolls-2025-09-05",
+        "date": "2025-09-05",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Payrolls",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "d67c2415-34d2-4e5e-93da-f04ab30617ee::us-nonfarm-payrolls"
+      },
+      {
+        "id": "us-unemployment-rate-2025-09-05",
+        "date": "2025-09-05",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unemployment Rate",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cps/",
+        "calUid": "d67c2415-34d2-4e5e-93da-f04ab30617ee::us-unemployment-rate"
+      },
+      {
+        "id": "us-avg-hourly-earnings-mm-2025-09-05",
+        "date": "2025-09-05",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "d67c2415-34d2-4e5e-93da-f04ab30617ee::us-avg-hourly-earnings-mm"
+      },
+      {
+        "id": "us-avg-hourly-earnings-yy-2025-09-05",
+        "date": "2025-09-05",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "d67c2415-34d2-4e5e-93da-f04ab30617ee::us-avg-hourly-earnings-yy"
       }
     ]
   },
@@ -1055,7 +3116,120 @@ const macroWeeks = {
     "title": "Vecka 37, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-ppi-2025-09-10",
+        "date": "2025-09-10",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "6588d508-2106-4243-ae17-b75db13aa893::us-ppi"
+      },
+      {
+        "id": "us-ppi-core-mm-2025-09-10",
+        "date": "2025-09-10",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Ex-Food & Energy PPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "6588d508-2106-4243-ae17-b75db13aa893::us-ppi-core-mm"
+      },
+      {
+        "id": "us-ppi-yy-2025-09-10",
+        "date": "2025-09-10",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "6588d508-2106-4243-ae17-b75db13aa893::us-ppi-yy"
+      },
+      {
+        "id": "us-cpi-2025-09-11",
+        "date": "2025-09-11",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "326a2990-4c7a-4947-b653-32c918ad25f5::us-cpi"
+      },
+      {
+        "id": "us-core-cpi-mm-2025-09-11",
+        "date": "2025-09-11",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Core CPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "326a2990-4c7a-4947-b653-32c918ad25f5::us-core-cpi-mm"
+      },
+      {
+        "id": "us-cpi-yy-2025-09-11",
+        "date": "2025-09-11",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "326a2990-4c7a-4947-b653-32c918ad25f5::us-cpi-yy"
+      },
+      {
+        "id": "us-cpi-core-yy-2025-09-11",
+        "date": "2025-09-11",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI Core, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "326a2990-4c7a-4947-b653-32c918ad25f5::us-cpi-core-yy"
+      }
+    ]
   },
   "2025-W38": {
     "weekNumber": 38,
@@ -1064,7 +3238,24 @@ const macroWeeks = {
     "title": "Vecka 38, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-jolts-job-openings-2025-09-17",
+        "date": "2025-09-17",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "d4383504-efd5-4536-af58-e4ef6ee17ee9::us-jolts-job-openings"
+      }
+    ]
   },
   "2025-W39": {
     "weekNumber": 39,
@@ -1082,7 +3273,24 @@ const macroWeeks = {
     "title": "Vecka 40, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-jolts-job-openings-2025-09-30",
+        "date": "2025-09-30",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "55911298-add8-428b-9646-3f42492f1850::us-jolts-job-openings"
+      }
+    ]
   },
   "2025-W43": {
     "weekNumber": 43,
@@ -1091,7 +3299,72 @@ const macroWeeks = {
     "title": "Vecka 43, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-cpi-2025-10-24",
+        "date": "2025-10-24",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "f5666a27-db34-45bc-80f0-420ce7683f2b::us-cpi"
+      },
+      {
+        "id": "us-core-cpi-mm-2025-10-24",
+        "date": "2025-10-24",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Core CPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "f5666a27-db34-45bc-80f0-420ce7683f2b::us-core-cpi-mm"
+      },
+      {
+        "id": "us-cpi-yy-2025-10-24",
+        "date": "2025-10-24",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "f5666a27-db34-45bc-80f0-420ce7683f2b::us-cpi-yy"
+      },
+      {
+        "id": "us-cpi-core-yy-2025-10-24",
+        "date": "2025-10-24",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI Core, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "f5666a27-db34-45bc-80f0-420ce7683f2b::us-cpi-core-yy"
+      }
+    ]
   },
   "2025-W47": {
     "weekNumber": 47,
@@ -1100,7 +3373,72 @@ const macroWeeks = {
     "title": "Vecka 47, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-nonfarm-payrolls-2025-11-20",
+        "date": "2025-11-20",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Payrolls",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "d28f58dd-2c0c-4d91-b4e3-c8872772e752::us-nonfarm-payrolls"
+      },
+      {
+        "id": "us-unemployment-rate-2025-11-20",
+        "date": "2025-11-20",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unemployment Rate",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cps/",
+        "calUid": "d28f58dd-2c0c-4d91-b4e3-c8872772e752::us-unemployment-rate"
+      },
+      {
+        "id": "us-avg-hourly-earnings-mm-2025-11-20",
+        "date": "2025-11-20",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "d28f58dd-2c0c-4d91-b4e3-c8872772e752::us-avg-hourly-earnings-mm"
+      },
+      {
+        "id": "us-avg-hourly-earnings-yy-2025-11-20",
+        "date": "2025-11-20",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "d28f58dd-2c0c-4d91-b4e3-c8872772e752::us-avg-hourly-earnings-yy"
+      }
+    ]
   },
   "2025-W48": {
     "weekNumber": 48,
@@ -1109,7 +3447,56 @@ const macroWeeks = {
     "title": "Vecka 48, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-ppi-2025-11-25",
+        "date": "2025-11-25",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "3238e2d0-e759-4aaf-8748-65a98156fc82::us-ppi"
+      },
+      {
+        "id": "us-ppi-core-mm-2025-11-25",
+        "date": "2025-11-25",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Ex-Food & Energy PPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "3238e2d0-e759-4aaf-8748-65a98156fc82::us-ppi-core-mm"
+      },
+      {
+        "id": "us-ppi-yy-2025-11-25",
+        "date": "2025-11-25",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "3238e2d0-e759-4aaf-8748-65a98156fc82::us-ppi-yy"
+      }
+    ]
   },
   "2025-W49": {
     "weekNumber": 49,
@@ -1118,7 +3505,24 @@ const macroWeeks = {
     "title": "Vecka 49, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-jolts-job-openings-2025-12-02",
+        "date": "2025-12-02",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "cd38cb5f-b5b4-4f2e-a83a-354a64595cc2::us-jolts-job-openings"
+      }
+    ]
   },
   "2025-W50": {
     "weekNumber": 50,
@@ -1127,7 +3531,24 @@ const macroWeeks = {
     "title": "Vecka 50, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-jolts-job-openings-2025-12-09",
+        "date": "2025-12-09",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "b5088c1f-d715-433c-91e3-d3aa5ef33aa0::us-jolts-job-openings"
+      }
+    ]
   },
   "2025-W51": {
     "weekNumber": 51,
@@ -1136,7 +3557,136 @@ const macroWeeks = {
     "title": "Vecka 51, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-nonfarm-payrolls-2025-12-16",
+        "date": "2025-12-16",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Payrolls",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "1727e92c-71a0-4a7a-b9bc-a678910d4c88::us-nonfarm-payrolls"
+      },
+      {
+        "id": "us-unemployment-rate-2025-12-16",
+        "date": "2025-12-16",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unemployment Rate",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cps/",
+        "calUid": "1727e92c-71a0-4a7a-b9bc-a678910d4c88::us-unemployment-rate"
+      },
+      {
+        "id": "us-avg-hourly-earnings-mm-2025-12-16",
+        "date": "2025-12-16",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "1727e92c-71a0-4a7a-b9bc-a678910d4c88::us-avg-hourly-earnings-mm"
+      },
+      {
+        "id": "us-avg-hourly-earnings-yy-2025-12-16",
+        "date": "2025-12-16",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "1727e92c-71a0-4a7a-b9bc-a678910d4c88::us-avg-hourly-earnings-yy"
+      },
+      {
+        "id": "us-cpi-2025-12-18",
+        "date": "2025-12-18",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "0fb89422-f12f-4629-ab3d-f8ef1a267b6d::us-cpi"
+      },
+      {
+        "id": "us-core-cpi-mm-2025-12-18",
+        "date": "2025-12-18",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Core CPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "0fb89422-f12f-4629-ab3d-f8ef1a267b6d::us-core-cpi-mm"
+      },
+      {
+        "id": "us-cpi-yy-2025-12-18",
+        "date": "2025-12-18",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "0fb89422-f12f-4629-ab3d-f8ef1a267b6d::us-cpi-yy"
+      },
+      {
+        "id": "us-cpi-core-yy-2025-12-18",
+        "date": "2025-12-18",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "CPI Core, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "0fb89422-f12f-4629-ab3d-f8ef1a267b6d::us-cpi-core-yy"
+      }
+    ]
   },
   "2026-W01": {
     "weekNumber": 1,
@@ -1145,7 +3695,24 @@ const macroWeeks = {
     "title": "Vecka 1, 2025",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-jolts-job-openings-2025-12-30",
+        "date": "2025-12-30",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "71b2f9e7-e69d-4267-a3fd-9b399b4729a0::us-jolts-job-openings"
+      }
+    ]
   },
   "2026-W02": {
     "weekNumber": 2,
@@ -1168,7 +3735,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "-17K"
+        "officialBaseline": "-17K",
+        "calUid": "7c88ae35-a2f2-4df6-ae5e-33e6bab7c345::us-nonfarm-payrolls"
       },
       {
         "id": "us-unemployment-rate-2026-01-09",
@@ -1183,7 +3751,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cps/",
-        "officialBaseline": "4.4%"
+        "officialBaseline": "4.4%",
+        "calUid": "7c88ae35-a2f2-4df6-ae5e-33e6bab7c345::us-unemployment-rate"
       },
       {
         "id": "us-avg-hourly-earnings-mm-2026-01-09",
@@ -1198,7 +3767,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "0.1%"
+        "officialBaseline": "0.1%",
+        "calUid": "7c88ae35-a2f2-4df6-ae5e-33e6bab7c345::us-avg-hourly-earnings-mm"
       },
       {
         "id": "us-avg-hourly-earnings-yy-2026-01-09",
@@ -1213,7 +3783,56 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "3.7%"
+        "officialBaseline": "3.7%",
+        "calUid": "7c88ae35-a2f2-4df6-ae5e-33e6bab7c345::us-avg-hourly-earnings-yy"
+      },
+      {
+        "id": "us-jolts-job-openings-2026-01-07",
+        "date": "2026-01-07",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "1db7ef68-30ad-44c6-943a-be4987021af1::us-jolts-job-openings"
+      },
+      {
+        "id": "us-nonfarm-productivity-2026-01-08",
+        "date": "2026-01-08",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Productivity, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "1a394047-af1d-45d3-b268-ac37e7a91ff8::us-nonfarm-productivity"
+      },
+      {
+        "id": "us-unit-labor-costs-2026-01-08",
+        "date": "2026-01-08",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unit Labor Costs, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "1a394047-af1d-45d3-b268-ac37e7a91ff8::us-unit-labor-costs"
       }
     ]
   },
@@ -1238,7 +3857,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
-        "officialBaseline": "0.3%"
+        "officialBaseline": "0.3%",
+        "calUid": "8acd8658-384d-41ac-81d2-f16dc4347c7f::us-cpi"
       },
       {
         "id": "us-core-cpi-mm-2026-01-13",
@@ -1253,7 +3873,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
-        "officialBaseline": "0.2%"
+        "officialBaseline": "0.2%",
+        "calUid": "8acd8658-384d-41ac-81d2-f16dc4347c7f::us-core-cpi-mm"
       },
       {
         "id": "us-cpi-yy-2026-01-13",
@@ -1269,7 +3890,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
         "officialBaseline": "0.3%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "8acd8658-384d-41ac-81d2-f16dc4347c7f::us-cpi-yy"
       },
       {
         "id": "us-cpi-core-yy-2026-01-13",
@@ -1285,7 +3907,56 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
         "officialBaseline": "0.3%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "8acd8658-384d-41ac-81d2-f16dc4347c7f::us-cpi-core-yy"
+      },
+      {
+        "id": "us-ppi-2026-01-14",
+        "date": "2026-01-14",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "e5bd7943-76fc-474a-96d7-6115f1abe775::us-ppi"
+      },
+      {
+        "id": "us-ppi-core-mm-2026-01-14",
+        "date": "2026-01-14",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Ex-Food & Energy PPI, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "e5bd7943-76fc-474a-96d7-6115f1abe775::us-ppi-core-mm"
+      },
+      {
+        "id": "us-ppi-yy-2026-01-14",
+        "date": "2026-01-14",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PPI, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "e5bd7943-76fc-474a-96d7-6115f1abe775::us-ppi-yy"
       }
     ]
   },
@@ -1318,7 +3989,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/jlt/"
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "7230ee25-901b-461d-8f10-8c8f7a6df12f::us-jolts-job-openings"
       },
       {
         "id": "us-nonfarm-productivity-2026-01-29",
@@ -1332,7 +4004,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "24ad4c0d-680f-434c-a766-b08d99cb04d1::us-nonfarm-productivity"
       },
       {
         "id": "us-unit-labor-costs-2026-01-29",
@@ -1346,7 +4019,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "24ad4c0d-680f-434c-a766-b08d99cb04d1::us-unit-labor-costs"
       },
       {
         "id": "us-ppi-2026-01-30",
@@ -1361,7 +4035,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
-        "officialBaseline": "0.4%"
+        "officialBaseline": "0.4%",
+        "calUid": "5d64da11-01de-449b-a582-64f5940d01af::us-ppi"
       },
       {
         "id": "us-ppi-core-mm-2026-01-30",
@@ -1377,7 +4052,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
         "officialBaseline": "0.4%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "5d64da11-01de-449b-a582-64f5940d01af::us-ppi-core-mm"
       },
       {
         "id": "us-ppi-yy-2026-01-30",
@@ -1393,7 +4069,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
         "officialBaseline": "0.4%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "5d64da11-01de-449b-a582-64f5940d01af::us-ppi-yy"
       }
     ]
   },
@@ -1404,7 +4081,24 @@ const macroWeeks = {
     "title": "Vecka 6, 2026",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
-    "events": []
+    "events": [
+      {
+        "id": "us-jolts-job-openings-2026-02-05",
+        "date": "2026-02-05",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "2cfe3de0-0c95-416e-8f94-0076883cf935::us-jolts-job-openings"
+      }
+    ]
   },
   "2026-W07": {
     "weekNumber": 7,
@@ -1427,7 +4121,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "160K"
+        "officialBaseline": "160K",
+        "calUid": "2768ae00-e2fe-4f34-8eda-0482d4af9e6d::us-nonfarm-payrolls"
       },
       {
         "id": "us-unemployment-rate-2026-02-11",
@@ -1442,7 +4137,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cps/",
-        "officialBaseline": "4.3%"
+        "officialBaseline": "4.3%",
+        "calUid": "2768ae00-e2fe-4f34-8eda-0482d4af9e6d::us-unemployment-rate"
       },
       {
         "id": "us-avg-hourly-earnings-mm-2026-02-11",
@@ -1457,7 +4153,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "0.4%"
+        "officialBaseline": "0.4%",
+        "calUid": "2768ae00-e2fe-4f34-8eda-0482d4af9e6d::us-avg-hourly-earnings-mm"
       },
       {
         "id": "us-avg-hourly-earnings-yy-2026-02-11",
@@ -1472,7 +4169,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "3.7%"
+        "officialBaseline": "3.7%",
+        "calUid": "2768ae00-e2fe-4f34-8eda-0482d4af9e6d::us-avg-hourly-earnings-yy"
       },
       {
         "id": "us-cpi-2026-02-13",
@@ -1487,7 +4185,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
-        "officialBaseline": "0.2%"
+        "officialBaseline": "0.2%",
+        "calUid": "02d8c219-091c-480a-bf87-b9a2a74d09e1::us-cpi"
       },
       {
         "id": "us-core-cpi-mm-2026-02-13",
@@ -1502,7 +4201,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
-        "officialBaseline": "0.3%"
+        "officialBaseline": "0.3%",
+        "calUid": "02d8c219-091c-480a-bf87-b9a2a74d09e1::us-core-cpi-mm"
       },
       {
         "id": "us-cpi-yy-2026-02-13",
@@ -1518,7 +4218,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
         "officialBaseline": "0.2%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "02d8c219-091c-480a-bf87-b9a2a74d09e1::us-cpi-yy"
       },
       {
         "id": "us-cpi-core-yy-2026-02-13",
@@ -1534,7 +4235,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
         "officialBaseline": "0.2%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "02d8c219-091c-480a-bf87-b9a2a74d09e1::us-cpi-core-yy"
       }
     ]
   },
@@ -1558,7 +4260,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/jlt/"
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "06ea41ea-d0d5-4d89-96da-2ae2c93f76ee::us-jolts-job-openings"
       }
     ]
   },
@@ -1583,7 +4286,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
-        "officialBaseline": "0.6%"
+        "officialBaseline": "0.6%",
+        "calUid": "000bd0fd-3899-4f94-87e4-e344e3e90dd9::us-ppi"
       },
       {
         "id": "us-ppi-core-mm-2026-02-27",
@@ -1599,7 +4303,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
         "officialBaseline": "0.6%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "000bd0fd-3899-4f94-87e4-e344e3e90dd9::us-ppi-core-mm"
       },
       {
         "id": "us-ppi-yy-2026-02-27",
@@ -1615,7 +4320,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
         "officialBaseline": "0.6%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "000bd0fd-3899-4f94-87e4-e344e3e90dd9::us-ppi-yy"
       }
     ]
   },
@@ -1640,7 +4346,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "-156K"
+        "officialBaseline": "-156K",
+        "calUid": "71859a51-9240-4810-80c4-12e385df6ce0::us-nonfarm-payrolls"
       },
       {
         "id": "us-unemployment-rate-2026-03-06",
@@ -1655,7 +4362,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cps/",
-        "officialBaseline": "4.4%"
+        "officialBaseline": "4.4%",
+        "calUid": "71859a51-9240-4810-80c4-12e385df6ce0::us-unemployment-rate"
       },
       {
         "id": "us-avg-hourly-earnings-mm-2026-03-06",
@@ -1670,7 +4378,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "0.3%"
+        "officialBaseline": "0.3%",
+        "calUid": "71859a51-9240-4810-80c4-12e385df6ce0::us-avg-hourly-earnings-mm"
       },
       {
         "id": "us-avg-hourly-earnings-yy-2026-03-06",
@@ -1685,7 +4394,40 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "3.7%"
+        "officialBaseline": "3.7%",
+        "calUid": "71859a51-9240-4810-80c4-12e385df6ce0::us-avg-hourly-earnings-yy"
+      },
+      {
+        "id": "us-nonfarm-productivity-2026-03-05",
+        "date": "2026-03-05",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Productivity, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "b38fb661-4ae1-4e98-90a2-d3e73423bf0d::us-nonfarm-productivity"
+      },
+      {
+        "id": "us-unit-labor-costs-2026-03-05",
+        "date": "2026-03-05",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unit Labor Costs, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "b38fb661-4ae1-4e98-90a2-d3e73423bf0d::us-unit-labor-costs"
       }
     ]
   },
@@ -1710,7 +4452,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
-        "officialBaseline": "0.3%"
+        "officialBaseline": "0.3%",
+        "calUid": "e1950ecd-7e6d-4050-a502-8084a0638aa0::us-cpi"
       },
       {
         "id": "us-core-cpi-mm-2026-03-11",
@@ -1725,7 +4468,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
-        "officialBaseline": "0.2%"
+        "officialBaseline": "0.2%",
+        "calUid": "e1950ecd-7e6d-4050-a502-8084a0638aa0::us-core-cpi-mm"
       },
       {
         "id": "us-cpi-yy-2026-03-11",
@@ -1741,7 +4485,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
         "officialBaseline": "0.3%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "e1950ecd-7e6d-4050-a502-8084a0638aa0::us-cpi-yy"
       },
       {
         "id": "us-cpi-core-yy-2026-03-11",
@@ -1757,7 +4502,24 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
         "officialBaseline": "0.3%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "e1950ecd-7e6d-4050-a502-8084a0638aa0::us-cpi-core-yy"
+      },
+      {
+        "id": "us-jolts-job-openings-2026-03-13",
+        "date": "2026-03-13",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "acb2b3c9-c663-40e3-9c6a-98a35f6f48fe::us-jolts-job-openings"
       }
     ]
   },
@@ -1782,7 +4544,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
-        "officialBaseline": "0.5%"
+        "officialBaseline": "0.5%",
+        "calUid": "ef09b1db-3039-4005-8dc8-ea5d3c80585c::us-ppi"
       },
       {
         "id": "us-ppi-core-mm-2026-03-18",
@@ -1798,7 +4561,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
         "officialBaseline": "0.5%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "ef09b1db-3039-4005-8dc8-ea5d3c80585c::us-ppi-core-mm"
       },
       {
         "id": "us-ppi-yy-2026-03-18",
@@ -1814,7 +4578,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
         "officialBaseline": "0.5%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "ef09b1db-3039-4005-8dc8-ea5d3c80585c::us-ppi-yy"
       }
     ]
   },
@@ -1838,7 +4603,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "9194a123-13de-45ef-abaa-ada1beb1d6d5::us-nonfarm-productivity"
       },
       {
         "id": "us-unit-labor-costs-2026-03-24",
@@ -1852,7 +4618,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "9194a123-13de-45ef-abaa-ada1beb1d6d5::us-unit-labor-costs"
       }
     ]
   },
@@ -1877,7 +4644,72 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/jlt/",
-        "officialBaseline": "7.24M"
+        "officialBaseline": "7.24M",
+        "calUid": "a9bd6b94-ee74-4c44-b26d-92ed9760471a::us-jolts-job-openings"
+      },
+      {
+        "id": "us-nonfarm-payrolls-2026-04-03",
+        "date": "2026-04-03",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Payrolls",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "ac22d520-b0cf-4082-8cd5-990dde53bac0::us-nonfarm-payrolls"
+      },
+      {
+        "id": "us-unemployment-rate-2026-04-03",
+        "date": "2026-04-03",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unemployment Rate",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/cps/",
+        "calUid": "ac22d520-b0cf-4082-8cd5-990dde53bac0::us-unemployment-rate"
+      },
+      {
+        "id": "us-avg-hourly-earnings-mm-2026-04-03",
+        "date": "2026-04-03",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, M/M%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "ac22d520-b0cf-4082-8cd5-990dde53bac0::us-avg-hourly-earnings-mm"
+      },
+      {
+        "id": "us-avg-hourly-earnings-yy-2026-04-03",
+        "date": "2026-04-03",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Average Hourly Earnings, Y/Y%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "ac22d520-b0cf-4082-8cd5-990dde53bac0::us-avg-hourly-earnings-yy"
       }
     ]
   },
@@ -1902,7 +4734,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
-        "officialBaseline": "0.9%"
+        "officialBaseline": "0.9%",
+        "calUid": "8ebeaa71-d848-4dac-868b-3b08578d899c::us-cpi"
       },
       {
         "id": "us-core-cpi-mm-2026-04-10",
@@ -1917,7 +4750,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
-        "officialBaseline": "0.2%"
+        "officialBaseline": "0.2%",
+        "calUid": "8ebeaa71-d848-4dac-868b-3b08578d899c::us-core-cpi-mm"
       },
       {
         "id": "us-cpi-yy-2026-04-10",
@@ -1933,7 +4767,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
         "officialBaseline": "0.9%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "8ebeaa71-d848-4dac-868b-3b08578d899c::us-cpi-yy"
       },
       {
         "id": "us-cpi-core-yy-2026-04-10",
@@ -1949,7 +4784,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
         "officialBaseline": "0.9%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "8ebeaa71-d848-4dac-868b-3b08578d899c::us-cpi-core-yy"
       }
     ]
   },
@@ -1974,7 +4810,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
-        "officialBaseline": "0.8%"
+        "officialBaseline": "0.8%",
+        "calUid": "1a3f7021-120d-4fab-a158-ec503b0a5758::us-ppi"
       },
       {
         "id": "us-ppi-core-mm-2026-04-14",
@@ -1990,7 +4827,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
         "officialBaseline": "0.8%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "1a3f7021-120d-4fab-a158-ec503b0a5758::us-ppi-core-mm"
       },
       {
         "id": "us-ppi-yy-2026-04-14",
@@ -2006,7 +4844,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
         "officialBaseline": "0.8%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "1a3f7021-120d-4fab-a158-ec503b0a5758::us-ppi-yy"
       }
     ]
   },
@@ -2040,7 +4879,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "214K"
+        "officialBaseline": "214K",
+        "calUid": "e1e970d7-d354-48a7-985a-e55c95c65a2f::us-nonfarm-payrolls"
       },
       {
         "id": "us-unemployment-rate-2026-04-28",
@@ -2055,7 +4895,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cps/",
-        "officialBaseline": "4.3%"
+        "officialBaseline": "4.3%",
+        "calUid": "e1e970d7-d354-48a7-985a-e55c95c65a2f::us-unemployment-rate"
       },
       {
         "id": "us-avg-hourly-earnings-mm-2026-04-28",
@@ -2070,7 +4911,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "0.2%"
+        "officialBaseline": "0.2%",
+        "calUid": "e1e970d7-d354-48a7-985a-e55c95c65a2f::us-avg-hourly-earnings-mm"
       },
       {
         "id": "us-avg-hourly-earnings-yy-2026-04-28",
@@ -2085,7 +4927,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "3.4%"
+        "officialBaseline": "3.4%",
+        "calUid": "e1e970d7-d354-48a7-985a-e55c95c65a2f::us-avg-hourly-earnings-yy"
       }
     ]
   },
@@ -2110,7 +4953,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/jlt/",
-        "officialBaseline": "6.89M"
+        "officialBaseline": "6.89M",
+        "calUid": "58cb6c68-8f44-443d-ab90-50d00b7ba49d::us-jolts-job-openings"
       },
       {
         "id": "us-nonfarm-payrolls-2026-05-08",
@@ -2125,7 +4969,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "148K"
+        "officialBaseline": "148K",
+        "calUid": "d4f979a0-0e2d-4ac7-95ff-5170682edb7b::us-nonfarm-payrolls"
       },
       {
         "id": "us-unemployment-rate-2026-05-08",
@@ -2140,7 +4985,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cps/",
-        "officialBaseline": "4.3%"
+        "officialBaseline": "4.3%",
+        "calUid": "d4f979a0-0e2d-4ac7-95ff-5170682edb7b::us-unemployment-rate"
       },
       {
         "id": "us-avg-hourly-earnings-mm-2026-05-08",
@@ -2155,7 +5001,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "0.2%"
+        "officialBaseline": "0.2%",
+        "calUid": "d4f979a0-0e2d-4ac7-95ff-5170682edb7b::us-avg-hourly-earnings-mm"
       },
       {
         "id": "us-avg-hourly-earnings-yy-2026-05-08",
@@ -2170,7 +5017,40 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "3.6%"
+        "officialBaseline": "3.6%",
+        "calUid": "d4f979a0-0e2d-4ac7-95ff-5170682edb7b::us-avg-hourly-earnings-yy"
+      },
+      {
+        "id": "us-nonfarm-productivity-2026-05-07",
+        "date": "2026-05-07",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Productivity, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "d6d9e696-318d-467d-a1aa-876914ec8f8a::us-nonfarm-productivity"
+      },
+      {
+        "id": "us-unit-labor-costs-2026-05-07",
+        "date": "2026-05-07",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unit Labor Costs, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "d6d9e696-318d-467d-a1aa-876914ec8f8a::us-unit-labor-costs"
       }
     ]
   },
@@ -2195,7 +5075,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
-        "officialBaseline": "0.6%"
+        "officialBaseline": "0.6%",
+        "calUid": "137c0a1d-69e3-4289-bfe3-21ba9d6eefe8::us-cpi"
       },
       {
         "id": "us-core-cpi-mm-2026-05-12",
@@ -2210,7 +5091,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
-        "officialBaseline": "0.4%"
+        "officialBaseline": "0.4%",
+        "calUid": "137c0a1d-69e3-4289-bfe3-21ba9d6eefe8::us-core-cpi-mm"
       },
       {
         "id": "us-cpi-yy-2026-05-12",
@@ -2226,7 +5108,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
         "officialBaseline": "0.6%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "137c0a1d-69e3-4289-bfe3-21ba9d6eefe8::us-cpi-yy"
       },
       {
         "id": "us-cpi-core-yy-2026-05-12",
@@ -2242,7 +5125,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
         "officialBaseline": "0.6%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "137c0a1d-69e3-4289-bfe3-21ba9d6eefe8::us-cpi-core-yy"
       },
       {
         "id": "us-ppi-2026-05-13",
@@ -2257,7 +5141,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
-        "officialBaseline": "1.1%"
+        "officialBaseline": "1.1%",
+        "calUid": "0b995b88-ea81-48f0-a798-7f21ce71e56e::us-ppi"
       },
       {
         "id": "us-ppi-core-mm-2026-05-13",
@@ -2273,7 +5158,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
         "officialBaseline": "1.1%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "0b995b88-ea81-48f0-a798-7f21ce71e56e::us-ppi-core-mm"
       },
       {
         "id": "us-ppi-yy-2026-05-13",
@@ -2289,7 +5175,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
         "officialBaseline": "1.1%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "0b995b88-ea81-48f0-a798-7f21ce71e56e::us-ppi-yy"
       }
     ]
   },
@@ -2322,7 +5209,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "cf1a8329-c68c-43fe-ad50-f52414b01a77::us-nonfarm-productivity"
       },
       {
         "id": "us-unit-labor-costs-2026-05-28",
@@ -2336,7 +5224,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "cf1a8329-c68c-43fe-ad50-f52414b01a77::us-unit-labor-costs"
       }
     ]
   },
@@ -2361,7 +5250,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "63K"
+        "officialBaseline": "63K",
+        "calUid": "bbcefc9f-7fa8-45a3-8451-916c05df07c3::us-nonfarm-payrolls"
       },
       {
         "id": "us-unemployment-rate-2026-06-05",
@@ -2376,7 +5266,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cps/",
-        "officialBaseline": "4.3%"
+        "officialBaseline": "4.3%",
+        "calUid": "bbcefc9f-7fa8-45a3-8451-916c05df07c3::us-unemployment-rate"
       },
       {
         "id": "us-avg-hourly-earnings-mm-2026-06-05",
@@ -2391,7 +5282,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "0.2%"
+        "officialBaseline": "0.2%",
+        "calUid": "bbcefc9f-7fa8-45a3-8451-916c05df07c3::us-avg-hourly-earnings-mm"
       },
       {
         "id": "us-avg-hourly-earnings-yy-2026-06-05",
@@ -2406,7 +5298,56 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "3.3%"
+        "officialBaseline": "3.3%",
+        "calUid": "bbcefc9f-7fa8-45a3-8451-916c05df07c3::us-avg-hourly-earnings-yy"
+      },
+      {
+        "id": "us-jolts-job-openings-2026-06-02",
+        "date": "2026-06-02",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "06bdf7a7-bed5-46bb-9930-96e840ea1ce1::us-jolts-job-openings"
+      },
+      {
+        "id": "us-nonfarm-productivity-2026-06-04",
+        "date": "2026-06-04",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Nonfarm Productivity, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "eb601f8a-f496-4d8e-9bdd-00cd7008882d::us-nonfarm-productivity"
+      },
+      {
+        "id": "us-unit-labor-costs-2026-06-04",
+        "date": "2026-06-04",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Unit Labor Costs, Q/Q%",
+        "period": null,
+        "refYear": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "eb601f8a-f496-4d8e-9bdd-00cd7008882d::us-unit-labor-costs"
       }
     ]
   },
@@ -2431,7 +5372,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
-        "officialBaseline": "0.5%"
+        "officialBaseline": "0.5%",
+        "calUid": "c266ea61-636b-480f-9f14-fbd48a7045cd::us-cpi"
       },
       {
         "id": "us-core-cpi-mm-2026-06-10",
@@ -2446,7 +5388,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
-        "officialBaseline": "0.2%"
+        "officialBaseline": "0.2%",
+        "calUid": "c266ea61-636b-480f-9f14-fbd48a7045cd::us-core-cpi-mm"
       },
       {
         "id": "us-cpi-yy-2026-06-10",
@@ -2462,7 +5405,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
         "officialBaseline": "0.5%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "c266ea61-636b-480f-9f14-fbd48a7045cd::us-cpi-yy"
       },
       {
         "id": "us-cpi-core-yy-2026-06-10",
@@ -2478,7 +5422,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
         "officialBaseline": "0.5%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "c266ea61-636b-480f-9f14-fbd48a7045cd::us-cpi-core-yy"
       },
       {
         "id": "us-ppi-2026-06-11",
@@ -2493,7 +5438,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
-        "officialBaseline": "0.5%"
+        "officialBaseline": "0.5%",
+        "calUid": "9a7740eb-f049-4321-abd4-ddd1d76531e5::us-ppi"
       },
       {
         "id": "us-ppi-core-mm-2026-06-11",
@@ -2509,7 +5455,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
         "officialBaseline": "0.5%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "9a7740eb-f049-4321-abd4-ddd1d76531e5::us-ppi-core-mm"
       },
       {
         "id": "us-ppi-yy-2026-06-11",
@@ -2525,7 +5472,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
         "officialBaseline": "0.5%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "9a7740eb-f049-4321-abd4-ddd1d76531e5::us-ppi-yy"
       }
     ]
   },
@@ -2558,7 +5506,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "3e453051-405e-45ab-ab38-a1e1a9d46d04::us-nonfarm-productivity"
       },
       {
         "id": "us-unit-labor-costs-2026-06-24",
@@ -2572,7 +5521,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "3e453051-405e-45ab-ab38-a1e1a9d46d04::us-unit-labor-costs"
       }
     ]
   },
@@ -2597,7 +5547,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/jlt/",
-        "officialBaseline": "7.58M"
+        "officialBaseline": "7.58M",
+        "calUid": "09b23c81-b535-449a-b8b5-9226aee382f9::us-jolts-job-openings"
       },
       {
         "id": "us-nonfarm-payrolls-2026-07-02",
@@ -2612,7 +5563,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "31K"
+        "officialBaseline": "31K",
+        "calUid": "e61f0232-37b0-4648-942f-e42538849ac3::us-nonfarm-payrolls"
       },
       {
         "id": "us-unemployment-rate-2026-07-02",
@@ -2627,7 +5579,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cps/",
-        "officialBaseline": "4.2%"
+        "officialBaseline": "4.2%",
+        "calUid": "e61f0232-37b0-4648-942f-e42538849ac3::us-unemployment-rate"
       },
       {
         "id": "us-avg-hourly-earnings-mm-2026-07-02",
@@ -2642,7 +5595,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "0.3%"
+        "officialBaseline": "0.3%",
+        "calUid": "e61f0232-37b0-4648-942f-e42538849ac3::us-avg-hourly-earnings-mm"
       },
       {
         "id": "us-avg-hourly-earnings-yy-2026-07-02",
@@ -2657,7 +5611,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "3.4%"
+        "officialBaseline": "3.4%",
+        "calUid": "e61f0232-37b0-4648-942f-e42538849ac3::us-avg-hourly-earnings-yy"
       }
     ]
   },
@@ -2682,7 +5637,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
-        "officialBaseline": "-0.4%"
+        "officialBaseline": "-0.4%",
+        "calUid": "853efc0c-066d-47fd-9a56-398567d76ab1::us-cpi"
       },
       {
         "id": "us-core-cpi-mm-2026-07-14",
@@ -2697,7 +5653,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
-        "officialBaseline": "-0.0%"
+        "officialBaseline": "-0.0%",
+        "calUid": "853efc0c-066d-47fd-9a56-398567d76ab1::us-core-cpi-mm"
       },
       {
         "id": "us-cpi-yy-2026-07-14",
@@ -2713,7 +5670,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
         "officialBaseline": "-0.4%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "853efc0c-066d-47fd-9a56-398567d76ab1::us-cpi-yy"
       },
       {
         "id": "us-cpi-core-yy-2026-07-14",
@@ -2729,7 +5687,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
         "officialBaseline": "-0.4%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "853efc0c-066d-47fd-9a56-398567d76ab1::us-cpi-core-yy"
       },
       {
         "id": "us-ppi-2026-07-15",
@@ -2744,7 +5703,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
-        "officialBaseline": "-0.1%"
+        "officialBaseline": "-0.1%",
+        "calUid": "2902b347-8f32-49c8-bd23-7b0eb7813d1d::us-ppi"
       },
       {
         "id": "us-ppi-core-mm-2026-07-15",
@@ -2760,7 +5720,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
         "officialBaseline": "-0.1%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "2902b347-8f32-49c8-bd23-7b0eb7813d1d::us-ppi-core-mm"
       },
       {
         "id": "us-ppi-yy-2026-07-15",
@@ -2776,7 +5737,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
         "officialBaseline": "-0.1%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "2902b347-8f32-49c8-bd23-7b0eb7813d1d::us-ppi-yy"
       }
     ]
   },
@@ -2801,7 +5763,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/jlt/",
-        "officialBaseline": "7.54M"
+        "officialBaseline": "7.54M",
+        "calUid": "1213e7a0-7e7a-4d9b-a56d-58388ca051d1::us-jolts-job-openings"
       }
     ]
   },
@@ -2835,7 +5798,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/jlt/",
-        "officialBaseline": "7.18M"
+        "officialBaseline": "7.18M",
+        "calUid": "21711381-2abf-4cc2-ae80-6c37acee93f5::us-jolts-job-openings"
       },
       {
         "id": "us-nonfarm-productivity-2026-08-06",
@@ -2849,7 +5813,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "040b7a43-590a-48f8-86b1-bd5b12ddd751::us-nonfarm-productivity"
       },
       {
         "id": "us-unit-labor-costs-2026-08-06",
@@ -2863,7 +5828,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "040b7a43-590a-48f8-86b1-bd5b12ddd751::us-unit-labor-costs"
       },
       {
         "id": "us-nonfarm-payrolls-2026-08-07",
@@ -2878,7 +5844,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "21K"
+        "officialBaseline": "21K",
+        "calUid": "93d74a64-1477-4579-b110-b4981fb17f32::us-nonfarm-payrolls"
       },
       {
         "id": "us-unemployment-rate-2026-08-07",
@@ -2893,7 +5860,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cps/",
-        "officialBaseline": "4.1%"
+        "officialBaseline": "4.1%",
+        "calUid": "93d74a64-1477-4579-b110-b4981fb17f32::us-unemployment-rate"
       },
       {
         "id": "us-avg-hourly-earnings-mm-2026-08-07",
@@ -2908,7 +5876,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "0.2%"
+        "officialBaseline": "0.2%",
+        "calUid": "93d74a64-1477-4579-b110-b4981fb17f32::us-avg-hourly-earnings-mm"
       },
       {
         "id": "us-avg-hourly-earnings-yy-2026-08-07",
@@ -2923,7 +5892,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ces/",
-        "officialBaseline": "3.2%"
+        "officialBaseline": "3.2%",
+        "calUid": "93d74a64-1477-4579-b110-b4981fb17f32::us-avg-hourly-earnings-yy"
       }
     ]
   },
@@ -2948,7 +5918,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
-        "officialBaseline": "0.1%"
+        "officialBaseline": "0.1%",
+        "calUid": "a15b416d-318d-4e0e-a703-0651044bba29::us-cpi"
       },
       {
         "id": "us-core-cpi-mm-2026-08-12",
@@ -2963,7 +5934,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
-        "officialBaseline": "0.2%"
+        "officialBaseline": "0.2%",
+        "calUid": "a15b416d-318d-4e0e-a703-0651044bba29::us-core-cpi-mm"
       },
       {
         "id": "us-cpi-yy-2026-08-12",
@@ -2979,7 +5951,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
         "officialBaseline": "0.1%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "a15b416d-318d-4e0e-a703-0651044bba29::us-cpi-yy"
       },
       {
         "id": "us-cpi-core-yy-2026-08-12",
@@ -2995,7 +5968,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/cpi/",
         "officialBaseline": "0.1%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "a15b416d-318d-4e0e-a703-0651044bba29::us-cpi-core-yy"
       },
       {
         "id": "us-ppi-2026-08-13",
@@ -3010,7 +5984,8 @@ const macroWeeks = {
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
-        "officialBaseline": "0.1%"
+        "officialBaseline": "0.1%",
+        "calUid": "f7d71d69-bfb8-4c58-a9a5-0cf5b8d1f0fd::us-ppi"
       },
       {
         "id": "us-ppi-core-mm-2026-08-13",
@@ -3026,7 +6001,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
         "officialBaseline": "0.1%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "f7d71d69-bfb8-4c58-a9a5-0cf5b8d1f0fd::us-ppi-core-mm"
       },
       {
         "id": "us-ppi-yy-2026-08-13",
@@ -3042,7 +6018,8 @@ const macroWeeks = {
         "source": "U.S. Bureau of Labor Statistics",
         "sourceUrl": "https://www.bls.gov/ppi/",
         "officialBaseline": "0.1%",
-        "isRevised": true
+        "isRevised": true,
+        "calUid": "f7d71d69-bfb8-4c58-a9a5-0cf5b8d1f0fd::us-ppi-yy"
       }
     ]
   },
@@ -3120,7 +6097,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/jlt/"
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "f4af33e1-19ca-4d0e-ab83-ec1f71d7c1f5::us-jolts-job-openings"
       },
       {
         "id": "us-nonfarm-productivity-2026-11-05",
@@ -3134,7 +6112,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "3c8e7e23-2319-4c35-90e7-e658fcabd269::us-nonfarm-productivity"
       },
       {
         "id": "us-unit-labor-costs-2026-11-05",
@@ -3148,7 +6127,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "3c8e7e23-2319-4c35-90e7-e658fcabd269::us-unit-labor-costs"
       },
       {
         "id": "us-nonfarm-payrolls-2026-11-06",
@@ -3162,7 +6142,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/ces/"
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "92fcedab-204a-46b6-904a-70cb46bafdb2::us-nonfarm-payrolls"
       },
       {
         "id": "us-unemployment-rate-2026-11-06",
@@ -3176,7 +6157,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/cps/"
+        "sourceUrl": "https://www.bls.gov/cps/",
+        "calUid": "92fcedab-204a-46b6-904a-70cb46bafdb2::us-unemployment-rate"
       },
       {
         "id": "us-avg-hourly-earnings-mm-2026-11-06",
@@ -3190,7 +6172,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/ces/"
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "92fcedab-204a-46b6-904a-70cb46bafdb2::us-avg-hourly-earnings-mm"
       },
       {
         "id": "us-avg-hourly-earnings-yy-2026-11-06",
@@ -3204,7 +6187,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/ces/"
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "92fcedab-204a-46b6-904a-70cb46bafdb2::us-avg-hourly-earnings-yy"
       }
     ]
   },
@@ -3228,7 +6212,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/cpi/"
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "c26d524f-228b-46e9-b00e-fdbec26d68af::us-cpi"
       },
       {
         "id": "us-core-cpi-mm-2026-11-10",
@@ -3242,7 +6227,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/cpi/"
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "c26d524f-228b-46e9-b00e-fdbec26d68af::us-core-cpi-mm"
       },
       {
         "id": "us-cpi-yy-2026-11-10",
@@ -3256,7 +6242,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/cpi/"
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "c26d524f-228b-46e9-b00e-fdbec26d68af::us-cpi-yy"
       },
       {
         "id": "us-cpi-core-yy-2026-11-10",
@@ -3270,7 +6257,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/cpi/"
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "c26d524f-228b-46e9-b00e-fdbec26d68af::us-cpi-core-yy"
       },
       {
         "id": "us-ppi-2026-11-13",
@@ -3284,7 +6272,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/ppi/"
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "0e068cb5-2188-4bfd-861e-97aac53dadff::us-ppi"
       },
       {
         "id": "us-ppi-core-mm-2026-11-13",
@@ -3298,7 +6287,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/ppi/"
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "0e068cb5-2188-4bfd-861e-97aac53dadff::us-ppi-core-mm"
       },
       {
         "id": "us-ppi-yy-2026-11-13",
@@ -3312,7 +6302,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/ppi/"
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "0e068cb5-2188-4bfd-861e-97aac53dadff::us-ppi-yy"
       }
     ]
   },
@@ -3345,7 +6336,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/jlt/"
+        "sourceUrl": "https://www.bls.gov/jlt/",
+        "calUid": "1d8ac89d-ed64-4dce-844a-a24951208945::us-jolts-job-openings"
       },
       {
         "id": "us-nonfarm-payrolls-2026-12-04",
@@ -3359,7 +6351,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/ces/"
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "06c28939-7346-46f0-872e-afa00ccadc5d::us-nonfarm-payrolls"
       },
       {
         "id": "us-unemployment-rate-2026-12-04",
@@ -3373,7 +6366,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/cps/"
+        "sourceUrl": "https://www.bls.gov/cps/",
+        "calUid": "06c28939-7346-46f0-872e-afa00ccadc5d::us-unemployment-rate"
       },
       {
         "id": "us-avg-hourly-earnings-mm-2026-12-04",
@@ -3387,7 +6381,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/ces/"
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "06c28939-7346-46f0-872e-afa00ccadc5d::us-avg-hourly-earnings-mm"
       },
       {
         "id": "us-avg-hourly-earnings-yy-2026-12-04",
@@ -3401,7 +6396,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/ces/"
+        "sourceUrl": "https://www.bls.gov/ces/",
+        "calUid": "06c28939-7346-46f0-872e-afa00ccadc5d::us-avg-hourly-earnings-yy"
       }
     ]
   },
@@ -3425,7 +6421,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "4b0fd4d8-4d5d-49fe-97e8-74f8215be2ba::us-nonfarm-productivity"
       },
       {
         "id": "us-unit-labor-costs-2026-12-08",
@@ -3439,7 +6436,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "medium",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/lpc/"
+        "sourceUrl": "https://www.bls.gov/lpc/",
+        "calUid": "4b0fd4d8-4d5d-49fe-97e8-74f8215be2ba::us-unit-labor-costs"
       },
       {
         "id": "us-cpi-2026-12-10",
@@ -3453,7 +6451,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/cpi/"
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "a434d240-87cd-4fcc-afb4-2c923808b7c1::us-cpi"
       },
       {
         "id": "us-core-cpi-mm-2026-12-10",
@@ -3467,7 +6466,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/cpi/"
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "a434d240-87cd-4fcc-afb4-2c923808b7c1::us-core-cpi-mm"
       },
       {
         "id": "us-cpi-yy-2026-12-10",
@@ -3481,7 +6481,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/cpi/"
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "a434d240-87cd-4fcc-afb4-2c923808b7c1::us-cpi-yy"
       },
       {
         "id": "us-cpi-core-yy-2026-12-10",
@@ -3495,7 +6496,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/cpi/"
+        "sourceUrl": "https://www.bls.gov/cpi/",
+        "calUid": "a434d240-87cd-4fcc-afb4-2c923808b7c1::us-cpi-core-yy"
       }
     ]
   },
@@ -3519,7 +6521,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/ppi/"
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "f34477fe-4d0a-4c31-b389-52ffc6506e1a::us-ppi"
       },
       {
         "id": "us-ppi-core-mm-2026-12-15",
@@ -3533,7 +6536,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/ppi/"
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "f34477fe-4d0a-4c31-b389-52ffc6506e1a::us-ppi-core-mm"
       },
       {
         "id": "us-ppi-yy-2026-12-15",
@@ -3547,7 +6551,8 @@ const macroWeeks = {
         "actual": null,
         "priority": "high",
         "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/ppi/"
+        "sourceUrl": "https://www.bls.gov/ppi/",
+        "calUid": "f34477fe-4d0a-4c31-b389-52ffc6506e1a::us-ppi-yy"
       }
     ]
   },
@@ -3618,8 +6623,8 @@ const earningsWeeks = {
 
 window.NTM_WEEKLY_EVENTS = {
   meta: {
-  "lastFetchAttempt": "2026-09-11T15:49:49Z",
-  "lastSuccessfulUpdate": "2026-09-11T15:49:49Z",
+  "lastFetchAttempt": "2026-09-11T17:04:39Z",
+  "lastSuccessfulUpdate": "2026-09-11T17:04:39Z",
   "status": "ok",
   "activeSources": [
     "U.S. Bureau of Labor Statistics (BLS)"
