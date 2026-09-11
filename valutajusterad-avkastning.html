@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valutajusterad avkastning – Kalkylator för valutaeffekt | Noll till Miljoner</title>
+    <meta name="description" content="Räkna ut hur en investering i utländsk valuta (t.ex. USD eller EUR) har utvecklats mätt i svenska kronor (SEK). Se valutaeffekt i procent och kronor." />
+    <link rel="canonical" href="https://nolltillmiljoner.se/valutajusterad-avkastning.html" />
+    <link rel="stylesheet" href="style.css" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["WebApplication", "FAQPage"],
+      "name": "Valutajusterad avkastning",
+      "url": "https://nolltillmiljoner.se/valutajusterad-avkastning.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "description": "Kalkylator för valutajusterad avkastning och valutaeffekt på utländska investeringar mätt i SEK.",
+      "publisher": { "@type": "Organization", "name": "Noll till Miljoner" },
+      "mainEntity": [
+        { "@type": "Question", "name": "Hur räknar man ut valutajusterad avkastning?", "acceptedAnswer": { "@type": "Answer", "text": "Valutajusterad avkastning räknas som (1 + investeringens avkastning) multiplicerat med (1 + valutans förändring) minus 1." } },
+        { "@type": "Question", "name": "Varför kan man inte bara addera procenttalen?", "acceptedAnswer": { "@type": "Answer", "text": "Eftersom valutaeffekten påverkar hela slutvärdet samverkar faktorerna multiplikativt. En uppgång på 20 % kombinerat med ett valutatapp på 10 % ger +8 %, inte +10 %." } },
+        { "@type": "Question", "name": "Hur påverkar en starkare dollar mina amerikanska aktier?", "acceptedAnswer": { "@type": "Answer", "text": "Om USD stärks mot SEK ökar värdet på dina amerikanska aktier mätt i kronor utöver aktiens kursrörelse i USA." } },
+        { "@type": "Question", "name": "Vad händer när den utländska valutan försvagas?", "acceptedAnswer": { "@type": "Answer", "text": "Om den utländska valutan tappar i värde mot SEK minskar din avkastning i kronor jämfört med utvecklingen i den lokala valutan." } },
+        { "@type": "Question", "name": "Påverkas globala indexfonder av valutakurser?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. En globalfond investerar huvudsakligen i utländska bolag och dess fondkurs i SEK påverkas direkt av förändringar i växelkurser som USD/SEK." } },
+        { "@type": "Question", "name": "Vad är valutaeffekten i kronor?", "acceptedAnswer": { "@type": "Answer", "text": "Valutaeffekten i kronor är skillnaden mellan ditt faktiska slutvärde i SEK och vad värdet hade varit om växelkursen varit oförändrad." } }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a href="index.html" class="brand-wrap">
+                <img class="brand-logo" src="images/ntm-logo.png.png" alt="NTM" />
+                <div class="brand-text">
+                    <span class="brand-name"><span class="brand-zero">NOLL</span> <span class="brand-neutral">TILL</span> <span class="brand-million">MILJONER</span></span>
+                    <span class="brand-subtitle">Valutajusterad avkastning</span>
+                </div>
+            </a>
+
+            <nav class="main-nav" aria-label="Huvudnavigering">
+                <div class="mobile-theme-row">
+                    <span class="mobile-theme-label">Tema</span>
+                    <button id="mobileThemeToggle" class="theme-toggle mobile-theme-btn" type="button" aria-label="Växla tema" title="Växla tema">
+                        <span class="toggle-icon toggle-icon-sun">🌞</span>
+                        <span class="toggle-icon toggle-icon-moon">🌙</span>
+                    </button>
+                </div>
+                <a href="index.html">Hem</a>
+                <a href="verktyg.html" class="active" aria-current="page">Verktyg</a>
+                <a href="inlagg.html">Inlägg</a>
+                <a href="makro.html">Makro</a>
+                <a href="rapporter.html">Rapporter</a>
+                <a href="resurser.html">Resurser</a>
+                <a href="community.html">Community</a>
+            </nav>
+
+            <button id="mobileNavToggle" class="nav-toggle" type="button" aria-label="Öppna meny" aria-expanded="false">
+                ☰
+            </button>
+
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Växla tema" title="Växla tema">
+                <span class="toggle-icon toggle-icon-sun">🌞</span>
+                <span class="toggle-icon toggle-icon-moon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container tool-landing">
+        <header class="page-intro tool-intro">
+            <span class="section-kicker">Aktier &amp; analys</span>
+            <h1>Valutajusterad avkastning</h1>
+            <p>Räkna ut hur en investering i utländsk valuta faktiskt har utvecklats mätt i svenska kronor (SEK).</p>
+        </header>
+
+        <section class="card calculator-card" aria-labelledby="fx-calculator-heading">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">Valutaeffekt</span>
+                    <h2 id="fx-calculator-heading">Beräkna avkastning i SEK</h2>
+                </div>
+            </div>
+
+            <div class="mode-toggle fx-mode-toggle" role="tablist" aria-label="Välj beräkningsläge">
+                <button class="mode-tab fx-mode-tab active" type="button" data-fx-mode="rate" role="tab" aria-selected="true">Valutakurs</button>
+                <button class="mode-tab fx-mode-tab" type="button" data-fx-mode="percent" role="tab" aria-selected="false">Procent</button>
+            </div>
+
+            <form id="fx-calculator-form" class="calculator-form" novalidate>
+                <!-- LÄGE 1: Valutakurs -->
+                <div id="fx-rate-panel" class="fx-mode-panel">
+                    <div class="form-grid form-grid--aligned">
+                        <div class="field-group">
+                            <label for="fx-rate-investment-return">Investeringens avkastning (%)</label>
+                            <input id="fx-rate-investment-return" type="number" step="0.01" value="20" inputmode="decimal" />
+                            <small class="field-help">Utveckling i den lokala valutan (t.ex. aktiens uppgång i USD).</small>
+                        </div>
+                        <div class="field-group">
+                            <label for="fx-rate-purchase">Valutakurs vid köp</label>
+                            <input id="fx-rate-purchase" type="number" min="0.0001" step="0.0001" value="10.50" inputmode="decimal" />
+                            <small class="field-help">Växelkurs vid köptillfället (t.ex. 10,50 SEK per USD).</small>
+                        </div>
+                        <div class="field-group">
+                            <label for="fx-rate-current">Valutakurs idag</label>
+                            <input id="fx-rate-current" type="number" min="0.0001" step="0.0001" value="9.60" inputmode="decimal" />
+                            <small class="field-help">Nuvarande växelkurs (t.ex. 9,60 SEK per USD).</small>
+                        </div>
+                        <div class="field-group">
+                            <label for="fx-rate-amount">Investerat belopp i SEK <span class="optional-label">(valfritt)</span></label>
+                            <input id="fx-rate-amount" type="number" min="0" step="1000" value="100000" inputmode="decimal" />
+                            <small class="field-help">Startbelopp för att se vinst och valutaeffekt i kronor.</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LÄGE 2: Procent -->
+                <div id="fx-percent-panel" class="fx-mode-panel hidden">
+                    <div class="form-grid form-grid--aligned">
+                        <div class="field-group">
+                            <label for="fx-percent-investment-return">Investeringens avkastning (%)</label>
+                            <input id="fx-percent-investment-return" type="number" step="0.01" value="20" inputmode="decimal" />
+                            <small class="field-help">Utveckling i den lokala valutan (t.ex. aktiens uppgång i USD).</small>
+                        </div>
+                        <div class="field-group">
+                            <label for="fx-percent-currency-change">Valutans förändring mot SEK (%)</label>
+                            <input id="fx-percent-currency-change" type="number" step="0.01" value="-8.57" inputmode="decimal" />
+                            <small class="field-help">Positivt (+) = valutan stärktes mot SEK. Negativt (−) = försvagades.</small>
+                        </div>
+                        <div class="field-group">
+                            <label for="fx-percent-amount">Investerat belopp i SEK <span class="optional-label">(valfritt)</span></label>
+                            <input id="fx-percent-amount" type="number" min="0" step="1000" value="100000" inputmode="decimal" />
+                            <small class="field-help">Startbelopp för att se vinst och valutaeffekt i kronor.</small>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit">Beräkna</button>
+            </form>
+
+            <div class="results" aria-live="polite">
+                <div class="result-box highlight result-box--wide">
+                    <span class="label">Valutajusterad avkastning (SEK)</span>
+                    <strong id="fx-adjusted-return-result" class="result-value">–</strong>
+                </div>
+                <div class="result-box">
+                    <span class="label">Investeringens avkastning (lokal valuta)</span>
+                    <strong id="fx-investment-return-result" class="result-value">–</strong>
+                </div>
+                <div class="result-box">
+                    <span class="label">Valutans förändring mot SEK</span>
+                    <strong id="fx-currency-change-result" class="result-value">–</strong>
+                </div>
+                <div class="result-box result-box--wide">
+                    <span class="label">Skillnad mot lokal avkastning</span>
+                    <strong id="fx-return-difference-result" class="result-value">–</strong>
+                </div>
+
+                <div class="result-box hidden" id="fx-final-value-box">
+                    <span class="label">Slutvärde i SEK</span>
+                    <strong id="fx-final-value-result" class="result-value">–</strong>
+                </div>
+                <div class="result-box hidden" id="fx-profit-loss-box">
+                    <span class="label">Vinst / förlust i SEK</span>
+                    <strong id="fx-profit-loss-result" class="result-value">–</strong>
+                </div>
+                <div class="result-box hidden" id="fx-no-currency-value-box">
+                    <span class="label">Slutvärde utan valutaeffekt</span>
+                    <strong id="fx-no-currency-value-result" class="result-value">–</strong>
+                </div>
+                <div class="result-box hidden" id="fx-currency-impact-box">
+                    <span class="label">Valutaeffekt i kronor</span>
+                    <strong id="fx-currency-impact-result" class="result-value">–</strong>
+                </div>
+            </div>
+
+            <p id="fx-summary" class="calculator-summary">Klicka på Beräkna för att se resultatet.</p>
+
+            <aside class="info-callout">
+                <strong>Viktigt om valutaeffekten</strong>
+                <p>Valutakursförändringar och investeringsavkastning samverkar multiplikativt och inte genom enkel addition. När en utländsk valuta försvagas mot SEK minskar din avkastning i kronor, och när den stärks ökar den.</p>
+            </aside>
+        </section>
+
+        <div class="education-content">
+            <section class="education-section">
+                <h2>Varför spelar valutajustering roll för svenska investerare?</h2>
+                <p>När du köper utländska aktier, fonder eller ETF:er (exempelvis amerikanska teknikaktier eller globalfonder i USD och EUR) köper du tillgångar prissatta i en annan valuta. Ditt slutliga resultat i svenska kronor (SEK) avgörs därför av två faktorer: hur tillgången utvecklas i sin lokala valuta och hur den utländska valutans kurs rör sig mot SEK.</p>
+            </section>
+
+            <section class="education-section">
+                <h2>Hur räknar man ut valutajusterad avkastning?</h2>
+                <p>För att beräkna den faktiska avkastningen i SEK multipliceras investeringsutvecklingen med valutans förändringsfaktor:</p>
+                <p class="formula" aria-label="Valutajusterad avkastning är lika med ett plus investeringens avkastning gånger ett plus valutans förändring minus ett">
+                    <var>Avkastning<sub>SEK</sub></var> = (1 + <var>r<sub>investering</sub></var>) &times; (1 + <var>r<sub>valuta</sub></var>) &minus; 1
+                </p>
+                <p>Om du utgår från valutakurser vid köp och idag beräknas valutaförändringen som:</p>
+                <p class="formula" aria-label="Valutans förändring är lika med aktuell kurs delat med köpkurs minus ett">
+                    <var>r<sub>valuta</sub></var> = (<var>Kurs<sub>idag</sub></var> / <var>Kurs<sub>köp</sub></var>) &minus; 1
+                </p>
+            </section>
+
+            <section class="education-section">
+                <h2>Varför kan man inte bara addera procenttalen?</h2>
+                <p>Eftersom valutaeffekten påverkar hela det framtida värdet (både startkapitalet och upparbetad vinst) samverkar faktorerna multiplikativt. Om en aktie stiger med 20 % samtidigt som dollarn faller med 10 % blir avkastningen inte 10 %, utan:</p>
+                <p class="formula">
+                    (1 + 0,20) &times; (1 &minus; 0,10) &minus; 1 = 1,20 &times; 0,90 &minus; 1 = 1,08 &minus; 1 = <strong>+8,0 %</strong>
+                </p>
+            </section>
+
+            <section class="education-section">
+                <h2>Vad är valutaeffekten i kronor?</h2>
+                <p>Valutaeffekten i kronor visar skillnaden mellan ditt faktiska slutvärde i SEK och vad värdet hade varit om växelkursen förblivit helt oförändrad:</p>
+                <p class="formula">
+                    <var>Valutaeffekt</var> = <var>Faktiskt slutvärde</var> &minus; <var>Slutvärde utan valutaeffekt</var>
+                </p>
+                <p>Ett negativt belopp betyder att en försvagad utländsk valuta har minskat din vinst i SEK, medan ett positivt belopp betyder att en förstärkt valuta har ökat den.</p>
+            </section>
+        </div>
+
+        <section class="faq-section" aria-labelledby="faq-heading">
+            <h2 id="faq-heading">Vanliga frågor</h2>
+            <details>
+                <summary>Hur påverkar en starkare dollar mina amerikanska aktier?</summary>
+                <p>Om USD stärks mot SEK ökar värdet på dina amerikanska aktier mätt i svenska kronor, utöver aktiens kursrörelse i USA.</p>
+            </details>
+            <details>
+                <summary>Vad händer när den utländska valutan försvagas?</summary>
+                <p>Om den utländska valutan faller i värde mot SEK minskar din avkastning i kronor. En aktie kan stiga i USD men ändå ge lägre eller till och med negativ avkastning i SEK om dollartappet är stort nog.</p>
+            </details>
+            <details>
+                <summary>Påverkas globala indexfonder av valutakurser?</summary>
+                <p>Ja. En globalfond investerar huvudsakligen i utländska bolag (ofta cirka 70 % i USA). Fondens fondkurs i SEK rör sig därför både med aktiemarknaderna och med växelkurserna (främst USD/SEK).</p>
+            </details>
+            <details>
+                <summary>Vad är skillnaden mellan läget Valutakurs och Procent?</summary>
+                <p>Läget Valutakurs låter dig ange exakt växelkurs vid köp och idag (t.ex. 10,50 och 9,60). Läget Procent används när du redan känner till hur många procent valutan har rört sig.</p>
+            </details>
+            <details>
+                <summary>Kan valutaförändringen göra en vinst till en förlust?</summary>
+                <p>Ja. Om en investering stiger 5 % i lokal valuta men valutan samtidigt faller 10 % mot SEK, blir den valutajusterade avkastningen (1 + 0,05) &times; (1 &minus; 0,10) &minus; 1 = &minus;5,5 %.</p>
+            </details>
+        </section>
+
+        <section class="related-tools" aria-labelledby="related-tools-heading">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">Fler verktyg</span>
+                    <h2 id="related-tools-heading">Relaterade verktyg</h2>
+                </div>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <h3>Avkastningskalkylator</h3>
+                    <p>Räkna ut CAGR, totalavkastning och genomsnittlig årlig avkastning.</p>
+                    <a href="avkastningskalkylator.html" class="secondary-btn">Öppna avkastning</a>
+                </article>
+                <article class="feature-card">
+                    <h3>Aktieköpskalkylator</h3>
+                    <p>Räkna ut GAV, DCA och riskbaserad positionsstorlek.</p>
+                    <a href="aktiekopskalkylator.html" class="secondary-btn">Öppna aktieköp</a>
+                </article>
+                <article class="feature-card">
+                    <h3>Investeringskalkylator</h3>
+                    <p>Se hur sparande och avkastning kan utvecklas över tid.</p>
+                    <a href="ranta-pa-ranta.html" class="secondary-btn">Öppna investering</a>
+                </article>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

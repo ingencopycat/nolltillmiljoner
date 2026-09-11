@@ -47,6 +47,7 @@ All calculators live in standalone HTML pages and share `style.css` + `script.js
 | Aktievärderingskalkylator | `aktievarderingskalkylator.html` | **Enkel** / **Scenarier** (Bear/Base/Bull) | P/E, forward P/E, PEG, implied future price, CAGR |
 | Avkastningskalkylator | `avkastningskalkylator.html` | **Totalavkastning** / **CAGR** / **Årsavkastning** | Total return, compound annual growth, per-year returns |
 | Aktieköpskalkylator | `aktiekopskalkylator.html` | **GAV** / **DCA** / **Positionsstorlek** | Average purchase price, multi-purchase average, position size from risk and stop-loss |
+| Valutajusterad avkastning | `valutajusterad-avkastning.html` | **Valutakurs** / **Procent** | Currency-adjusted SEK return, currency impact in % and SEK |
 
 ### FIRE: important structural detail
 
@@ -228,6 +229,7 @@ Macroeconomic data is updated via `scripts/update_macro.py` and GitHub Actions (
 ├── aktievarderingskalkylator.html  # Aktievärdering (Enkel / Scenarier)
 ├── avkastningskalkylator.html  # Avkastning (Total / CAGR / Årsavkastning)
 ├── aktiekopskalkylator.html    # Aktieköp (GAV / DCA / Positionsstorlek)
+├── valutajusterad-avkastning.html # Valutajusterad avkastning (Valutakurs / Procent)
 ├── style.css                   # Single shared stylesheet (design tokens + all components)
 ├── script.js                   # Single shared JS (theme, nav, NTM Idag, posts, all calculators)
 ├── posts.js                    # NTM_POSTS — central post data

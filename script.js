@@ -295,6 +295,7 @@ let returnCalcState = null;
 let purchaseCalcState = null;
 let goalCalcState = null;
 let mortgageCalcState = null;
+let fxCalcState = null;
 
 function formatCurrency(value) {
   const numericValue = Number(value);
@@ -6082,4 +6083,313 @@ if (recoveryForm) {
 
 if (leverageForm) {
   initLeveragePage();
+}
+
+/* ==========================================================================
+   Valutajusterad avkastning (Currency-adjusted return calculator)
+   ========================================================================== */
+
+const fxCalculatorForm = document.getElementById('fx-calculator-form');
+const fxModeTabs = document.querySelectorAll('.fx-mode-tab');
+
+function parseFxNumber(value) {
+  const parsedValue = Number.parseFloat(String(value ?? '').replace(/\s/g, '').replace(',', '.'));
+  return Number.isFinite(parsedValue) ? parsedValue : null;
+}
+
+function formatFxSignedPercent(value, digits = 2) {
+  if (!Number.isFinite(value)) return '–';
+  const formatted = new Intl.NumberFormat('sv-SE', {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: digits
+  }).format(Math.abs(value));
+
+  if (value > 0) {
+    return `+${formatted} %`;
+  }
+  if (value < 0) {
+    return `−${formatted} %`;
+  }
+  return `0,0 %`;
+}
+
+function formatFxPercentagePoints(value, digits = 2) {
+  if (!Number.isFinite(value)) return '–';
+  const formatted = new Intl.NumberFormat('sv-SE', {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: digits
+  }).format(Math.abs(value));
+
+  if (value > 0) {
+    return `+${formatted} procentenheter`;
+  }
+  if (value < 0) {
+    return `−${formatted} procentenheter`;
+  }
+  return `0,0 procentenheter`;
+}
+
+function getActiveFxMode() {
+  const activeTab = document.querySelector('.fx-mode-tab.active');
+  return activeTab ? activeTab.dataset.fxMode : 'rate';
+}
+
+function calculateCurrencyAdjustedReturn({ investmentReturnPct, purchaseFx, currentFx, currencyChangePct, amount }) {
+  const rInv = investmentReturnPct / 100;
+
+  let rFx = 0;
+  if (purchaseFx !== undefined && currentFx !== undefined) {
+    rFx = (currentFx / purchaseFx) - 1;
+  } else if (currencyChangePct !== undefined) {
+    rFx = currencyChangePct / 100;
+  }
+
+  const rAdj = (1 + rInv) * (1 + rFx) - 1;
+  const adjReturnPct = rAdj * 100;
+  const fxChangePct = rFx * 100;
+  const diffPctPoints = adjReturnPct - investmentReturnPct;
+
+  let amountDetails = null;
+  if (amount !== null && amount !== undefined && amount > 0) {
+    const actualFinalValue = amount * (1 + rAdj);
+    const profitLoss = actualFinalValue - amount;
+    const finalValueWithoutFx = amount * (1 + rInv);
+    const currencyImpactAmount = actualFinalValue - finalValueWithoutFx;
+
+    amountDetails = {
+      initialAmount: amount,
+      actualFinalValue,
+      profitLoss,
+      finalValueWithoutFx,
+      currencyImpactAmount
+    };
+  }
+
+  return {
+    investmentReturnPct,
+    fxChangePct,
+    adjReturnPct,
+    diffPctPoints,
+    amountDetails
+  };
+}
+
+function generateFxExplanation({ investmentReturnPct, fxChangePct, adjReturnPct, amountDetails }) {
+  const formatTextPct = (num) => {
+    return new Intl.NumberFormat('sv-SE', {
+      minimumFractionDigits: 1,
+      maximumFractionDigits: 1
+    }).format(Math.abs(num));
+  };
+
+  let invText = '';
+  if (investmentReturnPct > 0.0001) {
+    invText = `Investeringen steg ${formatTextPct(investmentReturnPct)} %`;
+  } else if (investmentReturnPct < -0.0001) {
+    invText = `Investeringen sjönk ${formatTextPct(investmentReturnPct)} %`;
+  } else {
+    invText = `Investeringen var oförändrad (0,0 %)`;
+  }
+
+  let fxText = '';
+  if (fxChangePct > 0.0001) {
+    if (investmentReturnPct >= 0) {
+      fxText = `, samtidigt som den utländska valutan stärktes med ${formatTextPct(fxChangePct)} % mot SEK`;
+    } else {
+      fxText = `, men den utländska valutan stärktes med ${formatTextPct(fxChangePct)} % mot SEK vilket dämpade nedgången`;
+    }
+  } else if (fxChangePct < -0.0001) {
+    if (investmentReturnPct > 0) {
+      fxText = `, men den utländska valutan försvagades med ${formatTextPct(fxChangePct)} % mot SEK`;
+    } else if (investmentReturnPct < 0) {
+      fxText = `, samtidigt som den utländska valutan försvagades med ${formatTextPct(fxChangePct)} % mot SEK vilket förstärkte nedgången`;
+    } else {
+      fxText = `, men den utländska valutan försvagades med ${formatTextPct(fxChangePct)} % mot SEK`;
+    }
+  } else {
+    fxText = ` och valutakursen var oförändrad mot SEK`;
+  }
+
+  let resultSentence = '';
+  if (adjReturnPct > 0.0001) {
+    resultSentence = ` Din valutajusterade avkastning blev därför +${formatTextPct(adjReturnPct)} %.`;
+  } else if (adjReturnPct < -0.0001) {
+    resultSentence = ` Din valutajusterade avkastning blev därför −${formatTextPct(adjReturnPct)} %.`;
+  } else {
+    resultSentence = ` Din valutajusterade avkastning blev därför 0,0 %.`;
+  }
+
+  let amountSentence = '';
+  if (amountDetails) {
+    const formattedStart = formatCurrency(amountDetails.initialAmount);
+    const formattedEnd = formatCurrency(amountDetails.actualFinalValue);
+    const impactVal = amountDetails.currencyImpactAmount;
+    const impactSign = impactVal > 0 ? '+' : impactVal < 0 ? '−' : '';
+    const impactFormatted = `${impactSign}${formatCurrency(Math.abs(impactVal))}`;
+    amountSentence = ` Med ${formattedStart} investerat blev slutvärdet ${formattedEnd}, där valutarörelsen påverkade resultatet med ${impactFormatted} jämfört med om valutakursen varit oförändrad.`;
+  }
+
+  return `${invText}${fxText}.${resultSentence}${amountSentence}`;
+}
+
+function calculateFxTool() {
+  if (!fxCalculatorForm) return false;
+
+  const activeMode = getActiveFxMode();
+  let investmentReturn = null;
+  let purchaseRate = null;
+  let currentRate = null;
+  let currencyChange = null;
+  let amount = null;
+
+  if (activeMode === 'percent') {
+    const invInput = document.getElementById('fx-percent-investment-return');
+    const changeInput = document.getElementById('fx-percent-currency-change');
+    const amountInput = document.getElementById('fx-percent-amount');
+
+    investmentReturn = parseFxNumber(invInput?.value);
+    currencyChange = parseFxNumber(changeInput?.value);
+    const rawAmount = amountInput?.value?.trim();
+    amount = rawAmount ? parseFxNumber(rawAmount) : null;
+
+    if (investmentReturn === null) {
+      return 'Ange investeringens avkastning i procent.';
+    }
+    if (investmentReturn < -100) {
+      return 'Investeringens avkastning kan inte vara lägre än -100 %.';
+    }
+    if (currencyChange === null) {
+      return 'Ange valutans förändring mot SEK i procent.';
+    }
+    if (currencyChange < -100) {
+      return 'Valutans förändring mot SEK kan inte vara lägre än -100 %.';
+    }
+    if (rawAmount && (amount === null || amount <= 0)) {
+      return 'Investerat belopp måste vara ett positivt tal större än 0 kr.';
+    }
+  } else {
+    // Mode 1: Valutakurs (default)
+    const invInput = document.getElementById('fx-rate-investment-return');
+    const purchaseInput = document.getElementById('fx-rate-purchase');
+    const currentInput = document.getElementById('fx-rate-current');
+    const amountInput = document.getElementById('fx-rate-amount');
+
+    investmentReturn = parseFxNumber(invInput?.value);
+    purchaseRate = parseFxNumber(purchaseInput?.value);
+    currentRate = parseFxNumber(currentInput?.value);
+    const rawAmount = amountInput?.value?.trim();
+    amount = rawAmount ? parseFxNumber(rawAmount) : null;
+
+    if (investmentReturn === null) {
+      return 'Ange investeringens avkastning i procent.';
+    }
+    if (investmentReturn < -100) {
+      return 'Investeringens avkastning kan inte vara lägre än -100 %.';
+    }
+    if (purchaseRate === null || purchaseRate <= 0) {
+      return 'Valutakurs vid köp måste vara ett positivt tal större än 0.';
+    }
+    if (currentRate === null || currentRate <= 0) {
+      return 'Valutakurs idag måste vara ett positivt tal större än 0.';
+    }
+    if (rawAmount && (amount === null || amount <= 0)) {
+      return 'Investerat belopp måste vara ett positivt tal större än 0 kr.';
+    }
+  }
+
+  try {
+    const result = calculateCurrencyAdjustedReturn({
+      investmentReturnPct: investmentReturn,
+      purchaseFx: purchaseRate ?? undefined,
+      currentFx: currentRate ?? undefined,
+      currencyChangePct: currencyChange ?? undefined,
+      amount
+    });
+
+    const adjustedEl = document.getElementById('fx-adjusted-return-result');
+    const investmentEl = document.getElementById('fx-investment-return-result');
+    const fxChangeEl = document.getElementById('fx-currency-change-result');
+    const diffEl = document.getElementById('fx-return-difference-result');
+    const summaryEl = document.getElementById('fx-summary');
+
+    if (adjustedEl) adjustedEl.textContent = formatFxSignedPercent(result.adjReturnPct);
+    if (investmentEl) investmentEl.textContent = formatFxSignedPercent(result.investmentReturnPct);
+    if (fxChangeEl) fxChangeEl.textContent = formatFxSignedPercent(result.fxChangePct);
+    if (diffEl) diffEl.textContent = formatFxPercentagePoints(result.diffPctPoints);
+
+    const amountBoxes = [
+      document.getElementById('fx-final-value-box'),
+      document.getElementById('fx-profit-loss-box'),
+      document.getElementById('fx-no-currency-value-box'),
+      document.getElementById('fx-currency-impact-box')
+    ];
+
+    if (result.amountDetails) {
+      amountBoxes.forEach((box) => box?.classList.remove('hidden'));
+
+      const finalValEl = document.getElementById('fx-final-value-result');
+      const profitLossEl = document.getElementById('fx-profit-loss-result');
+      const noFxValEl = document.getElementById('fx-no-currency-value-result');
+      const fxImpactEl = document.getElementById('fx-currency-impact-result');
+
+      if (finalValEl) finalValEl.textContent = formatCurrency(result.amountDetails.actualFinalValue);
+
+      if (profitLossEl) {
+        const pl = result.amountDetails.profitLoss;
+        const plSign = pl > 0 ? '+' : pl < 0 ? '−' : '';
+        profitLossEl.textContent = `${plSign}${formatCurrency(Math.abs(pl))}`;
+      }
+
+      if (noFxValEl) noFxValEl.textContent = formatCurrency(result.amountDetails.finalValueWithoutFx);
+
+      if (fxImpactEl) {
+        const impact = result.amountDetails.currencyImpactAmount;
+        const impactSign = impact > 0 ? '+' : impact < 0 ? '−' : '';
+        fxImpactEl.textContent = `${impactSign}${formatCurrency(Math.abs(impact))}`;
+      }
+    } else {
+      amountBoxes.forEach((box) => box?.classList.add('hidden'));
+    }
+
+    if (summaryEl) {
+      summaryEl.textContent = generateFxExplanation(result);
+    }
+
+    return true;
+  } catch (error) {
+    return error.message || 'Ett fel uppstod vid beräkningen.';
+  }
+}
+
+function initFxCalculator() {
+  if (!fxCalculatorForm) return;
+
+  fxCalcState = new CalcState({
+    id: 'fx',
+    container: fxCalculatorForm.closest('.calculator-card') || fxCalculatorForm.parentElement,
+    form: fxCalculatorForm,
+    onCalculate: calculateFxTool
+  });
+
+  if (fxModeTabs.length) {
+    fxModeTabs.forEach((button) => {
+      button.addEventListener('click', function () {
+        const selectedMode = button.dataset.fxMode || 'rate';
+        fxModeTabs.forEach((tab) => {
+          const isActive = tab === button;
+          tab.classList.toggle('active', isActive);
+          tab.setAttribute('aria-selected', String(isActive));
+        });
+        document.querySelectorAll('.fx-mode-panel').forEach((panel) => {
+          panel.classList.toggle('hidden', panel.id !== `fx-${selectedMode}-panel`);
+        });
+
+        if (fxCalcState) fxCalcState.setNeutral();
+      });
+    });
+  }
+}
+
+if (fxCalculatorForm) {
+  initFxCalculator();
 }
