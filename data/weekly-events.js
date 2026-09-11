@@ -6623,8 +6623,8 @@ const earningsWeeks = {
 
 window.NTM_WEEKLY_EVENTS = {
   meta: {
-  "lastFetchAttempt": "2026-09-11T17:04:39Z",
-  "lastSuccessfulUpdate": "2026-09-11T17:04:39Z",
+  "lastFetchAttempt": "2026-09-11T17:16:31Z",
+  "lastSuccessfulUpdate": "2026-09-11T17:16:31Z",
   "status": "ok",
   "activeSources": [
     "U.S. Bureau of Labor Statistics (BLS)"
