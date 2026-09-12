@@ -103,11 +103,11 @@ const macroWeeks = {
         "period": "Aug.",
         "forecast": null,
         "previous": "432B",
-        "actual": "345B",
+        "actual": "167B",
         "priority": "low",
         "source": "U.S. Department of the Treasury",
         "sourceUrl": "https://fiscaldata.treasury.gov/",
-        "officialBaseline": "345B"
+        "officialBaseline": "167B"
       },
       {
         "id": "us-ppi-2026-09-10",
@@ -6834,8 +6834,8 @@ const earningsWeeks = {
 
 window.NTM_WEEKLY_EVENTS = {
   meta: {
-  "lastFetchAttempt": "2026-09-11T18:00:55Z",
-  "lastSuccessfulUpdate": "2026-09-11T18:00:55Z",
+  "lastFetchAttempt": "2026-09-11T18:24:43Z",
+  "lastSuccessfulUpdate": "2026-09-11T18:24:43Z",
   "status": "ok",
   "activeSources": [
     "U.S. Bureau of Labor Statistics (BLS)"
