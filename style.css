@@ -634,6 +634,84 @@ body.light-theme .result-box {
 .info-callout {
   margin-top: 24px;
   padding: 16px 18px;
+
+.min-ntm-intro {
+  margin-bottom: 20px;
+}
+
+.min-ntm-local-note {
+  margin-top: 8px !important;
+  font-size: 0.9rem !important;
+}
+
+.min-ntm-card {
+  margin-bottom: 20px;
+}
+
+.min-ntm-status {
+  margin: 0 0 14px;
+  color: var(--danger);
+  font-size: 0.9rem;
+}
+
+.min-ntm-list {
+  display: grid;
+  gap: 10px;
+}
+
+.min-ntm-list:empty {
+  display: none;
+}
+
+.min-ntm-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.min-ntm-list-item h3 {
+  margin: 0 0 4px;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.min-ntm-list-item p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.min-ntm-list-item a {
+  flex: 0 0 auto;
+  width: auto;
+  margin: 0;
+  padding: 10px 14px;
+}
+
+.min-ntm-empty {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+.min-ntm-actions,
+.min-ntm-quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.min-ntm-actions a,
+.min-ntm-quick-links a {
+  width: auto;
+}
   border: 1px solid rgba(94, 163, 255, 0.28);
   border-left: 3px solid var(--accent);
   border-radius: 14px;
@@ -1180,6 +1258,11 @@ body.light-theme .calc-status-banner.calc-status-stale {
   max-width: 520px;
 }
 
+.return-inflation-field {
+  max-width: 520px;
+  margin-top: 16px;
+}
+
 .annual-return-row {
   display: grid;
   grid-template-columns: minmax(80px, 1fr) minmax(0, 180px) auto;
@@ -1495,6 +1578,11 @@ body.light-theme .scenario-chart-panel {
     flex: 1 0 auto;
     padding: 9px 8px;
     font-size: 0.8rem;
+  }
+
+  .stock-mode-tab {
+    flex: 1 1 0;
+    white-space: normal;
   }
 
   .fire-post-fire-callout {

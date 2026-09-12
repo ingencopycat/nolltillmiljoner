@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Min NTM | Noll till Miljoner</title>
+    <meta name="description" content="Din personliga lokala översikt på Noll till Miljoner med sparade scenarier och senast använda verktyg." />
+    <link rel="canonical" href="https://nolltillmiljoner.se/min-ntm.html" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a href="index.html" class="brand-wrap">
+                <img class="brand-logo" src="images/ntm-logo.png.png" alt="NTM" />
+                <div class="brand-text"><span class="brand-name"><span class="brand-zero">NOLL</span> <span class="brand-neutral">TILL</span> <span class="brand-million">MILJONER</span></span><span class="brand-subtitle">Min NTM</span></div>
+            </a>
+            <nav class="main-nav" aria-label="Huvudnavigering">
+                <div class="mobile-theme-row"><span class="mobile-theme-label">Tema</span><button id="mobileThemeToggle" class="theme-toggle mobile-theme-btn" type="button" aria-label="Växla tema" title="Växla tema"><span class="toggle-icon toggle-icon-sun">🌞</span><span class="toggle-icon toggle-icon-moon">🌙</span></button></div>
+                <a href="index.html">Hem</a><a href="verktyg.html">Verktyg</a><a href="min-ntm.html" class="active" aria-current="page">Min NTM</a><a href="inlagg.html">Inlägg</a><a href="makro.html">Makro</a><a href="rapporter.html">Rapporter</a><a href="resurser.html">Resurser</a><a href="community.html">Community</a>
+            </nav>
+            <button id="mobileNavToggle" class="nav-toggle" type="button" aria-label="Öppna meny" aria-expanded="false">☰</button>
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Växla tema" title="Växla tema"><span class="toggle-icon toggle-icon-sun">🌞</span><span class="toggle-icon toggle-icon-moon">🌙</span></button>
+        </div>
+    </header>
+
+    <main class="container tool-landing" data-min-ntm>
+        <header class="page-intro tool-intro min-ntm-intro"><span class="section-kicker">Lokalt på din enhet</span><h1>Min NTM</h1><p>Din personliga översikt.</p><p class="min-ntm-local-note">Sparas lokalt på den här enheten. Ingen inloggning krävs.</p></header>
+
+        <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-scenarios-heading">
+            <div class="section-heading"><div><span class="section-kicker">Sparade scenarier</span><h2 id="min-ntm-scenarios-heading">Dina kalkyler</h2></div></div>
+            <p class="min-ntm-status" data-min-ntm-scenarios-status hidden></p>
+            <div class="min-ntm-list" data-min-ntm-scenarios></div>
+            <div class="empty-state min-ntm-empty" data-min-ntm-scenarios-empty>
+                <h3>Inga sparade scenarier ännu</h3>
+                <p>Spara ett scenario i Investeringskalkylatorn eller Sparmålskalkylatorn så dyker det upp här.</p>
+                <div class="min-ntm-actions"><a class="secondary-btn" href="ranta-pa-ranta.html">Öppna investering</a><a class="ghost-btn" href="sparmalskalkylator.html">Öppna sparmål</a></div>
+            </div>
+        </section>
+
+        <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-recent-heading">
+            <div class="section-heading"><div><span class="section-kicker">Senaste verktyg</span><h2 id="min-ntm-recent-heading">Fortsätt där du var</h2></div></div>
+            <p class="min-ntm-status" data-min-ntm-recent-status hidden></p>
+            <div class="min-ntm-list" data-min-ntm-recent-tools></div>
+            <div class="empty-state min-ntm-empty" data-min-ntm-recent-empty>
+                <h3>Inga använda verktyg ännu</h3>
+                <p>När du öppnar ett verktyg sparas det här lokalt som en genväg tillbaka.</p>
+            </div>
+        </section>
+
+        <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-links-heading">
+            <div class="section-heading"><div><span class="section-kicker">Snabblänkar</span><h2 id="min-ntm-links-heading">Gå vidare</h2></div></div>
+            <div class="min-ntm-quick-links"><a class="secondary-btn" href="makro.html">Makro</a><a class="secondary-btn" href="rapporter.html">Rapporter</a><a class="secondary-btn" href="verktyg.html">Alla verktyg</a></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

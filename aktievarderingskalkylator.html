@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aktievärderingskalkylator – P/E, PEG &amp; framtida aktiepris | Noll till Miljoner</title>
-    <meta name="description" content="Räkna på P/E, Forward P/E, PEG, framtida EPS, aktiepris och CAGR. Testa olika antaganden för vinsttillväxt och framtida värdering." />
+    <title>Aktievärderingskalkylator – P/E, PEG &amp; omvänd värdering | Noll till Miljoner</title>
+    <meta name="description" content="Räkna på P/E, Forward P/E, PEG, framtida EPS, aktiepris, CAGR och omvänd värdering utifrån avkastningskrav." />
     <link rel="canonical" href="https://nolltillmiljoner.se/aktievarderingskalkylator.html" />
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -16,7 +16,7 @@
       "url": "https://nolltillmiljoner.se/aktievarderingskalkylator.html",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "All",
-      "description": "Kalkylator för P/E, Forward P/E, PEG, framtida EPS och scenarioanalys av aktiepris.",
+    "description": "Kalkylator för P/E, Forward P/E, PEG, framtida EPS, scenarioanalys och omvänd värdering av aktiepris.",
       "publisher": { "@type": "Organization", "name": "Noll till Miljoner" },
       "mainEntity": [
         { "@type": "Question", "name": "Hur räknar man ut P/E?", "acceptedAnswer": { "@type": "Answer", "text": "P/E räknas som aktiekursen delat med vinsten per aktie, EPS." } },
@@ -40,7 +40,7 @@
             </a>
             <nav class="main-nav" aria-label="Huvudnavigering">
                 <div class="mobile-theme-row"><span class="mobile-theme-label">Tema</span><button id="mobileThemeToggle" class="theme-toggle mobile-theme-btn" type="button" aria-label="Växla tema" title="Växla tema"><span class="toggle-icon toggle-icon-sun">🌞</span><span class="toggle-icon toggle-icon-moon">🌙</span></button></div>
-                <a href="index.html">Hem</a><a href="verktyg.html" class="active" aria-current="page">Verktyg</a><a href="inlagg.html">Inlägg</a><a href="makro.html">Makro</a><a href="rapporter.html">Rapporter</a><a href="resurser.html">Resurser</a><a href="community.html">Community</a>
+                <a href="index.html">Hem</a><a href="verktyg.html" class="active" aria-current="page">Verktyg</a><a href="min-ntm.html">Min NTM</a><a href="inlagg.html">Inlägg</a><a href="makro.html">Makro</a><a href="rapporter.html">Rapporter</a><a href="resurser.html">Resurser</a><a href="community.html">Community</a>
             </nav>
             <button id="mobileNavToggle" class="nav-toggle" type="button" aria-label="Öppna meny" aria-expanded="false">☰</button>
             <button id="themeToggle" class="theme-toggle" type="button" aria-label="Växla tema" title="Växla tema"><span class="toggle-icon toggle-icon-sun">🌞</span><span class="toggle-icon toggle-icon-moon">🌙</span></button>
@@ -52,9 +52,9 @@
 
         <section class="card calculator-card" aria-labelledby="stock-calculator-heading">
             <div class="section-heading"><div><span class="section-kicker">Värdering</span><h2 id="stock-calculator-heading">Räkna på aktiens möjliga utveckling</h2></div></div>
-            <div class="mode-toggle" role="tablist" aria-label="Välj beräkningsläge"><button class="mode-tab stock-mode-tab active" type="button" data-stock-mode="simple" role="tab" aria-selected="true">Enkel</button><button class="mode-tab stock-mode-tab" type="button" data-stock-mode="scenarios" role="tab" aria-selected="false">Scenarier</button></div>
+            <div class="mode-toggle" role="tablist" aria-label="Välj beräkningsläge"><button class="mode-tab stock-mode-tab active" type="button" data-stock-mode="simple" role="tab" aria-selected="true">Enkel</button><button class="mode-tab stock-mode-tab" type="button" data-stock-mode="scenarios" role="tab" aria-selected="false">Scenarier</button><button class="mode-tab stock-mode-tab" type="button" data-stock-mode="reverse" role="tab" aria-selected="false">Omvänd värdering</button></div>
 
-            <form id="stock-valuation-form" class="calculator-form">
+            <form id="stock-valuation-form" class="calculator-form" novalidate>
                 <div id="stock-simple-panel" class="stock-mode-panel">
                     <div class="form-grid form-grid--aligned">
                         <div class="field-group"><label for="stock-price">Aktiekurs idag</label><input id="stock-price" type="number" min="0" step="0.01" value="100" inputmode="decimal" /></div>
@@ -82,6 +82,17 @@
                     </div>
                     <p class="field-help scenario-note">Bear, Base och Bull är exempelantaganden. De är inte rekommendationer och passar inte automatiskt för varje bolag.</p>
                 </div>
+
+                <div id="stock-reverse-panel" class="stock-mode-panel hidden">
+                    <div class="form-grid form-grid--aligned">
+                        <div class="field-group"><label for="reverse-stock-price">Aktiekurs idag</label><input id="reverse-stock-price" type="number" min="0" step="0.01" value="150" inputmode="decimal" /></div>
+                        <div class="field-group"><label for="reverse-stock-eps">EPS idag</label><input id="reverse-stock-eps" type="number" min="0" step="0.01" value="5" inputmode="decimal" /><small class="field-help">Omvänd EPS-värdering kräver positiv EPS i den här versionen.</small></div>
+                        <div class="field-group"><label for="reverse-stock-years">Antal år</label><input id="reverse-stock-years" type="number" min="1" max="100" step="1" value="5" inputmode="numeric" /></div>
+                        <div class="field-group"><label for="reverse-stock-return">Önskad årlig avkastning (%)</label><input id="reverse-stock-return" type="number" min="-99.9" max="1000" step="0.1" value="10" inputmode="decimal" /></div>
+                        <div class="field-group"><label for="reverse-stock-exit-pe">Antagen P/E vid periodens slut</label><input id="reverse-stock-exit-pe" type="number" min="0" max="1000" step="0.1" value="25" inputmode="decimal" /></div>
+                        <div class="field-group"><label for="reverse-stock-currency">Valuta</label><select id="reverse-stock-currency"><option value="SEK" selected>SEK</option><option value="USD">USD</option><option value="EUR">EUR</option></select></div>
+                    </div>
+                </div>
                 <button type="submit">Beräkna</button>
             </form>
 
@@ -93,7 +104,12 @@
 
             <div id="stock-scenarios-results" class="stock-results-panel hidden" aria-live="polite"><div class="stock-scenario-table-wrap"><table class="stock-scenario-table"><caption>Scenariojämförelse efter <span id="scenario-year-label">5</span> år</caption><thead><tr><th scope="col">Mått</th><th scope="col">Bear</th><th scope="col">Base</th><th scope="col">Bull</th></tr></thead><tbody><tr><th scope="row">EPS</th><td id="bear-eps-result">–</td><td id="base-eps-result">–</td><td id="bull-eps-result">–</td></tr><tr><th scope="row">Aktiepris</th><td id="bear-price-result">–</td><td id="base-price-result">–</td><td id="bull-price-result">–</td></tr><tr><th scope="row">Total kursutveckling</th><td id="bear-return-result">–</td><td id="base-return-result">–</td><td id="bull-return-result">–</td></tr><tr><th scope="row">Årlig kursutveckling (CAGR)</th><td id="bear-cagr-result">–</td><td id="base-cagr-result">–</td><td id="bull-cagr-result">–</td></tr></tbody></table></div><p class="stock-message">Beräkningen bygger på dina antaganden om vinsttillväxt och framtida P/E. Utdelningar ingår inte.</p></div>
 
-            <div class="chart-panel"><div class="chart-header"><h3>Värderingsscenario</h3></div><div class="chart-wrap"><canvas id="stockValuationChart" aria-label="Diagram över aktieprisets värderingsscenario"></canvas></div><p class="note">År 0 visar dagens faktiska aktiekurs. Därefter visas EPS gånger antagen framtida P/E.</p></div>
+            <div id="stock-reverse-results" class="stock-results-panel hidden" aria-live="polite">
+                <div class="results"><div class="result-box highlight"><span class="label">Krävd EPS-tillväxt per år</span><strong id="reverse-stock-cagr-result" class="result-value">–</strong></div><div class="result-box"><span class="label">Krävd aktiekurs om <span id="reverse-stock-year-label">5</span> år</span><strong id="reverse-stock-future-price-result" class="result-value">–</strong></div><div class="result-box"><span class="label">Krävd EPS om <span id="reverse-stock-eps-year-label">5</span> år</span><strong id="reverse-stock-future-eps-result" class="result-value">–</strong></div><div class="result-box"><span class="label">EPS idag</span><strong id="reverse-stock-current-eps-result" class="result-value">–</strong></div><div class="result-box"><span class="label">Antagen framtida P/E</span><strong id="reverse-stock-exit-pe-result" class="result-value">–</strong></div><div class="result-box"><span class="label">Önskad årlig avkastning</span><strong id="reverse-stock-return-result" class="result-value">–</strong></div></div>
+                <p class="stock-message" id="stock-reverse-message">Omvänd värdering visar vilken EPS-nivå som krävs för att dagens aktiekurs ska motsvara ditt avkastningskrav och din antagna framtida P/E-multipel.</p>
+            </div>
+
+            <div class="chart-panel"><div class="chart-header"><h3 id="stock-chart-heading">Värderingsscenario</h3></div><div class="chart-wrap"><canvas id="stockValuationChart" aria-label="Diagram över aktieprisets värderingsscenario"></canvas></div><p class="note" id="stock-chart-note">År 0 visar dagens faktiska aktiekurs. Därefter visas EPS gånger antagen framtida P/E.</p></div>
         </section>
 
         <div class="education-content"><section class="education-section"><h2>Vad är P/E?</h2><p>P/E står för price-to-earnings och visar hur många gånger vinsten per aktie marknaden betalar. P/E kan hjälpa dig att jämföra värderingar, men behöver tolkas tillsammans med tillväxt, lönsamhet, risk och bransch.</p></section><section class="education-section"><h2>Hur räknar man ut P/E?</h2><p>Formeln är:</p><p class="formula" aria-label="P E är lika med aktiekurs delat med vinst per aktie"><var>P/E</var> = <var>Aktiekurs</var> / <var>EPS</var></p><p>Om aktiekursen är 100 och EPS är 4 blir nuvarande P/E 25.</p></section><section class="education-section"><h2>Vad är Forward P/E?</h2><p>Forward P/E använder en förväntad framtida EPS i stället för den senaste rapporterade vinsten. Det gör måttet framåtblickande, men resultatet beror på hur rimlig EPS-förväntan är.</p></section><section class="education-section"><h2>Vad är PEG?</h2><p>PEG relaterar P/E till förväntad vinsttillväxt. I den här kalkylatorn används P/E delat med tillväxten uttryckt som ett helt procenttal, till exempel 30 / 20 = 1,50. PEG under 1 tolkas ibland som låg värdering relativt tillväxt, men är inte automatiskt billigt.</p></section><section class="education-section"><h2>Hur kan man uppskatta ett framtida aktiepris?</h2><p>En förenklad modell är <strong>framtida EPS × antagen framtida P/E</strong>. Kalkylatorn visar vad den kombinationen innebär, inte vad aktien säkert kommer att vara värd.</p></section><section class="education-section"><h2>Hur påverkar vinsttillväxt en akties värdering?</h2><p>Om EPS växer kan ett oförändrat P/E ge ett högre teoretiskt aktiepris. Men marknaden kan samtidigt ändra vilken multipel den vill betala, särskilt när räntor, marginaler eller risk förändras.</p></section><section class="education-section"><h2>Vad betyder P/E-expansion och P/E-kontraktion?</h2><p>P/E-expansion innebär att aktien får en högre värderingsmultipel och kan stiga snabbare än vinsten. Vid P/E-kontraktion faller multipeln; vinsten kan då växa medan aktien utvecklas svagare eller till och med faller.</p></section><section class="education-section"><h2>Varför är ett framtida aktiepris bara ett scenario?</h2><p>Verkliga aktiepriser påverkas av bland annat konkurrens, konjunktur, räntor, kapitalflöden, marginaler och bolagets kvalitet. Modellen använder bara EPS-tillväxt och P/E och ska därför användas för att testa antaganden, inte som köp- eller säljbesked.</p><p>Se även <a href="ranta-pa-ranta.html">Investeringskalkylatorn</a>, <a href="aterhamtning.html">Återhämtningskalkylatorn</a> och <a href="havstang.html">Hävstångskalkylatorn</a> för andra delar av din analys.</p></section></div>

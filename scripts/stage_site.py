@@ -10,7 +10,7 @@ import sys
 WORKSPACE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REQUIRED_FILES = [
     'index.html', 'makro.html', 'rapporter.html', 'verktyg.html', 'inlagg.html',
-    'post.html', 'resurser.html', 'community.html', 'calculator.html',
+    'post.html', 'resurser.html', 'community.html', 'min-ntm.html', 'calculator.html',
     'investeringar.html', 'ranta-pa-ranta.html',
     'fire-kalkylator.html', 'sparmalskalkylator.html', 'avgifter.html',
     'havstang.html', 'aterhamtning.html', 'bolanekalkylator.html',

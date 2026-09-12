@@ -18,6 +18,7 @@ Primary navigation (identical header on all pages, defined in each page's HTML):
 |---|---|---|
 | Hem | `index.html` | Homepage with the "NTM Idag" dashboard and latest posts |
 | Verktyg | `verktyg.html` | Tool directory: search, category filters, tool cards |
+| Min NTM | `min-ntm.html` | Local personal overview: saved scenarios and recent tools |
 | Inlägg | `inlagg.html` | Post archive: search, category filters, pagination |
 | Makro | `makro.html` | Weekly macro image + archive |
 | Rapporter | `rapporter.html` | Weekly earnings image + archive |
@@ -202,6 +203,8 @@ Macroeconomic data is updated via `scripts/update_macro.py` and GitHub Actions (
 - `injectInstagramPromo()` — inserts the shared Instagram footer section after `<main>` on every page (idempotent).
 - `initPostSystem()` / `initYoutubePosts()` — posts archive/view, carousels, lightbox, YouTube facades.
 - `initToolsDirectory()` — verktyg search/filter/collapse.
+- `initMinNtmPage()` — local-only Min NTM overview. Reads saved scenarios from `investment-scenarios-v1` for calculators that support scenario saving, and recent tools from `investment-recent-tools-v1`. No account, backend or personal analytics.
+- `recordRecentToolVisit()` — records visits to real calculator/tool pages only, max 5 unique tools, under `investment-recent-tools-v1`.
 - Mobile nav toggle (`#mobileNavToggle` + `.main-nav.open`).
 - Calculator modules: investment (`calculateProjection`, `calculateInvestment`), dividend, fee comparison, FIRE (path/goal/withdrawal + charts), ISK, stock valuation, return/CAGR, purchase (GAV/DCA/position), goal, mortgage, leverage, recovery — each with its own `parse*/format*` helpers.
 - Shared formatting helpers: `formatCurrency()`, `formatPercent()`, `formatYearsAndMonths()`, etc. Reuse them.
@@ -212,6 +215,7 @@ Macroeconomic data is updated via `scripts/update_macro.py` and GitHub Actions (
 /
 ├── index.html                  # Homepage: NTM Idag dashboard + latest posts
 ├── verktyg.html                # Tool directory (search + category filters)
+├── min-ntm.html                # Local personal overview (saved scenarios + recent tools)
 ├── inlagg.html                 # Post archive (search, filters, pagination)
 ├── post.html                   # Shared post shell (?post=<slug>)
 ├── makro.html                  # Weekly macro image + archive

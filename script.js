@@ -273,11 +273,76 @@ function restoreFormSnapshot(form, inputs) {
 
 window.NTMScenarioStorage = {
   key: SCENARIO_STORAGE_KEY,
+  read: readScenarioStore,
   get: getSavedScenarios,
   save: saveScenario,
   remove: deleteScenario,
   snapshotForm,
   restoreFormSnapshot
+};
+
+const RECENT_TOOLS_STORAGE_KEY = 'investment-recent-tools-v1';
+const NTM_TOOL_REGISTRY = {
+  'ranta-pa-ranta.html': { id: 'ranta-pa-ranta', name: 'Investeringskalkylator', url: 'ranta-pa-ranta.html' },
+  'fire-kalkylator.html': { id: 'fire', name: 'FIRE-kalkylator', url: 'fire-kalkylator.html' },
+  'sparmalskalkylator.html': { id: 'sparmal', name: 'Sparmålskalkylator', url: 'sparmalskalkylator.html' },
+  'avgifter.html': { id: 'avgifter', name: 'Jämför avgifter', url: 'avgifter.html' },
+  'havstang.html': { id: 'havstang', name: 'Hävstångskalkylator', url: 'havstang.html' },
+  'aterhamtning.html': { id: 'aterhamtning', name: 'Återhämtningskalkylator', url: 'aterhamtning.html' },
+  'bolanekalkylator.html': { id: 'bolan', name: 'Bolånekalkylator', url: 'bolanekalkylator.html' },
+  'isk-skattkalkylator.html': { id: 'isk-skatt', name: 'ISK-skattkalkylator', url: 'isk-skattkalkylator.html' },
+  'aktievarderingskalkylator.html': { id: 'aktievardering', name: 'Aktievärderingskalkylator', url: 'aktievarderingskalkylator.html' },
+  'avkastningskalkylator.html': { id: 'avkastning', name: 'Avkastningskalkylator', url: 'avkastningskalkylator.html' },
+  'aktiekopskalkylator.html': { id: 'aktiekop', name: 'Aktieköpskalkylator', url: 'aktiekopskalkylator.html' },
+  'valutajusterad-avkastning.html': { id: 'valutajusterad-avkastning', name: 'Valutajusterad avkastning', url: 'valutajusterad-avkastning.html' }
+};
+
+function readRecentToolsStore() {
+  try {
+    if (!window.localStorage) {
+      return { tools: [], error: 'Lokal lagring är inte tillgänglig.' };
+    }
+    const raw = window.localStorage.getItem(RECENT_TOOLS_STORAGE_KEY);
+    if (!raw) {
+      return { tools: [], error: null };
+    }
+    const parsed = JSON.parse(raw);
+    if (!parsed || parsed.version !== 1 || !Array.isArray(parsed.tools)) {
+      return { tools: [], error: 'Senast använda verktyg kunde inte läsas.' };
+    }
+    return { tools: parsed.tools.filter((tool) => tool && tool.id && tool.name && tool.url).slice(0, 5), error: null };
+  } catch (error) {
+    return { tools: [], error: 'Senast använda verktyg kunde inte läsas.' };
+  }
+}
+
+function writeRecentToolsStore(tools) {
+  try {
+    if (!window.localStorage) return false;
+    window.localStorage.setItem(RECENT_TOOLS_STORAGE_KEY, JSON.stringify({ version: 1, tools: tools.slice(0, 5) }));
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+function recordRecentToolVisit() {
+  const path = window.location.pathname.split('/').pop() || 'index.html';
+  const tool = NTM_TOOL_REGISTRY[path];
+  if (!tool) return;
+
+  const current = readRecentToolsStore().tools;
+  const nextTools = [
+    { ...tool, lastUsedAt: new Date().toISOString() },
+    ...current.filter((item) => item.id !== tool.id)
+  ].slice(0, 5);
+  writeRecentToolsStore(nextTools);
+}
+
+window.NTMRecentTools = {
+  key: RECENT_TOOLS_STORAGE_KEY,
+  read: readRecentToolsStore,
+  record: recordRecentToolVisit
 };
 
 let growthCalcState = null;
@@ -3313,6 +3378,12 @@ function formatStockPercent(value) {
     : '–';
 }
 
+function formatStockPlainPercent(value) {
+  return Number.isFinite(value)
+    ? `${value.toLocaleString('sv-SE', { minimumFractionDigits: 1, maximumFractionDigits: 1 })} %`
+    : '–';
+}
+
 function calculateStockScenario(currentPrice, currentEPS, growthPercent, years, futurePE) {
   const growthRate = growthPercent / 100;
   const futureEPS = Number.isFinite(currentEPS) && Number.isFinite(growthRate) && growthRate >= -1
@@ -3329,6 +3400,15 @@ function calculateStockScenario(currentPrice, currentEPS, growthPercent, years, 
   return { currentPE, futureEPS, targetPrice, totalReturn, cagr, peg };
 }
 
+function calculateReverseStockValuation(currentPrice, currentEPS, years, requiredReturnPercent, exitPE) {
+  const requiredReturnRate = requiredReturnPercent / 100;
+  const futurePriceRequired = currentPrice * Math.pow(1 + requiredReturnRate, years);
+  const requiredFutureEPS = futurePriceRequired / exitPE;
+  const requiredEPSCAGR = Math.pow(requiredFutureEPS / currentEPS, 1 / years) - 1;
+
+  return { futurePriceRequired, requiredFutureEPS, requiredEPSCAGR };
+}
+
 function renderStockChart(mode, chartData, currency) {
   const canvas = document.getElementById('stockValuationChart');
   if (!canvas || typeof Chart === 'undefined') {
@@ -3341,10 +3421,15 @@ function renderStockChart(mode, chartData, currency) {
 
   const colors = getChartColors();
   const formatTick = (value) => formatStockCurrency(Number(value), currency);
-  const datasets = mode === 'simple'
-    ? [{
-        label: 'Scenariopris',
-      data: chartData.data,
+  const datasets = mode === 'scenario'
+    ? [
+        { label: 'Bear', data: chartData.bear, borderColor: colors.danger, borderWidth: 2, pointRadius: 2, fill: false, tension: 0.25 },
+        { label: 'Base', data: chartData.base, borderColor: colors.primary, borderWidth: 3, pointRadius: 2, fill: false, tension: 0.25 },
+        { label: 'Bull', data: chartData.bull, borderColor: colors.accent, borderWidth: 2, pointRadius: 2, fill: false, tension: 0.25 }
+      ]
+    : [{
+        label: mode === 'reverse' ? 'Krävd aktiekurs' : 'Scenariopris',
+        data: chartData.data,
         borderColor: colors.primary,
         backgroundColor: colors.primarySoft,
         borderWidth: 3,
@@ -3352,12 +3437,7 @@ function renderStockChart(mode, chartData, currency) {
         fill: true,
         tension: 0.25,
         spanGaps: false
-      }]
-    : [
-        { label: 'Bear', data: chartData.bear, borderColor: colors.danger, borderWidth: 2, pointRadius: 2, fill: false, tension: 0.25 },
-        { label: 'Base', data: chartData.base, borderColor: colors.primary, borderWidth: 3, pointRadius: 2, fill: false, tension: 0.25 },
-        { label: 'Bull', data: chartData.bull, borderColor: colors.accent, borderWidth: 2, pointRadius: 2, fill: false, tension: 0.25 }
-      ];
+      }];
 
   stockValuationChart = new Chart(canvas, {
     type: 'line',
@@ -3387,6 +3467,13 @@ function buildStockChartSeries(currentPrice, currentEPS, growthPercent, years, f
     const eps = currentEPS * Math.pow(1 + (growthPercent / 100), year);
     return eps > 0 && futurePE > 0 ? eps * futurePE : null;
   });
+  return { labels, data };
+}
+
+function buildReverseStockChartSeries(currentPrice, requiredReturnPercent, years) {
+  const requiredReturnRate = requiredReturnPercent / 100;
+  const labels = Array.from({ length: years + 1 }, (_, year) => String(year));
+  const data = labels.map((_, year) => currentPrice * Math.pow(1 + requiredReturnRate, year));
   return { labels, data };
 }
 
@@ -3428,6 +3515,10 @@ function renderStockSimpleResults() {
 
   const series = buildStockChartSeries(currentPrice, currentEPS, growthPercent, years, futurePE);
   renderStockChart('simple', series, currency);
+  const chartHeading = document.getElementById('stock-chart-heading');
+  const chartNote = document.getElementById('stock-chart-note');
+  if (chartHeading) chartHeading.textContent = 'Värderingsscenario';
+  if (chartNote) chartNote.textContent = 'År 0 visar dagens faktiska aktiekurs. Därefter visas EPS gånger antagen framtida P/E.';
   document.getElementById('stock-future-eps-year-label').textContent = String(years);
   return true;
 }
@@ -3473,6 +3564,62 @@ function renderStockScenarioResults() {
     })());
   };
   renderStockChart('scenario', { labels, bear: buildSeries('bear'), base: buildSeries('base'), bull: buildSeries('bull') }, currency);
+  const chartHeading = document.getElementById('stock-chart-heading');
+  const chartNote = document.getElementById('stock-chart-note');
+  if (chartHeading) chartHeading.textContent = 'Värderingsscenario';
+  if (chartNote) chartNote.textContent = 'År 0 visar dagens faktiska aktiekurs. Därefter visas EPS gånger antagen framtida P/E.';
+  return true;
+}
+
+function renderReverseStockResults() {
+  const currency = document.getElementById('reverse-stock-currency').value || 'SEK';
+  const currentPrice = parseStockNumber(document.getElementById('reverse-stock-price').value);
+  const currentEPS = parseStockNumber(document.getElementById('reverse-stock-eps').value);
+  const years = Math.floor(parseStockNumber(document.getElementById('reverse-stock-years').value));
+  const requiredReturnPercent = parseStockNumber(document.getElementById('reverse-stock-return').value);
+  const exitPE = parseStockNumber(document.getElementById('reverse-stock-exit-pe').value);
+  const requiredReturnRate = requiredReturnPercent / 100;
+
+  if (currentPrice <= 0 || !Number.isFinite(currentPrice)) {
+    return 'Aktiekurs måste vara större än 0.';
+  }
+  if (currentEPS <= 0 || !Number.isFinite(currentEPS)) {
+    return 'EPS idag måste vara större än 0. Omvänd EPS-värdering kräver positiv EPS i den här versionen.';
+  }
+  if (years <= 0 || !Number.isFinite(years)) {
+    return 'Antal år måste vara större än 0.';
+  }
+  if (exitPE <= 0 || !Number.isFinite(exitPE)) {
+    return 'Antagen framtida P/E måste vara större än 0.';
+  }
+  if (requiredReturnRate <= -1 || !Number.isFinite(requiredReturnRate)) {
+    return 'Avkastningskravet måste vara större än -100 % för att ge en matematiskt giltig framtida kurs.';
+  }
+
+  const model = calculateReverseStockValuation(currentPrice, currentEPS, years, requiredReturnPercent, exitPE);
+  if (!Number.isFinite(model.futurePriceRequired) || !Number.isFinite(model.requiredFutureEPS) || !Number.isFinite(model.requiredEPSCAGR)) {
+    return 'Beräkningen kunde inte genomföras med de angivna värdena.';
+  }
+
+  document.getElementById('reverse-stock-cagr-result').textContent = formatStockPercent(model.requiredEPSCAGR * 100);
+  document.getElementById('reverse-stock-future-price-result').textContent = formatStockCurrency(model.futurePriceRequired, currency);
+  document.getElementById('reverse-stock-future-eps-result').textContent = formatStockNumber(model.requiredFutureEPS);
+  document.getElementById('reverse-stock-current-eps-result').textContent = formatStockNumber(currentEPS);
+  document.getElementById('reverse-stock-exit-pe-result').textContent = formatStockNumber(exitPE, 1);
+  document.getElementById('reverse-stock-return-result').textContent = formatStockPercent(requiredReturnPercent);
+  document.getElementById('reverse-stock-year-label').textContent = String(years);
+  document.getElementById('reverse-stock-eps-year-label').textContent = String(years);
+
+  const message = document.getElementById('stock-reverse-message');
+  if (message) {
+    message.textContent = `För att en aktie som kostar ${formatStockNumber(currentPrice)} idag ska ge ${formatStockPlainPercent(requiredReturnPercent)} årlig avkastning under ${years} år behöver aktiekursen nå cirka ${formatStockNumber(model.futurePriceRequired, 0)}. Med ett P/E-tal på ${formatStockNumber(exitPE, 1)} kräver det en EPS på cirka ${formatStockNumber(model.requiredFutureEPS)}, motsvarande ungefär ${formatStockPlainPercent(model.requiredEPSCAGR * 100)} årlig EPS-tillväxt.`;
+  }
+
+  renderStockChart('reverse', buildReverseStockChartSeries(currentPrice, requiredReturnPercent, years), currency);
+  const chartHeading = document.getElementById('stock-chart-heading');
+  const chartNote = document.getElementById('stock-chart-note');
+  if (chartHeading) chartHeading.textContent = 'Krävd aktiekurs';
+  if (chartNote) chartNote.textContent = 'Diagrammet visar vilken aktiekurs som krävs år för år för att nå den önskade årliga avkastningen. Utdelningar ingår inte.';
   return true;
 }
 
@@ -3480,6 +3627,8 @@ function calculateStockValuation() {
   const activeMode = document.querySelector('.stock-mode-tab.active')?.dataset.stockMode || 'simple';
   if (activeMode === 'scenarios') {
     return renderStockScenarioResults();
+  } else if (activeMode === 'reverse') {
+    return renderReverseStockResults();
   } else {
     return renderStockSimpleResults();
   }
@@ -3497,7 +3646,7 @@ if (stockValuationForm) {
 if (stockModeTabs.length) {
   stockModeTabs.forEach((button) => {
     button.addEventListener('click', function () {
-      const selectedMode = button.dataset.stockMode === 'scenarios' ? 'scenarios' : 'simple';
+      const selectedMode = ['simple', 'scenarios', 'reverse'].includes(button.dataset.stockMode) ? button.dataset.stockMode : 'simple';
       stockModeTabs.forEach((tab) => {
         const isActive = tab === button;
         tab.classList.toggle('active', isActive);
@@ -3549,6 +3698,33 @@ function setReturnMessage(message, isError = false) {
 
   messageElement.textContent = message;
   messageElement.classList.toggle('is-error', isError);
+}
+
+function getOptionalReturnInflation(inputId) {
+  const input = document.getElementById(inputId);
+  const rawValue = input ? input.value.trim() : '';
+  if (!rawValue) {
+    return { hasInflation: false, inflation: null };
+  }
+
+  const inflation = parseReturnNumber(rawValue);
+  if (inflation === null || inflation <= -100) {
+    return { hasInflation: true, error: 'Inflation måste vara större än -100 %.' };
+  }
+
+  return { hasInflation: true, inflation };
+}
+
+function toggleReturnResultBox(boxId, visible) {
+  const box = document.getElementById(boxId);
+  if (box) {
+    box.classList.toggle('hidden', !visible);
+  }
+}
+
+function getRealReturnExplanation(nominalPercent, inflationPercent, realPercent, label = 'real avkastning') {
+  const direction = realPercent < 0 ? 'en minskning av din köpkraft' : 'ökningen av din köpkraft';
+  return `Din nominella avkastning var ${formatReturnPercent(nominalPercent, 1)}. Med ${formatReturnPercent(inflationPercent, 1).replace('+', '')} inflation motsvarar det cirka ${formatReturnPercent(realPercent, 1)} ${label}, alltså ${direction}.`;
 }
 
 function renderReturnChart(labels, values, label, currency = null) {
@@ -3626,6 +3802,10 @@ function calculateTotalReturnMode() {
   document.getElementById('total-difference-result').textContent = formatReturnCurrency(difference, currency);
   document.getElementById('total-start-result').textContent = formatReturnCurrency(startValue, currency);
   document.getElementById('total-end-result').textContent = formatReturnCurrency(endValue, currency);
+  toggleReturnResultBox('cagr-real-result-box', false);
+  toggleReturnResultBox('cagr-real-total-result-box', false);
+  toggleReturnResultBox('annual-real-result-box', false);
+  toggleReturnResultBox('annual-real-total-result-box', false);
   setReturnMessage('Detta är en enkel förändring mellan startvärde och slutvärde. Den tar inte hänsyn till tidpunkter för insättningar eller uttag.');
   renderReturnChart(['Start', 'Slut'], [startValue, endValue], 'Värdeutveckling', currency);
   return true;
@@ -3652,6 +3832,11 @@ function calculateCagrMode() {
     return 'Ange hela år och mellan 0 och 11 månader. Perioden måste vara längre än 0.';
   }
 
+  const inflationResult = getOptionalReturnInflation('cagr-inflation');
+  if (inflationResult.error) {
+    return inflationResult.error;
+  }
+
   const totalYears = years + (months / 12);
   const cagr = Math.pow(endValue / startValue, 1 / totalYears) - 1;
   const totalReturn = (endValue / startValue) - 1;
@@ -3662,8 +3847,24 @@ function calculateCagrMode() {
   document.getElementById('cagr-total-result').textContent = formatReturnPercent(totalReturn * 100);
   document.getElementById('cagr-difference-result').textContent = formatReturnCurrency(difference, currency);
   document.getElementById('cagr-period-result').textContent = periodLabel;
-  document.getElementById('cagr-summary').textContent = `Det motsvarar ungefär ${formatReturnPercent(cagr * 100)} genomsnittlig årlig tillväxt med ränta-på-ränta-effekt.`;
-  setReturnMessage('CAGR visar den genomsnittliga årliga tillväxt som hade gett samma slutvärde om avkastningen varit jämn varje år.');
+  toggleReturnResultBox('annual-real-result-box', false);
+  toggleReturnResultBox('annual-real-total-result-box', false);
+
+  if (inflationResult.hasInflation) {
+    const realCagr = calculateRealReturn(cagr * 100, inflationResult.inflation);
+    const realTotalReturn = Math.pow(1 + realCagr, totalYears) - 1;
+    document.getElementById('cagr-real-result').textContent = formatReturnPercent(realCagr * 100);
+    document.getElementById('cagr-real-total-result').textContent = formatReturnPercent(realTotalReturn * 100);
+    toggleReturnResultBox('cagr-real-result-box', true);
+    toggleReturnResultBox('cagr-real-total-result-box', true);
+    document.getElementById('cagr-summary').textContent = `Det motsvarar ungefär ${formatReturnPercent(cagr * 100)} nominell CAGR och ${formatReturnPercent(realCagr * 100)} real CAGR efter inflation.`;
+    setReturnMessage(getRealReturnExplanation(cagr * 100, inflationResult.inflation, realCagr * 100, 'real CAGR'));
+  } else {
+    toggleReturnResultBox('cagr-real-result-box', false);
+    toggleReturnResultBox('cagr-real-total-result-box', false);
+    document.getElementById('cagr-summary').textContent = `Det motsvarar ungefär ${formatReturnPercent(cagr * 100)} genomsnittlig årlig tillväxt med ränta-på-ränta-effekt.`;
+    setReturnMessage('CAGR visar den genomsnittliga årliga tillväxt som hade gett samma slutvärde om avkastningen varit jämn varje år.');
+  }
 
   const chartSteps = Math.max(Math.ceil(totalYears), 1);
   const labels = Array.from({ length: chartSteps + 1 }, (_, index) => index === chartSteps ? periodLabel : `${index} år`);
@@ -3705,6 +3906,7 @@ function removeAnnualReturnRow() {
 function calculateAnnualReturnMode() {
   const inputs = [...document.querySelectorAll('.annual-return-input')];
   const returns = inputs.map((input) => parseReturnNumber(input.value));
+  const inflationResult = getOptionalReturnInflation('annual-inflation');
 
   if (returns.some((value) => value === null)) {
     return 'Fyll i en årsavkastning för varje år.';
@@ -3712,6 +3914,10 @@ function calculateAnnualReturnMode() {
 
   if (returns.some((value) => value < -100)) {
     return 'En årsavkastning kan inte vara lägre än -100 %.';
+  }
+
+  if (inflationResult.error) {
+    return inflationResult.error;
   }
 
   const growthFactor = returns.reduce((factor, value) => factor * (1 + (value / 100)), 1);
@@ -3729,7 +3935,22 @@ function calculateAnnualReturnMode() {
   document.getElementById('annual-total-result').textContent = formatReturnPercent(totalReturn * 100);
   document.getElementById('annual-average-result').textContent = formatReturnPercent(arithmeticAverage);
   document.getElementById('annual-count-result').textContent = String(returns.length);
-  setReturnMessage('Det aritmetiska snittet tar inte hänsyn till ränta-på-ränta-effekten. CAGR visar den årliga avkastning som hade gett samma slutresultat.');
+  toggleReturnResultBox('cagr-real-result-box', false);
+  toggleReturnResultBox('cagr-real-total-result-box', false);
+
+  if (inflationResult.hasInflation) {
+    const realAnnualizedReturn = calculateRealReturn(annualizedReturn * 100, inflationResult.inflation);
+    const totalRealReturn = growthFactor / Math.pow(1 + (inflationResult.inflation / 100), returns.length) - 1;
+    document.getElementById('annual-real-result').textContent = formatReturnPercent(realAnnualizedReturn * 100);
+    document.getElementById('annual-real-total-result').textContent = formatReturnPercent(totalRealReturn * 100);
+    toggleReturnResultBox('annual-real-result-box', true);
+    toggleReturnResultBox('annual-real-total-result-box', true);
+    setReturnMessage(getRealReturnExplanation(annualizedReturn * 100, inflationResult.inflation, realAnnualizedReturn * 100, 'real årlig avkastning'));
+  } else {
+    toggleReturnResultBox('annual-real-result-box', false);
+    toggleReturnResultBox('annual-real-total-result-box', false);
+    setReturnMessage('Det aritmetiska snittet tar inte hänsyn till ränta-på-ränta-effekten. CAGR visar den årliga avkastning som hade gett samma slutresultat.');
+  }
   renderReturnChart(['Start', ...returns.map((_, index) => `År ${index + 1}`)], cumulativeValues, 'Utveckling från 100 startpunkter');
   return true;
 }
@@ -4436,23 +4657,27 @@ if (goalCalculatorForm) {
   });
 }
 
+function setActiveGoalMode(mode) {
+  const selectedMode = ['monthly', 'time', 'capital'].includes(mode) ? mode : 'monthly';
+  goalModeTabs.forEach((tab) => {
+    const isActive = tab.dataset.goalMode === selectedMode;
+    tab.classList.toggle('active', isActive);
+    tab.setAttribute('aria-selected', String(isActive));
+  });
+  document.querySelectorAll('.goal-mode-panel').forEach((panel) => {
+    panel.classList.toggle('hidden', panel.id !== `goal-${selectedMode}-panel`);
+  });
+  document.querySelectorAll('.goal-results-panel').forEach((panel) => {
+    panel.classList.toggle('hidden', panel.id !== `goal-${selectedMode}-results`);
+  });
+
+  if (goalCalcState) goalCalcState.setNeutral();
+}
+
 if (goalModeTabs.length) {
   goalModeTabs.forEach((button) => {
     button.addEventListener('click', function () {
-      const selectedMode = button.dataset.goalMode || 'monthly';
-      goalModeTabs.forEach((tab) => {
-        const isActive = tab === button;
-        tab.classList.toggle('active', isActive);
-        tab.setAttribute('aria-selected', String(isActive));
-      });
-      document.querySelectorAll('.goal-mode-panel').forEach((panel) => {
-        panel.classList.toggle('hidden', panel.id !== `goal-${selectedMode}-panel`);
-      });
-      document.querySelectorAll('.goal-results-panel').forEach((panel) => {
-        panel.classList.toggle('hidden', panel.id !== `goal-${selectedMode}-results`);
-      });
-
-      if (goalCalcState) goalCalcState.setNeutral();
+      setActiveGoalMode(button.dataset.goalMode || 'monthly');
     });
   });
 }
@@ -4753,11 +4978,13 @@ if (dividendToggle) {
 
 function initPage() {
   initTheme();
+  recordRecentToolVisit();
   initNtmToday();
   injectInstagramPromo();
   initYoutubePosts();
   initPostSystem();
   initToolsDirectory();
+  initMinNtmPage();
 }
 
 function initToolsDirectory() {
@@ -4879,6 +5106,76 @@ function initToolsDirectory() {
   applyToolFilters();
 }
 
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function initMinNtmPage() {
+  const root = document.querySelector('[data-min-ntm]');
+  if (!root) return;
+
+  const scenarioList = root.querySelector('[data-min-ntm-scenarios]');
+  const scenarioEmpty = root.querySelector('[data-min-ntm-scenarios-empty]');
+  const scenarioStatus = root.querySelector('[data-min-ntm-scenarios-status]');
+  const recentList = root.querySelector('[data-min-ntm-recent-tools]');
+  const recentEmpty = root.querySelector('[data-min-ntm-recent-empty]');
+  const recentStatus = root.querySelector('[data-min-ntm-recent-status]');
+
+  const scenarioSources = [
+    {
+      id: 'ranta-pa-ranta',
+      name: 'Investeringskalkylator',
+      url: 'ranta-pa-ranta.html',
+      modeLabels: { growth: 'Tillväxt', dividend: 'Utdelning' }
+    },
+    {
+      id: 'sparmal',
+      name: 'Sparmålskalkylator',
+      url: 'sparmalskalkylator.html',
+      modeLabels: { monthly: 'Månadssparande', time: 'Tid till mål', capital: 'Målkapital' }
+    }
+  ];
+
+  const scenarios = scenarioSources.flatMap((source) => {
+    const result = window.NTMScenarioStorage.get(source.id);
+    if (result.error && scenarioStatus) {
+      scenarioStatus.textContent = result.error;
+      scenarioStatus.hidden = false;
+    }
+    return result.scenarios.map((scenario) => ({ ...scenario, source }));
+  }).sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+
+  if (scenarioList) {
+    scenarioList.innerHTML = scenarios.map((scenario) => {
+      const modeLabel = scenario.source.modeLabels[scenario.mode] || scenario.mode;
+      const href = `${scenario.source.url}?scenario=${encodeURIComponent(scenario.id)}`;
+      return `<article class="min-ntm-list-item"><div><h3>${escapeHtml(scenario.name)}</h3><p>${escapeHtml(scenario.source.name)}${modeLabel ? ` · ${escapeHtml(modeLabel)}` : ''}</p></div><a class="secondary-btn" href="${href}">Öppna</a></article>`;
+    }).join('');
+  }
+  if (scenarioEmpty) scenarioEmpty.hidden = scenarios.length > 0;
+
+  const recentResult = window.NTMRecentTools.read();
+  if (recentStatus && recentResult.error) {
+    recentStatus.textContent = recentResult.error;
+    recentStatus.hidden = false;
+  }
+  if (recentList) {
+    recentList.innerHTML = recentResult.tools.map((tool) => {
+      const date = tool.lastUsedAt ? new Date(tool.lastUsedAt) : null;
+      const label = date && Number.isFinite(date.getTime())
+        ? date.toLocaleDateString('sv-SE', { month: 'short', day: 'numeric' })
+        : 'Senast använd';
+      return `<article class="min-ntm-list-item"><div><h3>${escapeHtml(tool.name)}</h3><p>${escapeHtml(label)}</p></div><a class="ghost-btn" href="${escapeHtml(tool.url)}">Öppna</a></article>`;
+    }).join('');
+  }
+  if (recentEmpty) recentEmpty.hidden = recentResult.tools.length > 0;
+}
+
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initPage, { once: true });
 } else {
@@ -4904,7 +5201,7 @@ if (dividendForm) {
   });
 }
 
-function initSavedInvestmentScenarios() {
+function initSavedScenarios(config) {
   const scenarioSelect = document.getElementById('saved-scenario-select');
   const saveButton = document.getElementById('save-scenario');
   const loadButton = document.getElementById('load-scenario');
@@ -4914,10 +5211,16 @@ function initSavedInvestmentScenarios() {
   const countElement = document.getElementById('saved-scenarios-count');
   if (!scenarioSelect || !saveButton || !loadButton || !deleteButton || !nameInput) return;
 
-  const calculatorId = 'ranta-pa-ranta';
-  const maxScenarios = 10;
-  const getModeForm = (mode) => mode === 'dividend' ? dividendForm : form;
-  const getModeState = (mode) => mode === 'dividend' ? dividendCalcState : growthCalcState;
+  const {
+    calculatorId,
+    maxScenarios = 10,
+    modeLabels,
+    getActiveMode,
+    setActiveMode,
+    getModeForm,
+    getModeState,
+    getTrackedStates
+  } = config;
   let scenarios = [];
 
   const setStatus = (message, isError = false) => {
@@ -4933,7 +5236,7 @@ function initSavedInvestmentScenarios() {
     scenarios.forEach((scenario) => {
       const option = document.createElement('option');
       option.value = scenario.id;
-      option.textContent = `${scenario.name} (${scenario.mode === 'dividend' ? 'Utdelning' : 'Tillväxt'})`;
+      option.textContent = `${scenario.name} (${modeLabels[scenario.mode] || scenario.mode})`;
       scenarioSelect.appendChild(option);
     });
     scenarioSelect.value = scenarios.some((scenario) => scenario.id === selectedId) ? selectedId : '';
@@ -4949,6 +5252,27 @@ function initSavedInvestmentScenarios() {
     loadButton.disabled = !hasSelection;
     deleteButton.disabled = !hasSelection;
   });
+
+  const loadScenarioById = (scenarioId, { fromUrl = false } = {}) => {
+    const scenario = scenarios.find((item) => item.id === scenarioId);
+    if (!scenario) {
+      if (fromUrl) setStatus('Det sparade scenariot kunde inte hittas. Kalkylatorn är redo som vanligt.', true);
+      return false;
+    }
+    const hadExistingResult = getTrackedStates()
+      .some((state) => state?.state === 'calculated' || state?.state === 'stale');
+    setActiveMode(scenario.mode);
+    window.NTMScenarioStorage.restoreFormSnapshot(getModeForm(scenario.mode), scenario.inputs);
+    const modeState = getModeState(scenario.mode);
+    if (hadExistingResult) {
+      modeState?.setStaleFromLoad();
+    } else {
+      modeState?.setNeutral();
+    }
+    render(scenario.id);
+    setStatus('Scenariot laddades. Klicka på Beräkna för att uppdatera resultatet.');
+    return true;
+  };
 
   saveButton.addEventListener('click', () => {
     const name = nameInput.value.trim();
@@ -4973,19 +5297,7 @@ function initSavedInvestmentScenarios() {
   });
 
   loadButton.addEventListener('click', () => {
-    const scenario = scenarios.find((item) => item.id === scenarioSelect.value);
-    if (!scenario) return;
-    const hadExistingResult = [growthCalcState, dividendCalcState]
-      .some((state) => state?.state === 'calculated' || state?.state === 'stale');
-    setActiveMode(scenario.mode);
-    window.NTMScenarioStorage.restoreFormSnapshot(getModeForm(scenario.mode), scenario.inputs);
-    const modeState = getModeState(scenario.mode);
-    if (hadExistingResult) {
-      modeState?.setStaleFromLoad();
-    } else {
-      modeState?.setNeutral();
-    }
-    setStatus('Scenariot laddades. Klicka på Beräkna för att uppdatera resultatet.');
+    loadScenarioById(scenarioSelect.value);
   });
 
   deleteButton.addEventListener('click', () => {
@@ -4999,9 +5311,43 @@ function initSavedInvestmentScenarios() {
   });
 
   render();
+
+  const scenarioId = new URLSearchParams(window.location.search).get('scenario');
+  if (scenarioId) {
+    loadScenarioById(scenarioId, { fromUrl: true });
+  }
+}
+
+function initSavedInvestmentScenarios() {
+  if (!form && !dividendForm) return;
+  initSavedScenarios({
+    calculatorId: 'ranta-pa-ranta',
+    maxScenarios: 10,
+    modeLabels: { growth: 'Tillväxt', dividend: 'Utdelning' },
+    getActiveMode,
+    setActiveMode,
+    getModeForm: (mode) => mode === 'dividend' ? dividendForm : form,
+    getModeState: (mode) => mode === 'dividend' ? dividendCalcState : growthCalcState,
+    getTrackedStates: () => [growthCalcState, dividendCalcState]
+  });
+}
+
+function initSavedGoalScenarios() {
+  if (!goalCalculatorForm) return;
+  initSavedScenarios({
+    calculatorId: 'sparmal',
+    maxScenarios: 10,
+    modeLabels: { monthly: 'Månadssparande', time: 'Tid till mål', capital: 'Målkapital' },
+    getActiveMode: () => document.querySelector('.goal-mode-tab.active')?.dataset.goalMode || 'monthly',
+    setActiveMode: setActiveGoalMode,
+    getModeForm: (mode) => document.getElementById(`goal-${mode}-panel`),
+    getModeState: () => goalCalcState,
+    getTrackedStates: () => [goalCalcState]
+  });
 }
 
 initSavedInvestmentScenarios();
+initSavedGoalScenarios();
 if (feeForm) {
   initFeeComparisonPage();
 }
