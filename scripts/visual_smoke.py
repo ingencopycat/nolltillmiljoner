@@ -33,7 +33,7 @@ def main():
                         # Exercise the real control so chart listeners update too.
                         p.locator('#themeToggle').evaluate('(button) => button.click()')
                     # Finish CSS theme transition before inspecting text contrast.
-                    expected = 'rgb(32, 49, 44)' if theme == 'light' else 'rgb(233, 239, 237)'
+                    expected = 'rgb(24, 35, 50)' if theme == 'light' else 'rgb(244, 247, 250)'
                     p.wait_for_function('(c) => getComputedStyle(document.body).color===c', arg=expected)
                     overflow = p.evaluate('document.documentElement.scrollWidth > innerWidth')
                     name = f'{width}-{theme}-{index}.png'

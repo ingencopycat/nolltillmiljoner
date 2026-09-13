@@ -574,11 +574,15 @@ Run `node scripts/build_seo.cjs --check` before deployment. Chart.js is pinned/s
 Permanent NTM principle: **SIMPLE BY DEFAULT. POWERFUL WHEN YOU WANT IT.**
 Show the answer, a simple explanation and editable assumptions before advanced detail and source data. Never infer financial certainty from surface styling.
 
-`premium.css` is the deliberate presentation layer after `style.css`: neutral light/dark surfaces, restrained teal, type/spacing/radius tokens, consistent controls, primary-result hierarchy and financial-table treatments. Legacy layout/state rules remain in `style.css`; keep future visual changes in this layer rather than adding competing page overrides. No external font or framework is required.
+`premium.css` is the deliberate presentation layer after `style.css`: neutral graphite/cool-white surfaces, restrained blue interaction accents, type/spacing/radius tokens, consistent controls, primary-result hierarchy and financial-table treatments. Legacy layout/state rules remain in `style.css`; keep future visual changes in this layer rather than adding competing page overrides. No external font or framework is required.
 
 `ntm-ui.js` owns only presentation: keyboard/menu dismissal, compact metric expansion, disclosure/chart resizing, accessible table regions and revealing linked details. It does not read/write private storage, calculate values or emit product events. Existing financial and storage modules retain their ownership. Research exposes four key metrics initially; all others remain available. Financial tables/filings and sensitivity are native disclosures. Calculator scenario controls and Min NTM data management are deliberately expandable, with their original confirmation behavior intact.
 
 Run `python -B scripts/browser_smoke.py` for workflows/accessibility interactions and `python -B scripts/visual_smoke.py` for the 17-page inventory in both themes at 1440/360/390/430 pixels. Visual artifacts are written to an OS temporary folder, never the staged site. Playwright is required; Pillow optionally produces review contact sheets. Inspect actual screenshots as well as checking overflow. The 640 CSS-pixel browser test approximates reflow at 200% zoom on a 1280px viewport; it is not a claim of a full assistive-technology audit.
+
+## Color System V2
+
+`premium.css` separates blue interaction colors from semantic finance colors. Use `--action`/`--action-text` for solid primary buttons, `--primary` for links/focus, and `--market-positive`, `--market-negative`, `--success`, `--warning`, `--danger`, `--manual`, `--derived`, `--unavailable` for their named meanings. Category labels and ordinary review surfaces stay neutral. Research and calculator charts share `getChartColors()`; three non-directional series use blue/slate tones. Theme controls use inline SVG sun/moon icons with the existing accessible action labels and persistence. Layout, spacing, financial logic and Connected Experience remain unchanged. See [the color tokens, visual evidence and validation report](docs/color-system-v2.md).
 
 ## Connected Experience Foundation V1
 

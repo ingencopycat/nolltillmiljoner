@@ -502,13 +502,14 @@ function buildGrowthSeries() {
 }
 
 function getChartColors() {
-  const style = getComputedStyle(document.body);
+  const style = typeof getComputedStyle === 'function' ? getComputedStyle(document.body) : { getPropertyValue: () => '' };
   return {
     text: style.getPropertyValue('--text').trim() || '#edf6ff',
     muted: style.getPropertyValue('--muted').trim() || '#9bb0c4',
-    primary: style.getPropertyValue('--primary').trim() || '#3dd9c6',
-    primarySoft: style.getPropertyValue('--primary-soft').trim() || 'rgba(61, 217, 198, 0.12)',
-    accent: style.getPropertyValue('--accent').trim() || '#5ea3ff',
+    primary: style.getPropertyValue('--primary').trim() || '#86b1ff',
+    primarySoft: style.getPropertyValue('--primary-soft').trim() || '#182332',
+    accent: style.getPropertyValue('--accent').trim() || '#a0aec0',
+    tertiary: style.getPropertyValue('--chart-tertiary').trim() || '#c3cddd',
     accentSoft: style.getPropertyValue('--accent-soft').trim() || 'rgba(94, 163, 255, 0.08)',
     warning: style.getPropertyValue('--warning').trim() || '#ffd166',
     danger: style.getPropertyValue('--danger').trim() || '#ff6b6b',
@@ -682,7 +683,7 @@ function renderScenarioComparison() {
         {
           label: 'Slutvärde',
           data: scenarioValues.map((scenario) => scenario.value),
-          backgroundColor: ['rgba(61, 217, 198, 0.8)', 'rgba(94, 163, 255, 0.8)', 'rgba(255, 209, 102, 0.8)'],
+          backgroundColor: [colors.primary, colors.accent, colors.tertiary],
           borderRadius: 10
         }
       ]

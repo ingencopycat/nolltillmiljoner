@@ -204,7 +204,7 @@ class BrowserSmoke(unittest.TestCase):
                     self.go(page)
                     if p.evaluate("document.body.classList.contains('light-theme')") != (theme == 'light'):
                         p.locator('#themeToggle').evaluate('(button)=>button.click()')
-                    color = 'rgb(32, 49, 44)' if theme == 'light' else 'rgb(233, 239, 237)'
+                    color = 'rgb(24, 35, 50)' if theme == 'light' else 'rgb(244, 247, 250)'
                     p.wait_for_function('(c)=>getComputedStyle(document.body).color===c', arg=color)
                     block = p.locator('.ntm-relations:visible')
                     block.scroll_into_view_if_needed()
@@ -326,6 +326,52 @@ class BrowserSmoke(unittest.TestCase):
         for control in p.locator('#avgifts-form input').all():
             self.assertTrue(control.evaluate('el => el.labels.length > 0'))
             self.assertGreaterEqual(control.bounding_box()['height'], 44)
+
+    def test_color_v2_controls_semantics_charts_and_theme_persistence(self):
+        p = self.page
+        folder = Path(tempfile.mkdtemp(prefix='ntm-colors-controls-'))
+        contrast = """(el) => {
+          const s=getComputedStyle(el), rgb=c=>c.match(/[\\d.]+/g).slice(0,3).map(Number);
+          const lum=c=>rgb(c).map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4).reduce((sum,v,i)=>sum+v*[.2126,.7152,.0722][i],0);
+          const a=lum(s.color),b=lum(s.backgroundColor);return (Math.max(a,b)+.05)/(Math.min(a,b)+.05);
+        }"""
+        for theme in ['dark', 'light']:
+            for page in ['index.html', 'avgifter.html', 'ranta-pa-ranta.html', 'aktievarderingskalkylator.html', 'research.html?ticker=NVDA']:
+                self.go(page)
+                if p.evaluate("document.body.classList.contains('light-theme')") != (theme == 'light'):
+                    p.locator('#themeToggle').click()
+                p.wait_for_function("getComputedStyle(document.body).color === (document.body.classList.contains('light-theme') ? 'rgb(24, 35, 50)' : 'rgb(244, 247, 250)')")
+                for button in p.locator('.primary-btn:visible, button[type=submit]:visible').all():
+                    self.assertGreaterEqual(button.evaluate(contrast), 4.5, page)
+                colors = p.evaluate("""() => {const s=getComputedStyle(document.body); return ['--primary','--success','--manual','--market-positive','--market-negative'].map(k=>s.getPropertyValue(k).trim());}""")
+                self.assertNotEqual(colors[0], colors[1])
+                self.assertEqual(colors[0], colors[2])
+                self.assertNotEqual(colors[3], colors[4])
+            p.locator('#researchFinancials > summary').click()
+            p.wait_for_function("annualChartInstance.options.plugins.legend.labels.color === getChartColors().text")
+            self.assertEqual(p.evaluate('annualChartInstance.data.datasets.map(d=>d.backgroundColor)'),
+                             p.evaluate('(()=>{const c=getChartColors();return [c.primary,c.accent,c.tertiary]})()'))
+            p.locator('#annualChart').scroll_into_view_if_needed()
+            p.screenshot(path=str(folder / f'chart-{theme}.png'), animations='disabled')
+            p.reload()
+            self.assertEqual(p.evaluate("document.body.classList.contains('light-theme')"), theme == 'light')
+            p.locator('#researchExportMarkdown').scroll_into_view_if_needed()
+            self.assertGreaterEqual(p.locator('#researchExportMarkdown').evaluate(contrast), 4.5)
+        for width in [360, 390, 430]:
+            p.set_viewport_size({'width': width, 'height': 900})
+            self.go('index.html')
+            p.locator('#mobileNavToggle').click()
+            button = p.locator('#mobileThemeToggle')
+            expect(button.locator('svg')).to_have_count(2)
+            for _ in range(2):
+                before = button.get_attribute('aria-label')
+                button.focus(); p.keyboard.press('Enter')
+                self.assertNotEqual(button.get_attribute('aria-label'), before)
+                self.assertEqual(button.get_attribute('title'), button.get_attribute('aria-label'))
+                self.assertGreaterEqual(button.bounding_box()['width'], 44)
+                theme = 'light' if p.evaluate("document.body.classList.contains('light-theme')") else 'dark'
+                p.screenshot(path=str(folder / f'nav-{width}-{theme}.png'), animations='disabled')
+        print('Color control screenshots: ' + str(folder), flush=True)
 
     def test_data_provenance_and_unsafe_comparison(self):
         p = self.page

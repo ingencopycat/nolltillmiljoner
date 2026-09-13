@@ -552,17 +552,7 @@ function renderGrowthAndMargins(data) {
 // ============================================================================
 
 function getThemeColors() {
-    const isLight = document.body.classList.contains('light-theme');
-    return {
-        text: isLight ? '#0f1e2d' : '#edf6ff',
-        muted: isLight ? '#53657b' : '#9bb0c4',
-        grid: isLight ? 'rgba(15, 23, 42, 0.08)' : 'rgba(148, 163, 184, 0.14)',
-        primary: isLight ? '#117d6e' : '#3dd9c6',
-        accent: isLight ? '#2a65d8' : '#5ea3ff',
-        success: isLight ? '#147d55' : '#7ef7c7',
-        warning: isLight ? '#b8860b' : '#ffd166',
-        danger: isLight ? '#c23b3b' : '#ff6b6b',
-    };
+    return getChartColors();
 }
 
 function renderCharts(data) {
@@ -609,7 +599,7 @@ function renderCharts(data) {
             datasets.push({
                 label: 'Fritt kassaflöde ($B)',
                 data: fcfData,
-                backgroundColor: colors.success,
+                backgroundColor: colors.tertiary,
                 borderRadius: 6,
                 barPercentage: 0.7,
             });
@@ -678,7 +668,7 @@ function renderCharts(data) {
             datasets.push({
                 label: 'Fritt kassaflöde ($B)',
                 data: fcfData,
-                backgroundColor: colors.success,
+                backgroundColor: colors.tertiary,
                 borderRadius: 4,
                 barPercentage: 0.6,
             });

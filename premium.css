@@ -1,11 +1,16 @@
 /* NTM interface foundation. Loaded after legacy layout rules; no financial state logic. */
 :root {
-  --bg: #101719; --bg-soft: #101719;
-  --panel: #172124; --panel-strong: #1e2a2e; --panel-alt: #1b2629;
-  --border: #344348; --text: #e9efed; --muted: #a9b9b9;
-  --primary: #80d4bb; --primary-strong: #a0e4cf; --primary-soft: #213d36;
-  --accent: #a2becd; --highlight: #f3f7f5; --success: #8bd2b4;
-  --warning: #e8c581; --danger: #ffaaaa;
+  --action: #2864ce; --action-hover: #2358b8; --action-text: #ffffff;
+  --overlay-accent: #86b1ff;
+  --market-positive: #7cc9a5; --market-negative: #f29b9b; --unchanged: #a7b0bc;
+  --informational: #86b1ff; --manual: #86b1ff; --derived: #b2bfd1; --unavailable: #a7b0bc;
+  --accent-soft: #202b3a; --chart-tertiary: #c3cddd;
+  --bg: #0b0f14; --bg-soft: #0b0f14;
+  --panel: #111720; --panel-strong: #161e28; --panel-alt: #18212c;
+  --border: #2d3a4c; --text: #f4f7fa; --muted: #a7b0bc;
+  --primary: #86b1ff; --primary-strong: #a8c7ff; --primary-soft: #182332;
+  --accent: #a0aec0; --highlight: #f3f7f5; --success: #7cc9a5;
+  --warning: #e4bd78; --danger: #f29b9b;
   --shadow: 0 6px 22px #00000012;
   --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
   --space-6: 24px; --space-8: 32px; --space-12: 48px; --space-16: 64px;
@@ -15,12 +20,15 @@
   --font-metric: clamp(1.5rem, 2.5vw, 2rem);
 }
 body.light-theme {
-  --bg: #f5f6f3; --bg-soft: #f5f6f3;
-  --panel: #ffffff; --panel-strong: #ffffff; --panel-alt: #edf1ee;
-  --border: #ced8d2; --text: #20312c; --muted: #52665e;
-  --primary: #21694f; --primary-strong: #164f3b; --primary-soft: #e5f1e9;
-  --accent: #345b6c; --highlight: #172b23; --success: #21694f;
-  --warning: #795614; --danger: #a32936; --shadow: 0 6px 22px #20312c06;
+  --market-positive: #236849; --market-negative: #a92f38; --unchanged: #526174;
+  --informational: #245bb5; --manual: #245bb5; --derived: #526174; --unavailable: #526174;
+  --accent-soft: #e8edf4; --chart-tertiary: #7b8798;
+  --bg: #f5f7fa; --bg-soft: #f5f7fa;
+  --panel: #ffffff; --panel-strong: #ffffff; --panel-alt: #edf1f6;
+  --border: #cbd3de; --text: #182332; --muted: #526174;
+  --primary: #245bb5; --primary-strong: #19488f; --primary-soft: #edf2fa;
+  --accent: #596d85; --highlight: #182332; --success: #236849;
+  --warning: #805719; --danger: #a92f38; --shadow: 0 6px 22px #18233206;
 }
 body { background: var(--bg); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
 body, button, input, select, textarea { font-variant-numeric: tabular-nums; }
@@ -30,7 +38,7 @@ h2 { font-size: var(--font-section); line-height: 1.3; letter-spacing: -.02em; f
 h3 { font-size: 1.05rem; line-height: 1.4; font-weight: 650; }
 p { line-height: 1.65; }
 .note, .field-help, .category-description, .page-intro p, .post-lead, .section-subtitle { color: var(--muted); }
-.section-kicker, .section-kicker-small { background: none; border: 0; border-radius: 0; box-shadow: none; padding: 0; color: var(--primary); font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.section-kicker, .section-kicker-small { background: none; border: 0; border-radius: 0; box-shadow: none; padding: 0; color: var(--muted); font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .container, .topbar-inner { max-width: 1184px; }
 .container { padding: 36px 28px 64px; }
 .page-intro, .tool-intro { margin-bottom: 32px; }
@@ -171,7 +179,7 @@ table caption { text-align: left; padding: 12px 0; color: var(--muted); }
 .financial-scroll table thead th:first-child { background: var(--panel-alt); }
 .min-ntm-intro h1 { margin-bottom: 12px; }
 .min-ntm-card { margin-block: 24px; }
-.min-ntm-card:first-of-type { background: var(--primary-soft) !important; border: 0; border-inline-start: 3px solid var(--primary); }
+.min-ntm-card:first-of-type { background: var(--panel) !important; border: 0; border-inline-start: 3px solid var(--primary); }
 .min-ntm-card .section-kicker { display: none; }
 .min-ntm-empty, .min-ntm-empty-state { background: none; border: 1px dashed var(--border); padding: 24px; border-radius: 8px; }
 .min-ntm-list-item { background: none; border: 0; border-bottom: 1px solid var(--border); border-radius: 0; padding: 20px 0; }
@@ -277,6 +285,77 @@ dialog::backdrop { background: #06110db3; backdrop-filter: none; }
   body { background: white; }
   .research-print-view { color: #111; background: white; }
 }
+
+/* Color V2: interaction blue is separate from positive financial meaning. Geometry stays V1. */
+body :is(.primary-btn, button[type=submit], .thesis-submit-btn),
+body.light-theme :is(.primary-btn, button[type=submit], .thesis-submit-btn), #valuationForm button[type=submit] {
+  background: var(--action); color: var(--action-text); border-color: var(--action); box-shadow: none;
+}
+body :is(.primary-btn, button[type=submit], .thesis-submit-btn):hover, #valuationForm button[type=submit]:hover {
+  background: var(--action-hover); color: var(--action-text);
+}
+body :is(.primary-btn, button[type=submit], .thesis-submit-btn):active { background: #1b4897; }
+body :is(.secondary-btn, .ghost-btn), body.light-theme :is(.secondary-btn, .ghost-btn) {
+  color: var(--text); background: var(--panel); border-color: var(--border); box-shadow: none;
+}
+body .ghost-btn, body.light-theme .ghost-btn { background: transparent; }
+body :is(.secondary-btn, .ghost-btn):hover { background: var(--panel-alt); border-color: var(--muted); }
+body :is(.destructive-action, .thesis-delete-btn, #delete-scenario, #goal-delete-scenario) {
+  color: var(--danger); border-color: var(--danger); background: transparent;
+}
+body button:disabled, body.light-theme button:disabled { opacity: 1; color: var(--muted); background: var(--panel-alt); border-color: var(--border); cursor: not-allowed; }
+body button:disabled:hover, body.light-theme button:disabled:hover { background: var(--panel-alt); color: var(--muted); }
+body .theme-toggle, body.light-theme .theme-toggle { color: var(--text); background: var(--panel); border-color: var(--border); border-radius: 7px; box-shadow: none; }
+body .theme-toggle:hover { background: var(--panel-alt); border-color: var(--muted); }
+.toggle-icon, body.light-theme .toggle-icon { font-size: 20px; width: 20px; height: 20px; transform: none; transition: opacity 120ms ease; }
+.toggle-icon svg { display: block; }
+body :is(.main-nav a.active, .main-nav a[aria-current=page], .research-pill.active) { background: var(--panel-alt); color: var(--primary); box-shadow: inset 0 -2px var(--primary); }
+body :is(.mode-tab.active, .stock-mode-tab.active, .return-mode-tab.active, .tools-filter.is-active, .summary-language-button.is-active) {
+  background: var(--panel-strong); color: var(--text); border-color: var(--border); box-shadow: inset 0 -2px var(--primary);
+}
+body :is(.section-kicker, .section-kicker-small, .resource-tag, .post-tag, .pill-badge, .company-ticker-tag, .company-badge-row .badge, .sec-source-badge, .eps-source-badge) {
+  color: var(--muted); background: transparent; border-color: var(--border); box-shadow: none;
+}
+.sec-dot { background: var(--muted); }
+body .eps-source-badge.manual { color: var(--manual); background: var(--primary-soft); }
+body .min-ntm-card:first-of-type { background: var(--panel) !important; }
+body :is(.scenario-cell.scenario-bear, .scenario-cell.scenario-base, .scenario-cell.scenario-bull) { background: var(--panel-alt); border-color: var(--border); }
+body .scenario-cell.scenario-base { border-top-color: var(--primary); }
+body :is(.growth-value.val-positive, .change-positive) { color: var(--market-positive); }
+body :is(.growth-value.val-negative, .change-negative) { color: var(--market-negative); }
+body [data-ntm-status] { background: var(--panel-alt); color: var(--informational); }
+body [data-ntm-status=saved] { color: var(--success); }
+body :is([data-ntm-status=warning], [data-ntm-status=stale], [data-ntm-status=unsafe]) { color: var(--warning); }
+body [data-ntm-status=error] { color: var(--danger); }
+body [data-ntm-status=manual] { color: var(--manual); }
+body [data-ntm-status=derived] { color: var(--derived); }
+body :is([data-ntm-status=unavailable], [data-ntm-status=neutral], [data-ntm-status=local]) { color: var(--unavailable); }
+body .calc-status-banner { background: var(--panel-alt); border-color: var(--border); }
+body .calc-status-banner.calc-status-success { color: var(--informational); }
+body .calc-status-banner.calc-status-error { color: var(--danger); }
+body .calc-status-banner[data-ntm-status=saved] { color: var(--success); }
+/* Older calculator ID selectors must not override the shared action colors. */
+body form button[type=submit] { background: var(--action) !important; color: var(--action-text) !important; border-color: var(--action) !important; }
+body form button[type=submit]:hover { background: var(--action-hover) !important; }
+body form button[type=submit]:disabled { color: var(--muted) !important; background: var(--panel-alt) !important; border-color: var(--border) !important; }
+body .youtube-play { background: var(--action); color: var(--action-text); box-shadow: none; }
+body .youtube-preview:hover .youtube-play, body .youtube-preview:focus-visible .youtube-play { background: var(--action-hover); transform: translate(-50%, -50%); }
+body .summary-language-button { background: var(--panel); border-color: var(--border); color: var(--muted); }
+body .summary-language-button.is-active { color: var(--text); background: var(--panel-alt); box-shadow: inset 0 -2px var(--primary); }
+body .sens-header-row { color: var(--muted); background: var(--panel-alt); }
+body .sens-cell-base { background: var(--panel-alt) !important; }
+body .metric-box.highlight { background: var(--panel); border-color: var(--border); }
+body .company-sector { color: var(--muted); background: var(--panel-alt); }
+body .research-company-card .badge { color: var(--muted); background: transparent; border-color: var(--border); }
+body :is(.archive-item.active, .chart-view-tab.is-active, .filter-button.is-active, .pagination-button.is-active) {
+  color: var(--text); background: var(--panel-alt); border-color: var(--border); box-shadow: inset 0 -2px var(--primary);
+}
+body :is(.filter-button, .pagination-button, .summary-language-button):hover { background: var(--panel-alt); border-color: var(--muted); }
+body .week-visual { background-color: var(--panel-alt); }
+body .youtube-post .resource-card-link { color: var(--primary); background: var(--panel); border-color: var(--border); }
+body .youtube-post .resource-card-link:hover { background: var(--panel-alt); border-color: var(--primary); }
+body .valuation-section { border-color: var(--border); border-top-color: var(--primary); }
+body :is(.ai-summary summary, .summary-language-button):focus-visible { border-color: var(--primary); }
 
 /* Contextual next steps share one quiet pattern across content and tools. */
 .ntm-relations { margin-block: 32px; padding-block: 24px; border-block: 1px solid var(--border); }
