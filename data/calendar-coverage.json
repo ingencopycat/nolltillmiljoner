@@ -1,0 +1,12 @@
+{
+  "macro": {
+    "2027": {
+      "status": "not_yet_published",
+      "scope": "Complete BLS CPI and BEA annual release schedules; not a claim about every agency",
+      "checkedAt": "2026-09-13",
+      "reviewAfter": "2026-11-01",
+      "sourceUrls": ["https://www.bls.gov/schedule/news_release/cpi.htm", "https://www.bea.gov/news/schedule/full"],
+      "note": "The inspected official schedules list 2026, not a complete 2027 schedule. No release dates inferred. Other agencies may already publish individual 2027 dates."
+    }
+  }
+}

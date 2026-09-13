@@ -39,6 +39,9 @@
       ['stockPrice', 'epsBasis', 'requiredReturn', 'years', 'exitPE']);
     inputs.epsSource = ['manual', 'sec'].includes(snapshot.valuationInputs?.epsSource)
       ? snapshot.valuationInputs.epsSource : null;
+    if (['example', 'manual', 'historical'].includes(snapshot.valuationInputs?.priceSource)) {
+      inputs.priceSource = snapshot.valuationInputs.priceSource;
+    }
     const scenarios = {};
     for (const name of ['bear', 'base', 'bull']) {
       if (isObject(snapshot.scenarios?.[name])) {
@@ -56,6 +59,7 @@
       currency: string(snapshot.currency),
       ticker: string(snapshot.ticker),
       companyName: string(snapshot.companyName),
+      ...(isObject(snapshot.provenance) ? { provenance: JSON.parse(JSON.stringify(snapshot.provenance)) } : {}),
       ttmMetrics: normalizeMetrics(snapshot.ttmMetrics),
       valuationInputs: inputs,
       valuationResults: numericFields(snapshot.valuationResults,
@@ -90,9 +94,69 @@
       periodStart: history.find((q) => q.period === quarters[0])?.periodStart ?? null,
       periodEnd: history.find((q) => q.period === quarters[quarters.length - 1])?.periodEnd ?? null,
       currency: vb.currency ?? data?.company?.currency ?? null,
+      ...(data?.$schema === 'ntm-stock-v1' ? { provenance: {
+        version: 1, dataSchema: data.$schema, methodVersion: data.metadata?.methodVersion,
+        generatedAt: data.metadata?.generatedAt, fetchedAt: data.metadata?.fetchedAt,
+        metrics: Object.fromEntries(Object.entries({ revenue: 'revenue', netIncome: 'netIncome', eps: 'dilutedEps',
+          dilutedShares: 'dilutedShares', fcf: 'freeCashFlow', fcfPerShare: 'fcfPerShare' })
+          .map(([key, source]) => [key, JSON.parse(JSON.stringify(metrics[source] || {}))])),
+      } } : {}),
       ttmMetrics: normalizeMetrics(values),
     };
   }
 
-  window.NTMResearchSnapshot = { version: VERSION, normalize, fromStockData };
+  function comparable(before, after, key) {
+    const fail = (reason) => ({ comparable: false, reason: `Kan inte jämföras — ${reason}` });
+    if (!before || !after) return fail('snapshot saknas eller stöds inte');
+    if (before.ticker && after.ticker && before.ticker !== after.ticker) return fail('bolag skiljer sig');
+    if (!Number.isFinite(before.ttmMetrics?.[key]) || !Number.isFinite(after.ttmMetrics?.[key])) return fail('värde saknas');
+    if (!before.currency || !after.currency) return fail('valuta saknas');
+    if (before.currency !== after.currency) return fail('valuta skiljer sig');
+    const a = before.provenance, b = after.provenance;
+    if (!a || !b || a.version !== 1 || b.version !== 1) return fail('historisk källmetadata saknas eller stöds inte');
+    if (a.dataSchema !== 'ntm-stock-v1' || a.dataSchema !== b.dataSchema || !a.methodVersion || a.methodVersion !== b.methodVersion)
+      return fail('dataversion eller beräkningsmetod skiljer sig');
+    if (key === 'netMargin' || key === 'fcfMargin') {
+      for (const dependency of [key === 'netMargin' ? 'netIncome' : 'fcf', 'revenue']) {
+        const result = comparable(before, after, dependency);
+        if (!result.comparable) return result;
+      }
+      return { comparable: true, reason: null };
+    }
+    const x = a.metrics?.[key], y = b.metrics?.[key];
+    if (!x || !y || !x.definition || !y.definition) return fail('definition saknas');
+    if (x.definition !== y.definition) return fail('definitionen skiljer sig');
+    if (!x.unit || x.unit !== y.unit || x.currency !== y.currency) return fail('enhet eller valuta skiljer sig');
+    if (!['reported', 'derived'].includes(x.kind) || x.kind !== y.kind || !x.source || x.source !== y.source
+        || x.derivationMethod !== y.derivationMethod || x.methodVersion !== a.methodVersion || y.methodVersion !== b.methodVersion)
+      return fail('källa eller härledning skiljer sig');
+    if (x.qualityStatus !== 'available' || y.qualityStatus !== 'available' || x.restated || y.restated || x.split || y.split)
+      return fail('kvalitet, omräkning eller aktiesplit kräver granskning');
+    if (Array.isArray(x.inputs) && Array.isArray(y.inputs)) {
+      const priorInputs = new Map(x.inputs.map((i) => [`${i.quarter}:${i.metric}`, i]));
+      if (y.inputs.some((i) => { const prior = priorInputs.get(`${i.quarter}:${i.metric}`);
+        return prior && (prior.value !== i.value || prior.concept !== i.concept); }))
+        return fail('underliggande period har ändrats; möjlig omräkning kräver granskning');
+    }
+    for (const m of [x, y]) {
+      if (!Array.isArray(m.quartersIncluded) || m.quartersIncluded.length !== 4 || new Set(m.quartersIncluded).size !== 4
+          || !m.quartersIncluded.every((q, i, list) => /^\d{4}Q[1-4]$/.test(q) && (i === 0
+            || Number(q.slice(0, 4)) * 4 + Number(q.at(-1)) === Number(list[i - 1].slice(0, 4)) * 4 + Number(list[i - 1].at(-1)) + 1)))
+        return fail('kvartalsföljden saknas eller är ofullständig');
+    }
+    const days = (m) => (Date.parse(m.periodEnd) - Date.parse(m.periodStart)) / 86400000 + 1;
+    for (const [snapshot, metric] of [[before, x], [after, y]]) {
+      if ((snapshot.asOfPeriod && snapshot.asOfPeriod !== metric.quartersIncluded.at(-1))
+          || ['periodStart', 'periodEnd'].some((field) => snapshot[field] && Date.parse(snapshot[field]) !== Date.parse(metric[field])))
+        return fail('periodmetadata stämmer inte överens');
+    }
+    if (x.periodType !== 'TTM' || y.periodType !== 'TTM' || !Number.isFinite(days(x)) || !Number.isFinite(days(y))
+        || days(x) < 350 || days(x) > 378 || days(y) < 350 || days(y) > 378 || Date.parse(y.periodEnd) < Date.parse(x.periodEnd))
+      return fail('perioderna är inte säkert jämförbara');
+    if (['eps', 'dilutedShares', 'fcfPerShare'].includes(key) && (!x.shareBasis || x.shareBasis !== y.shareBasis))
+      return fail('aktiebasen saknas eller har förändrats');
+    return { comparable: true, reason: null };
+  }
+
+  window.NTMResearchSnapshot = { version: VERSION, normalize, fromStockData, comparable };
 })();

@@ -26,6 +26,12 @@
         ]);
         for (const [heading, field] of [['Min tes', 'text'], ['Viktigaste risker', 'risks'],
             ['Vad skulle få mig att ändra mig?', 'triggerChange'], ['Anteckningar', 'notes']]) paragraph(heading, revision[field]);
+        paragraph('Min tes bygger på att', revision.assumptions?.length ? revision.assumptions.map((a,i)=>`${i+1}. ${a}`).join('\n') : 'Inga uttryckliga antaganden sparades i denna version.');
+        table('Sparad granskning', [['Nästa granskningsdatum',text(revision.reviewDate)],
+            ['Beslut', {keep:'Behåll',revise:'Revidera',close:'Stäng tes'}[revision.review?.decision] || 'Inte granskat'],
+            ['Granskat (UTC)',date(revision.review?.at)], ['Källversion',text(revision.review?.sourceRevisionId)],
+            ['Observerad rapportperiod',text(revision.review?.observedPeriod)]]);
+        paragraph('Granskningsanteckning',revision.review?.context);
         table('Sparad finansiell snapshot', [
             ['TTM Revenue', money(metrics.revenue)], ['TTM Net Income', money(metrics.netIncome)],
             ['TTM EPS (SEC)', money(metrics.eps)], ['Diluted shares', number(metrics.dilutedShares)],
@@ -35,7 +41,7 @@
             ['Periodslut (UTC)', date(snapshot?.periodEnd)], ['Kvartal', text(snapshot?.quarters.join(', '))],
         ]);
         table('Sparade värderingsantaganden', [
-            ['Sparad aktiekurs (manuellt angiven)', money(inputs.stockPrice)],
+            [inputs.priceSource === 'example' ? 'Historiskt sparat exempelpris (inte livekurs)' : 'Historiskt sparat manuellt pris (inte livekurs)', money(inputs.stockPrice)],
             ['Årligt avkastningskrav', number(inputs.requiredReturn, ' %')], ['Tidshorisont', number(inputs.years, ' år')],
             ['Exit P/E', number(inputs.exitPE, '×')],
             ['EPS-källa', inputs.epsSource === 'manual' ? 'Manuell EPS' : inputs.epsSource === 'sec' ? 'SEC-härledd EPS vid spartillfället' : unavailable],

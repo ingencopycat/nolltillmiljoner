@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="vendor/chart-4.5.1.umd.min.js"></script>
 
     <!-- SEO START -->
     <title>Aktieanalys med SEC-data och värderingsscenarier | Noll till Miljoner</title>
@@ -16,46 +16,35 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Noll till Miljoner" />
     <meta property="og:locale" content="sv_SE" />
-    <meta property="og:image" content="https://nolltillmiljoner.se/images/ntm-logo.png.png" />
+    <meta property="og:image" content="https://nolltillmiljoner.se/images/ntm-social.png" />
     <meta property="og:image:alt" content="Noll till Miljoner" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Aktieanalys med SEC-data och värderingsscenarier | Noll till Miljoner" />
     <meta name="twitter:description" content="Analysera NVIDIA, SoFi och CrowdStrike med normaliserad SEC-data. Räkna på värdering, jämför scenarier och spara din investeringstes lokalt." />
-    <meta name="twitter:image" content="https://nolltillmiljoner.se/images/ntm-logo.png.png" />
+    <meta name="twitter:image" content="https://nolltillmiljoner.se/images/ntm-social.png" />
     <meta name="twitter:image:alt" content="Noll till Miljoner" />
     <link rel="canonical" href="https://nolltillmiljoner.se/research.html" />
-    <link rel="icon" type="image/png" href="images/ntm-logo.png.png" />
+    <link rel="icon" type="image/png" href="images/ntm-icon.png" />
     <!-- SEO END -->
 </head>
 <body>
     <header class="topbar">
         <div class="topbar-inner">
             <a href="index.html" class="brand-wrap">
-                <img class="brand-logo" src="images/ntm-logo.png.png" alt="NTM" />
+                <img class="brand-logo" src="images/ntm-logo.webp" width="192" height="192" alt="NTM" />
                 <div class="brand-text">
                     <span class="brand-name"><span class="brand-zero">NOLL</span> <span class="brand-neutral">TILL</span> <span class="brand-million">MILJONER</span></span>
                     <span class="brand-subtitle">Research</span>
                 </div>
             </a>
 
-            <nav class="main-nav" aria-label="Huvudnavigering">
-                <div class="mobile-theme-row">
+            <nav class="main-nav" aria-label="Huvudnavigering"><div class="mobile-theme-row">
                     <span class="mobile-theme-label">Tema</span>
                     <button id="mobileThemeToggle" class="theme-toggle mobile-theme-btn" type="button" aria-label="Växla tema" title="Växla tema">
                         <span class="toggle-icon toggle-icon-sun">🌞</span>
                         <span class="toggle-icon toggle-icon-moon">🌙</span>
                     </button>
-                </div>
-                <a href="index.html">Hem</a>
-                <a href="verktyg.html">Verktyg</a>
-                <a href="research.html" class="active" aria-current="page">Research</a>
-                <a href="min-ntm.html">Min NTM</a>
-                <a href="inlagg.html">Inlägg</a>
-                <a href="makro.html">Makro</a>
-                <a href="rapporter.html">Rapporter</a>
-                <a href="resurser.html">Resurser</a>
-                <a href="community.html">Community</a>
-            </nav>
+                </div><a href="verktyg.html">Verktyg</a><a href="research.html" class="active" aria-current="page">Research</a><a href="min-ntm.html">Min NTM</a><details class="nav-learn"><summary>Lär dig</summary><div class="nav-learn-links"><a href="inlagg.html">Inlägg och videor</a><a href="resurser.html">Resurser</a><a href="makro.html">Makro</a><a href="rapporter.html">Rapporter</a><a href="community.html">Community</a></div></details></nav>
 
             <button id="mobileNavToggle" class="nav-toggle" type="button" aria-label="Öppna meny" aria-expanded="false">☰</button>
             <button id="themeToggle" class="theme-toggle" type="button" aria-label="Växla tema" title="Växla tema">
@@ -242,7 +231,128 @@
             </section>
 
             <!-- Section: Valuation & Scenario Explorer -->
-            <section class="card research-card-block valuation-section" id="valuationSection" aria-labelledby="valuation-heading">
+            <section class="card research-card-block" id="thesisReview" aria-labelledby="reviewHeading" hidden>
+                <h2 id="reviewHeading">Granska tes</h2>
+                <p>Håller din investeringsteori fortfarande? Utgå från vad du själv trodde och vilka antaganden som behövde stämma. Detta är din bedömning, inte investeringsråd.</p>
+                <h3>Det här trodde du</h3><p id="reviewBelief"></p>
+                <h3>Dina sparade antaganden</h3><p id="reviewAssumptions" style="white-space: pre-wrap;"></p>
+                <p id="reviewDataContext"></p>
+                <p><a href="#changeDetectionSection">Läs vad som ändrats i Research-data</a> · <a href="#thesisRevisionSelect">Läs den frysta versionen och värderingsantagandena</a></p>
+                <div class="field-group"><label for="reviewContext">Varför håller eller ändras din slutsats? (valfritt)</label><textarea id="reviewContext" rows="2"></textarea></div>
+                <div class="field-group"><label for="reviewNextDate">Nästa granskning efter beslutet (valfritt)</label><input id="reviewNextDate" type="date" /></div>
+                <button type="button" id="review-keep" class="secondary-btn">Behåll</button>
+                <button type="button" id="review-revise" class="secondary-btn">Revidera</button>
+                <button type="button" id="review-close" class="ghost-btn">Stäng tes</button>
+                <p id="reviewStatus" role="status" aria-live="polite"></p>
+            </section>
+<section class="card research-card-block thesis-section" id="thesisSection" aria-labelledby="thesis-heading">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-kicker">Min analys</span>
+                        <h2 id="thesis-heading">Spara din investeringsteori</h2>
+                    </div>
+                </div>
+                <p class="thesis-intro-text">
+                    Redigera din senaste analys. Spara en ny version när din tes eller dina antaganden ändras; tidigare versioner finns kvar på den här enheten.
+                </p>
+
+                <!-- Thesis Status Banner -->
+                <div id="thesisStatusBanner" class="calc-status-banner calc-status-neutral" role="status" aria-live="polite" style="display: none;"></div>
+
+                <form id="thesisForm" class="calculator-form thesis-form" novalidate>
+
+                    <fieldset class="thesis-fieldset">
+                        <legend>Min tes</legend>
+                        <div class="field-group">
+                            <label for="thesis-text">Min teori</label>
+                            <textarea
+                                id="thesis-text"
+                                class="thesis-textarea"
+                                placeholder="Varför äger/följer du bolaget? Vad tror du marknaden underskattar?"
+                                rows="4"
+                                required
+                            ></textarea>
+                            <small class="field-help">Obligatorisk. Fritt skriven investeringstesi för detta bolag.</small>
+                        </div>
+                    </fieldset>
+<fieldset class="thesis-fieldset">
+                        <legend>Min tes bygger på att</legend>
+                        <p>Skriv gärna minst ett antagande: något som behöver stämma för att din investeringsteori ska hålla. Upp till tre, med dina egna ord.</p>
+                        <div class="field-group"><label for="thesis-assumption-1">Antagande 1 (valfritt)</label><input id="thesis-assumption-1" type="text" /></div>
+                        <div class="field-group"><label for="thesis-assumption-2">Antagande 2 (valfritt)</label><input id="thesis-assumption-2" type="text" /></div>
+                        <div class="field-group"><label for="thesis-assumption-3">Antagande 3 (valfritt)</label><input id="thesis-assumption-3" type="text" /></div>
+                        <div class="field-group"><label for="thesis-review-date">Nästa granskning (valfritt)</label><input id="thesis-review-date" type="date" /><small>Din egen planering, inte en prognos eller automatisk avisering.</small></div>
+                    </fieldset>
+
+                    <fieldset class="thesis-fieldset">
+                        <legend>Viktigaste risker</legend>
+                        <div class="field-group">
+                            <label for="thesis-risks">Identifierade risker</label>
+                            <textarea
+                                id="thesis-risks"
+                                class="thesis-textarea"
+                                placeholder="Vilka är de största sårbarheter eller utmaningar för din tes?"
+                                rows="3"
+                            ></textarea>
+                            <small class="field-help">Valfritt. Konkreta risker eller motargument.</small>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="thesis-fieldset">
+                        <legend>Vad skulle få mig att ändra mig?</legend>
+                        <div class="field-group">
+                            <label for="thesis-trigger">Falsifiering av tes</label>
+                            <textarea
+                                id="thesis-trigger"
+                                class="thesis-textarea"
+                                placeholder="Vilka konkreta händelser eller siffror skulle få dig att skriva av eller sälja?"
+                                rows="3"
+                            ></textarea>
+                            <small class="field-help">Valfritt. Tydliga triggers för att revidera positionen.</small>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="thesis-fieldset">
+                        <legend>Anteckningar</legend>
+                        <div class="field-group">
+                            <label for="thesis-notes">Övriga anteckningar</label>
+                            <textarea
+                                id="thesis-notes"
+                                class="thesis-textarea"
+                                placeholder="Eventuella personliga anteckningar (valfritt)."
+                                rows="2"
+                            ></textarea>
+                            <small class="field-help">Valfritt. Personliga noteringar eller remissteknik.</small>
+                        </div>
+                    </fieldset>
+
+                    <div class="thesis-form-actions">
+                        <button type="submit" class="thesis-submit-btn">Spara ny version</button>
+                        <button type="button" id="thesisDeleteBtn" class="destructive-action ghost-btn thesis-delete-btn" style="display: none;">Radera all thesis-historik</button>
+                    </div>
+                </form>
+
+                <!-- Thesis Saved Indicator -->
+                <div id="thesisSavedIndicator" class="thesis-saved-indicator" style="display: none;" aria-live="polite">
+                    <span class="saved-icon">✓</span>
+                    <span class="saved-text">Sparad <span id="thesisSavedTime">nyligen</span></span>
+                </div>
+
+                <!-- Thesis Metadata -->
+                <div id="thesisMetadata" class="thesis-metadata" style="display: none;">
+                    <p class="metadata-note">
+                        🔒 Sparas lokalt på den här enheten. Ingen inloggning, ingen moln, ingen delning.
+                    </p>
+                    <details class="thesis-snapshot-details">
+                        <summary>Senaste sparade värdering</summary>
+                        <div class="thesis-snapshot-preview" id="thesisSnapshotPreview">
+                            <!-- Snapshot data populated dynamically -->
+                        </div>
+                    </details>
+                </div>
+            </section>
+<section class="card research-card-block valuation-section" id="valuationSection" aria-labelledby="valuation-heading">
+
                 <div class="section-heading">
                     <div>
                         <span class="section-kicker">Framåtblickande analys</span>
@@ -267,8 +377,8 @@
                 <form id="valuationForm" class="calculator-form valuation-form" novalidate>
                     <div class="form-grid form-grid--aligned">
                         <div class="field-group">
-                            <label for="val-price">Aktiekurs idag ($)</label>
-                            <input id="val-price" type="number" min="0.01" step="0.01" value="120.00" inputmode="decimal" required />
+                            <label for="val-price">Manuellt värderingspris ($)</label>
+                            <p id="valuationPriceInputStatus" role="status">Exempelpris – inte aktuell börskurs.</p><input id="val-price" type="number" min="0.01" step="0.01" value="120.00" inputmode="decimal" required />
                             <small class="field-help">Ange aktuell aktiekurs i USD manuellt.</small>
                         </div>
                         <div class="field-group" id="val-eps-group">
@@ -301,6 +411,7 @@
 
                 <!-- Valuation Snapshot & Reverse Valuation Results -->
                 <div id="valuationResults" class="valuation-results-wrap" aria-live="polite">
+                    <p id="valuationPriceResultStatus" class="note">Exempelberäkning – inte en värdering med aktuell börskurs. Fundamenta kommer från normaliserade SEC-data; ingen livekurs hämtas.</p>
                     <!-- Snapshot KPIs -->
                     <div class="valuation-snapshot-grid">
                         <div class="result-box" id="val-pe-box">
@@ -555,103 +666,7 @@
             </section>
 
             <!-- Section G: Min Thesis (User Research Journal) -->
-            <section class="card research-card-block thesis-section" id="thesisSection" aria-labelledby="thesis-heading">
-                <div class="section-heading">
-                    <div>
-                        <span class="section-kicker">Min analys</span>
-                        <h2 id="thesis-heading">Spara din investeringsteori</h2>
-                    </div>
-                </div>
-                <p class="thesis-intro-text">
-                    Redigera din senaste analys. Spara en ny version när din tes eller dina antaganden ändras; tidigare versioner finns kvar på den här enheten.
-                </p>
 
-                <!-- Thesis Status Banner -->
-                <div id="thesisStatusBanner" class="calc-status-banner calc-status-neutral" role="status" aria-live="polite" style="display: none;"></div>
-
-                <form id="thesisForm" class="calculator-form thesis-form" novalidate>
-                    <fieldset class="thesis-fieldset">
-                        <legend>Min tes</legend>
-                        <div class="field-group">
-                            <label for="thesis-text">Min teori</label>
-                            <textarea
-                                id="thesis-text"
-                                class="thesis-textarea"
-                                placeholder="Varför äger/följer du bolaget? Vad tror du marknaden underskattar?"
-                                rows="4"
-                                required
-                            ></textarea>
-                            <small class="field-help">Obligatorisk. Fritt skriven investeringstesi för detta bolag.</small>
-                        </div>
-                    </fieldset>
-
-                    <fieldset class="thesis-fieldset">
-                        <legend>Viktigaste risker</legend>
-                        <div class="field-group">
-                            <label for="thesis-risks">Identifierade risker</label>
-                            <textarea
-                                id="thesis-risks"
-                                class="thesis-textarea"
-                                placeholder="Vilka är de största sårbarheter eller utmaningar för din tes?"
-                                rows="3"
-                            ></textarea>
-                            <small class="field-help">Valfritt. Konkreta risker eller motargument.</small>
-                        </div>
-                    </fieldset>
-
-                    <fieldset class="thesis-fieldset">
-                        <legend>Vad skulle få mig att ändra mig?</legend>
-                        <div class="field-group">
-                            <label for="thesis-trigger">Falsifiering av tes</label>
-                            <textarea
-                                id="thesis-trigger"
-                                class="thesis-textarea"
-                                placeholder="Vilka konkreta händelser eller siffror skulle få dig att skriva av eller sälja?"
-                                rows="3"
-                            ></textarea>
-                            <small class="field-help">Valfritt. Tydliga triggers för att revidera positionen.</small>
-                        </div>
-                    </fieldset>
-
-                    <fieldset class="thesis-fieldset">
-                        <legend>Anteckningar</legend>
-                        <div class="field-group">
-                            <label for="thesis-notes">Övriga anteckningar</label>
-                            <textarea
-                                id="thesis-notes"
-                                class="thesis-textarea"
-                                placeholder="Eventuella personliga anteckningar (valfritt)."
-                                rows="2"
-                            ></textarea>
-                            <small class="field-help">Valfritt. Personliga noteringar eller remissteknik.</small>
-                        </div>
-                    </fieldset>
-
-                    <div class="thesis-form-actions">
-                        <button type="submit" class="thesis-submit-btn">Spara ny version</button>
-                        <button type="button" id="thesisDeleteBtn" class="ghost-btn thesis-delete-btn" style="display: none;">Radera all historik</button>
-                    </div>
-                </form>
-
-                <!-- Thesis Saved Indicator -->
-                <div id="thesisSavedIndicator" class="thesis-saved-indicator" style="display: none;" aria-live="polite">
-                    <span class="saved-icon">✓</span>
-                    <span class="saved-text">Sparad <span id="thesisSavedTime">nyligen</span></span>
-                </div>
-
-                <!-- Thesis Metadata -->
-                <div id="thesisMetadata" class="thesis-metadata" style="display: none;">
-                    <p class="metadata-note">
-                        🔒 Sparas lokalt på den här enheten. Ingen inloggning, ingen moln, ingen delning.
-                    </p>
-                    <details class="thesis-snapshot-details">
-                        <summary>Senaste sparade värdering</summary>
-                        <div class="thesis-snapshot-preview" id="thesisSnapshotPreview">
-                            <!-- Snapshot data populated dynamically -->
-                        </div>
-                    </details>
-                </div>
-            </section>
 
             <section class="card research-card-block" aria-labelledby="research-export-heading">
                 <h2 id="research-export-heading">Exportera sparad analys</h2>
@@ -685,13 +700,15 @@
                             <div><dt>Viktigaste risker</dt><dd id="revisionRisks"></dd></div>
                             <div><dt>Vad skulle få mig att ändra mig?</dt><dd id="revisionTrigger"></dd></div>
                             <div><dt>Anteckningar</dt><dd id="revisionNotes"></dd></div>
+                            <div><dt>Historiskt sparade antaganden</dt><dd id="revisionAssumptions"></dd></div>
+                            <div><dt>Sparad granskning</dt><dd id="revisionReview"></dd></div>
                         </dl>
                         <div id="revisionSnapshotPreview" class="thesis-snapshot-preview"></div>
                     </div>
                 </details>
-                <button type="button" id="revisionRestoreBtn" class="ghost-btn" aria-describedby="revisionRestoreHelp">Använd dessa antaganden</button>
+                <button type="button" id="revisionRestoreBtn" class="ghost-btn" aria-describedby="revisionRestoreHelp">Använd dessa antaganden med aktuell Research-data</button>
                 <p id="revisionRestoreHelp" class="note"></p>
-                <button type="button" id="revisionDeleteBtn" class="ghost-btn">Radera vald version</button>
+                <button type="button" id="revisionDeleteBtn" class="destructive-action ghost-btn">Radera vald version</button>
                 <p class="note">Sparade utfallsobservationer behålls med en arkivkopia av källversionen även om en eller alla Research-versioner raderas.</p>
             </section>
 
@@ -748,6 +765,7 @@
             </div>
         </dialog>
     </main>
+    <footer class="trust-footer"><a href="om-metod.html">Om NTM, integritet, metod och rättelser</a></footer>
 
     <section id="researchPrintView" class="research-print-view" aria-label="Utskriftsvy för sparad analys" hidden>
         <div class="research-print-controls">
@@ -758,7 +776,9 @@
         <article id="researchPrintContent" tabindex="-1"></article>
     </section>
 
-    <script src="script.js"></script>
+    <script src="ntm-product.js"></script>
+    <script src="valuation-core.js"></script>
+<script src="script.js"></script>
     <script src="research-snapshot.js"></script>
     <script src="thesis-storage.js"></script>
     <script src="change-detection.js"></script>
@@ -766,5 +786,6 @@
     <script src="research-outcomes.js"></script>
     <script src="research-outcome-ui.js"></script>
     <script src="research.js"></script>
+    <script src="research-review.js"></script>
 </body>
 </html>

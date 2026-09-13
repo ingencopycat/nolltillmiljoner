@@ -43,28 +43,29 @@
             const historical = finite(before?.ttmMetrics[key]);
             const actual = finite(current?.ttmMetrics[key]);
             const margin = key === 'netMargin' || key === 'fcfMargin';
-            const comparable = tickerMatches && (margin || key === 'dilutedShares' || currencyMatches)
-                && historical !== null && actual !== null;
+            const gate = window.NTMResearchSnapshot.comparable(before, current, key);
+            const comparable = gate.comparable;
             const absolute = comparable ? finite(actual - historical) : null;
-            return { key, name, historical, actual, margin, absolute,
+            return { key, name, historical, actual, margin, absolute, reason: gate.reason,
                 pct: !margin && absolute !== null && historical !== 0 ? finite(absolute / Math.abs(historical) * 100) : null,
                 cagr: !margin && comparable && positive(historical) && positive(actual) && reportingYears >= 365 / 365.25
-                    ? finite((Math.pow(actual / historical, 1 / reportingYears) - 1) * 100) : null,
+                    ? window.NTMValuation.toPercent(window.NTMValuation.cagr(historical, actual, reportingYears)) : null,
             };
         });
         const pathYears = elapsed !== null && horizon !== null ? Math.min(elapsed, horizon) : null;
         const manual = inputs.epsSource === 'manual';
         const knownSource = manual || inputs.epsSource === 'sec';
         const price = positive(observation.manualPrice?.value) ? observation.manualPrice.value : null;
-        const priceCompatible = price !== null && before?.currency && observation.manualPrice?.currency === before.currency;
+        const priceCompatible = price !== null && before?.currency && observation.manualPrice?.currency === before.currency
+            && window.NTMResearchSnapshot.comparable(before, current, 'dilutedShares').comparable;
         const scenarios = ['bear', 'base', 'bull'].map((name) => {
             const saved = before?.scenarios[name] || {};
             const expected = knownSource && positive(inputs.epsBasis) && Number.isFinite(saved.growth) && saved.growth > -100 && pathYears !== null
-                ? finite(inputs.epsBasis * Math.pow(1 + saved.growth / 100, pathYears)) : null;
+                ? window.NTMValuation.future(inputs.epsBasis, saved.growth, pathYears) : null;
             const actual = finite(current?.ttmMetrics.eps);
             const target = finite(saved.futurePrice);
             return { name, growth: finite(saved.growth), expected, actual, target,
-                epsGapPct: !manual && tickerMatches && currencyMatches && positive(expected) && actual !== null
+                epsGapPct: !manual && window.NTMResearchSnapshot.comparable(before, current, 'eps').comparable && positive(expected) && actual !== null
                     ? finite((actual - expected) / expected * 100) : null,
                 targetGapPct: priceCompatible && positive(target) ? finite((price / target - 1) * 100) : null,
             };
@@ -75,6 +76,7 @@
             eligibleForFinal: elapsed !== null && horizon !== null && elapsed >= horizon,
             reportingYears, pathYears, manualEps: manual, currencyMatches, metrics, scenarios,
             priceReturnPct: priceCompatible && positive(inputs.stockPrice) ? finite((price / inputs.stockPrice - 1) * 100) : null,
+            priceReason: price !== null && !priceCompatible ? 'Kursjämförelse saknas — valuta eller aktiebas är inte verifierad. Den manuella kursen kan ändå sparas.' : null,
             position: priceCompatible ? position(price, scenarios.map((scenario) => scenario.target)) : null,
         };
     }
@@ -102,9 +104,9 @@
                 && positive(record.manualPrice.value) && record.manualPrice.currency === record.currentSnapshot.currency);
     }
 
-    function read() {
+    function read(rawOverride) {
         try {
-            const raw = window.localStorage.getItem(KEY);
+            const raw = rawOverride === undefined ? window.localStorage.getItem(KEY) : rawOverride;
             const store = raw === null ? { schemaVersion: 1, checkpoints: [] } : JSON.parse(raw);
             if (!object(store) || store.schemaVersion !== 1 || !Array.isArray(store.checkpoints)) throw new Error('format');
             const ids = new Set();

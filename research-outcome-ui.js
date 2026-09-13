@@ -30,6 +30,7 @@
         const source = observation.sourceRevision;
         const results = window.NTMResearchOutcomes.compare(source, observation);
         const old = source.valuationSnapshot;
+        if (results.priceReason) add(container, 'p', results.priceReason);
         add(container, 'p', `Källversion ${date(source.savedAt)} (${source.id}) · sparad period ${old?.asOfPeriod || 'saknas'} → observerad period ${observation.currentSnapshot.asOfPeriod || 'saknas'} · observation ${date(observation.observedAt)}.`);
         add(container, 'p', `Horisont ${num(results.horizon, ' år')} · gått ${num(results.elapsed, ' år')} · återstår ${num(results.remaining, ' år')} · ${num(results.horizonPct, ' %')} av horisonten har gått.`);
         add(container, 'p', results.eligibleForFinal
@@ -42,7 +43,7 @@
         add(fundamentals, 'p', `TTM-värden. Belopp: då ${old?.currency || 'valuta saknas'}, observerat ${observation.currentSnapshot.currency || 'valuta saknas'}. Aktieantal anges i aktier, marginaler i %. CAGR använder rapportperiodernas slutdatum (${num(results.reportingYears, ' år')}), minst 365 dagar och positiva start- och slutvärden. Procentförändring använder startvärdets absolutbelopp; marginalskillnad anges i procentenheter (pp).`);
         if (!results.currencyMatches) add(fundamentals, 'p', 'Valuta saknas eller skiljer sig: monetära förändringar och EPS-avvikelse beräknas inte.');
         table(fundamentals, ['Mått', 'Då', 'Observerat', 'Skillnad', 'Ändring %', 'CAGR %/år'], results.metrics.map((metric) => [
-            metric.name, num(metric.historical), num(metric.actual), num(metric.absolute, metric.margin ? ' pp' : ''),
+            metric.name, num(metric.historical), num(metric.actual), metric.reason || num(metric.absolute, metric.margin ? ' pp' : ''),
             num(metric.pct), num(metric.cagr),
         ]));
         const paths = add(container, 'details');
@@ -141,9 +142,11 @@
                 return;
             }
             const result = window.NTMResearchOutcomes.save(active);
+            if (result.success && result.created) window.NTMEvents?.emit('outcome_checkpoint_saved');
             el('outcomeStatus').textContent = !result.success ? result.error : result.created
                 ? 'Utfallsobservation sparad. Research-versionen är oförändrad.' : 'Samma observation finns redan sparad för denna dag.';
             if (result.success) history(ticker, result.checkpoint.id);
+            window.NTMStatus?.set(el('outcomeStatus'), result.success ? 'saved' : 'error', el('outcomeStatus').textContent);
         };
         calculate();
     }

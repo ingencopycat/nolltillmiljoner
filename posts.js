@@ -3,6 +3,24 @@ const NTM_POSTS = [
     "title": "Jordi Visser om exponentiell AI, trading och makro",
     "date": "2026-09-13",
     "slug": "jordi-visser-linjart-exponentiellt-ai-trading",
+    "editorial": {
+      "sourceUrl": "https://www.youtube.com/watch?v=VPuzUZlvk0U",
+      "attribution": "Jordi Visser",
+      "publishedAt": "2026-09-13",
+      "updatedAt": "2026-09-13",
+      "aiSummary": true,
+      "verification": [
+        "Siffror och sakpåståenden i sammanfattningen är inte oberoende verifierade."
+      ],
+      "commercialStatus": "unknown",
+      "corrections": [
+        {
+          "date": "2026-09-13",
+          "kind": "metadata",
+          "text": "Källstatus, granskningsmarkering och metodlänk tillagda. Ingen ny faktagranskning utförd."
+        }
+      ]
+    },
     "category": "Video",
     "tags": [
       "AI",
@@ -87,6 +105,24 @@ const NTM_POSTS = [
     "title": "Jordi Visser och Anthony Pompliano om AI, krypto och makro",
     "date": "2026-09-13",
     "slug": "jordi-visser-anthony-pompliano-ai-krypto-makro",
+    "editorial": {
+      "sourceUrl": "https://www.youtube.com/watch?v=Uzc3tBB9pLg",
+      "attribution": "Jordi Visser och Anthony Pompliano",
+      "publishedAt": "2026-09-13",
+      "updatedAt": "2026-09-13",
+      "aiSummary": true,
+      "verification": [
+        "Siffror och sakpåståenden i sammanfattningen är inte oberoende verifierade."
+      ],
+      "commercialStatus": "unknown",
+      "corrections": [
+        {
+          "date": "2026-09-13",
+          "kind": "metadata",
+          "text": "Källstatus, granskningsmarkering och metodlänk tillagda. Ingen ny faktagranskning utförd."
+        }
+      ]
+    },
     "category": "Video",
     "tags": [
       "AI",
@@ -159,6 +195,24 @@ const NTM_POSTS = [
     title: 'Palantir väljer Nebius som föredragen partner för Sovereign AI',
     date: '2026-09-08',
     slug: 'palantir-nebius-sovereign-ai',
+    "editorial": {
+      "sourceUrl": null,
+      "attribution": "NTM",
+      "publishedAt": "2026-09-08",
+      "updatedAt": "2026-09-13",
+      "aiSummary": false,
+      "verification": [
+        "Primärkällans länk och faktauppgifterna behöver verifieras."
+      ],
+      "commercialStatus": "unknown",
+      "corrections": [
+        {
+          "date": "2026-09-13",
+          "kind": "metadata",
+          "text": "Källstatus, granskningsmarkering och metodlänk tillagda. Ingen ny faktagranskning utförd."
+        }
+      ]
+    },
     category: 'Nyheter',
     tags: ['Nebius', 'Palantir', 'Sovereign AI'],
     previewPosition: 'top',
@@ -177,6 +231,24 @@ const NTM_POSTS = [
     title: 'Bank of America ser 65% uppsida i ASML – High-NA EUV tar nästa steg',
     date: '2026-09-08',
     slug: 'asml-bank-of-america-high-na-euv',
+    "editorial": {
+      "sourceUrl": null,
+      "attribution": "NTM",
+      "publishedAt": "2026-09-08",
+      "updatedAt": "2026-09-13",
+      "aiSummary": false,
+      "verification": [
+        "Primärkällans länk och faktauppgifterna behöver verifieras."
+      ],
+      "commercialStatus": "unknown",
+      "corrections": [
+        {
+          "date": "2026-09-13",
+          "kind": "metadata",
+          "text": "Källstatus, granskningsmarkering och metodlänk tillagda. Ingen ny faktagranskning utförd."
+        }
+      ]
+    },
     category: 'Nyheter',
     tags: ['ASML', 'High-NA EUV'],
     previewPosition: 'top',
@@ -194,6 +266,22 @@ const NTM_POSTS = [
     title: 'Så hänger min AI-portfölj ihop',
     date: '2026-09-05',
     slug: 'ai-portfolj',
+    "editorial": {
+      "sourceUrl": "https://www.instagram.com/ingencopycat/",
+      "attribution": "NTM",
+      "publishedAt": "2026-09-05",
+      "updatedAt": "2026-09-13",
+      "aiSummary": false,
+      "verification": [],
+      "commercialStatus": "unknown",
+      "corrections": [
+        {
+          "date": "2026-09-13",
+          "kind": "metadata",
+          "text": "Källstatus, granskningsmarkering och metodlänk tillagda. Ingen ny faktagranskning utförd."
+        }
+      ]
+    },
     category: 'Portfölj',
     tags: ['AI', 'Semiconductors', 'Infrastruktur', 'Cybersecurity'],
     previewPosition: 'top',
@@ -214,6 +302,24 @@ const NTM_POSTS = [
     title: 'Think It’s Too Late to Buy Micron Stock? Watch This',
     date: '2026-09-03',
     slug: 'micron-ai-memory',
+    "editorial": {
+      "sourceUrl": "https://www.youtube.com/watch?v=a7GT2OtnwtU",
+      "attribution": "Skaparen av den länkade originalvideon",
+      "publishedAt": "2026-09-03",
+      "updatedAt": "2026-09-13",
+      "aiSummary": true,
+      "verification": [
+        "Siffror och sakpåståenden i sammanfattningen är inte oberoende verifierade."
+      ],
+      "commercialStatus": "unknown",
+      "corrections": [
+        {
+          "date": "2026-09-13",
+          "kind": "metadata",
+          "text": "Källstatus, granskningsmarkering och metodlänk tillagda. Ingen ny faktagranskning utförd."
+        }
+      ]
+    },
     category: 'Video',
     tags: ['Micron', 'AI', 'Memory', 'Semiconductors'],
     excerpt: 'En AI-sammanfattning av videons tes om Micron, minnesmarknaden och den växande efterfrågan från AI.',
@@ -246,6 +352,24 @@ const NTM_POSTS = [
     title: 'The Bond Market “Crash” Is a Trap — AI Agents Are About to Ignite Crypto',
     date: '2026-09-07',
     slug: 'jordi-visser-ai-agents-crypto',
+    "editorial": {
+      "sourceUrl": "https://www.youtube.com/watch?v=er5mqvbDQU8",
+      "attribution": "Jordi Visser",
+      "publishedAt": "2026-09-07",
+      "updatedAt": "2026-09-13",
+      "aiSummary": true,
+      "verification": [
+        "Siffror och sakpåståenden i sammanfattningen är inte oberoende verifierade."
+      ],
+      "commercialStatus": "unknown",
+      "corrections": [
+        {
+          "date": "2026-09-13",
+          "kind": "metadata",
+          "text": "Källstatus, granskningsmarkering och metodlänk tillagda. Ingen ny faktagranskning utförd."
+        }
+      ]
+    },
     category: 'Video',
     tags: ['AI', 'Crypto', 'Bitcoin', 'Makro', 'Tokenisering'],
     excerpt: 'En AI-sammanfattning av Jordi Vissers tes om obligationsmarknaden, AI-agenter, tokenisering och varför krypto kan bli en central del av den agentiska ekonomin.',
@@ -370,3 +494,10 @@ const NTM_POSTS = [
     disclaimer: 'AI-sammanfattning baserad på videons transkribering. Kan innehålla fel. Åsikterna tillhör Jordi Visser, inte NTM, och detta är inte finansiell rådgivning. Se originalvideon för fullständigt sammanhang.'
   }
 ];
+
+const NTM_CONTENT_JOURNEYS = {
+  'jordi-visser-linjart-exponentiellt-ai-trading': { id: 'ai_reverse', href: 'aktievarderingskalkylator.html?from=content&via=ai_reverse#reverse', title: 'Vilken tillväxt kräver priset?', text: 'Videons resonemang om exponentiell AI säger inte vad en aktie är värd. Testa vilken vinsttillväxt dina egna antaganden om pris och avkastning kräver.', label: 'Pröva omvänd värdering' },
+  'micron-ai-memory': { id: 'memory_scenarios', href: 'aktievarderingskalkylator.html?from=content&via=memory_scenarios#scenarios', title: 'Hur känsligt är vinstcaset?', text: 'Minnesvideon bygger på uthållig intjäning. Jämför lägre och högre vinsttillväxt och multiplar med egna, kontrollerade ingångsvärden. Videons siffror fylls inte i åt dig.', label: 'Jämför tre värderingsscenarier' },
+  'ai-portfolj': { id: 'ai_thesis', href: 'research.html?ticker=NVDA&from=content&via=ai_thesis#thesisSection', title: 'Gör ett tema till en prövbar tes', text: 'Portföljens AI-tema nämner Nvidia. Skriv vad som måste bli sant och vad som skulle få dig att ändra dig. Exemplet är en arbetsövning, ingen köprekommendation.', label: 'Skriv en egen Nvidia-tes i Research' }
+};
+NTM_POSTS.forEach(post => { if (NTM_CONTENT_JOURNEYS[post.slug]) post.journey = NTM_CONTENT_JOURNEYS[post.slug]; });

@@ -20,6 +20,7 @@ Key architectural rules:
 
 from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, List, Optional, Tuple
+from stock_contract import enrich
 
 
 # Profile definitions for company-specific XBRL mappings
@@ -1241,7 +1242,16 @@ class StockNormalizer:
         if not quarterly_data or len(quarterly_data) < 4:
             return None
 
-        sorted_q = sorted(quarterly_data, key=lambda q: (q['fiscalYear'], q['fiscalPeriod']))
+        # Fiscal labels and actual dates must both describe consecutive quarters.
+        # Sorting is safe; silently deduplicating conflicting observations is not.
+        try:
+            for q in quarterly_data:
+                if (type(q['fiscalYear']) is not int or q['fiscalPeriod'] not in ('Q1', 'Q2', 'Q3', 'Q4')
+                        or q['period'] != f"{q['fiscalYear']}{q['fiscalPeriod']}"):
+                    return None
+            sorted_q = sorted(quarterly_data, key=lambda q: (q['fiscalYear'], q['fiscalPeriod']))
+        except (KeyError, TypeError):
+            return None
 
         if target_period:
             idx = next((i for i, q in enumerate(sorted_q) if q['period'] == target_period), None)
@@ -1250,6 +1260,25 @@ class StockNormalizer:
             trailing_4 = sorted_q[idx - 3: idx + 1]
         else:
             trailing_4 = sorted_q[-4:]
+
+        ordinals = [q['fiscalYear'] * 4 + int(q['fiscalPeriod'][1]) for q in trailing_4]
+        if any(b != a + 1 for a, b in zip(ordinals, ordinals[1:])):
+            return None
+        if any(sum(row['period'] == q['period'] for row in sorted_q) != 1 for q in trailing_4):
+            return None
+        try:
+            boundaries = [(datetime.strptime(q['periodStart'], '%Y-%m-%d'),
+                           datetime.strptime(q['periodEnd'], '%Y-%m-%d')) for q in trailing_4]
+        except (KeyError, TypeError, ValueError):
+            return None
+        # Calendar quarters and 13/14-week fiscal quarters; reject stub/transition periods.
+        if any(not 80 <= (end - start).days + 1 <= 100 for start, end in boundaries):
+            return None
+        if any(start != previous_end + timedelta(days=1)
+               for (_, previous_end), (start, _) in zip(boundaries, boundaries[1:])):
+            return None
+        if not 350 <= (boundaries[-1][1] - boundaries[0][0]).days + 1 <= 378:
+            return None
 
         included_periods = [q['period'] for q in trailing_4]
         as_of_period = included_periods[-1]
@@ -1498,8 +1527,8 @@ class StockNormalizer:
             'ttmFcfPerShare': ttm_m.get('fcfPerShare'),
         }
 
-        return {
-            '$schema': 'ntm-stock-v0',
+        return enrich({
+            '$schema': 'ntm-stock-v1',
             'symbol': self.ticker,
             'company': company_info,
             'metadata': {
@@ -1516,5 +1545,5 @@ class StockNormalizer:
             'quarterly': quarterly,
             'ttm': ttm,
             'filings': filings,
-        }
+        })
 

@@ -15,28 +15,25 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Noll till Miljoner" />
     <meta property="og:locale" content="sv_SE" />
-    <meta property="og:image" content="https://nolltillmiljoner.se/images/ntm-logo.png.png" />
+    <meta property="og:image" content="https://nolltillmiljoner.se/images/ntm-social.png" />
     <meta property="og:image:alt" content="Noll till Miljoner" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Min NTM – dina lokalt sparade analyser | Noll till Miljoner" />
     <meta name="twitter:description" content="Öppna dina sparade analyser, kalkylatorscenarier och senaste verktyg. Uppgifterna lagras lokalt i din webbläsare." />
-    <meta name="twitter:image" content="https://nolltillmiljoner.se/images/ntm-logo.png.png" />
+    <meta name="twitter:image" content="https://nolltillmiljoner.se/images/ntm-social.png" />
     <meta name="twitter:image:alt" content="Noll till Miljoner" />
     <link rel="canonical" href="https://nolltillmiljoner.se/min-ntm.html" />
-    <link rel="icon" type="image/png" href="images/ntm-logo.png.png" />
+    <link rel="icon" type="image/png" href="images/ntm-icon.png" />
     <!-- SEO END -->
 </head>
 <body>
     <header class="topbar">
         <div class="topbar-inner">
             <a href="index.html" class="brand-wrap">
-                <img class="brand-logo" src="images/ntm-logo.png.png" alt="NTM" />
+                <img class="brand-logo" src="images/ntm-logo.webp" width="192" height="192" alt="NTM" />
                 <div class="brand-text"><span class="brand-name"><span class="brand-zero">NOLL</span> <span class="brand-neutral">TILL</span> <span class="brand-million">MILJONER</span></span><span class="brand-subtitle">Min NTM</span></div>
             </a>
-            <nav class="main-nav" aria-label="Huvudnavigering">
-                <div class="mobile-theme-row"><span class="mobile-theme-label">Tema</span><button id="mobileThemeToggle" class="theme-toggle mobile-theme-btn" type="button" aria-label="Växla tema" title="Växla tema"><span class="toggle-icon toggle-icon-sun">🌞</span><span class="toggle-icon toggle-icon-moon">🌙</span></button></div>
-                <a href="index.html">Hem</a><a href="verktyg.html">Verktyg</a><a href="research.html">Research</a><a href="min-ntm.html" class="active" aria-current="page">Min NTM</a><a href="inlagg.html">Inlägg</a><a href="makro.html">Makro</a><a href="rapporter.html">Rapporter</a><a href="resurser.html">Resurser</a><a href="community.html">Community</a>
-            </nav>
+            <nav class="main-nav" aria-label="Huvudnavigering"><div class="mobile-theme-row"><span class="mobile-theme-label">Tema</span><button id="mobileThemeToggle" class="theme-toggle mobile-theme-btn" type="button" aria-label="Växla tema" title="Växla tema"><span class="toggle-icon toggle-icon-sun">🌞</span><span class="toggle-icon toggle-icon-moon">🌙</span></button></div><a href="verktyg.html">Verktyg</a><a href="research.html">Research</a><a href="min-ntm.html" class="active" aria-current="page">Min NTM</a><details class="nav-learn"><summary>Lär dig</summary><div class="nav-learn-links"><a href="inlagg.html">Inlägg och videor</a><a href="resurser.html">Resurser</a><a href="makro.html">Makro</a><a href="rapporter.html">Rapporter</a><a href="community.html">Community</a></div></details></nav>
             <button id="mobileNavToggle" class="nav-toggle" type="button" aria-label="Öppna meny" aria-expanded="false">☰</button>
             <button id="themeToggle" class="theme-toggle" type="button" aria-label="Växla tema" title="Växla tema"><span class="toggle-icon toggle-icon-sun">🌞</span><span class="toggle-icon toggle-icon-moon">🌙</span></button>
         </div>
@@ -45,7 +42,23 @@
     <main class="container tool-landing" data-min-ntm>
         <header class="page-intro tool-intro min-ntm-intro"><span class="section-kicker">Lokalt på din enhet</span><h1>Min NTM</h1><p>Din personliga översikt.</p><p class="min-ntm-local-note">Sparas lokalt på den här enheten. Ingen inloggning krävs.</p></header>
 
-        <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-scenarios-heading">
+        <section class="card calculator-card min-ntm-card" aria-labelledby="reviewQueueHeading">
+            <h2 id="reviewQueueHeading">Att granska</h2>
+            <p id="reviewQueueStatus" role="status">Kontrollerar sparade teser…</p>
+            <div id="reviewQueue" class="min-ntm-list"></div>
+            <details><summary>Stängda teser och historik</summary><div id="closedTheses" class="min-ntm-list"></div></details>
+        </section>
+        <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-research-heading">
+            <div class="section-heading"><div><span class="section-kicker">Mina analyser</span><h2 id="min-ntm-research-heading">Aktiva teser</h2></div></div>
+            <p class="min-ntm-status" data-min-ntm-theses-status hidden></p>
+            <div class="min-ntm-list" data-min-ntm-theses></div>
+            <div class="empty-state min-ntm-empty" data-min-ntm-theses-empty>
+                <h3>Inga aktiva teser</h3>
+                <p>Spara en analys från NTM Research så dyker den upp här. Börja med att analysera ett bolag!</p>
+                <div class="min-ntm-actions"><a class="secondary-btn" href="research.html?ticker=NVDA">Analysera NVIDIA</a><a class="secondary-btn" href="research.html?ticker=SOFI">Analysera SoFi</a><a class="ghost-btn" href="research.html">Alla bolag →</a></div>
+            </div>
+        </section>
+<section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-scenarios-heading">
             <div class="section-heading"><div><span class="section-kicker">Sparade scenarier</span><h2 id="min-ntm-scenarios-heading">Dina kalkyler</h2></div></div>
             <p class="min-ntm-status" data-min-ntm-scenarios-status hidden></p>
             <div class="min-ntm-list" data-min-ntm-scenarios></div>
@@ -56,27 +69,9 @@
             </div>
         </section>
 
-        <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-research-heading">
-            <div class="section-heading"><div><span class="section-kicker">Mina analyser</span><h2 id="min-ntm-research-heading">Sparade Research-theses</h2></div></div>
-            <p class="min-ntm-status" data-min-ntm-theses-status hidden></p>
-            <div class="min-ntm-list" data-min-ntm-theses></div>
-            <div class="empty-state min-ntm-empty" data-min-ntm-theses-empty>
-                <h3>Inga sparade analyser ännu</h3>
-                <p>Spara en analys från NTM Research så dyker den upp här. Börja med att analysera ett bolag!</p>
-                <div class="min-ntm-actions"><a class="secondary-btn" href="research.html?ticker=NVDA">Analysera NVIDIA</a><a class="secondary-btn" href="research.html?ticker=SOFI">Analysera SoFi</a><a class="ghost-btn" href="research.html">Alla bolag →</a></div>
-            </div>
-        </section>
 
-        <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-research-heading">
-            <div class="section-heading"><div><span class="section-kicker">Bolagsanalys</span><h2 id="min-ntm-research-heading">NTM Research</h2></div></div>
-            <p class="min-ntm-desc">Analysera bolag med verifierade SEC-fundamentals, historisk tillväxt, marginaler och värderingsscenarier.</p>
-            <div class="min-ntm-research-links">
-                <a class="secondary-btn" href="research.html?ticker=NVDA">NVIDIA (NVDA)</a>
-                <a class="secondary-btn" href="research.html?ticker=SOFI">SoFi (SOFI)</a>
-                <a class="secondary-btn" href="research.html?ticker=CRWD">CrowdStrike (CRWD)</a>
-                <a class="ghost-btn" href="research.html">Alla bolag →</a>
-            </div>
-        </section>
+
+
 
         <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-recent-heading">
             <div class="section-heading"><div><span class="section-kicker">Senaste verktyg</span><h2 id="min-ntm-recent-heading">Fortsätt där du var</h2></div></div>
@@ -92,10 +87,31 @@
             <div class="section-heading"><div><span class="section-kicker">Snabblänkar</span><h2 id="min-ntm-links-heading">Gå vidare</h2></div></div>
             <div class="min-ntm-quick-links"><a class="secondary-btn" href="research.html">Research</a><a class="secondary-btn" href="makro.html">Makro</a><a class="secondary-btn" href="rapporter.html">Rapporter</a><a class="secondary-btn" href="verktyg.html">Alla verktyg</a></div>
         </section>
+        <section class="card calculator-card min-ntm-card" aria-labelledby="localDataHeading">
+            <h2 id="localDataHeading">Backup och lokal Research-data</h2>
+            <p>JSON-backup innehåller thesis-versioner, snapshots, utfallskontroller med arkivkopior, kalkylatorscenarier och tema. Markdown är en läsexport, inte en backup. Förvara JSON-filen privat.</p>
+            <button type="button" id="localDataExport" class="secondary-btn">Exportera all lokal data</button>
+            <p><label for="localDataFile">Välj JSON-backup</label> <input type="file" id="localDataFile" accept=".json,application/json" /></p>
+            <button type="button" id="localDataImport" class="secondary-btn">Importera backup – slå samman</button>
+            <p>Import behåller befintliga poster. Nya versioner läggs sist och kan bli senaste version. Identiska ID:n dupliceras inte; motstridiga ID:n stoppar hela importen. Befintligt tema behålls.</p>
+            <h3>Radera för ett bolag</h3>
+            <p>Vanlig thesis-radering behåller utfallskontroller och deras arkivkopior. Här kan du radera kontrollerna separat eller all privat Research-data för en ticker. Kalkylatorscenarier och andra bolag behålls.</p>
+            <label for="localDataTicker">Ticker för radering</label>
+            <input id="localDataTicker" type="text" placeholder="NVDA" autocomplete="off" />
+            <button type="button" id="localDataDeleteOutcomes" class="destructive-action ghost-btn">Radera utfallskontroller för angiven ticker</button>
+            <button type="button" id="localDataDeleteAll" class="destructive-action ghost-btn">Radera all Research-data för angiven ticker</button>
+            <p id="localDataStatus" role="status" aria-live="polite"></p>
+        </section>
     </main>
+    <footer class="trust-footer"><a href="om-metod.html">Om NTM, integritet, metod och rättelser</a></footer>
     <script src="research-snapshot.js"></script>
     <script src="thesis-storage.js"></script>
     <script src="change-detection.js"></script>
-    <script src="script.js"></script>
+    <script src="ntm-product.js"></script>
+    <script src="valuation-core.js"></script>
+<script src="script.js"></script>
+    <script src="research-outcomes.js"></script>
+    <script src="local-data.js"></script>
+    <script src="min-review.js"></script>
 </body>
 </html>

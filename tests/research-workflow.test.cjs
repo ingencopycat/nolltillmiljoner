@@ -9,6 +9,77 @@ const clone = (value) => JSON.parse(JSON.stringify(value));
 const stock = (ticker = 'NVDA') => JSON.parse(read(`data/stocks/${ticker}.json`));
 const key = 'investment-research-theses-v1';
 
+test('standalone and Research valuation adapters agree with a hand-calculated oracle', () => {
+  const c=app().context;
+  const scenario=c.calculateStockScenario(80,4,25,2,20);
+  assert.equal(scenario.futureEPS,6.25); assert.equal(scenario.targetPrice,125);
+  assert.equal(c.calculateRequiredFuturePrice(80,4,25,2,20),125);
+  assert.equal(c.calculateRequiredFutureEPS(80,4,25,2,20),6.25);
+  assert.equal(c.calculateRequiredEpsCAGR(80,4,25,2,20),25);
+  for(const price of [0,NaN,Infinity]) {
+    assert.equal(c.calculateStockScenario(price,4,25,2,20).cagr,null);
+    assert.equal(c.calculateRequiredEpsCAGR(price,4,25,2,20),null);
+  }
+});
+
+test('comparability gate blocks incompatible evidence consistently in Change Detection and Outcomes', () => {
+  const a = app(), c = a.context;
+  const data = stock();
+  for (const m of Object.values(data.ttm.metrics)) m.shareBasis = 'test-only-verified-basis';
+  const before = c.NTMResearchSnapshot.normalize({ ...c.NTMResearchSnapshot.fromStockData(data), ticker: 'NVDA' });
+  const original = JSON.stringify(before);
+  const current = clone(data); current.ttm.metrics.dilutedEps.value *= 1.2;
+  assert.equal(c.NTMChangeDetection.detect(before, current).metrics.length, 1);
+  const compare = (snapshot, live, metric = 'eps') => {
+    const gate = c.NTMResearchSnapshot.comparable(snapshot, c.NTMResearchSnapshot.fromStockData(live), metric);
+    const observation = { currentSnapshot: c.NTMResearchSnapshot.fromStockData(live), observedAt: '2026-09-13' };
+    const outcome = c.NTMResearchOutcomes.compare({ valuationSnapshot: snapshot }, observation).metrics.find((m) => m.key === metric);
+    const report = c.NTMChangeDetection.detect(snapshot, live);
+    assert.equal(outcome.pct, null);
+    assert.equal(outcome.reason, gate.reason);
+    assert.ok(report.blocked.some((m) => m.reason === gate.reason));
+    return gate.reason;
+  };
+  const cases = [
+    [d => d.valuationBase.currency = 'SEK', /valuta/],
+    [d => d.ttm.metrics.dilutedEps.shareBasis = 'split', /aktiebasen/],
+    [d => d.ttm.metrics.dilutedEps.periodStart = '2026-07-01', /period/],
+    [d => d.ttm.metrics.dilutedEps.definition = 'different', /definition/],
+    [d => d.ttm.metrics.dilutedEps.unit = 'SEK\/shares', /enhet/],
+    [d => d.ttm.metrics.dilutedEps.kind = 'manual', /källa/],
+    [d => d.ttm.metrics.dilutedEps.restated = true, /omräkning/],
+    [d => d.ttm.metrics.dilutedEps.inputs[0].value += 1, /omräkning/],
+    [d => d.metadata.methodVersion = 'future', /metod/],
+    [d => d.ttm.metrics.dilutedEps.quartersIncluded.pop(), /kvartals/],
+  ];
+  for (const [mutate, reason] of cases) { const live = clone(current); mutate(live); assert.match(compare(before, live), reason); }
+  const legacy = clone(before); delete legacy.provenance;
+  assert.match(compare(legacy, current), /metadata/);
+  assert.equal(c.NTMResearchSnapshot.normalize(legacy).ttmMetrics.eps, before.ttmMetrics.eps);
+  assert.equal(c.NTMResearchSnapshot.normalize(legacy).provenance, undefined);
+  const priced = clone(before); priced.valuationInputs.stockPrice = 100;
+  const observation = { currentSnapshot: c.NTMResearchSnapshot.fromStockData(current),
+    observedAt: '2026-09-13', manualPrice: { value: 120, currency: 'USD', source: 'manual' } };
+  assert.ok(Math.abs(c.NTMResearchOutcomes.compare({ valuationSnapshot: priced }, observation).priceReturnPct - 20) < 1e-10);
+  observation.currentSnapshot.provenance.metrics.dilutedShares.shareBasis = null;
+  assert.equal(c.NTMResearchOutcomes.compare({ valuationSnapshot: priced }, observation).priceReturnPct, null);
+  assert.equal(observation.manualPrice.value, 120);
+  assert.equal(JSON.stringify(before), original);
+});
+function comparisonBaseline(c, metrics) {
+  return c.NTMResearchSnapshot.normalize({ ...c.NTMResearchSnapshot.fromStockData(stock()), ttmMetrics: metrics });
+}
+function testProvenance(c, end) {
+  const p = clone(c.NTMResearchSnapshot.fromStockData(stock()).provenance);
+  for (const metric of Object.values(p.metrics)) {
+    metric.periodStart = end.slice(0, 4) + '-01-01'; metric.periodEnd = end;
+    metric.quartersIncluded = [1, 2, 3, 4].map((q) => end.slice(0, 4) + 'Q' + q);
+    metric.shareBasis = 'synthetic-test-adjusted-basis';
+  }
+  return p;
+}
+
+
 function restorationFixture(snapshot) {
   const a = app(new Map([[key, JSON.stringify({ version: 1, theses: { NVDA: {
     text: 'Historical thesis', createdAt: '2024-04-01', valuationSnapshot: snapshot,
@@ -163,7 +234,7 @@ function app(saved = new Map()) {
   context.window = context;
   // Follow the real page's script order so missing dependencies fail the workflow.
   for (const [, file] of read('research.html').matchAll(/<script src="([^"]+)"/g)) {
-    if (file.startsWith('https:')) continue;
+    if (file.startsWith('https:') || file.startsWith('vendor/')) continue; // Simulate unavailable chart dependency; real vendor covered in browser.
     vm.runInContext(read(file), context, { filename: file });
   }
   const begin = (data) => {
@@ -184,7 +255,7 @@ function app(saved = new Map()) {
 }
 
 function replaceMetrics(data, values) {
-  for (const [metric, value] of Object.entries(values)) data.ttm.metrics[metric] = { value };
+  for (const [metric, value] of Object.entries(values)) data.ttm.metrics[metric] = { ...data.ttm.metrics[metric], value };
   return data;
 }
 
@@ -198,7 +269,7 @@ for (const ticker of ['NVDA', 'SOFI', 'CRWD']) test(`quality: ${ticker} complete
   assert.equal(a.nodes.get('annualTableBody').children.length, data.annual.length);
   assert.equal(a.nodes.get('quarterlyTableBody').children.length, data.quarterly.length);
   assert.match(a.nodes.get('researchChartStatus').textContent, /kunde inte laddas/);
-  assert.match(a.nodes.get('companyLastUpdated').textContent, /Datafil uppdaterad.*rapportperiod/);
+  assert.match(a.nodes.get('companyLastUpdated').textContent, /Rapportperiod.*inl\u00e4mnad.*h\u00e4mtad/);
   const metrics = exportedText(a.nodes.get('keyMetricsGrid'));
   if (ticker === 'SOFI') assert.doesNotMatch(metrics, /Fritt kassaflöde TTM|Rörelseresultat TTM|Rapporterad skuldkomponent/);
   if (ticker === 'CRWD') {
@@ -313,13 +384,13 @@ function outcomeFixture() {
   const a = app();
   const source = { id: 'source-1', text: 'Original source thesis', savedAt: '2024-01-01T00:00:00Z',
     valuationSnapshot: a.context.NTMResearchSnapshot.normalize({ schemaVersion: 2, ticker: 'NVDA', currency: 'USD',
-      asOfPeriod: '2023Q4', periodEnd: '2023-12-31',
+      asOfPeriod: '2023Q4', periodEnd: '2023-12-31', provenance: testProvenance(a.context, '2023-12-31'),
       ttmMetrics: { revenue: 100, netIncome: 20, eps: 2, dilutedShares: 10, fcf: 10, fcfPerShare: 1, netMargin: 20, fcfMargin: 10 },
       valuationInputs: { stockPrice: 40, epsBasis: 2, epsSource: 'sec', years: 5 },
       scenarios: { bear: { growth: 0, futurePrice: 60 }, base: { growth: 10, futurePrice: 100 }, bull: { growth: 20, futurePrice: 140 } },
     }) };
   const currentSnapshot = a.context.NTMResearchSnapshot.normalize({ schemaVersion: 2, ticker: 'NVDA', currency: 'USD',
-    asOfPeriod: '2025Q4', periodEnd: '2025-12-31',
+    asOfPeriod: '2025Q4', periodEnd: '2025-12-31', provenance: testProvenance(a.context, '2025-12-31'),
     ttmMetrics: { revenue: 121, netIncome: 30, eps: 2.42, dilutedShares: 12, fcf: 15, fcfPerShare: 1.25, netMargin: 25, fcfMargin: 12 },
   });
   const observation = { schemaVersion: 1, ticker: 'NVDA', sourceRevisionId: source.id, sourceRevision: source,
@@ -690,7 +761,7 @@ test('print CSS isolates document, hides controls and provides white A4 layout a
   assert.match(css, /body\.research-export-preview \{ background: #fff; color: #111;/);
 });
 
-test('capture -> real submit -> localStorage -> fresh context -> compare all six metrics', () => {
+test('capture -> real submit -> localStorage -> fresh context -> compare supported metrics and block unverified share basis', () => {
   const first = app();
   const data = stock();
   const thesis = first.save(data);
@@ -715,7 +786,8 @@ test('capture -> real submit -> localStorage -> fresh context -> compare all six
   later.begin(updated);
   const baseline = later.context.NTMThesisStorage.get('NVDA').thesis.valuationSnapshot;
   const report = later.context.NTMChangeDetection.detect(baseline, updated);
-  assert.equal(report.metrics.length, 6);
+  assert.equal(report.metrics.length, 3);
+  assert.equal(report.blocked.length, 3, 'unverified share basis blocks per-share comparisons');
   for (const change of report.metrics) assert.ok(Math.abs(change.pct - 20) < 1e-8);
   assert.equal(later.nodes.get('thesis-text').value, 'My original thesis');
   assert.match(later.nodes.get('changeDetectionContent').innerHTML, /TTM Revenue/);
@@ -754,14 +826,15 @@ test('actual old capture names with missing revenue never invent revenue, net in
   assert.equal(normalized.ttmMetrics.revenue, null);
   assert.equal(normalized.ttmMetrics.netIncome, null);
   const report = c.NTMChangeDetection.detect(legacy, stock());
-  assert.deepEqual(Array.from(report.metrics, (m) => m.name), ['TTM EPS', 'TTM FCF']);
-  assert.equal(report.metrics[0].snapshot, 1, 'manual valuation EPS is not reported SEC EPS');
+  assert.equal(report.metrics.length, 0);
+  assert.equal(report.blocked.length, 2);
+  assert.equal(normalized.ttmMetrics.eps, 1, 'manual valuation EPS is not reported SEC EPS');
   assert.equal(report.margins.length, 0);
 });
 
 test('margins use percentage points, including a zero historical numerator', () => {
   const { context: c } = app();
-  const baseline = { ttmMetrics: { revenue: 1000, netIncome: 100, fcf: 0 } };
+  const baseline = comparisonBaseline(c, { revenue: 1000, netIncome: 100, fcf: 0 });
   const current = replaceMetrics(stock(), { revenue: 2000, netIncome: 240, freeCashFlow: 40 });
   const report = c.NTMChangeDetection.detect(baseline, current);
   assert.deepEqual(clone(report.margins).map((m) => [m.name, m.marginChange, m.unit]),
@@ -770,9 +843,9 @@ test('margins use percentage points, including a zero historical numerator', () 
 
 test('thresholds remain strictly >1 percent and >0.5 pp', () => {
   const { context: c } = app();
-  const baseline = { ttmMetrics: { revenue: 1000, netMargin: 10, fcfMargin: 20 } };
+  const baseline = comparisonBaseline(c, { revenue: 1000, netIncome: 100, fcf: 200, netMargin: 10, fcfMargin: 20 });
   const current = replaceMetrics(stock(), { revenue: 1010, netIncome: 106.05, freeCashFlow: 207.05 });
-  assert.equal(c.NTMChangeDetection.detect(baseline, current).metrics.length, 0);
+  assert.equal(c.NTMChangeDetection.detect(baseline, current).metrics.filter((m) => m.name === 'TTM Revenue').length, 0);
   // Use exact binary-representable values for boundary assertions.
   current.ttm.metrics.revenue.value = 1000;
   current.ttm.metrics.netIncome.value = 105;
@@ -785,7 +858,7 @@ test('thresholds remain strictly >1 percent and >0.5 pp', () => {
 test('zero/null/nonfinite baselines and zero revenue never produce NaN or Infinity', () => {
   const { context: c } = app();
   const current = replaceMetrics(stock(), { revenue: 0, netIncome: 10, dilutedEps: 0 });
-  const baseline = { ttmMetrics: { revenue: 0, netIncome: 0, eps: 0, fcf: NaN, fcfPerShare: Infinity } };
+  const baseline = comparisonBaseline(c, { revenue: 0, netIncome: 0, eps: 0, fcf: NaN, fcfPerShare: Infinity });
   const report = c.NTMChangeDetection.detect(baseline, current);
   assert.equal(report.metrics.length, 1);
   assert.equal(report.metrics[0].absolute, 10);
@@ -800,7 +873,7 @@ test('zero/null/nonfinite baselines and zero revenue never produce NaN or Infini
 
 test('negative-to-positive earnings use absolute historical denominator', () => {
   const { context: c } = app();
-  const report = c.NTMChangeDetection.detect({ ttmMetrics: { netIncome: -10 } },
+  const report = c.NTMChangeDetection.detect(comparisonBaseline(c, { netIncome: -10 }),
     replaceMetrics(stock(), { netIncome: 5 }));
   assert.equal(report.metrics[0].pct, 150);
 });
@@ -836,8 +909,8 @@ test('new baseline save and delete immediately clear a visible old report', () =
   later.begin(updated);
   assert.equal(later.nodes.get('changeDetectionSection').style.display, 'block');
   later.submit();
-  assert.equal(later.nodes.get('changeDetectionSection').style.display, 'none');
-  assert.equal(later.nodes.get('changeDetectionContent').innerHTML, '');
+  assert.equal(later.nodes.get('changeDetectionSection').style.display, 'block');
+  assert.match(later.nodes.get('changeDetectionContent').innerHTML, /aktiebasen/);
   assert.match(later.nodes.get('thesisSnapshotPreview').innerHTML, /Värderingsantaganden/);
   updated.ttm.metrics.revenue.value *= 2;
   later.context.initChangeDetection(updated);
@@ -1039,7 +1112,7 @@ test('reload defaults to latest; choosing history compares its baseline without 
   a.begin(updated);
   const thesis = a.context.NTMThesisStorage.get('NVDA').thesis;
   assert.equal(a.nodes.get('thesisRevisionSelect').value, thesis.latestRevisionId);
-  assert.equal(a.nodes.get('changeDetectionSection').style.display, 'none');
+  assert.equal(a.nodes.get('changeDetectionSection').style.display, 'block');
   a.nodes.get('thesis-text').value = 'Unsaved work';
   a.nodes.get('thesis-text').oninput();
   const price = a.nodes.get('val-price').value;
@@ -1088,7 +1161,7 @@ test('valuation-only revisions append but manual prices are never company-data c
   assert.equal(thesis.revisionCount, 2);
   assert.equal(thesis.valuationSnapshot.valuationInputs.stockPrice, 250);
   a.context.selectThesisRevision(firstId, stock());
-  assert.match(a.nodes.get('changeDetectionContent').innerHTML, /Inga förändringar över tröskelvärdena/);
+  assert.match(a.nodes.get('changeDetectionContent').innerHTML, /aktiebasen/);
   assert.doesNotMatch(a.nodes.get('changeDetectionContent').innerHTML, /change-row-header/);
 });
 

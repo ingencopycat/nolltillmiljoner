@@ -5,7 +5,13 @@
   const text = (v) => typeof v === 'string' ? v : '';
   const tickerKey = (v) => text(v).trim().toUpperCase();
   const validText = (v) => object(v) && typeof v.text === 'string' && Boolean(v.text.trim());
-  const validRevision = (v) => validText(v) && typeof v.id === 'string' && Boolean(v.id);
+  const validDate = v => v == null || (typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v)
+    && Number.isFinite(Date.parse(v)) && new Date(v).toISOString().slice(0,10) === v);
+  const validExtras = v => (v.assumptions === undefined || Array.isArray(v.assumptions) && v.assumptions.length <= 3 && v.assumptions.every(a => typeof a === 'string'))
+    && validDate(v.reviewDate) && (v.review == null || object(v.review) && ['keep','revise','close'].includes(v.review.decision)
+      && typeof v.review.at === 'string' && Number.isFinite(Date.parse(v.review.at))
+      && typeof v.review.sourceRevisionId === 'string' && typeof v.review.context === 'string');
+  const validRevision = (v) => validText(v) && typeof v.id === 'string' && Boolean(v.id) && validExtras(v);
   const failure = (error) => ({ success: false, error });
 
   function freeze(value) {
@@ -27,15 +33,17 @@
       savedAt: text(record.savedAt) || text(record.updatedAt) || text(record.createdAt) || null,
       companyName: text(record.companyName), text: record.text,
       risks: text(record.risks), triggerChange: text(record.triggerChange), notes: text(record.notes),
+      assumptions: (record.assumptions || []).map(a => a.trim()).filter(Boolean),
+      reviewDate: record.reviewDate || null, review: record.review ? {...record.review} : null,
       valuationSnapshot: window.NTMResearchSnapshot.normalize(record.valuationSnapshot),
     });
   }
 
-  function readThesesStore() {
+  function readThesesStore(rawOverride) {
     try {
       if (!window.localStorage) throw new Error('Lokal lagring är inte tillgänglig.');
-      const raw = window.localStorage.getItem(KEY);
-      const parsed = raw ? JSON.parse(raw) : { version: 2, theses: {} };
+      const raw = rawOverride === undefined ? window.localStorage.getItem(KEY) : rawOverride;
+      const parsed = raw === null ? { version: 2, theses: {} } : JSON.parse(raw);
       if (!object(parsed) || ![1, 2].includes(parsed.version) || !object(parsed.theses)) {
         throw new Error('Sparade analyser har ett format som inte stöds. Befintlig data bevaras.');
       }
@@ -98,7 +106,7 @@
       theses[ticker] = store.parsed.version === 1 && validText(record)
         ? { revisions: [legacyRevision(tickerKey(ticker), record)] } : record;
     }
-    return { version: 2, theses };
+    return { ...store.parsed, version: 2, theses };
   }
 
   function recordKey(store, ticker) {
@@ -117,6 +125,8 @@
     return JSON.stringify({
       text: meaningfulText(revision.text), risks: meaningfulText(revision.risks),
       triggerChange: meaningfulText(revision.triggerChange), notes: meaningfulText(revision.notes), snapshot,
+      assumptions: (revision.assumptions || []).map(meaningfulText).filter(Boolean),
+      reviewDate: revision.reviewDate || null, review: revision.review || null,
     });
   }
 
@@ -134,6 +144,7 @@
     ticker = tickerKey(ticker);
     if (!ticker) return failure('Ticker saknas.');
     if (!validText(thesis)) return failure('Min tes är obligatorisk och kan inte vara tom.');
+    if (!validExtras(thesis)) return failure('Ange högst tre textantaganden och ett giltigt granskningsdatum. Granskningsmetadata måste vara giltiga.');
     const snapshot = window.NTMResearchSnapshot.normalize(thesis.valuationSnapshot);
     if (thesis.valuationSnapshot != null && !snapshot) return failure('Värderingssnapshot har ett format som inte stöds.');
     const store = readThesesStore();
@@ -156,6 +167,8 @@
         id, createdAt: now, savedAt: now, companyName: text(thesis.companyName),
         text: thesis.text.trim(), risks: text(thesis.risks).trim(),
         triggerChange: text(thesis.triggerChange).trim(), notes: text(thesis.notes).trim(),
+        assumptions: (thesis.assumptions || []).map(a => a.trim()).filter(Boolean),
+        reviewDate: thesis.reviewDate || null, review: thesis.review ? {...thesis.review} : null,
         valuationSnapshot: snapshot,
       };
       next.theses[storedKey] = { ...next.theses[storedKey], revisions: [...revisions, revision] };
@@ -185,6 +198,7 @@
     ticker = tickerKey(ticker);
     const store = readThesesStore();
     if (store.error) return failure(store.error);
+    if (store.issues[ticker]) return failure(store.issues[ticker]);
     if (!ticker || !Object.keys(store.parsed.theses).some((key) => tickerKey(key) === ticker)) return failure('Analysen hittades inte.');
     try {
       const next = writableStore(store);
@@ -197,5 +211,25 @@
   window.NTMThesisStorage = {
     key: KEY, version: 2, read: readThesesStore, get: getThesis, all: getAllTheses,
     save: saveThesis, remove: deleteThesis, removeRevision: deleteRevision,
+    reviewStatus(thesis, today) {
+      if (!thesis) return 'missing';
+      if (thesis.review?.decision === 'close') return 'closed';
+      const now = new Date();
+      today ||= `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+      return thesis.reviewDate && thesis.reviewDate <= today ? 'due' : 'active';
+    },
+    completeReview(ticker, decision, context, reviewDate = null, observedPeriod = null, changeKey = null) {
+      const result = getThesis(ticker);
+      if (result.error || result.warning || !result.thesis) return failure(result.error || result.warning || 'Sparad tes saknas.');
+      if (!['keep','close'].includes(decision)) return failure('Revidera genom att redigera och spara en ny version.');
+      const latest = result.thesis;
+      return saveThesis(ticker, {...latest, reviewDate, review: {decision,context,at:new Date().toISOString(),
+        sourceRevisionId:latest.latestRevisionId,observedPeriod,changeKey}});
+    },
+    backupData(raw) {
+      const store = readThesesStore(raw);
+      if (store.error || Object.keys(store.issues).length) throw new Error(store.error || Object.values(store.issues)[0]);
+      return writableStore(store);
+    },
   };
 })();

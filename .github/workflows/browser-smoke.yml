@@ -1,0 +1,21 @@
+name: Browser reliability smoke tests
+on:
+  pull_request:
+  workflow_dispatch:
+permissions: {}
+jobs:
+  browser-smoke:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-browser.txt
+      - run: python -m playwright install --with-deps chromium
+      - run: python -B scripts/browser_smoke.py

@@ -4,7 +4,7 @@ Noll till Miljoner (NTM) is a Swedish investing and personal-finance website foc
 
 **Positioning:** Utility first. Creator second. The site should feel useful on its own, regardless of who created it. The creator's personal journey and Instagram presence exist, but they are secondary.
 
-**Value proposition:** *Allt du behöver som investerare – på ett ställe.*
+**Value proposition:** *Förstå dina val. Följ upp dina investeringar.* The recurring workflow is understand → formulate → save → review → revise.
 
 **Core product principle:** *Simple by default. Powerful when you want it.* This guides calculators, page layouts, navigation, information density, and all future development. Avoid complexity that only exists to make a feature look advanced.
 
@@ -12,7 +12,7 @@ Noll till Miljoner (NTM) is a Swedish investing and personal-finance website foc
 
 ## Site structure and navigation
 
-Primary navigation (identical header on all pages, defined in each page's HTML):
+Primary navigation is **Verktyg · Research · Min NTM · Lär dig**. The logo leads home. Lär dig is a native, keyboard-accessible disclosure grouping Inlägg och videor, Resurser, Makro, Rapporter and Community. Links are static HTML; existing URLs/canonicals remain unchanged. `scripts/build_seo.cjs` generates the common navigation and sets `aria-current="page"` only on the exact matching destination.
 
 | Nav item | Page | Purpose |
 |---|---|---|
@@ -26,7 +26,7 @@ Primary navigation (identical header on all pages, defined in each page's HTML):
 | Resurser | `resurser.html` | Curated resources (YouTube, Podcasts, Böcker) |
 | Community | `community.html` | Discord invite |
 
-Every page shares the same topbar: brand/logo, main nav, dark/light theme toggle, and a hamburger menu on mobile.
+Every page shares the same topbar: brand/logo, main nav, dark/light theme toggle, and a hamburger menu on mobile. The table above lists destinations, not eight competing top-level links.
 
 Redirect shims kept for old links (do not build on these): `calculator.html` → `ranta-pa-ranta.html`, `investeringar.html` → `inlagg.html`.
 
@@ -44,7 +44,7 @@ Redirect shims kept for old links (do not build on these): `calculator.html` →
 
 ### Key Features
 1. **Fundamentals & Key Metrics:**
-   - Overview cards show available TTM revenue, operating/net income, cash flows, stock compensation and latest balance-sheet components. EPS is shown in valuation; diluted shares are preserved in snapshots and compared in Outcome Tracking.
+   - Overview cards show available TTM revenue, operating/net income, cash flows, stock compensation and latest balance-sheet components. EPS is shown in valuation; diluted shares are preserved in snapshots and compared only when the share-basis gate passes.
    - Profile-dependent metrics (e.g. Total Net Revenue net of interest expense for `financial_services`, Operating Income where applicable, FCF where economically meaningful).
 2. **Annual & Quarterly History:**
    - Annual tables show revenue, operating income, net income, diluted EPS, operating cash flow, CapEx and FCF. Quarterly tables show revenue, net income, diluted EPS and cash-flow metrics, with period dates. Latest balance-sheet metrics are shown in the overview cards rather than these tables.
@@ -54,14 +54,14 @@ Redirect shims kept for old links (do not build on these): `calculator.html` →
    - **Provenance Modal:** Displays exact SEC XBRL concept names, taxonomies, forms, accession numbers, and derivation methods for any reported metric.
 4. **Valuation Base & Forward Scenarios:**
    - Driven by `valuationBase` (`asOfPeriod`, `ttmNetIncomeToCommon`, `ttmDilutedShares`, `ttmDilutedEps`, `ttmFreeCashFlow`, `ttmFcfPerShare`).
-   - Manual stock price input with stock-specific defaults (NVDA $120.00, SOFI $15.00, CRWD $280.00).
+   - Manual stock price input with stock-specific **example** defaults (NVDA $120.00, SOFI $15.00, CRWD $280.00). Input and calculated results say “Exempelpris – inte aktuell börskurs”; editing the price marks it “Pris angivet av dig”. Restoring assumptions marks the input “Historiskt sparat pris”. Results retain the provenance of the last calculation while inputs are stale. No live market price is fetched; normalized SEC fundamentals are a separate data source. Explicit calculation with an unchanged example remains labeled as an example, without an extra confirmation step.
    - Displays current P/E TTM and P/FCF TTM (where FCF is supported).
    - **"Vad prisar marknaden in?" (Reverse Valuation):** Computes required EPS CAGR given target annual return, horizon years, and exit P/E.
-   - **Bear / Base / Bull Scenario Analysis:** Sensitivity matrix calculating future EPS, future stock price, and CAGR across 3 growth and exit P/E scenarios.
+   - **Bear / Base / Bull Scenario Analysis:** Three scenarios calculate future EPS, price and CAGR, accompanied by a 5-by-5 sensitivity matrix around Base assumptions.
    - **Calculator Interaction Rule:** Edits to valuation inputs mark the valuation state as *stale* (showing a status warning banner). Results only update when the user explicitly clicks **Beräkna värdering & scenarier**.
    - **CRWD / Manual EPS Fallback:** When a stock lacks a reliable SEC TTM EPS (e.g. CRWD mid-year stock split setting `ttmDilutedEps: null`), an override banner appears, setting EPS source to "Manuell" and allowing user manual EPS input.
 5. **Min Thesis (User Research Journal):**
-   - Personal analysis form with four fields: *Min tes* (required), *Viktigaste risker* (optional), *Vad skulle få mig att ändra mig?* (optional), and *Anteckningar* (optional).
+   - Personal analysis form with up to three assumptions, an optional review date, and four narrative fields: *Min tes* (required), *Viktigaste risker* (optional), *Vad skulle få mig att ändra mig?* (optional), and *Anteckningar* (optional).
    - Saved locally in browser `localStorage` under key `investment-research-theses-v1`.
    - **Thesis Snapshot:** When saving a thesis with a valid, non-stale valuation, the system automatically captures a valuation snapshot (TTM metrics, valuation inputs, valuation results, Bear/Base/Bull scenarios, EPS source, `capturedAt`, and `asOfPeriod`).
    - **Snapshot contract:** `research-snapshot.js` owns `schemaVersion: 2`. `ttmMetrics` contains finite numbers or `null` under `revenue`, `netIncome`, `eps`, `dilutedShares`, `fcf`, `fcfPerShare`, `netMargin`, and `fcfMargin`. Margins are percentages (e.g. `12.5` means 12.5%), not ratios. Financial metadata includes `asOfPeriod`, `quarters`, `periodStart`, `periodEnd`, and `currency`; identity, `capturedAt`, `valuationInputs`, `valuationResults`, and `scenarios` remain part of the snapshot.
@@ -74,7 +74,7 @@ Redirect shims kept for old links (do not build on these): `calculator.html` →
 6. **Change Detection ("Sedan din thesis"):**
    - Handled by `change-detection.js` (`NTMChangeDetection.detect(snapshot, currentData)`).
    - Default baseline is the latest revision. Selecting an older revision compares that saved snapshot against current stock JSON, without modifying the editing form or treating manual price assumptions as company-data changes. Selection is page-local and resets to latest on reload.
-   - Compares TTM Revenue, Net Income, EPS, Diluted Shares, FCF, FCF/share, derived margins in percentage points `pp` (Net Margin, FCF Margin), period updates (e.g. `2026Q1 → 2026Q2`), and new 10-K/10-Q filings filed after the thesis capture date.
+   - Subject to the shared provenance/comparability gate, compares TTM Revenue, Net Income, EPS, Diluted Shares, FCF, FCF/share, derived margins in percentage points `pp` (Net Margin, FCF Margin), period updates (e.g. `2026Q1 → 2026Q2`), and new 10-K/10-Q filings filed after the thesis capture date.
    - **Fact-Based Presentation:** Changes are presented as neutral numerical facts. The system does **not** automatically judge a thesis as "good" or "bad", nor does it produce recommendations or automated scoring.
    - Displays a warning banner if the thesis snapshot is over 12 months old.
    - Reports metric changes strictly greater than 1% and margin changes strictly greater than 0.5 percentage points. A zero metric baseline reports a nonzero absolute change with percentage unavailable; unavailable metrics are omitted. Unknown snapshot dates do not imply an old analysis. Saving or deleting a thesis immediately refreshes the comparison and snapshot preview.
@@ -90,13 +90,13 @@ The backend python pipeline fetches, normalizes, and stores official SEC EDGAR X
   - Resolves CIK via `company_tickers.json`.
   - Fetches CIK submission metadata (`submissions/CIK{cik}.json`) and XBRL company facts (`api/xbrl/companyfacts/CIK{cik}.json`).
   - Declares required SEC User-Agent header (`NTMResearch admin@nolltillmiljoner.se`).
-  - Implements throttling (0.15s rate-limit delay, well within 10 req/sec limit) and handles HTTP 429 retries and network errors.
+  - Implements throttling (0.15s rate-limit delay, well within 10 req/sec limit) and makes at most three attempts by default for transient network failures and HTTP 408/429/500/502/503/504. Backoff starts at 1 second, then 2 seconds; every attempt still throttles. Retry-After seconds/HTTP-date values are respected up to 60 seconds; longer waits stop the request rather than retry early. Permanent 4xx and malformed JSON are not blindly retried.
 - `scripts/stock_normalizer.py`: High-integrity SEC XBRL fundamentals normalizer (`StockNormalizer`).
   - Maps XBRL concepts using deterministic company profiles (`COMPANY_PROFILES`).
   - Discovers generic fiscal calendars and period boundaries dynamically.
   - Separates flow/duration concepts (Income Statement, Cash Flow) and instant concepts (Balance Sheet).
   - Handles broken fiscal years and computes standalone quarters safely (Q2 = 6M - Q1, Q3 = 9M - 6M, Q4 = FY - 9M).
-  - Guard against non-additive metrics: EPS and weighted average shares are non-additive and never subtracted across periods.
+  - EPS and weighted average shares are not naively subtracted. Where compatible, Q4 shares use annual share-days minus nine-month share-days divided by Q4 duration.
   - Calculates TTM metrics only when four consecutive fiscal quarters can be identified and the metric has compatible values.
   - Computes duration-weighted diluted shares across trailing quarters using their actual durations (not always 365 days).
   - Derives `ttmDilutedEps` as `ttmCommonIncome / ttmDilutedShares`.
@@ -106,18 +106,18 @@ The backend python pipeline fetches, normalizes, and stores official SEC EDGAR X
 - `scripts/update_stocks.py`: Execution script CLI (`--ticker <TICKER>`, `--all`, `--offline`).
   - Fetches or reads offline fixtures (`tests/fixtures/sec_<ticker>_*.json`).
   - Runs `StockNormalizer`.
-  - Atomically writes JSON to `data/stocks/<TICKER>.json` via temporary files (`save_atomic_json`).
+  - Validates identity, provenance, periods, TTM and regressions before atomically writing `data/stocks/<TICKER>.json` via `save_atomic_json`. Failed updates preserve existing files.
 
 ### Company Profiles
 - `financial_services` (e.g. `SOFI`): Revenue mapped to `RevenuesNetOfInterestExpense`, Operating Income unsupported (bank structure), Debt unsupported (customer deposits vs borrowings), FCF unsupported (depository banking cash flows dominated by loan originations and deposit changes).
 - `standard_company` (e.g. `NVDA`): Standard GAAP Revenue, Operating Income, FCF (`OCF - CapEx`).
-- `software_saas` (e.g. `CRWD`): Standard GAAP Revenue, Operating Income, FCF, handles stock splits and manual EPS fallback when TTM EPS is non-derived.
+- `software_saas` (e.g. `CRWD`): Standard GAAP Revenue, Operating Income, FCF, handles stock splits and manual EPS fallback when a compatible TTM EPS is unavailable.
 
 ---
 
 ## Tools and calculators
 
-All calculators live in standalone HTML pages and share `style.css` + `script.js`. Each calculator page loads Chart.js from CDN (`https://cdn.jsdelivr.net/npm/chart.js`) if it renders charts.
+All calculators live in standalone HTML pages and share `style.css` + `script.js`. `valuation-core.js` loads first and owns shared pure valuation arithmetic. Chart pages load self-hosted Chart.js 4.5.1 (`vendor/chart-4.5.1.umd.min.js`); pages without charts do not load it.
 
 | Tool | Page | Modes (tabs) | Answers |
 |---|---|---|---|
@@ -208,10 +208,44 @@ Calculators with scenario persistence allow users to save input sets locally:
 - **Functionality:** Users can save named scenarios, select and load saved scenarios, or delete them.
 - **Interaction Rule:** Loading a saved scenario populates input fields but does **not** trigger an automatic recalculation. The user must click **Beräkna** to update results. Modifying loaded inputs marks existing results as stale.
 - **Storage Scope:** 100% browser-local on the user's device. No account or server backend.
+- **Failure safety:** Unreadable JSON, unsupported versions or malformed scenario collections block save/delete without replacing the original. Quota/access failures are shown in the scenario status. Unknown fields in valid records are preserved. `NTMScenarioStorage.remove()` returns `{ ok, error? }`, like save, so callers must inspect `ok`.
+- **Recovery:** On the affected site's origin, `NTMScenarioStorage.read().raw` exposes the unmodified stored text. Copy it from browser developer tools into a backup file before attempting manual recovery; there is no automatic discard/repair. Browser storage still has no transactional multi-tab guarantee.
 
 ---
 
 ## Min NTM (`min-ntm.html`)
+
+### Thesis assumptions and second review
+
+Each revision may now contain `assumptions` (0–3 user-authored strings), `reviewDate` (optional valid `YYYY-MM-DD` local calendar date), and `review` (`decision: keep|revise|close`, `at`, `sourceRevisionId`, `context`, optional `observedPeriod` and `changeKey`). These are backwards-compatible optional additions to the existing V2 revision envelope. Legacy reads project no assumptions/no review without rewriting raw storage or inventing historical content. Validation rejects malformed additions; duplicate-save fingerprints include the new fields.
+
+`research-review.js` places the saved belief, assumptions and explicit review controls ahead of detailed valuation. “Behåll” and “Stäng tes” append a decision revision with the same frozen snapshot; they do not silently recalculate or overwrite earlier revisions. “Revidera” starts an unsaved editor workflow and records its decision/context only through **Spara ny version**. Closing preserves history and checkpoints; revising can reopen a closed thesis. A review may set the next optional date; leaving it empty clears the prior reminder. There are no push alerts or investment recommendations.
+
+`min-review.js` prioritizes **Att granska**, then active theses, saved calculator plans and recent tools. Review dates use the local calendar day. It reads the existing NVDA/SOFI/CRWD static data and Change Detection report; a saved review acknowledges the exact report through `changeKey`, so unchanged findings are not repeatedly presented as new work. New differences can appear again. Missing/corrupt storage or unavailable company data is reported as incomplete checking, never falsely “nothing to review”. Closed theses remain in a separate history disclosure. No additional stock coverage or separate reminder store is introduced.
+
+Historical inspection/Markdown/print use the selected revision's own assumptions, review date and review context. JSON backup and archived checkpoints preserve these fields through the existing record model. “Använd dessa antaganden med aktuell Research-data” copies only historical valuation inputs into the current working calculation; it does not restore historical fundamentals or change thesis text. The status explains this mixed-time workflow and keeps historical/manual price provenance visible.
+
+The browser suite additionally covers homepage paths, mobile navigation/current-page links, creating three assumptions and a date, the due review queue, keep/revise/close, frozen historical inspection and restored valuation wording. The native review date has no predictive meaning, and review-in-progress edits are not persisted until a new revision is saved.
+
+### JSON backup and deliberate deletion
+
+The **Backup och lokal Research-data** section uses `local-data.js`. “Exportera all lokal data” downloads a readable envelope `{ application: "NTM", schemaVersion: 1, exportedAt, data: { theses, outcomes, scenarios, theme } }`. It includes complete records, immutable revisions and snapshots, archived checkpoint source revisions, calculator inputs and theme. Known V1 thesis records migrate in memory through the existing storage adapter with deterministic legacy IDs and original dates/content; export does not write storage. Missing financial values remain null. Recent-tool navigation, session greetings and public SEC/macro data are excluded as transient/recreatable state. Markdown is not a backup. Keep JSON backups private.
+
+Import validates the entire envelope and all stores before writing. Only **merge** is supported: existing records remain; unseen IDs append in source order, so an imported revision can become latest even if its timestamp is older. Identical IDs/content are no-ops; conflicting IDs or unknown-field values abort the entire import. Existing theme wins. Unsupported/corrupt backups or current stores block import; no automatic discard/repair occurs. Import is limited to 20 MB in the UI. Writes are checked against the captured store, read back and rolled back on failure where possible. LocalStorage is not a multi-key transaction: a browser crash, concurrent tab, or failure of rollback itself can still leave partial changes; keep the source backup and heed the explicit partial-write error. Close other NTM tabs during import/deletion.
+
+Deleting a revision or all thesis history in Research **retains checkpoints and their archive copies**; confirmation text explains this. Min NTM offers checkpoint-only deletion and confirmed full Research deletion for an explicitly entered ticker. Full deletion removes every thesis revision/snapshot and checkpoint/archive copy for that ticker, verifies the stored result, and preserves other tickers and calculator scenarios. Corrupt stores block deletion. This does not erase downloaded JSON/Markdown/PDF files or copies on another device.
+
+### Real browser QA
+
+`scripts/browser_smoke.py` uses Playwright with a loopback server on an ephemeral port and a fresh non-persistent browser context per test. It never attaches to a personal browser profile. It exercises real HTML, Chart.js, event handlers and storage: leverage result state, zero-net compound charts, scenario corruption, Research price provenance/revisions/restoration/Markdown/outcomes, JSON download/import round trip and full ticker deletion. Page JavaScript errors fail the tests. Chart.js is self-hosted. Existing external page widgets/beacons may still make network requests; no chart CDN is required.
+
+```bash
+pip install -r requirements-browser.txt
+python -m playwright install chromium
+python -B scripts/browser_smoke.py
+```
+
+To use an installed Chrome/Edge, set `NTM_BROWSER_CHANNEL=chrome` or `msedge` and omit browser installation. The separate `browser-smoke.yml` workflow runs on pull requests or manual dispatch. Missing dependencies/browser binaries fail visibly; the ordinary Python unit suite does not silently count browser checks as passed. Local backup/deletion regression tests are included in the normal Python suite via `tests/test_local_data.py`.
 
 `min-ntm.html` is the user's personal, device-local overview dashboard.
 
@@ -225,7 +259,7 @@ Calculators with scenario persistence allow users to save input sets locally:
 3. **Senast använda verktyg:**
    - Tracks up to 5 recently visited calculator tools from `investment-recent-tools-v1`.
 
-All data is stored exclusively in `localStorage`. There are no user accounts, passwords, cloud syncing, or analytics tracking.
+Private Research/scenario data stays in browser storage; there are no user accounts, passwords or cloud sync. Some public HTML pages embed Cloudflare Web Analytics (`static.cloudflareinsights.com/beacon.min.js`); analytics coverage is not uniform. Third-party Chart.js, TradingView and video requests are separate from local Research storage. This is not a claim that the site makes no external requests.
 
 ---
 
@@ -242,6 +276,8 @@ All data is stored exclusively in `localStorage`. There are no user accounts, pa
 ---
 
 ## Homepage / NTM Idag
+
+The first section explains the product and offers “Räkna på ditt sparande” (existing compound calculator), “Granska en investering” (Research), and a return link to Min NTM. Market status, macro/report previews and content remain below; no personalized claims are shown without local data.
 
 `index.html` contains the **NTM Idag** dashboard (`initNtmToday()` in `script.js`, refreshed every 60 s). It is schedule- and data-file-based — **there is no realtime market data feed**.
 
@@ -260,7 +296,7 @@ Central, data-driven architecture — **new posts are added to `posts.js`, never
 
 - `posts.js` exports `NTM_POSTS`: an array of post objects with `title`, `date`, `slug`, `category`, `tags`, `excerpt`, `previewPosition`, `media`, `content` (HTML string), and optional `instagramUrl` and `summary` (`{ sv, en }` for AI video summaries).
 - **Media types**: `carousel` (`images: [{ src, alt }]`, with prev/next + dots + lightbox) and `youtube` (`videoId`, click-to-play facade).
-- **URLs**: `post.html?post=<slug>` — stable slug-based URLs via `post.html`.
+- **URLs**: canonical `post-<slug>.html` pages are generated from the shared post system. Legacy `post.html?post=<slug>` URLs redirect to them.
 - **Archive** (`inlagg.html`): search, category filter buttons, `?tag=` URL filter support, pagination (9 posts/page).
 - **Homepage**: latest 3 posts.
 - **Image convention**: `images/posts/<post-folder>/01.png`, `02.png`, …
@@ -280,7 +316,7 @@ Macroeconomic data is updated via `scripts/update_macro.py` and GitHub Actions (
   - Queries exact series (e.g. `CES0000000001` for Nonfarm Payrolls, `LNS14000000` for Unemployment Rate, `CUSR0000SA0` / `CUUR0000SA0` for CPI, `WPSFD4` for PPI, `PRS85006092` for Productivity, `JTS000000000000000JOL` for JOLTS).
   - Matches strictly by Year + Period (e.g. `2026 M08`, `2026 Q02`).
   - Auto-populates upcoming weeks and events from the official BLS release schedule.
-- **Additional official providers:** Federal Reserve series via FRED CSV (`TOTALSL`, `INDPRO`, `TCU`), BEA NIPA tables (`T10101`, `T20100`, `T40100`) when `BEA_API_KEY` is configured, and Treasury FiscalData MTS for monthly deficit/surplus.
+- **Additional official providers:** DOL weekly claims, Census wholesale/construction/factory data, Federal Reserve series via FRED CSV (`TOTALSL`, `INDPRO`, `TCU`), BEA NIPA tables (`T10101`, `T20100`, `T40100`) when `BEA_API_KEY` is configured, and Treasury FiscalData MTS for monthly deficit/surplus.
 - **Provider safety:** Provider rules match exact event period, series/table, units and seasonal adjustment. Missing periods or provider/network failures preserve existing values.
 - **GitHub Pages Deployment:** Uses official `actions/deploy-pages@v4` workflow.
 
@@ -295,7 +331,7 @@ Macroeconomic data is updated via `scripts/update_macro.py` and GitHub Actions (
 
 ## Shared site systems (`script.js`, `thesis-storage.js`, `change-detection.js`)
 
-`script.js` is loaded by every page and organized as independent, element-guarded modules:
+`script.js` is loaded by content/calculator pages and contains element-guarded initializers and global adapters. It is still a large classic script, not a collection of isolated modules:
 
 - `initTheme()` — theme from `localStorage` key `investment-theme`; toggles `body.light-theme`.
 - `initNtmToday()` — homepage dashboard.
@@ -402,12 +438,12 @@ No current comparison data, live quotes, recalculation, backend or PDF library i
 
 `research-outcomes.js` owns pure comparisons and separate local storage; `research-outcome-ui.js` renders the Research section. The storage key is `ntm-research-outcomes-v1`, with `{schemaVersion: 1, checkpoints: [...]}`. Each checkpoint contains `schemaVersion`, stable `id`, `ticker`, `sourceRevisionId`, an archival `sourceRevision` copy, `observedAt`, canonical `currentSnapshot` (including reporting period and normalized fundamentals), and nullable `manualPrice: {value, currency, source: 'manual'}`. Elapsed time and comparisons are recalculated from these inputs, rather than stored as redundant results. `observedAt` is when the displayed observation was calculated. The schema preserves the inputs for future horizon evaluation, multiple observations and later price-source extensions; V1 has no accuracy score.
 
-- All eight metrics (revenue, net income, EPS, diluted shares, FCF, FCF/share, net margin and FCF margin) show historical/current values and available changes. Relative change uses the absolute historical denominator; zero bases have no percentage change. Margins use percentage points. CAGR requires positive endpoints and at least 365 days between actual reporting-period end dates; missing dates, incompatible bases and overflowing results remain unavailable. Gaps in reporting periods are not treated as sequential quarters. Monetary changes require matching known currencies. SOFI FCF and missing CRWD share/EPS bases retain their normalized limitations.
+- All eight metrics (revenue, net income, EPS, diluted shares, FCF, FCF/share, net margin and FCF margin) show historical/current values and available changes. Relative change uses the absolute historical denominator; zero bases have no percentage change. Margins use percentage points. CAGR requires positive endpoints and at least 365 days between actual reporting-period end dates; missing dates, incompatible bases and overflowing results remain unavailable. Gaps in reporting periods are not treated as sequential quarters. Numeric changes require compatible provenance, periods, definitions and currency; per-share/share-count comparisons additionally require a verified share basis. SOFI FCF and missing CRWD share/EPS bases retain their normalized limitations.
 - Horizon progress uses elapsed calendar time since the revision's saved date, with years approximated as 365.25 days. Future/missing source dates or missing horizons yield unavailable progress. Remaining time floors at zero; elapsed percentage may exceed 100%. Completion only marks eligibility for a future final assessment, never success/failure.
 - Each approximate EPS path is `saved EPS basis × (1 + saved annual growth / 100)^min(elapsed years, horizon)`, using a positive basis and growth above −100%. These are annual model paths, not quarterly predictions. Latest reported SEC EPS can lag the observation date. Manual starting EPS is explicitly distinguished: its path is displayed, but percentage deviation against SEC EPS is suppressed because the bases may differ. No revenue forecast is invented.
-- Manual observed price can show price-only return from the saved starting price and distance from old end-of-horizon targets, excluding dividends, FX, taxes and costs. Interval labels require positive, strictly ordered Bear < Base < Bull targets in the same currency; exact boundaries are labeled explicitly. Missing, equal or unordered targets do not produce an interval classification.
+- When the shared comparability gate verifies currency and share basis, manual observed price can show price-only return from the saved starting price and distance from old end-of-horizon targets, excluding dividends, FX, taxes and costs. Interval labels require positive, strictly ordered Bear < Base < Bull targets in the same currency; exact boundaries are labeled explicitly. Missing, equal or unordered targets do not produce an interval classification.
 - Repeated identical observations on the same UTC day are no-ops; a changed observation or later day can create another checkpoint. IDs and frozen read results remain stable. Corrupt/unsupported storage or malformed records block writes without overwriting existing bytes; storage access/quota errors are reported. As with revision storage, simultaneous writes from multiple tabs are not transactional.
-- **Deletion policy:** deleting one or all Research revisions retains linked checkpoints as archival records, including their source revision copies. The per-ticker observation history remains accessible even when no Research revision remains. Viewing an archive never substitutes current data. Checkpoint deletion, cloud sync, automatic prices, portfolio/strategy backtesting, final scoring and a Min NTM outcome dashboard are outside V1. Export V1 continues exporting saved Research revisions only.
+- **Deletion policy:** deleting one or all Research revisions retains linked checkpoints as archival records, including their source revision copies. The per-ticker observation history remains accessible even when no Research revision remains. Viewing an archive never substitutes current data. Checkpoint deletion and full ticker deletion are available in Min NTM. Cloud sync, automatic prices, portfolio/strategy backtesting, final scoring and a Min NTM outcome dashboard remain outside V1. Export V1 continues exporting saved Research revisions only.
 
 Run the outcome regression subset with `node --test --test-name-pattern="^outcome:" tests/research-workflow.test.cjs`. These cases also run in the full Research workflow suite. Browser layout/visual QA requires an available browser.
 
@@ -415,9 +451,9 @@ Run the outcome regression subset with `node --test --test-name-pattern="^outcom
 
 The final code-quality pass covers NVDA, SOFI and CRWD through real-JavaScript load/render, valuation, history, restoration, exports and outcome checkpoints, with a mocked DOM/network boundary. Landing metrics now come from the same normalized JSON files as the detail view. Missing Chart.js no longer blocks the rest of Research. Valuation rejects fractional/out-of-range horizons, non-finite inputs and overflowing results; failed calculations remain stale and cannot be saved as valid snapshots. The sensitivity-grid center uses the actual Base assumptions even for low multiples and negative growth.
 
-The header identifies the data-file update date separately from the fiscal report period; filing dates and snapshot capture dates remain separate. Debt cards describe the mapped component rather than claiming comprehensive total debt. The manual EPS fallback of 1.00 is explicitly a calculator example. Provenance cells support keyboard activation, and missing historical dates are not shown as 1970.
+The header separates reporting period, filing date and successful fetch time; local fixture data has no fabricated live fetch timestamp. Debt cards describe the mapped component rather than claiming comprehensive total debt. The manual EPS fallback of 1.00 is explicitly a calculator example. Provenance cells support keyboard activation, and missing historical dates are not shown as 1970.
 
-**Release verification remains incomplete:** no browser was available for actual desktop/mobile, dark/light, console or print-preview QA. CSS and interaction logic were inspected, but this is not visual verification. Complete those smoke tests before declaring Research V1 release-ready. Browser-local revision/checkpoint storage has no cloud sync or transactional multi-tab writes. Existing SEC mapping/share-basis limitations remain; Outcome Tracking is preliminary comparison, not a strategy backtest or final assessment.
+**Release verification:** real isolated Chrome smoke tests cover desktop/mobile navigation, theme controls, calculators and Research workflows, including uncaught JavaScript errors. Automated coverage does not replace visual review of every layout or the native Save as PDF dialog; that manual review remains outstanding. Browser-local revision/checkpoint storage has no cloud sync or transactional multi-tab writes. Existing SEC mapping/share-basis limitations remain; Outcome Tracking is preliminary comparison, not a strategy backtest or final assessment.
 
 ### Test Suites
 - `tests/test_stock_pipeline.py`: Validates `SECClient`, `StockNormalizer`, company profile mappings, generic fiscal calendar discovery, TTM derivations, non-additive metric guards, and atomic JSON output.
@@ -478,6 +514,60 @@ See [Google's sitemap guidance](https://developers.google.com/search/docs/crawli
 21. Do not turn README.md into a changelog.
 
 ---
+
+## Module ownership and operational validation
+
+- `valuation-core.js` (`NTMValuation`, also CommonJS for Node tests) owns P/E and P/FCF multiples, compounded future values, CAGR, forward scenarios and reverse valuation. Outcome model paths and eligible CAGR calculations also use this core. Inputs use percentage points; output returns use ratios. Invalid/unavailable or overflowing results are `null`, never non-finite. Negative earnings remain available as earnings, but do not produce meaningful P/E targets. Page adapters preserve existing Swedish UI validation, manual/SEC selection, ranges and submit-only workflows. Research sensitivity and saved scenario outputs use the same core.
+- `script.js` retains standalone UI adapters and unrelated calculator math; `research.js` owns Research rendering/initialization. Existing separate storage modules retain their own versioned contracts; this pack does not force them into a generic storage abstraction.
+- The Pages workflow uses five jobs: read-only validation, read-only data preparation, contents-write commit, read-only build of the exact commit, and Pages/id-token-only deployment. Data preparation runs macro updates on the existing triggers and stock refresh on schedules/manual dispatch. Schedules remain weekdays at 12:35, 14:35 and 16:35 UTC; local clock time changes with daylight saving. Failed required jobs prevent publication. Validation/build check SEO, staging and public local references. Remote Actions execution needs verification after publication.
+- `scripts/check_calendar_coverage.cjs` warns within 120 days of year-end when next-year exchange holidays or macro releases are absent, and fails when the current exchange year is absent. It does not invent dates or certify every release as complete. Current exchange holiday data covers 2026 only. Market status already returns unknown for unsupported years; empty macro weeks now explicitly state that coverage may be incomplete. Earnings images and dated tax rules remain manually maintained; the ISK tool explicitly targets 2026. Macro compatibility aliases use the update's current ISO week instead of a fixed 2026 week.
+- Independent oracles/property checks live in `tests/valuation-core.test.cjs`, `tests/calculator-reliability.test.cjs` and `tests/test_architecture.py`: hand-calculated valuation/TTM, inverse and monotonic properties, a monthly recurrence independent of compound's closed formula, FX identities, FCF/margins, retry bounds and permission/module boundaries. Run all Node tests with `node --test tests/*.test.cjs`; the Python suite includes their wrappers. Playwright remains a separate required browser run.
+
+## Financial data contracts and publication safety
+
+`scripts/stock_contract.py` defines `ntm-stock-v1` and method `ntm-sec-normalizer/1`. Newly normalized metrics retain existing SEC concept/accession/filing fields and add definition, unit/currency, period boundaries/type, method, quality and `kind` (`reported`, `derived`, `unavailable`). Derived TTM carries quarter inputs and source filing references; FCF explicitly uses OCF minus CapEx. Document metadata separates `generatedAt`, successful live `fetchedAt`, `updateStatus` and `qualityStatus`. Offline fixture normalization never claims a successful live fetch. The checked-in V1 files were regenerated from local SEC fixtures with unchanged financial values.
+
+Snapshot schema 2 remains readable and gains an optional, independently versioned `provenance.version: 1` block copied only at capture time. Old snapshots receive no modern provenance backfill. `NTMResearchSnapshot.comparable` is shared by Change Detection and Outcome Tracking: definition, currency/unit, TTM periods/quarter sequence, method/schema/source, known restatement/split flags and relevant share basis must pass before numeric changes are calculated. Missing evidence produces a Swedish explanation. Ordinary TTM windows may advance; a quarter cannot be compared with TTM or a regressed period. Existing thresholds still apply to comparable metrics.
+
+SEC facts do not currently establish a verified split-adjusted share basis across observations. V1 therefore records this as unverified and suppresses per-share, share-count and price-return comparisons. It does not infer a stock split adjustment from share-count ratios. Manual valuation prices/EPS remain assumptions, not provider data; manual outcome prices can still be saved even when a return comparison is unavailable. Historical values and immutable revisions remain readable and unchanged.
+
+`update_stocks.py` validates supported company identity, schema, source metadata, fiscal ordering, period durations, TTM continuity/recomputation, finite values and required availability before atomic replacement. Existing corrupt/unsupported output, reporting regression or lost TTM availability blocks publication. Failed SEC/network/429/malformed responses leave the existing file and successful fetch timestamp intact; the command/workflow reports failure. The existing scheduled Pages workflow refreshes only NVDA/SOFI/CRWD after tests and commits/deploys only after all updates succeed. Read-only validation, data preparation and build jobs are isolated from the contents-write commit job and the Pages/id-token deployment job. Build checks out the exact committed data revision; no additional provider credentials are introduced. Remote Actions execution still needs verification after these changes are published.
+
+Macro updates use metadata schema 2 and per-event `provenanceVersion: 1` with independent `fieldProvenance.actual`, `.previous` and `.forecast`. Only provider values actually written by the updater receive its source/method/fetch metadata; retained legacy values have unknown field provenance. Existing explicit manual/provider forecast metadata is preserved, and missing forecasts remain unavailable. Forecasts are never inherited from the actual's source or described as consensus by default. Fetch status tracks individual BLS series and other requested provider components; partial failures or missing configuration cannot yield global OK. The separate `lastCompleteFetch` timestamp advances only when all tracked source fetches succeed; legacy BLS-only `lastSuccessfulUpdate` is retained for compatibility and never relabeled as a complete fetch. A successful fetch does not guarantee every scheduled release has a value. The UI exposes source status and field provenance in expandable details and labels legacy global status as incomplete evidence.
+
+Validation includes `tests/test_data_quality.py`, executable comparability regressions in `tests/research-workflow.test.cjs`, and two isolated browser flows in `scripts/browser_smoke.py` for financial provenance/blocked comparison and partial macro status/missing forecast. No live provider request or personal browser storage is needed for these tests.
+
+## Product trust and measurement operations
+
+Public information: [Om NTM, integritet, metod och rättelser](om-metod.html).
+Operational source: [editorial checklist, privacy-safe events, Instagram links, owner TODOs and annual calendar maintenance](docs/product-trust-operations.md).
+`ntm-product.js` owns the small text-first status helper and provider-neutral event API. Product events are bounded, memory-only and have **no connected analytics provider**. Existing Cloudflare page analytics is separate. No private financial payloads are accepted. `posts.js` owns visible editorial metadata and three contextual journeys; regenerate static posts after edits.
+
+### Search Console baseline — owner action required
+
+Search Console ownership has not been verified by this repository task. No fake verification token is installed.
+
+1. In Google Search Console, add the **Domain** property `nolltillmiljoner.se`.
+2. Copy Google's exact TXT record into the domain's DNS provider, wait for propagation, then select Verify. Keep the TXT record. DNS verification needs no site-code change.
+3. Submit `https://nolltillmiljoner.se/sitemap.xml`. Confirm the deployed `robots.txt` allows crawling and points to that sitemap.
+4. Use URL Inspection on the priority pages below; compare Google's selected canonical with the delivered canonical. Request indexing where appropriate. Min NTM and legacy router/redirect pages remain excluded/noindex.
+5. Record a dated baseline of indexed pages, impressions, clicks, CTR and average position by landing page/device in Search Console. Compare equal reporting windows after deployment; do not claim causation or identify visitors. Product completion metrics remain unavailable externally until the owner chooses a reviewed provider.
+
+Priority landing inventory (all under `https://nolltillmiljoner.se/`):
+
+| Page | Intent / useful action |
+| --- | --- |
+| `/` | Choose a tool or Research |
+| `verktyg.html` | Find a calculator |
+| `ranta-pa-ranta.html` | Complete a savings calculation |
+| `avgifter.html` | Compare fee effects |
+| `aktievarderingskalkylator.html` | Test valuation assumptions |
+| `valutajusterad-avkastning.html` | Calculate currency-adjusted return |
+| `research.html` | Choose a company, calculate and save a thesis |
+| `inlagg.html` | Find source content and a relevant tool journey |
+| `om-metod.html` | Understand method and report a correction |
+
+Run `node scripts/build_seo.cjs --check` before deployment. Chart.js is pinned/self-hosted at 4.5.1 on the ten chart pages; optimized header/icon/social assets replace the oversized delivered logo. See the operations document for byte measurements and dependency provenance.
 
 ## Workflow for future AI coding sessions
 

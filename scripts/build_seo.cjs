@@ -4,7 +4,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const root = path.resolve(__dirname, '..');
 const base = 'https://nolltillmiljoner.se/';
-const image = base + 'images/ntm-logo.png.png';
+const image = base + 'images/ntm-social.png';
 const read = (name) => fs.readFileSync(path.join(root, name), 'utf8');
 const escape = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const decode = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
@@ -26,6 +26,16 @@ const overrides = {
 const excluded = new Set(['min-ntm.html', 'post.html', 'calculator.html', 'investeringar.html']);
 const redirects = { 'calculator.html': 'ranta-pa-ranta.html', 'investeringar.html': 'inlagg.html' };
 const outputs = new Map();
+function navigation(html, file) {
+  html = html.replace(/\s*<footer class="trust-footer">[\s\S]*?<\/footer>/g, '');
+  if (html.includes('src="script.js"')) html = html.replace('</main>', '</main>\n    <footer class="trust-footer"><a href="om-metod.html">Om NTM, integritet, metod och rättelser</a></footer>');
+  const secondary = [['inlagg.html','Inlägg och videor'],['resurser.html','Resurser'],['makro.html','Makro'],['rapporter.html','Rapporter'],['community.html','Community']];
+  const link = ([url,label]) => `<a href="${url}"${url === file ? ' class="active" aria-current="page"' : ''}>${label}</a>`;
+  return html.replace(/<nav class="main-nav"[^>]*>([\s\S]*?)<\/nav>/, (_, body) => {
+    const theme = body.match(/<div class="mobile-theme-row">[\s\S]*?<\/div>/)?.[0] || '';
+    return `<nav class="main-nav" aria-label="Huvudnavigering">${theme}${[['verktyg.html','Verktyg'],['research.html','Research'],['min-ntm.html','Min NTM']].map(link).join('')}<details class="nav-learn"><summary>Lär dig</summary><div class="nav-learn-links">${secondary.map(link).join('')}</div></details></nav>`;
+  });
+}
 function metadata(html, file, title, description, schema) {
   const canonical = base + (file === 'index.html' ? '' : redirects[file] || file);
   // Managed head fields remain static in delivered HTML, including social preview metadata.
@@ -41,7 +51,7 @@ function metadata(html, file, title, description, schema) {
     'twitter:image': image, 'twitter:image:alt': 'Noll till Miljoner' };
   const block = '\n    <!-- SEO START -->\n    <title>' + escape(title) + '</title>\n'
     + Object.entries(fields).map(([key, value]) => `    <meta ${key.startsWith('og:') ? 'property' : 'name'}="${key}" content="${escape(value)}" />`).join('\n')
-    + `\n    <link rel="canonical" href="${escape(canonical)}" />\n    <link rel="icon" type="image/png" href="images/ntm-logo.png.png" />`
+    + `\n    <link rel="canonical" href="${escape(canonical)}" />\n    <link rel="icon" type="image/png" href="images/ntm-icon.png" />`
     + (schema ? `\n    <script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>` : '')
     + '\n    <!-- SEO END -->\n';
   return html.replace('</head>', block + '</head>');
@@ -51,7 +61,7 @@ for (const file of fs.readdirSync(root).filter((name) => name.endsWith('.html') 
   const title = overrides[file]?.[0] || decode(html.match(/<title>(.*?)<\/title>/s)[1]);
   const description = overrides[file]?.[1] || decode(html.match(/<meta name="description" content="([^"]+)"/)[1]);
   const schema = file === 'index.html' ? { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Noll till Miljoner', url: base, inLanguage: 'sv' } : null;
-  outputs.set(file, metadata(html, file, title, description, schema));
+  outputs.set(file, navigation(metadata(html, file, title, description, schema), file));
 }
 // Reuse the actual page renderer so article content and interactive structure cannot drift.
 const context = vm.createContext({ document: { getElementById() { return null; }, querySelector() { return null; },
@@ -59,6 +69,7 @@ const context = vm.createContext({ document: { getElementById() { return null; }
   URLSearchParams, location: { pathname: '/', search: '' }, console, setTimeout() {} });
 context.window = context;
 vm.runInContext(read('posts.js'), context);
+vm.runInContext(read('valuation-core.js'), context);
 vm.runInContext(read('script.js'), context);
 const posts = vm.runInContext('NTM_POSTS', context);
 let archive = '';
@@ -68,7 +79,7 @@ for (const post of posts) {
   const template = outputs.get('post.html').replace('id="postView"', `id="postView" data-post-slug="${post.slug}"`)
     .replace(/(<section id="postView"[^>]*>)[\s\S]*?(<\/section>)/, (_, start, end) => start + context.renderPostView(post) + end);
   const schema = { '@context': 'https://schema.org', '@type': 'Article', headline: post.title,
-    description: post.excerpt, datePublished: post.date, inLanguage: 'sv', mainEntityOfPage: base + file };
+    description: post.excerpt, datePublished: post.date, dateModified: post.editorial.updatedAt, inLanguage: 'sv', mainEntityOfPage: base + file };
   outputs.set(file, metadata(template, file, `${post.title} | Noll till Miljoner`, post.excerpt, schema));
   archive += `<article class="resource-card"><h2 class="resource-card-title"><a href="${file}">${escape(post.title)}</a></h2><p>${escape(post.excerpt)}</p></article>`;
 }

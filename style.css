@@ -5683,3 +5683,28 @@ body.research-export-preview > :not(#researchPrintView) { display: none !importa
     align-items: flex-start;
   }
 }
+.nav-learn { position: relative; }
+.nav-learn summary { cursor: pointer; padding: 10px; color: var(--text); }
+.nav-learn-links { position: absolute; right: 0; z-index: 20; min-width: 210px; display: grid; gap: 8px; padding: 16px; border: 1px solid var(--border); border-radius: 16px; background: var(--card-bg, #142438); }
+.nav-learn-links a { display: block; }
+body.light-theme .nav-learn-links { background: #fff; }
+.product-intro { margin-bottom: 28px; }
+.product-intro h1 { max-width: 800px; }
+.product-intro p a, #thesisReview p a { color: var(--primary); text-underline-offset: 3px; }
+@media (max-width: 900px) { .nav-learn-links { position: static; min-width: 0; } }
+/* Shared, text-first state surface; finance certainty is never inferred from color. */
+[data-ntm-status] { border-inline-start: 3px solid currentColor; padding: .65rem .85rem; border-radius: .3rem; }
+[data-ntm-status="error"], [data-ntm-status="unsafe"] { border-inline-start-style: double; border-inline-start-width: 5px; }
+[data-ntm-status="stale"], [data-ntm-status="warning"] { border-inline-start-style: dashed; }
+.trust-footer { padding: 1.5rem; text-align: center; }
+.trust-footer a { color: inherit; text-decoration: underline; text-underline-offset: .2em; }
+.trust-page a, .editorial-note a { color: var(--primary); text-underline-offset: .2em; }
+.trust-page { max-width: 960px; margin: auto; padding: 1.5rem; }
+.trust-page .card, .editorial-note, .content-journey, .journey-intro { margin-block: 1.5rem; padding: 1.25rem; }
+.trust-page p, .editorial-note p, .content-journey p { margin-block: .85rem; line-height: 1.65; }
+.trust-definitions dt { font-weight: 700; margin-top: 1rem; }
+.trust-definitions dd { margin: .5rem 0 1rem; line-height: 1.65; }
+.editorial-note { border: 1px solid var(--border-color, #777); border-radius: 12px; }
+.content-journey a { white-space: normal; }
+.destructive-action { border: 2px solid currentColor !important; text-decoration: underline; text-underline-offset: .2em; }
+@media (max-width: 600px) { .trust-page { padding: 1rem; } .editorial-note, .content-journey { padding: 1rem; } }

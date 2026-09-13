@@ -166,9 +166,9 @@ function renderMacroWeek(weekKey, macroWeeks) {
       const dateRangeText = week.dateRange || (window.NTM_MACRO && window.NTM_MACRO.getIsoWeekDateRange(weekKey)) || '';
       const meta = (window.NTM_WEEKLY_EVENTS && window.NTM_WEEKLY_EVENTS.meta) || {};
       let updateInfo = '';
-      if (meta.lastSuccessfulUpdate) {
+      if (meta.schemaVersion === 2 && meta.lastCompleteFetch) {
         try {
-          const updateDate = new Date(meta.lastSuccessfulUpdate);
+          const updateDate = new Date(meta.lastCompleteFetch);
           const updateFormatted = new Intl.DateTimeFormat('sv-SE', {
             day: 'numeric',
             month: 'short',
@@ -176,12 +176,18 @@ function renderMacroWeek(weekKey, macroWeeks) {
             minute: '2-digit',
             timeZone: 'Europe/Stockholm'
           }).format(updateDate);
-          updateInfo = `Uppdaterad: ${updateFormatted} (officiella källor)`;
+          updateInfo = `Senaste fullständiga hämtning: ${updateFormatted}`;
         } catch (e) {
           updateInfo = '';
         }
       }
 
+      updateInfo += `${updateInfo ? ' · ' : ''}${meta.schemaVersion !== 2 ? 'Äldre status: täckning per källa saknas' : meta.status === 'ok' ? 'Källhämtningar klara; enskilda värden kan saknas' : 'Delvis uppdaterad eller källor otillgängliga'}`;
+      const fieldLabel = (event, field) => {
+        if (event[field] === null || event[field] === undefined || event[field] === '') return 'Ej tillgänglig';
+        const p = event.fieldProvenance?.[field];
+        return ({ manual: 'Manuellt angiven', provider_derived: 'Beräknad från källa', reported: 'Rapporterad', provider: 'Separat leverantör' })[p?.kind] || 'Källa ej verifierad';
+      };
       let html = `
         <div class="macro-week-header">
           <div class="macro-week-header-top">
@@ -197,6 +203,7 @@ function renderMacroWeek(weekKey, macroWeeks) {
             ` : ''}
           </div>
           ${updateInfo ? `<div class="macro-update-status">${escapeText(updateInfo)}</div>` : ''}
+          ${meta.sources ? `<details><summary>Status per källa</summary>${Object.entries(meta.sources).map(([name, state]) => `<p>${escapeText(name)}: ${escapeText(({ current: 'Hämtad', failed: 'Hämtning misslyckades', cached: 'Tidigare kalender används; hämtning misslyckades', not_configured: 'Ej konfigurerad', unavailable: 'Ej tillgänglig' })[state] || 'Okänd status')}</p>`).join('')}</details>` : ''}
         </div>
         <div class="macro-days-list">
       `;
@@ -213,7 +220,7 @@ function renderMacroWeek(weekKey, macroWeeks) {
             </h3>
             <div class="macro-events-list">
               ${dayEvents.map((event) => {
-                const hasDetails = (event.description && event.description.trim().length > 0) || (event.source && event.source.trim().length > 0) || (event.sourceUrl && event.sourceUrl.trim().length > 0);
+                const hasDetails = true;
                 const isRevised = !!event.isRevised;
 
                 return `
@@ -232,7 +239,7 @@ function renderMacroWeek(weekKey, macroWeeks) {
                             <span class="macro-metric-val ${event.actual !== null && event.actual !== undefined ? 'has-actual' : ''}">${escapeText(formatMacroVal(event.actual))}</span>
                           </div>
                           <div class="macro-metric">
-                            <span class="macro-metric-label">Prognos</span>
+                            <span class="macro-metric-label">Prognos · ${escapeText(fieldLabel(event, 'forecast'))}</span>
                             <span class="macro-metric-val">${escapeText(formatMacroVal(event.forecast))}</span>
                           </div>
                           <div class="macro-metric">
@@ -244,6 +251,7 @@ function renderMacroWeek(weekKey, macroWeeks) {
                           <details class="macro-details">
                             <summary>Förklaring &amp; källa</summary>
                             <div class="macro-details-body">
+                              ${[['actual', 'Utfall'], ['previous', 'Föregående'], ['forecast', 'Prognos']].map(([key, label]) => `<p>${label}: ${escapeText(fieldLabel(event, key))}${event.fieldProvenance?.[key]?.source ? ` · ${escapeText(event.fieldProvenance[key].source)}` : ''}${event.fieldProvenance?.[key]?.fetchedAt ? ` · hämtad ${escapeText(event.fieldProvenance[key].fetchedAt)}` : ''}</p>`).join('')}
                               ${event.description ? `<p class="macro-desc">${escapeText(event.description)}</p>` : ''}
                               ${event.source ? `
                                 <p class="macro-source">Källa: ${event.sourceUrl ? `<a href="${escapeText(event.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeText(event.source)}</a>` : escapeText(event.source)}</p>
@@ -292,7 +300,7 @@ function renderMacroWeek(weekKey, macroWeeks) {
             <span class="section-kicker">${escapeText(weekLabel)}</span>
           <h2>${escapeText(week.title || week.label || weekKey)}</h2>
         </div>
-        <p class="ntm-empty-state">Inga makrohändelser inlagda för veckan.</p>
+        <p class="ntm-empty-state">Inga verifierade makrohändelser inlagda för veckan. Kalendern kan vara ofullständig.</p>
       `;
     }
   }

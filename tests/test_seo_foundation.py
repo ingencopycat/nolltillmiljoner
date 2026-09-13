@@ -1,6 +1,7 @@
 """Validate committed SEO outputs, canonical coverage and static discovery paths."""
 import json
 import os
+import re
 from pathlib import Path
 from html.parser import HTMLParser
 import shutil
@@ -132,6 +133,23 @@ class SeoFoundationTests(unittest.TestCase):
                 self.assertEqual(len(article), 1)
                 self.assertEqual(article[0]['mainEntityOfPage'], BASE + name)
                 self.assertIn('data-post-slug=', (ROOT / name).read_text(encoding='utf-8'))
+
+    def test_product_paths_and_shared_navigation_keep_secondary_pages_discoverable(self):
+        home = (ROOT / 'index.html').read_text(encoding='utf-8')
+        hero = re.search(r'<section[^>]*product-intro[\s\S]*?</section>', home).group()
+        for target in ['ranta-pa-ranta.html', 'research.html', 'min-ntm.html']:
+            self.assertIn(target, [urlsplit(href).path for href in Page(hero).links])
+        for name in self.pages:
+            source = (ROOT / name).read_text(encoding='utf-8')
+            nav = re.search(r'<nav class="main-nav"[^>]*>([\s\S]*?)</nav>', source)
+            if not nav:
+                self.assertIn(name, ['calculator.html'])
+                continue
+            links = re.findall(r'<a href="([^"]+)"([^>]*)>', nav.group())
+            self.assertEqual([href for href, _ in links], ['verktyg.html','research.html','min-ntm.html','inlagg.html','resurser.html','makro.html','rapporter.html','community.html'])
+            self.assertIn('<summary>Lär dig</summary>', nav.group())
+            for href, attrs in links:
+                self.assertEqual('aria-current="page"' in attrs, href == name)
 
 
 if __name__ == '__main__':

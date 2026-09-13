@@ -15,6 +15,8 @@ Features:
 6. Atomic file updates to avoid race conditions and partial writes.
 """
 
+from macro_provenance import set_field, complete_fields, status_meta
+
 import os
 import re
 import sys
@@ -338,7 +340,9 @@ def parse_ics_calendar(ics_text):
 
     return events
 
-def fetch_bls_schedule():
+def fetch_bls_schedule(fetch_status=None):
+    fetch_status = fetch_status if fetch_status is not None else {}
+    fetch_status['status'] = 'unavailable'
     try:
         req = urllib.request.Request(
             ICS_URL,
@@ -353,6 +357,7 @@ def fetch_bls_schedule():
             if parsed:
                 print(f"[Calendar] Successfully fetched live BLS iCal ({len(parsed)} events).")
                 atomic_write_file(ICS_CACHE_FILE, text)
+                fetch_status['status'] = 'current'
                 return parsed
     except Exception as e:
         print(f"[Calendar Info] Live ICS fetch not accessible ({e}). Using verified schedule cache.")
@@ -362,6 +367,7 @@ def fetch_bls_schedule():
             cached_text = f.read()
             parsed = parse_ics_calendar(cached_text)
             print(f"[Calendar] Loaded {len(parsed)} events from verified cache {ICS_CACHE_FILE}.")
+            fetch_status['status'] = 'cached' if parsed else 'unavailable'
             return parsed
 
     return []
@@ -783,6 +789,7 @@ def atomic_write_file(filepath, content):
 
 def update_macro_data():
     now_iso = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+    current_week = get_iso_week_from_date(now_iso[:10])
     api_key = os.environ.get('BLS_API_KEY', None)
 
     print(f"[{now_iso}] Starting robust macro data update...")
@@ -812,7 +819,8 @@ def update_macro_data():
             pass
 
     # 1. Sync upcoming schedule from calendar
-    calendar_events = fetch_bls_schedule()
+    calendar_status = {}
+    calendar_events = fetch_bls_schedule(calendar_status)
     if calendar_events:
         added_e, updated_e = sync_scheduled_weeks_from_calendar(macro_weeks, calendar_events)
         print(f"[Calendar Sync] Added {added_e} events, updated {updated_e} events.")
@@ -825,7 +833,6 @@ def update_macro_data():
     print(f"[BLS Query] Requesting {len(series_to_fetch)} series in 1 batch request...")
 
     bls_results = {}
-    fetch_success = False
 
     try:
         status, series_list = fetch_bls_data(series_to_fetch, start_year, end_year, api_key=api_key)
@@ -833,7 +840,6 @@ def update_macro_data():
         if status == 'REQUEST_SUCCEEDED' and non_empty_count > 0:
             for s in series_list:
                 bls_results[s['seriesID']] = s
-            fetch_success = True
             print(f"[BLS Success] Received {len(bls_results)} series ({non_empty_count} with data points).")
         else:
             print(f"[BLS Warning] Empty or unserviceable API response: status={status}, non_empty={non_empty_count}")
@@ -959,10 +965,10 @@ def update_macro_data():
                     elif spec['transform'] == 'level_pct':
                         value = current
                 if value is not None:
-                    event['actual'] = f'{value:.1f}%' if spec['transform'] in ('mom_pct', 'level_pct') else f'{value:.0f}B'
+                    set_field(event, 'actual', f'{value:.1f}%' if spec['transform'] in ('mom_pct', 'level_pct') else f'{value:.0f}B', now_iso)
                     event['officialBaseline'] = event['actual']
                 if previous_value is not None:
-                    event['previous'] = f'{previous_value:.0f}B'
+                    set_field(event, 'previous', f'{previous_value:.0f}B', now_iso)
                 continue
 
             if ev_id.startswith(TREASURY_EVENT_PREFIX) and treasury_results:
@@ -973,10 +979,10 @@ def update_macro_data():
                 previous_year, previous_month = get_preceding_month(year, month) if month else (None, None)
                 previous = values.get((previous_year, previous_month)) if month else None
                 if value is not None:
-                    event['actual'] = f'{value:.0f}B'
+                    set_field(event, 'actual', f'{value:.0f}B', now_iso)
                     event['officialBaseline'] = event['actual']
                 if previous is not None:
-                    event['previous'] = f'{previous:.0f}B'
+                    set_field(event, 'previous', f'{previous:.0f}B', now_iso)
                 continue
 
             bea_prefix = next((prefix for prefix in BEA_EVENT_DEFINITIONS if ev_id.startswith(prefix)), None)
@@ -988,7 +994,7 @@ def update_macro_data():
                 rows = {row.get('TimePeriod'): row for row in bea_results[bea_prefix]}
                 row = rows.get(period_key)
                 if row and row.get('DataValue') not in (None, '', '...'):
-                    event['actual'] = row['DataValue']
+                    set_field(event, 'actual', row['DataValue'], now_iso, kind='reported', source='BEA', source_url=spec['sourceUrl'])
                     event['officialBaseline'] = row['DataValue']
                     previous_key = None
                     if period_type == 'M':
@@ -999,7 +1005,7 @@ def update_macro_data():
                         previous_key = f'{previous_year}Q{previous_quarter}'
                     previous_row = rows.get(previous_key)
                     if previous_row and previous_row.get('DataValue') not in (None, '', '...'):
-                        event['previous'] = previous_row['DataValue']
+                        set_field(event, 'previous', previous_row['DataValue'], now_iso, kind='reported', source='BEA', source_url=spec['sourceUrl'])
                 continue
 
             if ev_id.startswith('us-jobless-claims-') and dol_claims:
@@ -1015,11 +1021,11 @@ def update_macro_data():
                         if event.get('actual') != verified_actual:
                             if event.get('actual') is not None and event.get('officialBaseline'):
                                 event['isRevised'] = True
-                            event['actual'] = verified_actual
                             event['officialBaseline'] = verified_actual
                             updates_count += 1
+                        set_field(event, 'actual', verified_actual, now_iso)
                     if prior_claims is not None:
-                        event['previous'] = f"{prior_claims / 1000:.0f}K"
+                        set_field(event, 'previous', f"{prior_claims / 1000:.0f}K", now_iso)
                 continue
 
             if ev_id.startswith('us-wholesale-trade-') and census_inventories:
@@ -1040,11 +1046,11 @@ def update_macro_data():
                     if event.get('actual') != actual_wholesale:
                         if event.get('actual') is not None and event.get('officialBaseline'):
                             event['isRevised'] = True
-                        event['actual'] = actual_wholesale
                         event['officialBaseline'] = actual_wholesale
                         updates_count += 1
+                    set_field(event, 'actual', actual_wholesale, now_iso)
                 if previous_wholesale is not None:
-                    event['previous'] = previous_wholesale
+                    set_field(event, 'previous', previous_wholesale, now_iso)
                 continue
 
             eits_prefix = next((prefix for prefix in census_eits_specs if ev_id.startswith(prefix)), None)
@@ -1060,11 +1066,12 @@ def update_macro_data():
                 if actual_eits is not None and event.get('actual') != actual_eits:
                     if event.get('actual') is not None and event.get('officialBaseline'):
                         event['isRevised'] = True
-                    event['actual'] = actual_eits
                     event['officialBaseline'] = actual_eits
                     updates_count += 1
+                if actual_eits is not None:
+                    set_field(event, 'actual', actual_eits, now_iso)
                 if previous_eits is not None:
-                    event['previous'] = previous_eits
+                    set_field(event, 'previous', previous_eits, now_iso)
                 continue
 
             for prefix in sorted_prefixes:
@@ -1081,7 +1088,6 @@ def update_macro_data():
                 if not event.get('source'):
                     event['source'] = matched_mapping['source']
 
-                event['forecast'] = None
 
                 if series_id in bls_results:
                     ev_date = event.get('date', '2026-01-01')
@@ -1102,7 +1108,7 @@ def update_macro_data():
                         offset=1
                     )
                     if prev_val is not None:
-                        event['previous'] = prev_val
+                        set_field(event, 'previous', prev_val, now_iso, kind='reported' if transform_type == 'rate_pct' else 'provider_derived', source=matched_mapping['source'], source_url=matched_mapping['sourceUrl'])
 
                     val = compute_bls_value(
                         bls_results[series_id],
@@ -1122,19 +1128,35 @@ def update_macro_data():
                             else:
                                 print(f"[Actual Verified] {ev_id} ({event.get('period')} {ref_year}): {val}")
                                 event['officialBaseline'] = val
-                            event['actual'] = val
                             updates_count += 1
+                        set_field(event, 'actual', val, now_iso, kind='reported' if transform_type == 'rate_pct' else 'provider_derived', source=matched_mapping['source'], source_url=matched_mapping['sourceUrl'])
 
     print(f"[Result] Total events verified/updated: {updates_count}")
 
-    last_success = now_iso if fetch_success else previous_meta.get('lastSuccessfulUpdate', None)
-    meta_block = {
-        'lastFetchAttempt': now_iso,
-        'lastSuccessfulUpdate': last_success,
-        'status': 'ok' if fetch_success else 'fetch_error',
-        'activeSources': ['U.S. Bureau of Labor Statistics (BLS)'],
-        'preparedSources': ['Statistiska centralbyrån (SCB)']
-    }
+    sources = {'BLS calendar': calendar_status.get('status', 'unavailable')}
+    sources.update({f'BLS {sid}': 'current' if bls_results.get(sid, {}).get('data') else 'failed' for sid in series_to_fetch})
+    events = [event for week in macro_weeks.values() for event in week.get('events', [])]
+    def requested(prefix):
+        return any(event.get('id', '').startswith(prefix) for event in events)
+    if requested('us-jobless-claims-'):
+        sources['DOL'] = 'current' if dol_claims else 'failed'
+    for year in wholesale_years:
+        sources[f'Census MWTS {year}'] = 'current' if census_inventories.get(year) else 'failed'
+    for prefix in census_eits_specs:
+        if requested(prefix):
+            for year in eits_years:
+                sources[f'Census {prefix} {year}'] = 'current' if census_eits.get((prefix, year)) else 'failed'
+    for prefix in FRED_SERIES_DEFINITIONS:
+        if requested(prefix):
+            sources[f'FRED {prefix}'] = 'current' if fred_results.get(prefix) else 'failed'
+    for year in treasury_years:
+        sources[f'Treasury {year}'] = 'current' if treasury_results.get(year) else 'failed'
+    for prefix in BEA_EVENT_DEFINITIONS:
+        if requested(prefix):
+            sources[f'BEA {prefix}'] = 'not_configured' if not bea_key else 'current' if bea_results.get(prefix) else 'failed'
+    for event in events:
+        complete_fields(event)
+    meta_block = status_meta(sources, now_iso, previous_meta)
 
     formatted_macro = json.dumps(macro_weeks, indent=2, ensure_ascii=False)
     earnings_text = earnings_match.group(1).strip()
@@ -1148,8 +1170,8 @@ window.NTM_WEEKLY_EVENTS = {{
   meta: {meta_json},
   macroWeeks,
   earningsWeeks,
-  macro: macroWeeks['2026-W37'] ? macroWeeks['2026-W37'].events : [],
-  earnings: earningsWeeks['2026-W37'] ? earningsWeeks['2026-W37'].reports : []
+  macro: macroWeeks['{current_week}'] ? macroWeeks['{current_week}'].events : [],
+  earnings: earningsWeeks['{current_week}'] ? earningsWeeks['{current_week}'].reports : []
 }};
 """
 

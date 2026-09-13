@@ -26,6 +26,7 @@ FIXTURES_DIR = os.path.join(WORKSPACE_DIR, 'tests', 'fixtures')
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from sec_client import SECClient, SECClientError
 from stock_normalizer import StockNormalizer, COMPANY_PROFILES
+from stock_contract import validate, IDENTITIES
 
 
 def save_atomic_json(data: dict, target_path: str) -> None:
@@ -37,7 +38,7 @@ def save_atomic_json(data: dict, target_path: str) -> None:
     temp_fd, temp_path = tempfile.mkstemp(prefix='stock_', suffix='.json.tmp', dir=target_dir)
     try:
         with os.fdopen(temp_fd, 'w', encoding='utf-8') as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
+            json.dump(data, f, indent=2, ensure_ascii=False, allow_nan=False)
             f.write('\n')
         
         # Verify JSON validity before renaming
@@ -65,6 +66,8 @@ def update_stock(
     Returns path of generated JSON file.
     """
     ticker_upper = ticker.strip().upper()
+    if ticker_upper not in IDENTITIES:
+        raise ValueError('Unsupported stock ticker')
     print(f"[*] Processing stock fundamentals for {ticker_upper}...")
 
     if offline:
@@ -92,13 +95,26 @@ def update_stock(
         print(f"    Fetching SEC XBRL company facts for CIK {cik}...")
         facts_data = sec_client.get_company_facts(cik)
 
+    if (not isinstance(sub_data, dict) or not isinstance(facts_data, dict)
+            or str(sub_data.get('cik', '')).zfill(10) != IDENTITIES[ticker_upper]
+            or str(facts_data.get('cik', '')).zfill(10) != IDENTITIES[ticker_upper]
+            or not facts_data.get('facts') or not sub_data.get('filings', {}).get('recent')):
+        raise ValueError('Incomplete or mismatched SEC response')
     print("    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...")
     normalizer = StockNormalizer(ticker_upper)
     normalized_doc = normalizer.normalize(sub_data, facts_data)
 
     target_file = os.path.join(output_dir, f'{ticker_upper}.json')
+    previous = None
+    if os.path.exists(target_file):
+        with open(target_file, encoding='utf-8') as f:
+            previous = json.load(f)
+    validate(normalized_doc, ticker_upper, previous)
+    normalized_doc['metadata'].update(
+        qualityStatus='validated', updateStatus='offline_fixture' if offline else 'success',
+        fetchedAt=None if offline else normalized_doc['metadata']['generatedAt'])
     save_atomic_json(normalized_doc, target_file)
-    print(f"[✓] Successfully generated verified fundamentals: {target_file}")
+    print(f"[OK] Successfully generated verified fundamentals: {target_file}")
     return target_file
 
 

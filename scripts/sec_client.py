@@ -15,6 +15,8 @@ Complies with SEC automated access policy:
 
 import json
 import time
+from email.utils import parsedate_to_datetime
+from datetime import datetime, timezone
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -48,10 +50,14 @@ class SECClient:
         user_agent: str = DEFAULT_USER_AGENT,
         rate_limit_delay: float = DEFAULT_RATE_LIMIT_DELAY,
         timeout: int = 20,
+        max_retries: int = 2,
     ):
         self.user_agent = user_agent
         self.rate_limit_delay = rate_limit_delay
         self.timeout = timeout
+        if type(max_retries) is not int or not 0 <= max_retries <= 5:
+            raise ValueError('max_retries must be 0..5')
+        self.max_retries = max_retries
         self._last_request_time = 0.0
         self._tickers_cache: Optional[Dict[str, Any]] = None
 
@@ -64,6 +70,34 @@ class SECClient:
         self._last_request_time = time.time()
 
     def _fetch_json(self, url: str) -> Dict[str, Any]:
+        """At most three attempts by default; do not retry permanent client errors."""
+        for attempt in range(self.max_retries + 1):
+            try:
+                return self._fetch_once(url)
+            except SECNetworkError as error:
+                cause = error.__cause__
+                if isinstance(cause, urllib.error.HTTPError) and cause.code not in (408, 429, 500, 502, 503, 504):
+                    raise
+                if attempt == self.max_retries:
+                    raise SECNetworkError(f'SEC request failed after {attempt + 1} attempts: {url}') from error
+                delay = 2 ** attempt
+                header = cause.headers.get('Retry-After') if isinstance(cause, urllib.error.HTTPError) and cause.headers else None
+                if header:
+                    try:
+                        requested = float(header)
+                    except ValueError:
+                        try:
+                            requested = (parsedate_to_datetime(header) - datetime.now(timezone.utc)).total_seconds()
+                        except (ValueError, TypeError, OverflowError):
+                            requested = 0
+                    # If the server requires a long pause, fail instead of retrying too early.
+                    if requested > 60:
+                        raise SECNetworkError('SEC Retry-After exceeds bounded retry window; try later') from error
+                    if 0 <= requested <= 60:
+                        delay = max(delay, requested)
+                time.sleep(delay)
+
+    def _fetch_once(self, url: str) -> Dict[str, Any]:
         """Fetch JSON from SEC with user-agent, error handling, and throttling."""
         self._throttle()
         req = urllib.request.Request(
@@ -83,6 +117,7 @@ class SECClient:
                     data = gzip.decompress(data)
                 return json.loads(data.decode('utf-8'))
         except urllib.error.HTTPError as exc:
+            exc.close()
             if exc.code == 429:
                 raise SECNetworkError(f'SEC EDGAR rate limit exceeded (HTTP 429) for {url}') from exc
             if exc.code == 404:

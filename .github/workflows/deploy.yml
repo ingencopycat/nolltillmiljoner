@@ -1,86 +1,119 @@
 name: Deploy and Update NTM Website
-
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   schedule:
-    # Runs Monday through Friday at 12:35, 14:35 and 16:35 UTC (08:35, 10:35, 12:35 ET)
     - cron: '35 12,14,16 * * 1-5'
   workflow_dispatch:
-
 concurrency:
   group: pages-and-macro
   cancel-in-progress: false
-
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
+permissions: {}
 jobs:
-  update-macro-and-build:
+  validate:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+          persist-credentials: false
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-
-      - name: Set up Node for Research workflow tests
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '22'
-
-      - name: Run Unit & Regression Tests
-        run: |
-          python -m unittest discover -s tests -p "test_*.py"
-
-      - name: Update Macroeconomic Data
+      - run: python -m unittest discover -s tests -p "test_*.py"
+      - run: node scripts/check_calendar_coverage.cjs
+  prepare-data:
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Update macro data
         env:
           BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
           BEA_API_KEY: ${{ secrets.BEA_API_KEY }}
         run: |
           python scripts/update_macro.py
           python tests/test_macro.py
-
-      - name: Commit data changes if updated
+      - name: Refresh validated stocks
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: python scripts/update_stocks.py --all
+      - uses: actions/upload-artifact@v4
+        with:
+          name: validated-data
+          path: |
+            data/weekly-events.js
+            data/stocks/NVDA.json
+            data/stocks/SOFI.json
+            data/stocks/CRWD.json
+          if-no-files-found: error
+  commit-data:
+    needs: prepare-data
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      revision: ${{ steps.commit.outputs.revision }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: validated-data
+          path: data
+      - id: commit
+        shell: bash
         run: |
-          # Differentiate meaningful macro data changes from timestamp-only checks
-          DATA_CHANGES=$(git diff -U0 data/weekly-events.js | grep -v "lastFetchAttempt" | grep "^+[^+]" || true)
-          if [ -n "$DATA_CHANGES" ]; then
+          git add data/weekly-events.js data/stocks/NVDA.json data/stocks/SOFI.json data/stocks/CRWD.json
+          if ! git diff --cached --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add data/weekly-events.js
-            git commit -m "chore(macro): update official macroeconomic data [skip ci]"
-            git push
-          else
-            echo "No material data content changes. Skipping git commit."
+            git commit -m "chore(data): update validated data [skip ci]"
+            git push origin HEAD:main
           fi
-
-      - name: Stage Public Site Artifacts
-        run: |
-          python scripts/stage_site.py _site
-
-          echo "Staged site contents:"
-          ls -la _site
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v3
+          echo "revision=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+  build:
+    needs: commit-data
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
         with:
-          path: '_site'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
+          ref: ${{ needs.commit-data.outputs.revision }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/build_seo.cjs --check
+      - run: |
+          python scripts/stage_site.py _site
+          python -c "import sys;sys.path.insert(0,'scripts');from stage_site import find_missing_local_references;missing=find_missing_local_references('_site');assert not missing,missing"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+      - id: deployment
         uses: actions/deploy-pages@v4

@@ -9,7 +9,7 @@
     const snapshot = window.NTMResearchSnapshot.normalize(rawSnapshot);
     const current = window.NTMResearchSnapshot.fromStockData(currentData);
     const report = {
-      hasChanges: false, reason: null, metrics: [], margins: [], filings: [], periodChange: null,
+      hasChanges: false, reason: null, metrics: [], margins: [], filings: [], periodChange: null, blocked: [],
     };
     if (!snapshot || !currentData || (snapshot.ticker && currentData.symbol &&
         snapshot.ticker.toUpperCase() !== currentData.symbol.toUpperCase())) {
@@ -26,6 +26,8 @@
       const before = snapshot.ttmMetrics[key];
       const after = current.ttmMetrics[key];
       if (!Number.isFinite(before) || !Number.isFinite(after)) continue;
+      const gate = window.NTMResearchSnapshot.comparable(snapshot, current, key);
+      if (!gate.comparable) { report.blocked.push({ name, reason: gate.reason }); continue; }
       const absolute = after - before;
       if (!Number.isFinite(absolute)) continue;
       // A zero baseline has no percentage denominator; report its absolute change explicitly.
@@ -39,6 +41,8 @@
       const before = snapshot.ttmMetrics[key];
       const after = current.ttmMetrics[key];
       if (!Number.isFinite(before) || !Number.isFinite(after)) continue;
+      const gate = window.NTMResearchSnapshot.comparable(snapshot, current, key);
+      if (!gate.comparable) { report.blocked.push({ name, reason: gate.reason }); continue; }
       const marginChange = after - before;
       if (Number.isFinite(marginChange) && Math.abs(marginChange) > 0.5) {
         report.margins.push({ name, snapshot: before, current: after, unit: 'pp', marginChange });

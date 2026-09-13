@@ -65,6 +65,7 @@ class CalcState {
     if (!this.statusBanner) {
       this.statusBanner = document.createElement('div');
       this.statusBanner.className = 'calc-status-banner calc-status-neutral';
+        this.statusBanner.setAttribute('data-ntm-status', 'neutral');
       this.statusBanner.setAttribute('role', 'status');
       this.statusBanner.setAttribute('aria-live', 'polite');
 
@@ -105,6 +106,7 @@ class CalcState {
     }
     if (this.statusBanner) {
       this.statusBanner.className = 'calc-status-banner calc-status-neutral';
+        this.statusBanner.setAttribute('data-ntm-status', 'neutral');
       this.statusBanner.innerHTML = '<p>Ange dina värden och klicka på Beräkna.</p>';
       this.statusBanner.hidden = false;
     }
@@ -123,6 +125,7 @@ class CalcState {
     }
     if (this.statusBanner) {
       this.statusBanner.className = 'calc-status-banner calc-status-stale';
+        this.statusBanner.setAttribute('data-ntm-status', 'stale');
       this.statusBanner.innerHTML = '<p>⚡ Värdena har ändrats. Klicka på Beräkna för att uppdatera resultatet.</p>';
       this.statusBanner.hidden = false;
     }
@@ -147,14 +150,17 @@ class CalcState {
     const isSuccess = result === true || (result && typeof result === 'object' && result.success);
 
     if (isSuccess) {
+      window.NTMEvents?.emit('calculator_completed', { result: 'success' });
       this.state = 'calculated';
       if (this.container) {
         this.container.setAttribute('data-calc-state', 'calculated');
       }
       if (this.statusBanner) {
-        this.statusBanner.className = 'calc-status-banner hidden';
-        this.statusBanner.innerHTML = '';
-        this.statusBanner.hidden = true;
+        this.statusBanner.className = 'calc-status-banner calc-status-success';
+        this.statusBanner.setAttribute('data-ntm-status', 'calculated');
+        this.statusBanner.innerHTML = '<p>Beräknat utifrån dina antaganden.</p>';
+        window.NTMStatus?.set(this.statusBanner, 'calculated', 'Utifrån dina antaganden.');
+        this.statusBanner.hidden = false;
       }
     } else {
       const errorMessage = typeof result === 'string'
@@ -163,6 +169,7 @@ class CalcState {
 
       if (this.statusBanner) {
         this.statusBanner.className = 'calc-status-banner calc-status-error';
+        this.statusBanner.setAttribute('data-ntm-status', 'error');
         this.statusBanner.innerHTML = `<p>⚠️ ${errorMessage}</p>`;
         this.statusBanner.hidden = false;
       }
@@ -172,22 +179,30 @@ class CalcState {
 
 const SCENARIO_STORAGE_KEY = 'investment-scenarios-v1';
 
-function readScenarioStore() {
+function readScenarioStore(rawOverride) {
+  let raw = null;
   try {
     if (!window.localStorage) {
       return { data: { version: 1, calculators: {} }, error: 'Lokal lagring är inte tillgänglig.' };
     }
-    const raw = window.localStorage.getItem(SCENARIO_STORAGE_KEY);
-    if (!raw) {
-      return { data: { version: 1, calculators: {} }, error: null };
+    raw = rawOverride === undefined ? window.localStorage.getItem(SCENARIO_STORAGE_KEY) : rawOverride;
+    if (raw === null) {
+      return { data: { version: 1, calculators: {} }, error: null, raw };
     }
     const parsed = JSON.parse(raw);
-    if (!parsed || parsed.version !== 1 || typeof parsed.calculators !== 'object') {
-      return { data: { version: 1, calculators: {} }, error: 'Sparade scenarier kunde inte läsas.' };
+    const object = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
+    if (!object(parsed) || parsed.version !== 1 || !object(parsed.calculators)
+        || !Object.values(parsed.calculators).every((scenarios) => Array.isArray(scenarios)
+          && new Set(scenarios.map((scenario) => scenario?.id)).size === scenarios.length
+          && scenarios.every((scenario) => object(scenario) && typeof scenario.id === 'string' && scenario.id
+            && typeof scenario.name === 'string' && typeof scenario.mode === 'string'
+            && typeof scenario.createdAt === 'string' && object(scenario.inputs)))) {
+      throw new Error('Unsupported or damaged scenario store');
     }
-    return { data: parsed, error: null };
+    return { data: parsed, error: null, raw };
   } catch (error) {
-    return { data: { version: 1, calculators: {} }, error: 'Sparade scenarier kunde inte läsas.' };
+    return { data: { version: 1, calculators: {} }, raw,
+      error: 'Sparade scenarier kunde inte läsas. Spara och radera är blockerade; originaldata är bevarade för återställning.' };
   }
 }
 
@@ -202,6 +217,7 @@ function getSavedScenarios(calculatorId) {
 
 function writeScenarioStore(data) {
   try {
+    if (readScenarioStore().error) return false;
     if (!window.localStorage) return false;
     window.localStorage.setItem(SCENARIO_STORAGE_KEY, JSON.stringify(data));
     return true;
@@ -217,6 +233,7 @@ function createScenarioId() {
 
 function saveScenario(calculatorId, scenario, maxScenarios = 10) {
   const result = readScenarioStore();
+  if (result.error) return { ok: false, error: result.error };
   const scenarios = Array.isArray(result.data.calculators[calculatorId])
     ? result.data.calculators[calculatorId]
     : [];
@@ -233,16 +250,19 @@ function saveScenario(calculatorId, scenario, maxScenarios = 10) {
   result.data.calculators[calculatorId] = [storedScenario, ...scenarios];
   return writeScenarioStore(result.data)
     ? { ok: true, scenario: storedScenario }
-    : { ok: false, error: 'Scenariot kunde inte sparas lokalt.' };
+    : { ok: false, error: 'Scenariot kunde inte sparas. Lagringen kan vara full eller blockerad; tidigare data är bevarade.' };
 }
 
 function deleteScenario(calculatorId, scenarioId) {
   const result = readScenarioStore();
+  if (result.error) return { ok: false, error: result.error };
   const scenarios = Array.isArray(result.data.calculators[calculatorId])
     ? result.data.calculators[calculatorId]
     : [];
   result.data.calculators[calculatorId] = scenarios.filter((scenario) => scenario.id !== scenarioId);
-  return writeScenarioStore(result.data);
+  return writeScenarioStore(result.data)
+    ? { ok: true }
+    : { ok: false, error: 'Scenariot kunde inte raderas. Lagringen kan vara full eller blockerad; tidigare data är bevarade.' };
 }
 
 function snapshotForm(form) {
@@ -466,19 +486,12 @@ function calculateProjection(startCapital, monthlySavings, annualReturn, annualF
 
 function buildGrowthSeries() {
   const { startCapital, monthlySavings, annualReturn, annualFee, years } = getInputs();
-  const annualReturnBeforeFee = annualReturn / 100;
-  const annualFeeRate = annualFee / 100;
-  const annualNetReturn = (1 + annualReturnBeforeFee) * (1 - annualFeeRate) - 1;
-  const monthlyRate = Math.pow(1 + annualNetReturn, 1 / 12) - 1;
-
   const labels = ['0'];
   const portfolioValues = [startCapital];
   const investedValues = [startCapital];
 
   for (let year = 1; year <= years; year += 1) {
-    const months = year * 12;
-    const futureValue = startCapital * Math.pow(1 + monthlyRate, months) + monthlySavings * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
-    const investedCapital = startCapital + monthlySavings * months;
+    const { futureValue, totalInvested: investedCapital } = calculateProjection(startCapital, monthlySavings, annualReturn, annualFee, year);
 
     labels.push(String(year));
     portfolioValues.push(futureValue);
@@ -1275,14 +1288,6 @@ function calculateInvestment() {
   renderChart();
   renderScenarioComparison();
   return true;
-}
-
-function formatPercent(value, digits = 1) {
-  const numericValue = Number(value);
-  if (!Number.isFinite(numericValue)) {
-    return `0${digits > 0 ? ',' : ''}${digits > 0 ? '0'.repeat(digits) : ''} %`;
-  }
-  return `${numericValue.toFixed(digits).replace('.', ',')} %`;
 }
 
 function formatYearsAndMonths(months) {
@@ -3000,6 +3005,15 @@ function initPostPreviewLightboxes() {
 }
 
 function renderPostView(post) {
+  const ed = post.editorial;
+  const editorial = ed ? `<aside class="editorial-note"><h2>Källa och granskning</h2><p>${escapePostText(ed.attribution)} · Publicerad <time datetime="${ed.publishedAt}">${ed.publishedAt}</time> · Metadata uppdaterad <time datetime="${ed.updatedAt}">${ed.updatedAt}</time>.</p>
+    <p>${ed.aiSummary ? 'AI-sammanfattning av källans resonemang, inte NTM:s verifierade slutsats.' : 'NTM:s publicerade innehåll och perspektiv.'}</p>
+    <p>${ed.sourceUrl ? `<a href="${escapePostText(ed.sourceUrl)}" target="_blank" rel="noopener noreferrer">Öppna källan – ${escapePostText(ed.attribution)}</a>` : 'Länk till primärkälla saknas.'}</p>
+    ${ed.verification.map(flag => `<p data-ntm-status="warning">Behöver verifieras · ${escapePostText(flag)}</p>`).join('')}
+    <p>Sponsring/affiliate: ${ed.commercialStatus === 'unknown' ? 'status inte dokumenterad för detta inlägg.' : escapePostText(ed.commercialStatus)}</p>
+    <details><summary>Ändringslogg</summary><ul>${ed.corrections.map(c => `<li><time datetime="${c.date}">${c.date}</time> · ${escapePostText(c.text)}</li>`).join('')}</ul></details>
+    <a href="om-metod.html#rattelser">Så arbetar NTM med källor och rättelser</a></aside>` : '';
+  const journey = post.journey ? `<aside class="content-journey card"><h2>${escapePostText(post.journey.title)}</h2><p>${escapePostText(post.journey.text)}</p><a class="secondary-btn" data-ntm-cta="${post.journey.id}" href="${escapePostText(post.journey.href)}">${escapePostText(post.journey.label)}</a></aside>` : '';
   const summary = post.summary ? `<details class="ai-summary"><summary>AI-sammanfattning</summary><div class="ai-summary-body">
     <div class="summary-language-toggle" role="group" aria-label="Välj språk för sammanfattningen">
       <button type="button" class="summary-language-button is-active" data-summary-language="sv" aria-pressed="true">Svenska</button>
@@ -3013,7 +3027,7 @@ function renderPostView(post) {
     <div class="post-media">${renderPostMedia(post)}</div>
     ${post.content ? `<div class="post-content">${post.content}</div>` : ''}
     <div class="post-actions">${post.media.externalUrl ? `<a class="secondary-btn" href="${escapePostText(post.media.externalUrl)}" target="_blank" rel="noopener noreferrer">Se på YouTube ↗</a>` : ''}${post.instagramUrl ? `<a class="secondary-btn" href="${escapePostText(post.instagramUrl)}" target="_blank" rel="noopener noreferrer">Ursprungligen publicerat på Instagram ↗</a>` : ''}<button type="button" class="secondary-btn" data-copy-link>Kopiera länk</button><span class="copy-feedback" data-copy-feedback role="status" aria-live="polite"></span></div>
-    ${summary}
+    ${summary}${editorial}${journey}
   </article>`;
 }
 
@@ -3413,29 +3427,12 @@ function formatStockPlainPercent(value) {
     : '–';
 }
 
-function calculateStockScenario(currentPrice, currentEPS, growthPercent, years, futurePE) {
-  const growthRate = growthPercent / 100;
-  const futureEPS = Number.isFinite(currentEPS) && Number.isFinite(growthRate) && growthRate >= -1
-    ? currentEPS * Math.pow(1 + growthRate, years)
-    : 0;
-  const currentPE = currentEPS > 0 ? currentPrice / currentEPS : null;
-  const targetPrice = futureEPS > 0 && futurePE > 0 ? futureEPS * futurePE : null;
-  const totalReturn = targetPrice !== null && currentPrice > 0 ? (targetPrice / currentPrice) - 1 : null;
-  const cagr = targetPrice !== null && currentPrice > 0 && years > 0
-    ? Math.pow(targetPrice / currentPrice, 1 / years) - 1
-    : null;
-  const peg = currentPE !== null && growthPercent > 0 ? currentPE / growthPercent : null;
-
-  return { currentPE, futureEPS, targetPrice, totalReturn, cagr, peg };
+function calculateStockScenario(...inputs) {
+  return window.NTMValuation.scenario(...inputs);
 }
 
-function calculateReverseStockValuation(currentPrice, currentEPS, years, requiredReturnPercent, exitPE) {
-  const requiredReturnRate = requiredReturnPercent / 100;
-  const futurePriceRequired = currentPrice * Math.pow(1 + requiredReturnRate, years);
-  const requiredFutureEPS = futurePriceRequired / exitPE;
-  const requiredEPSCAGR = Math.pow(requiredFutureEPS / currentEPS, 1 / years) - 1;
-
-  return { futurePriceRequired, requiredFutureEPS, requiredEPSCAGR };
+function calculateReverseStockValuation(...inputs) {
+  return window.NTMValuation.reverse(...inputs);
 }
 
 function renderStockChart(mode, chartData, currency) {
@@ -3522,7 +3519,7 @@ function renderStockSimpleResults() {
   const futurePE = Math.max(parseStockNumber(document.getElementById('stock-future-pe').value), 0);
   const model = calculateStockScenario(currentPrice, currentEPS, growthPercent, years, futurePE);
   const forwardEPSValue = parseStockNumber(document.getElementById('stock-forward-eps').value);
-  const forwardPE = forwardEPSValue > 0 ? currentPrice / forwardEPSValue : null;
+  const forwardPE = window.NTMValuation.multiple(currentPrice, forwardEPSValue);
 
   document.getElementById('stock-target-result').textContent = model.targetPrice === null ? 'Ej relevant' : formatStockCurrency(model.targetPrice, currency);
   document.getElementById('stock-cagr-result').textContent = formatStockPercent(model.cagr === null ? null : model.cagr * 100);
@@ -3691,6 +3688,8 @@ if (stockModeTabs.length) {
       if (stockValuationCalcState) stockValuationCalcState.setNeutral();
     });
   });
+  const linkedMode = window.location.hash?.slice(1);
+  if (['reverse', 'scenarios'].includes(linkedMode)) document.querySelector(`[data-stock-mode="${linkedMode}"]`)?.click();
 }
 
 function parseReturnNumber(value) {
@@ -3867,7 +3866,7 @@ function calculateCagrMode() {
   }
 
   const totalYears = years + (months / 12);
-  const cagr = Math.pow(endValue / startValue, 1 / totalYears) - 1;
+  const cagr = window.NTMValuation.cagr(startValue, endValue, totalYears);
   const totalReturn = (endValue / startValue) - 1;
   const difference = endValue - startValue;
   const periodLabel = getReturnPeriodLabel(years, months);
@@ -5206,7 +5205,7 @@ function initMinNtmPage() {
       .sort((a, b) => new Date(b.updatedAt || 0) - new Date(a.updatedAt || 0));
 
     if (thesisList) {
-      thesisList.innerHTML = thesesArray.map((thesis) => {
+      thesisList.innerHTML = thesesArray.filter(thesis => thesis.review?.decision !== 'close').map((thesis) => {
         const snapshot = thesis.valuationSnapshot || {};
         const baseCase = snapshot.scenarios?.base;
         const futurePrice = baseCase?.futurePrice;
@@ -5238,13 +5237,15 @@ function initMinNtmPage() {
               <h3>${escapeHtml(thesis.ticker)} · ${escapeHtml(thesis.companyName || '')}</h3>
               <p>${escapeHtml(subtitle)}</p>
               <p class="min-ntm-thesis-date">Senaste ${escapeHtml(dateStr)} · ${revisionLabel} ${badgeHtml}</p>
+              <p>${thesis.reviewDate ? `Granskning: ${escapeHtml(thesis.reviewDate)}` : 'Inget granskningsdatum valt'}</p>
             </div>
-            <a class="ghost-btn" href="research.html?ticker=${encodeURIComponent(thesis.ticker)}">Öppna</a>
+            <a class="ghost-btn" href="research.html?ticker=${encodeURIComponent(thesis.ticker)}&amp;review=1#thesisReview">Granska tes</a>
           </article>
         `;
       }).join('');
     }
-    if (thesesEmpty) thesesEmpty.hidden = thesesArray.length > 0;
+    if (thesesEmpty) thesesEmpty.hidden = thesesArray.some(thesis => thesis.review?.decision !== 'close');
+    window.NTMMinReview?.render();
   }
 
   const recentResult = window.NTMRecentTools.read();
@@ -5390,8 +5391,10 @@ function initSavedScenarios(config) {
 
   deleteButton.addEventListener('click', () => {
     const scenarioId = scenarioSelect.value;
-    if (!scenarioId || !window.NTMScenarioStorage.remove(calculatorId, scenarioId)) {
-      setStatus('Scenariot kunde inte raderas.', true);
+    const result = scenarioId ? window.NTMScenarioStorage.remove(calculatorId, scenarioId) : { ok: false };
+    window.NTMEvents?.emit(result.ok ? 'delete_completed' : 'delete_error');
+    if (!result.ok) {
+      setStatus(result.error || 'Scenariot kunde inte raderas.', true);
       return;
     }
     render('');
@@ -5937,15 +5940,16 @@ function removeDailyMoveInput(dayNumber) {
 }
 
 function getDailyLeverageInputs() {
-  const startBelopp = Number(document.getElementById('daily-startbelopp')?.value) || 0;
-  const havstang = Number(document.getElementById('daily-havstang')?.value) || 1;
-  const dailyFee = Number(document.getElementById('daily-avgift')?.value) || 0;
+  const number = (value) => value == null || String(value).trim() === '' ? NaN : Number(value);
+  const startBelopp = number(document.getElementById('daily-startbelopp')?.value);
+  const havstang = number(document.getElementById('daily-havstang')?.value);
+  const dailyFee = number(document.getElementById('daily-avgift')?.value);
 
   const container = document.getElementById('daily-moves-container');
   const moves = [];
   if (container) {
     container.querySelectorAll('.daily-move-input').forEach((input) => {
-      moves.push(Number(input.value) || 0);
+      moves.push(number(input.value));
     });
   }
 
@@ -5955,8 +5959,8 @@ function getDailyLeverageInputs() {
 function calculateDailyLeverage() {
   const { startBelopp, havstang, dailyFee, moves } = getDailyLeverageInputs();
 
-  if (moves.length === 0 || startBelopp <= 0 || !Number.isFinite(startBelopp) || !Number.isFinite(havstang) || havstang <= 0 || !Number.isFinite(dailyFee) || dailyFee < 0) {
-    return 'Startbelopp och hävstång måste vara större än 0, och daglig avgift noll eller större.';
+  if (moves.length === 0 || moves.some((move) => !Number.isFinite(move) || move < -100) || startBelopp <= 0 || !Number.isFinite(startBelopp) || !Number.isFinite(havstang) || havstang <= 0 || !Number.isFinite(dailyFee) || dailyFee < 0) {
+    return 'Fyll i giltiga tal: startbelopp och hävstång större än 0, daglig avgift minst 0 och dagsrörelser minst −100 %.';
   }
 
   let underlyingValue = startBelopp;
@@ -6009,6 +6013,10 @@ function calculateDailyLeverage() {
   });
 
   const leveragedReturn = ((leveragedValue / startBelopp) - 1) * 100;
+
+  if (![...underlyingValues, ...leveragedValues, underlyingReturn, leveragedReturn, totalFees].every(Number.isFinite)) {
+    return 'Värdena är för stora för att beräkna. Minska belopp eller dagliga rörelser.';
+  }
 
   document.getElementById('daily-underlying-value').textContent = formatCurrency(underlyingValue);
   document.getElementById('daily-underlying-return').textContent = formatPercent(underlyingReturn);
@@ -6083,119 +6091,6 @@ function addDailyMoveInput() {
       existingBtn.remove();
     }
   });
-}
-
-function removeDailyMoveInput(dayNumber) {
-  const container = document.getElementById('daily-moves-container');
-  if (!container) return;
-
-  const wrappers = container.querySelectorAll('.daily-move-input-wrapper');
-  if (wrappers.length <= 1) return; // Must keep at least one day
-
-  const wrapper = Array.from(wrappers).find(w => parseInt(w.dataset.dayNumber) === dayNumber);
-  if (wrapper) wrapper.remove();
-
-  // Re-number remaining days
-  container.querySelectorAll('.daily-move-input-wrapper').forEach((w, idx) => {
-    w.dataset.dayNumber = idx + 1;
-    const label = w.querySelector('label');
-    if (label) label.textContent = `Dag ${idx + 1}`;
-    const input = w.querySelector('input');
-    if (input) input.dataset.day = idx + 1;
-  });
-}
-
-function getDailyLeverageInputs() {
-  const startBelopp = Number(document.getElementById('daily-startbelopp')?.value) || 0;
-  const havstang = Number(document.getElementById('daily-havstang')?.value) || 1;
-  const dailyFee = Number(document.getElementById('daily-avgift')?.value) || 0;
-
-  const container = document.getElementById('daily-moves-container');
-  const moves = [];
-  if (container) {
-    container.querySelectorAll('.daily-move-input').forEach((input) => {
-      moves.push(Number(input.value) || 0);
-    });
-  }
-
-  return { startBelopp, havstang, dailyFee, moves };
-}
-
-function calculateDailyLeverage() {
-  const { startBelopp, havstang, dailyFee, moves } = getDailyLeverageInputs();
-
-  if (moves.length === 0 || startBelopp <= 0) {
-    return;
-  }
-
-  // Calculate underlying (1x)
-  let underlyingValue = startBelopp;
-  const underlyingValues = [startBelopp];
-  
-  moves.forEach((move) => {
-    underlyingValue *= (1 + move / 100);
-    underlyingValues.push(underlyingValue);
-  });
-
-  const underlyingReturn = ((underlyingValue / startBelopp) - 1) * 100;
-
-  // Calculate leveraged (with daily reset)
-  let leveragedValue = startBelopp;
-  const leveragedValues = [startBelopp];
-  let totalFees = 0;
-  const dayDetails = [];
-
-  moves.forEach((move, idx) => {
-    const leveragedMove = move * havstang;
-    const valueAfterMove = leveragedValue * (1 + leveragedMove / 100);
-    
-    // Ensure value doesn't go below 0
-    if (valueAfterMove < 0) {
-      leveragedValue = 0;
-      dayDetails.push({
-        day: idx + 1,
-        move,
-        leveragedMove,
-        underlyingValue: underlyingValues[idx + 1],
-        leveragedValue: 0,
-        dailyFeeAmount: 0
-      });
-      leveragedValues.push(0);
-      return;
-    }
-
-    // Calculate and deduct daily fee
-    const dailyFeeAmount = leveragedValue > 0 ? valueAfterMove * (dailyFee / 100) : 0;
-    leveragedValue = Math.max(0, valueAfterMove - dailyFeeAmount);
-    totalFees += dailyFeeAmount;
-
-    dayDetails.push({
-      day: idx + 1,
-      move,
-      leveragedMove,
-      underlyingValue: underlyingValues[idx + 1],
-      leveragedValue,
-      dailyFeeAmount
-    });
-
-    leveragedValues.push(leveragedValue);
-  });
-
-  const leveragedReturn = ((leveragedValue / startBelopp) - 1) * 100;
-
-  // Update result boxes
-  document.getElementById('daily-underlying-value').textContent = formatCurrency(underlyingValue);
-  document.getElementById('daily-underlying-return').textContent = formatPercent(underlyingReturn);
-  document.getElementById('daily-leverage-label').textContent = `Daglig hävstång (${havstang}x)`;
-  document.getElementById('daily-leveraged-value').textContent = formatCurrency(leveragedValue);
-  document.getElementById('daily-leveraged-return').textContent = formatPercent(leveragedReturn);
-  document.getElementById('daily-total-fees').textContent = formatCurrency(totalFees);
-
-  // Render chart
-  renderDailyLeverageChart(underlyingValues, leveragedValues, havstang);
-
-  // Render table
-  renderDailyLeverageTable(dayDetails, startBelopp, underlyingValues);
 }
 
 function renderDailyLeverageChart(underlyingValues, leveragedValues, havstang) {

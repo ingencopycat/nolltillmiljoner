@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="vendor/chart-4.5.1.umd.min.js"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -37,21 +37,21 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Noll till Miljoner" />
     <meta property="og:locale" content="sv_SE" />
-    <meta property="og:image" content="https://nolltillmiljoner.se/images/ntm-logo.png.png" />
+    <meta property="og:image" content="https://nolltillmiljoner.se/images/ntm-social.png" />
     <meta property="og:image:alt" content="Noll till Miljoner" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Sparmålskalkylator – Hur mycket behöver du spara? | Noll till Miljoner" />
     <meta name="twitter:description" content="Räkna ut hur mycket du behöver spara varje månad för att nå ditt sparmål. Se tid till mål, målkapital och hur avkastning påverkar ditt sparande." />
-    <meta name="twitter:image" content="https://nolltillmiljoner.se/images/ntm-logo.png.png" />
+    <meta name="twitter:image" content="https://nolltillmiljoner.se/images/ntm-social.png" />
     <meta name="twitter:image:alt" content="Noll till Miljoner" />
     <link rel="canonical" href="https://nolltillmiljoner.se/sparmalskalkylator.html" />
-    <link rel="icon" type="image/png" href="images/ntm-logo.png.png" />
+    <link rel="icon" type="image/png" href="images/ntm-icon.png" />
     <!-- SEO END -->
 </head>
 <body>
     <header class="topbar"><div class="topbar-inner">
-        <a href="index.html" class="brand-wrap"><img class="brand-logo" src="images/ntm-logo.png.png" alt="NTM" /><div class="brand-text"><span class="brand-name"><span class="brand-zero">NOLL</span> <span class="brand-neutral">TILL</span> <span class="brand-million">MILJONER</span></span><span class="brand-subtitle">Sparmålskalkylator</span></div></a>
-        <nav class="main-nav" aria-label="Huvudnavigering"><div class="mobile-theme-row"><span class="mobile-theme-label">Tema</span><button id="mobileThemeToggle" class="theme-toggle mobile-theme-btn" type="button" aria-label="Växla tema" title="Växla tema"><span class="toggle-icon toggle-icon-sun">🌞</span><span class="toggle-icon toggle-icon-moon">🌙</span></button></div><a href="index.html">Hem</a><a href="verktyg.html" class="active" aria-current="page">Verktyg</a><a href="research.html">Research</a><a href="min-ntm.html">Min NTM</a><a href="inlagg.html">Inlägg</a><a href="makro.html">Makro</a><a href="rapporter.html">Rapporter</a><a href="resurser.html">Resurser</a><a href="community.html">Community</a></nav>
+        <a href="index.html" class="brand-wrap"><img class="brand-logo" src="images/ntm-logo.webp" width="192" height="192" alt="NTM" /><div class="brand-text"><span class="brand-name"><span class="brand-zero">NOLL</span> <span class="brand-neutral">TILL</span> <span class="brand-million">MILJONER</span></span><span class="brand-subtitle">Sparmålskalkylator</span></div></a>
+        <nav class="main-nav" aria-label="Huvudnavigering"><div class="mobile-theme-row"><span class="mobile-theme-label">Tema</span><button id="mobileThemeToggle" class="theme-toggle mobile-theme-btn" type="button" aria-label="Växla tema" title="Växla tema"><span class="toggle-icon toggle-icon-sun">🌞</span><span class="toggle-icon toggle-icon-moon">🌙</span></button></div><a href="verktyg.html">Verktyg</a><a href="research.html">Research</a><a href="min-ntm.html">Min NTM</a><details class="nav-learn"><summary>Lär dig</summary><div class="nav-learn-links"><a href="inlagg.html">Inlägg och videor</a><a href="resurser.html">Resurser</a><a href="makro.html">Makro</a><a href="rapporter.html">Rapporter</a><a href="community.html">Community</a></div></details></nav>
         <button id="mobileNavToggle" class="nav-toggle" type="button" aria-label="Öppna meny" aria-expanded="false">☰</button><button id="themeToggle" class="theme-toggle" type="button" aria-label="Växla tema" title="Växla tema"><span class="toggle-icon toggle-icon-sun">🌞</span><span class="toggle-icon toggle-icon-moon">🌙</span></button>
     </div></header>
 
@@ -103,6 +103,9 @@
 
         <section class="related-tools" aria-labelledby="related-tools-heading"><div class="section-heading"><div><span class="section-kicker">Fler verktyg</span><h2 id="related-tools-heading">Relaterade verktyg</h2></div></div><div class="feature-grid"><article class="feature-card"><h3>Investeringskalkylator</h3><p>Analysera sparande, avkastning, avgifter och inflation mer detaljerat.</p><a href="ranta-pa-ranta.html" class="secondary-btn">Öppna investering</a></article><article class="feature-card"><h3>FIRE-kalkylator</h3><p>Räkna på vägen mot ekonomisk frihet.</p><a href="fire-kalkylator.html" class="secondary-btn">Öppna FIRE</a></article><article class="feature-card"><h3>Jämför avgifter</h3><p>Se hur avgifter påverkar kapitalets utveckling.</p><a href="avgifter.html" class="secondary-btn">Jämför avgifter</a></article></div></section>
     </main>
-    <script src="script.js"></script>
+    <footer class="trust-footer"><a href="om-metod.html">Om NTM, integritet, metod och rättelser</a></footer>
+    <script src="ntm-product.js"></script>
+    <script src="valuation-core.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
