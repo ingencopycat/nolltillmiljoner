@@ -494,10 +494,3 @@ const NTM_POSTS = [
     disclaimer: 'AI-sammanfattning baserad på videons transkribering. Kan innehålla fel. Åsikterna tillhör Jordi Visser, inte NTM, och detta är inte finansiell rådgivning. Se originalvideon för fullständigt sammanhang.'
   }
 ];
-
-const NTM_CONTENT_JOURNEYS = {
-  'jordi-visser-linjart-exponentiellt-ai-trading': { id: 'ai_reverse', href: 'aktievarderingskalkylator.html?from=content&via=ai_reverse#reverse', title: 'Vilken tillväxt kräver priset?', text: 'Videons resonemang om exponentiell AI säger inte vad en aktie är värd. Testa vilken vinsttillväxt dina egna antaganden om pris och avkastning kräver.', label: 'Pröva omvänd värdering' },
-  'micron-ai-memory': { id: 'memory_scenarios', href: 'aktievarderingskalkylator.html?from=content&via=memory_scenarios#scenarios', title: 'Hur känsligt är vinstcaset?', text: 'Minnesvideon bygger på uthållig intjäning. Jämför lägre och högre vinsttillväxt och multiplar med egna, kontrollerade ingångsvärden. Videons siffror fylls inte i åt dig.', label: 'Jämför tre värderingsscenarier' },
-  'ai-portfolj': { id: 'ai_thesis', href: 'research.html?ticker=NVDA&from=content&via=ai_thesis#thesisSection', title: 'Gör ett tema till en prövbar tes', text: 'Portföljens AI-tema nämner Nvidia. Skriv vad som måste bli sant och vad som skulle få dig att ändra dig. Exemplet är en arbetsövning, ingen köprekommendation.', label: 'Skriv en egen Nvidia-tes i Research' }
-};
-NTM_POSTS.forEach(post => { if (NTM_CONTENT_JOURNEYS[post.slug]) post.journey = NTM_CONTENT_JOURNEYS[post.slug]; });

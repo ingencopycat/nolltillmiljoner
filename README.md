@@ -541,7 +541,7 @@ Validation includes `tests/test_data_quality.py`, executable comparability regre
 
 Public information: [Om NTM, integritet, metod och rättelser](om-metod.html).
 Operational source: [editorial checklist, privacy-safe events, Instagram links, owner TODOs and annual calendar maintenance](docs/product-trust-operations.md).
-`ntm-product.js` owns the small text-first status helper and provider-neutral event API. Product events are bounded, memory-only and have **no connected analytics provider**. Existing Cloudflare page analytics is separate. No private financial payloads are accepted. `posts.js` owns visible editorial metadata and three contextual journeys; regenerate static posts after edits.
+`ntm-product.js` owns the small text-first status helper and provider-neutral event API. Product events are bounded, memory-only and have **no connected analytics provider**. Existing Cloudflare page analytics is separate. No private financial payloads are accepted. `posts.js` owns visible editorial metadata; `ntm-relations.js` owns curated connections, including the three original content journeys. Regenerate static pages after edits.
 
 ### Search Console baseline — owner action required
 
@@ -568,6 +568,29 @@ Priority landing inventory (all under `https://nolltillmiljoner.se/`):
 | `om-metod.html` | Understand method and report a correction |
 
 Run `node scripts/build_seo.cjs --check` before deployment. Chart.js is pinned/self-hosted at 4.5.1 on the ten chart pages; optimized header/icon/social assets replace the oversized delivered logo. See the operations document for byte measurements and dependency provenance.
+
+## UI foundation and progressive depth
+
+Permanent NTM principle: **SIMPLE BY DEFAULT. POWERFUL WHEN YOU WANT IT.**
+Show the answer, a simple explanation and editable assumptions before advanced detail and source data. Never infer financial certainty from surface styling.
+
+`premium.css` is the deliberate presentation layer after `style.css`: neutral light/dark surfaces, restrained teal, type/spacing/radius tokens, consistent controls, primary-result hierarchy and financial-table treatments. Legacy layout/state rules remain in `style.css`; keep future visual changes in this layer rather than adding competing page overrides. No external font or framework is required.
+
+`ntm-ui.js` owns only presentation: keyboard/menu dismissal, compact metric expansion, disclosure/chart resizing, accessible table regions and revealing linked details. It does not read/write private storage, calculate values or emit product events. Existing financial and storage modules retain their ownership. Research exposes four key metrics initially; all others remain available. Financial tables/filings and sensitivity are native disclosures. Calculator scenario controls and Min NTM data management are deliberately expandable, with their original confirmation behavior intact.
+
+Run `python -B scripts/browser_smoke.py` for workflows/accessibility interactions and `python -B scripts/visual_smoke.py` for the 17-page inventory in both themes at 1440/360/390/430 pixels. Visual artifacts are written to an OS temporary folder, never the staged site. Playwright is required; Pillow optionally produces review contact sheets. Inspect actual screenshots as well as checking overflow. The 640 CSS-pixel browser test approximates reflow at 200% zoom on a 1280px viewport; it is not a claim of a full assistive-technology audit.
+
+## Connected Experience Foundation V1
+
+Permanent principle: **NTM ska inte bara samla funktioner — NTM ska koppla ihop dem.**
+
+`ntm-relations.js` owns the public relation catalog, controlled concepts, deterministic queries and one renderer. Post titles, canonical paths and distribution summaries derive from `posts.js`; curated ticker/concept metadata and relation reasons live in the catalog. `scripts/build_seo.cjs` validates and materializes real anchors into selected calculators, Research and generated content pages. Future Learn topics have `status: planned` and `url: null` and are excluded from rendered links. No Academy routes, accounts, personalization or financial input transfers are introduced.
+
+Research uses three static company groups and `ntm-relations-ui.js` selects only the current URL's ticker. Each company gets three actions; local thesis links preserve unsaved work. Without JavaScript the static groups remain crawlable, but Research itself still requires JavaScript. The homepage and Min NTM retain their existing paths rather than gaining another generic recommendations block.
+
+Adding a connection: add/edit the post in `posts.js`, add intentional metadata/edges in `ntm-relations.js`, run `node scripts/build_seo.cjs`, then tests and `--check`. Never hand-edit generated relation blocks or article files. See [the relation schema, vocabulary, six journeys, analytics policy and validation report](docs/connected-experience.md).
+
+`relation_click` uses allowlisted `relation_type`, `source_surface`, and `destination_type` fields. It sends no ticker, relation/entity ID, URL, thesis text or financial values, and has no external provider. Original content CTA events remain compatible. Run `node --test tests/relations.test.cjs` for catalog/render/privacy contracts; these also run through the full Python suite. Browser smoke includes connected journeys, no-JavaScript anchors, keyboard operation and both themes at 1440/360/390/430 pixels.
 
 ## Workflow for future AI coding sessions
 

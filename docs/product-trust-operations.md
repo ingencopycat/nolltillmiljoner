@@ -2,7 +2,7 @@
 
 ## Editorial review
 
-`posts.js` owns each post's `editorial` and optional `journey`. The current metadata migration is explicitly **not** a factual re-review. `sourceUrl: null` means missing; never substitute a guessed primary source. The Instagram profile is the known origin for the portfolio post, not a primary source for company claims. Creator identity for the Micron video is not established in the repository and is not invented.
+`posts.js` owns each post's `editorial`; `ntm-relations.js` owns curated journeys and connection metadata. The metadata migration is explicitly **not** a factual re-review. `sourceUrl: null` means missing; never substitute a guessed primary source. The Instagram profile is the known origin for the portfolio post, not a primary source for company claims. Creator identity for the Micron video is not established in the repository and is not invented.
 
 Before publication or a material update:
 
@@ -32,6 +32,7 @@ Taxonomy:
 | Activation | thesis_first_saved, assumptions_added, review_date_set | First thesis in local store, changed nonempty saved assumptions, changed nonempty saved review date |
 | Retention | thesis_reviewed, outcome_checkpoint_saved | Committed keep/revise/close revision; new checkpoint, not duplicate save |
 | Content | content_to_tool | Click on one of the curated journey CTAs |
+| Content / tools / Research | relation_click | Coarse relation type, source surface and destination type; no entity/relation ID, ticker, URL or private values. Original three content CTA events remain available. |
 | Portability | backup_exported, backup_imported, delete_completed, delete_error | UI completion or deletion failure; cancellation is not completion |
 
 North Star candidate: completed `thesis_reviewed` decisions, with action split; it measures a saved action, not quality, investment performance or unique people. Restoring/importing a thesis does not count as first activation. Without identity, repeat visits cannot be attributed to an individual.

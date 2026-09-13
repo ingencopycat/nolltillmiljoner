@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="premium.css" />
     <script src="vendor/chart-4.5.1.umd.min.js"></script>
     <script type="application/ld+json">
     {
@@ -39,6 +40,7 @@
     <!-- SEO END -->
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Till innehållet</a>
     <header class="topbar">
         <div class="topbar-inner">
             <a href="index.html" class="brand-wrap">
@@ -52,20 +54,20 @@
             <nav class="main-nav" aria-label="Huvudnavigering"><div class="mobile-theme-row">
                     <span class="mobile-theme-label">Tema</span>
                     <button id="mobileThemeToggle" class="theme-toggle mobile-theme-btn" type="button" aria-label="Växla tema" title="Växla tema">
-                        <span class="toggle-icon toggle-icon-sun">🌞</span>
-                        <span class="toggle-icon toggle-icon-moon">🌙</span>
+                        <span class="toggle-icon toggle-icon-sun">☀︎</span>
+                        <span class="toggle-icon toggle-icon-moon">◐</span>
                     </button>
                 </div><a href="verktyg.html">Verktyg</a><a href="research.html">Research</a><a href="min-ntm.html">Min NTM</a><details class="nav-learn"><summary>Lär dig</summary><div class="nav-learn-links"><a href="inlagg.html">Inlägg och videor</a><a href="resurser.html">Resurser</a><a href="makro.html">Makro</a><a href="rapporter.html">Rapporter</a><a href="community.html">Community</a></div></details></nav>
 
             <button id="mobileNavToggle" class="nav-toggle" type="button" aria-label="Öppna meny" aria-expanded="false">☰</button>
             <button id="themeToggle" class="theme-toggle" type="button" aria-label="Växla tema" title="Växla tema">
-                <span class="toggle-icon toggle-icon-sun">🌞</span>
-                <span class="toggle-icon toggle-icon-moon">🌙</span>
+                <span class="toggle-icon toggle-icon-sun">☀︎</span>
+                <span class="toggle-icon toggle-icon-moon">◐</span>
             </button>
         </div>
     </header>
 
-    <main class="container tool-landing">
+    <main id="main-content" tabindex="-1" class="container tool-landing">
         <header class="page-intro tool-intro">
             <span class="section-kicker">Kalkylator</span>
             <h1>Ränta på ränta-kalkylator</h1>
@@ -85,7 +87,7 @@
                 <button type="button" class="mode-tab" data-mode="dividend" aria-selected="false">Utdelning</button>
             </div>
 
-            <section class="saved-scenarios" id="saved-scenarios" aria-labelledby="saved-scenarios-heading">
+            <details class="depth-panel" data-scenario-depth><summary>Sparade scenarier <small>Ladda, spara eller hantera dina planer</small></summary><section class="saved-scenarios" id="saved-scenarios" aria-labelledby="saved-scenarios-heading">
                 <div class="saved-scenarios-heading">
                     <div>
                         <span class="section-kicker">Lokalt i webbläsaren</span>
@@ -106,7 +108,7 @@
                     <button type="button" class="ghost-btn" id="save-scenario">Spara scenario</button>
                 </div>
                 <p class="saved-scenario-status" id="saved-scenario-status" role="status" aria-live="polite"></p>
-            </section>
+            </section></details>
 
             <div id="growth-mode-panel" class="mode-panel">
                 <form id="calculator-form" class="calculator-form">
@@ -179,8 +181,9 @@
         </div>
 
         <section class="faq-section" aria-labelledby="faq-heading"><h2 id="faq-heading">Vanliga frågor</h2><details><summary>Vad betyder ränta på ränta?</summary><p>Det betyder att tidigare avkastning ligger kvar och själv kan bidra till framtida avkastning.</p></details><details><summary>Hur räknar man ut ränta på ränta?</summary><p>För ett engångsbelopp kan du använda <var>A</var> = <var>P</var> × (1 + <var>r</var>)<sup><var>t</var></sup>. Månadssparande, avgifter och inflation behöver räknas med utöver grundformeln.</p></details><details><summary>Hur fungerar ränta på ränta med månadssparande?</summary><p>Varje insättning läggs till kapitalet och får möjlighet att växa under den återstående spartiden.</p></details><details><summary>Hur påverkar avgifter ränta på ränta?</summary><p>Avgifter minskar den avkastning som kan stanna kvar i kapitalet och växa vidare.</p></details><details><summary>Hur påverkar inflation resultatet?</summary><p>Inflation minskar köpkraften. Därför kan värdet i dagens penningvärde vara lägre än det nominella framtida värdet.</p></details><details><summary>Vilken avkastning ska jag använda i kalkylatorn?</summary><p>Använd ett försiktigt scenario som du vill undersöka. Framtida avkastning är osäker, så kalkylatorn ska användas för scenarier och inte som en prognos.</p></details></section>
-
-        <section class="related-tools" aria-labelledby="related-tools-heading"><div class="section-heading"><div><span class="section-kicker">Fler verktyg</span><h2 id="related-tools-heading">Relaterade verktyg</h2></div></div><div class="feature-grid"><article class="feature-card"><h3>Jämför avgifter</h3><p>Se hur olika avgiftsnivåer kan påverka kapitalets utveckling över tid.</p><a href="avgifter.html" class="secondary-btn">Jämför avgifter</a></article><article class="feature-card"><h3>Återhämtningskalkylator</h3><p>Räkna på vilken uppgång som krävs efter en nedgång.</p><a href="aterhamtning.html" class="secondary-btn">Öppna återhämtning</a></article></div></section>
+    <!-- NTM RELATIONS START -->
+<aside class="ntm-relations" data-relation-source="tool-compound" aria-labelledby="relations-tool-compound"><h2 id="relations-tool-compound">Nästa steg i NTM</h2><ul><li><h3>Jämför avgifter</h3><p>Isolera avgiftens effekt genom att jämföra två avgiftsnivåer med samma sparande och avkastning.</p><a href="avgifter.html" data-relation-id="compound-fees" data-relation-type="try" data-destination-type="calculator">Jämför två avgifter</a></li></ul></aside>
+<!-- NTM RELATIONS END -->
     </main>
     <footer class="trust-footer"><a href="om-metod.html">Om NTM, integritet, metod och rättelser</a></footer>
 
@@ -195,5 +198,6 @@
       });
     </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aa20af56e8ea486192758214e83971ee"}'></script><!-- End Cloudflare Web Analytics -->
+    <script src="ntm-ui.js"></script>
 </body>
 </html>

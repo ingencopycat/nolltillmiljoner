@@ -3013,7 +3013,7 @@ function renderPostView(post) {
     <p>Sponsring/affiliate: ${ed.commercialStatus === 'unknown' ? 'status inte dokumenterad för detta inlägg.' : escapePostText(ed.commercialStatus)}</p>
     <details><summary>Ändringslogg</summary><ul>${ed.corrections.map(c => `<li><time datetime="${c.date}">${c.date}</time> · ${escapePostText(c.text)}</li>`).join('')}</ul></details>
     <a href="om-metod.html#rattelser">Så arbetar NTM med källor och rättelser</a></aside>` : '';
-  const journey = post.journey ? `<aside class="content-journey card"><h2>${escapePostText(post.journey.title)}</h2><p>${escapePostText(post.journey.text)}</p><a class="secondary-btn" data-ntm-cta="${post.journey.id}" href="${escapePostText(post.journey.href)}">${escapePostText(post.journey.label)}</a></aside>` : '';
+  const journey = typeof NTMRelations !== 'undefined' ? NTMRelations.render(NTMRelations.catalog(NTM_POSTS), 'post-' + post.slug) : '';
   const summary = post.summary ? `<details class="ai-summary"><summary>AI-sammanfattning</summary><div class="ai-summary-body">
     <div class="summary-language-toggle" role="group" aria-label="Välj språk för sammanfattningen">
       <button type="button" class="summary-language-button is-active" data-summary-language="sv" aria-pressed="true">Svenska</button>

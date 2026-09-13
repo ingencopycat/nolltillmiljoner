@@ -6,9 +6,11 @@ python -B scripts/browser_smoke.py
 Set NTM_BROWSER_CHANNEL=chrome or msedge to use an installed browser instead.
 """
 from functools import partial
+from datetime import datetime, timezone
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 import json
 import os
+import tempfile
 from pathlib import Path
 from threading import Thread
 import unittest
@@ -110,6 +112,115 @@ class BrowserSmoke(unittest.TestCase):
         p.locator('#review-keep').click()
         self.assertTrue(p.evaluate("NTMEvents.snapshot().some(e=>e.event==='thesis_reviewed' && e.source==='instagram' && e.cta==='followup')"))
 
+    def test_connected_journeys_and_private_editor_preservation(self):
+        p = self.page
+        # Existing external beacon rejects some loopback origins; isolate application console QA.
+        self.context.route('https://static.cloudflareinsights.com/**', lambda route: route.fulfill(status=200, content_type='application/javascript', body=''))
+        console_errors = []
+        p.on('console', lambda message: console_errors.append(message.text) if message.type == 'error' else None)
+        # A: video -> reverse valuation -> supported company Research.
+        self.go('post-jordi-visser-linjart-exponentiellt-ai-trading.html')
+        link = p.locator('[data-relation-id=exponential-reverse]')
+        link.evaluate("el => el.addEventListener('click', e=>e.preventDefault(), {once:true})")
+        link.click()
+        event = p.evaluate("NTMEvents.snapshot().find(e=>e.event==='relation_click')")
+        self.assertEqual(event['relation_type'], 'try')
+        self.assertEqual(event['source_surface'], 'content')
+        self.assertEqual(event['destination_type'], 'calculator')
+        self.assertNotIn('relation_id', event)
+        link.click()
+        expect(p.locator('[data-stock-mode=reverse]')).to_have_attribute('aria-selected', 'true')
+        p.locator('[data-relation-id=valuation-nvda]').click()
+        p.wait_for_function("typeof currentStockData !== 'undefined' && currentStockData?.symbol==='NVDA'")
+        expect(p.locator('.ntm-relations:visible')).to_have_count(1)
+
+        # B: Micron -> generic scenarios, never invented MU Research.
+        self.go('post-micron-ai-memory.html')
+        self.assertEqual(p.locator('a[href*="ticker=MU"]').count(), 0)
+        p.locator('[data-relation-id=micron-scenarios]').click()
+        expect(p.locator('[data-stock-mode=scenarios]')).to_have_attribute('aria-selected', 'true')
+
+        # C: actual international AI portfolio content -> FX -> annual return.
+        self.go('post-ai-portfolj.html')
+        p.locator('[data-relation-id=portfolio-fx]').click()
+        self.assertIn('valutajusterad-avkastning.html', p.url)
+        p.locator('[data-relation-id=fx-return]').click()
+        self.assertIn('avkastningskalkylator.html', p.url)
+
+        # D: fee comparison -> full savings model; no fee article invented.
+        self.go('avgifter.html')
+        p.locator('[data-relation-id=fees-compound]').click()
+        expect(p.locator('#calculator-form')).to_be_visible()
+        p.locator('[data-relation-id=compound-fees]').click()
+        self.assertIn('avgifter.html', p.url)
+
+        # E: Research -> relevant existing video -> Research -> own thesis.
+        self.go('research.html?ticker=NVDA')
+        p.locator('[data-relation-id=nvda-content]').click()
+        self.assertIn('post-jordi-visser-ai-agents-crypto.html', p.url)
+        p.locator('[data-relation-id=agents-nvda]').click()
+        p.wait_for_function("typeof currentStockData !== 'undefined' && currentStockData?.symbol==='NVDA'")
+        p.locator('#thesis-text').fill('Unsaved private connected-flow draft')
+        before = p.evaluate('localStorage.getItem(NTMThesisStorage.key)')
+        p.locator('[data-relation-id=nvda-thesis]').click()
+        expect(p.locator('#thesis-text')).to_have_value('Unsaved private connected-flow draft')
+        self.assertEqual(p.evaluate('localStorage.getItem(NTMThesisStorage.key)'), before)
+        self.assertNotIn('Unsaved private', p.evaluate('JSON.stringify(NTMEvents.snapshot())'))
+
+        # F: Jordi + Anthony -> actual macro calendar.
+        self.go('post-jordi-visser-anthony-pompliano-ai-krypto-makro.html')
+        p.locator('[data-relation-id=jordi-anthony-macro]').click()
+        self.assertIn('makro.html', p.url)
+        self.assertEqual(console_errors, [])
+
+    def test_connected_static_links_keyboard_and_responsive_themes(self):
+        p = self.page
+        self.context.route('https://static.cloudflareinsights.com/**', lambda route: route.fulfill(status=200, content_type='application/javascript', body=''))
+        console_errors = []
+        p.on('console', lambda message: console_errors.append(message.text) if message.type == 'error' else None)
+        # Delivered anchors remain useful with all JavaScript disabled.
+        context = self.browser.new_context(java_script_enabled=False)
+        try:
+            static = context.new_page()
+            static.goto(self.base + '/post-micron-ai-memory.html')
+            static.locator('[data-relation-id=micron-scenarios]').click()
+            self.assertIn('aktievarderingskalkylator.html', static.url)
+            expect(static.locator('[data-relation-id=valuation-nvda]')).to_be_visible()
+            self.assertEqual(static.locator('.ntm-relations a[href*="learn-"]').count(), 0)
+        finally:
+            context.close()
+        folder = Path(tempfile.mkdtemp(prefix='ntm-connected-visual-'))
+        for ticker in ['NVDA', 'SOFI', 'CRWD']:
+            self.go('research.html?ticker=' + ticker)
+            expect(p.locator('.ntm-relations:visible')).to_have_count(1)
+            expect(p.locator('.ntm-relations:visible a')).to_have_count(3)
+            expect(p.locator('.ntm-relations:visible')).to_have_attribute('data-relation-ticker', ticker)
+        for width in [1440, 360, 390, 430]:
+            for theme in ['dark', 'light']:
+                p.set_viewport_size({'width': width, 'height': 1000})
+                for name, page in [('video', 'post-jordi-visser-linjart-exponentiellt-ai-trading.html'),
+                                   ('calculator', 'aktievarderingskalkylator.html'),
+                                   ('research', 'research.html?ticker=NVDA')]:
+                    self.go(page)
+                    if p.evaluate("document.body.classList.contains('light-theme')") != (theme == 'light'):
+                        p.locator('#themeToggle').evaluate('(button)=>button.click()')
+                    color = 'rgb(32, 49, 44)' if theme == 'light' else 'rgb(233, 239, 237)'
+                    p.wait_for_function('(c)=>getComputedStyle(document.body).color===c', arg=color)
+                    block = p.locator('.ntm-relations:visible')
+                    block.scroll_into_view_if_needed()
+                    self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'), width)
+                    p.screenshot(path=str(folder / f'{name}-{width}-{theme}.png'), animations='disabled')
+        print('Connected screenshots: ' + str(folder), flush=True)
+        link = p.locator('[data-relation-id=nvda-thesis]')
+        link.focus()
+        expect(link).to_be_focused()
+        self.assertNotEqual(link.evaluate('e=>getComputedStyle(e).outlineStyle'), 'none')
+        p.keyboard.press('Enter')
+        self.assertTrue(p.url.endswith('#thesisSection'))
+        self.go('research.html')
+        expect(p.locator('.ntm-relations:visible')).to_have_count(0)
+        self.assertEqual(console_errors, [])
+
     def test_all_local_chart_consumers(self):
         p = self.page
         paths = ['avgifter', 'aktievarderingskalkylator', 'aktiekopskalkylator', 'bolanekalkylator',
@@ -146,6 +257,76 @@ class BrowserSmoke(unittest.TestCase):
         for private in ['NVDA', 'Private', '2026-12-31', 'ticker', 'assumptions":']:
             self.assertNotIn(private, queue_text)
 
+    def test_premium_depth_keyboard_tables_and_reduced_motion(self):
+        p = self.page
+        self.go('research.html?ticker=NVDA')
+        expect(p.locator('#keyMetricsGrid .metric-box:visible')).to_have_count(4)
+        p.locator('[data-metrics-toggle]').click()
+        self.assertGreater(p.locator('#keyMetricsGrid .metric-box:visible').count(), 4)
+        expect(p.locator('[data-metrics-toggle]')).to_have_attribute('aria-expanded', 'true')
+        p.locator('[data-metrics-toggle]').click()
+        p.locator('.section-local-nav a[href="#researchFinancials"]').click()
+        expect(p.locator('#researchFinancials')).to_have_attribute('open', '')
+        expect(p.locator('#annualChart')).to_be_visible()
+        self.assertGreater(p.locator('#annualChart').bounding_box()['height'], 100)
+        p.set_viewport_size({'width': 360, 'height': 844})
+        table = p.locator('#annualTableWrap')
+        table.focus()
+        table.press('ArrowRight')
+        p.wait_for_function("document.querySelector('#annualTableWrap').scrollLeft > 0")
+        self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'), 360)
+        p.locator('.metric-info-btn').first.click()
+        expect(p.locator('#provenanceDialog')).to_be_visible()
+        box = p.locator('#provenanceDialog').bounding_box()
+        self.assertLessEqual(box['width'], 344)
+        self.assertGreaterEqual(box['x'], 0)
+        p.keyboard.press('Escape')
+        expect(p.locator('#provenanceDialog')).not_to_be_visible()
+        p.locator('#mobileNavToggle').click()
+        p.locator('.nav-learn > summary').focus()
+        p.keyboard.press('Enter')
+        expect(p.locator('.nav-learn')).to_have_attribute('open', '')
+        p.keyboard.press('Escape')
+        expect(p.locator('#mobileNavToggle')).to_be_focused()
+        expect(p.locator('#mobileNavToggle')).to_have_attribute('aria-expanded', 'false')
+        self.go('ranta-pa-ranta.html')
+        p.locator('.skip-link').focus()
+        p.keyboard.press('Enter')
+        expect(p.locator('#main-content')).to_be_focused()
+        expect(p.locator('[data-scenario-depth]')).not_to_have_attribute('open', '')
+        p.locator('[data-scenario-depth] > summary').focus()
+        p.keyboard.press('Enter')
+        expect(p.locator('#saved-scenario-name')).to_be_visible()
+        p.emulate_media(reduced_motion='reduce')
+        self.assertEqual(p.evaluate('getComputedStyle(document.documentElement).scrollBehavior'), 'auto')
+        self.assertEqual(p.locator('#save-scenario').evaluate('el=>getComputedStyle(el).transitionDuration'), '0s')
+
+    def test_premium_theme_contrast_and_zoom_reflow(self):
+        p = self.page
+        self.go('avgifter.html')
+        def luminance(rgb):
+            channels = [v / 255 for v in rgb]
+            linear = [v / 12.92 if v <= .04045 else ((v + .055) / 1.055) ** 2.4 for v in channels]
+            return sum(a * b for a, b in zip(linear, [.2126, .7152, .0722]))
+        for theme in ['light', 'dark']:
+            p.evaluate('applyTheme', theme)
+            colors = p.evaluate("""() => {
+                const s=getComputedStyle(document.body);
+                const rgb = name => { const el=document.createElement('i'); el.style.color=s.getPropertyValue(name); document.body.append(el); const c=getComputedStyle(el).color.match(/\\d+/g).map(Number); el.remove(); return c; };
+                return ['--text','--muted','--bg','--panel','--primary'].map(rgb);
+            }""")
+            text, muted, bg, panel, primary = map(luminance, colors)
+            contrast = lambda a, b: (max(a, b) + .05) / (min(a, b) + .05)
+            self.assertGreaterEqual(contrast(text, bg), 4.5)
+            self.assertGreaterEqual(contrast(muted, panel), 4.5)
+            self.assertGreaterEqual(contrast(primary, bg), 3)
+        # 1280px at 200% zoom yields a 640 CSS-pixel layout; exercise equivalent reflow.
+        p.set_viewport_size({'width': 640, 'height': 800})
+        self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'), 640)
+        for control in p.locator('#avgifts-form input').all():
+            self.assertTrue(control.evaluate('el => el.labels.length > 0'))
+            self.assertGreaterEqual(control.bounding_box()['height'], 44)
+
     def test_data_provenance_and_unsafe_comparison(self):
         p = self.page
         self.go('research.html?ticker=NVDA')
@@ -169,6 +350,7 @@ class BrowserSmoke(unittest.TestCase):
 
     def test_macro_partial_status_and_field_sources(self):
         p = self.page
+        p.clock.set_fixed_time(datetime(2026, 9, 10, 12, tzinfo=timezone.utc))
         payload = {'meta': {'schemaVersion': 2, 'status': 'partial',
                             'sources': {'BLS': 'current', 'BEA': 'failed'}},
                    'macroWeeks': {'2026-W37': {'events': [
@@ -204,6 +386,7 @@ class BrowserSmoke(unittest.TestCase):
         expect(p.locator('#rev-future-price-result')).to_have_text('$125.00')
         expect(p.locator('#rev-future-eps-result')).to_have_text('$6.25')
         expect(p.locator('#sc-base-price')).to_have_text('$125.00')
+        p.locator('#sensitivityDepth > summary').click()
         expect(p.locator('.sens-cell-base')).to_contain_text('$125.0')
         expect(p.locator('.sens-cell-base')).to_contain_text('25.0%')
         # Independent two-year EPS oracle: 5.29, 5.76, 6.25, 6.76, 7.29.
@@ -240,6 +423,7 @@ class BrowserSmoke(unittest.TestCase):
     def test_corrupt_scenarios_block_ui_save_and_delete(self):
         p = self.page
         self.go('ranta-pa-ranta.html')
+        p.locator('[data-scenario-depth] > summary').click()
         p.locator('#saved-scenario-name').fill('Browser test')
         p.locator('#save-scenario').click()
         self.assertTrue(p.locator('#saved-scenario-select').input_value())
@@ -253,6 +437,7 @@ class BrowserSmoke(unittest.TestCase):
     def test_research_history_export_outcomes_and_backup_roundtrip(self):
         p = self.page
         self.go('ranta-pa-ranta.html')
+        p.locator('[data-scenario-depth] > summary').click()
         p.locator('#saved-scenario-name').fill('Portable calculator')
         p.locator('#save-scenario').click()
         self.go('research.html?ticker=NVDA')
@@ -290,6 +475,7 @@ class BrowserSmoke(unittest.TestCase):
         self.assertEqual(p.evaluate('localStorage.getItem(NTMThesisStorage.key)'), before)
         self.go('min-ntm.html')
         state = p.evaluate('JSON.parse(NTMLocalData.exportJSON()).data')
+        p.locator('#localDataDepth > summary').click()
         with p.expect_download() as download:
             p.locator('#localDataExport').click()
         payload = Path(download.value.path()).read_bytes()
@@ -298,6 +484,7 @@ class BrowserSmoke(unittest.TestCase):
         # This page lives in an isolated incognito context on an ephemeral localhost origin.
         p.evaluate('localStorage.clear()')
         p.reload(wait_until='networkidle')
+        p.locator('#localDataDepth > summary').click()
         p.locator('#localDataFile').set_input_files({'name': 'backup.json', 'mimeType': 'application/json', 'buffer': payload})
         p.locator('#localDataImport').click()
         expect(p.locator('#localDataStatus')).to_contain_text('importerad och kontrolläst')
@@ -313,6 +500,7 @@ class BrowserSmoke(unittest.TestCase):
         self.assertEqual(p.evaluate('NTMResearchOutcomes.read().checkpoints.length'), 1)
         expect(p.locator('#thesisStatusBanner')).to_contain_text('arkivkopior behålls')
         self.go('min-ntm.html')
+        p.locator('#localDataDepth > summary').click()
         p.locator('#localDataTicker').fill('NVDA')
         p.locator('#localDataDeleteAll').click()
         self.assertTrue(p.evaluate("NTMEvents.snapshot().some(e=>e.event==='delete_completed')"))

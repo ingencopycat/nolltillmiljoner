@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="premium.css" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -47,6 +48,7 @@
     <!-- SEO END -->
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Till innehållet</a>
     <header class="topbar">
         <div class="topbar-inner">
             <a href="index.html" class="brand-wrap">
@@ -60,8 +62,8 @@
             <nav class="main-nav" aria-label="Huvudnavigering"><div class="mobile-theme-row">
                     <span class="mobile-theme-label">Tema</span>
                     <button id="mobileThemeToggle" class="theme-toggle mobile-theme-btn" type="button" aria-label="Växla tema" title="Växla tema">
-                        <span class="toggle-icon toggle-icon-sun">🌞</span>
-                        <span class="toggle-icon toggle-icon-moon">🌙</span>
+                        <span class="toggle-icon toggle-icon-sun">☀︎</span>
+                        <span class="toggle-icon toggle-icon-moon">◐</span>
                     </button>
                 </div><a href="verktyg.html">Verktyg</a><a href="research.html">Research</a><a href="min-ntm.html">Min NTM</a><details class="nav-learn"><summary>Lär dig</summary><div class="nav-learn-links"><a href="inlagg.html">Inlägg och videor</a><a href="resurser.html">Resurser</a><a href="makro.html">Makro</a><a href="rapporter.html">Rapporter</a><a href="community.html">Community</a></div></details></nav>
 
@@ -70,13 +72,13 @@
             </button>
 
             <button id="themeToggle" class="theme-toggle" type="button" aria-label="Växla tema" title="Växla tema">
-                <span class="toggle-icon toggle-icon-sun">🌞</span>
-                <span class="toggle-icon toggle-icon-moon">🌙</span>
+                <span class="toggle-icon toggle-icon-sun">☀︎</span>
+                <span class="toggle-icon toggle-icon-moon">◐</span>
             </button>
         </div>
     </header>
 
-    <main class="container tool-landing">
+    <main id="main-content" tabindex="-1" class="container tool-landing">
         <header class="page-intro tool-intro">
             <span class="section-kicker">Aktier &amp; analys</span>
             <h1>Valutajusterad avkastning</h1>
@@ -250,36 +252,14 @@
                 <p>Ja. Om en investering stiger 5 % i lokal valuta men valutan samtidigt faller 10 % mot SEK, blir den valutajusterade avkastningen (1 + 0,05) &times; (1 &minus; 0,10) &minus; 1 = &minus;5,5 %.</p>
             </details>
         </section>
-
-        <section class="related-tools" aria-labelledby="related-tools-heading">
-            <div class="section-heading">
-                <div>
-                    <span class="section-kicker">Fler verktyg</span>
-                    <h2 id="related-tools-heading">Relaterade verktyg</h2>
-                </div>
-            </div>
-            <div class="feature-grid">
-                <article class="feature-card">
-                    <h3>Avkastningskalkylator</h3>
-                    <p>Räkna ut CAGR, totalavkastning och genomsnittlig årlig avkastning.</p>
-                    <a href="avkastningskalkylator.html" class="secondary-btn">Öppna avkastning</a>
-                </article>
-                <article class="feature-card">
-                    <h3>Aktieköpskalkylator</h3>
-                    <p>Räkna ut GAV, DCA och riskbaserad positionsstorlek.</p>
-                    <a href="aktiekopskalkylator.html" class="secondary-btn">Öppna aktieköp</a>
-                </article>
-                <article class="feature-card">
-                    <h3>Investeringskalkylator</h3>
-                    <p>Se hur sparande och avkastning kan utvecklas över tid.</p>
-                    <a href="ranta-pa-ranta.html" class="secondary-btn">Öppna investering</a>
-                </article>
-            </div>
-        </section>
+    <!-- NTM RELATIONS START -->
+<aside class="ntm-relations" data-relation-source="tool-fx" aria-labelledby="relations-tool-fx"><h2 id="relations-tool-fx">Nästa steg i NTM</h2><ul><li><h3>Avkastning och CAGR</h3><p>Har du start- och slutvärde i samma valuta? Räkna även ut periodens årliga avkastning, CAGR.</p><a href="avkastningskalkylator.html" data-relation-id="fx-return" data-relation-type="try" data-destination-type="calculator">Beräkna årlig avkastning</a></li></ul></aside>
+<!-- NTM RELATIONS END -->
     </main>
     <footer class="trust-footer"><a href="om-metod.html">Om NTM, integritet, metod och rättelser</a></footer>
     <script src="ntm-product.js"></script>
     <script src="valuation-core.js"></script>
 <script src="script.js"></script>
+    <script src="ntm-ui.js"></script>
 </body>
 </html>

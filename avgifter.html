@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="premium.css" />
     <script src="vendor/chart-4.5.1.umd.min.js"></script>
     <script type="application/ld+json">
     {
@@ -39,6 +40,7 @@
     <!-- SEO END -->
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Till innehållet</a>
     <header class="topbar">
         <div class="topbar-inner">
             <a href="index.html" class="brand-wrap">
@@ -52,8 +54,8 @@
             <nav class="main-nav" aria-label="Huvudnavigering"><div class="mobile-theme-row">
                     <span class="mobile-theme-label">Tema</span>
                     <button id="mobileThemeToggle" class="theme-toggle mobile-theme-btn" type="button" aria-label="Växla tema" title="Växla tema">
-                        <span class="toggle-icon toggle-icon-sun">🌞</span>
-                        <span class="toggle-icon toggle-icon-moon">🌙</span>
+                        <span class="toggle-icon toggle-icon-sun">☀︎</span>
+                        <span class="toggle-icon toggle-icon-moon">◐</span>
                     </button>
                 </div><a href="verktyg.html">Verktyg</a><a href="research.html">Research</a><a href="min-ntm.html">Min NTM</a><details class="nav-learn"><summary>Lär dig</summary><div class="nav-learn-links"><a href="inlagg.html">Inlägg och videor</a><a href="resurser.html">Resurser</a><a href="makro.html">Makro</a><a href="rapporter.html">Rapporter</a><a href="community.html">Community</a></div></details></nav>
 
@@ -62,13 +64,13 @@
             </button>
 
             <button id="themeToggle" class="theme-toggle" type="button" aria-label="Växla tema" title="Växla tema">
-                <span class="toggle-icon toggle-icon-sun">🌞</span>
-                <span class="toggle-icon toggle-icon-moon">🌙</span>
+                <span class="toggle-icon toggle-icon-sun">☀︎</span>
+                <span class="toggle-icon toggle-icon-moon">◐</span>
             </button>
         </div>
     </header>
 
-    <main class="container tool-landing">
+    <main id="main-content" tabindex="-1" class="container tool-landing">
         <header class="page-intro tool-intro">
             <span class="section-kicker">Kalkylator</span>
             <h1>Fondavgiftskalkylator</h1>
@@ -219,22 +221,9 @@
             <details><summary>Hur räknar kalkylatorn på avgiften?</summary><p>Kalkylatorn drar den angivna årliga avgiften löpande från den antagna avkastningen för respektive investering, månad för månad.</p></details>
             <details><summary>Påverkar fondavgiften ränta på ränta?</summary><p>Ja. En avgift minskar det kapital som kan generera framtida avkastning, vilket gör att effekten växer över tid – samma mekanism som ränta på ränta, fast i motsatt riktning.</p></details>
         </section>
-
-        <section class="related-tools" aria-labelledby="related-tools-heading">
-            <div class="section-heading"><div><span class="section-kicker">Fler verktyg</span><h2 id="related-tools-heading">Relaterade verktyg</h2></div></div>
-            <div class="feature-grid">
-                <article class="feature-card">
-                    <h3>Ränta på ränta-kalkylatorn</h3>
-                    <p>Förstå hur kapital växer över tid – och varför avgifter över samma tid gör motsatt effekt.</p>
-                    <a href="ranta-pa-ranta.html" class="secondary-btn">Öppna ränta på ränta</a>
-                </article>
-                <article class="feature-card">
-                    <h3>Hävstångskalkylator</h3>
-                    <p>Se hur belåning och daglig hävstång påverkar uppgångar, nedgångar och kostnader.</p>
-                    <a href="havstang.html" class="secondary-btn">Öppna hävstångskalkylatorn</a>
-                </article>
-            </div>
-        </section>
+    <!-- NTM RELATIONS START -->
+<aside class="ntm-relations" data-relation-source="tool-fees" aria-labelledby="relations-tool-fees"><h2 id="relations-tool-fees">Nästa steg i NTM</h2><ul><li><h3>Ränta på ränta</h3><p>Ta nästa steg från avgiftsskillnaden: pröva sparbelopp, avgift och inflation tillsammans över tid.</p><a href="ranta-pa-ranta.html" data-relation-id="fees-compound" data-relation-type="try" data-destination-type="calculator">Räkna på hela sparandet</a></li></ul></aside>
+<!-- NTM RELATIONS END -->
     </main>
     <footer class="trust-footer"><a href="om-metod.html">Om NTM, integritet, metod och rättelser</a></footer>
 
@@ -251,5 +240,6 @@
       });
     </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aa20af56e8ea486192758214e83971ee"}'></script><!-- End Cloudflare Web Analytics -->
+    <script src="ntm-ui.js"></script>
 </body>
 </html>

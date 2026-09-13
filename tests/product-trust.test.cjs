@@ -48,9 +48,11 @@ test('landing attribution strips query content and emits no private Research dat
   assert.doesNotMatch(JSON.stringify(queue),/PRIVATE|123|search\?q/);
 });
 
-test('editorial metadata and three contextual journeys survive actual static generation', () => {
+test('editorial metadata and original contextual journeys survive catalog migration', () => {
   const c=vm.createContext({});vm.runInContext(read('posts.js'),c);
-  const posts=vm.runInContext('NTM_POSTS',c);assert.equal(posts.filter(p=>p.journey).length,3);
+  const posts=vm.runInContext('NTM_POSTS',c);
+  const relations=require('../ntm-relations.js'), catalog=relations.catalog(posts);
+  assert.equal(catalog.relations.filter(r=>r.legacyCta).length,3);
   for(const post of posts){
     const e=post.editorial,html=read(`post-${post.slug}.html`);
     assert.equal(e.publishedAt,post.date);assert.equal(e.aiSummary,!!post.summary);
@@ -58,7 +60,10 @@ test('editorial metadata and three contextual journeys survive actual static gen
     assert.ok(e.sourceUrl || e.verification.length);
     assert.ok(html.includes('om-metod.html#rattelser'));assert.ok(html.includes('Ändringslogg'));
     if(post.summary)assert.ok(html.includes('AI-sammanfattning'));
-    if(post.journey){const url=new URL(post.journey.href,'https://nolltillmiljoner.se/');assert.ok(fs.existsSync(path.join(root,url.pathname)));assert.equal(url.searchParams.get('from'),'content');assert.ok(html.includes('data-ntm-cta="'+post.journey.id+'"'));}
+    for(const relation of relations.query(catalog,'post-'+post.slug).filter(r=>r.legacyCta)) {
+      assert.ok(html.includes('data-ntm-cta="'+relation.legacyCta+'"'));
+      assert.ok(html.includes('from=content'));
+    }
   }
 });
 

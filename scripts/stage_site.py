@@ -9,6 +9,7 @@ import sys
 
 WORKSPACE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REQUIRED_FILES = [
+    'ntm-relations.js', 'ntm-relations-ui.js',
     'index.html', 'makro.html', 'rapporter.html', 'verktyg.html', 'inlagg.html',
     'post.html', 'resurser.html', 'community.html', 'min-ntm.html', 'calculator.html',
     'investeringar.html', 'ranta-pa-ranta.html',
@@ -17,7 +18,7 @@ REQUIRED_FILES = [
     'isk-skattkalkylator.html', 'aktievarderingskalkylator.html',
     'avkastningskalkylator.html', 'aktiekopskalkylator.html',
     'valutajusterad-avkastning.html', 'research.html',
-    'valuation-core.js', 'script.js', 'style.css', 'posts.js', 'week-pages.js', 'research.js', 'research-snapshot.js', 'research-export.js', 'local-data.js', 'research-review.js', 'min-review.js',
+    'valuation-core.js', 'script.js', 'style.css', 'premium.css', 'ntm-ui.js', 'posts.js', 'week-pages.js', 'research.js', 'research-snapshot.js', 'research-export.js', 'local-data.js', 'research-review.js', 'min-review.js',
     'research-outcomes.js', 'research-outcome-ui.js', 'thesis-storage.js', 'change-detection.js', 'CNAME', 'robots.txt', 'sitemap.xml'
 ]
 REQUIRED_DIRECTORIES = ['data', 'images', 'vendor']

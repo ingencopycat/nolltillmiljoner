@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="premium.css" />
     <script src="vendor/chart-4.5.1.umd.min.js"></script>
 
     <!-- SEO START -->
@@ -28,6 +29,7 @@
     <!-- SEO END -->
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Till innehållet</a>
     <header class="topbar">
         <div class="topbar-inner">
             <a href="index.html" class="brand-wrap">
@@ -41,20 +43,20 @@
             <nav class="main-nav" aria-label="Huvudnavigering"><div class="mobile-theme-row">
                     <span class="mobile-theme-label">Tema</span>
                     <button id="mobileThemeToggle" class="theme-toggle mobile-theme-btn" type="button" aria-label="Växla tema" title="Växla tema">
-                        <span class="toggle-icon toggle-icon-sun">🌞</span>
-                        <span class="toggle-icon toggle-icon-moon">🌙</span>
+                        <span class="toggle-icon toggle-icon-sun">☀︎</span>
+                        <span class="toggle-icon toggle-icon-moon">◐</span>
                     </button>
                 </div><a href="verktyg.html">Verktyg</a><a href="research.html" class="active" aria-current="page">Research</a><a href="min-ntm.html">Min NTM</a><details class="nav-learn"><summary>Lär dig</summary><div class="nav-learn-links"><a href="inlagg.html">Inlägg och videor</a><a href="resurser.html">Resurser</a><a href="makro.html">Makro</a><a href="rapporter.html">Rapporter</a><a href="community.html">Community</a></div></details></nav>
 
             <button id="mobileNavToggle" class="nav-toggle" type="button" aria-label="Öppna meny" aria-expanded="false">☰</button>
             <button id="themeToggle" class="theme-toggle" type="button" aria-label="Växla tema" title="Växla tema">
-                <span class="toggle-icon toggle-icon-sun">🌞</span>
-                <span class="toggle-icon toggle-icon-moon">🌙</span>
+                <span class="toggle-icon toggle-icon-sun">☀︎</span>
+                <span class="toggle-icon toggle-icon-moon">◐</span>
             </button>
         </div>
     </header>
 
-    <main class="container research-container">
+    <main id="main-content" tabindex="-1" class="container research-container">
         <!-- Stock Switcher Bar -->
         <nav class="research-switcher-wrap" aria-label="Välj bolag att analysera">
             <div class="research-switcher">
@@ -208,17 +210,19 @@
                 </div>
             </section>
 
+            <nav class="section-local-nav" aria-label="I denna analys"><a href="#key-metrics-heading">Översikt</a><a href="#thesisSection">Din tes</a><a href="#valuationSection">Värdering</a><a href="#researchFinancials">Bokslut &amp; källor</a><a href="#thesisHistorySection">Versioner</a><a href="#outcomeSection">Utfall</a></nav>
             <!-- Section B: Key Metrics Grid (Nyckeltal TTM / Balansräkning) -->
             <section class="research-section" aria-labelledby="key-metrics-heading">
                 <div class="section-title-row">
                     <h2 id="key-metrics-heading">Översikt & Nyckeltal (TTM)</h2>
                     <span class="section-subtitle" id="ttmPeriodSubtitle">Senaste 12 månaderna</span>
                 </div>
-                <div class="metrics-dashboard-grid" id="keyMetricsGrid">
+                <div class="metrics-dashboard-grid" id="keyMetricsGrid" data-metrics="compact">
                     <!-- Populated dynamically via research.js -->
                 </div>
             </section>
 
+            <button class="ghost-btn" type="button" data-metrics-toggle aria-controls="keyMetricsGrid" aria-expanded="false">Visa alla nyckeltal</button>
             <!-- Section E: Growth & Margins (Tillväxt & Marginaler) -->
             <section class="research-section" aria-labelledby="growth-margins-heading">
                 <div class="section-title-row">
@@ -570,7 +574,7 @@
                             </div>
 
                             <!-- 5x5 Sensitivity Matrix -->
-                            <div class="sensitivity-matrix-section">
+                            <details class="depth-panel" id="sensitivityDepth"><summary>Känslighet: pröva fler kombinationer</summary><div class="sensitivity-matrix-section">
                                 <div class="sensitivity-header">
                                     <h4>Känslighetsmatris (5x5): Framtida aktiekurs</h4>
                                     <span class="sensitivity-sub">Kombinationer av årlig EPS-tillväxt (rader) och Exit-P/E (kolumner) efter <span id="sens-years-label">5</span> år</span>
@@ -580,14 +584,14 @@
                                         <!-- Populated dynamically -->
                                     </table>
                                 </div>
-                            </div>
+                            </div></details>
                         </div>
                     </details>
                 </div>
             </section>
 
             <!-- Section C: Annual Fundamentals Chart & Table -->
-            <section class="card research-card-block" aria-labelledby="annual-heading">
+            <details class="depth-panel" id="researchFinancials"><summary>Bokslut &amp; källor <small>Årsdata, kvartal och SEC-rapporter</small></summary><section class="card research-card-block" aria-labelledby="annual-heading">
                 <div class="section-heading">
                     <div>
                         <span class="section-kicker">Årsbokslut</span>
@@ -663,7 +667,7 @@
                 <div class="filings-list" id="filingsList">
                     <!-- Populated dynamically -->
                 </div>
-            </section>
+            </section></details>
 
             <!-- Section G: Min Thesis (User Research Journal) -->
 
@@ -764,6 +768,11 @@
                 </div>
             </div>
         </dialog>
+    <!-- NTM RELATIONS START -->
+<aside class="ntm-relations" data-relation-source="research-nvda" data-relation-ticker="NVDA" aria-labelledby="relations-research-nvda"><h2 id="relations-research-nvda">Fortsätt med Nvidia Research</h2><ul><li><h3>Din tes om Nvidia</h3><p>Skriv vad som måste bli sant och ange när du vill granska tesen. Sparandet sker först när du väljer Spara ny version.</p><a href="#thesisSection" data-relation-id="nvda-thesis" data-relation-type="continue" data-destination-type="workflow">Formulera eller granska din Nvidia-tes</a></li><li><h3>Aktievärdering</h3><p>Pröva en fristående värdering med egna ingångsvärden. Din Research-analys förs inte över automatiskt.</p><a href="aktievarderingskalkylator.html" data-relation-id="nvda-valuation" data-relation-type="try" data-destination-type="calculator">Öppna värderingskalkylatorn</a></li><li><h3>The Bond Market “Crash” Is a Trap — AI Agents Are About to Ignite Crypto</h3><p>Jordi Visser diskuterar Nvidia och AI-infrastruktur. Läs resonemanget som ett perspektiv att pröva mot din tes.</p><a href="post-jordi-visser-ai-agents-crypto.html" data-relation-id="nvda-content" data-relation-type="related" data-destination-type="video">Läs om AI-infrastruktur och Nvidia</a></li></ul></aside>
+<aside class="ntm-relations" data-relation-source="research-sofi" data-relation-ticker="SOFI" aria-labelledby="relations-research-sofi"><h2 id="relations-research-sofi">Fortsätt med SoFi Research</h2><ul><li><h3>Din tes om SoFi</h3><p>Formulera dina antaganden och välj en tid för egen granskning. Ingen tes sparas automatiskt.</p><a href="#thesisSection" data-relation-id="sofi-thesis" data-relation-type="continue" data-destination-type="workflow">Formulera eller granska din tes</a></li><li><h3>Aktievärdering</h3><p>Pröva egna vinst- och multipelantaganden fristående. Saknad eller negativ EPS behöver bedömas; inga Research-värden förs över.</p><a href="aktievarderingskalkylator.html" data-relation-id="sofi-valuation" data-relation-type="try" data-destination-type="calculator">Pröva en fristående värdering</a></li><li><h3>Valutajusterad avkastning</h3><p>För ett utfall i SEK behöver du även ta hänsyn till USD/SEK. Beräkna valutans effekt separat.</p><a href="valutajusterad-avkastning.html" data-relation-id="sofi-fx" data-relation-type="try" data-destination-type="calculator">Räkna på USD/SEK-effekten</a></li></ul></aside>
+<aside class="ntm-relations" data-relation-source="research-crwd" data-relation-ticker="CRWD" aria-labelledby="relations-research-crwd"><h2 id="relations-research-crwd">Fortsätt med CrowdStrike Research</h2><ul><li><h3>Din tes om CrowdStrike</h3><p>Formulera dina antaganden och välj en tid för egen granskning. Ingen tes sparas automatiskt.</p><a href="#thesisSection" data-relation-id="crwd-thesis" data-relation-type="continue" data-destination-type="workflow">Formulera eller granska din tes</a></li><li><h3>Aktievärdering</h3><p>Pröva egna vinst- och multipelantaganden fristående. Saknad eller negativ EPS behöver bedömas; inga Research-värden förs över.</p><a href="aktievarderingskalkylator.html" data-relation-id="crwd-valuation" data-relation-type="try" data-destination-type="calculator">Pröva en fristående värdering</a></li><li><h3>Valutajusterad avkastning</h3><p>För ett utfall i SEK behöver du även ta hänsyn till USD/SEK. Beräkna valutans effekt separat.</p><a href="valutajusterad-avkastning.html" data-relation-id="crwd-fx" data-relation-type="try" data-destination-type="calculator">Räkna på USD/SEK-effekten</a></li></ul></aside>
+<!-- NTM RELATIONS END -->
     </main>
     <footer class="trust-footer"><a href="om-metod.html">Om NTM, integritet, metod och rättelser</a></footer>
 
@@ -787,5 +796,7 @@
     <script src="research-outcome-ui.js"></script>
     <script src="research.js"></script>
     <script src="research-review.js"></script>
+    <script src="ntm-ui.js"></script>
+<script src="ntm-relations-ui.js"></script>
 </body>
 </html>

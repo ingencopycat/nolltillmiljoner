@@ -2,6 +2,8 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
+const relations = require('../ntm-relations.js');
+const { destinationExists } = require('./relation_destinations.cjs');
 const root = path.resolve(__dirname, '..');
 const base = 'https://nolltillmiljoner.se/';
 const image = base + 'images/ntm-social.png';
@@ -66,12 +68,30 @@ for (const file of fs.readdirSync(root).filter((name) => name.endsWith('.html') 
 // Reuse the actual page renderer so article content and interactive structure cannot drift.
 const context = vm.createContext({ document: { getElementById() { return null; }, querySelector() { return null; },
   querySelectorAll() { return []; }, addEventListener() {}, readyState: 'loading' },
-  URLSearchParams, location: { pathname: '/', search: '' }, console, setTimeout() {} });
+  URL, URLSearchParams, location: { pathname: '/', search: '' }, console, setTimeout() {} });
 context.window = context;
 vm.runInContext(read('posts.js'), context);
+vm.runInContext(read('ntm-relations.js'), context);
 vm.runInContext(read('valuation-core.js'), context);
 vm.runInContext(read('script.js'), context);
 const posts = vm.runInContext('NTM_POSTS', context);
+const relationCatalog = relations.catalog(posts);
+// Generated articles may be new. Validate their canonical paths against the post registry.
+const postFiles = new Set(posts.map(post => `post-${post.slug}.html`));
+const relationErrors = relations.validate(relationCatalog, href => postFiles.has(href) || destinationExists(root, href));
+if (relationErrors.length) throw new Error(relationErrors.join('\n'));
+const postTemplate = outputs.get('post.html').replace('<script src="script.js">', '<script src="ntm-relations.js"></script>\n<script src="script.js">');
+outputs.set('post.html', postTemplate.replace(/(?:<script src="ntm-relations.js"><\/script>\s*){2}/g, '<script src="ntm-relations.js"></script>\n'));
+for (const [file, sources] of Object.entries(relations.placements)) {
+  let html = outputs.get(file);
+  if (!html) throw new Error('Missing relation surface: ' + file);
+  if (sources.some(id => !relationCatalog.entities.some(e => e.id === id))) throw new Error('Unknown relation source for ' + file);
+  const block = '<!-- NTM RELATIONS START -->\n' + sources.map(id => relations.render(relationCatalog, id)).join('\n') + '\n<!-- NTM RELATIONS END -->';
+  html = html.replace(/\s*<!-- NTM RELATIONS START -->[\s\S]*?<!-- NTM RELATIONS END -->/g, '');
+  html = html.replace('</main>', block + '\n    </main>');
+  if (file === 'research.html' && !html.includes('src="ntm-relations-ui.js"')) html = html.replace('</body>', '<script src="ntm-relations-ui.js"></script>\n</body>');
+  outputs.set(file, html);
+}
 let archive = '';
 for (const post of posts) {
   if (!/^[a-z0-9-]+$/.test(post.slug)) throw new Error('Invalid article slug');

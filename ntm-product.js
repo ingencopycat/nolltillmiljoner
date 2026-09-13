@@ -4,14 +4,17 @@
   const names = new Set(['landing_view', 'tool_opened', 'cta_clicked', 'calculator_completed',
     'research_opened', 'valuation_calculated', 'thesis_first_saved', 'assumptions_added',
     'review_date_set', 'thesis_reviewed', 'outcome_checkpoint_saved', 'content_to_tool',
-    'backup_exported', 'backup_imported', 'delete_completed', 'delete_error']);
+    'backup_exported', 'backup_imported', 'delete_completed', 'delete_error', 'relation_click']);
   const fields = {
     category: ['home', 'content', 'tools', 'research', 'local', 'trust', 'calendar', 'resources', 'other'],
     tool: ['compound', 'fees', 'leverage', 'valuation', 'return', 'purchase', 'goal', 'mortgage', 'fire', 'tax', 'recovery', 'fx', 'research', 'local'],
     source: ['direct_or_unknown', 'search', 'instagram', 'content', 'home'],
     cta: ['assumption', 'counterevidence', 'followup', 'ai_reverse', 'memory_scenarios', 'ai_thesis', 'home_calculator', 'home_research'],
     action: ['keep', 'revise', 'close'],
-    result: ['success', 'error']
+    result: ['success', 'error'],
+    relation_type: ['learn', 'try', 'research', 'related', 'source', 'continue', 'discuss'],
+    source_surface: ['content', 'tools', 'research'],
+    destination_type: ['content', 'video', 'tool', 'calculator', 'research', 'learn', 'macro', 'workflow', 'community']
   };
   const routes = {
     'ranta-pa-ranta.html': 'compound', 'avgifter.html': 'fees', 'havstang.html': 'leverage',
@@ -64,6 +67,9 @@
     }
     emit('landing_view'); if (tool) emit('tool_opened');
     root.document.addEventListener('click', event => {
+      const relation = event.target.closest?.('a[data-relation-id]');
+      if (relation) emit('relation_click', { relation_type: relation.dataset.relationType,
+        source_surface: category, destination_type: relation.dataset.destinationType });
       const link = event.target.closest?.('a[data-ntm-cta]');
       if (link) emit(category === 'content' ? 'content_to_tool' : 'cta_clicked', { cta: link.dataset.ntmCta });
       // Carry only the selected public flow through the company/review chooser, including async queue links.

@@ -18,9 +18,10 @@ const context = vm.createContext({document: {
   getElementById(){return null;}, querySelector(){return null;}, querySelectorAll(){return [];},
   addEventListener(type, fn){if(type === 'click') click = fn;}, readyState:'loading',
   createElement(tag){return {tag};}
-}, URLSearchParams, location:{search:''}, console, setTimeout(){}});
+}, URL, URLSearchParams, location:{search:''}, console, setTimeout(){}});
 context.window = context;
 vm.runInContext(fs.readFileSync('posts.js', 'utf8'), context);
+vm.runInContext(fs.readFileSync('ntm-relations.js', 'utf8'), context);
 vm.runInContext(fs.readFileSync('script.js', 'utf8'), context);
 const posts = vm.runInContext('NTM_POSTS', context);
 assert.equal(new Set(posts.map(p => p.slug)).size, posts.length);

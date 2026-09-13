@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="premium.css" />
 
     <!-- SEO START -->
     <title>Min NTM – dina lokalt sparade analyser | Noll till Miljoner</title>
@@ -27,19 +28,20 @@
     <!-- SEO END -->
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Till innehållet</a>
     <header class="topbar">
         <div class="topbar-inner">
             <a href="index.html" class="brand-wrap">
                 <img class="brand-logo" src="images/ntm-logo.webp" width="192" height="192" alt="NTM" />
                 <div class="brand-text"><span class="brand-name"><span class="brand-zero">NOLL</span> <span class="brand-neutral">TILL</span> <span class="brand-million">MILJONER</span></span><span class="brand-subtitle">Min NTM</span></div>
             </a>
-            <nav class="main-nav" aria-label="Huvudnavigering"><div class="mobile-theme-row"><span class="mobile-theme-label">Tema</span><button id="mobileThemeToggle" class="theme-toggle mobile-theme-btn" type="button" aria-label="Växla tema" title="Växla tema"><span class="toggle-icon toggle-icon-sun">🌞</span><span class="toggle-icon toggle-icon-moon">🌙</span></button></div><a href="verktyg.html">Verktyg</a><a href="research.html">Research</a><a href="min-ntm.html" class="active" aria-current="page">Min NTM</a><details class="nav-learn"><summary>Lär dig</summary><div class="nav-learn-links"><a href="inlagg.html">Inlägg och videor</a><a href="resurser.html">Resurser</a><a href="makro.html">Makro</a><a href="rapporter.html">Rapporter</a><a href="community.html">Community</a></div></details></nav>
+            <nav class="main-nav" aria-label="Huvudnavigering"><div class="mobile-theme-row"><span class="mobile-theme-label">Tema</span><button id="mobileThemeToggle" class="theme-toggle mobile-theme-btn" type="button" aria-label="Växla tema" title="Växla tema"><span class="toggle-icon toggle-icon-sun">☀︎</span><span class="toggle-icon toggle-icon-moon">◐</span></button></div><a href="verktyg.html">Verktyg</a><a href="research.html">Research</a><a href="min-ntm.html" class="active" aria-current="page">Min NTM</a><details class="nav-learn"><summary>Lär dig</summary><div class="nav-learn-links"><a href="inlagg.html">Inlägg och videor</a><a href="resurser.html">Resurser</a><a href="makro.html">Makro</a><a href="rapporter.html">Rapporter</a><a href="community.html">Community</a></div></details></nav>
             <button id="mobileNavToggle" class="nav-toggle" type="button" aria-label="Öppna meny" aria-expanded="false">☰</button>
-            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Växla tema" title="Växla tema"><span class="toggle-icon toggle-icon-sun">🌞</span><span class="toggle-icon toggle-icon-moon">🌙</span></button>
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Växla tema" title="Växla tema"><span class="toggle-icon toggle-icon-sun">☀︎</span><span class="toggle-icon toggle-icon-moon">◐</span></button>
         </div>
     </header>
 
-    <main class="container tool-landing" data-min-ntm>
+    <main id="main-content" tabindex="-1" class="container tool-landing" data-min-ntm>
         <header class="page-intro tool-intro min-ntm-intro"><span class="section-kicker">Lokalt på din enhet</span><h1>Min NTM</h1><p>Din personliga översikt.</p><p class="min-ntm-local-note">Sparas lokalt på den här enheten. Ingen inloggning krävs.</p></header>
 
         <section class="card calculator-card min-ntm-card" aria-labelledby="reviewQueueHeading">
@@ -59,7 +61,7 @@
             </div>
         </section>
 <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-scenarios-heading">
-            <div class="section-heading"><div><span class="section-kicker">Sparade scenarier</span><h2 id="min-ntm-scenarios-heading">Dina kalkyler</h2></div></div>
+            <div class="section-heading"><div><span class="section-kicker">Sparade scenarier</span><h2 id="min-ntm-scenarios-heading">Sparade planer</h2></div></div>
             <p class="min-ntm-status" data-min-ntm-scenarios-status hidden></p>
             <div class="min-ntm-list" data-min-ntm-scenarios></div>
             <div class="empty-state min-ntm-empty" data-min-ntm-scenarios-empty>
@@ -74,7 +76,7 @@
 
 
         <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-recent-heading">
-            <div class="section-heading"><div><span class="section-kicker">Senaste verktyg</span><h2 id="min-ntm-recent-heading">Fortsätt där du var</h2></div></div>
+            <div class="section-heading"><div><span class="section-kicker">Senaste verktyg</span><h2 id="min-ntm-recent-heading">Senaste verktyg</h2></div></div>
             <p class="min-ntm-status" data-min-ntm-recent-status hidden></p>
             <div class="min-ntm-list" data-min-ntm-recent-tools></div>
             <div class="empty-state min-ntm-empty" data-min-ntm-recent-empty>
@@ -87,7 +89,7 @@
             <div class="section-heading"><div><span class="section-kicker">Snabblänkar</span><h2 id="min-ntm-links-heading">Gå vidare</h2></div></div>
             <div class="min-ntm-quick-links"><a class="secondary-btn" href="research.html">Research</a><a class="secondary-btn" href="makro.html">Makro</a><a class="secondary-btn" href="rapporter.html">Rapporter</a><a class="secondary-btn" href="verktyg.html">Alla verktyg</a></div>
         </section>
-        <section class="card calculator-card min-ntm-card" aria-labelledby="localDataHeading">
+        <details class="depth-panel" id="localDataDepth"><summary>Backup &amp; datahantering <small>Exportera, importera eller radera</small></summary><section class="card calculator-card min-ntm-card" aria-labelledby="localDataHeading">
             <h2 id="localDataHeading">Backup och lokal Research-data</h2>
             <p>JSON-backup innehåller thesis-versioner, snapshots, utfallskontroller med arkivkopior, kalkylatorscenarier och tema. Markdown är en läsexport, inte en backup. Förvara JSON-filen privat.</p>
             <button type="button" id="localDataExport" class="secondary-btn">Exportera all lokal data</button>
@@ -101,7 +103,7 @@
             <button type="button" id="localDataDeleteOutcomes" class="destructive-action ghost-btn">Radera utfallskontroller för angiven ticker</button>
             <button type="button" id="localDataDeleteAll" class="destructive-action ghost-btn">Radera all Research-data för angiven ticker</button>
             <p id="localDataStatus" role="status" aria-live="polite"></p>
-        </section>
+        </section></details>
     </main>
     <footer class="trust-footer"><a href="om-metod.html">Om NTM, integritet, metod och rättelser</a></footer>
     <script src="research-snapshot.js"></script>
@@ -113,5 +115,6 @@
     <script src="research-outcomes.js"></script>
     <script src="local-data.js"></script>
     <script src="min-review.js"></script>
+    <script src="ntm-ui.js"></script>
 </body>
 </html>
