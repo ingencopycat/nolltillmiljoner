@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NTM Research – Djupdykning i bolags fundamentala data</title>
-    <meta name="description" content="Verifierad bolagsdata och historiska nyckeltal direkt från officiella SEC EDGAR-rapporter. Analysera intäkter, marginaler, kassaflöden och balansräkningar." />
+    <meta name="description" content="Bolagsanpassad normalisering av SEC EDGAR-data. Analysera historiska nyckeltal, värderingsantaganden och sparade analyser med tydliga databegränsningar." />
     <link rel="canonical" href="https://nolltillmiljoner.se/research.html" />
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -62,16 +62,16 @@
         </nav>
 
         <!-- Loading State -->
-        <div id="researchLoading" class="card research-state-card" style="display: none;">
+        <div id="researchLoading" class="card research-state-card" role="status" aria-live="polite" style="display: none;">
             <div class="research-spinner" aria-hidden="true"></div>
-            <p>Hämtar verifierad bolagsdata…</p>
+            <p>Hämtar normaliserad bolagsdata…</p>
         </div>
 
         <!-- Error / Empty State -->
         <section id="researchError" class="card research-state-card" style="display: none;" aria-live="assertive">
             <span class="section-kicker section-kicker-danger">Ingen data hittades</span>
             <h2 id="researchErrorTitle">Bolaget stöds inte ännu</h2>
-            <p id="researchErrorMessage">NTM Research V1 har stöd för ett urval av bolag med komplett SEC EDGAR XBRL-normalisering.</p>
+            <p id="researchErrorMessage">NTM Research V1 har stöd för ett urval av bolag med bolagsanpassad SEC EDGAR XBRL-normalisering.</p>
             <div class="research-error-actions">
                 <a href="research.html?ticker=NVDA" class="secondary-btn">Analysera NVIDIA (NVDA)</a>
                 <a href="research.html?ticker=SOFI" class="secondary-btn">Analysera SoFi (SOFI)</a>
@@ -83,8 +83,8 @@
         <section id="researchIndex" class="research-view" style="display: none;">
             <header class="page-intro tool-intro">
                 <span class="section-kicker">NTM Research</span>
-                <h1>Verifierade bolagsfundamentals</h1>
-                <p>Direkt från officiella SEC EDGAR 10-K och 10-Q rapporter. Ingen tredjepartsskrapning, inga gissade siffror – ren, strukturerad och verifierbar fundamentaldata.</p>
+                <h1>Bolagsfundamenta från SEC</h1>
+                <p>Rapporterade och härledda nyckeltal från SEC EDGAR. Bolagsanpassade mappningar har begränsningar; saknade eller inkompatibla värden lämnas tomma. Kurser och värderingsantaganden anges manuellt.</p>
             </header>
 
             <div class="research-index-grid">
@@ -102,17 +102,18 @@
                     <div class="company-highlights">
                         <div class="highlight-item">
                             <span class="hl-label">Intäkter TTM</span>
-                            <span class="hl-val">$303.0B</span>
+                            <span class="hl-val" id="index-NVDA-revenue">–</span>
                         </div>
                         <div class="highlight-item">
                             <span class="hl-label">Fritt kassaflöde TTM</span>
-                            <span class="hl-val">$127.0B</span>
+                            <span class="hl-val" id="index-NVDA-secondary">–</span>
                         </div>
                         <div class="highlight-item">
                             <span class="hl-label">Nettomarginal TTM</span>
-                            <span class="hl-val">63.7%</span>
+                            <span class="hl-val" id="index-NVDA-margin">–</span>
                         </div>
                     </div>
+                    <p id="index-NVDA-period" class="note" role="status">Laddar nyckeltal…</p>
                     <a href="research.html?ticker=NVDA" class="secondary-btn card-link">Öppna analys & historik →</a>
                 </article>
 
@@ -130,17 +131,18 @@
                     <div class="company-highlights">
                         <div class="highlight-item">
                             <span class="hl-label">Nettointäkter TTM</span>
-                            <span class="hl-val">$4.31B</span>
+                            <span class="hl-val" id="index-SOFI-revenue">–</span>
                         </div>
                         <div class="highlight-item">
                             <span class="hl-label">Nettoresultat TTM</span>
-                            <span class="hl-val">$636M</span>
+                            <span class="hl-val" id="index-SOFI-secondary">–</span>
                         </div>
                         <div class="highlight-item">
-                            <span class="hl-label">Kassa & bank</span>
-                            <span class="hl-val">$4.93B</span>
+                            <span class="hl-label">Nettomarginal TTM</span>
+                            <span class="hl-val" id="index-SOFI-margin">–</span>
                         </div>
                     </div>
+                    <p id="index-SOFI-period" class="note" role="status">Laddar nyckeltal…</p>
                     <a href="research.html?ticker=SOFI" class="secondary-btn card-link">Öppna analys & historik →</a>
                 </article>
 
@@ -158,17 +160,18 @@
                     <div class="company-highlights">
                         <div class="highlight-item">
                             <span class="hl-label">Intäkter TTM</span>
-                            <span class="hl-val">$5.40B</span>
+                            <span class="hl-val" id="index-CRWD-revenue">–</span>
                         </div>
                         <div class="highlight-item">
                             <span class="hl-label">Fritt kassaflöde TTM</span>
-                            <span class="hl-val">$1.61B</span>
+                            <span class="hl-val" id="index-CRWD-secondary">–</span>
                         </div>
                         <div class="highlight-item">
-                            <span class="hl-label">Förutbetalda intäkter</span>
-                            <span class="hl-val">$4.84B</span>
+                            <span class="hl-label">Nettomarginal TTM</span>
+                            <span class="hl-val" id="index-CRWD-margin">–</span>
                         </div>
                     </div>
+                    <p id="index-CRWD-period" class="note" role="status">Laddar nyckeltal…</p>
                     <a href="research.html?ticker=CRWD" class="secondary-btn card-link">Öppna analys & historik →</a>
                 </article>
             </div>
@@ -176,6 +179,7 @@
 
         <!-- Company Detail View -->
         <div id="researchDetail" class="research-view" style="display: none;">
+            <p id="researchChartStatus" class="note" role="status"></p>
             <!-- Section A: Company Header Card -->
             <section class="card research-header-card" id="companyHeaderCard">
                 <div class="research-header-top">
@@ -241,6 +245,7 @@
                 <!-- Status Banner for Stale / Error -->
                 <div id="valuationStatusBanner" class="calc-status-banner calc-status-neutral" role="status" aria-live="polite" style="display: none;"></div>
 
+                <p id="assumptionRestoreNotice" class="info-callout" role="status" aria-live="polite" hidden></p>
                 <form id="valuationForm" class="calculator-form valuation-form" novalidate>
                     <div class="form-grid form-grid--aligned">
                         <div class="field-group">
@@ -360,33 +365,33 @@
                                     <h3>Bear Scenario</h3>
                                     <div class="field-group">
                                         <label for="sc-bear-growth">EPS-tillväxt (%)</label>
-                                        <input id="sc-bear-growth" type="number" min="-100" max="1000" step="0.1" value="5" />
+                                        <input id="sc-bear-growth" type="number" min="-99.9" max="1000" step="0.1" value="5" form="valuationForm" />
                                     </div>
                                     <div class="field-group">
                                         <label for="sc-bear-pe">Framtida P/E</label>
-                                        <input id="sc-bear-pe" type="number" min="0.1" max="1000" step="0.1" value="18" />
+                                        <input id="sc-bear-pe" type="number" min="0.1" max="1000" step="0.1" value="18" form="valuationForm" />
                                     </div>
                                 </div>
                                 <div class="scenario-assumption scenario-base">
                                     <h3>Base Scenario</h3>
                                     <div class="field-group">
                                         <label for="sc-base-growth">EPS-tillväxt (%)</label>
-                                        <input id="sc-base-growth" type="number" min="-100" max="1000" step="0.1" value="15" />
+                                        <input id="sc-base-growth" type="number" min="-99.9" max="1000" step="0.1" value="15" form="valuationForm" />
                                     </div>
                                     <div class="field-group">
                                         <label for="sc-base-pe">Framtida P/E</label>
-                                        <input id="sc-base-pe" type="number" min="0.1" max="1000" step="0.1" value="25" />
+                                        <input id="sc-base-pe" type="number" min="0.1" max="1000" step="0.1" value="25" form="valuationForm" />
                                     </div>
                                 </div>
                                 <div class="scenario-assumption scenario-bull">
                                     <h3>Bull Scenario</h3>
                                     <div class="field-group">
                                         <label for="sc-bull-growth">EPS-tillväxt (%)</label>
-                                        <input id="sc-bull-growth" type="number" min="-100" max="1000" step="0.1" value="25" />
+                                        <input id="sc-bull-growth" type="number" min="-99.9" max="1000" step="0.1" value="25" form="valuationForm" />
                                     </div>
                                     <div class="field-group">
                                         <label for="sc-bull-pe">Framtida P/E</label>
-                                        <input id="sc-bull-pe" type="number" min="0.1" max="1000" step="0.1" value="32" />
+                                        <input id="sc-bull-pe" type="number" min="0.1" max="1000" step="0.1" value="32" form="valuationForm" />
                                     </div>
                                 </div>
                             </div>
@@ -441,7 +446,7 @@
                                     <h4>Känslighetsmatris (5x5): Framtida aktiekurs</h4>
                                     <span class="sensitivity-sub">Kombinationer av årlig EPS-tillväxt (rader) och Exit-P/E (kolumner) efter <span id="sens-years-label">5</span> år</span>
                                 </div>
-                                <div class="sensitivity-table-wrap">
+                                <div class="sensitivity-table-wrap" tabindex="0" role="region" aria-label="Känslighetsmatris, rulla horisontellt vid behov">
                                     <table class="sensitivity-table" id="sensitivityTable">
                                         <!-- Populated dynamically -->
                                     </table>
@@ -463,9 +468,9 @@
                 <div class="research-chart-wrap">
                     <canvas id="annualChart" aria-label="Diagram över årlig finansiell utveckling"></canvas>
                 </div>
-                <div class="stock-scenario-table-wrap" id="annualTableWrap">
+                <div class="stock-scenario-table-wrap" id="annualTableWrap" tabindex="0" role="region" aria-labelledby="annualTableCaption">
                     <table class="stock-scenario-table" id="annualTable">
-                        <caption id="annualTableCaption">Årliga resultat och balansräkningsposter i USD</caption>
+                        <caption id="annualTableCaption">Årliga resultat och kassaflöden i USD; EPS i USD per aktie</caption>
                         <thead>
                             <tr id="annualTableHeaderRow">
                                 <th>Räkenskapsår</th>
@@ -496,7 +501,7 @@
                 <div class="research-chart-wrap">
                     <canvas id="quarterlyChart" aria-label="Diagram över kvartalsvis finansiell utveckling"></canvas>
                 </div>
-                <div class="stock-scenario-table-wrap" id="quarterlyTableWrap">
+                <div class="stock-scenario-table-wrap" id="quarterlyTableWrap" tabindex="0" role="region" aria-labelledby="quarterlyTableCaption">
                     <table class="stock-scenario-table" id="quarterlyTable">
                         <caption id="quarterlyTableCaption">Kvartalsdata och säkert härledda fristående kvartal i USD</caption>
                         <thead>
@@ -540,7 +545,7 @@
                     </div>
                 </div>
                 <p class="thesis-intro-text">
-                    Sammanfatta din analys och sparas lokalt på denna enheten för framtida referens.
+                    Redigera din senaste analys. Spara en ny version när din tes eller dina antaganden ändras; tidigare versioner finns kvar på den här enheten.
                 </p>
 
                 <!-- Thesis Status Banner -->
@@ -605,8 +610,8 @@
                     </fieldset>
 
                     <div class="thesis-form-actions">
-                        <button type="submit" class="thesis-submit-btn">Spara min analys</button>
-                        <button type="button" id="thesisDeleteBtn" class="ghost-btn thesis-delete-btn" style="display: none;">Radera analys</button>
+                        <button type="submit" class="thesis-submit-btn">Spara ny version</button>
+                        <button type="button" id="thesisDeleteBtn" class="ghost-btn thesis-delete-btn" style="display: none;">Radera all historik</button>
                     </div>
                 </form>
 
@@ -622,7 +627,7 @@
                         🔒 Sparas lokalt på den här enheten. Ingen inloggning, ingen moln, ingen delning.
                     </p>
                     <details class="thesis-snapshot-details">
-                        <summary>Värdering vid sparning</summary>
+                        <summary>Senaste sparade värdering</summary>
                         <div class="thesis-snapshot-preview" id="thesisSnapshotPreview">
                             <!-- Snapshot data populated dynamically -->
                         </div>
@@ -630,7 +635,73 @@
                 </div>
             </section>
 
+            <section class="card research-card-block" aria-labelledby="research-export-heading">
+                <h2 id="research-export-heading">Exportera sparad analys</h2>
+                <p id="researchExportSource" class="note" role="status" aria-live="polite"></p>
+                <div class="research-export-actions">
+                    <button type="button" id="researchExportMarkdown" class="ghost-btn" disabled>Ladda ner Markdown</button>
+                    <button type="button" id="researchExportPrint" class="ghost-btn" disabled>Utskriftsvy / PDF</button>
+                </div>
+                <p class="note">Välj senaste eller en historisk version under Sparade versioner. Osparade ändringar ingår inte.</p>
+            </section>
+
             <!-- Section H: Change Detection Since Thesis -->
+            <section class="card research-card-block" id="thesisHistorySection" aria-labelledby="thesis-history-heading" hidden>
+                <div class="section-heading">
+                    <div>
+                        <span class="section-kicker">Min analys</span>
+                        <h2 id="thesis-history-heading">Sparade versioner</h2>
+                    </div>
+                </div>
+                <p class="note">Välj en version för att läsa den och jämföra med aktuella bolagsdata. Formuläret ovan ändras inte.</p>
+                <div class="field-group">
+                    <label for="thesisRevisionSelect">Version (senaste först)</label>
+                    <select id="thesisRevisionSelect"></select>
+                </div>
+                <p id="revisionSelectionLabel" class="revision-selection-label" role="status" aria-live="polite"></p>
+                <details class="thesis-snapshot-details" id="revisionInspection" open>
+                    <summary>Läs vald version</summary>
+                    <div class="revision-inspection">
+                        <dl class="revision-text-grid">
+                            <div><dt>Min tes</dt><dd id="revisionText"></dd></div>
+                            <div><dt>Viktigaste risker</dt><dd id="revisionRisks"></dd></div>
+                            <div><dt>Vad skulle få mig att ändra mig?</dt><dd id="revisionTrigger"></dd></div>
+                            <div><dt>Anteckningar</dt><dd id="revisionNotes"></dd></div>
+                        </dl>
+                        <div id="revisionSnapshotPreview" class="thesis-snapshot-preview"></div>
+                    </div>
+                </details>
+                <button type="button" id="revisionRestoreBtn" class="ghost-btn" aria-describedby="revisionRestoreHelp">Använd dessa antaganden</button>
+                <p id="revisionRestoreHelp" class="note"></p>
+                <button type="button" id="revisionDeleteBtn" class="ghost-btn">Radera vald version</button>
+                <p class="note">Sparade utfallsobservationer behålls med en arkivkopia av källversionen även om en eller alla Research-versioner raderas.</p>
+            </section>
+
+            <section class="card research-card-block" id="outcomeSection" aria-labelledby="outcome-heading" hidden>
+                <h2 id="outcome-heading">Utfall sedan analysen</h2>
+                <p id="outcomeSource" class="note"></p>
+                <div id="outcomeCurrent">
+                    <form id="outcomeForm" class="calculator-form" novalidate>
+                        <div class="field-group">
+                            <label id="outcomePriceLabel" for="outcomeManualPrice">Observerad aktiekurs — manuell, valfri</label>
+                            <input id="outcomeManualPrice" type="number" min="0.01" step="any" inputmode="decimal" aria-describedby="outcomePriceHelp" />
+                            <small id="outcomePriceHelp" class="field-help">Separat från värderingskalkylen. Ingen kurs hämtas automatiskt.</small>
+                        </div>
+                        <button type="submit" class="ghost-btn">Uppdatera utfall</button>
+                    </form>
+                    <p id="outcomeStatus" class="note" role="status" aria-live="polite"></p>
+                    <div id="outcomeResults"></div>
+                    <button type="button" id="outcomeSave" class="ghost-btn" disabled>Spara utfallsobservation</button>
+                </div>
+                <details>
+                    <summary>Sparade utfallsobservationer</summary>
+                    <p id="outcomeHistoryNote" class="note"></p>
+                    <label for="outcomeCheckpointSelect">Observation</label>
+                    <select id="outcomeCheckpointSelect"></select>
+                    <div id="outcomeCheckpointContent"></div>
+                </details>
+            </section>
+
             <section class="card research-card-block change-section" id="changeDetectionSection" aria-labelledby="change-heading" style="display: none;">
                 <div class="section-heading">
                     <div>
@@ -639,6 +710,7 @@
                     </div>
                 </div>
 
+                <p id="changeBaselineLabel" class="note"></p>
                 <div id="changeDetectionContent" class="change-detection-content">
                     <!-- Populated dynamically -->
                 </div>
@@ -646,10 +718,10 @@
         </div>
 
         <!-- Provenance Inspection Modal / Overlay -->
-        <dialog id="provenanceDialog" class="provenance-dialog">
+        <dialog id="provenanceDialog" class="provenance-dialog" aria-labelledby="provenance-heading">
             <div class="provenance-dialog-inner">
                 <div class="provenance-dialog-header">
-                    <h3>Källhänvisning (SEC Provenance)</h3>
+                    <h3 id="provenance-heading">Källhänvisning (SEC Provenance)</h3>
                     <button type="button" class="close-dialog-btn" id="closeProvenanceDialog" aria-label="Stäng">✕</button>
                 </div>
                 <div class="provenance-dialog-body" id="provenanceDialogContent">
@@ -659,9 +731,22 @@
         </dialog>
     </main>
 
+    <section id="researchPrintView" class="research-print-view" aria-label="Utskriftsvy för sparad analys" hidden>
+        <div class="research-print-controls">
+            <button type="button" id="researchPrintBack" class="ghost-btn">Tillbaka till Research</button>
+            <button type="button" id="researchPrintSubmit" class="ghost-btn">Skriv ut / Spara som PDF</button>
+            <p>Välj Spara som PDF i webbläsarens utskriftsdialog. Stäng av webbläsarens sidhuvud och sidfot för en ren utskrift.</p>
+        </div>
+        <article id="researchPrintContent" tabindex="-1"></article>
+    </section>
+
     <script src="script.js"></script>
+    <script src="research-snapshot.js"></script>
     <script src="thesis-storage.js"></script>
     <script src="change-detection.js"></script>
+    <script src="research-export.js"></script>
+    <script src="research-outcomes.js"></script>
+    <script src="research-outcome-ui.js"></script>
     <script src="research.js"></script>
 </body>
 </html>

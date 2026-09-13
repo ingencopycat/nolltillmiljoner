@@ -5210,16 +5210,17 @@ function initMinNtmPage() {
         const requiredCagr = snapshot.valuationResults?.requiredEpsCAGR;
 
         let subtitle = '';
-        if (futurePrice && baseCagr !== undefined) {
+        if (Number.isFinite(futurePrice) && Number.isFinite(baseCagr)) {
           subtitle = `Base case: $${futurePrice.toFixed(2)} (${baseCagr >= 0 ? '+' : ''}${baseCagr.toFixed(1)}%)`;
-        } else if (requiredCagr !== undefined) {
+        } else if (Number.isFinite(requiredCagr)) {
           subtitle = `Krävd EPS-tillväxt: ${requiredCagr >= 0 ? '+' : ''}${requiredCagr.toFixed(1)}% / år`;
         } else {
           subtitle = 'Thesis utan värdering';
         }
 
-        const date = new Date(thesis.updatedAt || thesis.createdAt);
-        const dateStr = date.toLocaleDateString('sv-SE', { month: 'short', day: 'numeric' });
+        const date = new Date(thesis.updatedAt || thesis.createdAt || NaN);
+        const dateStr = Number.isFinite(date.getTime()) ? date.toLocaleDateString('sv-SE', { month: 'short', day: 'numeric' }) : 'okänt datum';
+        const revisionLabel = `${thesis.revisionCount || 1} ${(thesis.revisionCount || 1) === 1 ? 'version' : 'versioner'}`;
 
         // Check for change badges (requires change-detection.js loaded)
         let badgeHtml = '';
@@ -5232,7 +5233,7 @@ function initMinNtmPage() {
             <div>
               <h3>${escapeHtml(thesis.ticker)} · ${escapeHtml(thesis.companyName || '')}</h3>
               <p>${escapeHtml(subtitle)}</p>
-              <p class="min-ntm-thesis-date">Uppdaterad ${escapeHtml(dateStr)} ${badgeHtml}</p>
+              <p class="min-ntm-thesis-date">Senaste ${escapeHtml(dateStr)} · ${revisionLabel} ${badgeHtml}</p>
             </div>
             <a class="ghost-btn" href="research.html?ticker=${encodeURIComponent(thesis.ticker)}">Öppna</a>
           </article>

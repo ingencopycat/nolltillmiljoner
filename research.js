@@ -67,7 +67,7 @@ function showLoading() {
     document.getElementById('researchDetail').style.display = 'none';
 }
 
-function showIndexView() {
+async function showIndexView() {
     currentStockData = null;
     document.getElementById('researchLoading').style.display = 'none';
     document.getElementById('researchError').style.display = 'none';
@@ -78,6 +78,24 @@ function showIndexView() {
     if (window.NTMRecentTools && typeof window.NTMRecentTools.record === 'function') {
         window.NTMRecentTools.record();
     }
+    await Promise.all(SUPPORTED_TICKERS.map(async (ticker) => {
+        const status = document.getElementById(`index-${ticker}-period`);
+        try {
+            const response = await fetch(`data/stocks/${ticker}.json`);
+            if (!response.ok) throw new Error('load');
+            const data = await response.json();
+            if (data.symbol !== ticker) throw new Error('ticker');
+            const snapshot = window.NTMResearchSnapshot.fromStockData(data);
+            const metrics = snapshot.ttmMetrics;
+            document.getElementById(`index-${ticker}-revenue`).textContent = formatCurrency(metrics.revenue, 2);
+            document.getElementById(`index-${ticker}-secondary`).textContent = formatCurrency(ticker === 'SOFI' ? metrics.netIncome : metrics.fcf, 2);
+            document.getElementById(`index-${ticker}-margin`).textContent = formatPercent(metrics.netMargin);
+            status.textContent = `TTM t.o.m. ${snapshot.asOfPeriod || 'okänd period'} · rapportperiod, inte dagens marknadsdata`;
+        } catch (error) {
+            for (const field of ['revenue', 'secondary', 'margin']) document.getElementById(`index-${ticker}-${field}`).textContent = '–';
+            status.textContent = 'Nyckeltalen kunde inte laddas. Öppna analysen för att försöka igen.';
+        }
+    }));
 }
 
 function showError(title, message) {
@@ -97,7 +115,7 @@ async function loadStockData(ticker) {
     if (!SUPPORTED_TICKERS.includes(ticker)) {
         showError(
             `Ticker '${ticker}' stöds inte i V1`,
-            `NTM Research V1 har stöd för verifierade bolagsmodeller för ${SUPPORTED_TICKERS.join(', ')}. Välj ett av dessa bolag nedan.`
+            `NTM Research V1 har bolagsanpassad normalisering för ${SUPPORTED_TICKERS.join(', ')}. Välj ett av dessa bolag nedan.`
         );
         return;
     }
@@ -110,6 +128,7 @@ async function loadStockData(ticker) {
             throw new Error(`HTTP ${response.status} när data/stocks/${ticker}.json hämtades`);
         }
         const data = await response.json();
+        if (data.symbol !== ticker || !Array.isArray(data.annual) || !Array.isArray(data.quarterly)) throw new Error('Bolagsfilen har fel ticker eller format');
         currentStockData = data;
         renderStockDetail(data);
 
@@ -156,13 +175,14 @@ function renderStockDetail(data) {
     document.getElementById('companyCikPill').textContent = `CIK ${company.cik || ''}`;
     
     // Format Fiscal year end text
-    const fye = company.fiscalYearEnd || '1231';
+    const fye = company.fiscalYearEnd || 'datum saknas';
     const fyeText = formatFye(fye);
     document.getElementById('companyMetaLine').textContent = `${company.ticker} • ${company.sicDescription || 'Verksamhet'} • Räkenskapsår slutar ${fyeText}`;
 
     // Last updated
-    const lastUpd = company.lastUpdated ? new Date(company.lastUpdated).toLocaleDateString('sv-SE') : 'Nyligen';
-    document.getElementById('companyLastUpdated').textContent = `Bokslutsdata per ${lastUpd}`;
+    const fetched = company.lastUpdated || metadata.lastUpdated;
+    const lastUpd = fetched && Number.isFinite(Date.parse(fetched)) ? new Date(fetched).toLocaleDateString('sv-SE') : 'datum saknas';
+    document.getElementById('companyLastUpdated').textContent = `Datafil uppdaterad ${lastUpd} · rapportperiod ${data.ttm?.asOfPeriod || 'saknas'}`;
 
     // 2. Render Key Metrics (TTM & Latest Balance Sheet)
     renderKeyMetrics(data);
@@ -174,7 +194,8 @@ function renderStockDetail(data) {
     initValuationSection(data);
 
     // 5. Render Annual & Quarterly Charts
-    renderCharts(data);
+    try { renderCharts(data); }
+    catch (error) { document.getElementById('researchChartStatus').textContent = 'Diagrammen kunde inte visas. Nyckeltal och tabeller finns kvar nedan.'; }
 
     // 6. Render Tables
     renderAnnualTable(data);
@@ -203,7 +224,7 @@ function formatFye(fye) {
 // ============================================================================
 
 function formatCurrency(val, decimals = 1, showPlus = false) {
-    if (val === null || val === undefined || isNaN(val)) return '–';
+    if (!Number.isFinite(val)) return '–';
     const num = Number(val);
     const sign = num < 0 ? '-' : showPlus && num > 0 ? '+' : '';
     const abs = Math.abs(num);
@@ -224,15 +245,10 @@ function formatCurrency(val, decimals = 1, showPlus = false) {
 }
 
 function formatPercent(val, decimals = 1, showPlus = false) {
-    if (val === null || val === undefined || isNaN(val)) return '–';
+    if (!Number.isFinite(val)) return '–';
     const num = Number(val);
     const sign = showPlus && num > 0 ? '+' : '';
     return `${sign}${num.toFixed(decimals)}%`;
-}
-
-function formatNumber(val, decimals = 2) {
-    if (val === null || val === undefined || isNaN(val)) return '–';
-    return Number(val).toFixed(decimals);
 }
 
 // ============================================================================
@@ -252,7 +268,7 @@ function renderKeyMetrics(data) {
     // Get latest quarterly balance sheet for instant metrics
     const quarters = data.quarterly || [];
     const latestQ = quarters.length > 0 ? quarters[quarters.length - 1] : null;
-    const latestQMetrics = latestQ ? latestQ.metrics : {};
+    const latestQMetrics = latestQ?.metrics || {};
 
     const profile = data.metadata?.profile;
 
@@ -330,9 +346,9 @@ function renderKeyMetrics(data) {
     // 7. Total Debt (if supported)
     if (latestQMetrics.debt && latestQMetrics.debt.value !== null) {
         cards.push({
-            title: 'Total skuld',
+            title: latestQMetrics.debt.concept === 'LongTermDebtNoncurrent' ? 'Långfristig skuld (ej kortfristig del)' : 'Rapporterad skuldkomponent',
             value: formatCurrency(latestQMetrics.debt.value, 2),
-            sub: latestQMetrics.debt.label || `Per ${latestQ.period}`,
+            sub: `${latestQMetrics.debt.concept || 'Skuld enligt vald SEC-mappning'} · per ${latestQ.period}. Täcker inte nödvändigtvis all skuld.`,
             metricKey: 'debt',
             provenance: latestQMetrics.debt,
         });
@@ -460,7 +476,7 @@ function renderGrowthAndMargins(data) {
     }
 
     // 3. Net Margin TTM
-    if (ttm.revenue?.value && ttm.netIncome?.value !== null && ttm.revenue?.value > 0) {
+    if (ttm.revenue?.value > 0 && Number.isFinite(ttm.netIncome?.value)) {
         const netMargin = (ttm.netIncome.value / ttm.revenue.value) * 100;
         items.push({
             label: 'Nettomarginal TTM',
@@ -544,6 +560,11 @@ function getThemeColors() {
 }
 
 function renderCharts(data) {
+    if (typeof Chart !== 'function') {
+        document.getElementById('researchChartStatus').textContent = 'Diagramverktyget kunde inte laddas. Alla nyckeltal och tabeller kan fortfarande användas.';
+        return;
+    }
+    document.getElementById('researchChartStatus').textContent = '';
     const colors = getThemeColors();
     const annuals = data.annual || [];
     const quarters = data.quarterly || [];
@@ -557,8 +578,8 @@ function renderCharts(data) {
         }
 
         const labels = annuals.map((a) => a.period);
-        const revData = annuals.map((a) => a.metrics?.revenue?.value !== null ? a.metrics.revenue.value / 1e9 : null);
-        const netIncData = annuals.map((a) => a.metrics?.netIncome?.value !== null ? a.metrics.netIncome.value / 1e9 : null);
+        const revData = annuals.map((a) => Number.isFinite(a.metrics?.revenue?.value) ? a.metrics.revenue.value / 1e9 : null);
+        const netIncData = annuals.map((a) => Number.isFinite(a.metrics?.netIncome?.value) ? a.metrics.netIncome.value / 1e9 : null);
         const fcfData = annuals.map((a) => a.metrics?.freeCashFlow?.value !== null && a.metrics.freeCashFlow?.value !== undefined ? a.metrics.freeCashFlow.value / 1e9 : null);
 
         const datasets = [
@@ -626,8 +647,8 @@ function renderCharts(data) {
         }
 
         const labels = quarters.map((q) => q.period);
-        const revData = quarters.map((q) => q.metrics?.revenue?.value !== null ? q.metrics.revenue.value / 1e9 : null);
-        const netIncData = quarters.map((q) => q.metrics?.netIncome?.value !== null ? q.metrics.netIncome.value / 1e9 : null);
+        const revData = quarters.map((q) => Number.isFinite(q.metrics?.revenue?.value) ? q.metrics.revenue.value / 1e9 : null);
+        const netIncData = quarters.map((q) => Number.isFinite(q.metrics?.netIncome?.value) ? q.metrics.netIncome.value / 1e9 : null);
         const fcfData = quarters.map((q) => q.metrics?.freeCashFlow?.value !== null && q.metrics.freeCashFlow?.value !== undefined ? q.metrics.freeCashFlow.value / 1e9 : null);
 
         const datasets = [
@@ -796,15 +817,19 @@ function createMetricCell(metric) {
     }
 
     const valFormatted = formatCurrency(metric.value, 2);
-    td.textContent = valFormatted;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'metric-source-button';
+    button.textContent = valFormatted;
+    button.setAttribute('aria-label', `${metric.label || 'Nyckeltal'}: ${valFormatted}. Visa källa`);
+    button.onclick = () => openProvenanceDialog(metric.label || 'Nyckeltal', metric);
+    td.appendChild(button);
 
     if (metric.isDerived) {
         td.title = `${metric.derivationNotes || 'Härlett värde'} (Klicka för källa)`;
         td.classList.add('cell-derived');
     }
 
-    td.style.cursor = 'pointer';
-    td.addEventListener('click', () => openProvenanceDialog(metric.label || 'Nyckeltal', metric));
     return td;
 }
 
@@ -828,7 +853,7 @@ function renderFilings(data) {
         const item = document.createElement('div');
         item.className = 'filing-item-card';
 
-        const formBadgeClass = f.form.includes('10-K') ? 'badge-primary' : 'badge-accent';
+        const formBadgeClass = f.form?.includes('10-K') ? 'badge-primary' : 'badge-accent';
 
         item.innerHTML = `
             <div class="filing-item-left">
@@ -861,7 +886,7 @@ function openProvenanceDialog(title, provenance) {
 
     let rowsHtml = `
         <div class="prov-row"><span class="prov-label">Metrik:</span><span class="prov-val"><strong>${escapeHtml(title)}</strong></span></div>
-        <div class="prov-row"><span class="prov-label">Rapporterat värde:</span><span class="prov-val">${provenance.value !== null ? provenance.value.toLocaleString('sv-SE') + ' ' + (provenance.unit || 'USD') : 'null (unsupported)'}</span></div>
+        <div class="prov-row"><span class="prov-label">${provenance.isDerived ? 'Härlett värde' : 'Rapporterat värde'}:</span><span class="prov-val">${Number.isFinite(provenance.value) ? provenance.value.toLocaleString('sv-SE') + ' ' + escapeHtml(provenance.unit || 'enhet saknas') : 'Ej tillgängligt'}</span></div>
         <div class="prov-row"><span class="prov-label">Källa:</span><span class="prov-val">Officiell SEC EDGAR XBRL</span></div>
     `;
 
@@ -899,6 +924,7 @@ function openProvenanceDialog(title, provenance) {
         rowsHtml += `<div class="prov-row"><span class="prov-label">Motivering:</span><span class="prov-val">${escapeHtml(provenance.unsupportedReason)}</span></div>`;
     }
 
+    if (provenance.notes) rowsHtml += `<div class="prov-row"><span class="prov-label">Begränsningar:</span><span class="prov-val">${escapeHtml(provenance.notes)}</span></div>`;
     content.innerHTML = rowsHtml;
 
     if (typeof dialog.showModal === 'function') {
@@ -927,9 +953,13 @@ let valuationState = {
     isManualEps: false,
     calculated: false,
     stale: false,
+    lastCalculatedInputs: null,
 };
 
 function initValuationSection(data) {
+    valuationState.calculated = false;
+    valuationState.stale = true;
+    document.getElementById('assumptionRestoreNotice').hidden = true;
     const valSection = document.getElementById('valuationSection');
     if (!valSection) return;
 
@@ -953,7 +983,7 @@ function initValuationSection(data) {
     const epsBadge = document.getElementById('val-eps-badge');
     const epsHelp = document.getElementById('val-eps-help');
 
-    if (ttmEpsVal !== null && ttmEpsVal !== undefined && ttmEpsVal > 0) {
+    if (Number.isFinite(ttmEpsVal) && Number(ttmEpsVal.toFixed(2)) > 0) {
         valuationState.isManualEps = false;
         if (overrideBanner) overrideBanner.style.display = 'none';
         if (epsInput) epsInput.value = ttmEpsVal.toFixed(2);
@@ -967,9 +997,9 @@ function initValuationSection(data) {
         valuationState.isManualEps = true;
         if (overrideBanner) {
             overrideBanner.style.display = 'block';
-            document.getElementById('val-override-title').textContent = 'TTM EPS saknas i SEC-data';
+            document.getElementById('val-override-title').textContent = 'Positiv, användbar TTM EPS saknas för kalkylen';
             document.getElementById('val-override-desc').textContent = (
-                vb.ttmDilutedShares?.notes ||
+                vb.ttmDilutedEps?.notes || vb.ttmDilutedShares?.notes ||
                 'Bolagets TTM EPS kan inte härledas automatiskt från SEC-data (t.ex. på grund av aktiesplit mitt i perioden). ' +
                 'Ange en antagen EPS manuellt nedan för att räkna på värdering och framtidsscenarier.'
             );
@@ -981,7 +1011,7 @@ function initValuationSection(data) {
             epsBadge.textContent = 'Manuell';
             epsBadge.classList.add('manual');
         }
-        if (epsHelp) epsHelp.textContent = 'Manuell EPS-inmatning för värderingskalkylen.';
+        if (epsHelp) epsHelp.textContent = 'Manuell EPS. Förifyllt 1,00 är ett räkneexempel, inte rapporterad vinst; ersätt med ditt eget antagande.';
     }
 
     // Default return and years
@@ -1040,6 +1070,7 @@ function initValuationSection(data) {
     }
 
     // 4. Initial Calculation
+    valuationState.lastCalculatedInputs = readEditableAssumptions();
     calculateValuation(data);
 }
 
@@ -1063,6 +1094,7 @@ function showValuationError(msg) {
 }
 
 function calculateValuation(data) {
+    valuationState.stale = true;
     const banner = document.getElementById('valuationStatusBanner');
     const vb = data.valuationBase || {};
     const ttm = data.ttm?.metrics || {};
@@ -1071,7 +1103,7 @@ function calculateValuation(data) {
     const price = parseFloat(document.getElementById('val-price').value);
     const eps = parseFloat(document.getElementById('val-eps').value);
     const reqReturn = parseFloat(document.getElementById('val-return').value);
-    const years = parseInt(document.getElementById('val-years').value, 10);
+    const years = Number(document.getElementById('val-years').value);
     const exitPE = parseFloat(document.getElementById('val-exit-pe').value);
 
     const bearGrowth = parseFloat(document.getElementById('sc-bear-growth').value);
@@ -1082,6 +1114,10 @@ function calculateValuation(data) {
     const bullPE = parseFloat(document.getElementById('sc-bull-pe').value);
 
     // Validation
+    if (![price, eps, reqReturn, years, exitPE, bearGrowth, bearPE, baseGrowth, basePE, bullGrowth, bullPE].every(Number.isFinite)) {
+        showValuationError('Alla antaganden måste vara ändliga tal.');
+        return;
+    }
     if (isNaN(price) || price <= 0) {
         showValuationError('Aktiekurs måste vara större än 0.');
         return;
@@ -1090,24 +1126,38 @@ function calculateValuation(data) {
         showValuationError('EPS måste vara större än 0 för P/E- och tillväxtberäkning. Ange ett positivt värde för framtida normaliserad intjäning per aktie.');
         return;
     }
-    if (isNaN(years) || years < 1) {
-        showValuationError('Tidshorisonten måste vara minst 1 år.');
+    if (!Number.isInteger(years) || years < 1 || years > 50) {
+        showValuationError('Tidshorisonten måste vara ett heltal mellan 1 och 50 år.');
         return;
     }
-    if (isNaN(reqReturn) || reqReturn <= -100) {
-        showValuationError('Önskad avkastning måste vara större än -100 %.');
+    if (reqReturn < -99.9 || reqReturn > 1000) {
+        showValuationError('Önskad avkastning måste vara mellan -99,9 och 1000 %.');
         return;
     }
-    if (isNaN(exitPE) || exitPE <= 0) {
-        showValuationError('Exit P/E måste vara större än 0.');
+    if (exitPE < 0.1 || exitPE > 1000) {
+        showValuationError('Exit P/E måste vara mellan 0,1 och 1000.');
         return;
     }
-    if (isNaN(bearGrowth) || bearGrowth <= -100 || isNaN(baseGrowth) || baseGrowth <= -100 || isNaN(bullGrowth) || bullGrowth <= -100) {
-        showValuationError('EPS-tillväxt i scenarierna måste vara större än -100 %.');
+    if ([bearGrowth, baseGrowth, bullGrowth].some((value) => value < -99.9 || value > 1000)) {
+        showValuationError('EPS-tillväxt i scenarierna måste vara mellan -99,9 och 1000 %.');
         return;
     }
-    if (isNaN(bearPE) || bearPE <= 0 || isNaN(basePE) || basePE <= 0 || isNaN(bullPE) || bullPE <= 0) {
-        showValuationError('Framtida P/E i scenarierna måste vara större än 0.');
+    if ([bearPE, basePE, bullPE].some((value) => value < 0.1 || value > 1000)) {
+        showValuationError('Framtida P/E i scenarierna måste vara mellan 0,1 och 1000.');
+        return;
+    }
+
+    // Reject overflow before replacing any previous results (including the sensitivity grid).
+    const reversePrice = price * Math.pow(1 + reqReturn / 100, years);
+    const checks = [price / eps, reversePrice, reversePrice / exitPE,
+        Math.pow(reversePrice / exitPE / eps, 1 / years)];
+    for (const [growth, pe] of [[bearGrowth, bearPE], [baseGrowth, basePE], [bullGrowth, bullPE], [baseGrowth + 10, basePE + 10]]) {
+        const futureEps = eps * Math.pow(1 + growth / 100, years);
+        const futurePrice = futureEps * pe;
+        checks.push(futureEps, futurePrice, futurePrice / price * 100, Math.pow(futurePrice / price, 1 / years));
+    }
+    if (!checks.every(Number.isFinite)) {
+        showValuationError('Antagandena ger för stora tal för en tillförlitlig beräkning. Minska värdena.');
         return;
     }
 
@@ -1119,7 +1169,7 @@ function calculateValuation(data) {
     const pfcfBox = document.getElementById('val-pfcf-box');
     const fcfPsBox = document.getElementById('val-fcf-ps-box');
 
-    if (profile !== 'financial_services' && fcfPsVal !== null && fcfPsVal !== undefined && fcfPsVal > 0) {
+    if (profile !== 'financial_services' && Number.isFinite(fcfPsVal) && fcfPsVal > 0 && Number.isFinite(price / fcfPsVal)) {
         const pfcf = price / fcfPsVal;
         pfcfBox.style.display = 'flex';
         fcfPsBox.style.display = 'flex';
@@ -1186,6 +1236,7 @@ function calculateValuation(data) {
     if (banner) banner.style.display = 'none';
     valuationState.stale = false;
     valuationState.calculated = true;
+    valuationState.lastCalculatedInputs = readEditableAssumptions();
 }
 
 function renderReverseValuationContext(data, requiredEPSCAGR) {
@@ -1252,16 +1303,16 @@ function renderSensitivityMatrix({ price, eps, years, baseGrowth, basePE }) {
 
     // Generate 5 rows of EPS growth centered on baseGrowth
     const growthOffsets = [-10, -5, 0, 5, 10];
-    const rowGrowths = growthOffsets.map((offset) => Math.max(-50, baseGrowth + offset));
+    const rowGrowths = growthOffsets.map((offset) => Math.max(-99.9, baseGrowth + offset));
 
     // Generate 5 columns of Exit P/E centered on basePE
     const peOffsets = [-10, -5, 0, 5, 10];
-    const colPEs = peOffsets.map((offset) => Math.max(5, basePE + offset));
+    const colPEs = peOffsets.map((offset) => Math.max(0.1, basePE + offset));
 
     let html = '<thead><tr>';
     html += '<th class="sens-corner-header">EPS-tillväxt \\ Exit P/E</th>';
     colPEs.forEach((pe) => {
-        html += `<th class="sens-header-col">${pe.toFixed(0)}x</th>`;
+        html += `<th class="sens-header-col">${pe.toFixed(1)}x</th>`;
     });
     html += '</tr></thead><tbody>';
 
@@ -1311,15 +1362,18 @@ let currentThesisState = {
     ticker: null,
     thesis: null,
     isDirty: false,
+    selectedRevisionId: null,
 };
 
 function initThesisSection(data) {
     if (!data || !data.symbol) return;
 
+    if (currentThesisState.ticker !== data.symbol) currentThesisState.selectedRevisionId = null;
     currentThesisState.ticker = data.symbol;
+    currentThesisState.isDirty = false;
 
     // 1. Load existing thesis from localStorage
-    const { thesis, error: readError } = window.NTMThesisStorage.get(data.symbol);
+    const { thesis, error: readError, warning } = window.NTMThesisStorage.get(data.symbol);
     currentThesisState.thesis = thesis;
 
     // 2. Populate form fields
@@ -1342,10 +1396,6 @@ function initThesisSection(data) {
         const deleteBtn = document.getElementById('thesisDeleteBtn');
         if (deleteBtn) deleteBtn.style.display = 'inline-block';
 
-        // Show snapshot preview
-        if (thesis.valuationSnapshot) {
-            displayThesisSnapshotPreview(thesis.valuationSnapshot);
-        }
     } else {
         // Clear form
         if (thesisText) thesisText.value = '';
@@ -1371,7 +1421,7 @@ function initThesisSection(data) {
     const deleteBtn = document.getElementById('thesisDeleteBtn');
     if (deleteBtn) {
         deleteBtn.onclick = () => {
-            if (confirm('Är du säker på att du vill radera denna analys?')) {
+            if (confirm('Radera alla sparade versioner för detta bolag? Detta kan inte ångras.')) {
                 deleteStoredThesis();
             }
         };
@@ -1390,6 +1440,9 @@ function initThesisSection(data) {
     // 5. Show thesis metadata
     const metadataDiv = document.getElementById('thesisMetadata');
     if (metadataDiv) metadataDiv.style.display = 'block';
+    displayThesisSnapshotPreview(thesis?.valuationSnapshot);
+    renderRevisionHistory(data);
+    if (readError || warning) showThesisError(readError || warning);
 }
 
 function saveThesis(data) {
@@ -1440,12 +1493,16 @@ function saveThesis(data) {
     }
 
     // Update state
-    currentThesisState.thesis = { ...thesis, ticker, createdAt: result.createdAt, updatedAt: result.updatedAt };
+    currentThesisState.thesis = window.NTMThesisStorage.get(ticker).thesis;
     currentThesisState.isDirty = false;
+    currentThesisState.selectedRevisionId = result.revisionId;
 
     // Show success
-    showThesisSuccess(thesis.valuationSnapshot);
-    showThesisSavedIndicator(new Date().toISOString());
+    showThesisSuccess(thesis.valuationSnapshot, result.created);
+    showThesisSavedIndicator(result.updatedAt);
+    displayThesisSnapshotPreview(currentThesisState.thesis?.valuationSnapshot);
+    renderRevisionHistory(data);
+    initChangeDetection(data);
 
     // Show delete button
     const deleteBtn = document.getElementById('thesisDeleteBtn');
@@ -1472,26 +1529,12 @@ function captureValuationSnapshot(data) {
     const bullGrowth = parseFloat(document.getElementById('sc-bull-growth')?.value || 0);
     const bullPE = parseFloat(document.getElementById('sc-bull-pe')?.value || 0);
 
-    const vb = data.valuationBase || {};
-    const ttm = data.ttm || {};
-    const asOfPeriod = ttm.asOfPeriod || '';
-
     // Snapshot structure
     const snapshot = {
+        ...window.NTMResearchSnapshot.fromStockData(data),
         capturedAt: new Date().toISOString(),
-        asOfPeriod,
         ticker: data.symbol,
         companyName: data.company?.name || '',
-
-        // Research Data Snapshot
-        ttmMetrics: {
-            revenue: vb.ttmRevenue?.value || null,
-            revenueLabel: vb.ttmRevenue?.label || '',
-            eps: vb.ttmDilutedEps?.value || null,
-            dilutedShares: vb.ttmDilutedShares?.value || null,
-            fcf: vb.ttmFreeCashFlow?.value || null,
-            fcfPerShare: vb.ttmFcfPerShare?.value || null,
-        },
 
         // Valuation Assumptions
         valuationInputs: {
@@ -1537,7 +1580,7 @@ function captureValuationSnapshot(data) {
         },
     };
 
-    return snapshot;
+    return window.NTMResearchSnapshot.normalize(snapshot);
 }
 
 function calculateRequiredEpsCAGR(price, eps, reqReturn, years, exitPE) {
@@ -1571,13 +1614,17 @@ function showThesisSavedIndicator(savedTimestamp) {
     if (!indicator) return;
 
     // Format timestamp
-    const date = new Date(savedTimestamp);
+    const date = new Date(savedTimestamp || NaN);
     const now = new Date();
     const diffMs = now - date;
     const diffMins = Math.floor(diffMs / 60000);
 
     let timeText = 'nyligen';
-    if (diffMins < 1) {
+    if (!Number.isFinite(date.getTime())) {
+        timeText = 'datum saknas';
+    } else if (diffMins < 0) {
+        timeText = date.toLocaleDateString('sv-SE');
+    } else if (diffMins < 1) {
         timeText = 'just nu';
     } else if (diffMins < 60) {
         timeText = `för ${diffMins} min sedan`;
@@ -1606,12 +1653,237 @@ function showThesisError(msg) {
     }
 }
 
-function showThesisSuccess(snapshot) {
+function formatRevisionDate(value) {
+    const date = value ? new Date(value) : null;
+    return date && Number.isFinite(date.getTime())
+        ? date.toLocaleString('sv-SE', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })
+        : 'okänt datum';
+}
+
+function showThesisStatus(message) {
+    const banner = document.getElementById('thesisStatusBanner');
+    if (!banner) return;
+    banner.className = 'calc-status-banner calc-status-success';
+    banner.textContent = message;
+    banner.style.display = 'block';
+}
+
+// Explicit allowlist: historical outputs and fundamentals never enter the editor.
+const assumptionFields = {
+    'val-price': ['stockPrice', 0.01, Infinity],
+    'val-return': ['requiredReturn', -99.9, 1000],
+    'val-years': ['years', 1, 50],
+    'val-exit-pe': ['exitPE', 0.1, 1000],
+};
+
+function readEditableAssumptions() {
+    const ids = [...Object.keys(assumptionFields), 'val-eps',
+        ...['bear', 'base', 'bull'].flatMap((name) => [`sc-${name}-growth`, `sc-${name}-pe`])];
+    return Object.fromEntries([...ids.map((id) => {
+        const raw = String(document.getElementById(id).value).trim();
+        return [id, raw !== '' && Number.isFinite(Number(raw)) ? Number(raw) : raw];
+    }), ['epsMode', valuationState.isManualEps]]);
+}
+
+function planAssumptionRestore(snapshot, data) {
+    const normalized = window.NTMResearchSnapshot.normalize(snapshot);
+    const values = {};
+    if (!normalized) return { values, partial: true };
+    const accept = (id, value, min, max) => {
+        if (Number.isFinite(value) && value >= min && value <= max &&
+            (id !== 'val-years' || Number.isInteger(value))) values[id] = value;
+    };
+    for (const [id, [field, min, max]] of Object.entries(assumptionFields)) {
+        accept(id, normalized.valuationInputs[field], min, max);
+    }
+    for (const name of ['bear', 'base', 'bull']) {
+        const scenario = normalized.scenarios[name];
+        accept(`sc-${name}-growth`, scenario?.growth, -99.9, 1000);
+        accept(`sc-${name}-pe`, scenario?.exitPE, 0.1, 1000);
+    }
+    const source = normalized.valuationInputs.epsSource;
+    const eps = source === 'manual' ? normalized.valuationInputs.epsBasis
+        : source === 'sec' ? data?.valuationBase?.ttmDilutedEps?.value : null;
+    if (Number.isFinite(eps) && eps > 0) {
+        const input = source === 'sec' ? Number(eps.toFixed(2)) : eps;
+        if (input > 0) {
+            values['val-eps'] = input;
+            values.epsMode = source === 'manual';
+        }
+    }
+    return { values, partial: Object.keys(values).length < 12 };
+}
+
+function restoreRevisionAssumptions(revision, data) {
+    const { values, partial } = planAssumptionRestore(revision.valuationSnapshot, data);
+    if (!Object.keys(values).length) return;
+    const current = readEditableAssumptions();
+    const baseline = valuationState.lastCalculatedInputs || current;
+    const overwritesEdits = Object.keys(values).some((id) =>
+        current[id] !== values[id] && current[id] !== baseline[id]);
+    if (overwritesEdits && !confirm('Ersätta dina ändrade, ännu inte beräknade antaganden med den sparade versionens antaganden?')) return;
+    for (const [id, value] of Object.entries(values)) {
+        if (id !== 'epsMode') document.getElementById(id).value = String(value);
+    }
+    if (Object.hasOwn(values, 'epsMode')) {
+        valuationState.isManualEps = values.epsMode;
+        const badge = document.getElementById('val-eps-badge');
+        badge.textContent = values.epsMode ? 'Manuell' : 'SEC TTM';
+        badge.classList[values.epsMode ? 'add' : 'remove']('manual');
+        document.getElementById('val-eps-help').textContent = values.epsMode
+            ? 'Manuell EPS kopierad från sparad version. Kan ändras i aktuell kalkyl.'
+            : 'EPS från aktuella SEC-data, inte från den historiska versionen.';
+    }
+    const notice = document.getElementById('assumptionRestoreNotice');
+    notice.hidden = false;
+    notice.textContent = `Antaganden kopierades från version ${formatRevisionDate(revision.savedAt)} (${revision.valuationSnapshot?.asOfPeriod || 'period saknas'}). Detta är din aktuella arbetskalkyl; du kan ändra fälten. Den sparade versionen är oförändrad. `
+        + (Object.hasOwn(values, 'val-price') ? `Kopierad kurs $${values['val-price']} är historiskt sparad, inte en aktuell marknadskurs. ` : '')
+        + (Object.hasOwn(values, 'epsMode') ? (values.epsMode ? 'Manuell EPS kopierades. ' : 'Aktuell SEC EPS hämtades till kalkylen. ') : 'EPS-fältet och dess källa behölls; historisk EPS kunde inte återanvändas säkert. ')
+        + (partial ? 'Vissa antaganden saknas eller är inkompatibla; dessa fält behöll sina värden. ' : '')
+        + 'Beräkna värdering & scenarier innan du sparar en ny version.';
+    markValuationStale();
+    document.getElementById('valuationForm').scrollIntoView?.({ block: 'start' });
+    document.getElementById('val-price').focus?.({ preventScroll: true });
+}
+
+function renderRevisionHistory(data) {
+    const section = document.getElementById('thesisHistorySection');
+    if (!section) return;
+    const { thesis } = window.NTMThesisStorage.get(data?.symbol || currentThesisState.ticker);
+    const select = document.getElementById('thesisRevisionSelect');
+    select.innerHTML = '';
+    section.hidden = !thesis;
+    if (!thesis) {
+        renderResearchExportControls(data?.symbol, null, null);
+        window.NTMResearchOutcomeUI.init(data, null);
+        currentThesisState.selectedRevisionId = null;
+        document.getElementById('revisionSnapshotPreview').innerHTML = '';
+        for (const id of ['revisionSelectionLabel', 'revisionText', 'revisionRisks', 'revisionTrigger', 'revisionNotes']) {
+            document.getElementById(id).textContent = '';
+        }
+        return;
+    }
+    const selected = thesis.revisions.find((r) => r.id === currentThesisState.selectedRevisionId)
+        || thesis.revisions[thesis.revisions.length - 1];
+    currentThesisState.selectedRevisionId = selected.id;
+    renderResearchExportControls(data?.symbol, thesis, selected);
+    window.NTMResearchOutcomeUI.init(data, selected);
+    for (const revision of [...thesis.revisions].reverse()) {
+        const base = revision.valuationSnapshot?.scenarios?.base;
+        const price = Number.isFinite(base?.futurePrice) ? ` · Base $${base.futurePrice.toFixed(2)}` : '';
+        const cagr = Number.isFinite(base?.cagr) ? ` · ${base.cagr.toFixed(1)}%/år` : '';
+        const option = document.createElement('option');
+        option.value = revision.id;
+        option.textContent = `${revision.id === thesis.latestRevisionId ? 'Senaste · ' : ''}${formatRevisionDate(revision.savedAt)} · ${revision.valuationSnapshot?.asOfPeriod || 'Period saknas'}${price}${cagr}`;
+        select.appendChild(option);
+    }
+    select.value = selected.id;
+    select.onchange = () => selectThesisRevision(select.value, data);
+    document.getElementById('revisionSelectionLabel').textContent =
+        `${selected.id === thesis.latestRevisionId ? 'Senaste sparade version' : 'Historisk version'} · ${formatRevisionDate(selected.savedAt)} · ${selected.valuationSnapshot?.asOfPeriod || 'Period saknas'} · Visas endast för läsning.`;
+    for (const [id, field] of [['revisionText', 'text'], ['revisionRisks', 'risks'], ['revisionTrigger', 'triggerChange'], ['revisionNotes', 'notes']]) {
+        document.getElementById(id).textContent = selected[field] || 'Inte angivet';
+    }
+    displayThesisSnapshotPreview(selected.valuationSnapshot, 'revisionSnapshotPreview');
+    const restorePlan = planAssumptionRestore(selected.valuationSnapshot, data);
+    const restoreButton = document.getElementById('revisionRestoreBtn');
+    restoreButton.disabled = !Object.keys(restorePlan.values).length;
+    restoreButton.onclick = () => restoreRevisionAssumptions(selected, data);
+    document.getElementById('revisionRestoreHelp').textContent = restoreButton.disabled
+        ? 'Den här versionen saknar kompatibla antaganden att använda.'
+        : 'Kopiera till aktuell kalkyl och beräkna igen. Text och sparade versioner ändras inte.';
+    document.getElementById('revisionDeleteBtn').onclick = () => {
+        if (confirm(`Radera versionen sparad ${formatRevisionDate(selected.savedAt)}? Övriga versioner behålls. Detta kan inte ångras.`)) {
+            deleteSelectedRevision(data);
+        }
+    };
+}
+
+function renderResearchExportControls(ticker, thesis, selected) {
+    const label = document.getElementById('researchExportSource');
+    const markdown = document.getElementById('researchExportMarkdown');
+    const print = document.getElementById('researchExportPrint');
+    markdown.disabled = print.disabled = !selected;
+    label.textContent = selected
+        ? `Exportkälla: ${selected.id === thesis.latestRevisionId ? 'senaste sparade version' : 'historisk version'} · ${formatRevisionDate(selected.savedAt)} · ${selected.valuationSnapshot?.asOfPeriod || 'period saknas'}. Endast sparade uppgifter exporteras.`
+        : 'Spara en analysversion innan du exporterar. Ingen läsbar sparad version finns för detta bolag.';
+    const getDocument = () => {
+        // Read again at click time; never silently switch sources if a revision disappeared.
+        const { thesis: saved } = window.NTMThesisStorage.get(ticker);
+        const revision = saved?.revisions.find((item) => item.id === selected?.id);
+        if (!revision) {
+            label.textContent = 'Den valda versionen kan inte längre läsas. Välj en sparad version igen.';
+            return null;
+        }
+        return window.NTMResearchExport.build(ticker, revision, saved.latestRevisionId);
+    };
+    markdown.onclick = () => {
+        const document = getDocument();
+        if (!document) return;
+        try { window.NTMResearchExport.download(document); }
+        catch (error) { label.textContent = 'Nedladdningen kunde inte startas. Försök igen eller använd utskriftsvyn.'; }
+    };
+    print.onclick = () => {
+        const exported = getDocument();
+        if (!exported) return;
+        const view = document.getElementById('researchPrintView');
+        const content = document.getElementById('researchPrintContent');
+        window.NTMResearchExport.renderPrint(exported, content);
+        const previousTitle = document.title;
+        const scrollPosition = window.scrollY;
+        document.title = window.NTMResearchExport.filename(exported).replace(/\.md$/, '');
+        view.hidden = false;
+        document.body.classList.add('research-export-preview');
+        content.focus();
+        window.scrollTo(0, 0);
+        document.getElementById('researchPrintSubmit').onclick = () => window.print();
+        document.getElementById('researchPrintBack').onclick = () => {
+            view.hidden = true;
+            document.body.classList.remove('research-export-preview');
+            document.title = previousTitle;
+            print.focus({ preventScroll: true });
+            window.scrollTo(0, scrollPosition);
+        };
+    };
+}
+
+function selectThesisRevision(revisionId, data) {
+    const { thesis } = window.NTMThesisStorage.get(data?.symbol);
+    if (!thesis?.revisions.some((r) => r.id === revisionId)) return;
+    currentThesisState.selectedRevisionId = revisionId;
+    renderRevisionHistory(data);
+    initChangeDetection(data);
+}
+
+function deleteSelectedRevision(data) {
+    const ticker = currentThesisState.ticker;
+    const { thesis } = window.NTMThesisStorage.get(ticker);
+    const wasLatest = thesis?.latestRevisionId === currentThesisState.selectedRevisionId;
+    const result = window.NTMThesisStorage.removeRevision(ticker, currentThesisState.selectedRevisionId);
+    if (!result.success) { showThesisError(result.error); return; }
+    currentThesisState.selectedRevisionId = null;
+    if (wasLatest && !currentThesisState.isDirty) {
+        initThesisSection(data);
+    } else {
+        currentThesisState.thesis = window.NTMThesisStorage.get(ticker).thesis;
+        displayThesisSnapshotPreview(currentThesisState.thesis?.valuationSnapshot);
+        document.getElementById('thesisDeleteBtn').style.display = currentThesisState.thesis ? 'inline-block' : 'none';
+        if (!currentThesisState.thesis) hideThesisSavedIndicator();
+        renderRevisionHistory(data);
+    }
+    initChangeDetection(data);
+    showThesisStatus(currentThesisState.isDirty
+        ? 'Versionen raderad. Dina osparade textändringar finns kvar i formuläret.'
+        : currentThesisState.thesis ? 'Versionen raderad. Senaste kvarvarande version används för jämförelsen.'
+        : 'Versionen raderad. Ingen sparad version återstår.');
+}
+
+function showThesisSuccess(snapshot, created = true) {
     const banner = document.getElementById('thesisStatusBanner');
     if (banner) {
-        const msg = snapshot
-            ? 'Analysen sparad tillsammans med värderingssnapshot!'
-            : 'Analysen sparad! (Ingen värdering att spara ännu)';
+        const msg = !created ? 'Inga ändringar att spara. Senaste versionen finns redan.' : snapshot
+            ? 'Ny version sparad med värdering. Tidigare versioner finns kvar.'
+            : 'Ny version sparad utan värdering. Tidigare versioner finns kvar.';
         banner.className = 'calc-status-banner calc-status-success';
         banner.textContent = msg;
         banner.style.display = 'block';
@@ -1622,10 +1894,11 @@ function showThesisSuccess(snapshot) {
     }, 3000);
 }
 
-function displayThesisSnapshotPreview(snapshot) {
-    const previewDiv = document.getElementById('thesisSnapshotPreview');
+function displayThesisSnapshotPreview(snapshot, targetId = 'thesisSnapshotPreview') {
+    const previewDiv = document.getElementById(targetId);
     if (!previewDiv) return;
 
+    snapshot = window.NTMResearchSnapshot.normalize(snapshot);
     if (!snapshot) {
         previewDiv.innerHTML = '<p class="thesis-no-snapshot">Ingen värdering sparad med denna analys.</p>';
         return;
@@ -1645,7 +1918,7 @@ function displayThesisSnapshotPreview(snapshot) {
                 </div>
                 <div class="snapshot-cell">
                     <span class="snapshot-label">EPS-bas</span>
-                    <span class="snapshot-value">$${inputs.epsBasis?.toFixed(2) || '–'} (${inputs.epsSource === 'manual' ? 'Manuell' : 'SEC'})</span>
+                    <span class="snapshot-value">$${inputs.epsBasis?.toFixed(2) || '–'} (${inputs.epsSource === 'manual' ? 'Manuell' : inputs.epsSource === 'sec' ? 'SEC' : 'Okänd källa'})</span>
                 </div>
                 <div class="snapshot-cell">
                     <span class="snapshot-label">Avkastningskrav</span>
@@ -1663,6 +1936,14 @@ function displayThesisSnapshotPreview(snapshot) {
                     <span class="snapshot-label">P/E TTM</span>
                     <span class="snapshot-value">${results.peRatio?.toFixed(1) || '–'}x</span>
                 </div>
+                <div class="snapshot-cell">
+                    <span class="snapshot-label">Krävd EPS-tillväxt</span>
+                    <span class="snapshot-value">${results.requiredEpsCAGR?.toFixed(1) || '–'}% / år</span>
+                </div>
+                <div class="snapshot-cell">
+                    <span class="snapshot-label">Krävd framtida EPS / kurs</span>
+                    <span class="snapshot-value">$${results.requiredFutureEPS?.toFixed(2) || '–'} / $${results.requiredFuturePrice?.toFixed(2) || '–'}</span>
+                </div>
             </div>
         </div>
     `;
@@ -1677,23 +1958,28 @@ function displayThesisSnapshotPreview(snapshot) {
                         <span class="scenario-label">Bear</span>
                         <span class="scenario-future-price">$${scenarios.bear?.futurePrice?.toFixed(2) || '–'}</span>
                         <span class="scenario-cagr">${scenarios.bear?.cagr?.toFixed(1) || '–'}%</span>
+                        <small>EPS-tillväxt ${scenarios.bear?.growth?.toFixed(1) || '–'}% · Exit P/E ${scenarios.bear?.exitPE?.toFixed(1) || '–'}x · Framtida EPS $${scenarios.bear?.futureEPS?.toFixed(2) || '–'}</small>
                     </div>
                     <div class="scenario-cell scenario-base">
                         <span class="scenario-label">Base</span>
                         <span class="scenario-future-price">$${scenarios.base?.futurePrice?.toFixed(2) || '–'}</span>
                         <span class="scenario-cagr">${scenarios.base?.cagr?.toFixed(1) || '–'}%</span>
+                        <small>EPS-tillväxt ${scenarios.base?.growth?.toFixed(1) || '–'}% · Exit P/E ${scenarios.base?.exitPE?.toFixed(1) || '–'}x · Framtida EPS $${scenarios.base?.futureEPS?.toFixed(2) || '–'}</small>
                     </div>
                     <div class="scenario-cell scenario-bull">
                         <span class="scenario-label">Bull</span>
                         <span class="scenario-future-price">$${scenarios.bull?.futurePrice?.toFixed(2) || '–'}</span>
                         <span class="scenario-cagr">${scenarios.bull?.cagr?.toFixed(1) || '–'}%</span>
+                        <small>EPS-tillväxt ${scenarios.bull?.growth?.toFixed(1) || '–'}% · Exit P/E ${scenarios.bull?.exitPE?.toFixed(1) || '–'}x · Framtida EPS $${scenarios.bull?.futureEPS?.toFixed(2) || '–'}</small>
                     </div>
                 </div>
             </div>
         `;
     }
 
-    html += `<p class="snapshot-timestamp">Sparad ${new Date(snapshot.capturedAt).toLocaleDateString('sv-SE')} kl ${new Date(snapshot.capturedAt).toLocaleTimeString('sv-SE', { hour: '2-digit', minute: '2-digit' })}</p>`;
+    if (snapshot.capturedAt) {
+        html += `<p class="snapshot-timestamp">Sparad ${new Date(snapshot.capturedAt).toLocaleDateString('sv-SE')} kl ${new Date(snapshot.capturedAt).toLocaleTimeString('sv-SE', { hour: '2-digit', minute: '2-digit' })}</p>`;
+    }
 
     previewDiv.innerHTML = html;
 }
@@ -1710,6 +1996,8 @@ function deleteStoredThesis() {
 
     // Clear form & state
     currentThesisState.thesis = null;
+    currentThesisState.isDirty = false;
+    currentThesisState.selectedRevisionId = null;
     document.getElementById('thesis-text').value = '';
     document.getElementById('thesis-risks').value = '';
     document.getElementById('thesis-trigger').value = '';
@@ -1719,9 +2007,11 @@ function deleteStoredThesis() {
     document.getElementById('thesisDeleteBtn').style.display = 'none';
     hideThesisSavedIndicator();
     document.getElementById('thesisSnapshotPreview').innerHTML = '';
+    renderRevisionHistory(currentStockData);
+    initChangeDetection(currentStockData);
 
     // Show success
-    showThesisError('Analysen raderad.');
+    showThesisStatus('All historik för bolaget har raderats.');
 }
 
 /**
@@ -1733,12 +2023,28 @@ function initChangeDetection(data) {
     
     if (!changeSection || !changeContent) return;
 
+    // Clear any previous report, including after a save/delete or unavailable data.
+    changeSection.style.display = 'none';
+    changeContent.innerHTML = '';
+    if (!data) return;
+
     // Get saved thesis
     const ticker = data.symbol;
-    const { thesis, error } = window.NTMThesisStorage.get(ticker);
+    const { thesis: latest, error } = window.NTMThesisStorage.get(ticker);
+    const thesis = latest?.revisions.find((r) => r.id === currentThesisState.selectedRevisionId)
+        || latest?.revisions[latest.revisions.length - 1];
+    const label = document.getElementById('changeBaselineLabel');
+    if (label) label.textContent = thesis
+        ? `${thesis.id === latest.latestRevisionId ? 'Senaste version' : 'Historisk version'} sparad ${formatRevisionDate(thesis.savedAt)} · Jämförs med aktuella bolagsdata ${data.ttm?.asOfPeriod || data.valuationBase?.asOfPeriod || '–'}. Aktiekursantaganden jämförs inte.`
+        : '';
 
     // No thesis = no change detection
     if (error || !thesis || !thesis.valuationSnapshot) {
+        if (!error && thesis) {
+            changeSection.style.display = 'block';
+            changeContent.textContent = 'Den valda versionen saknar en tillgänglig värderingssnapshot. Ingen jämförelse kan visas.';
+            return;
+        }
         changeSection.style.display = 'none';
         return;
     }
@@ -1750,9 +2056,14 @@ function initChangeDetection(data) {
     }
 
     const report = window.NTMChangeDetection.detect(thesis.valuationSnapshot, data);
+    if (report.reason) {
+        changeSection.style.display = 'block';
+        changeContent.textContent = 'Snapshoten kan inte jämföras med detta bolags data.';
+        return;
+    }
 
     // If no changes and snapshot not old, hide section
-    if (!report.hasChanges && !window.NTMChangeDetection.isSnapshotStale(thesis.valuationSnapshot)) {
+    if (!report.hasChanges && thesis.id === latest.latestRevisionId && !window.NTMChangeDetection.isSnapshotStale(thesis.valuationSnapshot)) {
         changeSection.style.display = 'none';
         return;
     }
@@ -1775,8 +2086,8 @@ function renderChangeDetection(report, thesis, data) {
             <div class="change-block change-block-period">
                 <p class="change-label">📅 Data uppdaterad</p>
                 <p class="change-text">
-                    Din analys är från <strong>${report.periodChange.from}</strong> 
-                    → Aktuell data är från <strong>${report.periodChange.to}</strong>
+                    Din analys är från <strong>${escapeHtml(report.periodChange.from)}</strong>
+                    → Aktuell data är från <strong>${escapeHtml(report.periodChange.to)}</strong>
                 </p>
             </div>
         `;
@@ -1792,16 +2103,14 @@ function renderChangeDetection(report, thesis, data) {
         report.metrics.forEach((change) => {
             const snap = formatNumber(change.snapshot);
             const curr = formatNumber(change.current);
-            const dir = change.pct > 0 ? '↑' : '↓';
-            const pctFormatted = Math.abs(change.pct).toFixed(1);
-            const absFormatted = formatNumber(Math.abs(change.absolute));
+            const deltaFormatted = window.NTMChangeDetection.formatChange(change);
 
             html += `
                 <div class="change-row">
                     <span><strong>${change.name}</strong></span>
                     <span class="change-val-snap">${snap}</span>
                     <span class="change-val-curr">${curr}</span>
-                    <span class="change-val-delta">${dir} ${absFormatted} (${pctFormatted}%)</span>
+                    <span class="change-val-delta">${escapeHtml(deltaFormatted)}</span>
                 </div>
             `;
         });
@@ -1873,7 +2182,7 @@ function renderChangeDetection(report, thesis, data) {
     if (!html) {
         html = `
             <div class="change-block change-block-none">
-                <p class="change-text">Ingen väsentlig data förändrad sedan din analys.</p>
+                <p class="change-text">Inga förändringar över tröskelvärdena hittades bland jämförbara uppgifter. Saknade historiska värden kan inte bedömas.</p>
             </div>
         `;
     }

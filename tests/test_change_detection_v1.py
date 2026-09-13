@@ -25,7 +25,7 @@ class TestChangeDetection(unittest.TestCase):
             content = f.read()
             self.assertIn('id="changeDetectionSection"', content)
             self.assertIn('id="changeDetectionContent"', content)
-            self.assertIn('class="change-section"', content)
+            self.assertRegex(content, r'<section\b[^>]*class="[^"]*\bchange-section\b[^"]*"[^>]*id="changeDetectionSection"')
             self.assertIn('Sedan din thesis', content)
 
     def test_change_detection_css_classes(self):
@@ -130,8 +130,8 @@ class TestFilingDetection(unittest.TestCase):
     """Test filing detection logic"""
 
     def test_filing_detection_markup(self):
-        """Verify filing detection section in HTML"""
-        with open('research.html', 'r', encoding='utf-8') as f:
+        """Filing content is rendered dynamically by Research JavaScript."""
+        with open('research.js', 'r', encoding='utf-8') as f:
             content = f.read()
             self.assertIn('Nya rapporter', content)
             self.assertIn('filing-list', content)
@@ -188,8 +188,8 @@ class TestPeriodChange(unittest.TestCase):
     """Test period change detection"""
 
     def test_period_change_markup(self):
-        """Verify period change section in HTML"""
-        with open('research.html', 'r', encoding='utf-8') as f:
+        """Period content is rendered dynamically by Research JavaScript."""
+        with open('research.js', 'r', encoding='utf-8') as f:
             content = f.read()
             self.assertIn('Data uppdaterad', content)
 
@@ -430,27 +430,11 @@ class TestDataFlow(unittest.TestCase):
 
     def test_current_data_schema_match(self):
         """Verify current stock JSON has comparable fields"""
-        # Represents structure of data/stocks/SOFI.json
-        current_data = {
-            'valuationBase': {
-                'asOfPeriod': '2026Q2',
-                'ttmRevenue': 4310000000,  # or nested in ttm.metrics
-                'ttmNetIncome': 636264000,
-                'ttmDilutedEps': {'value': 0.47},
-            },
-            'filings': [
-                {
-                    'form': '10-Q',
-                    'filingDate': '2026-08-06',
-                    'reportPeriod': '2026-06-30'
-                }
-            ]
-        }
-        
-        self.assertEqual(
-            current_data['valuationBase']['asOfPeriod'],
-            '2026Q2'
-        )
+        with open('data/stocks/SOFI.json', encoding='utf-8') as source:
+            current_data = json.load(source)
+        self.assertIn('revenue', current_data['ttm']['metrics'])
+        self.assertIn('netIncome', current_data['ttm']['metrics'])
+        self.assertEqual(current_data['valuationBase']['asOfPeriod'], current_data['ttm']['asOfPeriod'])
 
 
 if __name__ == '__main__':
