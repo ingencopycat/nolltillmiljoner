@@ -366,3 +366,11 @@ body :is(.ai-summary summary, .summary-language-button):focus-visible { border-c
 .ntm-relations p { color: var(--muted); font-size: .9rem; line-height: 1.65; margin: 0 0 12px; }
 .ntm-relations a { color: var(--primary); text-decoration: underline; text-underline-offset: 4px; font-weight: 600; font-size: .9rem; min-height: 44px; display: inline-flex; align-items: center; margin-top: auto; }
 .ntm-relations[hidden] { display: none; }
+
+/* Resources share the same content rhythm; row height follows content, not a fixed size. */
+.resource-recommendation { display: flex; flex-direction: column; }
+.resource-recommendation .resource-card-meta { flex-wrap: wrap; }
+.resource-recommendation .resource-card-detail::before { content: '·'; margin-right: 8px; }
+.resource-recommendation .resource-card-footer { margin-top: auto; padding-top: 8px; }
+.resource-recommendation .resource-card-link { min-height: 44px; text-decoration: underline; text-underline-offset: 4px; }
+.resource-recommendation:focus-within { border-color: var(--primary); }
