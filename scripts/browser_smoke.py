@@ -14,6 +14,7 @@ import tempfile
 from pathlib import Path
 from threading import Thread
 import unittest
+import time
 
 from playwright.sync_api import sync_playwright, expect
 
@@ -61,7 +62,17 @@ class BrowserSmoke(unittest.TestCase):
         self.page.goto(self.base + '/' + path, wait_until='domcontentloaded', timeout=30000)
         if path.startswith('research.html?ticker='):
             ticker = path.split('ticker=',1)[1].split('&',1)[0]
-            self.page.wait_for_function('ticker => typeof currentStockData !== "undefined" && currentStockData?.symbol === ticker', arg=ticker)
+            self.wait_for('ticker => typeof currentStockData !== "undefined" && currentStockData?.symbol === ticker', arg=ticker)
+
+    def wait_for(self, expression, arg=None):
+        # DevTools evaluation does not need page eval permission. Playwright's
+        # wait_for_function string predicate can conflict with enforcing CSP.
+        deadline = time.monotonic() + 15
+        while time.monotonic() < deadline:
+            if self.page.evaluate(expression, arg):
+                return
+            time.sleep(.05)
+        self.fail('Browser condition timed out: ' + expression)
 
     def test_trust_content_journeys_and_instagram(self):
         p = self.page
@@ -100,7 +111,7 @@ class BrowserSmoke(unittest.TestCase):
             self.go('research.html?from=instagram&via=' + flow)
             expect(p.locator('.journey-intro')).to_be_visible()
             p.locator('#researchIndex a[href*="ticker=NVDA"]').first.click()
-            p.wait_for_function("typeof currentStockData !== 'undefined' && currentStockData?.symbol==='NVDA'")
+            self.wait_for("typeof currentStockData !== 'undefined' && currentStockData?.symbol==='NVDA'")
             self.assertIn('#' + field, p.url)
             self.assertTrue(p.evaluate("NTMEvents.snapshot().some(e=>e.event==='research_opened' && e.source==='instagram')"))
         p.locator('#thesis-text').fill('A thesis to follow up')
@@ -131,7 +142,7 @@ class BrowserSmoke(unittest.TestCase):
         link.click()
         expect(p.locator('[data-stock-mode=reverse]')).to_have_attribute('aria-selected', 'true')
         p.locator('[data-relation-id=valuation-nvda]').click()
-        p.wait_for_function("typeof currentStockData !== 'undefined' && currentStockData?.symbol==='NVDA'")
+        self.wait_for("typeof currentStockData !== 'undefined' && currentStockData?.symbol==='NVDA'")
         expect(p.locator('.ntm-relations:visible')).to_have_count(1)
 
         # B: Micron -> generic scenarios, never invented MU Research.
@@ -159,7 +170,7 @@ class BrowserSmoke(unittest.TestCase):
         p.locator('[data-relation-id=nvda-content]').click()
         self.assertIn('post-jordi-visser-ai-agents-crypto.html', p.url)
         p.locator('[data-relation-id=agents-nvda]').click()
-        p.wait_for_function("typeof currentStockData !== 'undefined' && currentStockData?.symbol==='NVDA'")
+        self.wait_for("typeof currentStockData !== 'undefined' && currentStockData?.symbol==='NVDA'")
         p.locator('#thesis-text').fill('Unsaved private connected-flow draft')
         before = p.evaluate('localStorage.getItem(NTMThesisStorage.key)')
         p.locator('[data-relation-id=nvda-thesis]').click()
@@ -205,7 +216,7 @@ class BrowserSmoke(unittest.TestCase):
                     if p.evaluate("document.body.classList.contains('light-theme')") != (theme == 'light'):
                         p.locator('#themeToggle').evaluate('(button)=>button.click()')
                     color = 'rgb(24, 35, 50)' if theme == 'light' else 'rgb(244, 247, 250)'
-                    p.wait_for_function('(c)=>getComputedStyle(document.body).color===c', arg=color)
+                    self.wait_for('(c)=>getComputedStyle(document.body).color===c', arg=color)
                     block = p.locator('.ntm-relations:visible')
                     block.scroll_into_view_if_needed()
                     self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'), width)
@@ -273,7 +284,7 @@ class BrowserSmoke(unittest.TestCase):
         table = p.locator('#annualTableWrap')
         table.focus()
         table.press('ArrowRight')
-        p.wait_for_function("document.querySelector('#annualTableWrap').scrollLeft > 0")
+        self.wait_for("document.querySelector('#annualTableWrap').scrollLeft > 0")
         self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'), 360)
         p.locator('.metric-info-btn').first.click()
         expect(p.locator('#provenanceDialog')).to_be_visible()
@@ -340,7 +351,7 @@ class BrowserSmoke(unittest.TestCase):
                 self.go(page)
                 if p.evaluate("document.body.classList.contains('light-theme')") != (theme == 'light'):
                     p.locator('#themeToggle').click()
-                p.wait_for_function("getComputedStyle(document.body).color === (document.body.classList.contains('light-theme') ? 'rgb(24, 35, 50)' : 'rgb(244, 247, 250)')")
+                self.wait_for("getComputedStyle(document.body).color === (document.body.classList.contains('light-theme') ? 'rgb(24, 35, 50)' : 'rgb(244, 247, 250)')")
                 for button in p.locator('.primary-btn:visible, button[type=submit]:visible').all():
                     self.assertGreaterEqual(button.evaluate(contrast), 4.5, page)
                 colors = p.evaluate("""() => {const s=getComputedStyle(document.body); return ['--primary','--success','--manual','--market-positive','--market-negative'].map(k=>s.getPropertyValue(k).trim());}""")
@@ -348,7 +359,7 @@ class BrowserSmoke(unittest.TestCase):
                 self.assertEqual(colors[0], colors[2])
                 self.assertNotEqual(colors[3], colors[4])
             p.locator('#researchFinancials > summary').click()
-            p.wait_for_function("annualChartInstance.options.plugins.legend.labels.color === getChartColors().text")
+            self.wait_for("annualChartInstance.options.plugins.legend.labels.color === getChartColors().text")
             self.assertEqual(p.evaluate('annualChartInstance.data.datasets.map(d=>d.backgroundColor)'),
                              p.evaluate('(()=>{const c=getChartColors();return [c.primary,c.accent,c.tertiary]})()'))
             p.locator('#annualChart').scroll_into_view_if_needed()
@@ -444,6 +455,57 @@ class BrowserSmoke(unittest.TestCase):
         for actual,expected in zip(cells,prices):
             self.assertAlmostEqual(float(actual.replace('$','')),expected,delta=.051)
         self.assertTrue(p.evaluate('Object.isFrozen(NTMValuation)'))
+
+    def test_quality_dynamic_labels_error_recovery_and_lightbox_focus(self):
+        p = self.page
+        self.go('havstang.html')
+        p.locator('button[data-leverage-mode="daglig"]').click()
+        p.evaluate('addDailyMoveInput()')
+        p.get_by_role('spinbutton', name='Avkastning dag 3, procent', exact=True).fill('25')
+        p.get_by_role('button', name='Ta bort dag 1', exact=True).click()
+        # The old third day is now day 2; its handler must use its current identity.
+        p.get_by_role('button', name='Ta bort dag 2', exact=True).click()
+        expect(p.locator('.daily-move-input')).to_have_count(1)
+        expect(p.get_by_role('spinbutton', name='Avkastning dag 1, procent', exact=True)).to_have_value('10')
+        p.locator('#daily-leverage-form button[type=submit]').click()
+        p.get_by_role('spinbutton', name='Avkastning dag 1, procent', exact=True).fill('1e308')
+        p.locator('#daily-leverage-form button[type=submit]').click()
+        self.assertEqual(p.evaluate('dailyLeverageCalcState.state'), 'error')
+        self.go('aterhamtning.html')
+        p.locator('#recovery-nedgang').fill('0')
+        p.locator('#recovery-form button[type=submit]').click()
+        expect(p.locator('#recovery-required-gain')).to_contain_text('0 %')
+        opener=p.locator('#themeToggle'); opener.focus()
+        p.evaluate("NTMLightbox.open([{src:'images/ntm-social.png',alt:'Test image'}])")
+        expect(p.get_by_role('dialog',name='Bildvisare')).to_be_visible()
+        p.keyboard.press('Tab')
+        self.assertTrue(p.get_by_role('button',name='Stäng bild',exact=True).evaluate('(e)=>e===document.activeElement'))
+        p.keyboard.press('Escape')
+        self.assertTrue(opener.evaluate('(e)=>e===document.activeElement'))
+
+    def test_security_policy_and_untrusted_summary_rendering(self):
+        p = self.page
+        self.go('ranta-pa-ranta.html')
+        expect(p.locator('[data-example-value="10"]')).not_to_contain_text('Beräknar')
+        p.evaluate("""() => {
+          const script = document.createElement('script');
+          script.textContent = 'window.unapprovedInlineExecuted = true';
+          document.body.append(script);
+        }""")
+        self.assertFalse(p.evaluate('window.unapprovedInlineExecuted === true'))
+        self.go('post-jordi-visser-linjart-exponentiellt-ai-trading.html')
+        result=p.evaluate("""() => {
+          const post = {...NTM_POSTS.find(p=>p.media.type==='youtube')};
+          post.summary = {sv: ['<img src=x onerror="window.summaryAttack=1"><strong>Safe formatting</strong>']};
+          post.editorial = {...post.editorial, sourceUrl:'javascript:alert(1)'};
+          const div=document.createElement('div'); div.innerHTML=renderPostView(post);
+          document.body.append(div);
+          return {images:div.querySelectorAll('.summary-content img').length,
+            strong:div.querySelector('.summary-content strong').textContent,
+            source:div.querySelector('.editorial-note a').getAttribute('href')};
+        }""")
+        self.assertEqual(result, {'images':0,'strong':'Safe formatting','source':'#'})
+        self.assertFalse(p.evaluate('window.summaryAttack === 1'))
 
     def test_daily_leverage_and_zero_net_compound(self):
         p = self.page

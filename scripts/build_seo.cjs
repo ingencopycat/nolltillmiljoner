@@ -109,7 +109,14 @@ outputs.set('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmln
   + urls.map((url) => `  <url><loc>${escape(url)}</loc></url>`).join('\n') + '\n</urlset>\n');
 outputs.set('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${base}sitemap.xml\n`);
 const stale = [];
-for (const [file, content] of outputs) {
+for (const rule of JSON.parse(read('data/rule-registry.json')).rules) {
+  let html = outputs.get(rule.page).replace(/\s*<!-- RULE START -->[\s\S]*?<!-- RULE END -->/g, '');
+  const notice = `<!-- RULE START --><p class="note" data-rule-review="${rule.nextReview}">Regelversion ${rule.effectiveFrom}. Källkontrollerad ${rule.lastVerified}. Nästa granskning ${rule.nextReview}. <a href="${rule.source}" target="_blank" rel="noopener noreferrer">Källa för ${rule.id === 'isk' ? 'ISK' : 'bolån'}</a>. Individuella skatte- och bankvillkor kan avvika.</p><!-- RULE END -->`;
+  html = html.replace('</h1>', '</h1>' + notice);
+  outputs.set(rule.page, html);
+}
+for (const [file, rawContent] of outputs) {
+  const content = file.endsWith('.html') ? require('./security_policy.cjs').apply(rawContent) : rawContent;
   const previous = fs.existsSync(path.join(root, file)) ? read(file).replace(/\r\n/g, '\n') : null;
   const normalized = content.replace(/\r\n/g, '\n');
   if (previous !== normalized) {

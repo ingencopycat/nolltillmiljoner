@@ -2,6 +2,7 @@
 <html lang="sv">
 <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-4ISHwVeYP8uIXaZkdyh4xhqTCj85Am0r2qY8XJzsxns='; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' https://img.youtube.com data:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; frame-src https://www.youtube.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="premium.css" />
@@ -226,7 +227,7 @@
 
                         <div class="field-group">
                             <label for="daily-avgift">Daglig avgift (%)</label>
-                            <input id="daily-avgift" name="daily-avgift" type="number" min="0" step="0.01" value="0" />
+                            <input id="daily-avgift" name="daily-avgift" type="number" min="0" max="100" step="0.01" value="0" />
                             <p class="field-help">Avgiften dras dagligen från instrumentets värde.</p>
                         </div>
                     </div>
@@ -300,7 +301,7 @@
                 <!-- Pedagogisk förklaring -->
                 <div style="margin-top: 28px; padding: 20px; background: rgba(61, 217, 198, 0.08); border: 1px solid var(--border); border-radius: 16px;">
                     <h4 style="margin: 0 0 12px; color: var(--text); font-size: 1.05rem;">Varför blir resultatet annorlunda?</h4>
-                    <p style="margin: 0 0 12px; color: var(--muted); line-height: 1.6;">Hävstången räknas om varje dag. Därför spelar både storleken och ordningen på de dagliga rörelserna roll, särskilt när marknaden rör sig mycket upp och ner.</p>
+                    <p style="margin: 0 0 12px; color: var(--muted); line-height: 1.6;">Hävstången återställs dagligen och avkastningen räknas på det nya värdet. Dagsrörelsernas storlek påverkar fler-dagarsresultatet. Att bara byta ordning på samma dagsprocent ger däremot samma slutvärde i denna förenklade modell, även om kurvan däremellan ändras.</p>
                     <p style="margin: 0; color: var(--muted); line-height: 1.6;">En nedgång på 10% följt av en uppgång på 10% ger inte 0%. 100 kr blir först 90 kr och därefter 99 kr. Med hävstång förstärks denna effekt ytterligare.</p>
                 </div>
             </div>
@@ -425,7 +426,8 @@
 
             <section class="education-section">
                 <h2>Varför blir X3 inte alltid tre gånger avkastningen?</h2>
-                <p>Daglig återställning och ränta-på-ränta gör att ordningen på rörelserna spelar roll. I ett förenklat exempel startar den underliggande på 100 och går +10 % följt av −10 %: 100 → 110 → 99, alltså −1 % totalt. Ett förenklat 3x-instrument går då 100 → 130 → 91, alltså −9 %.</p>
+                <p>Daglig återställning och ränta-på-ränta gör att dagsrörelsernas sammansättning spelar roll. Utan avgift: 100 → 110 → 99 vid +10 % och −10 %, alltså −1 %. Med 3x blir det 100 → 130 → 91, alltså −9 %, inte 3 × −1 %. Om dagarna byter plats blir slutvärdena fortfarande 99 och 91.</p>
+                <details><summary>Modell, volatilitet och begränsningar</summary><p>Varje dag multipliceras föregående värde med max(0, 1 + hävstång × dagsavkastning), följt av max(0, 1 − daglig avgift). Procenttalen omvandlas till decimaltal. Noll är slutgiltigt i modellen. Produkten av samma faktorer ändras inte när ordningen byts.</p><p>Volatilitetsdrag beskriver hur svängningar kan sänka den sammansatta avkastningen. Det innebär inte att hävstång alltid förlorar över tid; en ihållande uppgång kan förstärkas. Samma totala indexavkastning kan komma från olika dagsrörelser och ge olika hävstångsresultat.</p><p>Detta är en pedagogisk modell med konstant hävstång och avgift. Den simulerar inte intradagsrörelser, spread, finansieringsvillkor, tracking error, likviditet, skatt eller verkliga produkters stopp- och ombalanseringsregler. Jämförelsen är inte en prognos eller rekommendation.</p></details>
                 <p>Detta är en matematisk illustration före avgifter, finansiering och tracking-effekter. 3x över flera dagar är därför inte automatiskt tre gånger den underliggande tillgångens totala fler-dagarsavkastning.</p>
             </section>
 

@@ -2,6 +2,13 @@
 (() => {
   if (!document.addEventListener) return;
   document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-rule-review]').forEach(note => {
+      if (new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Stockholm' }) >= note.dataset.ruleReview) {
+        const warning = document.createElement('strong');
+        warning.textContent = ' Regelversionen behöver granskas. Kontrollera aktuell information hos källan. ';
+        note.prepend(warning);
+      }
+    });
     const nav = document.querySelector('.main-nav');
     const menu = document.getElementById('mobileNavToggle');
     const learn = document.querySelector('.nav-learn');

@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "id": "isk", "topic": "ISK schablonskatt och gemensam grundnivå", "page": "isk-skattkalkylator.html",
+      "effectiveFrom": "2026-01-01", "effectiveYear": 2026,
+      "source": "https://www.skatteverket.se/privat/skatter/beloppochprocent/2026.4.1522bf3f19aea8075ba21.html",
+      "lastVerified": "2026-09-14", "nextReview": "2026-12-01", "status": "verified",
+      "parameters": { "taxFreeAllowance": 300000, "governmentBorrowingRate": 0.0255, "rateAddition": 0.01, "minimumSchablonRate": 0.0125, "capitalTaxRate": 0.30 },
+      "manualReview": "Ägaren verifierar nästa års räntesats och grundnivå. Grundnivån delas med KF och PEPP; individuell deklaration kan avvika."
+    },
+    {
+      "id": "mortgage", "topic": "Bolånetak och amortering", "page": "bolanekalkylator.html",
+      "effectiveFrom": "2026-04-01", "effectiveYear": 2026,
+      "source": "https://www.fi.se/sv/publicerat/nyheter/2026/fi-upphaver-foreskrifter-och-allmanna-rad-om-bolan--lag-tar-over/",
+      "lastVerified": "2026-09-14", "nextReview": "2027-01-01", "status": "verified",
+      "parameters": { "newPurchaseMaxLTV": 0.90, "additionalLoanMaxLTV": 0.80, "amortization": { "above70": 0.02, "above50": 0.01, "atOrBelow50": 0 } },
+      "manualReview": "Ägaren kontrollerar lag 2026:226 och FI. Befintliga lånevillkor ändras inte automatiskt; banken avgör individuella villkor."
+    }
+  ]
+}

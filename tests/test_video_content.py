@@ -34,7 +34,7 @@ for(const post of videos){
   assert.ok(html.includes(post.media.externalUrl));
   assert.ok(html.includes('data-video-id="' + post.media.videoId + '"'));
   assert.ok(!html.includes('<iframe'));
-  for(const language of ['sv','en']) for(const paragraph of post.summary[language]) assert.ok(html.includes(paragraph));
+  for(const language of ['sv','en']) for(const paragraph of post.summary[language]) assert.ok(html.includes(context.constrainPostMarkup(paragraph)));
   const file = 'post-' + post.slug + '.html';
   assert.ok(fs.readFileSync(file,'utf8').includes(html));
 }

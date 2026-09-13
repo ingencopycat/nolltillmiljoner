@@ -163,6 +163,8 @@ class CalcState {
         this.statusBanner.hidden = false;
       }
     } else {
+      this.state = 'error';
+      this.container?.setAttribute('data-calc-state', 'error');
       const errorMessage = typeof result === 'string'
         ? result
         : (result && result.error) || 'Ange giltiga värden i alla fält och klicka på Beräkna.';
@@ -170,7 +172,7 @@ class CalcState {
       if (this.statusBanner) {
         this.statusBanner.className = 'calc-status-banner calc-status-error';
         this.statusBanner.setAttribute('data-ntm-status', 'error');
-        this.statusBanner.innerHTML = `<p>⚠️ ${errorMessage}</p>`;
+        this.statusBanner.textContent = `⚠️ ${errorMessage} Tidigare resultat gäller inte för dessa värden.`;
         this.statusBanner.hidden = false;
       }
     }
@@ -2844,6 +2846,21 @@ function escapePostText(value) {
   }[character]));
 }
 
+// Content is data: escape first, then restore only these attribute-free formatting
+// tokens. This also runs in the static generator (no browser DOM dependency).
+function constrainPostMarkup(value) {
+  return escapePostText(value).replace(/&lt;(\/?(?:p|strong|em|ul|ol|li|br))&gt;/g, '<$1>')
+    .replace(/&lt;span lang=&quot;(en|sv)&quot;&gt;/g, '<span lang="$1">')
+    .replace(/&lt;\/span&gt;/g, '</span>');
+}
+
+function safePostLink(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' && !url.username && !url.password ? escapePostText(url.href) : '#';
+  } catch (_) { return '#'; }
+}
+
 function formatPostDate(date) {
   return new Intl.DateTimeFormat('sv-SE', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(`${date}T12:00:00`));
 }
@@ -2893,6 +2910,10 @@ function createImageLightbox(images, startIndex = 0, onChange = null) {
 
   const overlay = document.createElement('div');
   overlay.className = 'lightbox-overlay';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-label', 'Bildvisare');
+  const opener = document.activeElement;
   const content = document.createElement('div');
   content.className = 'lightbox-content';
   const image = document.createElement('img');
@@ -2933,8 +2954,15 @@ function createImageLightbox(images, startIndex = 0, onChange = null) {
     overlay.remove();
     document.body.style.overflow = overlay.dataset.previousOverflow || '';
     document.removeEventListener('keydown', handleKeydown);
+    opener?.focus();
   };
   const handleKeydown = (event) => {
+    if (event.key === 'Tab') {
+      const buttons = [closeButton, previousButton, nextButton].filter(button => !button.hidden);
+      const index = buttons.indexOf(document.activeElement);
+      event.preventDefault();
+      buttons[(index + (event.shiftKey ? -1 : 1) + buttons.length) % buttons.length].focus();
+    }
     if (event.key === 'Escape') close();
     if (event.key === 'ArrowLeft') move(-1);
     if (event.key === 'ArrowRight') move(1);
@@ -2962,6 +2990,7 @@ function createImageLightbox(images, startIndex = 0, onChange = null) {
   document.body.appendChild(overlay);
   document.addEventListener('keydown', handleKeydown);
   render();
+  closeButton.focus();
 }
 
 window.NTMLightbox = { open: createImageLightbox };
@@ -3009,7 +3038,7 @@ function renderPostView(post) {
   const ed = post.editorial;
   const editorial = ed ? `<aside class="editorial-note"><h2>Källa och granskning</h2><p>${escapePostText(ed.attribution)} · Publicerad <time datetime="${ed.publishedAt}">${ed.publishedAt}</time> · Metadata uppdaterad <time datetime="${ed.updatedAt}">${ed.updatedAt}</time>.</p>
     <p>${ed.aiSummary ? 'AI-sammanfattning av källans resonemang, inte NTM:s verifierade slutsats.' : 'NTM:s publicerade innehåll och perspektiv.'}</p>
-    <p>${ed.sourceUrl ? `<a href="${escapePostText(ed.sourceUrl)}" target="_blank" rel="noopener noreferrer">Öppna källan – ${escapePostText(ed.attribution)}</a>` : 'Länk till primärkälla saknas.'}</p>
+    <p>${ed.sourceUrl ? `<a href="${safePostLink(ed.sourceUrl)}" target="_blank" rel="noopener noreferrer">Öppna källan – ${escapePostText(ed.attribution)}</a>` : 'Länk till primärkälla saknas.'}</p>
     ${ed.verification.map(flag => `<p data-ntm-status="warning">Behöver verifieras · ${escapePostText(flag)}</p>`).join('')}
     <p>Sponsring/affiliate: ${ed.commercialStatus === 'unknown' ? 'status inte dokumenterad för detta inlägg.' : escapePostText(ed.commercialStatus)}</p>
     <details><summary>Ändringslogg</summary><ul>${ed.corrections.map(c => `<li><time datetime="${c.date}">${c.date}</time> · ${escapePostText(c.text)}</li>`).join('')}</ul></details>
@@ -3020,14 +3049,14 @@ function renderPostView(post) {
       <button type="button" class="summary-language-button is-active" data-summary-language="sv" aria-pressed="true">Svenska</button>
       <button type="button" class="summary-language-button" data-summary-language="en" aria-pressed="false">English</button>
     </div>
-    ${Object.entries(post.summary).map(([language, paragraphs]) => `<div class="summary-content" data-summary-content="${language}"${language === 'en' ? ' hidden' : ''}>${paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join('')}<p class="summary-disclaimer">${escapePostText(post.disclaimer)}</p></div>`).join('')}
+    ${Object.entries(post.summary).map(([language, paragraphs]) => `<div class="summary-content" data-summary-content="${escapePostText(language)}"${language === 'en' ? ' hidden' : ''}>${paragraphs.map((paragraph) => `<p>${constrainPostMarkup(paragraph)}</p>`).join('')}<p class="summary-disclaimer">${escapePostText(post.disclaimer)}</p></div>`).join('')}
   </div></details>` : '';
 
   return `<article class="post-article ${post.media.type === 'youtube' ? 'youtube-post' : ''}" data-youtube-post>
     <header class="post-header"><div class="post-meta"><span>${escapePostText(post.category)}</span><time datetime="${post.date}">${formatPostDate(post.date)}</time></div><h1>${escapePostText(post.title)}</h1><div class="post-tags">${renderPostTags(post)}</div><p class="post-lead">${escapePostText(post.excerpt)}</p></header>
     <div class="post-media">${renderPostMedia(post)}</div>
-    ${post.content ? `<div class="post-content">${post.content}</div>` : ''}
-    <div class="post-actions">${post.media.externalUrl ? `<a class="secondary-btn" href="${escapePostText(post.media.externalUrl)}" target="_blank" rel="noopener noreferrer">Se på YouTube ↗</a>` : ''}${post.instagramUrl ? `<a class="secondary-btn" href="${escapePostText(post.instagramUrl)}" target="_blank" rel="noopener noreferrer">Ursprungligen publicerat på Instagram ↗</a>` : ''}<button type="button" class="secondary-btn" data-copy-link>Kopiera länk</button><span class="copy-feedback" data-copy-feedback role="status" aria-live="polite"></span></div>
+    ${post.content ? `<div class="post-content">${constrainPostMarkup(post.content)}</div>` : ''}
+    <div class="post-actions">${post.media.externalUrl ? `<a class="secondary-btn" href="${safePostLink(post.media.externalUrl)}" target="_blank" rel="noopener noreferrer">Se på YouTube ↗</a>` : ''}${post.instagramUrl ? `<a class="secondary-btn" href="${safePostLink(post.instagramUrl)}" target="_blank" rel="noopener noreferrer">Ursprungligen publicerat på Instagram ↗</a>` : ''}<button type="button" class="secondary-btn" data-copy-link>Kopiera länk</button><span class="copy-feedback" data-copy-feedback role="status" aria-live="polite"></span></div>
     ${summary}${editorial}${journey}
   </article>`;
 }
@@ -3911,7 +3940,7 @@ function addAnnualReturnRow(value = '0') {
   const yearNumber = container.children.length + 1;
   const row = document.createElement('div');
   row.className = 'annual-return-row';
-  row.innerHTML = `<label for="annual-return-${yearNumber}">År ${yearNumber}</label><input id="annual-return-${yearNumber}" class="annual-return-input" type="number" step="0.01" value="${value}" inputmode="decimal" /><span>%</span>`;
+  row.innerHTML = `<label for="annual-return-${yearNumber}">År ${yearNumber}</label><input id="annual-return-${yearNumber}" aria-label="Avkastning år ${yearNumber}, procent" class="annual-return-input" type="number" step="0.01" value="${value}" inputmode="decimal" /><span>%</span>`;
   container.appendChild(row);
   const removeButton = document.getElementById('remove-annual-year');
   if (removeButton) {
@@ -4161,7 +4190,7 @@ function addDcaPurchaseRow(values = {}) {
   const purchaseNumber = container.children.length + 1;
   const row = document.createElement('div');
   row.className = 'dca-purchase-row';
-  row.innerHTML = `<div class="dca-purchase-label">Köp ${purchaseNumber}</div><div class="field-group"><label for="dca-shares-${purchaseNumber}">Antal aktier</label><input id="dca-shares-${purchaseNumber}" class="dca-input dca-shares" type="number" step="0.0001" value="${values.shares ?? ''}" inputmode="decimal" /></div><div class="field-group"><label for="dca-price-${purchaseNumber}">Pris per aktie</label><input id="dca-price-${purchaseNumber}" class="dca-input dca-price" type="number" step="0.01" value="${values.price ?? ''}" inputmode="decimal" /></div><div class="field-group"><label for="dca-brokerage-${purchaseNumber}">Courtage</label><input id="dca-brokerage-${purchaseNumber}" class="dca-input dca-brokerage" type="number" step="0.01" value="${values.brokerage ?? ''}" inputmode="decimal" /></div>`;
+  row.innerHTML = `<div class="dca-purchase-label">Köp ${purchaseNumber}</div><div class="field-group"><label for="dca-shares-${purchaseNumber}">Antal aktier</label><input id="dca-shares-${purchaseNumber}" aria-label="Antal aktier, köp ${purchaseNumber}" class="dca-input dca-shares" type="number" step="0.0001" value="${values.shares ?? ''}" inputmode="decimal" /></div><div class="field-group"><label for="dca-price-${purchaseNumber}">Pris per aktie</label><input id="dca-price-${purchaseNumber}" aria-label="Pris per aktie, köp ${purchaseNumber}" class="dca-input dca-price" type="number" step="0.01" value="${values.price ?? ''}" inputmode="decimal" /></div><div class="field-group"><label for="dca-brokerage-${purchaseNumber}">Courtage</label><input id="dca-brokerage-${purchaseNumber}" aria-label="Courtage, köp ${purchaseNumber}" class="dca-input dca-brokerage" type="number" step="0.01" value="${values.brokerage ?? ''}" inputmode="decimal" /></div>`;
   container.appendChild(row);
   const removeButton = document.getElementById('remove-dca-purchase');
   if (removeButton) {
@@ -5934,8 +5963,19 @@ function removeDailyMoveInput(dayNumber) {
     const label = w.querySelector('label');
     if (label) label.textContent = `Dag ${idx + 1}`;
     const input = w.querySelector('input');
-    if (input) input.dataset.day = idx + 1;
+    if (input) {
+      input.dataset.day = idx + 1;
+      input.id = `daily-move-${idx + 1}`;
+      input.setAttribute('aria-label', `Avkastning dag ${idx + 1}, procent`);
+      label?.setAttribute('for', input.id);
+    }
+    const button = w.querySelector('button');
+    button?.setAttribute('aria-label', `Ta bort dag ${idx + 1}`);
+    if (button) button.disabled = container.children.length === 1;
   });
+
+  const remaining = container.querySelectorAll('.daily-move-input');
+  remaining[Math.min(dayNumber - 1, remaining.length - 1)]?.focus();
 
   dailyLeverageForm?.dispatchEvent(new Event('input', { bubbles: true }));
 }
@@ -5960,8 +6000,8 @@ function getDailyLeverageInputs() {
 function calculateDailyLeverage() {
   const { startBelopp, havstang, dailyFee, moves } = getDailyLeverageInputs();
 
-  if (moves.length === 0 || moves.some((move) => !Number.isFinite(move) || move < -100) || startBelopp <= 0 || !Number.isFinite(startBelopp) || !Number.isFinite(havstang) || havstang <= 0 || !Number.isFinite(dailyFee) || dailyFee < 0) {
-    return 'Fyll i giltiga tal: startbelopp och hävstång större än 0, daglig avgift minst 0 och dagsrörelser minst −100 %.';
+  if (moves.length === 0 || moves.some((move) => !Number.isFinite(move) || move < -100) || startBelopp <= 0 || !Number.isFinite(startBelopp) || !Number.isFinite(havstang) || havstang <= 0 || !Number.isFinite(dailyFee) || (dailyFee < 0 || dailyFee > 100)) {
+    return 'Fyll i giltiga tal: startbelopp och hävstång större än 0, daglig avgift 0–100 % och dagsrörelser minst −100 %.';
   }
 
   let underlyingValue = startBelopp;
@@ -6047,9 +6087,9 @@ function addDailyMoveInput() {
   fieldGroup.className = 'field-group';
   fieldGroup.style.cssText = 'flex: 1;';
   fieldGroup.innerHTML = `
-    <label style="font-size: 0.9rem;">Dag ${dayCount}</label>
+    <label for="daily-move-${dayCount}" style="font-size: 0.9rem;">Dag ${dayCount}</label>
     <div class="daily-move-input-wrap">
-      <input type="number" class="daily-move-input" data-day="${dayCount}" value="${defaultValue}" step="0.1" />
+      <input id="daily-move-${dayCount}" aria-label="Avkastning dag ${dayCount}, procent" type="number" class="daily-move-input" data-day="${dayCount}" value="${defaultValue}" step="0.1" />
       <span class="daily-move-input-suffix" aria-hidden="true">%</span>
     </div>
   `;
@@ -6063,9 +6103,10 @@ function addDailyMoveInput() {
     removeBtn.className = 'ghost-btn';
     removeBtn.style.cssText = 'width: auto; padding: 10px 12px; margin-bottom: 0; background: rgba(255, 50, 50, 0.1); color: var(--danger); border-color: rgba(255, 50, 50, 0.3);';
     removeBtn.textContent = '✕';
+    removeBtn.setAttribute('aria-label', `Ta bort dag ${dayCount}`);
     removeBtn.addEventListener('click', function(e) {
       e.preventDefault();
-      removeDailyMoveInput(dayCount);
+      removeDailyMoveInput(Number(wrapper.dataset.dayNumber));
     });
     wrapper.appendChild(removeBtn);
   }
@@ -6076,16 +6117,17 @@ function addDailyMoveInput() {
   const allWrappers = container.querySelectorAll('.daily-move-input-wrapper');
   allWrappers.forEach((w, idx) => {
     const existingBtn = w.querySelector('button');
+    if (existingBtn) existingBtn.disabled = false;
     if (allWrappers.length > 1 && !existingBtn) {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'ghost-btn';
       btn.style.cssText = 'width: auto; padding: 10px 12px; margin-bottom: 0; background: rgba(255, 50, 50, 0.1); color: var(--danger); border-color: rgba(255, 50, 50, 0.3);';
       btn.textContent = '✕';
-      const dayNum = parseInt(w.dataset.dayNumber);
+      btn.setAttribute('aria-label', `Ta bort dag ${idx + 1}`);
       btn.addEventListener('click', function(e) {
         e.preventDefault();
-        removeDailyMoveInput(dayNum);
+        removeDailyMoveInput(Number(w.dataset.dayNumber));
       });
       w.appendChild(btn);
     } else if (allWrappers.length === 1 && existingBtn) {
@@ -6285,11 +6327,11 @@ function setLeverageMode(mode) {
 }
 
 function calculateRecoveryRequiredGain(dropPercent, amount) {
-  if (dropPercent < 0 || dropPercent >= 100) {
+  if (!Number.isFinite(dropPercent) || dropPercent < 0 || dropPercent >= 100) {
     throw new Error('Nedgång måste vara mellan 0 och 100 %.');
   }
 
-  if (amount !== null && amount !== undefined && amount < 0) {
+  if (amount !== null && amount !== undefined && (!Number.isFinite(amount) || amount < 0)) {
     throw new Error('Investerat belopp får inte vara negativt.');
   }
 
@@ -6328,8 +6370,8 @@ function calculateRecoveryPage() {
   const dropPercent = Number(dropField.value);
   const amountValue = amountField.value === '' ? null : Number(amountField.value);
 
-  if (dropField.value === '' || Number.isNaN(dropPercent) || dropPercent <= 0 || dropPercent >= 100) {
-    return 'Nedgång måste vara ett värde mellan 0 % och mindre än 100 %.';
+  if (dropField.value === '' || !Number.isFinite(dropPercent) || dropPercent < 0 || dropPercent >= 100) {
+    return 'Nedgång måste vara minst 0 % och mindre än 100 %.';
   }
 
   if (amountValue !== null && (!Number.isFinite(amountValue) || amountValue < 0)) {

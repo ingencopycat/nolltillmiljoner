@@ -2,6 +2,7 @@
 <html lang="sv">
 <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-5PHgYMZE7gG/3pm5XSd6fHKUOerLIAehLbOUXYJL3Y0='; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' https://img.youtube.com data:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; frame-src https://www.youtube.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="premium.css" />
@@ -56,7 +57,7 @@
     </div></header>
 
     <main id="main-content" tabindex="-1" class="container tool-landing">
-        <header class="page-intro tool-intro"><span class="section-kicker">Skatt</span><h1>ISK-skattkalkylator</h1><p>Räkna ut ungefär hur mycket skatt du betalar på ditt ISK under 2026.</p></header>
+        <header class="page-intro tool-intro"><span class="section-kicker">Skatt</span><h1>ISK-skattkalkylator</h1><!-- RULE START --><p class="note" data-rule-review="2026-12-01">Regelversion 2026-01-01. Källkontrollerad 2026-09-14. Nästa granskning 2026-12-01. <a href="https://www.skatteverket.se/privat/skatter/beloppochprocent/2026.4.1522bf3f19aea8075ba21.html" target="_blank" rel="noopener noreferrer">Källa för ISK</a>. Individuella skatte- och bankvillkor kan avvika.</p><!-- RULE END --><p>Räkna ut ungefär hur mycket skatt du betalar på ditt ISK under 2026.</p></header>
         <section class="card calculator-card" aria-labelledby="isk-calculator-heading">
             <div class="section-heading"><div><span class="section-kicker">Inkomstår 2026</span><h2 id="isk-calculator-heading">Beräkna din ISK-skatt</h2></div></div>
             <div class="mode-toggle" role="tablist" aria-label="Välj beräkningsläge"><button class="mode-tab isk-mode-tab active" type="button" data-isk-mode="simple" role="tab" aria-selected="true">Enkel</button><button class="mode-tab isk-mode-tab" type="button" data-isk-mode="detailed" role="tab" aria-selected="false">Detaljerad</button></div>

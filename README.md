@@ -598,6 +598,20 @@ Adding a connection: add/edit the post in `posts.js`, add intentional metadata/e
 
 ## Workflow for future AI coding sessions
 
+Release gate: see [quality/trust/release discipline](docs/release-discipline.md).
+Run `python -B scripts/validate_release.py`, the full `scripts/browser_smoke.py`,
+`scripts/quality_browser.py --output <temporary-json-path>` and
+`scripts/check_workflows.py` before merging. PR validation is read-only; GitHub
+branch protection still requires owner configuration. Dated ISK/mortgage rules
+live in `data/rule-registry.json`; review deadlines fail validation. The SEO
+generator also maintains enforcing CSP meta tags and rule-version notices.
+
+Use the [calculator standard](docs/calculator-quality.md),
+[feature decision template](docs/product-decision.md) and
+[architecture/operations boundaries](docs/architecture-operations.md) when making
+significant changes. [Performance baseline](docs/performance-baseline.json) records
+local payloads and timings, with external requests explicitly excluded.
+
 Start every session with: *"Read README.md and inspect the existing project structure/design before making changes."*
 
 Then:

@@ -1,0 +1,481 @@
+{
+  "version": 1,
+  "measuredAt": "2026-09-13T23:20:50.117217+00:00",
+  "method": "Headless Chromium; cold context per page; localhost without compression or CPU/network throttling; third parties and browser-scheduled favicon requests excluded; no timing pass/fail thresholds.",
+  "pages": [
+    {
+      "page": "index.html",
+      "requestCount": 11,
+      "transferBytes": 970829,
+      "decodedBytes": 967529,
+      "domContentLoadedMs": 372.40000000596046,
+      "loadMs": 373.7000000178814,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 118625,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 30606,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/data/market-calendar.js",
+          "bytes": 2385,
+          "kind": "script"
+        },
+        {
+          "path": "/data/weekly-events.js",
+          "bytes": 423890,
+          "kind": "script"
+        },
+        {
+          "path": "/posts.js",
+          "bytes": 56212,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 7454,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 272132,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 4232,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 768352,
+      "cssBytes": 149231,
+      "imageBytes": 34556,
+      "excludedExternalRequests": [
+        "https://img.youtube.com/vi/Uzc3tBB9pLg/maxresdefault.jpg",
+        "https://img.youtube.com/vi/VPuzUZlvk0U/maxresdefault.jpg",
+        "https://static.cloudflareinsights.com/beacon.min.js",
+        "https://widgets.tradingview-widget.com/w/en/tv-single-ticker.js"
+      ]
+    },
+    {
+      "page": "havstang.html",
+      "requestCount": 9,
+      "transferBytes": 717648,
+      "decodedBytes": 714948,
+      "domContentLoadedMs": 228,
+      "loadMs": 235.5,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 118625,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 30606,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 7454,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 272132,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 4232,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 494387,
+      "cssBytes": 149231,
+      "imageBytes": 34556,
+      "excludedExternalRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js"
+      ]
+    },
+    {
+      "page": "isk-skattkalkylator.html",
+      "requestCount": 8,
+      "transferBytes": 489458,
+      "decodedBytes": 487058,
+      "domContentLoadedMs": 191,
+      "loadMs": 195.59999999403954,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 118625,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 30606,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 7454,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 272132,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 4232,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 285865,
+      "cssBytes": 149231,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "bolanekalkylator.html",
+      "requestCount": 9,
+      "transferBytes": 706205,
+      "decodedBytes": 703505,
+      "domContentLoadedMs": 204.59999999403954,
+      "loadMs": 209.5,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 118625,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 30606,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 7454,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 272132,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 4232,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 494387,
+      "cssBytes": 149231,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "research.html?ticker=NVDA",
+      "requestCount": 19,
+      "transferBytes": 1173478,
+      "decodedBytes": 1167778,
+      "domContentLoadedMs": 187.90000000596046,
+      "loadMs": 201.5,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 118625,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 30606,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 7454,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 272132,
+          "kind": "script"
+        },
+        {
+          "path": "/research-snapshot.js",
+          "bytes": 9411,
+          "kind": "script"
+        },
+        {
+          "path": "/thesis-storage.js",
+          "bytes": 11866,
+          "kind": "script"
+        },
+        {
+          "path": "/change-detection.js",
+          "bytes": 4524,
+          "kind": "script"
+        },
+        {
+          "path": "/research-export.js",
+          "bytes": 9068,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcomes.js",
+          "bytes": 10154,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcome-ui.js",
+          "bytes": 11969,
+          "kind": "script"
+        },
+        {
+          "path": "/research.js",
+          "bytes": 97935,
+          "kind": "script"
+        },
+        {
+          "path": "/research-review.js",
+          "bytes": 4588,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 4232,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-relations-ui.js",
+          "bytes": 365,
+          "kind": "script"
+        },
+        {
+          "path": "/data/stocks/NVDA.json",
+          "bytes": 272823,
+          "kind": "fetch"
+        }
+      ],
+      "jsBytes": 654267,
+      "cssBytes": 149231,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "min-ntm.html",
+      "requestCount": 14,
+      "transferBytes": 536014,
+      "decodedBytes": 531814,
+      "domContentLoadedMs": 177.69999998807907,
+      "loadMs": 200.09999999403954,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 118625,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 30606,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/research-snapshot.js",
+          "bytes": 9411,
+          "kind": "script"
+        },
+        {
+          "path": "/thesis-storage.js",
+          "bytes": 11866,
+          "kind": "script"
+        },
+        {
+          "path": "/change-detection.js",
+          "bytes": 4524,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 7454,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 272132,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcomes.js",
+          "bytes": 10154,
+          "kind": "script"
+        },
+        {
+          "path": "/local-data.js",
+          "bytes": 11342,
+          "kind": "script"
+        },
+        {
+          "path": "/min-review.js",
+          "bytes": 3303,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 4232,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 336465,
+      "cssBytes": 149231,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "post-jordi-visser-linjart-exponentiellt-ai-trading.html",
+      "requestCount": 10,
+      "transferBytes": 571202,
+      "decodedBytes": 568202,
+      "domContentLoadedMs": 178.90000000596046,
+      "loadMs": 185.69999998807907,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 118625,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 30606,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/posts.js",
+          "bytes": 56212,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 7454,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-relations.js",
+          "bytes": 16637,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 272132,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 4232,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 358714,
+      "cssBytes": 149231,
+      "imageBytes": 34556,
+      "excludedExternalRequests": [
+        "https://img.youtube.com/vi/VPuzUZlvk0U/maxresdefault.jpg",
+        "https://static.cloudflareinsights.com/beacon.min.js"
+      ]
+    }
+  ],
+  "browser": "152.0.7977.83"
+}

@@ -2,6 +2,7 @@
 <html lang="sv">
 <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-JZIqCrWeoGnlURam/wbzSn0mu+rQrZLyiLvQ236BfTc='; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' https://img.youtube.com data:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; frame-src https://www.youtube.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="premium.css" />
@@ -61,7 +62,7 @@
     </div></header>
 
     <main id="main-content" tabindex="-1" class="container tool-landing">
-        <header class="page-intro tool-intro"><span class="section-kicker">Lån &amp; privatekonomi</span><h1>Bolånekalkylator</h1><p>Räkna på bolån, kontantinsats, amortering och ränta.</p></header>
+        <header class="page-intro tool-intro"><span class="section-kicker">Lån &amp; privatekonomi</span><h1>Bolånekalkylator</h1><!-- RULE START --><p class="note" data-rule-review="2027-01-01">Regelversion 2026-04-01. Källkontrollerad 2026-09-14. Nästa granskning 2027-01-01. <a href="https://www.fi.se/sv/publicerat/nyheter/2026/fi-upphaver-foreskrifter-och-allmanna-rad-om-bolan--lag-tar-over/" target="_blank" rel="noopener noreferrer">Källa för bolån</a>. Individuella skatte- och bankvillkor kan avvika.</p><!-- RULE END --><p>Räkna på bolån, kontantinsats, amortering och ränta.</p></header>
         <section class="card calculator-card" aria-labelledby="mortgage-calculator-heading">
             <div class="section-heading"><div><span class="section-kicker">Bostadslån</span><h2 id="mortgage-calculator-heading">Planera ditt bolån</h2></div></div>
             <div class="mode-toggle mortgage-mode-toggle" role="tablist" aria-label="Välj beräkningsläge"><button class="mode-tab mortgage-mode-tab active" type="button" data-mortgage-mode="mortgage" role="tab" aria-selected="true">Bolån</button><button class="mode-tab mortgage-mode-tab" type="button" data-mortgage-mode="amortization" role="tab" aria-selected="false">Amortering</button><button class="mode-tab mortgage-mode-tab" type="button" data-mortgage-mode="interest" role="tab" aria-selected="false">Ränta</button></div>

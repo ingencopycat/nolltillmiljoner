@@ -14,7 +14,7 @@ function element(value = '') {
 function app(values = {}) {
   const nodes = new Map(Object.entries(values).map(([key,value]) => [key,element(value)]));
   const charts = [], saved = new Map();
-  const context = vm.createContext({console, URLSearchParams, setTimeout(){},
+  const context = vm.createContext({console, URL, URLSearchParams, setTimeout(){},
     document: {getElementById(id){return nodes.get(id) || null;},
       querySelector(selector){return nodes.get(selector.slice(1)) || null;}, querySelectorAll(){return [];},
       createElement(){return element();}, addEventListener(){}, readyState:'loading', body:element()},
@@ -29,6 +29,56 @@ function app(values = {}) {
   vm.runInContext(process.env.NTM_BASELINE ? require('node:child_process').execFileSync('git',['show','HEAD:script.js'],{encoding:'utf8'}) : fs.readFileSync('script.js','utf8'),context);
   return {context,nodes,charts,saved};
 }
+
+test('quality boundaries: recovery zero, impossible and non-finite values; error replaces success state', () => {
+  const a = app(), c = a.context;
+  assert.equal(c.calculateRecoveryRequiredGain(0, 0).requiredGain, 0);
+  assert.equal(c.calculateRecoveryRequiredGain(50, 1000).requiredGain, 100);
+  for (const drop of [NaN, Infinity, -1, 100]) assert.throws(() => c.calculateRecoveryRequiredGain(drop, 100));
+  for (const amount of [NaN, Infinity, -1]) assert.throws(() => c.calculateRecoveryRequiredGain(10, amount));
+  assert.ok(Object.values(c.calculateRecoveryRequiredGain(99.999, 1e100)).every(Number.isFinite));
+  c.testForm = element(); c.testContainer = element(); c.callback = () => true;
+  const state = vm.runInContext('new CalcState({container:testContainer,form:testForm,onCalculate:()=>callback()})',c);
+  state.calculate(); state.handleInputChange(); assert.equal(state.state,'stale');
+  c.callback = () => '<img src=x onerror=alert(1)>';
+  state.calculate(); assert.equal(state.state,'error');
+  assert.equal(c.testContainer['data-calc-state'],'error');
+  assert.match(state.statusBanner.textContent, /<img/);
+  c.callback = () => true; state.calculate(); assert.equal(state.state,'calculated');
+});
+
+test('leverage explanation oracle: same returns reordered, volatility drag and zero absorption', () => {
+  const a=app({'daily-startbelopp':100,'daily-havstang':3,'daily-avgift':0});
+  const moves=[element(10),element(-10)], container=element(); container.querySelectorAll=()=>moves;
+  a.nodes.set('daily-moves-container',container);
+  for(const id of ['daily-underlying-value','daily-underlying-return','daily-leverage-label','daily-leveraged-value','daily-leveraged-return','daily-total-fees','daily-leverage-table-body','dailyLeverageChart']) a.nodes.set(id,element());
+  for (const returns of [[10,-10],[-10,10]]) {
+    returns.forEach((v,i)=>moves[i].value=v);
+    assert.equal(a.context.calculateDailyLeverage(),true);
+    const series=a.charts.at(-1).data.datasets;
+    assert.ok(Math.abs(series[0].data.at(-1)-99)<1e-10);
+    assert.ok(Math.abs(series[1].data.at(-1)-91)<1e-10);
+  }
+  moves[0].value=-40; moves[1].value=100;
+  assert.equal(a.context.calculateDailyLeverage(),true);
+  assert.equal(a.charts.at(-1).data.datasets[1].data.at(-1),0);
+  moves[0].value=1e308; const count=a.charts.length;
+  assert.equal(typeof a.context.calculateDailyLeverage(),'string'); assert.equal(a.charts.length,count);
+});
+
+test('content allows only inert formatting and HTTPS links; rule parameters match executable constants', () => {
+  const c=app().context;
+  assert.equal(c.constrainPostMarkup('<strong>safe</strong>'),'<strong>safe</strong>');
+  for(const attack of ['<img src=x onerror=alert(1)>','<svg/onload=alert(1)>','<script>alert(1)</script>','<p onclick="x()">x</p>','<a href="javascript:alert(1)">x</a>','&lt;img src=x onerror=x&gt;']) {
+    assert.doesNotMatch(c.constrainPostMarkup(attack), /<(?:img|svg|script|a\b|p\s)/i);
+  }
+  for(const url of ['javascript:alert(1)','data:text/html,x','//evil.test','https://user:pass@example.com']) assert.equal(c.safePostLink(url),'#');
+  assert.equal(c.safePostLink('https://example.com/'),'https://example.com/');
+  for(const rule of JSON.parse(fs.readFileSync('data/rule-registry.json','utf8')).rules){
+    const actual=vm.runInContext(rule.id==='isk'?'ISK_TAX_RULES[2026]':'MORTGAGE_RULES',c);
+    for(const [key,value] of Object.entries(rule.parameters)) assert.deepEqual(JSON.parse(JSON.stringify(actual[key])),value);
+  }
+});
 
 test('independent monthly cash-flow oracle, fee monotonicity, FX identity and margins', () => {
   const c = app().context;
