@@ -18,7 +18,7 @@ REQUIRED_FILES = [
     'avkastningskalkylator.html', 'aktiekopskalkylator.html',
     'valutajusterad-avkastning.html', 'research.html',
     'script.js', 'style.css', 'posts.js', 'week-pages.js', 'research.js', 'research-snapshot.js', 'research-export.js',
-    'research-outcomes.js', 'research-outcome-ui.js', 'thesis-storage.js', 'change-detection.js', 'CNAME'
+    'research-outcomes.js', 'research-outcome-ui.js', 'thesis-storage.js', 'change-detection.js', 'CNAME', 'robots.txt', 'sitemap.xml'
 ]
 REQUIRED_DIRECTORIES = ['data', 'images']
 OPTIONAL_FILES = ['robots.txt', 'sitemap.xml']

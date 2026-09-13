@@ -435,6 +435,24 @@ The staging command verifies mandatory artifacts and copies the site. Local refe
 
 ---
 
+## Technical SEO and search-engine onboarding
+
+The canonical production origin is `https://nolltillmiljoner.se/` (`CNAME`). Public pages have static Swedish titles/descriptions, canonical URLs, robots directives, Open Graph/Twitter metadata and the existing brand favicon. `robots.txt` allows crawling and references `sitemap.xml`; the sitemap contains canonical public HTML URLs only, without query variants or invented modification dates. Min NTM is browser-local and marked `noindex`; legacy redirect pages and the bare article router are also excluded. Research ticker variants consolidate to the Research landing canonical. The dividend calculator remains a mode of `ranta-pa-ranta.html`.
+
+Run `node scripts/build_seo.cjs` after changing article content, its renderer/template, page metadata or the public page inventory. It generates existing posts, including videos, as `post-<slug>.html` using **the same** `posts.js` content and `script.js` renderer with `post.html` as the template; do not edit these generated article files directly. It also seeds crawlable archive links and updates metadata, sitemap and robots. Add metadata overrides for new pages in the generator; remove obsolete generated article files when deleting posts. `node scripts/build_seo.cjs --check` checks for drift and is included in the Python test suite (set `NODE_BINARY` if Node is not on PATH). Staging requires both crawl files and copies all root HTML pages.
+
+Existing article links now use the static canonical URLs. Valid legacy `post.html?post=...` links redirect client-side to the corresponding article. Homepage WebSite and article Article JSON-LD use existing factual content; existing calculator application/FAQ markup is retained. Dynamic Research data and calendars still depend on JavaScript; this foundation does not prerender every data view or guarantee indexing/rich results.
+
+After deploying, the owner must complete these external steps (not performed by this repository task):
+
+1. Check the live HTTPS apex domain, HTTP/www redirects, `robots.txt`, `sitemap.xml` and representative calculator/article URLs.
+2. Add `nolltillmiljoner.se` as a Domain property in Google Search Console and verify ownership using its DNS TXT record.
+3. Submit `https://nolltillmiljoner.se/sitemap.xml` in Sitemaps.
+4. Use URL Inspection/live testing to check accessibility, rendered content and Google's selected canonical; request indexing for important new pages as appropriate.
+5. Monitor sitemap processing, Page indexing and Performance (impressions, queries and pages). Choose later content/keyword work from that evidence.
+
+See [Google's sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap). Submission is a discovery hint, not an indexing guarantee. Analytics, keyword campaigns, new SEO articles and additional landing pages are outside this foundation.
+
 ## Development rules — don't break these
 
 1. Read README.md and inspect the existing implementation before changing a feature.

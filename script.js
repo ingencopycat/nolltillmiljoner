@@ -2843,7 +2843,7 @@ function formatPostDate(date) {
 }
 
 function getPostUrl(slug) {
-  return `post.html?post=${encodeURIComponent(slug)}`;
+  return `post-${encodeURIComponent(slug)}.html`;
 }
 
 function renderPostTags(post) {
@@ -3096,8 +3096,12 @@ function initPostSystem() {
 
   const postView = document.getElementById('postView');
   if (postView) {
-    const slug = new URLSearchParams(window.location.search).get('post');
+    const slug = postView.dataset.postSlug || new URLSearchParams(window.location.search).get('post');
     const post = posts.find((item) => item.slug === slug);
+    if (post && !postView.dataset.postSlug) {
+      window.location.replace(getPostUrl(post.slug));
+      return;
+    }
     postView.innerHTML = post ? renderPostView(post) : '<div class="not-found"><h1>Inlägget hittades inte</h1><p>Kontrollera länken eller gå tillbaka till arkivet.</p><a class="primary-btn" href="inlagg.html">Till alla inlägg</a></div>';
     const copyButton = postView.querySelector('[data-copy-link]');
     if (copyButton) copyButton.addEventListener('click', async () => {
