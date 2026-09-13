@@ -328,7 +328,32 @@ function writeRecentToolsStore(tools) {
 
 function recordRecentToolVisit() {
   const path = window.location.pathname.split('/').pop() || 'index.html';
-  const tool = NTM_TOOL_REGISTRY[path];
+  let tool = NTM_TOOL_REGISTRY[path];
+
+  if (!tool && (path === 'research.html' || path.startsWith('research.html'))) {
+    const params = new URLSearchParams(window.location.search);
+    const ticker = (params.get('ticker') || '').toUpperCase();
+    if (ticker && ticker !== 'ALL') {
+      const companyNames = {
+        'NVDA': 'NVIDIA',
+        'SOFI': 'SoFi Technologies',
+        'CRWD': 'CrowdStrike'
+      };
+      const cName = companyNames[ticker] || ticker;
+      tool = {
+        id: `research-${ticker.toLowerCase()}`,
+        name: `${cName} (${ticker}) – Research`,
+        url: `research.html?ticker=${ticker}`
+      };
+    } else {
+      tool = {
+        id: 'research',
+        name: 'NTM Research',
+        url: 'research.html'
+      };
+    }
+  }
+
   if (!tool) return;
 
   const current = readRecentToolsStore().tools;
@@ -5122,6 +5147,11 @@ function initMinNtmPage() {
   const scenarioList = root.querySelector('[data-min-ntm-scenarios]');
   const scenarioEmpty = root.querySelector('[data-min-ntm-scenarios-empty]');
   const scenarioStatus = root.querySelector('[data-min-ntm-scenarios-status]');
+
+  const thesisList = root.querySelector('[data-min-ntm-theses]');
+  const thesesEmpty = root.querySelector('[data-min-ntm-theses-empty]');
+  const thesesStatus = root.querySelector('[data-min-ntm-theses-status]');
+
   const recentList = root.querySelector('[data-min-ntm-recent-tools]');
   const recentEmpty = root.querySelector('[data-min-ntm-recent-empty]');
   const recentStatus = root.querySelector('[data-min-ntm-recent-status]');
@@ -5158,6 +5188,59 @@ function initMinNtmPage() {
     }).join('');
   }
   if (scenarioEmpty) scenarioEmpty.hidden = scenarios.length > 0;
+
+  // Load and render saved Research Theses
+  if (window.NTMThesisStorage && typeof window.NTMThesisStorage.all === 'function') {
+    const thesesResult = window.NTMThesisStorage.all();
+    if (thesesResult.error && thesesStatus) {
+      thesesStatus.textContent = thesesResult.error;
+      thesesStatus.hidden = false;
+    }
+
+    const thesesArray = Object.entries(thesesResult.theses || {})
+      .map(([ticker, thesis]) => ({ ticker, ...thesis }))
+      .sort((a, b) => new Date(b.updatedAt || 0) - new Date(a.updatedAt || 0));
+
+    if (thesisList) {
+      thesisList.innerHTML = thesesArray.map((thesis) => {
+        const snapshot = thesis.valuationSnapshot || {};
+        const baseCase = snapshot.scenarios?.base;
+        const futurePrice = baseCase?.futurePrice;
+        const baseCagr = baseCase?.cagr;
+        const requiredCagr = snapshot.valuationResults?.requiredEpsCAGR;
+
+        let subtitle = '';
+        if (futurePrice && baseCagr !== undefined) {
+          subtitle = `Base case: $${futurePrice.toFixed(2)} (${baseCagr >= 0 ? '+' : ''}${baseCagr.toFixed(1)}%)`;
+        } else if (requiredCagr !== undefined) {
+          subtitle = `Krävd EPS-tillväxt: ${requiredCagr >= 0 ? '+' : ''}${requiredCagr.toFixed(1)}% / år`;
+        } else {
+          subtitle = 'Thesis utan värdering';
+        }
+
+        const date = new Date(thesis.updatedAt || thesis.createdAt);
+        const dateStr = date.toLocaleDateString('sv-SE', { month: 'short', day: 'numeric' });
+
+        // Check for change badges (requires change-detection.js loaded)
+        let badgeHtml = '';
+        if (window.NTMChangeDetection && window.NTMChangeDetection.isSnapshotStale(snapshot)) {
+          badgeHtml = '<span class="thesis-change-badge">⚠️ Gammal</span>';
+        }
+
+        return `
+          <article class="min-ntm-list-item min-ntm-thesis-item">
+            <div>
+              <h3>${escapeHtml(thesis.ticker)} · ${escapeHtml(thesis.companyName || '')}</h3>
+              <p>${escapeHtml(subtitle)}</p>
+              <p class="min-ntm-thesis-date">Uppdaterad ${escapeHtml(dateStr)} ${badgeHtml}</p>
+            </div>
+            <a class="ghost-btn" href="research.html?ticker=${encodeURIComponent(thesis.ticker)}">Öppna</a>
+          </article>
+        `;
+      }).join('');
+    }
+    if (thesesEmpty) thesesEmpty.hidden = thesesArray.length > 0;
+  }
 
   const recentResult = window.NTMRecentTools.read();
   if (recentStatus && recentResult.error) {

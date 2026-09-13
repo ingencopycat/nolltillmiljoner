@@ -17,7 +17,7 @@
             </a>
             <nav class="main-nav" aria-label="Huvudnavigering">
                 <div class="mobile-theme-row"><span class="mobile-theme-label">Tema</span><button id="mobileThemeToggle" class="theme-toggle mobile-theme-btn" type="button" aria-label="Växla tema" title="Växla tema"><span class="toggle-icon toggle-icon-sun">🌞</span><span class="toggle-icon toggle-icon-moon">🌙</span></button></div>
-                <a href="index.html">Hem</a><a href="verktyg.html">Verktyg</a><a href="min-ntm.html" class="active" aria-current="page">Min NTM</a><a href="inlagg.html">Inlägg</a><a href="makro.html">Makro</a><a href="rapporter.html">Rapporter</a><a href="resurser.html">Resurser</a><a href="community.html">Community</a>
+                <a href="index.html">Hem</a><a href="verktyg.html">Verktyg</a><a href="research.html">Research</a><a href="min-ntm.html" class="active" aria-current="page">Min NTM</a><a href="inlagg.html">Inlägg</a><a href="makro.html">Makro</a><a href="rapporter.html">Rapporter</a><a href="resurser.html">Resurser</a><a href="community.html">Community</a>
             </nav>
             <button id="mobileNavToggle" class="nav-toggle" type="button" aria-label="Öppna meny" aria-expanded="false">☰</button>
             <button id="themeToggle" class="theme-toggle" type="button" aria-label="Växla tema" title="Växla tema"><span class="toggle-icon toggle-icon-sun">🌞</span><span class="toggle-icon toggle-icon-moon">🌙</span></button>
@@ -38,6 +38,28 @@
             </div>
         </section>
 
+        <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-research-heading">
+            <div class="section-heading"><div><span class="section-kicker">Mina analyser</span><h2 id="min-ntm-research-heading">Sparade Research-theses</h2></div></div>
+            <p class="min-ntm-status" data-min-ntm-theses-status hidden></p>
+            <div class="min-ntm-list" data-min-ntm-theses></div>
+            <div class="empty-state min-ntm-empty" data-min-ntm-theses-empty>
+                <h3>Inga sparade analyser ännu</h3>
+                <p>Spara en analys från NTM Research så dyker den upp här. Börja med att analysera ett bolag!</p>
+                <div class="min-ntm-actions"><a class="secondary-btn" href="research.html?ticker=NVDA">Analysera NVIDIA</a><a class="secondary-btn" href="research.html?ticker=SOFI">Analysera SoFi</a><a class="ghost-btn" href="research.html">Alla bolag →</a></div>
+            </div>
+        </section>
+
+        <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-research-heading">
+            <div class="section-heading"><div><span class="section-kicker">Bolagsanalys</span><h2 id="min-ntm-research-heading">NTM Research</h2></div></div>
+            <p class="min-ntm-desc">Analysera bolag med verifierade SEC-fundamentals, historisk tillväxt, marginaler och värderingsscenarier.</p>
+            <div class="min-ntm-research-links">
+                <a class="secondary-btn" href="research.html?ticker=NVDA">NVIDIA (NVDA)</a>
+                <a class="secondary-btn" href="research.html?ticker=SOFI">SoFi (SOFI)</a>
+                <a class="secondary-btn" href="research.html?ticker=CRWD">CrowdStrike (CRWD)</a>
+                <a class="ghost-btn" href="research.html">Alla bolag →</a>
+            </div>
+        </section>
+
         <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-recent-heading">
             <div class="section-heading"><div><span class="section-kicker">Senaste verktyg</span><h2 id="min-ntm-recent-heading">Fortsätt där du var</h2></div></div>
             <p class="min-ntm-status" data-min-ntm-recent-status hidden></p>
@@ -50,7 +72,7 @@
 
         <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-links-heading">
             <div class="section-heading"><div><span class="section-kicker">Snabblänkar</span><h2 id="min-ntm-links-heading">Gå vidare</h2></div></div>
-            <div class="min-ntm-quick-links"><a class="secondary-btn" href="makro.html">Makro</a><a class="secondary-btn" href="rapporter.html">Rapporter</a><a class="secondary-btn" href="verktyg.html">Alla verktyg</a></div>
+            <div class="min-ntm-quick-links"><a class="secondary-btn" href="research.html">Research</a><a class="secondary-btn" href="makro.html">Makro</a><a class="secondary-btn" href="rapporter.html">Rapporter</a><a class="secondary-btn" href="verktyg.html">Alla verktyg</a></div>
         </section>
     </main>
     <script src="script.js"></script>
