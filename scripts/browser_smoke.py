@@ -74,6 +74,212 @@ class BrowserSmoke(unittest.TestCase):
             time.sleep(.05)
         self.fail('Browser condition timed out: ' + expression)
 
+    def test_cloud_account_foundation_two_devices_and_isolation(self):
+        # Same real adapter/UI, deterministic HTTP substitute; no hosted account or email.
+        import copy
+        cloud, sessions, requests, bodies = {}, {}, [], []
+        origin = 'https://ntm-browser-fixture.supabase.co'
+        users = {'a@example.invalid': '11111111-1111-4111-8111-111111111111',
+                 'b@example.invalid': '22222222-2222-4222-8222-222222222222'}
+
+        def handle(route):
+            request = route.request
+            url = request.url
+            if url.startswith(origin):
+                requests.append(url)
+                body = request.post_data_json or {}
+                bodies.append(body)
+                headers = {'access-control-allow-origin': self.base,
+                           'access-control-allow-headers': 'apikey,authorization,content-type',
+                           'access-control-allow-methods': 'POST,GET,OPTIONS'}
+                def reply(data, status=200):
+                    route.fulfill(status=status, content_type='application/json', headers=headers, body=json.dumps(data))
+                if request.method == 'OPTIONS':
+                    reply({}); return
+                if url.endswith('/auth/v1/otp'):
+                    reply({}); return
+                if url.endswith('/auth/v1/verify'):
+                    if body.get('token') != '000000' or body.get('email') not in users:
+                        reply({}, 401); return
+                    uid = users[body['email']]
+                    token = 'TEST-SESSION-' + str(len(requests))
+                    sessions[token] = uid
+                    reply({'user': {'id': uid}, 'access_token': token, 'expires_in': 3600}); return
+                token = request.headers.get('authorization', '').removeprefix('Bearer ')
+                uid = sessions.get(token)
+                if not uid:
+                    reply({}, 401); return
+                if url.endswith('/auth/v1/user'):
+                    reply({'id': uid, 'email': next(email for email, user in users.items() if user == uid),
+                           'created_at': '2026-09-14T00:00:00Z'}); return
+                if url.endswith('/auth/v1/logout'):
+                    sessions.pop(token, None); reply({}); return
+                if url.endswith('/ntm_put_records'):
+                    next_rows = copy.deepcopy(cloud.get(uid, {}))
+                    accepted = []
+                    for record in body['records']:
+                        key = json.dumps([record['kind'], record['scope'], record['id']], separators=(',', ':'))
+                        if key in next_rows and next_rows[key] != record:
+                            reply({'message': 'conflict'}, 409); return
+                        next_rows[key] = record
+                        accepted.append([record['kind'], record['scope'], record['id']])
+                    cloud[uid] = next_rows
+                    reply({'userId': uid, 'accepted': accepted}); return
+                if url.endswith('/ntm_export_records'):
+                    reply({'userId': uid, 'records': list(cloud.get(uid, {}).values())}); return
+                if url.endswith('/ntm_delete_account'):
+                    cloud.pop(uid, None)
+                    for session in list(sessions):
+                        if sessions[session] == uid:
+                            sessions.pop(session)
+                    reply({'deletedUserId': uid}); return
+                reply({}, 404); return
+            if url.split('?')[0].endswith('/cloud-config.js'):
+                route.fulfill(content_type='application/javascript', body='window.NTMCloudConfig=' + json.dumps({
+                    'enabled': True, 'url': origin, 'publishableKey': 'sb_publishable_browserFixture'}) + ';'); return
+            if url.split('?')[0].endswith('/min-ntm.html'):
+                html = (ROOT / 'min-ntm.html').read_text(encoding='utf-8')
+                # Permit only the fixture origin in this intercepted test document.
+                route.fulfill(content_type='text/html', body=html.replace("connect-src 'self'", "connect-src 'self' " + origin)); return
+            if url.startswith(self.base):
+                route.continue_()
+            else:
+                route.fulfill(status=200, body='')
+
+        def login(page, email):
+            page.locator('#cloudAccount > summary').click()
+            page.locator('#cloudEmail').fill(email)
+            page.locator('#cloudRequestOtp').click()
+            expect(page.locator('#cloudMessage')).to_contain_text('engångskod')
+            page.locator('#cloudOtp').fill('000000')
+            page.locator('#cloudVerifyOtp').click()
+            expect(page.locator('#cloudMessage')).to_contain_text('Ingen uppladdning')
+
+        self.context.route('**/*', handle)
+        self.go('research.html?ticker=NVDA')
+        self.page.locator('#thesis-text').fill('CLOUD-PRIVATE-SENTINEL')
+        self.page.locator('#thesisForm button[type=submit]').click()
+        self.go('min-ntm.html')
+        before = self.page.evaluate('JSON.parse(NTMLocalData.exportJSON()).data')
+        login(self.page, 'a@example.invalid')
+        self.assertEqual(cloud, {})
+        self.page.locator('#cloudStayLocal').click()
+        self.assertEqual(cloud, {})
+        self.page.locator('#cloudUpload').click()
+        expect(self.page.locator('#cloudStatus')).to_have_text('Synkat')
+        self.assertEqual(self.page.evaluate('JSON.parse(NTMLocalData.exportJSON()).data'), before)
+        self.assertNotIn('CLOUD-PRIVATE', self.page.evaluate('JSON.stringify(NTMEvents.snapshot())'))
+        self.assertTrue(all('CLOUD-PRIVATE' not in url for url in requests))
+        self.assertNotIn('TEST-SESSION-', self.page.evaluate('JSON.stringify({...localStorage})'))
+        with self.page.expect_download() as downloaded:
+            self.page.locator('#cloudExport').click()
+        portable = json.loads(Path(downloaded.value.path()).read_text())
+        self.assertEqual(portable['data'], before)
+
+        second = self.browser.new_context(viewport={'width': 390, 'height': 844})
+        second.route('**/*', handle)
+        p2 = second.new_page()
+        p2.on('dialog', lambda dialog: dialog.accept())
+        p2.on('pageerror', lambda error: self.errors.append(str(error)))
+        try:
+            p2.goto(self.base + '/min-ntm.html')
+            login(p2, 'b@example.invalid')
+            p2.locator('#cloudRestore').click()
+            expect(p2.locator('#cloudMessage')).to_contain_text('kontrollästs')
+            self.assertEqual(p2.evaluate('NTMLocalData.counts().revisions'), 0)
+            p2.locator('#cloudLogout').click()
+            expect(p2.locator('#cloudMessage')).to_contain_text('Utloggad')
+            # Disclosure remains open after logout.
+            p2.locator('#cloudEmail').fill('a@example.invalid')
+            p2.locator('#cloudOtp').fill('000000')
+            p2.locator('#cloudVerifyOtp').click()
+            expect(p2.locator('#cloudMessage')).to_contain_text('Ingen uppladdning')
+            p2.locator('#cloudRestore').click()
+            expect(p2.locator('#cloudMessage')).to_contain_text('kontrollästs')
+            self.assertEqual(p2.evaluate('JSON.parse(NTMLocalData.exportJSON()).data.theses'), before['theses'])
+            expect(p2.locator('[data-min-ntm-theses]')).to_contain_text('NVDA')
+            p2.emulate_media(reduced_motion='reduce')
+            for theme in ['dark', 'light']:
+                p2.evaluate('(t)=>applyTheme(t)', theme)
+                self.assertEqual(p2.locator('body').evaluate('(e)=>e.classList.contains("light-theme")'), theme == 'light')
+                expect(p2.locator('body')).to_have_css('background-color', 'rgb(245, 247, 250)' if theme == 'light' else 'rgb(11, 15, 20)')
+                expect(p2.locator('#cloudAccount a').first).to_have_css('color', 'rgb(36, 91, 181)' if theme == 'light' else 'rgb(134, 177, 255)')
+                p2.locator('#cloudHeading').scroll_into_view_if_needed()
+                self.assertTrue(p2.evaluate('document.documentElement.scrollWidth <= innerWidth + 1'))
+                path = Path(tempfile.mkdtemp(prefix='ntm-cloud-visual-')) / f'account-mobile-{theme}.png'
+                p2.screenshot(path=str(path))
+                print(f'Cloud visual: {path}', flush=True)
+            # Corrupt an otherwise valid private server revision to test explicit conflict UI.
+            remote_revision = next(r for r in cloud[users['a@example.invalid']].values() if r['kind'] == 'revision')
+            original_text = remote_revision['payload']['text']
+            remote_revision['payload']['text'] = 'DIFFERENT-SAME-ID'
+            local_before = p2.evaluate('JSON.parse(NTMLocalData.exportJSON()).data')
+            p2.locator('#cloudUpload').click()
+            expect(p2.locator('#cloudStatus')).to_have_text('Konflikt')
+            self.assertEqual(p2.evaluate('JSON.parse(NTMLocalData.exportJSON()).data'), local_before)
+            remote_revision['payload']['text'] = original_text
+            p2.locator('#cloudLogout').click()
+            expect(p2.locator('#cloudMessage')).to_contain_text('Utloggad')
+            p2.locator('#cloudEmail').fill('a@example.invalid')
+            p2.locator('#cloudOtp').fill('000000')
+            p2.locator('#cloudVerifyOtp').click()
+            expect(p2.locator('#cloudConnected')).to_be_visible()
+            p2.locator('#cloudConnected > details').last.locator('summary').click()
+            expect(p2.locator('#cloudDeleteLocal')).not_to_be_checked()
+            p2.locator('#cloudDelete').click()
+            expect(p2.locator('#cloudMessage')).to_contain_text('Lokal data finns kvar')
+            self.assertNotIn(users['a@example.invalid'], cloud)
+            self.assertEqual(p2.evaluate('JSON.parse(NTMLocalData.exportJSON()).data'), local_before)
+        finally:
+            second.close()
+
+    def test_growth_reminders_return_private_and_mobile(self):
+        p = self.page
+        requests = []
+        p.on('request', lambda request: requests.append(request.url + (request.post_data or '')))
+        self.context.route('**/*', lambda route: route.continue_() if route.request.url.startswith(self.base) else route.fulfill(status=200, body=''))
+        self.go('research.html?ticker=NVDA')
+        p.locator('#thesis-text').fill('PRIVATE-GROWTH-SENTINEL')
+        p.locator('#thesis-review-date').fill('2000-01-01')
+        p.locator('#thesis-assumption-1').fill('PRIVATE-ASSUMPTION-SENTINEL')
+        p.locator('.assumption-detail > summary').first.click()
+        p.locator('#assumption-date-1').fill('2000-01-01')
+        p.locator('#reportQuestionsEditor > summary').click()
+        p.locator('#report-question-1').fill('PRIVATE-QUESTION-SENTINEL')
+        p.locator('#thesisForm button[type=submit]').click()
+        reminder = p.locator('#researchReminders')
+        expect(reminder).to_contain_text('för ett antagande')
+        expect(reminder).to_contain_text('öppna frågor')
+        expect(reminder).to_contain_text('Inga bakgrundsnotiser')
+        self.assertNotIn('PRIVATE-', p.evaluate('JSON.stringify(NTMEvents.snapshot())'))
+        before = p.evaluate("localStorage.getItem('investment-research-theses-v1')")
+        p.locator('#thesis-text').fill('PRIVATE-UNSAVED-SENTINEL')
+        p.evaluate("window.dispatchEvent(new Event('focus'))")
+        expect(p.locator('#thesis-text')).to_have_value('PRIVATE-UNSAVED-SENTINEL')
+        self.assertEqual(p.evaluate("localStorage.getItem('investment-research-theses-v1')"), before)
+        p.set_viewport_size({'width': 390, 'height': 844})
+        reminder.scroll_into_view_if_needed()
+        expect(reminder).to_be_visible()
+        self.assertTrue(p.evaluate('document.documentElement.scrollWidth <= innerWidth + 1'))
+        artifact = Path(tempfile.mkdtemp(prefix='ntm-growth-visual-')) / 'research-reminders-mobile.png'
+        p.screenshot(path=str(artifact))
+        print(f'Growth reminder visual: {artifact}', flush=True)
+        self.go('min-ntm.html')
+        expect(p.locator('#reviewQueue')).to_contain_text('NVDA')
+        expect(p.locator('#reviewQueue')).to_contain_text('öppna frågor')
+        self.go('research.html?ticker=NVDA')
+        p.locator('#reportQuestionsEditor > summary').click()
+        p.locator('#report-status-1').select_option('answered')
+        p.locator('#thesisForm button[type=submit]').click()
+        expect(p.locator('#researchReminders')).not_to_contain_text('öppna frågor')
+        p.locator('#review-close').click()
+        expect(p.locator('#researchReminders')).to_contain_text('Inga aktiva påminnelser')
+        self.go('min-ntm.html')
+        expect(p.locator('#reviewQueue')).not_to_contain_text('NVDA')
+        expect(p.locator('#closedTheses')).to_contain_text('NVDA')
+        self.assertFalse(any('PRIVATE-' in request for request in requests))
+        self.assertNotIn('PRIVATE-', p.evaluate('JSON.stringify(NTMEvents.snapshot())'))
+
     def test_trust_content_journeys_and_instagram(self):
         p = self.page
         self.go('index.html')

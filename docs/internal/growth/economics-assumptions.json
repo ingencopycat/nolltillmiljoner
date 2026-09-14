@@ -1,0 +1,28 @@
+{
+  "description": "Editable test assumptions only. Zeros mean no budget modeled, not proof that operating costs are zero. All costs ex VAT; all rates require owner review.",
+  "activeUsers": 1000,
+  "payingUsers": null,
+  "conversionPercent": 0,
+  "subscriptionPriceIncludingVat": 129,
+  "subscriptionVatPercent": 25,
+  "secondaryVatPercent": 25,
+  "secondaryRevenueExVat": {"sponsorship": 0, "affiliate": 0, "ads": 0},
+  "paymentFees": {"percentOfSubscriptionGross": 0, "perMonthlyPayment": 0},
+  "variableCostsExVat": {
+    "aiApi": {"monthlyBase": 0, "perActiveUser": 0, "perPayingUser": 0},
+    "dataApi": {"monthlyBase": 0, "perActiveUser": 0, "perPayingUser": 0},
+    "emailNotifications": {"monthlyBase": 0, "perActiveUser": 0, "perPayingUser": 0},
+    "storage": {"monthlyBase": 0, "perActiveUser": 0, "perPayingUser": 0},
+    "bandwidth": {"monthlyBase": 0, "perActiveUser": 0, "perPayingUser": 0},
+    "support": {"monthlyBase": 0, "perActiveUser": 0, "perPayingUser": 0}
+  },
+  "fixedCostsExVat": {
+    "domainAnnual": 0,
+    "hosting": 0,
+    "saas": 0,
+    "accounting": 0,
+    "legal": 0,
+    "companyAdministration": 0,
+    "ownerSoftware": 0
+  }
+}

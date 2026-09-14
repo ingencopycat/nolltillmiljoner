@@ -18,6 +18,32 @@ const draft=()=>({text:'My belief',companyName:'Example Company',origin:'manual'
   assumptions:['FCF becomes positive'],assumptionDetails:[{falsification:'FCF negative in FY2028',reviewBy:'2028-03-01',status:'current',assessment:'unreviewed',note:''}],
   reportQuestions:[{text:'Did margin improve?',status:'open',answer:''}],valuationSnapshot:null});
 
+test('B55 shared Research reminders read latest storage, suppress inactive records and never write on display',()=>{
+  const a=app(), node={hidden:true,textContent:''};
+  a.c.document.getElementById=id=>id==='researchReminders'?node:null;
+  a.store.save('ACME',{...draft(),reviewDate:'2000-01-01'});
+  const before=a.saved.get(key);
+  a.c.NTMMinReview.renderResearch({symbol:'ACME',manual:true});
+  assert.equal(node.hidden,false);
+  assert.match(node.textContent,/granskningsdatum/);
+  assert.match(node.textContent,/öppna frågor/);
+  assert.match(node.textContent,/Inga bakgrundsnotiser/);
+  assert.equal(a.saved.get(key),before);
+  const empty=a.c.NTMMinReview.attention(null,null,'2030-01-01');
+  assert.equal(empty.length,0);
+  const d=clone(a.store.get('ACME').thesis);d.reviewDate='2030-02-01';
+  d.reportQuestions[0].status='answered';d.assumptionDetails[0].status='superseded';
+  assert.equal(a.c.NTMMinReview.attention(d,null,'2030-01-31').length,0);
+  assert.equal(a.c.NTMMinReview.attention(d,null,'2030-02-01').length,1);
+  a.store.completeReview('ACME','close','Done');
+  a.c.NTMMinReview.renderResearch();
+  assert.match(node.textContent,/Inga aktiva påminnelser/);
+  a.saved.set(key,'{broken');
+  a.c.NTMMinReview.renderResearch();
+  assert.match(node.textContent,/kunde inte kontrolleras/);
+  assert.equal(a.saved.get(key),'{broken');
+});
+
 test('B68/B69 immutable criteria, questions, IDs, dates and duplicate suppression',()=>{
   const a=app(), original=draft();
   assert.equal(a.store.save('acme',original).created,true);

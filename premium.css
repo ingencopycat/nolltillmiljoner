@@ -32,6 +32,10 @@ body.light-theme {
 }
 body { background: var(--bg); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
 body, button, input, select, textarea { font-variant-numeric: tabular-nums; }
+#cloudAccount a { color: var(--primary); }
+#cloudLogin label { display: block; margin-top: 1rem; }
+#cloudLogin input { width: 100%; box-sizing: border-box; }
+#cloudConnected button { margin-block: .25rem; }
 h1, h2, h3, h4, p { overflow-wrap: break-word; }
 h1 { font-size: var(--font-title); line-height: 1.15; letter-spacing: -.035em; font-weight: 650; }
 h2 { font-size: var(--font-section); line-height: 1.3; letter-spacing: -.02em; font-weight: 650; }

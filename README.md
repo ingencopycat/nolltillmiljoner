@@ -636,6 +636,32 @@ Adding a connection: add/edit the post in `posts.js`, add intentional metadata/e
 
 ## Workflow for future AI coding sessions
 
+### Optional accounts and cloud foundation (B30/B31/B42/B43)
+
+The [accounts foundation](docs/internal/accounts/README.md) adds a disabled-by-default
+Supabase adapter, immutable owner-scoped SQL records/RLS, durable local sync queue,
+explicit upload/restore and account export/deletion. Min NTM has a small optional
+account disclosure. Local stores, backups and Research remain usable without login
+or network. No live project, SMTP service or credentials are configured. Enable only
+after the documented owner setup, exact-origin CSP build and real-project security
+checks. Node/browser mocks require no credentials; optional PGlite tests execute the
+actual PostgreSQL migration and RLS. Do not introduce service-role keys into public
+files or silently upload device data on login.
+
+### Growth and business readiness (B36/B37/B49/B52/B54/B55/B56/B57)
+
+The [internal growth pack](docs/internal/growth/README.md) contains the data-license
+register, eleven-category provider framework, company SEO decision, interview and
+pilot templates, Discord structure, monetization experiment and offline economics
+model (`python -B scripts/business_model.py`). These are preparation artifacts,
+not paid services or cleared data licenses. Research and Min NTM share local
+reminder logic in `min-review.js`; reminders refresh on page return without
+background notifications. Separate company SEO pages are deferred while the
+current stock datasets identify themselves as offline fixtures; the existing
+Research hub canonical is preserved. Filled user research and actual financial
+assumptions belong outside the repository or in ignored `private-founder/`.
+Docs/scripts/private-founder are excluded from Pages staging.
+
 Release gate: see [quality/trust/release discipline](docs/release-discipline.md).
 Run `python -B scripts/validate_release.py`, the full `scripts/browser_smoke.py`,
 `scripts/quality_browser.py --output <temporary-json-path>` and

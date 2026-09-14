@@ -45,9 +45,41 @@
     <main id="main-content" tabindex="-1" class="container tool-landing" data-min-ntm>
         <header class="page-intro tool-intro min-ntm-intro"><span class="section-kicker">Lokalt på din enhet</span><h1>Min NTM</h1><p>Din personliga översikt.</p><p class="min-ntm-local-note">Sparas lokalt på den här enheten. Ingen inloggning krävs.</p></header>
 
+        <details class="depth-panel" id="cloudAccount"><summary>Konto &amp; valfri molnsynk <small id="cloudStatus">Sparat lokalt</small></summary>
+            <section class="card calculator-card min-ntm-card" aria-labelledby="cloudHeading">
+                <h2 id="cloudHeading">Konto och synk</h2>
+                <p>Lokal användning kräver inget konto. Molnsynk ersätter inte <a href="#localDataDepth">din JSON-backup</a>. Uppgifter kan finnas kvar lokalt efter utloggning.</p>
+                <p id="cloudMessage" role="status" aria-live="polite">Kontrollerar om valfri molnsynk är tillgänglig…</p>
+                <div id="cloudLogin" hidden>
+                    <label for="cloudEmail">E-postadress</label><input id="cloudEmail" type="email" autocomplete="email" required />
+                    <button type="button" id="cloudRequestOtp" class="secondary-btn">Skicka engångskod</button>
+                    <label for="cloudOtp">Engångskod från mejlet</label><input id="cloudOtp" type="text" inputmode="numeric" autocomplete="one-time-code" />
+                    <button type="button" id="cloudVerifyOtp" class="secondary-btn">Logga in med kod</button>
+                </div>
+                <div id="cloudConnected" hidden>
+                    <p id="cloudIdentity"></p>
+                    <p id="cloudMigration"></p>
+                    <button type="button" id="cloudUpload" class="secondary-btn">Synka till mitt konto</button>
+                    <button type="button" id="cloudStayLocal" class="ghost-btn">Behåll endast lokalt just nu</button>
+                    <button type="button" id="cloudRestore" class="secondary-btn">Hämta och slå samman molndata</button>
+                    <p>Lokal radering raderar inte molnkopior. En senare import kan återställa lokalt raderad historik. Automatisk synk av raderingar ingår inte.</p>
+                    <details><summary>Synkkö och försök</summary><ul id="cloudQueue"></ul><button type="button" id="cloudRetry" class="secondary-btn">Försök med väntande kö</button></details>
+                    <button type="button" id="cloudExport" class="secondary-btn">Exportera portabel molnbackup</button>
+                    <button type="button" id="cloudAuditExport" class="ghost-btn">Exportera alla kontoposter</button>
+                    <button type="button" id="cloudLogout" class="ghost-btn">Logga ut</button>
+                    <details><summary>Radera konto och molndata</summary>
+                        <p>Permanent radering av kontot och privat molndata. Andra enheters lokala kopior kan inte raderas här.</p>
+                        <p>Lokala analyser och planer delas av alla som använder samma webbläsarprofil. Synkköer för andra konton och senaste verktyg påverkas inte.</p>
+                        <label><input type="checkbox" id="cloudDeleteLocal" /> Radera även lokala analyser, scenarier, planer, observationer och tema på denna enhet</label>
+                        <button type="button" id="cloudDelete" class="destructive-action ghost-btn">Radera konto och molndata</button>
+                    </details>
+                </div>
+            </section>
+        </details>
         <section class="card calculator-card min-ntm-card" aria-labelledby="reviewQueueHeading">
             <h2 id="reviewQueueHeading">Att granska</h2>
             <p id="reviewQueueStatus" role="status">Kontrollerar sparade teser…</p>
+            <p class="note">Lokala påminnelser visas när du öppnar eller återvänder till sidan. Inga bakgrundsnotiser skickas.</p>
             <div id="reviewQueue" class="min-ntm-list"></div>
             <details><summary>Avstod, stängda teser och historik</summary><div id="closedTheses" class="min-ntm-list"></div></details>
         </section>
@@ -115,6 +147,10 @@
 <script src="script.js"></script>
     <script src="research-outcomes.js"></script>
     <script src="local-data.js"></script>
+    <script src="cloud-config.js"></script>
+    <script src="cloud-sync.js"></script>
+    <script src="cloud-adapter.js"></script>
+    <script src="cloud-ui.js"></script>
     <script src="min-review.js"></script>
     <script src="ntm-ui.js"></script>
 </body>

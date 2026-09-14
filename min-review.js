@@ -1,6 +1,8 @@
 /** Compact review queue from user dates and existing Change Detection, never recommendations. */
 (() => {
   let generation = 0;
+  let researchData = null;
+  const localNotice = 'Lokala påminnelser visas när du öppnar eller återvänder till sidan. Inga bakgrundsnotiser skickas.';
   function attention(thesis, data, today) {
     const state = window.NTMThesisStorage.reviewStatus(thesis,today);
     if (state === 'closed' || state === 'abstained' || state === 'missing') return [];
@@ -44,5 +46,24 @@
       : rows.some(r=>r.reasons.length) ? 'Utifrån dina valda datum och tillgängliga bolagsdata. Du avgör själv om något behöver ändras.'
       : 'Du har inget som behöver granskas just nu utifrån sparade datum och tillgängliga Research-data.';
   }
-  window.NTMMinReview={render,attention};
+  function renderResearch(stock = researchData) {
+    researchData = stock;
+    const node = document.getElementById('researchReminders');
+    if (!node || !stock) return;
+    const result = window.NTMThesisStorage.get(stock.symbol);
+    node.hidden = !result.thesis && !result.error && !result.warning;
+    const reasons = attention(result.thesis, stock.manual ? null : stock);
+    node.textContent = result.error || result.warning
+      ? 'Sparade påminnelser kunde inte kontrolleras fullständigt. Lagringen är oförändrad.'
+      : (reasons.length ? reasons.join('. ') + '. ' : 'Inga aktiva påminnelser utifrån dina sparade datum och frågor. ') + localNotice;
+  }
+  function refresh() {
+    if (document.visibilityState === 'hidden') return;
+    if (document.getElementById('reviewQueue')) render();
+    renderResearch();
+  }
+  window.addEventListener?.('focus', refresh);
+  window.addEventListener?.('storage', refresh);
+  document.addEventListener('visibilitychange', refresh);
+  window.NTMMinReview={render,attention,renderResearch};
 })();

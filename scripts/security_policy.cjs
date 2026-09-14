@@ -1,6 +1,7 @@
 const crypto = require('node:crypto');
 
 function policy(html) {
+  const cloud = html.includes('src="cloud-adapter.js"') ? require('./cloud_config.cjs').read() : null;
   const tradingView = html.includes('src="https://widgets.tradingview-widget.com/');
   const hashes = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)]
     .filter(([, attrs]) => !/\bsrc\s*=/i.test(attrs))
@@ -9,7 +10,7 @@ function policy(html) {
     + "script-src 'self' https://static.cloudflareinsights.com " + (tradingView ? 'https://widgets.tradingview-widget.com ' : '') + [...new Set(hashes)].join(' ')
     + "; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' https://img.youtube.com data:"
     + (tradingView ? ' https://s3-symbol-logo.tradingview.com' : '') + '; '
-    + "font-src 'self'; connect-src 'self' https://cloudflareinsights.com; frame-src https://www.youtube.com"
+    + "font-src 'self'; connect-src 'self' https://cloudflareinsights.com" + (cloud ? ' '+cloud.origin : '') + "; frame-src https://www.youtube.com"
     + (tradingView ? ' https://widgets.tradingview-widget.com' : '');
 }
 function apply(html) {

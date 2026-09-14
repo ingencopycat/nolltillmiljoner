@@ -154,7 +154,13 @@
     // Full ticker deletion deliberately excludes global calculators and theme preferences.
     return commit(raw,next,names);
   }
-  window.NTMLocalData = {exportJSON,importJSON,inspectImport:text => prepare(text).incoming,deleteTicker,counts:() => counts(capture().data)};
+  window.NTMLocalData = {exportJSON,importJSON,inspectImport:text => prepare(text).incoming,deleteTicker,counts:() => counts(capture().data),
+    // Cloud uses the same validation, non-destructive merge and guarded commit as JSON restore.
+    validateData: validate,
+    previewData: incoming => counts(mergeData(capture().data,validate(incoming))),
+    clearAll: () => { const {raw} = capture(); return commit(raw,{theses:{version:2,theses:{}},
+      outcomes:{schemaVersion:1,checkpoints:[]},scenarios:{version:1,calculators:{}},theme:null}); }
+  };
 
   const exportButton = document.getElementById('localDataExport');
   if (!exportButton) return;

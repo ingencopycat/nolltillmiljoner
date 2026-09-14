@@ -45,6 +45,7 @@
     if (!el('thesis-assumption-1')) return;
     data = stock; pending = null;
     const {thesis,error,warning} = window.NTMThesisStorage.get(stock.symbol);
+    window.NTMMinReview.renderResearch(stock);
     for (const i of [1,2,3]) el(`thesis-assumption-${i}`).value = thesis?.assumptions?.[i-1] || '';
     for (const i of [1,2,3]) {
       const a=thesis?.assumptionDetails?.[i-1], q=thesis?.reportQuestions?.[i-1];

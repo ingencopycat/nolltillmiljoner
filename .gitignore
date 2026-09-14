@@ -7,3 +7,13 @@ micron-transcription-test/gpu-test/
 YouTube Transcriber.spec
 
 youtube-transcriber/
+
+# Private founder research and filled business assumptions: never commit.
+/private-founder/
+
+# Local backend tooling and private environment configuration.
+/.env
+/.env.*
+!/.env.example
+/supabase/.temp/
+/supabase/.branches/
