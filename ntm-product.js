@@ -4,13 +4,13 @@
   const names = new Set(['landing_view', 'tool_opened', 'cta_clicked', 'calculator_completed',
     'research_opened', 'valuation_calculated', 'thesis_first_saved', 'assumptions_added',
     'review_date_set', 'thesis_reviewed', 'outcome_checkpoint_saved', 'content_to_tool',
-    'backup_exported', 'backup_imported', 'delete_completed', 'delete_error', 'relation_click']);
+    'backup_exported', 'backup_imported', 'delete_completed', 'delete_error', 'relation_click', 'fire_stress_view_opened', 'savings_plan_observation_saved', 'stock_purchase_thesis_prompt_clicked', 'fx_explanation_opened']);
   const fields = {
     category: ['home', 'content', 'tools', 'research', 'local', 'trust', 'calendar', 'resources', 'other'],
     tool: ['compound', 'fees', 'leverage', 'valuation', 'return', 'purchase', 'goal', 'mortgage', 'fire', 'tax', 'recovery', 'fx', 'research', 'local'],
     source: ['direct_or_unknown', 'search', 'instagram', 'content', 'home'],
     cta: ['assumption', 'counterevidence', 'followup', 'ai_reverse', 'memory_scenarios', 'ai_thesis', 'home_calculator', 'home_research'],
-    action: ['keep', 'revise', 'close'],
+    action: ['keep', 'revise', 'close', 'abstain'],
     result: ['success', 'error'],
     relation_type: ['learn', 'try', 'research', 'related', 'source', 'continue', 'discuss'],
     source_surface: ['content', 'tools', 'research'],
@@ -68,6 +68,7 @@
     emit('landing_view'); if (tool) emit('tool_opened');
     root.document.addEventListener('click', event => {
       const relation = event.target.closest?.('a[data-relation-id]');
+      if (relation?.dataset.relationId === 'purchase-thesis') emit('stock_purchase_thesis_prompt_clicked');
       if (relation) emit('relation_click', { relation_type: relation.dataset.relationType,
         source_surface: category, destination_type: relation.dataset.destinationType });
       const link = event.target.closest?.('a[data-ntm-cta]');

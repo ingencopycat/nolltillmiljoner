@@ -60,6 +60,14 @@ from stage_site import (
 
 class TestMacroRegressionSuite(unittest.TestCase):
 
+    def test_schedule_year_metadata_uses_iso_year(self):
+        weeks = {}
+        events = [{'date': '2025-12-29', 'time': '08:30', 'summary': 'Employment Situation', 'description': 'November 2025'}]
+        sync_scheduled_weeks_from_calendar(weeks, events)
+        self.assertIn('2026-W01', weeks)
+        self.assertEqual(weeks['2026-W01']['year'], 2026)
+        self.assertEqual(weeks['2026-W01']['title'], 'Vecka 1, 2026')
+
     def test_missing_july_between_august_and_june_returns_none(self):
         """August must not be compared with June if July is missing."""
         mock_series_missing_july = {

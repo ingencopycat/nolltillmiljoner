@@ -6931,9 +6931,9 @@ const macroWeeks = {
   },
   "2026-W01": {
     "weekNumber": 1,
-    "year": 2025,
+    "year": 2026,
     "label": "Vecka 1",
-    "title": "Vecka 1, 2025",
+    "title": "Vecka 1, 2026",
     "sourceTimezone": "America/New_York",
     "fallbackImage": null,
     "events": [
@@ -13276,6 +13276,426 @@ const macroWeeks = {
 };
 
 const earningsWeeks = {
+  "2026-W36": {
+  "source": "Earnings Whispers — archived image transcription; company labels use published tickers",
+  "sourceImage": "./images/rapporter/week-36.png",
+  "reports": [
+    {
+      "date": "2026-08-31",
+      "companyName": "SAIC",
+      "ticker": "SAIC",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-08-31",
+      "companyName": "BLRX",
+      "ticker": "BLRX",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-08-31",
+      "companyName": "CANG",
+      "ticker": "CANG",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-01",
+      "companyName": "NIO",
+      "ticker": "NIO",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-01",
+      "companyName": "SSL",
+      "ticker": "SSL",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-01",
+      "companyName": "RZLV",
+      "ticker": "RZLV",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-01",
+      "companyName": "MMED",
+      "ticker": "MMED",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-01",
+      "companyName": "MDT",
+      "ticker": "MDT",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-01",
+      "companyName": "YEXT",
+      "ticker": "YEXT",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-01",
+      "companyName": "HMR",
+      "ticker": "HMR",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-01",
+      "companyName": "CRDO",
+      "ticker": "CRDO",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-01",
+      "companyName": "DELL",
+      "ticker": "DELL",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-01",
+      "companyName": "PANW",
+      "ticker": "PANW",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-01",
+      "companyName": "MDB",
+      "ticker": "MDB",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-01",
+      "companyName": "GTLB",
+      "ticker": "GTLB",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-01",
+      "companyName": "SPWH",
+      "ticker": "SPWH",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-02",
+      "companyName": "FCEL",
+      "ticker": "FCEL",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-02",
+      "companyName": "CXM",
+      "ticker": "CXM",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-02",
+      "companyName": "BF.B",
+      "ticker": "BF.B",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-02",
+      "companyName": "GIII",
+      "ticker": "GIII",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-02",
+      "companyName": "DAKT",
+      "ticker": "DAKT",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-02",
+      "companyName": "OLLI",
+      "ticker": "OLLI",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-02",
+      "companyName": "AVGO",
+      "ticker": "AVGO",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-02",
+      "companyName": "HPE",
+      "ticker": "HPE",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-02",
+      "companyName": "SNOW",
+      "ticker": "SNOW",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-02",
+      "companyName": "NTAP",
+      "ticker": "NTAP",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-02",
+      "companyName": "FIVE",
+      "ticker": "FIVE",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-02",
+      "companyName": "AGX",
+      "ticker": "AGX",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-02",
+      "companyName": "CHPT",
+      "ticker": "CHPT",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-02",
+      "companyName": "PVH",
+      "ticker": "PVH",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-02",
+      "companyName": "PHR",
+      "ticker": "PHR",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-02",
+      "companyName": "GOLD",
+      "ticker": "GOLD",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "CIEN",
+      "ticker": "CIEN",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "WLY",
+      "ticker": "WLY",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "VSXY",
+      "ticker": "VSXY",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "LE",
+      "ticker": "LE",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "GCO",
+      "ticker": "GCO",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "DOO",
+      "ticker": "DOO",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "DLTH",
+      "ticker": "DLTH",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "BRC",
+      "ticker": "BRC",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "CPB",
+      "ticker": "CPB",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "TTC",
+      "ticker": "TTC",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "PATH",
+      "ticker": "PATH",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "AMBA",
+      "ticker": "AMBA",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "DOCU",
+      "ticker": "DOCU",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "ZS",
+      "ticker": "ZS",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "LULU",
+      "ticker": "LULU",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "IOT",
+      "ticker": "IOT",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "ASAN",
+      "ticker": "ASAN",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "BBCP",
+      "ticker": "BBCP",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "PL",
+      "ticker": "PL",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-03",
+      "companyName": "SWBI",
+      "ticker": "SWBI",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-04",
+      "companyName": "KNOP",
+      "ticker": "KNOP",
+      "timing": "before-open"
+    }
+  ]
+},
+  '2026-W38': {
+  "source": "Earnings Whispers — transcribed from the published week 38 image",
+  "sourceImage": "./images/rapporter/week-38.png",
+  "reports": [
+    {
+      "date": "2026-09-14",
+      "companyName": "RF Industries",
+      "ticker": "RFIL",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-14",
+      "companyName": "Hain Celestial",
+      "ticker": "HAIN",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-14",
+      "companyName": "High Tide",
+      "ticker": "HITI",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-14",
+      "companyName": "Dave & Buster’s",
+      "ticker": "PLAY",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-14",
+      "companyName": "MindWalk",
+      "ticker": "HYFT",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-14",
+      "companyName": "Kestra Medical Technologies",
+      "ticker": "KMTS",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-15",
+      "companyName": "Forgent",
+      "ticker": "FPS",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-15",
+      "companyName": "Vera Bradley",
+      "ticker": "VRA",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-15",
+      "companyName": "Bioceres Crop Solutions",
+      "ticker": "BIOX",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-15",
+      "companyName": "Trip.com",
+      "ticker": "TCOM",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-15",
+      "companyName": "Evolution Petroleum",
+      "ticker": "EPM",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-16",
+      "companyName": "LuxExperience",
+      "ticker": "LUXE",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-16",
+      "companyName": "Ispire",
+      "ticker": "ISPR",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-16",
+      "companyName": "Lennar",
+      "ticker": "LEN",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-17",
+      "companyName": "Innate Pharma",
+      "ticker": "IPHA",
+      "timing": "before-open"
+    }
+  ]
+},
   '2026-W37': {
     reports: [
       { date: '2026-09-08', companyName: 'ABM Industries', ticker: 'ABM', timing: 'before-open', priority: 'medium' },
@@ -13364,5 +13784,5 @@ window.NTM_WEEKLY_EVENTS = {
   macroWeeks,
   earningsWeeks,
   macro: macroWeeks['2026-W37'] ? macroWeeks['2026-W37'].events : [],
-  earnings: earningsWeeks['2026-W37'] ? earningsWeeks['2026-W37'].reports : []
+  earnings: earningsWeeks['2026-W38'] ? earningsWeeks['2026-W38'].reports : []
 };

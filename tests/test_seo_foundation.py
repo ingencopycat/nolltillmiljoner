@@ -92,7 +92,7 @@ class SeoFoundationTests(unittest.TestCase):
                     titles.append(page.titles[0]); descriptions.append(page.meta['description'][0])
                     self.assertEqual(page.main, 1)
                     # Research has mutually exclusive index/detail views, each with its own H1.
-                    self.assertEqual(page.h1, 2 if name == 'research.html' else 1)
+                    self.assertEqual(page.h1, 3 if name == 'research.html' else 1)
         self.assertEqual(len(titles), len(set(titles)))
         self.assertEqual(len(descriptions), len(set(descriptions)))
 

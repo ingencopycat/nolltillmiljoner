@@ -38,6 +38,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Update macro data
         env:
           BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
@@ -45,6 +48,8 @@ jobs:
         run: |
           python scripts/update_macro.py
           python tests/test_macro.py
+      - name: Validate weekly publication after update
+        run: node scripts/check_weekly_events.cjs
       - name: Refresh validated stocks
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python scripts/update_stocks.py --all
@@ -97,6 +102,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: node scripts/check_weekly_events.cjs
       - run: node scripts/build_seo.cjs --check
       - run: |
           python scripts/stage_site.py _site

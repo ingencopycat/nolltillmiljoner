@@ -72,8 +72,9 @@ test('one renderer produces escaped, descriptive, crawlable anchors in all gener
   }
   assert.match(R.render(d, 'research-nvda'), /href="#thesisSection"/); // preserves unsaved local editor
   d.entities.find(e => e.id === 'tool-reverse').title = '<img onerror="bad">';
-  d.relations[0].reason = '<script>bad</script>';
-  const escaped = R.render(d, d.relations[0].from);
+  const unsafe = d.relations.find(r => r.id === 'exponential-reverse');
+  unsafe.reason = '<script>bad</script>';
+  const escaped = R.render(d, unsafe.from);
   assert.ok(escaped.includes('&lt;img')); assert.ok(escaped.includes('&lt;script&gt;'));
   assert.ok(!escaped.includes('<script>'));
 });

@@ -4,17 +4,26 @@ const earningsWeekData = {
   '2026-W38': {
     title: 'Vecka 38',
     label: 'Vecka 38',
-    image: './images/rapporter/week-38.png'
+    image: './images/rapporter/week-38-3840.webp',
+    preview: './images/rapporter/week-38-1920.webp',
+    fallback: './images/rapporter/week-38.png',
+    schedule: ["Måndag före öppning: RFIL, HAIN. Efter stängning: HITI, PLAY, HYFT, KMTS.", "Tisdag före öppning: FPS, VRA, BIOX. Efter stängning: TCOM, EPM.", "Onsdag före öppning: LUXE, ISPR. Efter stängning: LEN.", "Torsdag före öppning: IPHA. Inga bolag listade efter stängning.", "Fredag: inga bolag listade."]
   },
   '2026-W37': {
     title: 'Vecka 37',
     label: 'Vecka 37',
-    image: './images/rapporter/week-37.png'
+    image: './images/rapporter/week-37-3840.webp',
+    preview: './images/rapporter/week-37-1920.webp',
+    fallback: './images/rapporter/week-37.png',
+    schedule: ["Måndag: inga bolag listade.", "Tisdag före öppning: ABM, CAN, UNFI. Efter stängning: CASY, BRZE, TTAN, AVO, INNV.", "Onsdag före öppning: CHWY, CAL, SAIL, NNOX, ASO, SIG, CNM, JMKE, JILL, KFY. Efter stängning: AVAV, AEO, NAVN, WLTH, COO, LAKE, LMNR, LSAK, GLOO, SKIL.", "Torsdag före öppning: FLWS, M, MCFT, DBI, VNCE, SHOE, LOVE. Efter stängning: ORCL, ADBE, RH, DSGX, CPRT, LPTH, REF, AENT, ZUMZ.", "Fredag före öppning: KR, HOFT, MNY."]
   },
   '2026-W36': {
     title: 'Vecka 36',
     label: 'Vecka 36',
-    image: './images/rapporter/week-36.png'
+    image: './images/rapporter/week-36-3840.webp',
+    preview: './images/rapporter/week-36-1920.webp',
+    fallback: './images/rapporter/week-36.png',
+    schedule: ["Måndag före öppning: SAIC, BLRX. Efter stängning: CANG.", "Tisdag före öppning: NIO, SSL, RZLV, MMED, MDT, YEXT, HMR. Efter stängning: CRDO, DELL, PANW, MDB, GTLB, SPWH.", "Onsdag före öppning: FCEL, CXM, BF.B, GIII, DAKT, OLLI. Efter stängning: AVGO, HPE, SNOW, NTAP, FIVE, AGX, CHPT, PVH, PHR, GOLD.", "Torsdag före öppning: CIEN, WLY, VSXY, LE, GCO, DOO, DLTH, BRC, CPB, TTC. Efter stängning: PATH, AMBA, DOCU, ZS, LULU, IOT, ASAN, BBCP, PL, SWBI.", "Fredag före öppning: KNOP."]
   }
 };
 
@@ -59,23 +68,8 @@ function getFollowingIsoWeekKeys(currentWeekKey, count) {
   });
 }
 
-function getIsoWeekKeyForDate(date = new Date()) {
-  const parts = new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'Europe/Stockholm',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit'
-  }).formatToParts(date).reduce((result, part) => {
-    if (part.type !== 'literal') result[part.type] = Number(part.value);
-    return result;
-  }, {});
-  const stockholmDate = new Date(Date.UTC(parts.year, parts.month - 1, parts.day));
-  const day = stockholmDate.getUTCDay() || 7;
-  stockholmDate.setUTCDate(stockholmDate.getUTCDate() + 4 - day);
-  const isoYear = stockholmDate.getUTCFullYear();
-  const yearStart = new Date(Date.UTC(isoYear, 0, 1));
-  const isoWeek = Math.ceil((((stockholmDate - yearStart) / 86400000) + 1) / 7);
-  return `${isoYear}-W${String(isoWeek).padStart(2, '0')}`;
+function getIsoWeekKeyForDate(date = getNtmNow()) {
+  return window.NTMWeekly.weekKey(window.NTMWeekly.dateKey(date));
 }
 
 function formatIsoWeekLabel(weekKey) {
@@ -374,7 +368,15 @@ function renderEarningsWeek(weekKey, weeksData, currentWeekKey = getIsoWeekKeyFo
 
   if (visual) {
     visual.classList.remove('hidden');
-    visual.style.background = `linear-gradient(135deg, rgba(10, 15, 22, 0.16), rgba(10, 15, 22, 0.24)), url('${item.image}') center/contain no-repeat`;
+    visual.style.background = 'none';
+    visual.classList.add('week-report-image');
+    visual.innerHTML = `<picture><source type="image/webp" srcset="${item.preview} 1920w, ${item.image} 3840w" sizes="(max-width: 720px) 100vw, 1100px"><img src="${item.fallback}" width="3840" height="2160" loading="lazy" decoding="async" alt="Rapportkalender ${item.title}, Earnings Whispers. Samma bolag och tidpunkter finns i texten nedan."></picture>`;
+    let text = document.getElementById('earnings-readable');
+    if (!text) { text = document.createElement('section'); text.id = 'earnings-readable'; visual.after(text); }
+    text.replaceChildren();
+    const heading = document.createElement('h3'); heading.textContent = `${item.title}: rapportkalender i text`; text.append(heading);
+    const note = document.createElement('p'); note.textContent = 'Avskrift av Earnings Whispers-bilden. Tickers och tidpunkter återges som publicerade, inte som liveverifierad kalender. Före/efter avser USA-börsens öppning/stängning. Kontrollera bolagets IR-sida för ändringar.'; text.append(note);
+    for (const row of item.schedule) { const paragraph = document.createElement('p'); paragraph.textContent = row; text.append(paragraph); }
     visual.title = `Öppna bild för ${item.title}`;
     visual.onclick = () => openLightbox(item.image, item.title);
   }

@@ -507,6 +507,287 @@ class BrowserSmoke(unittest.TestCase):
         self.assertEqual(result, {'images':0,'strong':'Safe formatting','source':'#'})
         self.assertFalse(p.evaluate('window.summaryAttack === 1'))
 
+    def test_decision_lifecycle_supported_and_manual_backup(self):
+        p = self.page
+        artifacts = Path(tempfile.mkdtemp(prefix='ntm-lifecycle-visual-'))
+        p.on('console', lambda msg: self.errors.append(msg.text) if msg.type == 'error' else None)
+        self.context.route('**/*', lambda route: route.continue_() if route.request.url.startswith(self.base) else route.fulfill(status=200, body=''))
+        self.go('research.html?ticker=NVDA')
+        p.locator('#thesis-text').fill('Demand supports my thesis')
+        p.locator('#thesis-assumption-1').fill('Cash flow stays positive')
+        p.locator('.assumption-detail > summary').first.click()
+        p.locator('#assumption-falsification-1').fill('Negative FCF by FY2028')
+        p.locator('#assumption-date-1').fill('2020-01-01')
+        p.locator('#reportQuestionsEditor > summary').click()
+        for i in [1, 2, 3]:
+            p.locator(f'#report-question-{i}').fill(f'Question {i} before report')
+        p.locator('#thesisForm button[type=submit]').click()
+        first = p.evaluate("NTMThesisStorage.get('NVDA').thesis.revisions[0]")
+        p.locator('#thesisForm button[type=submit]').click()
+        self.assertEqual(p.evaluate("NTMThesisStorage.get('NVDA').thesis.revisionCount"), 1)
+        expect(p.locator('#reviewAssumptions')).to_contain_text('Negative FCF by FY2028')
+        for dimension in ['assumptions', 'process', 'price']:
+            expect(p.locator(f'#outcomeResults [data-outcome-dimension={dimension}]')).to_be_visible()
+        p.locator('#review-revise').click()
+        p.locator('#report-status-1').select_option('answered')
+        p.locator('#report-answer-1').fill('Answered from the published report')
+        p.locator('#assumption-status-1').select_option('reviewed')
+        p.locator('#assumption-assessment-1').select_option('mixed')
+        p.locator('#reviewContext').fill('Evidence changed my expectation')
+        p.locator('#reviewProcess').locator('xpath=ancestor::details/summary').click()
+        p.locator('#reviewProcess').fill('I checked the stated falsification criterion')
+        p.locator('#thesisForm button[type=submit]').click()
+        self.assertEqual(p.evaluate("NTMThesisStorage.get('NVDA').thesis.revisions[0]"), first)
+        second = p.evaluate("NTMThesisStorage.get('NVDA').thesis.latestRevisionId")
+        p.locator('#thesisRevisionSelect').select_option(first['id'])
+        expect(p.locator('#revisionQuestions')).to_contain_text('Fortfarande öppen')
+        self.assertNotIn('Answered from', p.locator('#revisionQuestions').inner_text())
+        p.locator('#thesisRevisionSelect').select_option(second)
+        expect(p.locator('#revisionQuestions')).to_contain_text('Answered from the published report')
+        p.locator('#outcomeSave').click()
+        self.assertEqual(p.evaluate("NTMResearchOutcomes.read().checkpoints[0].sourceRevision.reportQuestions[0].status"), 'answered')
+        p.locator('#reviewContext').fill('I chose not to proceed')
+        p.locator('#review-abstain').click()
+        expect(p.locator('#revisionReview')).to_contain_text('Avstod')
+        self.assertEqual(p.evaluate("NTMThesisStorage.get('NVDA').thesis.revisionCount"), 3)
+        self.go('min-ntm.html')
+        self.wait_for("document.getElementById('closedTheses').children.length === 1")
+        expect(p.locator('#reviewQueue a')).to_have_count(0)
+        expect(p.locator('[data-min-ntm-theses] a')).to_have_count(0)
+        p.locator('#closedTheses').locator('xpath=ancestor::details/summary').click()
+        expect(p.locator('#closedTheses')).to_contain_text('Avstod')
+        p.locator('#closedTheses a').click()
+        p.locator('#review-revise').click()
+        p.locator('#thesis-text').fill('Reopened after a new report')
+        p.locator('#thesisForm button[type=submit]').click()
+        self.assertEqual(p.evaluate("NTMThesisStorage.get('NVDA').thesis.revisions[2].review.decision"), 'abstain')
+        self.assertEqual(p.evaluate("NTMThesisStorage.get('NVDA').thesis.review.decision"), 'revise')
+
+        self.go('research.html')
+        p.locator('#manualThesisEntry > summary').click()
+        p.locator('#manualTicker').fill('acme')
+        p.locator('#manualLabel').fill('Example Company')
+        requests = []
+        p.on('request', lambda request: requests.append(request.url))
+        p.locator('#manualThesisForm button[type=submit]').click()
+        expect(p.locator('#manualThesisNotice')).to_have_text('Manuell tes — automatisk bolagsdata saknas')
+        for selector in ['#valuationSection', '#keyMetricsGrid', '#researchFinancials', '#outcomeSection', '[data-relation-ticker]', '#researchDetail .section-local-nav', '[data-metrics-toggle]']:
+            self.assertEqual(p.locator(selector + ':visible').count(), 0)
+        p.locator('#thesis-text').fill('Manual belief without automated fundamentals')
+        p.locator('#thesis-assumption-1').fill('New product earns repeat customers')
+        p.locator('.assumption-detail > summary').first.click()
+        p.locator('#assumption-falsification-1').fill('No repeat customers by next review')
+        p.locator('#assumption-date-1').fill('2020-01-01')
+        p.locator('#reportQuestionsEditor > summary').click()
+        p.locator('#report-question-1').fill('What did customers renew?')
+        p.locator('#thesisForm button[type=submit]').click()
+        manual = p.evaluate("NTMThesisStorage.get('ACME').thesis")
+        self.assertIsNone(manual['valuationSnapshot'])
+        self.assertEqual(manual['companyIdentity'], {'type': 'ticker', 'key': 'ACME'})
+        p.locator('#thesisForm button[type=submit]').click()
+        self.assertEqual(p.evaluate("NTMThesisStorage.get('ACME').thesis.revisionCount"), 1)
+        self.assertFalse(any('/stocks/ACME' in url for url in requests))
+        for width in [1440, 360, 390, 430]:
+            p.set_viewport_size({'width': width, 'height': 960})
+            for theme in ['dark', 'light']:
+                p.evaluate('applyTheme', theme)
+                self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'), width)
+                expect(p.locator('#manualThesisNotice')).to_be_visible()
+                p.locator('#manualThesisHeading').scroll_into_view_if_needed()
+                p.evaluate('document.getAnimations().forEach(animation => animation.finish())')
+                self.assertEqual(p.locator('h1:visible').count(), 1)
+                p.screenshot(path=str(artifacts / f'manual-{width}-{theme}.png'))
+        print('Lifecycle screenshots:', artifacts, flush=True)
+        with p.expect_download() as download:
+            p.locator('#researchExportMarkdown').click()
+        markdown = Path(download.value.path()).read_text(encoding='utf-8')
+        self.assertIn('No repeat customers', markdown)
+        self.assertIn('What did customers renew?', markdown)
+        self.assertNotIn('Sparad finansiell snapshot', markdown)
+        p.evaluate('window.print = () => {}')
+        p.locator('#researchExportPrint').click()
+        expect(p.locator('#researchPrintView')).to_contain_text('No repeat customers')
+        self.go('min-ntm.html')
+        self.wait_for("document.querySelectorAll('#reviewQueue a').length === 2")
+        expect(p.locator('#reviewQueue')).to_contain_text('Manuell tes')
+        expect(p.locator('#reviewQueueStatus')).not_to_contain_text('ofullständig')
+        p.locator('#localDataDepth > summary').click()
+        with p.expect_download() as download:
+            p.locator('#localDataExport').click()
+        payload = Path(download.value.path()).read_bytes()
+        original = p.evaluate('JSON.parse(NTMLocalData.exportJSON()).data')
+        # Only this fresh test context is cleared for the import round trip.
+        p.evaluate('localStorage.clear()')
+        p.reload(wait_until='domcontentloaded')
+        p.locator('#localDataDepth > summary').click()
+        p.locator('#localDataFile').set_input_files({'name': 'lifecycle.json', 'mimeType': 'application/json', 'buffer': payload})
+        p.locator('#localDataImport').click()
+        expect(p.locator('#localDataStatus')).to_contain_text('importerad och kontrolläst')
+        self.assertEqual(p.evaluate('JSON.parse(NTMLocalData.exportJSON()).data'), original)
+        self.go('research.html?ticker=ACME')
+        expect(p.locator('#manualCompanyName')).to_have_value('Example Company')
+        expect(p.locator('#revisionAssumptions')).to_contain_text('No repeat customers')
+        p.locator('#review-abstain').click()
+        p.locator('#review-revise').click()
+        p.locator('#thesis-text').fill('Manual belief revisited')
+        p.locator('#thesisForm button[type=submit]').click()
+        self.assertEqual(p.evaluate("NTMThesisStorage.get('ACME').thesis.revisionCount"), 3)
+        self.assertIsNone(p.evaluate("NTMThesisStorage.get('ACME').thesis.valuationSnapshot"))
+        p.locator('#thesisDeleteBtn').click()
+        self.assertIsNone(p.evaluate("NTMThesisStorage.get('ACME').thesis"))
+        self.assertIsNotNone(p.evaluate("NTMThesisStorage.get('NVDA').thesis"))
+
+    def test_manual_label_identity_and_unsafe_entry(self):
+        p = self.page
+        self.go('research.html')
+        p.locator('#manualThesisEntry > summary').click()
+        p.locator('#manualLabel').fill('Independent company label')
+        p.locator('#manualThesisForm button[type=submit]').click()
+        ticker = p.evaluate('currentStockData.symbol')
+        self.assertTrue(ticker.startswith('MANUAL-'))
+        p.locator('#thesis-text').fill('Private journal entry')
+        p.locator('#thesisForm button[type=submit]').click()
+        identity = p.evaluate('currentStockData.companyIdentity')
+        self.assertEqual(identity, {'type': 'label', 'key': ticker})
+        p.reload(wait_until='domcontentloaded')
+        expect(p.locator('#manualCompanyName')).to_have_value('Independent company label')
+        expect(p.locator('#manualThesisHeading')).to_have_text('Independent company label')
+        p.locator('#reviewContext').fill('Optional abstention reason')
+        p.locator('#review-abstain').click()
+        self.go('min-ntm.html')
+        self.wait_for("document.getElementById('closedTheses').children.length === 1")
+        p.locator('#closedTheses').locator('xpath=ancestor::details/summary').click()
+        expect(p.locator('#closedTheses h3')).to_have_text('Independent company label')
+        p.locator('#closedTheses a').click()
+        expect(p.locator('#revisionReview')).to_contain_text('Optional abstention reason')
+        p.goto(self.base + '/research.html?ticker=%3Cscript%3E', wait_until='domcontentloaded')
+        expect(p.locator('#researchError')).to_be_visible()
+        self.assertEqual(p.evaluate("NTMThesisStorage.get('" + ticker + "').thesis.revisionCount"), 2)
+
+    def test_grouped_money_inputs_across_calculators(self):
+        p = self.page
+        cases = [
+            ('ranta-pa-ranta.html', 'startkapital', None),
+            ('avgifter.html', 'avgifter-startkapital', None),
+            ('aterhamtning.html', 'recovery-belopp', None),
+            ('havstang.html', 'leverage-eget-kapital', None),
+            ('fire-kalkylator.html', 'fire-current-capital', None),
+            ('isk-skattkalkylator.html', 'isk-capital-basis', None),
+            ('avkastningskalkylator.html', 'cagr-start-value', None),
+            ('aktiekopskalkylator.html', 'position-portfolio', '[data-purchase-mode=position]'),
+            ('sparmalskalkylator.html', 'goal-monthly-start', None),
+            ('bolanekalkylator.html', 'mortgage-home-price', None),
+            ('valutajusterad-avkastning.html', 'fx-rate-amount', None),
+        ]
+        for path, field, mode in cases:
+            with self.subTest(page=path):
+                self.go(path)
+                if mode:
+                    p.locator(mode).click()
+                control = p.locator('#' + field)
+                submit = p.locator('#' + control.evaluate('el => el.form.id') + ' button[type=submit]')
+                submit.click()
+                results = p.locator('.result-box').all_text_contents()
+                states = p.locator('[data-calc-state]').evaluate_all('els => els.map(el=>el.dataset.calcState)')
+                control.focus()
+                expect(control.locator('+ .grouped-number-display')).to_be_hidden()
+                control.blur()
+                self.assertEqual(p.locator('[data-calc-state]').evaluate_all('els => els.map(el=>el.dataset.calcState)'), states)
+                control.fill('1000000')
+                control.blur()
+                expect(control.locator('+ .grouped-number-display')).to_have_text('1 000 000')
+                expect(control.locator('+ .grouped-number-display')).to_be_visible()
+                self.assertEqual(control.input_value(), '1000000')
+                self.assertEqual(p.locator('.result-box').all_text_contents(), results)
+                self.assertGreater(p.locator('[data-calc-state=stale]').count(), 0)
+                submit.click()
+                self.assertEqual(p.locator('[data-calc-state=stale]').count(), 0)
+                self.assertGreater(p.locator('[data-calc-state=calculated]').count(), 0)
+                self.assertNotRegex(' '.join(p.locator('.result-box').all_text_contents()), r'NaN|Infinity')
+                # Every opted-in field keeps exactly the same native validity and value.
+                self.assertTrue(p.evaluate("""() => [...document.querySelectorAll('.grouped-number-input input')].every(input => {
+                    const original = input.value;
+                    const probe = input.cloneNode();
+                    const ok = ['1234567.50', '-1234567.50', '', '1e30', '1e309'].every(value => {
+                        input.value = probe.value = value;
+                        refreshGroupedNumberInput(input);
+                        return input.value === probe.value && input.validity.valid === probe.validity.valid
+                            && !/NaN|Infinity/.test(input.nextElementSibling.textContent);
+                    });
+                    input.value = original;
+                    refreshGroupedNumberInput(input);
+                    return ok;
+                })"""))
+                for width in [1440, 360, 390, 430]:
+                    p.set_viewport_size({'width': width, 'height': 900})
+                    for theme in ['dark', 'light']:
+                        p.evaluate('applyTheme', theme)
+                        self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'), width)
+                        self.assertEqual(control.get_attribute('inputmode'), 'decimal')
+                        self.assertTrue(control.evaluate("el => el.nextElementSibling.scrollWidth <= el.nextElementSibling.clientWidth"))
+                p.set_viewport_size({'width': 1440, 'height': 1000})
+
+    def test_grouped_money_math_restore_and_reset(self):
+        p = self.page
+        self.go('ranta-pa-ranta.html')
+        for field, value in [('startkapital', '1000000'), ('manadssparande', '3000'),
+                             ('avkastning', '0'), ('avgift', '0'), ('ar', '1')]:
+            p.locator('#' + field).fill(value)
+        p.locator('#calculator-form button[type=submit]').click()
+        self.assertEqual(p.evaluate('investmentChart.data.datasets[0].data.at(-1)'), 1036000)
+        p.locator('[data-scenario-depth] > summary').click()
+        p.locator('#saved-scenario-name').fill('Grouped amount')
+        p.locator('#save-scenario').click()
+        p.locator('#startkapital').fill('2000000')
+        p.locator('#load-scenario').click()
+        expect(p.locator('#startkapital + .grouped-number-display')).to_have_text('1 000 000')
+        self.assertEqual(p.evaluate('growthCalcState.state'), 'stale')
+        self.assertEqual(p.evaluate('investmentChart.data.datasets[0].data.at(-1)'), 1036000)
+        self.assertEqual(p.evaluate("snapshotForm(document.getElementById('calculator-form')).startkapital"),
+                         {'type': 'number', 'value': '1000000', 'checked': None})
+        p.evaluate("document.getElementById('calculator-form').reset()")
+        self.wait_for("growthCalcState.state === 'neutral'")
+        expect(p.locator('#startkapital + .grouped-number-display')).to_have_text('100 000')
+        p.locator('#startkapital').fill('2000000')
+        p.locator('#startkapital').blur()
+        self.assertEqual(p.evaluate('growthCalcState.state'), 'neutral')
+        p.locator('#startkapital').fill('-1000000')
+        p.locator('#calculator-form button[type=submit]').click()
+        self.assertTrue(p.locator('#startkapital').evaluate('el => el.validity.rangeUnderflow'))
+        self.assertEqual(p.evaluate('growthCalcState.state'), 'neutral')
+        self.go('avkastningskalkylator.html')
+        p.locator('[data-return-mode=total]').click()
+        p.locator('#total-start-value').fill('1000000.50')
+        p.locator('#total-end-value').fill('2000001.00')
+        p.locator('#return-calculator-form button[type=submit]').click()
+        expect(p.locator('#total-start-value + .grouped-number-display')).to_have_text('1 000 000.50')
+        self.assertEqual(p.evaluate("parseReturnNumber(document.getElementById('total-start-value').value)"), 1000000.5)
+        expect(p.locator('#total-return-result')).to_have_text('+100,00 %')
+        self.go('fire-kalkylator.html')
+        p.locator('#fire-current-capital').fill('1234000')
+        p.locator('[data-fire-mode=goal]').click()
+        expect(p.locator('#fire-goal-current-capital + .grouped-number-display')).to_have_text('1 234 000')
+        self.assertEqual(p.locator('#fire-goal-current-capital').input_value(), '1234000')
+
+    def test_grouped_money_touch_and_forced_colors(self):
+        with self.browser.new_context(viewport={'width': 390, 'height': 844},
+                                      is_mobile=True, has_touch=True) as context:
+            p = context.new_page()
+            p.on('pageerror', lambda error: self.errors.append(str(error)))
+            p.goto(self.base + '/ranta-pa-ranta.html', wait_until='domcontentloaded')
+            control = p.locator('#startkapital')
+            control.tap()
+            expect(control).to_be_focused()
+            expect(control.locator('+ .grouped-number-display')).to_be_hidden()
+            control.fill('1234000')
+            p.locator('label[for=manadssparande]').tap()
+            expect(control.locator('+ .grouped-number-display')).to_be_visible()
+            expect(control.locator('+ .grouped-number-display')).to_have_text('1 234 000')
+            self.assertEqual(control.input_value(), '1234000')
+            p.emulate_media(forced_colors='active')
+            expect(control.locator('+ .grouped-number-display')).to_be_hidden()
+            self.assertNotEqual(control.evaluate("el => getComputedStyle(el).webkitTextFillColor"), 'rgba(0, 0, 0, 0)')
+
     def test_daily_leverage_and_zero_net_compound(self):
         p = self.page
         self.go('havstang.html')
@@ -685,6 +966,194 @@ class BrowserSmoke(unittest.TestCase):
         backup=p.evaluate('NTMLocalData.exportJSON()')
         self.assertIn('Only contracted customer demand holds',backup)
         self.assertIn('A narrower condition now',backup)
+
+
+    def test_calculator_depth_followup_and_images(self):
+        p = self.page
+        folder = Path(tempfile.mkdtemp(prefix='ntm-calculator-depth-'))
+        self.go('sparmalskalkylator.html')
+        p.locator('#goal-monthly-return').fill('0')
+        p.locator('#goal-calculator-form button[type=submit]').click()
+        p.locator('#goal-followup details').first.locator('summary').click()
+        p.locator('#followup-name').fill('Original plan')
+        p.locator('#followup-start').fill('2025-01-31')
+        p.locator('#followup-save-plan').click()
+        expect(p.locator('#followup-status')).to_contain_text('Originalplan sparad')
+        before = p.evaluate('NTMScenarioStorage.get("sparmal").scenarios[0].followup.plan')
+        p.locator('#followup-amount').fill('110000')
+        p.locator('#followup-date').fill('2025-02-28')
+        p.locator('#followup-observe button').click()
+        expect(p.locator('#followup-history li')).to_have_count(1)
+        expect(p.locator('#followup-history')).to_contain_text('107 500'.replace(' ', '\u00a0'))
+        self.assertEqual(p.evaluate('goalCalcState.state'), 'calculated')
+        p.locator('#goal-monthly-start').fill('200000')
+        self.assertEqual(p.evaluate('goalCalcState.state'), 'stale')
+        p.locator('#followup-save-plan').click()
+        expect(p.locator('#followup-status')).to_contain_text('Beräkna först')
+        self.assertEqual(p.evaluate('NTMScenarioStorage.get("sparmal").scenarios[0].followup.plan'), before)
+        plan_id = p.locator('#followup-plan').input_value()
+        p.reload(wait_until='domcontentloaded')
+        p.locator('#followup-plan').select_option(plan_id)
+        expect(p.locator('#followup-history li')).to_have_count(1)
+        self.assertEqual(p.evaluate('goalCalcState.state'), 'neutral')
+        for width in [390, 1440]:
+            p.set_viewport_size({'width': width, 'height': 900})
+            for theme in ['light', 'dark']:
+                p.evaluate('applyTheme', theme)
+                p.locator('#goal-followup').scroll_into_view_if_needed()
+                self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'), width)
+                p.screenshot(path=str(folder / f'followup-{width}-{theme}.png'), animations='disabled')
+        self.go('fire-kalkylator.html')
+        p.locator('#fire-form button[type=submit]').click()
+        summary = p.locator('#fire-path-panel [data-depth-event] > summary').first
+        summary.focus(); summary.press('Enter')
+        expect(p.locator('#fire-stress-path')).to_contain_text('10\u00a0000\u00a0000')
+        old = p.locator('#fire-stress-path').inner_text()
+        p.locator('#fire-withdrawal-rate').fill('5')
+        self.assertEqual(p.locator('#fire-stress-path').inner_text(), old)
+        p.locator('#fire-form button[type=submit]').click()
+        self.assertNotEqual(p.locator('#fire-stress-path').inner_text(), old)
+        p.locator('[data-fire-mode=goal]').click()
+        p.locator('#fire-goal-form button[type=submit]').click()
+        p.locator('#fire-goal-panel [data-depth-event] > summary').click()
+        expect(p.locator('#fire-stress-goal')).to_contain_text('Valt antagande')
+        self.assertTrue(p.evaluate('NTMEvents.snapshot().some(e=>e.event==="fire_stress_view_opened")'))
+        p.locator('#fire-goal-panel [data-depth-event]').screenshot(path=str(folder/'fire-stress.png'))
+        self.go('aktiekopskalkylator.html')
+        p.locator('#purchase-calculator-form button[type=submit]').click()
+        old = p.locator('#gav-invested-result').inner_text()
+        p.locator('#gav-currency-cost').fill('20')
+        self.assertEqual(p.locator('#gav-invested-result').inner_text(),old)
+        p.locator('#purchase-calculator-form button[type=submit]').click()
+        expect(p.locator('#gav-invested-result')).to_contain_text('6\u00a0420')
+        expect(p.locator('[data-relation-id=purchase-thesis]')).to_have_attribute('href','research.html#manualThesisEntry')
+        p.locator('#gav-invested-result').scroll_into_view_if_needed()
+        p.screenshot(path=str(folder/'gav.png'))
+        self.go('valutajusterad-avkastning.html')
+        details = p.locator('[data-depth-event=fx_explanation_opened]')
+        details.locator('summary').focus(); details.locator('summary').press('Space')
+        expect(details).to_have_attribute('open','')
+        expect(details).to_contain_text('+8,0 %')
+        p.screenshot(path=str(folder/'fx-depth.png'))
+        for width in [390,1440]:
+            p.set_viewport_size({'width':width,'height':900})
+            self.go('rapporter.html')
+            img=p.locator('#weekVisual img');img.scroll_into_view_if_needed()
+            self.wait_for('document.querySelector("#weekVisual img")?.naturalWidth > 0')
+            self.assertIn('.webp', img.evaluate('el=>el.currentSrc'))
+            expect(p.locator('#earnings-readable')).to_contain_text('Avskrift')
+            self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'),width)
+            p.screenshot(path=str(folder/f'reports-{width}.png'))
+        print('Calculator depth screenshots:',folder,flush=True)
+
+
+    def test_followup_modes_and_mobile_depth(self):
+        p=self.page
+        self.go('sparmalskalkylator.html')
+        for mode in ['time','capital']:
+            p.locator(f'[data-goal-mode={mode}]').click()
+            p.locator('#goal-calculator-form button[type=submit]').click()
+            self.assertEqual(p.evaluate('goalCalcState.state'),'calculated')
+            plan=p.evaluate('latestGoalPlan')
+            self.assertIsNotNone(plan)
+            self.assertGreaterEqual(plan['months'],0)
+            self.assertGreater(plan['target'],0)
+        p.locator('[data-goal-mode=time]').click()
+        p.locator('#goal-time-return').fill('0');p.locator('#goal-time-savings').fill('0')
+        p.locator('#goal-calculator-form button[type=submit]').click()
+        self.assertIsNone(p.evaluate('latestGoalPlan'))
+        folder=Path(tempfile.mkdtemp(prefix='ntm-depth-mobile-'))
+        p.set_viewport_size({'width':390,'height':844})
+        for name,path,submit,summary in [
+            ('fire','fire-kalkylator.html','#fire-form button[type=submit]','#fire-path-panel [data-depth-event] > summary'),
+            ('gav','aktiekopskalkylator.html','#purchase-calculator-form button[type=submit]','main > details.depth-panel > summary'),
+            ('fx','valutajusterad-avkastning.html','#fx-calculator-form button[type=submit]','[data-depth-event=fx_explanation_opened] > summary')]:
+            self.go(path);p.locator(submit).click();p.locator(summary).click()
+            for theme in ['dark','light']:
+                p.evaluate('applyTheme',theme)
+                p.locator(summary).scroll_into_view_if_needed()
+                self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'),390)
+                p.screenshot(path=str(folder/f'{name}-{theme}.png'), animations='disabled')
+        print('Mobile depth screenshots:',folder,flush=True)
+
+
+    def test_homepage_earnings_current_week_expand_and_missing_data(self):
+        p=self.page
+        self.go('index.html?ntmDate=2026-09-14')
+        rows=p.locator('#ntmEarningsList .ntm-event-item:visible')
+        expect(rows).to_have_count(3)
+        details=p.locator('#ntmEarningsList details')
+        expect(details.locator('summary')).to_have_text('Visa 3 rapporter till')
+        details.locator('summary').focus();details.locator('summary').press('Enter')
+        expect(rows).to_have_count(6)
+        expect(p.locator('#ntmEarningsList')).to_contain_text('Kestra Medical Technologies')
+        p.evaluate('renderWeeklyEvents()')
+        expect(rows).to_have_count(6)  # Minute refresh preserves expansion on the same date.
+        p.locator('#ntmEarningsList summary').press('Enter')
+        expect(rows).to_have_count(3)
+        folder=Path(tempfile.mkdtemp(prefix='ntm-home-earnings-'))
+        for width in [390,1440]:
+            p.set_viewport_size({'width':width,'height':900})
+            for theme in ['light','dark']:
+                p.emulate_media(reduced_motion='reduce');p.evaluate('applyTheme',theme)
+                p.locator('#ntmEarningsList').scroll_into_view_if_needed()
+                self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'),width)
+                p.screenshot(path=str(folder/f'earnings-{width}-{theme}.png'))
+        self.go('index.html?ntmDate=2026-09-08')
+        expect(p.locator('#ntmEarningsList summary')).to_have_text('Visa 5 rapporter till')
+        p.locator('#ntmEarningsList summary').click()
+        expect(rows).to_have_count(8)
+        expect(p.locator('#ntmEarningsList')).to_contain_text('InnovAge')
+        self.go('index.html?ntmDate=2026-09-18')
+        expect(p.locator('#ntmEarningsList')).to_have_text('Inga bolagsrapporter i kalendern idag.')
+        self.go('index.html?ntmDate=2026-09-21')
+        expect(p.locator('#ntmEarningsList')).to_have_text('Rapportdata för den här veckan saknas.')
+        expect(p.locator('#ntmEarningsList details')).to_have_count(0)
+        print('Homepage earnings screenshots:',folder,flush=True)
+
+
+    def test_weekly_macro_today_tomorrow_and_expansion(self):
+        p=self.page
+        self.go('index.html?ntmDate=2026-09-14')
+        expect(p.locator('#ntmMacroList')).to_contain_text('Inga makrohändelser i kalendern idag.')
+        expect(p.locator('#ntmEarningsList .ntm-event-item:visible')).to_have_count(3)
+        self.go('index.html?ntmDate=2026-09-15')
+        rows=p.locator('#ntmMacroList .ntm-macro-event-row:visible')
+        expect(rows).to_have_count(2)
+        expect(p.locator('#ntmMacroList')).to_contain_text('Empire State Manufacturing Survey')
+        expect(p.locator('#ntmMacroList')).to_contain_text('14:30')
+        expect(p.locator('#ntmMacroList')).to_contain_text('U.S. Federal Open Market Committee meeting')
+        expect(p.locator('#ntmMacroList')).to_contain_text('Tid ej angiven')
+        expect(p.locator('#ntmMacroList')).not_to_contain_text('Inga makrohändelser')
+        expect(p.locator('#ntmMacroList')).to_contain_text('delvis uppdaterade')
+        before=p.evaluate('JSON.stringify(NTM_WEEKLY_EVENTS.macroWeeks["2026-W38"].events)')
+        p.evaluate('renderWeeklyEvents()')
+        self.assertEqual(p.evaluate('JSON.stringify(NTM_WEEKLY_EVENTS.macroWeeks["2026-W38"].events)'),before)
+        empire=p.evaluate('NTM_WEEKLY_EVENTS.macroWeeks["2026-W38"].events[0]')
+        self.assertIsNone(empire['actual']);self.assertIsNone(empire['forecast']);self.assertEqual(empire['previous'],'20.6')
+        self.assertEqual(empire['fieldProvenance']['forecast']['kind'],'unavailable')
+        self.assertEqual(empire['fieldProvenance']['previous']['kind'],'unknown')
+        folder=Path(tempfile.mkdtemp(prefix='ntm-weekly-reliability-'))
+        for width in [390,1440]:
+            p.set_viewport_size({'width':width,'height':900})
+            for theme in ['light','dark']:
+                p.emulate_media(reduced_motion='reduce');p.evaluate('applyTheme',theme)
+                p.locator('#ntmMacroList').scroll_into_view_if_needed()
+                self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'),width)
+                p.screenshot(path=str(folder/f'tomorrow-{width}-{theme}.png'))
+        self.go('index.html?ntmDate=2026-09-16')
+        expect(rows).to_have_count(3)
+        expect(p.locator('#ntmMacroList summary')).to_have_text('Visa 3 makrohändelser till')
+        p.locator('#ntmMacroList summary').focus();p.keyboard.press('Enter');expect(rows).to_have_count(6)
+        p.evaluate('renderWeeklyEvents()');expect(rows).to_have_count(6)
+        p.locator('#ntmMacroList summary').focus();p.keyboard.press('Enter');expect(rows).to_have_count(3)
+        p.evaluate('delete NTM_WEEKLY_EVENTS.macroWeeks["2026-W38"];renderWeeklyEvents()')
+        expect(rows).to_have_count(0)
+        expect(p.locator('#ntmMacroList')).to_contain_text('Makrodata för den här veckan saknas.')
+        self.go('makro.html?ntmDate=2026-09-15')
+        expect(p.locator('#macroStructuredContent h2').first).to_contain_text('38')
+        expect(p.locator('#event-us-empire-state-manufacturing-2026-09-15')).to_contain_text('20.6')
+        print('Weekly reliability screenshots:',folder,flush=True)
 
 
 if __name__ == '__main__':

@@ -89,6 +89,13 @@
             </div>
         </section>
 
+<details class="card depth-panel" id="manualThesisEntry"><summary>Skapa en manuell tes för ett annat bolag</summary>
+                <p>Manuell tes — automatisk bolagsdata saknas. Din text och historik sparas lokalt. Ange ticker eller en egen bolagsbeteckning.</p>
+                <form id="manualThesisForm" class="calculator-form">
+                <div class="field-group"><label for="manualTicker">Ticker (valfritt om bolagsnamn anges)</label><input id="manualTicker" type="text" maxlength="24" pattern="[A-Za-z0-9.\-]+" /></div>
+                <div class="field-group"><label for="manualLabel">Bolagsnamn eller egen beteckning (valfritt om ticker anges)</label><input id="manualLabel" type="text" maxlength="120" /></div>
+                <button type="submit">Öppna tesformulär</button><p id="manualEntryStatus" role="status"></p></form></details>
+
         <!-- Index / Directory View (When no ticker is chosen) -->
         <section id="researchIndex" class="research-view" style="display: none;">
             <header class="page-intro tool-intro">
@@ -189,6 +196,7 @@
 
         <!-- Company Detail View -->
         <div id="researchDetail" class="research-view" style="display: none;">
+            <header class="page-intro tool-intro" id="manualJournalHeader" hidden><h1 id="manualThesisHeading"></h1><p id="manualThesisNotice">Manuell tes — automatisk bolagsdata saknas</p></header>
             <p id="researchChartStatus" class="note" role="status"></p>
             <!-- Section A: Company Header Card -->
             <section class="card research-header-card" id="companyHeaderCard">
@@ -241,12 +249,15 @@
                 <p>Håller din investeringsteori fortfarande? Utgå från vad du själv trodde och vilka antaganden som behövde stämma. Detta är din bedömning, inte investeringsråd.</p>
                 <h3>Det här trodde du</h3><p id="reviewBelief"></p>
                 <h3>Dina sparade antaganden</h3><p id="reviewAssumptions" style="white-space: pre-wrap;"></p>
+                <h3>Frågor inför rapport</h3><p id="reviewQuestions" class="lifecycle-text"></p>
                 <p id="reviewDataContext"></p>
-                <p><a href="#changeDetectionSection">Läs vad som ändrats i Research-data</a> · <a href="#thesisRevisionSelect">Läs den frysta versionen och värderingsantagandena</a></p>
+                <p id="reviewEvidenceLinks"><a href="#changeDetectionSection">Läs vad som ändrats i Research-data</a> · <a href="#thesisRevisionSelect">Läs den frysta versionen och värderingsantagandena</a></p>
                 <div class="field-group"><label for="reviewContext">Varför håller eller ändras din slutsats? (valfritt)</label><textarea id="reviewContext" rows="2"></textarea></div>
+                <details class="depth-panel" id="processReviewEditor"><summary>Process: hur följde eller ändrade du ditt arbetssätt? (valfritt)</summary><div class="field-group"><label for="reviewProcess">Din processgranskning, oberoende av kursutfallet</label><textarea id="reviewProcess" rows="2"></textarea></div></details>
                 <div class="field-group"><label for="reviewNextDate">Nästa granskning efter beslutet (valfritt)</label><input id="reviewNextDate" type="date" /></div>
                 <button type="button" id="review-keep" class="secondary-btn">Behåll</button>
                 <button type="button" id="review-revise" class="secondary-btn">Revidera</button>
+                <button type="button" id="review-abstain" class="ghost-btn">Avstod</button>
                 <button type="button" id="review-close" class="ghost-btn">Stäng tes</button>
                 <p id="reviewStatus" role="status" aria-live="polite"></p>
             </section>
@@ -264,6 +275,7 @@
                 <!-- Thesis Status Banner -->
                 <div id="thesisStatusBanner" class="calc-status-banner calc-status-neutral" role="status" aria-live="polite" style="display: none;"></div>
 
+                <div class="field-group" id="manualCompanyField" hidden><label for="manualCompanyName">Bolagsnamn eller egen beteckning</label><input id="manualCompanyName" type="text" maxlength="120" /></div>
                 <form id="thesisForm" class="calculator-form thesis-form" novalidate>
 
                     <fieldset class="thesis-fieldset">
@@ -283,9 +295,30 @@
 <fieldset class="thesis-fieldset">
                         <legend>Min tes bygger på att</legend>
                         <p>Skriv gärna minst ett antagande: något som behöver stämma för att din investeringsteori ska hålla. Upp till tre, med dina egna ord.</p>
-                        <div class="field-group"><label for="thesis-assumption-1">Antagande 1 (valfritt)</label><input id="thesis-assumption-1" type="text" /></div>
-                        <div class="field-group"><label for="thesis-assumption-2">Antagande 2 (valfritt)</label><input id="thesis-assumption-2" type="text" /></div>
-                        <div class="field-group"><label for="thesis-assumption-3">Antagande 3 (valfritt)</label><input id="thesis-assumption-3" type="text" /></div>
+                        <div class="field-group"><label for="thesis-assumption-1">Antagande 1 (valfritt)</label><input id="thesis-assumption-1" type="text" /></div><details class="depth-panel assumption-detail" id="assumptionDetail1"><summary>Motbevis och granskning av antagande 1 (valfritt)</summary>
+                        <div class="field-group"><label for="assumption-falsification-1">Vad skulle motbevisa antagande 1?</label><textarea id="assumption-falsification-1" rows="2"></textarea></div>
+                        <div class="field-group"><label for="assumption-date-1">Granska antagande 1 senast</label><input id="assumption-date-1" type="date" /></div>
+                        <div class="field-group"><label for="assumption-status-1">Granskningsstatus för antagande 1</label><select id="assumption-status-1"><option value="current">Aktuellt</option><option value="reviewed">Granskat</option><option value="superseded">Ersatt</option></select></div>
+                        <div class="field-group"><label for="assumption-assessment-1">Din bedömning av antagande 1</label><select id="assumption-assessment-1"><option value="unreviewed">Inte bedömt</option><option value="held">Höll</option><option value="mixed">Delvis</option><option value="did-not-hold">Höll inte</option></select></div>
+                        <div class="field-group"><label for="assumption-note-1">Underlag och anteckning för antagande 1</label><textarea id="assumption-note-1" rows="2"></textarea></div>
+                        <p class="note">Datumet påminner om din egen planering. Det betyder inte att antagandet är falskt. Spara en ny version för att bevara din granskning.</p>
+                        </details>
+                        <div class="field-group"><label for="thesis-assumption-2">Antagande 2 (valfritt)</label><input id="thesis-assumption-2" type="text" /></div><details class="depth-panel assumption-detail" id="assumptionDetail2"><summary>Motbevis och granskning av antagande 2 (valfritt)</summary>
+                        <div class="field-group"><label for="assumption-falsification-2">Vad skulle motbevisa antagande 2?</label><textarea id="assumption-falsification-2" rows="2"></textarea></div>
+                        <div class="field-group"><label for="assumption-date-2">Granska antagande 2 senast</label><input id="assumption-date-2" type="date" /></div>
+                        <div class="field-group"><label for="assumption-status-2">Granskningsstatus för antagande 2</label><select id="assumption-status-2"><option value="current">Aktuellt</option><option value="reviewed">Granskat</option><option value="superseded">Ersatt</option></select></div>
+                        <div class="field-group"><label for="assumption-assessment-2">Din bedömning av antagande 2</label><select id="assumption-assessment-2"><option value="unreviewed">Inte bedömt</option><option value="held">Höll</option><option value="mixed">Delvis</option><option value="did-not-hold">Höll inte</option></select></div>
+                        <div class="field-group"><label for="assumption-note-2">Underlag och anteckning för antagande 2</label><textarea id="assumption-note-2" rows="2"></textarea></div>
+                        <p class="note">Datumet påminner om din egen planering. Det betyder inte att antagandet är falskt. Spara en ny version för att bevara din granskning.</p>
+                        </details>
+                        <div class="field-group"><label for="thesis-assumption-3">Antagande 3 (valfritt)</label><input id="thesis-assumption-3" type="text" /></div><details class="depth-panel assumption-detail" id="assumptionDetail3"><summary>Motbevis och granskning av antagande 3 (valfritt)</summary>
+                        <div class="field-group"><label for="assumption-falsification-3">Vad skulle motbevisa antagande 3?</label><textarea id="assumption-falsification-3" rows="2"></textarea></div>
+                        <div class="field-group"><label for="assumption-date-3">Granska antagande 3 senast</label><input id="assumption-date-3" type="date" /></div>
+                        <div class="field-group"><label for="assumption-status-3">Granskningsstatus för antagande 3</label><select id="assumption-status-3"><option value="current">Aktuellt</option><option value="reviewed">Granskat</option><option value="superseded">Ersatt</option></select></div>
+                        <div class="field-group"><label for="assumption-assessment-3">Din bedömning av antagande 3</label><select id="assumption-assessment-3"><option value="unreviewed">Inte bedömt</option><option value="held">Höll</option><option value="mixed">Delvis</option><option value="did-not-hold">Höll inte</option></select></div>
+                        <div class="field-group"><label for="assumption-note-3">Underlag och anteckning för antagande 3</label><textarea id="assumption-note-3" rows="2"></textarea></div>
+                        <p class="note">Datumet påminner om din egen planering. Det betyder inte att antagandet är falskt. Spara en ny version för att bevara din granskning.</p>
+                        </details>
                         <div class="field-group"><label for="thesis-review-date">Nästa granskning (valfritt)</label><input id="thesis-review-date" type="date" /><small>Din egen planering, inte en prognos eller automatisk avisering.</small></div>
                     </fieldset>
 
@@ -331,6 +364,13 @@
                         </div>
                     </fieldset>
 
+<details class="depth-panel" id="reportQuestionsEditor"><summary>Frågor inför nästa rapport (valfritt)</summary><p>Upp till tre egna frågor. Efter rapporten kan du svara och spara en ny version. Inga svar hämtas automatiskt.</p><fieldset class="thesis-fieldset"><legend>Rapportfråga 1</legend><div class="field-group"><label for="report-question-1">Fråga 1</label><input id="report-question-1" type="text" /></div>
+    <div class="field-group"><label for="report-status-1">Status för fråga 1</label><select id="report-status-1"><option value="open">Fortfarande öppen</option><option value="answered">Besvarad</option></select></div>
+    <div class="field-group"><label for="report-answer-1">Svar eller anteckning till fråga 1</label><textarea id="report-answer-1" rows="2"></textarea></div></fieldset><fieldset class="thesis-fieldset"><legend>Rapportfråga 2</legend><div class="field-group"><label for="report-question-2">Fråga 2</label><input id="report-question-2" type="text" /></div>
+    <div class="field-group"><label for="report-status-2">Status för fråga 2</label><select id="report-status-2"><option value="open">Fortfarande öppen</option><option value="answered">Besvarad</option></select></div>
+    <div class="field-group"><label for="report-answer-2">Svar eller anteckning till fråga 2</label><textarea id="report-answer-2" rows="2"></textarea></div></fieldset><fieldset class="thesis-fieldset"><legend>Rapportfråga 3</legend><div class="field-group"><label for="report-question-3">Fråga 3</label><input id="report-question-3" type="text" /></div>
+    <div class="field-group"><label for="report-status-3">Status för fråga 3</label><select id="report-status-3"><option value="open">Fortfarande öppen</option><option value="answered">Besvarad</option></select></div>
+    <div class="field-group"><label for="report-answer-3">Svar eller anteckning till fråga 3</label><textarea id="report-answer-3" rows="2"></textarea></div></fieldset></details>
                     <div class="thesis-form-actions">
                         <button type="submit" class="thesis-submit-btn">Spara ny version</button>
                         <button type="button" id="thesisDeleteBtn" class="destructive-action ghost-btn thesis-delete-btn" style="display: none;">Radera all thesis-historik</button>
@@ -348,8 +388,8 @@
                     <p class="metadata-note">
                         🔒 Sparas lokalt på den här enheten. Ingen inloggning, ingen moln, ingen delning.
                     </p>
-                    <details class="thesis-snapshot-details">
-                        <summary>Senaste sparade värdering</summary>
+                    <details class="thesis-snapshot-details" id="latestSnapshotDetails">
+                        <summary id="latestSnapshotSummary">Senaste sparade värdering</summary>
                         <div class="thesis-snapshot-preview" id="thesisSnapshotPreview">
                             <!-- Snapshot data populated dynamically -->
                         </div>
@@ -575,7 +615,7 @@
                             </div>
 
                             <!-- 5x5 Sensitivity Matrix -->
-                            <details class="depth-panel" id="sensitivityDepth"><summary>Känslighet: pröva fler kombinationer</summary><div class="sensitivity-matrix-section">
+                            <details class="depth-panel" id="sensitivityDepth"><summary>Hur känslig är värderingen? Pröva fler kombinationer</summary><div class="sensitivity-matrix-section">
                                 <div class="sensitivity-header">
                                     <h4>Känslighetsmatris (5x5): Framtida aktiekurs</h4>
                                     <span class="sensitivity-sub">Kombinationer av årlig EPS-tillväxt (rader) och Exit-P/E (kolumner) efter <span id="sens-years-label">5</span> år</span>
@@ -592,7 +632,7 @@
             </section>
 
             <!-- Section C: Annual Fundamentals Chart & Table -->
-            <details class="depth-panel" id="researchFinancials"><summary>Bokslut &amp; källor <small>Årsdata, kvartal och SEC-rapporter</small></summary><section class="card research-card-block" aria-labelledby="annual-heading">
+            <details class="depth-panel" id="researchFinancials"><summary>Vilka bokslut och källor används? <small>Årsdata, kvartal och SEC-rapporter</small></summary><section class="card research-card-block" aria-labelledby="annual-heading">
                 <div class="section-heading">
                     <div>
                         <span class="section-kicker">Årsbokslut</span>
@@ -673,7 +713,7 @@
             <!-- Section G: Min Thesis (User Research Journal) -->
 
 
-            <section class="card research-card-block" aria-labelledby="research-export-heading">
+            <section class="card research-card-block" id="researchExportSection" aria-labelledby="research-export-heading">
                 <h2 id="research-export-heading">Exportera sparad analys</h2>
                 <p id="researchExportSource" class="note" role="status" aria-live="polite"></p>
                 <div class="research-export-actions">
@@ -706,6 +746,7 @@
                             <div><dt>Vad skulle få mig att ändra mig?</dt><dd id="revisionTrigger"></dd></div>
                             <div><dt>Anteckningar</dt><dd id="revisionNotes"></dd></div>
                             <div><dt>Historiskt sparade antaganden</dt><dd id="revisionAssumptions"></dd></div>
+                            <div><dt>Historiska rapportfrågor</dt><dd id="revisionQuestions"></dd></div>
                             <div><dt>Sparad granskning</dt><dd id="revisionReview"></dd></div>
                         </dl>
                         <div id="revisionSnapshotPreview" class="thesis-snapshot-preview"></div>

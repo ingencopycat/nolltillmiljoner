@@ -374,3 +374,45 @@ body :is(.ai-summary summary, .summary-language-button):focus-visible { border-c
 .resource-recommendation .resource-card-footer { margin-top: auto; padding-top: 8px; }
 .resource-recommendation .resource-card-link { min-height: 44px; text-decoration: underline; text-underline-offset: 4px; }
 .resource-recommendation:focus-within { border-color: var(--primary); }
+
+/* Group money only at rest; the original accessible native input remains editable. */
+.grouped-number-input { position: relative; display: block; min-width: 0; width: 100%; }
+.grouped-number-input > input { width: 100%; }
+.grouped-number-display {
+  display: none; position: absolute; inset: 0; align-content: center;
+  padding: 11px 12px; border: 1px solid transparent; pointer-events: none;
+  font-size: 1rem; color: var(--text); white-space: nowrap; overflow: hidden;
+  text-overflow: ellipsis;
+}
+.grouped-number-input.has-grouped-value > input:not(:focus) { -webkit-text-fill-color: transparent; }
+.grouped-number-input.has-grouped-value > input:not(:focus) + .grouped-number-display { display: block; }
+.grouped-number-input > input:disabled + .grouped-number-display { opacity: .5; }
+@media (forced-colors: active) {
+  .grouped-number-input.has-grouped-value > input:not(:focus) { -webkit-text-fill-color: currentColor; }
+  .grouped-number-input.has-grouped-value > input:not(:focus) + .grouped-number-display { display: none; }
+}
+
+/* Optional lifecycle controls reuse the shared disclosure/form treatment. */
+.assumption-detail .field-group, #reportQuestionsEditor .field-group { margin-block: 12px; }
+.lifecycle-text, #revisionAssumptions, #revisionQuestions { white-space: pre-wrap; overflow-wrap: anywhere; }
+#manualThesisEntry { margin-block: 20px; }
+#manualCompanyField { margin-block: 16px; }
+
+#researchDetail.is-manual [hidden] { display: none !important; }
+
+/* Native details provide the shared optional-depth interaction. */
+.depth-panel > summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+.depth-panel p, #followup-history li { overflow-wrap: anywhere; }
+#goal-followup { padding: 24px; }
+#goal-followup input, #goal-followup select { max-width: 100%; min-width: 0; }
+#followup-history li { margin-block: 12px; }
+body .week-report-image { min-height: 0; height: auto; aspect-ratio: 16 / 9; padding: 0; }
+.week-report-image picture, .week-report-image img { display: block; width: 100%; height: auto; }
+#earnings-readable { margin-block: 24px; }
+@media (max-width: 720px) { #goal-followup { padding: 16px; } }
+
+[data-calc-state="neutral"] [data-depth-event="fire_stress_view_opened"],
+[data-calc-state="error"] [data-depth-event="fire_stress_view_opened"] { display: none; }
+
+.ntm-earnings-more > summary, .ntm-macro-more > summary { cursor: pointer; min-height: 44px; padding-block: 10px; }
+.ntm-earnings-more > summary:focus-visible, .ntm-macro-more > summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }

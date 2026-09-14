@@ -20,6 +20,8 @@
     return { id, from, to, type, priority, reason, cta, ...extra };
   }
   const relations = [
+    edge('purchase-thesis', 'tool-purchase', 'workflow-manual-thesis', 'continue', 10, 'Har din tes förändrats? Skriv eller öppna dina antaganden före ett tilläggsköp.', 'Öppna Research och din tes'),
+    edge('compound-followup', 'tool-compound', 'workflow-goal-followup', 'continue', 25, 'Spara en originalplan och jämför senare med egna observationer.', 'Följ upp ett sparmål'),
     edge('exponential-reverse', 'post-jordi-visser-linjart-exponentiellt-ai-trading', 'tool-reverse', 'try', 10,
       'Videons AI-tillväxt säger inte vad en aktie är värd. Testa vilken EPS-tillväxt dina egna pris- och avkastningsantaganden kräver.', 'Pröva omvänd värdering', { legacyCta: 'ai_reverse' }),
     edge('micron-scenarios', 'post-micron-ai-memory', 'tool-scenarios', 'try', 10,
@@ -73,10 +75,14 @@
     'aktievarderingskalkylator.html': ['tool-valuation'], 'avgifter.html': ['tool-fees'],
     'ranta-pa-ranta.html': ['tool-compound'], 'valutajusterad-avkastning.html': ['tool-fx'],
     'avkastningskalkylator.html': ['tool-return'],
+    'aktiekopskalkylator.html': ['tool-purchase'],
     'research.html': ['research-nvda', 'research-sofi', 'research-crwd']
   };
   function catalog(posts) {
     const entities = [
+      entity('tool-purchase', 'calculator', 'Aktieköp och GAV', 'aktiekopskalkylator.html', { concepts: ['fees', 'thesis'] }),
+      entity('workflow-manual-thesis', 'workflow', 'Din investeringstes', 'research.html#manualThesisEntry', { concepts: ['thesis'] }),
+      entity('workflow-goal-followup', 'workflow', 'Sparmål och uppföljning', 'sparmalskalkylator.html#goal-followup', { concepts: ['compounding'] }),
       entity('tool-valuation', 'calculator', 'Aktievärdering', 'aktievarderingskalkylator.html', { concepts: ['valuation', 'pe', 'eps', 'cagr'] }),
       entity('tool-reverse', 'calculator', 'Omvänd värdering', 'aktievarderingskalkylator.html#reverse', { concepts: ['valuation', 'eps', 'cagr'] }),
       entity('tool-scenarios', 'calculator', 'Värderingsscenarier', 'aktievarderingskalkylator.html#scenarios', { concepts: ['valuation', 'risk'] }),
@@ -151,7 +157,7 @@
       const url = new URL(e.url, 'https://nolltillmiljoner.se/');
       if (url.pathname === '/research.html') {
         const ticker = url.searchParams.get('ticker');
-        if (!supportedTickers.includes(ticker) || e.tickers?.length !== 1 || e.tickers[0] !== ticker) errors.push('Unsupported/mismatched Research: ' + e.id);
+        if (!(e.id === 'workflow-manual-thesis' && e.type === 'workflow' && e.url === 'research.html#manualThesisEntry' && e.tickers.length === 0) && (!supportedTickers.includes(ticker) || e.tickers?.length !== 1 || e.tickers[0] !== ticker)) errors.push('Unsupported/mismatched Research: ' + e.id);
       } else if (e.type === 'research') errors.push('Invalid Research route: ' + e.id);
       if (!destinationExists(e.url)) errors.push('Missing destination: ' + e.url);
     }

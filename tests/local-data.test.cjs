@@ -120,3 +120,46 @@ test('assumptions and explicit reviews survive immutable history, exports, merge
   assert.equal(b.c.NTMThesisStorage.completeReview('NVDA','keep','Legacy review').success,true);
   assert.equal(b.c.NTMThesisStorage.get('NVDA').thesis.revisionCount,2);
 });
+
+
+test('savings plan observations are append-only, merge by ID, and preserve immutable baseline',()=>{
+  const a=app(), plan={startDate:'2025-01-31',start:1000,monthlySavings:100,target:2200,months:12,currency:'SEK',moneyMode:'nominal',annualReturn:0,annualFee:0,inflation:0,monthlyRate:0};
+  const result=a.c.NTMScenarioStorage.save('sparmal',{name:'Plan',mode:'monthly',inputs:{},followup:{version:1,plan,observations:[]}});
+  assert.equal(result.ok,true); const id=result.scenario.id, baseline=JSON.stringify(result.scenario.followup.plan);
+  assert.equal(a.c.NTMScenarioStorage.observe(id,{date:'2025-02-28',amount:1100}).ok,true);
+  const b=app(); b.api.importJSON(a.api.exportJSON());
+  assert.equal(a.c.NTMScenarioStorage.observe(id,{date:'2025-03-31',amount:1500}).ok,true);
+  assert.equal(b.c.NTMScenarioStorage.observe(id,{date:'2025-04-30',amount:900}).ok,true);
+  // Independent devices need globally unique IDs; this fixture supplies deterministic IDs.
+  const incoming=JSON.parse(b.api.exportJSON());incoming.data.scenarios.calculators.sparmal[0].followup.observations[1].id='device-b-observation';
+  a.api.importJSON(JSON.stringify(incoming));
+  const stored=a.c.NTMScenarioStorage.get('sparmal').scenarios[0];
+  assert.equal(JSON.stringify(stored.followup.plan),baseline);assert.equal(stored.followup.observations.length,3);
+  const compare=a.c.NTMScenarioStorage.compare;
+  assert.equal(compare(plan,{date:'2025-02-28',amount:1100}).expected,1100);
+  assert.equal(compare(plan,{date:'2025-02-27',amount:1100}).months,0);
+  assert.match(compare(plan,{date:'2025-03-31',amount:1500}).status,/Över/);
+  assert.match(compare(plan,{date:'2025-04-30',amount:900}).status,/Under/);
+  assert.match(compare(plan,{date:'2025-02-28',amount:1110}).status,/linje/);
+  for(const o of [{date:'2024-12-01',amount:0},{date:'2025-02-30',amount:1},{date:'2027-01-01',amount:1},{date:'2025-03-01',amount:-1}]) assert.equal(a.c.NTMScenarioStorage.observe(id,o).ok,false);
+  const before=a.api.exportJSON(), conflict=JSON.parse(before);conflict.data.scenarios.calculators.sparmal[0].followup.plan.target=999;
+  assert.throws(()=>a.api.importJSON(JSON.stringify(conflict)),/Originalplan/);
+  assert.deepEqual(JSON.parse(a.api.exportJSON()).data,JSON.parse(before).data);
+  const corrupted=JSON.parse(before).data.scenarios;corrupted.calculators.sparmal[0].followup.observations[0].amount=-2;
+  const raw=JSON.stringify(corrupted);a.saved.set(a.c.NTMScenarioStorage.key,raw);
+  assert.ok(a.c.NTMScenarioStorage.read().error);assert.equal(a.c.NTMScenarioStorage.observe(id,{date:'2025-03-01',amount:1}).ok,false);assert.equal(a.saved.get(a.c.NTMScenarioStorage.key),raw);
+});
+
+
+test('real savings follow-up uses the captured effective rate and rejects observations after the exact horizon',()=>{
+  const a=app(), annual=(1.07*.99)/1.02-1, monthlyRate=Math.pow(1+annual,1/12)-1;
+  const plan={startDate:'2024-01-31',start:1000,monthlySavings:100,target:2300,months:12,currency:'SEK',moneyMode:'real',annualReturn:7,annualFee:1,inflation:2,monthlyRate};
+  const result=a.c.NTMScenarioStorage.save('sparmal',{name:'Real',mode:'capital',inputs:{},followup:{version:1,plan,observations:[]}});
+  assert.equal(result.ok,true);
+  let oracle=1000;for(let i=0;i<12;i++)oracle=oracle*(1+monthlyRate)+100;
+  assert.ok(Math.abs(a.c.NTMScenarioStorage.compare(plan,{date:'2025-01-31',amount:2300}).expected-oracle)<1e-9);
+  assert.equal(a.c.NTMScenarioStorage.compare(plan,{date:'2025-02-01',amount:2300}),null);
+  assert.equal(a.c.NTMScenarioStorage.compare({...plan,months:0},{date:'2024-02-01',amount:1000}),null);
+  plan.monthlyRate=0;
+  assert.equal(a.c.NTMScenarioStorage.save('sparmal',{name:'Invalid rate',mode:'capital',inputs:{},followup:{version:1,plan,observations:[]}}).ok,false);
+});

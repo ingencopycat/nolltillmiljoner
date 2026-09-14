@@ -18,6 +18,7 @@ def main():
         [node, '--test', *[str(p.relative_to(ROOT)) for p in sorted((ROOT/'tests').glob('*.test.cjs'))]],
         [node, 'scripts/build_seo.cjs', '--check'],
         [node, 'scripts/check_calendar_coverage.cjs'],
+        [node, 'scripts/check_weekly_events.cjs'],
         [node, 'scripts/check_rules.cjs'],
         ['git', '-c', 'core.safecrlf=false', 'diff', '--check'],
     ]

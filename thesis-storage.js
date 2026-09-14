@@ -8,10 +8,75 @@
   const validDate = v => v == null || (typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v)
     && Number.isFinite(Date.parse(v)) && new Date(v).toISOString().slice(0,10) === v);
   const validExtras = v => (v.assumptions === undefined || Array.isArray(v.assumptions) && v.assumptions.length <= 3 && v.assumptions.every(a => typeof a === 'string'))
-    && validDate(v.reviewDate) && (v.review == null || object(v.review) && ['keep','revise','close'].includes(v.review.decision)
+    && validDate(v.reviewDate) && (v.review == null || object(v.review) && ['keep','revise','close','abstain'].includes(v.review.decision)
       && typeof v.review.at === 'string' && Number.isFinite(Date.parse(v.review.at))
-      && typeof v.review.sourceRevisionId === 'string' && typeof v.review.context === 'string');
-  const validRevision = (v) => validText(v) && typeof v.id === 'string' && Boolean(v.id) && validExtras(v);
+      && typeof v.review.sourceRevisionId === 'string' && typeof v.review.context === 'string' && optionalText(v.review.processNote)) && validLifecycle(v);
+  const timestamp = v => v == null || typeof v === 'string' && Number.isFinite(Date.parse(v));
+  const optionalText = v => v == null || typeof v === 'string';
+  const uniqueIds = rows => new Set(rows.filter(r=>r?.id).map(r=>r.id)).size === rows.filter(r=>r?.id).length;
+  function validLifecycle(v) {
+    return (v.origin === undefined || ['manual','supported'].includes(v.origin))
+      && (v.companyIdentity == null || object(v.companyIdentity) && ['ticker','label'].includes(v.companyIdentity.type)
+        && typeof v.companyIdentity.key === 'string' && /^[A-Z0-9.-]+$/.test(v.companyIdentity.key))
+      && (v.origin !== 'manual' || v.valuationSnapshot == null && v.companyIdentity != null)
+      && (v.assumptionDetails === undefined || Array.isArray(v.assumptionDetails)
+        && v.assumptionDetails.length === (v.assumptions || []).length && (v.assumptions || []).every(a=>a.trim()) && uniqueIds(v.assumptionDetails)
+        && v.assumptionDetails.every(a => object(a) && optionalText(a.id) && optionalText(a.falsification)
+          && validDate(a.reviewBy) && timestamp(a.createdAt) && timestamp(a.reviewedAt)
+          && ['current','reviewed','superseded'].includes(a.status)
+          && ['unreviewed','held','mixed','did-not-hold'].includes(a.assessment) && optionalText(a.note)))
+      && (v.reportQuestions === undefined || Array.isArray(v.reportQuestions) && v.reportQuestions.length <= 3
+        && uniqueIds(v.reportQuestions) && v.reportQuestions.every(q => object(q) && optionalText(q.id)
+          && typeof q.text === 'string' && q.text.trim() && ['open','answered'].includes(q.status)
+          && optionalText(q.answer) && timestamp(q.createdAt) && timestamp(q.answeredAt)));
+  }
+  const newId = () => window.crypto?.randomUUID?.() || `item-${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+  const todayLocal = (value) => {const d=value ? new Date(value) : new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
+  function assumptionStatus(a, today = todayLocal()) {
+    if (a.status === 'superseded') return 'superseded';
+    // A later scheduled review may become due even after an earlier review.
+    if (a.reviewBy && a.reviewBy <= today && (!a.reviewedAt || a.reviewBy > todayLocal(a.reviewedAt))) return 'due';
+    return a.status;
+  }
+  const decisionLabels = {keep:'Behåll',revise:'Revidera',close:'Stäng tes',abstain:'Avstod'};
+  const assumptionLabels = {current:'Aktuellt',due:'Ditt granskningsdatum har nåtts',reviewed:'Granskat',superseded:'Ersatt'};
+  const assessmentLabels = {unreviewed:'Inte bedömt',held:'Höll enligt din bedömning',mixed:'Delvis enligt din bedömning','did-not-hold':'Höll inte enligt din bedömning'};
+  function assumptionText(revision, today, includeIds = false) {
+    return (revision.assumptions || []).map((a,i) => {
+      const d=revision.assumptionDetails?.[i];
+      return `${i+1}. ${a}` + (d ? `
+Motbevis: ${d.falsification || 'inte angivet'}
+Granska senast: ${d.reviewBy || 'inte angivet'} · ${assumptionLabels[today ? assumptionStatus(d,today) : d.status]}
+Egen bedömning: ${assessmentLabels[d.assessment]}. ${d.note || ''}
+${includeIds ? `ID: ${d.id || 'saknas'} · ` : ''}Skapat: ${includeIds ? d.createdAt : d.createdAt?.slice(0,10) || 'datum saknas'} · Granskat: ${includeIds ? d.reviewedAt || 'inte granskat' : d.reviewedAt?.slice(0,10) || 'inte granskat'}` : '');
+    }).join('\n\n') || 'Inga uttryckliga antaganden sparades i denna version.';
+  }
+  function questionText(revision, includeIds = false) {
+    return (revision.reportQuestions || []).map((q,i)=>`${i+1}. ${q.text}
+${q.status === 'answered' ? 'Besvarad' : 'Fortfarande öppen'} · ${q.answer || 'Ingen anteckning'}
+${includeIds ? `ID: ${q.id} · ` : ''}Skapad: ${includeIds ? q.createdAt : q.createdAt?.slice(0,10) || 'datum saknas'} · Besvarad: ${includeIds ? q.answeredAt || 'inte besvarad' : q.answeredAt?.slice(0,10) || 'inte besvarad'}`).join('\n\n') || 'Inga rapportfrågor sparades i denna version.';
+  }
+  function lifecycleDraft(thesis, now, latest) {
+    const extra = {};
+    if (thesis.origin !== undefined) extra.origin = thesis.origin;
+    if (thesis.companyIdentity) extra.companyIdentity = {...thesis.companyIdentity};
+    if (thesis.assumptionDetails !== undefined) extra.assumptionDetails = thesis.assumptionDetails.map((a,i)=> {
+      const old=latest?.assumptions?.[i] === thesis.assumptions?.[i] ? latest?.assumptionDetails?.[i] : null;
+      return ({
+      ...a, id:a.id || old?.id || newId(), falsification:text(a.falsification).trim(), note:text(a.note).trim(),
+      createdAt:a.createdAt || old?.createdAt || now, reviewBy:a.reviewBy || null,
+      reviewedAt:a.status === 'reviewed' ? a.reviewedAt || (old?.status === 'reviewed' && old?.falsification === text(a.falsification).trim() ? old.reviewedAt : null) || now : a.reviewedAt || null,
+    });});
+    if (thesis.reportQuestions !== undefined) extra.reportQuestions = thesis.reportQuestions.map((q,i)=> {
+      const old=latest?.reportQuestions?.[i]?.text === q.text.trim() ? latest.reportQuestions[i] : null;
+      return ({
+      ...q,id:q.id || old?.id || newId(),text:q.text.trim(),answer:text(q.answer).trim(),createdAt:q.createdAt || old?.createdAt || now,
+      answeredAt:q.status === 'answered' ? q.answeredAt || (old?.status === 'answered' ? old.answeredAt : null) || now : null,
+    });});
+    return extra;
+  }
+  const validRevision = (v) => validText(v) && typeof v.id === 'string' && Boolean(v.id) && validExtras(v)
+    && [...(v.assumptionDetails || []),...(v.reportQuestions || [])].every(a=>typeof a.id === 'string' && a.id && a.createdAt);
   const failure = (error) => ({ success: false, error });
 
   function freeze(value) {
@@ -35,6 +100,10 @@
       risks: text(record.risks), triggerChange: text(record.triggerChange), notes: text(record.notes),
       assumptions: (record.assumptions || []).map(a => a.trim()).filter(Boolean),
       reviewDate: record.reviewDate || null, review: record.review ? {...record.review} : null,
+      ...(record.origin !== undefined ? {origin:record.origin} : {}),
+      ...(record.companyIdentity ? {companyIdentity:{...record.companyIdentity}} : {}),
+      ...(record.assumptionDetails ? {assumptionDetails:record.assumptionDetails.map(a=>({...a}))} : {}),
+      ...(record.reportQuestions ? {reportQuestions:record.reportQuestions.map(q=>({...q}))} : {}),
       valuationSnapshot: window.NTMResearchSnapshot.normalize(record.valuationSnapshot),
     });
   }
@@ -66,7 +135,7 @@
         const ids = new Set();
         const revisions = [];
         for (const revision of rawRevisions) {
-          if (!validRevision(revision) || ids.has(revision.id)) {
+          if (!validRevision(revision) || revision.companyIdentity && revision.companyIdentity.key !== ticker || ids.has(revision.id)) {
             issues[ticker] = 'En sparad version kunde inte läsas. Historiken bevaras; sparning är blockerad.';
             continue;
           }
@@ -127,6 +196,9 @@
       triggerChange: meaningfulText(revision.triggerChange), notes: meaningfulText(revision.notes), snapshot,
       assumptions: (revision.assumptions || []).map(meaningfulText).filter(Boolean),
       reviewDate: revision.reviewDate || null, review: revision.review || null,
+      origin:revision.origin || 'supported', companyIdentity:revision.companyIdentity || null,
+      assumptionDetails:revision.assumptionDetails || null, reportQuestions:revision.reportQuestions || [],
+      companyName:revision.origin === 'manual' ? meaningfulText(revision.companyName) : null,
     });
   }
 
@@ -150,6 +222,9 @@
     const store = readThesesStore();
     if (store.error || store.issues[ticker]) return failure(store.error || store.issues[ticker]);
     const latest = store.theses[ticker];
+    if (thesis.companyIdentity && thesis.companyIdentity.key !== ticker) return failure('Bolagsidentiteten tillhör en annan nyckel.');
+    const now = new Date().toISOString();
+    thesis = {...thesis, ...lifecycleDraft(thesis, now, latest)};
     if (latest && fingerprint(latest) === fingerprint(thesis)) {
       return { success: true, error: null, created: false, revisionId: latest.id,
         createdAt: latest.createdAt, updatedAt: latest.updatedAt };
@@ -158,7 +233,6 @@
       const next = writableStore(store);
       const storedKey = recordKey(next, ticker);
       const revisions = next.theses[storedKey]?.revisions || [];
-      const now = new Date().toISOString();
       let id;
       do {
         id = window.crypto?.randomUUID?.() || `revision-${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
@@ -169,6 +243,7 @@
         triggerChange: text(thesis.triggerChange).trim(), notes: text(thesis.notes).trim(),
         assumptions: (thesis.assumptions || []).map(a => a.trim()).filter(Boolean),
         reviewDate: thesis.reviewDate || null, review: thesis.review ? {...thesis.review} : null,
+        ...lifecycleDraft(thesis, now),
         valuationSnapshot: snapshot,
       };
       next.theses[storedKey] = { ...next.theses[storedKey], revisions: [...revisions, revision] };
@@ -209,22 +284,24 @@
   }
 
   window.NTMThesisStorage = {
+    assumptionStatus, assumptionText, questionText, decisionLabels, todayLocal, validLifecycle,
     key: KEY, version: 2, read: readThesesStore, get: getThesis, all: getAllTheses,
     save: saveThesis, remove: deleteThesis, removeRevision: deleteRevision,
     reviewStatus(thesis, today) {
       if (!thesis) return 'missing';
       if (thesis.review?.decision === 'close') return 'closed';
+      if (thesis.review?.decision === 'abstain') return 'abstained';
       const now = new Date();
       today ||= `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
       return thesis.reviewDate && thesis.reviewDate <= today ? 'due' : 'active';
     },
-    completeReview(ticker, decision, context, reviewDate = null, observedPeriod = null, changeKey = null) {
+    completeReview(ticker, decision, context, reviewDate = null, observedPeriod = null, changeKey = null, processNote = '') {
       const result = getThesis(ticker);
       if (result.error || result.warning || !result.thesis) return failure(result.error || result.warning || 'Sparad tes saknas.');
-      if (!['keep','close'].includes(decision)) return failure('Revidera genom att redigera och spara en ny version.');
+      if (!['keep','close','abstain'].includes(decision)) return failure('Revidera genom att redigera och spara en ny version.');
       const latest = result.thesis;
       return saveThesis(ticker, {...latest, reviewDate, review: {decision,context,at:new Date().toISOString(),
-        sourceRevisionId:latest.latestRevisionId,observedPeriod,changeKey}});
+        sourceRevisionId:latest.latestRevisionId,observedPeriod,changeKey,processNote}});
     },
     backupData(raw) {
       const store = readThesesStore(raw);

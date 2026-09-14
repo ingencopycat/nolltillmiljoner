@@ -1,0 +1,855 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-09-14",
+  "note": "Reviewed repository images against the existing schedule transcriptions. Macro values may update independently; this review covers identities, dates and times.",
+  "artifacts": [
+    {
+      "kind": "earnings",
+      "week": "2026-W38",
+      "image": "./images/rapporter/week-38.png",
+      "sha256": "eb38f3156c5b4858c95ccddac873409d7a9c0be7ec8b011d6395ec646c0a44cb",
+      "records": [
+        {
+          "ticker": "BIOX",
+          "date": "2026-09-15",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "EPM",
+          "date": "2026-09-15",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "FPS",
+          "date": "2026-09-15",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "HAIN",
+          "date": "2026-09-14",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "HITI",
+          "date": "2026-09-14",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "HYFT",
+          "date": "2026-09-14",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "IPHA",
+          "date": "2026-09-17",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "ISPR",
+          "date": "2026-09-16",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "KMTS",
+          "date": "2026-09-14",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "LEN",
+          "date": "2026-09-16",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "LUXE",
+          "date": "2026-09-16",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "PLAY",
+          "date": "2026-09-14",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "RFIL",
+          "date": "2026-09-14",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "TCOM",
+          "date": "2026-09-15",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "VRA",
+          "date": "2026-09-15",
+          "timing": "before-open"
+        }
+      ]
+    },
+    {
+      "kind": "earnings",
+      "week": "2026-W37",
+      "image": "./images/rapporter/week-37.png",
+      "sha256": "ddffd47267061ec2066343c5cf900fd5b0c41b8adbd8784ecd2279afa171bd27",
+      "records": [
+        {
+          "ticker": "ABM",
+          "date": "2026-09-08",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "ADBE",
+          "date": "2026-09-10",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "AENT",
+          "date": "2026-09-10",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "AEO",
+          "date": "2026-09-09",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "ASO",
+          "date": "2026-09-09",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "AVAV",
+          "date": "2026-09-09",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "AVO",
+          "date": "2026-09-08",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "BRZE",
+          "date": "2026-09-08",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "CAL",
+          "date": "2026-09-09",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "CAN",
+          "date": "2026-09-08",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "CASY",
+          "date": "2026-09-08",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "CHWY",
+          "date": "2026-09-09",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "CNM",
+          "date": "2026-09-09",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "COO",
+          "date": "2026-09-09",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "CPRT",
+          "date": "2026-09-10",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "DBI",
+          "date": "2026-09-10",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "DSGX",
+          "date": "2026-09-10",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "FLWS",
+          "date": "2026-09-10",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "GLOO",
+          "date": "2026-09-09",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "HOFT",
+          "date": "2026-09-11",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "INNV",
+          "date": "2026-09-08",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "JILL",
+          "date": "2026-09-09",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "JMKE",
+          "date": "2026-09-09",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "KFY",
+          "date": "2026-09-09",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "KR",
+          "date": "2026-09-11",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "LAKE",
+          "date": "2026-09-09",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "LMNR",
+          "date": "2026-09-09",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "LOVE",
+          "date": "2026-09-10",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "LPTH",
+          "date": "2026-09-10",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "LSAK",
+          "date": "2026-09-09",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "M",
+          "date": "2026-09-10",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "MCFT",
+          "date": "2026-09-10",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "MNY",
+          "date": "2026-09-11",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "NAVN",
+          "date": "2026-09-09",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "NNOX",
+          "date": "2026-09-09",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "ORCL",
+          "date": "2026-09-10",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "REF",
+          "date": "2026-09-10",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "RH",
+          "date": "2026-09-10",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "SAIL",
+          "date": "2026-09-09",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "SHOE",
+          "date": "2026-09-10",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "SIG",
+          "date": "2026-09-09",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "SKIL",
+          "date": "2026-09-09",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "TTAN",
+          "date": "2026-09-08",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "UNFI",
+          "date": "2026-09-08",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "VNCE",
+          "date": "2026-09-10",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "WLTH",
+          "date": "2026-09-09",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "ZUMZ",
+          "date": "2026-09-10",
+          "timing": "after-close"
+        }
+      ]
+    },
+    {
+      "kind": "earnings",
+      "week": "2026-W36",
+      "image": "./images/rapporter/week-36.png",
+      "sha256": "3ac08b2e03641c266d61025c031bf6a60ea8ed74addbc34aaf56aea805ff015b",
+      "records": [
+        {
+          "ticker": "AGX",
+          "date": "2026-09-02",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "AMBA",
+          "date": "2026-09-03",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "ASAN",
+          "date": "2026-09-03",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "AVGO",
+          "date": "2026-09-02",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "BBCP",
+          "date": "2026-09-03",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "BF.B",
+          "date": "2026-09-02",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "BLRX",
+          "date": "2026-08-31",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "BRC",
+          "date": "2026-09-03",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "CANG",
+          "date": "2026-08-31",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "CHPT",
+          "date": "2026-09-02",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "CIEN",
+          "date": "2026-09-03",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "CPB",
+          "date": "2026-09-03",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "CRDO",
+          "date": "2026-09-01",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "CXM",
+          "date": "2026-09-02",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "DAKT",
+          "date": "2026-09-02",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "DELL",
+          "date": "2026-09-01",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "DLTH",
+          "date": "2026-09-03",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "DOCU",
+          "date": "2026-09-03",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "DOO",
+          "date": "2026-09-03",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "FCEL",
+          "date": "2026-09-02",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "FIVE",
+          "date": "2026-09-02",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "GCO",
+          "date": "2026-09-03",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "GIII",
+          "date": "2026-09-02",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "GOLD",
+          "date": "2026-09-02",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "GTLB",
+          "date": "2026-09-01",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "HMR",
+          "date": "2026-09-01",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "HPE",
+          "date": "2026-09-02",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "IOT",
+          "date": "2026-09-03",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "KNOP",
+          "date": "2026-09-04",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "LE",
+          "date": "2026-09-03",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "LULU",
+          "date": "2026-09-03",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "MDB",
+          "date": "2026-09-01",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "MDT",
+          "date": "2026-09-01",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "MMED",
+          "date": "2026-09-01",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "NIO",
+          "date": "2026-09-01",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "NTAP",
+          "date": "2026-09-02",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "OLLI",
+          "date": "2026-09-02",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "PANW",
+          "date": "2026-09-01",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "PATH",
+          "date": "2026-09-03",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "PHR",
+          "date": "2026-09-02",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "PL",
+          "date": "2026-09-03",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "PVH",
+          "date": "2026-09-02",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "RZLV",
+          "date": "2026-09-01",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "SAIC",
+          "date": "2026-08-31",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "SNOW",
+          "date": "2026-09-02",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "SPWH",
+          "date": "2026-09-01",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "SSL",
+          "date": "2026-09-01",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "SWBI",
+          "date": "2026-09-03",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "TTC",
+          "date": "2026-09-03",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "VSXY",
+          "date": "2026-09-03",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "WLY",
+          "date": "2026-09-03",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "YEXT",
+          "date": "2026-09-01",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "ZS",
+          "date": "2026-09-03",
+          "timing": "after-close"
+        }
+      ]
+    },
+    {
+      "kind": "macro",
+      "week": "2026-W37",
+      "image": "./images/makro/week-37.png",
+      "sha256": "ed78676aeae943624c0dd044e167c245ad08c310276fe014ef2918e0d82a4de9",
+      "records": [
+        {
+          "id": "us-consumer-credit-2026-09-08",
+          "date": "2026-09-08",
+          "time": "15:00"
+        },
+        {
+          "id": "us-core-cpi-mm-2026-09-11",
+          "date": "2026-09-11",
+          "time": "08:30"
+        },
+        {
+          "id": "us-cpi-2026-09-11",
+          "date": "2026-09-11",
+          "time": "08:30"
+        },
+        {
+          "id": "us-cpi-core-yy-2026-09-11",
+          "date": "2026-09-11",
+          "time": "08:30"
+        },
+        {
+          "id": "us-cpi-yy-2026-09-11",
+          "date": "2026-09-11",
+          "time": "08:30"
+        },
+        {
+          "id": "us-existing-home-sales-2026-09-10",
+          "date": "2026-09-10",
+          "time": "10:00"
+        },
+        {
+          "id": "us-jobless-claims-2026-09-10",
+          "date": "2026-09-10",
+          "time": "08:30"
+        },
+        {
+          "id": "us-michigan-consumer-survey-2026-09-11",
+          "date": "2026-09-11",
+          "time": "10:00"
+        },
+        {
+          "id": "us-nfib-small-business-optimism-2026-09-08",
+          "date": "2026-09-08",
+          "time": "06:00"
+        },
+        {
+          "id": "us-ppi-2026-09-10",
+          "date": "2026-09-10",
+          "time": "08:30"
+        },
+        {
+          "id": "us-ppi-core-mm-2026-09-10",
+          "date": "2026-09-10",
+          "time": "08:30"
+        },
+        {
+          "id": "us-ppi-yy-2026-09-10",
+          "date": "2026-09-10",
+          "time": "08:30"
+        },
+        {
+          "id": "us-treasury-balance-2026-09-11",
+          "date": "2026-09-11",
+          "time": "14:00"
+        },
+        {
+          "id": "us-wholesale-trade-2026-09-10",
+          "date": "2026-09-10",
+          "time": "10:00"
+        }
+      ]
+    },
+    {
+      "kind": "macro",
+      "week": "2026-W36",
+      "image": "./images/makro/week-36.png",
+      "sha256": "3e8b52c69a2fac1474c2b1b05a1aced68131eb65ded59f446aedf0932e1f7794",
+      "records": [
+        {
+          "id": "us-adp-employment-2026-09-03",
+          "date": "2026-09-03",
+          "time": "08:15"
+        },
+        {
+          "id": "us-avg-hourly-earnings-mm-2026-09-04",
+          "date": "2026-09-04",
+          "time": "08:30"
+        },
+        {
+          "id": "us-avg-hourly-earnings-yy-2026-09-04",
+          "date": "2026-09-04",
+          "time": "08:30"
+        },
+        {
+          "id": "us-construction-spending-2026-09-01",
+          "date": "2026-09-01",
+          "time": "10:00"
+        },
+        {
+          "id": "us-factory-orders-2026-09-02",
+          "date": "2026-09-02",
+          "time": "10:00"
+        },
+        {
+          "id": "us-fed-beige-book-2026-09-02",
+          "date": "2026-09-02",
+          "time": "14:00"
+        },
+        {
+          "id": "us-ism-manufacturing-pmi-2026-09-01",
+          "date": "2026-09-01",
+          "time": "10:00"
+        },
+        {
+          "id": "us-ism-services-pmi-2026-09-03",
+          "date": "2026-09-03",
+          "time": "10:00"
+        },
+        {
+          "id": "us-jobless-claims-2026-09-03",
+          "date": "2026-09-03",
+          "time": "08:30"
+        },
+        {
+          "id": "us-jolts-job-openings-2026-09-01",
+          "date": "2026-09-01",
+          "time": "10:00"
+        },
+        {
+          "id": "us-nonfarm-payrolls-2026-09-04",
+          "date": "2026-09-04",
+          "time": "08:30"
+        },
+        {
+          "id": "us-nonfarm-productivity-2026-09-03",
+          "date": "2026-09-03",
+          "time": "08:30"
+        },
+        {
+          "id": "us-sp-manufacturing-pmi-2026-09-01",
+          "date": "2026-09-01",
+          "time": "09:45"
+        },
+        {
+          "id": "us-sp-services-pmi-2026-09-03",
+          "date": "2026-09-03",
+          "time": "09:45"
+        },
+        {
+          "id": "us-unemployment-rate-2026-09-04",
+          "date": "2026-09-04",
+          "time": "08:30"
+        },
+        {
+          "id": "us-unit-labor-costs-2026-09-03",
+          "date": "2026-09-03",
+          "time": "08:30"
+        }
+      ]
+    },
+    {
+      "kind": "macro",
+      "week": "2026-W38",
+      "image": "./images/makro/week-38.png",
+      "sha256": "165f8ad338ad29919d885131c5079e3667ade7463139066831c7858791bb172b",
+      "records": [
+        {
+          "id": "us-capacity-utilization-2026-09-18",
+          "date": "2026-09-18",
+          "time": "09:15"
+        },
+        {
+          "id": "us-empire-state-manufacturing-2026-09-15",
+          "date": "2026-09-15",
+          "time": "08:30"
+        },
+        {
+          "id": "us-fed-economic-projections-2026-09-16",
+          "date": "2026-09-16",
+          "time": "14:00"
+        },
+        {
+          "id": "us-fomc-meeting-2026-09-15",
+          "date": "2026-09-15",
+          "time": null
+        },
+        {
+          "id": "us-housing-starts-2026-09-17",
+          "date": "2026-09-17",
+          "time": "08:30"
+        },
+        {
+          "id": "us-import-prices-2026-09-16",
+          "date": "2026-09-16",
+          "time": "08:30"
+        },
+        {
+          "id": "us-industrial-production-2026-09-18",
+          "date": "2026-09-18",
+          "time": "09:15"
+        },
+        {
+          "id": "us-interest-rate-decision-2026-09-16",
+          "date": "2026-09-16",
+          "time": "14:00"
+        },
+        {
+          "id": "us-jobless-claims-2026-09-17",
+          "date": "2026-09-17",
+          "time": "08:30"
+        },
+        {
+          "id": "us-leading-indicators-2026-09-18",
+          "date": "2026-09-18",
+          "time": "10:00"
+        },
+        {
+          "id": "us-manufacturing-trade-inventories-2026-09-16",
+          "date": "2026-09-16",
+          "time": "10:00"
+        },
+        {
+          "id": "us-nahb-housing-market-index-2026-09-16",
+          "date": "2026-09-16",
+          "time": "10:00"
+        },
+        {
+          "id": "us-pending-home-sales-2026-09-17",
+          "date": "2026-09-17",
+          "time": "10:00"
+        },
+        {
+          "id": "us-philadelphia-fed-business-outlook-2026-09-17",
+          "date": "2026-09-17",
+          "time": "08:30"
+        },
+        {
+          "id": "us-retail-sales-2026-09-16",
+          "date": "2026-09-16",
+          "time": "08:30"
+        }
+      ]
+    }
+  ]
+}

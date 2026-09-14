@@ -18,6 +18,7 @@ function initResearchApp() {
     const params = new URLSearchParams(window.location.search);
     const tickerParam = params.get('ticker');
 
+    initManualThesisEntry();
     updateStockPills(tickerParam);
 
     if (!tickerParam || tickerParam.toUpperCase() === 'ALL') {
@@ -31,7 +32,7 @@ function initResearchApp() {
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
             setTimeout(() => {
-                if (currentStockData) {
+                if (currentStockData && !currentStockData.manual) {
                     renderCharts(currentStockData);
                 }
             }, 50);
@@ -42,6 +43,52 @@ function initResearchApp() {
     if (closeDialogBtn) {
         closeDialogBtn.addEventListener('click', closeProvenanceDialog);
     }
+}
+
+// Manual identity is a journal context, never a substitute StockData object.
+function initManualThesisEntry() {
+    const form=document.getElementById('manualThesisForm');
+    if(!form)return;
+    form.onsubmit=e=>{
+        e.preventDefault();
+        const ticker=document.getElementById('manualTicker').value.trim().toUpperCase();
+        const label=document.getElementById('manualLabel').value.trim();
+        if(!ticker && !label) {document.getElementById('manualEntryStatus').textContent='Ange ticker eller bolagsnamn.';return;}
+        if(ticker && (!/^[A-Z0-9.-]{1,24}$/.test(ticker) || ticker.startsWith('MANUAL-'))) {
+            document.getElementById('manualEntryStatus').textContent='Ange en ticker med bokstäver, siffror, punkt eller bindestreck. MANUAL- är reserverat för egna beteckningar.';return;
+        }
+        if(currentThesisState.isDirty && !confirm('Lämna osparade ?ndringar och öppna ett annat bolag?'))return;
+        const key=ticker || `MANUAL-${window.crypto.randomUUID().toUpperCase()}`;
+        // Only the stable key enters the URL; private company labels never enter URLs/events.
+        window.history.replaceState(null,'',`research.html?ticker=${encodeURIComponent(key)}`);
+        if(SUPPORTED_TICKERS.includes(key)) {window.location.reload();return;}
+        showManualThesis(key,label,ticker ? 'ticker' : 'label');
+    };
+}
+
+function showManualThesis(ticker, label = '', identityType = 'ticker') {
+    if(!/^[A-Z0-9.-]{1,80}$/.test(ticker)) {showError('Ogiltig bolagsnyckel','Ange en ticker eller öppna formuläret för en manuell tes.');return;}
+    const saved=window.NTMThesisStorage.get(ticker).thesis;
+    const data={symbol:ticker,manual:true,company:{name:saved?.companyName || label || ticker},
+        companyIdentity:saved?.companyIdentity || {type:ticker.startsWith('MANUAL-') ? 'label' : identityType,key:ticker}};
+    currentStockData=data;
+    document.title=`${data.company.name} · Manuell tes — NTM`;
+    for(const id of ['researchLoading','researchError','researchIndex']) document.getElementById(id).style.display='none';
+    const detail=document.getElementById('researchDetail');detail.style.display='block';detail.classList.add('is-manual');
+    document.getElementById('manualThesisEntry').open=false;
+    updateStockPills(ticker);
+    const visible=['manualJournalHeader','thesisReview','thesisSection','researchExportSection','thesisHistorySection'];
+    for(const child of detail.children) child.hidden=!visible.includes(child.id);
+    document.getElementById('manualThesisHeading').hidden=false;
+    document.getElementById('manualThesisHeading').textContent=data.company.name;
+    document.getElementById('manualThesisNotice').hidden=false;
+    document.getElementById('manualCompanyField').hidden=false;
+    document.getElementById('manualCompanyName').value=data.company.name;
+    document.getElementById('manualCompanyName').oninput=()=>{currentThesisState.isDirty=true;hideThesisSavedIndicator();};
+    document.getElementById('latestSnapshotDetails').hidden=true;
+    document.querySelectorAll('[data-relation-ticker]').forEach(node=>node.hidden=true);
+    initThesisSection(data);
+    document.getElementById('thesisSection').scrollIntoView?.({block:'start'});
 }
 
 function updateStockPills(activeTicker) {
@@ -113,10 +160,7 @@ function showError(title, message) {
 
 async function loadStockData(ticker) {
     if (!SUPPORTED_TICKERS.includes(ticker)) {
-        showError(
-            `Ticker '${ticker}' stöds inte i V1`,
-            `NTM Research V1 har bolagsanpassad normalisering för ${SUPPORTED_TICKERS.join(', ')}. Välj ett av dessa bolag nedan.`
-        );
+        showManualThesis(ticker);
         return;
     }
 
@@ -1451,7 +1495,7 @@ function initThesisSection(data) {
 
 function saveThesis(data) {
     const ticker = data.symbol || '';
-    const companyName = data.company?.name || '';
+    const companyName = data.manual ? document.getElementById('manualCompanyName').value.trim() || data.symbol : data.company?.name || '';
 
     const thesisText = document.getElementById('thesis-text')?.value || '';
     const thesisRisks = document.getElementById('thesis-risks')?.value || '';
@@ -1465,7 +1509,7 @@ function saveThesis(data) {
     }
 
     // Check if valuation is stale
-    if (valuationState.stale) {
+    if (!data.manual && valuationState.stale) {
         showThesisError(
             'Värderingen har ändrats sedan beräkningen. Klicka "Beräkna värdering & scenarier" innan du sparar thesisen.'
         );
@@ -1474,18 +1518,22 @@ function saveThesis(data) {
 
     // Create valuation snapshot (only if valuation has been calculated)
     let valuationSnapshot = null;
-    if (valuationState.calculated && !valuationState.stale) {
+    if (!data.manual && valuationState.calculated && !valuationState.stale) {
         valuationSnapshot = captureValuationSnapshot(data);
     }
 
     // Build thesis object
+    const lifecycle = window.NTMReview?.fields() || {};
+    if(lifecycle.lifecycleError) {showThesisError(lifecycle.lifecycleError);return;}
+    delete lifecycle.lifecycleError;
     const thesis = {
-        ...(window.NTMReview?.fields() || {}),
+        ...lifecycle,
         text: thesisText,
         risks: thesisRisks,
         triggerChange: thesisTrigger,
         notes: thesisNotes,
         companyName,
+        ...(data.manual ? {origin:'manual',companyIdentity:data.companyIdentity} : {}),
         valuationSnapshot,
     };
 
@@ -1505,6 +1553,7 @@ function saveThesis(data) {
         if (thesis.review?.decision === 'revise' && thesis.review.at !== previousThesis?.review?.at) window.NTMEvents?.emit('thesis_reviewed', { action: 'revise' });
     }
     // Update state
+    if(data.manual) {data.company.name=companyName;document.getElementById('manualThesisHeading').textContent=companyName;document.title=`${companyName} – Manuell tes – NTM`;}
     currentThesisState.thesis = window.NTMThesisStorage.get(ticker).thesis;
     currentThesisState.isDirty = false;
     currentThesisState.selectedRevisionId = result.revisionId;
@@ -1762,7 +1811,7 @@ function renderRevisionHistory(data) {
         const cagr = Number.isFinite(base?.cagr) ? ` · ${base.cagr.toFixed(1)}%/år` : '';
         const option = document.createElement('option');
         option.value = revision.id;
-        option.textContent = `${revision.id === thesis.latestRevisionId ? 'Senaste · ' : ''}${formatRevisionDate(revision.savedAt)} · ${revision.valuationSnapshot?.asOfPeriod || 'Period saknas'}${price}${cagr}`;
+        option.textContent = `${revision.id === thesis.latestRevisionId ? 'Senaste · ' : ''}${formatRevisionDate(revision.savedAt)} · ${revision.valuationSnapshot?.asOfPeriod || 'Period saknas'}${price}${cagr} · ${window.NTMThesisStorage.decisionLabels[revision.review?.decision] || 'Sparad tes'}${revision.origin === 'manual' ? ' · Manuell tes' : ''}`;
         select.appendChild(option);
     }
     select.value = selected.id;
@@ -1774,11 +1823,15 @@ function renderRevisionHistory(data) {
     }
     displayThesisSnapshotPreview(selected.valuationSnapshot, 'revisionSnapshotPreview');
     const assumptions = document.getElementById('revisionAssumptions');
-    if (assumptions) assumptions.textContent = selected.assumptions?.length ? selected.assumptions.map((a,i) => `${i+1}. ${a}`).join('\n') : 'Inga antaganden sparades i denna version.';
+    if (assumptions) assumptions.textContent = window.NTMThesisStorage.assumptionText(selected);
+    const questions=document.getElementById('revisionQuestions');
+    if(questions) questions.textContent=window.NTMThesisStorage.questionText(selected);
     const review = document.getElementById('revisionReview');
-    if (review) review.textContent = `Planerat datum: ${selected.reviewDate || 'inte angivet'}. Beslut: ${{keep:'Behåll',revise:'Revidera',close:'Stäng tes'}[selected.review?.decision] || 'inte granskat'}. ${selected.review?.context || ''}`;
-    const restorePlan = planAssumptionRestore(selected.valuationSnapshot, data);
+    if (review) review.textContent = `Planerat datum: ${selected.reviewDate || 'inte angivet'}. Beslut: ${window.NTMThesisStorage.decisionLabels[selected.review?.decision] || 'inte granskat'}. ${selected.review?.context || ''} Process: ${selected.review?.processNote || 'inte angiven'}. Granskat: ${selected.review?.at || 'inte granskat'} · Källversion: ${selected.review?.sourceRevisionId || 'saknas'}`;
+    const restorePlan = data.manual ? {values:{}} : planAssumptionRestore(selected.valuationSnapshot, data);
     const restoreButton = document.getElementById('revisionRestoreBtn');
+    restoreButton.hidden = Boolean(data.manual);
+    document.getElementById('revisionRestoreHelp').hidden = Boolean(data.manual);
     restoreButton.disabled = !Object.keys(restorePlan.values).length;
     restoreButton.onclick = () => restoreRevisionAssumptions(selected, data);
     document.getElementById('revisionRestoreHelp').textContent = restoreButton.disabled
@@ -2014,6 +2067,7 @@ function deleteStoredThesis() {
  * Display change detection between saved thesis snapshot and current data
  */
 function initChangeDetection(data) {
+    if(data?.manual) {document.getElementById('changeDetectionSection').style.display='none';return;}
     const changeSection = document.getElementById('changeDetectionSection');
     const changeContent = document.getElementById('changeDetectionContent');
     

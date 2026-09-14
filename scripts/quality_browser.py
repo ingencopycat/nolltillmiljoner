@@ -11,7 +11,9 @@ from browser_smoke import BrowserSmoke
 
 PAGES = ['index.html', 'havstang.html', 'isk-skattkalkylator.html',
          'bolanekalkylator.html', 'research.html?ticker=NVDA', 'min-ntm.html',
-         'post-jordi-visser-linjart-exponentiellt-ai-trading.html']
+         'post-jordi-visser-linjart-exponentiellt-ai-trading.html',
+         'fire-kalkylator.html', 'sparmalskalkylator.html', 'aktiekopskalkylator.html',
+         'valutajusterad-avkastning.html', 'rapporter.html']
 
 def run():
     report = {'version': 1, 'measuredAt': datetime.now(timezone.utc).isoformat(),

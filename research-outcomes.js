@@ -82,6 +82,7 @@
     }
 
     function observe(ticker, revision, data, price = null, observedAt = new Date().toISOString()) {
+        if (revision.origin === 'manual' || data.manual) throw new Error('Manuell tes saknar automatiskt jämförbara bolagsdata.');
         const currentSnapshot = window.NTMResearchSnapshot.normalize({
             ...window.NTMResearchSnapshot.fromStockData(data), ticker,
         });
@@ -95,6 +96,7 @@
             && typeof record.sourceRevisionId === 'string' && record.sourceRevisionId.length > 0
             && object(record.sourceRevision) && record.sourceRevision.id === record.sourceRevisionId
             && typeof record.sourceRevision.text === 'string' && date(record.observedAt)
+            && window.NTMThesisStorage.validLifecycle(record.sourceRevision) && record.sourceRevision.origin !== 'manual'
             && object(record.currentSnapshot) && record.currentSnapshot.schemaVersion === 2
             && object(record.currentSnapshot.ttmMetrics)
             && record.currentSnapshot.ticker === record.ticker

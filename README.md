@@ -157,6 +157,25 @@ Exception to be aware of: most calculators run **once on page load** with their 
 
 Future calculators and valuation tools must follow this convention.
 
+### Readable money inputs
+
+`initGroupedNumberInputs()` in `script.js` opts in 47 money fields across investment,
+fees, recovery, leverage (including daily), FIRE, ISK, return, stock-purchase
+(portfolio size only), savings-goal, mortgage and currency-return calculators.
+`premium.css` displays space-grouped digits while unfocused (`1000000.50` →
+`1 000 000.50`); focus reveals the original native number input. The decorative
+text is hidden from assistive technology. Values, decimal precision, native
+min/max/step validation, calculation parsers and scenario storage stay unchanged.
+Formatting emits no input/change/submit events. Scenario restore, FIRE copying,
+leverage loan updates and form resets refresh the presentation explicitly.
+
+Rates, years/ages, share counts, per-share prices/EPS, multiples, brokerage and
+exchange rates are excluded. Scientific notation stays native; pasted grouped
+text is not newly supported. Forced-colors mode uses the native display.
+Future programmatic writes to opted-in fields must call
+`refreshGroupedNumberInput(input)` after assigning `.value`.
+Browser regressions live in `scripts/browser_smoke.py` (`test_grouped_money_*`).
+
 ## Calculator math conventions
 
 These conventions exist in the current implementations — preserve them and reuse them for new tools:
@@ -227,6 +246,22 @@ Historical inspection/Markdown/print use the selected revision's own assumptions
 
 The browser suite additionally covers homepage paths, mobile navigation/current-page links, creating three assumptions and a date, the due review queue, keep/revise/close, frozen historical inspection and restored valuation wording. The native review date has no predictive meaning, and review-in-progress edits are not persisted until a new revision is saved.
 
+### Research decision lifecycle (B21, B68, B69, B72, B73, B80)
+
+Research now supports optional per-assumption falsification/review metadata and up
+to three report questions with open/answered states. `Avstod` appends an inactive
+decision; `Återöppna och revidera` starts an explicit new revision. Assumption dates
+request reconsideration, never automatically classify an assumption as false.
+Outcome displays assumptions, process and manual price outcomes separately,
+without an overall score. Reviews can include a separate process note.
+
+The Research entry disclosure also creates manual journals for unsupported tickers
+or company labels. They share revision history, reviews, export, local backup and
+Min NTM, but have no automated fundamentals, valuation snapshot, Change Detection,
+or automated Outcome observations. Existing NVDA/SOFI/CRWD coverage is unchanged.
+All data stays local. [Lifecycle schema, behavior and validation](docs/research-decision-lifecycle.md)
+documents the additive V2 fields and future identity boundaries.
+
 ### JSON backup and deliberate deletion
 
 The **Backup och lokal Research-data** section uses `local-data.js`. “Exportera all lokal data” downloads a readable envelope `{ application: "NTM", schemaVersion: 1, exportedAt, data: { theses, outcomes, scenarios, theme } }`. It includes complete records, immutable revisions and snapshots, archived checkpoint source revisions, calculator inputs and theme. Known V1 thesis records migrate in memory through the existing storage adapter with deterministic legacy IDs and original dates/content; export does not write storage. Missing financial values remain null. Recent-tool navigation, session greetings and public SEC/macro data are excluded as transient/recreatable state. Markdown is not a backup. Keep JSON backups private.
@@ -285,6 +320,9 @@ The first section explains the product and offers “Räkna på ditt sparande”
 - **Market status cards** (Stockholm 🇸🇪 / USA 🇺🇸): driven by `window.NTM_MARKET_CALENDAR` in `data/market-calendar.js` — per-exchange timezone, regular open/close, half-day close, and per-year `closed`/`halfDays` date lists. `getMarketStatus()` produces open/closed state plus countdowns.
 - **Market overview**: TradingView single-ticker widget rendered into `#ntmTradingViewWidget`, plus a collapsible "Viktig marknadsdata" list of external TradingView links.
 - **Makro idag / Rapporter idag panels**: read from `window.NTM_WEEKLY_EVENTS` in `data/weekly-events.js`.
+- **Shared weekly selection**: `NTMWeekly` in `script.js` owns Stockholm date/ISO-week resolution for homepage macro, earnings, and `week-pages.js`. Missing current-week records never fall back to another week. Macro keeps timezone conversion before matching today's Swedish date, includes lower-priority events, shows three initially and expands the rest in place. Partial updates are labelled separately from missing weeks and empty days.
+- **Homepage earnings contract**: `index.html` loads `data/weekly-events.js` before `script.js`. `renderWeeklyEvents()` selects `earningsWeeks` by today's Stockholm calendar date and ISO week, then filters reports by exact date. Priority only sorts; it never hides companies. Three reports appear initially; native “Visa X rapporter till” disclosure expands the rest in place and stays open through same-day refreshes. Missing week data is labelled unavailable, separately from a loaded week with zero reports that day.
+- **Weekly earnings publishing**: updating an image in `week-pages.js` does **not** update homepage records. Add that week's complete image transcription to `earningsWeeks` in `data/weekly-events.js` in the same change. `scripts/update_macro.py` preserves this block; it does not fetch earnings or read images. The newest image/week dataset and daily ticker coverage are checked by the earnings regression test. The calendar is a published selection, not a comprehensive live earnings feed.
 - **Preview helper**: `?ntmDate=YYYY-MM-DD` in the URL overrides "now" for testing.
 - **Latest posts**: the 3 newest posts from `posts.js` rendered into `#latestPosts`.
 
@@ -625,3 +663,44 @@ Then:
 7. Run tests (`python -m unittest discover -s tests -p "test_*.py"`).
 8. Verify no unrelated behavior changed.
 9. Summarize changed files and behavior.
+
+
+## Calculator depth and manual savings follow-up
+
+B23/B24/B28/B29/B33/B63 use the existing `depth-panel` native-details pattern:
+answer first, short explanation, visible editable assumptions, optional advanced
+questions, then formula/source context. Required calculator inputs remain visible;
+opening details never calculates. Research reuses the same pattern for sensitivity
+and financial source detail. See [the implementation and validation report](docs/calculator-progressive-depth.md).
+
+Savings follow-up is optional `followup: {version: 1, plan, observations}` inside
+an existing `sparmal` scenario, not another storage key. A plan copies only a
+successful current calculation; loading or editing inputs does not create one.
+Observations append IDs/dates without editing that plan. JSON backup merges
+observations by ID only when the original scenario and plan agree. Invalid storage
+blocks writes. Older scenarios remain usable without fabricated historical plans.
+The ten-scenario limit also includes follow-up plans; each supports 500 observations.
+Real plans require manually entered amounts in the original purchasing power.
+
+
+## Weekly publication reliability
+
+Run `python -B scripts/validate_release.py` as the single read-only release gate.
+It includes `node scripts/check_weekly_events.cjs`; use `--date YYYY-MM-DD` on the
+latter to simulate a Stockholm calendar date without changing any clock. PR/weekly
+validation runs this gate. Deployment checks again after automatic macro refresh,
+before uploading data, and before staging the site.
+
+The gate verifies current-week resolution, dates/ISO metadata, event identities,
+field provenance, source update status, image/data mappings and reviewed image
+hashes in `data/weekly-artifacts.json`. New/changed images or forgotten structured
+records fail. Valid empty days pass; honest partial updates warn; explicitly
+unpublished future authoritative schedules produce a dated notice.
+
+Macro BLS schedule sync and configured provider updates remain automatic. Other
+calendar entries, earnings curation, original weekly images and their image/data
+review remain manual. Do not simply regenerate the review hashes to silence a
+failure: inspect the image against the structured identities/dates/times, correct
+the data, and record that review. The manifest intentionally does not freeze macro
+actual/previous/forecast values, which update independently of a historical image.
+See [weekly reliability findings and maintenance instructions](docs/weekly-data-reliability.md).

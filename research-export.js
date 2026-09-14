@@ -26,12 +26,19 @@
         ]);
         for (const [heading, field] of [['Min tes', 'text'], ['Viktigaste risker', 'risks'],
             ['Vad skulle få mig att ändra mig?', 'triggerChange'], ['Anteckningar', 'notes']]) paragraph(heading, revision[field]);
-        paragraph('Min tes bygger på att', revision.assumptions?.length ? revision.assumptions.map((a,i)=>`${i+1}. ${a}`).join('\n') : 'Inga uttryckliga antaganden sparades i denna version.');
+        paragraph('Min tes bygger på att', window.NTMThesisStorage.assumptionText(revision, undefined, true));
+        paragraph('Frågor inför nästa rapport', window.NTMThesisStorage.questionText(revision, true));
+        paragraph('Processgranskning', revision.review?.processNote);
+        table('Bolagsidentitet', [['Typ',revision.origin === 'manual' ? 'Manuell tes — automatisk bolagsdata saknas' : 'Research med bolagsdata'],['Nyckel',revision.companyIdentity?.key || ticker],['Identitetstyp',revision.companyIdentity?.type || 'ticker']]);
         table('Sparad granskning', [['Nästa granskningsdatum',text(revision.reviewDate)],
-            ['Beslut', {keep:'Behåll',revise:'Revidera',close:'Stäng tes'}[revision.review?.decision] || 'Inte granskat'],
+            ['Beslut', window.NTMThesisStorage.decisionLabels[revision.review?.decision] || 'Inte granskat'],
             ['Granskat (UTC)',date(revision.review?.at)], ['Källversion',text(revision.review?.sourceRevisionId)],
             ['Observerad rapportperiod',text(revision.review?.observedPeriod)]]);
         paragraph('Granskningsanteckning',revision.review?.context);
+        if(revision.origin === 'manual') {
+            paragraph('Datanoter och källor','Manuell tes — automatisk bolagsdata saknas. Endast den valda sparade versionen ingår. Inga finansiella data, värderingar eller automatiska jämförelser har skapats.');
+            return {title:`${text(ticker)} — NTM Research`,sections,exportedAt:date(exportedAt),ticker:text(ticker)};
+        }
         table('Sparad finansiell snapshot', [
             ['TTM Revenue', money(metrics.revenue)], ['TTM Net Income', money(metrics.netIncome)],
             ['TTM EPS (SEC)', money(metrics.eps)], ['Diluted shares', number(metrics.dilutedShares)],

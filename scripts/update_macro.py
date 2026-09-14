@@ -409,13 +409,14 @@ def sync_scheduled_weeks_from_calendar(macro_weeks, calendar_events):
         week_key = get_iso_week_from_date(ev_date)
         match = re.search(r'(\d{4})-W(\d+)', week_key)
         week_num = int(match.group(2)) if match else 0
+        iso_year = int(match.group(1)) if match else target_year
 
         if week_key not in macro_weeks:
             macro_weeks[week_key] = {
                 'weekNumber': week_num,
-                'year': target_year,
+                'year': iso_year,
                 'label': f"Vecka {week_num}",
-                'title': f"Vecka {week_num}, {target_year}",
+                'title': f"Vecka {week_num}, {iso_year}",
                 'sourceTimezone': 'America/New_York',
                 'fallbackImage': None,
                 'events': []

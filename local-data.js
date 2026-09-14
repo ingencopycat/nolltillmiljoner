@@ -65,6 +65,20 @@
     }
     return result;
   }
+  function mergeScenarios(a, b) {
+    const result = clone(a);
+    for (const record of b) {
+      const existing = result.find(r => r.id === record.id);
+      if (!existing) { result.push(clone(record)); continue; }
+      if (existing.followup && record.followup) {
+        const left = clone(existing), right = clone(record);
+        left.followup.observations = []; right.followup.observations = [];
+        if (stable(left) !== stable(right)) throw new Error('Originalplanen har olika innehåll. Ingen data har importerats.');
+        existing.followup.observations = mergeRecords(existing.followup.observations, record.followup.observations);
+      } else mergeRecords([existing], [record]);
+    }
+    return result;
+  }
   function mergeData(a,b) {
     const result = clone(a);
     const {theses: at, ...ae} = a.theses, {theses: bt, ...be} = b.theses;
@@ -82,7 +96,7 @@
     result.outcomes = {...union(ao,bo),checkpoints:mergeRecords(ac,bc)};
     const {calculators: as,...ax} = a.scenarios, {calculators:bs,...bx} = b.scenarios;
     result.scenarios = {...union(ax,bx),calculators:clone(as)};
-    for (const [key,records] of Object.entries(bs)) result.scenarios.calculators[key] = mergeRecords(as[key] || [],records);
+    for (const [key,records] of Object.entries(bs)) result.scenarios.calculators[key] = mergeScenarios(as[key] || [],records);
     result.theme = a.theme ?? b.theme;
     return validate(result);
   }

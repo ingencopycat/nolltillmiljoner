@@ -28,6 +28,17 @@
     function render(observation, container) {
         container.replaceChildren();
         const source = observation.sourceRevision;
+        const assumptions=add(container,'section');assumptions.setAttribute('data-outcome-dimension','assumptions');
+        add(assumptions,'h3','Antaganden — din egen bedömning');
+        add(assumptions,'p',window.NTMThesisStorage.assumptionText(source)).className='lifecycle-text';
+        add(assumptions,'p',window.NTMThesisStorage.questionText(source)).className='lifecycle-text';
+        add(assumptions,'p','Detta är bedömningen i källversionen. Ny information eller kursrörelser avgär inte automatiskt om antagandena höll. Granska och spara en ny tesversion för att dokumentera din bedömning.');
+        const process=add(container,'section');process.setAttribute('data-outcome-dimension','process');
+        add(process,'h3','Process — vad du granskade och beslutade');
+        add(process,'p',`Beslut i källversionen: ${window.NTMThesisStorage.decisionLabels[source.review?.decision] || 'Inget granskningsbeslut sparat'}. ${source.review?.context || ''}`);
+        add(process,'p',source.review?.processNote || 'Ingen egen processgranskning sparad i källversionen.');
+        add(process,'p','Ett bra kursutfall bevisar inte ett bra beslut. Ett dåligt kursutfall motbevisar inte i sig tesen. Inget sammanvägt betyg beräknas.');
+
         const results = window.NTMResearchOutcomes.compare(source, observation);
         const old = source.valuationSnapshot;
         if (results.priceReason) add(container, 'p', results.priceReason);
@@ -55,15 +66,17 @@
         table(paths, ['Scenario', 'Årlig tillväxt', 'Modell-EPS', 'Observerad SEC EPS', 'Avvikelse %'], results.scenarios.map((scenario) => [
             scenario.name, num(scenario.growth, ' %'), num(scenario.expected), num(scenario.actual), num(scenario.epsGapPct),
         ]));
+        const priceSection=add(container,'section');priceSection.setAttribute('data-outcome-dimension','price');
+        add(priceSection,'h3','Kursutfall — separat manuell observation');
         if (observation.manualPrice) {
-            add(container, 'h3', 'Manuell kurs jämfört med gamla slutmål');
-            add(container, 'p', `Manuellt angiven kurs: ${num(observation.manualPrice.value)} ${observation.manualPrice.currency || '(valuta saknas)'}. Sparad startkurs: ${num(old?.valuationInputs?.stockPrice)} ${old?.currency || '(valuta saknas)'}. Kursförändring: ${num(results.priceReturnPct, ' %')}. Utan utdelningar, valutaomräkning, skatter eller kostnader.`);
-            add(container, 'p', results.position || 'Scenariointervallet kan inte anges: mål saknas, har annan valuta eller är inte strikt ordnade Bear < Base < Bull.');
-            table(container, ['Scenario', 'Sparat slutmål', 'Kurs relativt mål %'], results.scenarios.map((scenario) => [
+            add(priceSection, 'h3', 'Manuell kurs jämfört med gamla slutmål');
+            add(priceSection, 'p', `Manuellt angiven kurs: ${num(observation.manualPrice.value)} ${observation.manualPrice.currency || '(valuta saknas)'}. Sparad startkurs: ${num(old?.valuationInputs?.stockPrice)} ${old?.currency || '(valuta saknas)'}. Kursförändring: ${num(results.priceReturnPct, ' %')}. Utan utdelningar, valutaomräkning, skatter eller kostnader.`);
+            add(priceSection, 'p', results.position || 'Scenariointervallet kan inte anges: mål saknas, har annan valuta eller är inte strikt ordnade Bear < Base < Bull.');
+            table(priceSection, ['Scenario', 'Sparat slutmål', 'Kurs relativt mål %'], results.scenarios.map((scenario) => [
                 scenario.name, num(scenario.target), num(scenario.targetGapPct),
             ]));
-            add(container, 'p', 'Målen gäller slutet av den gamla horisonten, inte en förväntad kurs idag.');
-        } else add(container, 'p', 'Ingen manuell kurs angiven. Endast fundamenta och modellbanor jämförs.');
+            add(priceSection, 'p', 'Målen gäller slutet av den gamla horisonten, inte en förväntad kurs idag.');
+        } else add(priceSection, 'p', 'Ingen manuell kurs angiven. Endast fundamenta och modellbanor jämförs.');
     }
 
     function history(ticker, selectId = '') {
@@ -98,6 +111,7 @@
     }
 
     function init(data, revision) {
+        if(data.manual || revision?.origin === 'manual') {el('outcomeSection').hidden=true;active=null;return;}
         const ticker = data.symbol;
         const store = history(ticker);
         el('outcomeSection').hidden = false;

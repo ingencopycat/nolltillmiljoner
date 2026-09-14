@@ -1,3 +1,61 @@
+// Presentation only: keep native number values, validation and events untouched.
+// Explicit money-field allowlist; rates, years, share counts and per-share prices stay native.
+const groupedNumberInputIds = [
+  'startkapital', 'manadssparande', 'dividend-startkapital', 'dividend-manadssparande',
+  'avgifter-startkapital', 'avgifter-manadssparande', 'recovery-belopp',
+  'leverage-eget-kapital', 'leverage-lanebelopp-input', 'leverage-amortering', 'daily-startbelopp',
+  'fire-monthly-expenses', 'fire-current-capital', 'fire-monthly-savings',
+  'fire-goal-monthly-expenses', 'fire-goal-current-capital',
+  'fire-withdrawal-capital', 'fire-withdrawal-amount',
+  'isk-capital-basis', 'isk-value-jan', 'isk-value-apr', 'isk-value-jul', 'isk-value-oct',
+  'isk-deposits', 'isk-transfers', 'isk-allowance-used',
+  'total-start-value', 'total-end-value', 'cagr-start-value', 'cagr-end-value',
+  'position-portfolio', 'goal-monthly-target', 'goal-monthly-start',
+  'goal-time-target', 'goal-time-start', 'goal-time-savings',
+  'goal-capital-start', 'goal-capital-savings', 'followup-amount',
+  'mortgage-home-price', 'mortgage-cash', 'amortization-loan', 'amortization-property',
+  'interest-loan', 'interest-property', 'fx-rate-amount', 'fx-percent-amount'
+];
+const groupedNumberDisplays = new WeakMap();
+
+function formatGroupedInputValue(raw) {
+  // Group the string, never round or convert it back into a calculation value.
+  // Leave blanks, incomplete input and scientific notation in their native form.
+  const parts = /^(-?)([0-9]+)(\.[0-9]+)?$/.exec(raw);
+  if (!parts || !Number.isFinite(Number(raw))) return raw;
+  return parts[1] + parts[2].replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + (parts[3] || '');
+}
+
+function refreshGroupedNumberInput(input) {
+  const display = groupedNumberDisplays.get(input);
+  if (!display) return;
+  const formatted = formatGroupedInputValue(input.value);
+  display.textContent = formatted;
+  input.parentElement.classList.toggle('has-grouped-value', formatted !== input.value);
+}
+
+function initGroupedNumberInputs() {
+  groupedNumberInputIds.forEach((id) => {
+    const input = document.getElementById(id);
+    if (!input || input.type !== 'number' || groupedNumberDisplays.has(input)) return;
+    const wrapper = document.createElement('span');
+    wrapper.className = 'grouped-number-input';
+    const display = document.createElement('span');
+    display.className = 'grouped-number-display';
+    display.setAttribute('aria-hidden', 'true');
+    input.before(wrapper);
+    wrapper.append(input, display);
+    groupedNumberDisplays.set(input, display);
+    if (!input.hasAttribute('inputmode')) input.setAttribute('inputmode', 'decimal');
+    const refresh = () => refreshGroupedNumberInput(input);
+    input.addEventListener('input', refresh);
+    input.addEventListener('change', refresh);
+    input.addEventListener('blur', refresh);
+    input.form?.addEventListener('reset', () => setTimeout(refresh, 0));
+    refresh();
+  });
+}
+
 const form = document.getElementById('calculator-form');
 const dividendForm = document.getElementById('dividend-form');
 const feeForm = document.getElementById('avgifts-form');
@@ -198,7 +256,8 @@ function readScenarioStore(rawOverride) {
           && new Set(scenarios.map((scenario) => scenario?.id)).size === scenarios.length
           && scenarios.every((scenario) => object(scenario) && typeof scenario.id === 'string' && scenario.id
             && typeof scenario.name === 'string' && typeof scenario.mode === 'string'
-            && typeof scenario.createdAt === 'string' && object(scenario.inputs)))) {
+            && typeof scenario.createdAt === 'string' && object(scenario.inputs)
+            && validSavingsFollowup(scenario.followup)))) {
       throw new Error('Unsupported or damaged scenario store');
     }
     return { data: parsed, error: null, raw };
@@ -247,8 +306,10 @@ function saveScenario(calculatorId, scenario, maxScenarios = 10) {
     name: scenario.name,
     createdAt: new Date().toISOString(),
     mode: scenario.mode,
-    inputs: scenario.inputs
+    inputs: scenario.inputs,
+    ...(scenario.followup ? { followup: JSON.parse(JSON.stringify(scenario.followup)) } : {})
   };
+  if (!validSavingsFollowup(storedScenario.followup)) return { ok: false, error: 'Ogiltig uppföljningsplan.' };
   result.data.calculators[calculatorId] = [storedScenario, ...scenarios];
   return writeScenarioStore(result.data)
     ? { ok: true, scenario: storedScenario }
@@ -289,6 +350,7 @@ function restoreFormSnapshot(form, inputs) {
       control.checked = Boolean(saved.checked);
     } else {
       control.value = saved.value ?? '';
+      refreshGroupedNumberInput(control);
     }
   });
 }
@@ -300,7 +362,9 @@ window.NTMScenarioStorage = {
   save: saveScenario,
   remove: deleteScenario,
   snapshotForm,
-  restoreFormSnapshot
+  restoreFormSnapshot,
+  observe: saveSavingsObservation,
+  compare: compareSavingsObservation
 };
 
 const RECENT_TOOLS_STORAGE_KEY = 'investment-recent-tools-v1';
@@ -406,6 +470,7 @@ let stockValuationCalcState = null;
 let returnCalcState = null;
 let purchaseCalcState = null;
 let goalCalcState = null;
+let latestGoalPlan = null;
 let mortgageCalcState = null;
 let fxCalcState = null;
 
@@ -1923,6 +1988,7 @@ function calculateFireGoal() {
     ? `Med dina antaganden behöver du inte sätta in mer kapital för att nå ditt FIRE-mål vid ${simulation.desiredAge}.`
     : `För att nå ${formatCurrency(simulation.fireTarget)} vid ${simulation.desiredAge} års ålder krävs cirka ${formatCurrency(simulation.requiredMonthlyContribution)} per månad.`;
   renderFireGoalChart(simulation);
+  renderFireStress('goal', inputs);
   return true;
 }
 
@@ -2007,6 +2073,7 @@ function calculateFireProjection() {
   const simulation = simulateFire(inputs);
   window.latestFireSimulation = simulation;
   updateFireResults(simulation);
+  renderFireStress('path', inputs);
   renderFireChart(simulation);
   return true;
 }
@@ -2731,20 +2798,46 @@ window.NTM_MACRO = {
   NTM_DISPLAY_TIMEZONE
 };
 
-function getWeeklyRecords() {
+function getWeeklyWeekKey(dateKey) {
+  const date = new Date(`${dateKey}T00:00:00Z`);
+  date.setUTCDate(date.getUTCDate() + 4 - (date.getUTCDay() || 7));
+  const year = date.getUTCFullYear();
+  const week = Math.ceil(((date - new Date(Date.UTC(year, 0, 1))) / 86400000 + 1) / 7);
+  return `${year}-W${String(week).padStart(2, '0')}`;
+}
+
+function resolveWeeklyDataset(weeks, dateKey, field) {
+  const key = getWeeklyWeekKey(dateKey), week = weeks?.[key];
+  return { key, week, available: Array.isArray(week?.[field]), records: Array.isArray(week?.[field]) ? week[field] : [] };
+}
+window.NTMWeekly = { weekKey: getWeeklyWeekKey, resolve: resolveWeeklyDataset, dateKey: getTodayDateKey };
+
+function getWeeklyRecords(now = getNtmNow()) {
   const weeklyEvents = window.NTM_WEEKLY_EVENTS || {};
-  const macroWeek = Object.values(weeklyEvents.macroWeeks || {})[0];
-  const earningsWeek = Object.values(weeklyEvents.earningsWeeks || {})[0];
+  const macroWeek = resolveWeeklyDataset(weeklyEvents.macroWeeks, getTodayDateKey(now), 'events');
+  const earningsWeek = resolveWeeklyDataset(weeklyEvents.earningsWeeks, getTodayDateKey(now), 'reports');
+  const earnings = weeklyEvents.earningsWeeks ? earningsWeek.records : weeklyEvents.earnings;
 
   return {
-    macro: macroWeek ? macroWeek.events : weeklyEvents.macro || [],
-    macroTimezone: macroWeek ? macroWeek.sourceTimezone : 'America/New_York',
-    earnings: earningsWeek ? earningsWeek.reports : weeklyEvents.earnings || []
+    macro: macroWeek.records,
+    macroAvailable: macroWeek.available,
+    macroTimezone: macroWeek.week?.sourceTimezone || 'America/New_York',
+    earnings: Array.isArray(earnings) ? earnings : [],
+    earningsAvailable: weeklyEvents.earningsWeeks ? earningsWeek.available : Array.isArray(earnings)
   };
 }
 
 function getPriorityValue(priority) {
   return NTM_PRIORITY[priority] || 0;
+}
+
+function renderHomepageMacroItems(items) {
+  const groups = items.reduce((groups, event) => {
+    const time = event.hasTime ? event.swedishTime : 'Tid ej angiven';
+    (groups[time] ||= []).push(event);
+    return groups;
+  }, {});
+  return Object.entries(groups).map(([time, events]) => `<div class="ntm-macro-group"><span class="ntm-event-time">${escapePostText(time)}</span><div class="ntm-macro-events">${events.map(event => `<div class="ntm-macro-event-row"><div class="ntm-event-copy"><strong>${escapePostText(event.eventName || 'Makrohändelse')}</strong></div></div>`).join('')}</div></div>`).join('');
 }
 
 function renderWeeklyEvents(now = getNtmNow()) {
@@ -2754,52 +2847,36 @@ function renderWeeklyEvents(now = getNtmNow()) {
     return;
   }
 
-  const weeklyRecords = getWeeklyRecords();
+  const weeklyRecords = getWeeklyRecords(now);
   const todayKey = getTodayDateKey(now);
 
-  const allMacro = getAllNormalizedMacroEvents();
+  const allMacro = weeklyRecords.macroAvailable ? getAllNormalizedMacroEvents() : [];
   const macroItems = allMacro
     .filter((event) => event.swedishDate === todayKey)
-    .sort((a, b) => a.timestamp - b.timestamp);
+    .sort((a, b) => Number(b.hasTime) - Number(a.hasTime) || a.timestamp - b.timestamp);
 
   const earningsItems = weeklyRecords.earnings
     .filter((event) => event && event.date === todayKey)
     .sort((a, b) => getPriorityValue(b.priority) - getPriorityValue(a.priority));
 
-  const highestMacroPriority = Math.max(...macroItems.map((event) => getPriorityValue(event.priority)), 0);
-  const relevantMacroItems = macroItems.filter((event) => getPriorityValue(event.priority) === (highestMacroPriority >= getPriorityValue('medium') ? highestMacroPriority : 0));
-  const macroGroups = relevantMacroItems.reduce((groups, event) => {
-    const key = event.hasTime ? event.swedishTime : 'Tid ej angiven';
-    groups[key] = groups[key] || [];
-    groups[key].push(event);
-    return groups;
-  }, {});
-
   const macroPanel = macroList.closest('.ntm-event-panel');
-  if (!relevantMacroItems.length) {
-    macroList.innerHTML = '<p class="ntm-empty-state">Inga större makrohändelser idag.</p>';
+  const partial = ['partial', 'fetch_error'].includes(window.NTM_WEEKLY_EVENTS?.meta?.status);
+  const updateNote = partial ? '<p class="ntm-empty-state">Makrodata är delvis uppdaterade. Uppgifter kan saknas eller vara äldre.</p>' : '';
+  if (!macroItems.length) {
+    macroList.innerHTML = `<p class="ntm-empty-state">${weeklyRecords.macroAvailable ? 'Inga makrohändelser i kalendern idag.' : 'Makrodata för den här veckan saknas.'}</p>${updateNote}`;
     macroPanel?.classList.add('is-empty');
   } else {
     macroPanel?.classList.remove('is-empty');
-    macroList.innerHTML = Object.entries(macroGroups).map(([timeLabel, events]) => `
-      <div class="ntm-macro-group">
-        <span class="ntm-event-time">${escapePostText(timeLabel)}</span>
-        <div class="ntm-macro-events">
-          ${events.map((event) => `
-            <div class="ntm-macro-event-row">
-              <div class="ntm-event-copy">
-                <strong>${escapePostText(event.eventName || 'Makrohändelse')}</strong>
-              </div>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-    `).join('');
+    const previous = macroList.querySelector('.ntm-macro-more');
+    const keepExpanded = previous?.open && previous.dataset.date === todayKey;
+    const remaining = macroItems.length - 3;
+    macroList.innerHTML = renderHomepageMacroItems(macroItems.slice(0, 3)) + (remaining > 0
+      ? `<details class="ntm-macro-more" data-date="${todayKey}"${keepExpanded ? ' open' : ''}><summary class="text-link ntm-more-link">Visa ${remaining} makrohändelser till</summary>${renderHomepageMacroItems(macroItems.slice(3))}</details>` : '') + updateNote;
   }
 
   const earningsPanel = earningsList.closest('.ntm-event-panel');
   if (!earningsItems.length) {
-    earningsList.innerHTML = '<p class="ntm-empty-state">Inga större bolagsrapporter idag.</p>';
+    earningsList.innerHTML = `<p class="ntm-empty-state">${weeklyRecords.earningsAvailable ? 'Inga bolagsrapporter i kalendern idag.' : 'Rapportdata för den här veckan saknas.'}</p>`;
     earningsPanel?.classList.add('is-empty');
     return;
   }
@@ -2808,7 +2885,9 @@ function renderWeeklyEvents(now = getNtmNow()) {
   const selectedEarnings = earningsItems.slice(0, 3);
   const remaining = Math.max(0, earningsItems.length - selectedEarnings.length);
 
-  earningsList.innerHTML = selectedEarnings.map((event) => {
+  const previousDetails = earningsList.querySelector('.ntm-earnings-more');
+  const keepExpanded = previousDetails?.open && previousDetails.dataset.date === todayKey;
+  const renderEarningsItem = (event) => {
     const timingText = event.timing === 'before-open' ? 'Före öppning' : event.timing === 'after-close' ? 'Efter stängning' : 'Tidpunkt ej angiven';
     return `
       <div class="ntm-event-item">
@@ -2819,7 +2898,9 @@ function renderWeeklyEvents(now = getNtmNow()) {
         </div>
       </div>
     `;
-  }).join('') + (remaining > 0 ? `<a class="text-link ntm-more-link" href="rapporter.html">Visa ${remaining} till →</a>` : '');
+  };
+  earningsList.innerHTML = selectedEarnings.map(renderEarningsItem).join('') + (remaining > 0
+    ? `<details class="ntm-earnings-more" data-date="${todayKey}"${keepExpanded ? ' open' : ''}><summary class="text-link ntm-more-link">Visa ${remaining} rapporter till</summary>${earningsItems.slice(3).map(renderEarningsItem).join('')}</details>` : '');
 }
 
 function initNtmToday() {
@@ -3278,7 +3359,10 @@ function syncFireGoalInputsFromPath() {
   pairs.forEach(([sourceId, targetId]) => {
     const source = document.getElementById(sourceId);
     const target = document.getElementById(targetId);
-    if (source && target) target.value = source.value;
+    if (source && target) {
+      target.value = source.value;
+      refreshGroupedNumberInput(target);
+    }
   });
 }
 
@@ -4150,8 +4234,9 @@ function calculateGavMode() {
   const newShares = parsePurchaseNumber(document.getElementById('gav-new-shares').value);
   const newSharePrice = parsePurchaseNumber(document.getElementById('gav-new-price').value);
   const brokerage = parsePurchaseNumber(document.getElementById('gav-brokerage').value);
+  const currencyCost = parsePurchaseNumber(document.getElementById('gav-currency-cost')?.value || '0');
 
-  if ([existingShares, currentAverage, newShares, newSharePrice, brokerage].some((value) => value === null || value < 0)) {
+  if ([existingShares, currentAverage, newShares, newSharePrice, brokerage, currencyCost].some((value) => value === null || value < 0)) {
     return 'Ange noll eller större värden för aktier, priser och courtage.';
   }
 
@@ -4162,7 +4247,8 @@ function calculateGavMode() {
 
   const existingCost = existingShares * currentAverage;
   const newPurchaseCost = newShares * newSharePrice;
-  const totalCost = existingCost + newPurchaseCost + brokerage;
+  const totalCost = existingCost + newPurchaseCost + brokerage + currencyCost;
+  if (!Number.isFinite(totalCost) || !Number.isFinite(totalShares)) return 'Beloppen är för stora för en giltig beräkning.';
   const newAverage = totalCost / totalShares;
   const difference = newAverage - currentAverage;
   const percentageChange = currentAverage > 0 ? (newAverage / currentAverage) - 1 : null;
@@ -4170,7 +4256,7 @@ function calculateGavMode() {
   document.getElementById('gav-average-result').textContent = formatPurchaseCurrency(newAverage, currency);
   document.getElementById('gav-shares-result').textContent = totalShares.toLocaleString('sv-SE', { maximumFractionDigits: 4 });
   document.getElementById('gav-invested-result').textContent = formatPurchaseCurrency(totalCost, currency);
-  document.getElementById('gav-new-money-result').textContent = formatPurchaseCurrency(newPurchaseCost + brokerage, currency);
+  document.getElementById('gav-new-money-result').textContent = formatPurchaseCurrency(newPurchaseCost + brokerage + currencyCost, currency);
   document.getElementById('gav-change-result').textContent = formatReturnPercent(percentageChange === null ? null : percentageChange * 100);
   setPurchaseMessage(newAverage < currentAverage
     ? `Ditt GAV sjunker från ${formatPurchaseCurrency(currentAverage, currency)} till ${formatPurchaseCurrency(newAverage, currency)} efter köpet.`
@@ -4609,6 +4695,7 @@ function calculateRequiredMonthlySavings() {
   updateGoalNote(assumptions.moneyMode);
   updateGoalProgress(start, target, true);
   renderGoalChart(buildGoalPath(start, monthlySavings, assumptions.monthlyRate, months), currency, target, assumptions.moneyMode);
+  latestGoalPlan = { start, monthlySavings, target, months, currency, ...assumptions };
   return true;
 }
 
@@ -4658,6 +4745,7 @@ function calculateTimeToGoal() {
     path.values[path.values.length - 1] = projectedValue;
   }
   renderGoalChart(path, currency, target, assumptions.moneyMode);
+  latestGoalPlan = reached && Number.isFinite(projectedValue) ? { start, monthlySavings, target, months, currency, ...assumptions } : null;
   return true;
 }
 
@@ -4692,6 +4780,7 @@ function calculateTargetCapital() {
   updateGoalNote(assumptions.moneyMode);
   updateGoalProgress(0, 0, false);
   renderGoalChart(buildGoalPath(start, monthlySavings, assumptions.monthlyRate, months), currency, null, assumptions.moneyMode);
+  latestGoalPlan = { start, monthlySavings, target: futureValue, months, currency, ...assumptions };
   return true;
 }
 
@@ -5035,6 +5124,7 @@ if (dividendToggle) {
 }
 
 function initPage() {
+  initGroupedNumberInputs();
   initTheme();
   recordRecentToolVisit();
   initNtmToday();
@@ -5235,7 +5325,7 @@ function initMinNtmPage() {
       .sort((a, b) => new Date(b.updatedAt || 0) - new Date(a.updatedAt || 0));
 
     if (thesisList) {
-      thesisList.innerHTML = thesesArray.filter(thesis => thesis.review?.decision !== 'close').map((thesis) => {
+      thesisList.innerHTML = thesesArray.filter(thesis => !['close','abstain'].includes(thesis.review?.decision)).map((thesis) => {
         const snapshot = thesis.valuationSnapshot || {};
         const baseCase = snapshot.scenarios?.base;
         const futurePrice = baseCase?.futurePrice;
@@ -5264,9 +5354,10 @@ function initMinNtmPage() {
         return `
           <article class="min-ntm-list-item min-ntm-thesis-item">
             <div>
-              <h3>${escapeHtml(thesis.ticker)} · ${escapeHtml(thesis.companyName || '')}</h3>
+              <h3>${thesis.companyIdentity?.type === 'label' ? escapeHtml(thesis.companyName) : `${escapeHtml(thesis.ticker)} · ${escapeHtml(thesis.companyName || '')}`}</h3>
               <p>${escapeHtml(subtitle)}</p>
               <p class="min-ntm-thesis-date">Senaste ${escapeHtml(dateStr)} · ${revisionLabel} ${badgeHtml}</p>
+              <p>${thesis.origin === 'manual' ? 'Manuell tes — automatisk bolagsdata saknas' : 'Research med bolagsdata'}</p>
               <p>${thesis.reviewDate ? `Granskning: ${escapeHtml(thesis.reviewDate)}` : 'Inget granskningsdatum valt'}</p>
             </div>
             <a class="ghost-btn" href="research.html?ticker=${encodeURIComponent(thesis.ticker)}&amp;review=1#thesisReview">Granska tes</a>
@@ -5274,7 +5365,7 @@ function initMinNtmPage() {
         `;
       }).join('');
     }
-    if (thesesEmpty) thesesEmpty.hidden = thesesArray.some(thesis => thesis.review?.decision !== 'close');
+    if (thesesEmpty) thesesEmpty.hidden = thesesArray.some(thesis => !['close','abstain'].includes(thesis.review?.decision));
     window.NTMMinReview?.render();
   }
 
@@ -5429,8 +5520,10 @@ function initSavedScenarios(config) {
     }
     render('');
     setStatus('Scenariot raderades.');
+    window.dispatchEvent(new Event('ntm-scenarios-changed'));
   });
 
+  window.addEventListener?.('ntm-scenarios-changed', () => render());
   render();
 
   const scenarioId = new URLSearchParams(window.location.search).get('scenario');
@@ -5691,6 +5784,7 @@ function calculateLeverage() {
   const ratioInput = document.getElementById('leverage-belangningsgrad-input');
 
   loanInput.value = loanAmount.toFixed(0);
+  refreshGroupedNumberInput(loanInput);
   ratioInput.value = (computedRatio * 100).toFixed(1);
 
   const totalValueEl = document.getElementById('leverage-totalt-tillgangsvarde');
@@ -6765,3 +6859,132 @@ function initFxCalculator() {
 if (fxCalculatorForm) {
   initFxCalculator();
 }
+
+
+// Optional calculator depth. Stored plans share the existing scenario/backup envelope.
+function savingsDate(value) {
+  return typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value)
+    && Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
+}
+function savingsToday() {
+  const now = new Date();
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+}
+function validSavingsFollowup(value) {
+  if (value === undefined) return true; // Existing scenarios have no invented historical plan.
+  if (!value || value.version !== 1 || !value.plan || !Array.isArray(value.observations)) return false;
+  const p = value.plan;
+  if (!savingsDate(p.startDate) || !['SEK', 'USD', 'EUR'].includes(p.currency)
+      || !['real', 'nominal'].includes(p.moneyMode)
+      || !['start', 'monthlySavings', 'target', 'annualReturn', 'annualFee', 'inflation'].every(k => Number.isFinite(p[k]) && p[k] >= 0)
+      || !Number.isInteger(p.months) || p.months < 0 || p.months > 1200
+      || !Number.isFinite(p.monthlyRate) || p.monthlyRate <= -1
+      || projectGoalValue(p.start, p.monthlySavings, p.monthlyRate, p.months) === null) return false;
+  const net = (1 + p.annualReturn / 100) * (1 - p.annualFee / 100) - 1;
+  const annual = p.moneyMode === 'real' ? (1 + net) / (1 + p.inflation / 100) - 1 : net;
+  if (annual <= -1 || Math.abs(Math.pow(1 + annual, 1 / 12) - 1 - p.monthlyRate) > 1e-12) return false;
+  return value.observations.length <= 500 && new Set(value.observations.map(o => o?.id)).size === value.observations.length
+    && value.observations.every(o => o && typeof o.id === 'string' && o.id.length > 0
+      && savingsDate(o.date) && o.date >= p.startDate && Number.isFinite(o.amount) && o.amount >= 0
+      && typeof o.createdAt === 'string' && Number.isFinite(Date.parse(o.createdAt))
+      && compareSavingsObservation(p, o) !== null);
+}
+function compareSavingsObservation(plan, observation) {
+  if (!savingsDate(plan.startDate) || !savingsDate(observation.date) || observation.date < plan.startDate
+      || !Number.isFinite(observation.amount) || observation.amount < 0) return null;
+  const start = new Date(plan.startDate), end = new Date(observation.date);
+  const horizon = new Date(Date.UTC(start.getUTCFullYear(), start.getUTCMonth() + plan.months, 1));
+  horizon.setUTCDate(Math.min(start.getUTCDate(), new Date(Date.UTC(horizon.getUTCFullYear(), horizon.getUTCMonth() + 1, 0)).getUTCDate()));
+  if (!Number.isFinite(horizon.getTime()) || end > horizon) return null;
+  let months = (end.getUTCFullYear() - start.getUTCFullYear()) * 12 + end.getUTCMonth() - start.getUTCMonth();
+  // Monthly anniversaries clamp to the last day (31 January -> 28/29 February).
+  const anniversaryDay = Math.min(start.getUTCDate(), new Date(Date.UTC(end.getUTCFullYear(), end.getUTCMonth() + 1, 0)).getUTCDate());
+  if (end.getUTCDate() < anniversaryDay) months--;
+  if (months < 0 || months > plan.months) return null; // Do not invent a post-plan projection.
+  const expected = projectGoalValue(plan.start, plan.monthlySavings, plan.monthlyRate, months);
+  const difference = observation.amount - expected;
+  if (expected === null || !Number.isFinite(difference)) return null;
+  const tolerance = Math.max(1, Math.abs(expected) * 0.01);
+  return { months, expected, actual: observation.amount, difference,
+    status: Math.abs(difference) <= tolerance ? 'Ungefär i linje med planen' : difference > 0 ? 'Över planens nivå' : 'Under planens nivå' };
+}
+function saveSavingsObservation(id, observation) {
+  const result = readScenarioStore();
+  if (result.error) return { ok: false, error: result.error };
+  const scenario = (result.data.calculators.sparmal || []).find(s => s.id === id);
+  if (!scenario?.followup || !savingsDate(observation.date) || observation.date > savingsToday()
+      || !compareSavingsObservation(scenario.followup.plan, observation)) return { ok: false, error: 'Ange ett giltigt belopp och datum inom planen, senast idag.' };
+  const saved = { id: createScenarioId(), createdAt: new Date().toISOString(), date: observation.date, amount: observation.amount };
+  scenario.followup.observations.push(saved);
+  if (!validSavingsFollowup(scenario.followup)) return { ok: false, error: 'Planen kan ha högst 500 observationer.' };
+  return writeScenarioStore(result.data) ? { ok: true, observation: saved } : { ok: false, error: 'Observationen kunde inte sparas. Tidigare data är bevarade.' };
+}
+function fireStressRows(expenses, rate) {
+  if (!Number.isFinite(expenses) || expenses <= 0 || !Number.isFinite(rate) || rate <= 0 || rate > 100) return [];
+  return [-1, 0, 1].map(offset => {
+    const withdrawalRate = rate + offset;
+    const capital = expenses * 12 / (withdrawalRate / 100);
+    return { offset, rate: withdrawalRate, capital: withdrawalRate > 0 && withdrawalRate <= 100 && Number.isFinite(capital) ? capital : null };
+  });
+}
+function renderFireStress(mode, inputs) {
+  const output = document.getElementById(`fire-stress-${mode}`);
+  if (!output) return;
+  output.textContent = fireStressRows(inputs.monthlyExpenses, inputs.withdrawalRate).map(row =>
+    `${row.offset === 0 ? 'Valt antagande' : row.offset < 0 ? '1 procentenhet lägre' : '1 procentenhet högre'}: ${row.rate.toLocaleString('sv-SE')} % → ${row.capital === null ? 'Utanför giltigt intervall' : formatCurrency(row.capital)}`).join(' · ');
+}
+function initCalculatorDepth() {
+  document.querySelectorAll('[data-depth-event]').forEach(details => details.addEventListener('toggle', () => {
+    if (details.open) window.NTMEvents?.emit(details.dataset.depthEvent);
+  }));
+  const root = document.getElementById('goal-followup');
+  if (!root) return;
+  const control = id => document.getElementById(id);
+  const select = control('followup-plan'), status = control('followup-status');
+  control('followup-start').value = control('followup-date').value = savingsToday();
+  function render() {
+    const selected = select.value, result = getSavedScenarios('sparmal');
+    select.replaceChildren(new Option('Välj sparad uppföljningsplan', ''));
+    result.scenarios.filter(s => s.followup).forEach(s => select.add(new Option(s.name, s.id)));
+    select.value = selected;
+    control('followup-history').replaceChildren();
+    const scenario = result.scenarios.find(s => s.id === select.value);
+    if (result.error) status.textContent = result.error;
+    if (!scenario?.followup) { control('followup-original').textContent = 'Spara en beräknad plan för att börja. Äldre scenarier saknar historisk plan.'; return; }
+    const p = scenario.followup.plan, money = value => formatGoalCurrency(value, p.currency);
+    control('followup-original').textContent = `Originalplan från ${p.startDate}: mål ${money(p.target)}, start ${money(p.start)}, sparande ${money(p.monthlySavings)}/månad, ${p.months} månader. Avkastning ${p.annualReturn} %, avgift ${p.annualFee} %, inflation ${p.inflation} %. ${p.moneyMode === 'real' ? 'Alla belopp, även observationer, ska anges i startdatumets köpkraft. Räkna själv om verkligt belopp före inmatning.' : 'Alla belopp är nominella.'}`;
+    for (const o of scenario.followup.observations) {
+      const c = compareSavingsObservation(p, o), item = document.createElement('li');
+      item.textContent = `${o.date}: ${c.status}. Plan ${money(c.expected)}, observerat ${money(c.actual)}, skillnad ${money(c.difference)} (${c.months} hela månader).`;
+      control('followup-history').append(item);
+    }
+  }
+  select.addEventListener('change', render);
+  control('followup-save-plan').addEventListener('click', () => {
+    const name = control('followup-name').value.trim(), startDate = control('followup-start').value;
+    if (goalCalcState?.state !== 'calculated' || !latestGoalPlan || !name || !savingsDate(startDate) || startDate > savingsToday()) {
+      status.textContent = 'Beräkna först med aktuella indata och ange namn samt startdatum senast idag.'; return;
+    }
+    const mode = document.querySelector('.goal-mode-tab.active')?.dataset.goalMode || 'monthly';
+    const result = saveScenario('sparmal', { name, mode, inputs: snapshotForm(document.getElementById(`goal-${mode}-panel`)),
+      followup: { version: 1, plan: { ...latestGoalPlan, startDate }, observations: [] } });
+    if (result.ok) { render(); select.value = result.scenario.id; render(); initSavedGoalScenariosRefresh(); }
+    status.textContent = result.ok ? 'Originalplan sparad lokalt. Nya observationer ändrar inte planen.' : result.error;
+  });
+  control('followup-observe').addEventListener('submit', event => {
+    event.preventDefault();
+    const amount = parseGoalNumber(control('followup-amount').value);
+    const result = saveSavingsObservation(select.value, { amount, date: control('followup-date').value });
+    if (result.ok) { render(); window.NTMEvents?.emit('savings_plan_observation_saved'); }
+    status.textContent = result.ok ? 'Observation sparad. Historiken och originalplanen är bevarade.' : result.error;
+  });
+  window.addEventListener('storage', render);
+  window.addEventListener('ntm-scenarios-changed', render);
+  render();
+}
+// Existing scenario controls also refresh after a follow-up plan is added.
+function initSavedGoalScenariosRefresh() {
+  window.dispatchEvent(new Event('ntm-scenarios-changed'));
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initCalculatorDepth);
+else initCalculatorDepth();

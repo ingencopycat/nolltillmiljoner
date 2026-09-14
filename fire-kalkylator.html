@@ -262,6 +262,7 @@
                 <div class="fire-status" id="fire-status">Ange siffror för att beräkna ditt FIRE-mål.</div>
             </div>
 
+            <details class="depth-panel" data-depth-event="fire_stress_view_opened"><summary>Hur känsligt är kapitalmålet för uttagsnivån?</summary><p id="fire-stress-path">Beräkna för att jämföra uttagsantaganden.</p><p>Senaste beräkningens månadsutgifter hålls fasta. Vi jämför vald uttagsnivå med en procentenhet lägre och högre. Det är räkneexempel, inte rekommenderade nivåer. Ändra uttagsnivån ovan och tryck Beräkna för en ny jämförelse.</p><details class="depth-panel"><summary>Vilken osäkerhet döljer ett FIRE-tal?</summary><p>Uttagsnivån är årsutgifterna som andel av kapitalet. Svaga börsår tidigt under uttagen kan göra större skada än samma nedgångar senare (sekvensrisk). Inflation och ändrade utgifter påverkar kapitalbehovet. Hur länge pengarna behöver räcka är också osäkert. Jämn avkastning fångar inte dessa risker.</p><p>Formel: kapitalmål = månadsutgifter × 12 / (uttagsnivå / 100). Jämförelsen beräknar inte sannolikheten att kapitalet räcker.</p></details></details>
             <div class="chart-panel">
                 <div class="chart-header chart-header-row">
                     <h3>Portföljutveckling</h3>
@@ -309,6 +310,7 @@
                     <div class="result-box"><span class="label">Beräknad real avkastning</span><strong id="fire-goal-real-return-result" class="result-value">—</strong></div>
                 </div>
                 <div class="fire-status" id="fire-goal-status" aria-live="polite">Fyll i antaganden och klicka på Beräkna.</div>
+            <details class="depth-panel" data-depth-event="fire_stress_view_opened"><summary>Hur känsligt är kapitalmålet för uttagsnivån?</summary><p id="fire-stress-goal">Beräkna för att jämföra uttagsantaganden.</p><p>Senaste beräkningens månadsutgifter hålls fasta. Vi jämför vald uttagsnivå med en procentenhet lägre och högre. Det är räkneexempel, inte rekommenderade nivåer. Ändra uttagsnivån ovan och tryck Beräkna för en ny jämförelse.</p><details class="depth-panel"><summary>Vilken osäkerhet döljer ett FIRE-tal?</summary><p>Uttagsnivån är årsutgifterna som andel av kapitalet. Svaga börsår tidigt under uttagen kan göra större skada än samma nedgångar senare (sekvensrisk). Inflation och ändrade utgifter påverkar kapitalbehovet. Hur länge pengarna behöver räcka är också osäkert. Jämn avkastning fångar inte dessa risker.</p><p>Formel: kapitalmål = månadsutgifter × 12 / (uttagsnivå / 100). Jämförelsen beräknar inte sannolikheten att kapitalet räcker.</p></details></details>
                 <div class="chart-panel"><div class="chart-header chart-header-row"><h3>Projektion mot FIRE-målet</h3></div><div class="chart-wrap"><canvas id="fireGoalChart" aria-label="Graf över vägen mot FIRE-målet"></canvas></div><p class="fire-chart-note">Projektionen använder real avkastning och månadssparande i slutet av varje månad.</p></div>
             </div>
 

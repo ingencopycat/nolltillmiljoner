@@ -185,3 +185,75 @@ test('scenario corruption and unsupported shapes block every write and retain ra
     assert.equal(b.saved.get(storage.key),'{broken');
   }
 });
+
+
+test('FIRE stress examples remain finite and reject zero/extreme rates', () => {
+  const c = app().context;
+  assert.deepEqual(Array.from(c.fireStressRows(25000,4),r=>r.capital),[10000000,7500000,6000000]);
+  for (const rate of [0,-1,101,Infinity,NaN]) assert.equal(c.fireStressRows(25000,rate).length,0);
+  assert.equal(c.fireStressRows(25000,0.5)[0].capital,null);
+  assert.equal(c.fireStressRows(25000,100)[2].capital,null);
+  assert.ok(c.fireStressRows(1e308,4).every(r=>r.capital===null));
+});
+
+test('GAV optional conversion cost is included once and zero keeps the original result',()=>{
+  const a=app({'gav-currency':'SEK','gav-existing-shares':100,'gav-current-average':50,'gav-new-shares':40,'gav-new-price':35,'gav-brokerage':0,'gav-currency-cost':0});
+  for(const id of ['gav-average-result','gav-shares-result','gav-invested-result','gav-new-money-result','gav-change-result']) a.nodes.set(id,element());
+  assert.equal(a.context.calculateGavMode(),true);
+  assert.equal(a.nodes.get('gav-invested-result').textContent,a.context.formatPurchaseCurrency(6400,'SEK'));
+  a.nodes.get('gav-brokerage').value='10';a.nodes.get('gav-currency-cost').value='20';
+  assert.equal(a.context.calculateGavMode(),true);
+  assert.equal(a.nodes.get('gav-invested-result').textContent,a.context.formatPurchaseCurrency(6430,'SEK'));
+  assert.equal(a.nodes.get('gav-average-result').textContent,a.context.formatPurchaseCurrency(6430/140,'SEK'));
+  a.nodes.get('gav-currency-cost').value='-1';assert.equal(typeof a.context.calculateGavMode(),'string');
+});
+
+
+test('FX teaching example compounds to eight percent and unchanged FX preserves asset return',()=>{
+  const c=app().context;
+  const result=c.calculateCurrencyAdjustedReturn({investmentReturnPct:20,purchaseFx:10,currentFx:9,amount:10000});
+  assert.ok(Math.abs(result.amountDetails.actualFinalValue-10800)<1e-9);
+  const unchanged=c.calculateCurrencyAdjustedReturn({investmentReturnPct:20,purchaseFx:10,currentFx:10,amount:10000});
+  assert.ok(Math.abs(unchanged.amountDetails.actualFinalValue-12000)<1e-9);
+});
+
+
+test('homepage earnings selects the date week, not insertion order, with no priority exclusion',()=>{
+  const a=app(),c=a.context;
+  vm.runInContext(fs.readFileSync('data/weekly-events.js','utf8'),c);
+  const weeks=c.NTM_WEEKLY_EVENTS.earningsWeeks;
+  c.NTM_WEEKLY_EVENTS.earningsWeeks={'2026-W37':weeks['2026-W37'],'2026-W38':weeks['2026-W38']};
+  const current=c.getWeeklyRecords(new Date('2026-09-14T12:00:00Z'));
+  assert.equal(current.earningsAvailable,true);
+  assert.deepEqual(Array.from(current.earnings.filter(e=>e.date==='2026-09-14'),e=>e.ticker),['RFIL','HAIN','HITI','PLAY','HYFT','KMTS']);
+  assert.ok(c.getWeeklyRecords(new Date('2026-09-08T12:00:00Z')).earnings.some(e=>e.priority==='low'));
+  assert.equal(c.getWeeklyRecords(new Date('2026-09-21T12:00:00Z')).earningsAvailable,false);
+  assert.equal(c.getWeeklyRecords(new Date('2026-09-13T22:30:00Z')).earnings[0].date,'2026-09-14'); // Stockholm Monday
+  assert.equal(c.getWeeklyWeekKey('2027-01-01'),'2026-W53');
+  assert.equal(c.getWeeklyWeekKey('2027-01-04'),'2027-W01');
+  for(const id of ['ntmMacroList','ntmEarningsList']) { const el=element();el.closest=()=>null;a.nodes.set(id,el); }
+  c.renderWeeklyEvents(new Date('2026-09-14T12:00:00Z'));
+  const html=a.nodes.get('ntmEarningsList').innerHTML;
+  assert.match(html,/Visa 3 rapporter till/);assert.match(html,/KMTS/);assert.equal((html.match(/class="ntm-event-item"/g)||[]).length,6);
+  c.renderWeeklyEvents(new Date('2026-09-18T12:00:00Z'));
+  assert.match(a.nodes.get('ntmEarningsList').innerHTML,/Inga bolagsrapporter i kalendern idag/);
+  c.renderWeeklyEvents(new Date('2026-09-21T12:00:00Z'));
+  assert.match(a.nodes.get('ntmEarningsList').innerHTML,/veckan saknas/);
+  c.NTM_WEEKLY_EVENTS={earnings:[{date:'2026-09-14',ticker:'SMALL',priority:'low'}]};
+  c.renderWeeklyEvents(new Date('2026-09-14T12:00:00Z'));
+  assert.match(a.nodes.get('ntmEarningsList').innerHTML,/SMALL/);
+  assert.doesNotMatch(a.nodes.get('ntmEarningsList').innerHTML,/ntm-earnings-more/);
+});
+
+test('latest published earnings image has matching structured records for every day',()=>{
+  const c=app().context;
+  vm.runInContext(fs.readFileSync('data/weekly-events.js','utf8'),c);
+  vm.runInContext(fs.readFileSync('week-pages.js','utf8').split('const archiveContainer')[0]+';window.imageWeeks=earningsWeekData;',c);
+  const latest=Object.keys(c.imageWeeks).sort().at(-1),week=c.NTM_WEEKLY_EVENTS.earningsWeeks[latest];
+  assert.ok(week && Array.isArray(week.reports),'Publish homepage earnings records with every new weekly image');
+  c.imageWeeks[latest].schedule.forEach((text,index)=>{
+    const tickers=Array.from(text.matchAll(/(?<![\p{L}\p{N}])[A-Z][A-Z0-9.-]*(?![\p{L}\p{N}])/gu),m=>m[0].replace(/\.$/,''));
+    const records=Array.from(week.reports.filter(r=>new Date(r.date+'T12:00:00Z').getUTCDay()===index+1),r=>r.ticker);
+    assert.deepEqual(records.sort(),tickers.sort(),`${latest}, day ${index+1}: image and homepage must agree`);
+  });
+});

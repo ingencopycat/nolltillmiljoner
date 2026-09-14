@@ -45,7 +45,8 @@ class PremiumStructureTests(unittest.TestCase):
 
     def test_progressive_depth_is_explicit_and_keeps_existing_targets(self):
         research = Structure((ROOT / 'research.html').read_text(encoding='utf-8'))
-        self.assertEqual({d.get('id') for d in research.depth}, {'researchFinancials', 'sensitivityDepth'})
+        self.assertEqual({d.get('id') for d in research.depth}, {'researchFinancials', 'sensitivityDepth', 'manualThesisEntry', 'reportQuestionsEditor',
+                                                      'processReviewEditor', 'assumptionDetail1', 'assumptionDetail2', 'assumptionDetail3'})
         self.assertTrue(all('open' not in d for d in research.depth))
         for target in ['annualChart', 'quarterlyChart', 'annualTableWrap', 'quarterlyTableWrap',
                        'sensitivityTable', 'thesisForm', 'valuationForm', 'outcomeForm', 'thesisRevisionSelect']:
