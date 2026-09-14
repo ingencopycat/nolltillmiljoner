@@ -1793,6 +1793,7 @@ function renderRevisionHistory(data) {
     if (!thesis) {
         renderResearchExportControls(data?.symbol, null, null);
         window.NTMResearchOutcomeUI.init(data, null);
+        window.NTMResearchAIUI?.init(data, null);
         currentThesisState.selectedRevisionId = null;
         document.getElementById('revisionSnapshotPreview').innerHTML = '';
         for (const id of ['revisionSelectionLabel', 'revisionText', 'revisionRisks', 'revisionTrigger', 'revisionNotes']) {
@@ -1805,6 +1806,7 @@ function renderRevisionHistory(data) {
     currentThesisState.selectedRevisionId = selected.id;
     renderResearchExportControls(data?.symbol, thesis, selected);
     window.NTMResearchOutcomeUI.init(data, selected);
+    window.NTMResearchAIUI?.init(data, selected);
     for (const revision of [...thesis.revisions].reverse()) {
         const base = revision.valuationSnapshot?.scenarios?.base;
         const price = Number.isFinite(base?.futurePrice) ? ` · Base $${base.futurePrice.toFixed(2)}` : '';

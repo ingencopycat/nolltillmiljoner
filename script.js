@@ -5367,6 +5367,7 @@ function initMinNtmPage() {
     }
     if (thesesEmpty) thesesEmpty.hidden = thesesArray.some(thesis => !['close','abstain'].includes(thesis.review?.decision));
     window.NTMMinReview?.render();
+    window.NTMBehavioralUI?.render();
   }
 
   const recentResult = window.NTMRecentTools.read();

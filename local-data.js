@@ -1,7 +1,7 @@
 /** Versioned local backup and deliberate ticker deletion. No network or automatic writes. */
 (() => {
   const keys = { theses: 'investment-research-theses-v1', outcomes: 'ntm-research-outcomes-v1',
-    scenarios: 'investment-scenarios-v1', theme: 'investment-theme' };
+    scenarios: 'investment-scenarios-v1', theme: 'investment-theme', behavioral: 'ntm-behavioral-v1' };
   const object = v => v !== null && typeof v === 'object' && !Array.isArray(v);
   const clone = v => JSON.parse(JSON.stringify(v));
   const stable = v => JSON.stringify(v, function(k, value) {
@@ -15,8 +15,10 @@
     }
   }
   function validate(data) {
+    if (object(data) && !Object.hasOwn(data,'behavioral')) data={...data,behavioral:window.NTMBehavioral.empty()};
     if (!object(data) || Object.keys(data).sort().join() !== Object.keys(keys).sort().join()) throw new Error('Backup saknar stödda datadelar eller innehåller okända datadelar.');
     safeTree(data);
+    const behavioral=window.NTMBehavioral.validate(data.behavioral);
     const theses = window.NTMThesisStorage.backupData(JSON.stringify(data.theses));
     for (const [ticker, record] of Object.entries(theses.theses)) {
       if (!/^[A-Z0-9.-]+$/i.test(ticker)) throw new Error('Ogiltig ticker i backup.');
@@ -28,7 +30,7 @@
     const scenario = window.NTMScenarioStorage.read(JSON.stringify(data.scenarios));
     if (outcome.error || scenario.error) throw new Error(outcome.error || scenario.error);
     if (data.theme !== null && !['light', 'dark'].includes(data.theme)) throw new Error('Okänt tema i backup.');
-    return { ...clone(data), theses };
+    return { ...clone(data), theses, behavioral };
   }
   function capture() {
     const raw = Object.fromEntries(Object.entries(keys).map(([name,key]) => [name,window.localStorage.getItem(key)]));
@@ -36,17 +38,18 @@
       theses: raw.theses === null ? {version:2,theses:{}} : JSON.parse(raw.theses),
       outcomes: raw.outcomes === null ? {schemaVersion:1,checkpoints:[]} : JSON.parse(raw.outcomes),
       scenarios: raw.scenarios === null ? {version:1,calculators:{}} : JSON.parse(raw.scenarios),
-      theme: raw.theme
+      theme: raw.theme,
+      behavioral: raw.behavioral === null ? window.NTMBehavioral.empty() : JSON.parse(raw.behavioral)
     });
     return {raw,data};
   }
   function counts(data) {
     return { revisions: Object.values(data.theses.theses).reduce((n,r) => n+r.revisions.length,0),
-      checkpoints:data.outcomes.checkpoints.length,
+      checkpoints:data.outcomes.checkpoints.length, behavioralEvents:data.behavioral.events.length,
       scenarios:Object.values(data.scenarios.calculators).reduce((n,r) => n+r.length,0) };
   }
   function exportJSON() {
-    return JSON.stringify({application:'NTM',schemaVersion:1,exportedAt:new Date().toISOString(),data:capture().data},null,2);
+    return JSON.stringify({application:'NTM',schemaVersion:2,exportedAt:new Date().toISOString(),data:capture().data},null,2);
   }
   function union(a,b) {
     const result = clone(a);
@@ -98,13 +101,15 @@
     result.scenarios = {...union(ax,bx),calculators:clone(as)};
     for (const [key,records] of Object.entries(bs)) result.scenarios.calculators[key] = mergeScenarios(as[key] || [],records);
     result.theme = a.theme ?? b.theme;
+    result.behavioral = {version:1,events:mergeRecords(a.behavioral.events,b.behavioral.events)};
     return validate(result);
   }
   function prepare(text) {
     const backup = JSON.parse(text);
-    if (!object(backup) || backup.application !== 'NTM' || backup.schemaVersion !== 1
+    if (!object(backup) || backup.application !== 'NTM' || ![1,2].includes(backup.schemaVersion)
         || typeof backup.exportedAt !== 'string' || !Number.isFinite(Date.parse(backup.exportedAt))
         || Object.keys(backup).sort().join() !== ['application','schemaVersion','exportedAt','data'].sort().join()) throw new Error('Backupformatet stöds inte. Ingen data ändrades.');
+    if(backup.schemaVersion===2 && !Object.hasOwn(backup.data || {},'behavioral')) throw new Error('Backup saknar beteendehistorik.');
     const incoming = validate(backup.data), current = capture();
     return {...current,next:mergeData(current.data,incoming),incoming:counts(incoming)};
   }
@@ -151,6 +156,11 @@
         if (!names.includes('theses')) names.push('theses');
       }
     }
+    if(scope==='all') {
+      const removed=new Set(next.behavioral.events.filter(e=>['pause.create','link.create'].includes(e.kind) && e.payload.ticker===ticker).map(e=>e.entityId));
+      next.behavioral.events=next.behavioral.events.filter(e=>!removed.has(e.entityId));
+      if(removed.size)names.push('behavioral');
+    }
     // Full ticker deletion deliberately excludes global calculators and theme preferences.
     return commit(raw,next,names);
   }
@@ -159,7 +169,7 @@
     validateData: validate,
     previewData: incoming => counts(mergeData(capture().data,validate(incoming))),
     clearAll: () => { const {raw} = capture(); return commit(raw,{theses:{version:2,theses:{}},
-      outcomes:{schemaVersion:1,checkpoints:[]},scenarios:{version:1,calculators:{}},theme:null}); }
+      outcomes:{schemaVersion:1,checkpoints:[]},scenarios:{version:1,calculators:{}},theme:null,behavioral:window.NTMBehavioral.empty()}); }
   };
 
   const exportButton = document.getElementById('localDataExport');
@@ -181,7 +191,7 @@
     if (!file) throw new Error('Välj en JSON-backup först.');
     if (file.size > 20 * 1024 * 1024) throw new Error('Backupfilen är större än 20 MB. Ingen data ändrades.');
     const text = await file.text(), summary = prepare(text).incoming;
-    if (!confirm(`Slå samman ${summary.revisions} versioner, ${summary.checkpoints} utfallskontroller och ${summary.scenarios} scenarier? Nya versioner läggs sist och kan bli senaste version. Samma ID med olika innehåll stoppar hela importen. Befintligt tema behålls.`)) return;
+    if (!confirm(`Slå samman ${summary.revisions} versioner, ${summary.checkpoints} utfallskontroller, ${summary.scenarios} scenarier och ${summary.behavioralEvents} beteendehändelser? Nya versioner läggs sist och kan bli senaste version. Samma ID med olika innehåll stoppar hela importen. Befintligt tema behålls.`)) return;
     importJSON(text); window.initMinNtmPage?.();
     window.NTMEvents?.emit('backup_imported');
     status.textContent='Backup importerad och kontrolläst. Befintliga poster behölls; identiska ID:n duplicerades inte. Ladda om för att använda ett importerat tema.';

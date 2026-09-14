@@ -74,6 +74,115 @@ class BrowserSmoke(unittest.TestCase):
             time.sleep(.05)
         self.fail('Browser condition timed out: ' + expression)
 
+    def test_behavioral_intelligence_local_workflows(self):
+        p = self.page
+        self.context.route('**/*', lambda route: route.continue_() if route.request.url.startswith(self.base) else route.fulfill(status=200, body=''))
+        p.add_init_script("document.addEventListener('securitypolicyviolation', e => { window.__behavioralCsp = [...(window.__behavioralCsp || []), e.violatedDirective]; });")
+        self.go('min-ntm.html')
+        p.locator('#retrospectivePanel > summary').click()
+        expect(p.locator('#retrospectiveResult')).to_contain_text('Du behöver fler sparade granskningar')
+        p.evaluate('''() => {
+            for (const ticker of ['ACME', 'OTHER']) {
+                NTMThesisStorage.save(ticker, {text:'PRIVATE-THESIS-SENTINEL',notes:'PRIVATE-NOTE-SENTINEL',
+                    assumptions:['Shared growth premise'],origin:'manual',companyName:ticker,
+                    companyIdentity:{type:'ticker',key:ticker},valuationSnapshot:null});
+            }
+            NTMThesisStorage.completeReview('ACME','keep','First review');
+            NTMThesisStorage.completeReview('ACME','close','Second review');
+            initMinNtmPage();
+        }''')
+        expect(p.locator('#retrospectiveResult')).to_contain_text('Unika sparade granskningar: 2')
+        original = p.evaluate("localStorage.getItem(NTMThesisStorage.key)")
+        p.locator('#pausePanel > summary').click()
+        p.locator('#pauseCompany').fill('ACME')
+        p.locator('#pauseTicker').fill('ACME')
+        p.locator('#pauseContext').fill('PRIVATE-ACTION-SENTINEL')
+        p.locator('#pauseReason').fill('PRIVATE-REASON-SENTINEL')
+        p.locator('#pauseDate').fill('2020-01-01')
+        p.locator('#pauseForm button').click()
+        expect(p.locator('#pauseQueue')).to_be_visible()
+        p.locator('#pauseRecords select').select_option('changed')
+        p.get_by_role('button', name='Spara omprövning', exact=True).click()
+        expect(p.locator('#pauseQueue')).to_be_hidden()
+        p.locator('#pauseRecords details > summary').click()
+        expect(p.locator('#pauseRecords')).to_contain_text('Ändrade mig')
+        expect(p.locator('#pauseRecords')).to_contain_text('PRIVATE-REASON-SENTINEL')
+        p.locator('#groupPanel > summary').click()
+        p.locator('#groupName').fill('PRIVATE-GROUP-SENTINEL')
+        p.locator('#groupForm button').click()
+        for index in [0, 1]:
+            p.locator('#assumptionSelect').select_option(index=index)
+            p.locator('#groupLinkForm button').click()
+        expect(p.locator('#groupRecords')).to_contain_text('2 teser')
+        p.locator('#methodPanel > summary').click()
+        expect(p.locator('#methodPreviewArea')).to_be_hidden()
+        p.locator('#methodForm button').focus()
+        p.keyboard.press('Enter')
+        expect(p.locator('#methodPreviewArea')).to_be_visible()
+        self.assertNotIn('PRIVATE', p.locator('#methodPreview').input_value())
+        p.locator('#methodPreviewArea details > summary').click()
+        self.assertNotIn('PRIVATE', p.locator('#methodJSONPreview').inner_text())
+        for selector in ['#methodMarkdown', '#methodJSON']:
+            with p.expect_download() as download:
+                p.locator(selector).click()
+            self.assertNotIn('PRIVATE', Path(download.value.path()).read_text(encoding='utf-8'))
+        p.locator('#methodSave').click()
+        self.assertEqual(p.evaluate("localStorage.getItem(NTMThesisStorage.key)"), original)
+        before = p.evaluate('JSON.parse(NTMLocalData.exportJSON()).data')
+        p.locator('#localDataDepth > summary').click()
+        with p.expect_download() as download:
+            p.locator('#localDataExport').click()
+        backup_path = download.value.path()
+        p.evaluate('NTMLocalData.clearAll(); initMinNtmPage();')
+        p.locator('#localDataFile').set_input_files(backup_path)
+        p.locator('#localDataImport').click()
+        expect(p.locator('#localDataStatus')).to_contain_text('Backup importerad')
+        self.assertEqual(p.evaluate('JSON.parse(NTMLocalData.exportJSON()).data'), before)
+        for width in [1440, 375, 320]:
+            p.set_viewport_size({'width': width, 'height': 1000})
+            for theme in ['light', 'dark']:
+                p.evaluate('applyTheme', theme)
+                self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'), width)
+        self.assertEqual(p.evaluate('window.__behavioralCsp || []'), [])
+        p.locator('#methodPanel').screenshot(path=str(Path(tempfile.gettempdir()) / 'ntm-behavioral-mobile.png'))
+
+    def test_research_ai_foundation(self):
+        p = self.page
+        self.context.route('**/*', lambda route: route.continue_() if route.request.url.startswith(self.base) else route.fulfill(status=200, body=''))
+        self.go('research.html?ticker=NVDA')
+        p.locator('#thesis-text').fill('Revenue supports the thesis')
+        p.locator('#thesis-assumption-1').fill('Revenue remains strong')
+        p.locator('#thesisForm button[type=submit]').click()
+        expect(p.locator('#researchAI')).to_be_visible()
+        p.locator('#researchAI > details > summary').click()
+        expect(p.locator('#ai-changes')).to_be_disabled()
+        expect(p.locator('#aiState')).to_contain_text('AI är inte aktiverad')
+        self.context.add_init_script('window.NTM_AI_TEST_MODE = true;')
+        self.go('research.html?ticker=NVDA')
+        p.locator('#researchAI > details > summary').click()
+        original = p.evaluate("JSON.stringify(NTMThesisStorage.get('NVDA'))")
+        requests = []
+        p.on('request', lambda request: requests.append(request.url))
+        for task in ['changes', 'report', 'challenge']:
+            p.locator('#ai-' + task).click()
+            expect(p.locator('#aiResult')).to_contain_text('TESTDEMO')
+            if task == 'changes':
+                p.get_by_text('Varför säger AI detta?', exact=True).first.click()
+                expect(p.locator('#aiResult pre').first).to_contain_text('provenance')
+        expect(p.locator('#aiDraftArea')).to_be_hidden()
+        p.get_by_role('button', name='Använd som utkast').first.focus()
+        p.keyboard.press('Enter')
+        expect(p.locator('#aiDraftArea')).to_be_visible()
+        p.locator('#aiDraft').fill('User edited draft')
+        self.assertEqual(p.evaluate("JSON.stringify(NTMThesisStorage.get('NVDA'))"), original)
+        self.assertEqual(requests, [])
+        for width in [1440, 375, 320]:
+            p.set_viewport_size({'width': width, 'height': 1000})
+            for theme in ['light', 'dark']:
+                p.evaluate('applyTheme', theme)
+                self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'), width)
+        p.locator('#researchAI').screenshot(path=str(Path(tempfile.gettempdir()) / 'ntm-ai-mobile.png'))
+
     def test_cloud_account_foundation_two_devices_and_isolation(self):
         # Same real adapter/UI, deterministic HTTP substitute; no hosted account or email.
         import copy

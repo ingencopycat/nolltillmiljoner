@@ -725,7 +725,26 @@
             </section>
 
             <!-- Section H: Change Detection Since Thesis -->
+            <section class="card research-card-block" id="researchAI" aria-labelledby="ai-heading" hidden>
+                <h3 id="ai-heading">AI i Research · förberedd funktion</h3>
+                <p id="aiState" role="status"></p>
+                <div id="aiConflicts"></div>
+                <details><summary>Granska den valda sparade tesversionen</summary>
+                    <p>Underlaget skulle omfatta vald tes, relevanta antaganden och motbevis, rapportfrågor för rapportkoppling samt jämförbara mått och källor. Övriga anteckningar och teser ingår inte.</p>
+                    <div class="thesis-actions">
+                        <button type="button" id="ai-changes" disabled>Förklara vad som ändrats</button>
+                        <button type="button" id="ai-challenge" disabled>Utmana min tes</button>
+                        <button type="button" id="ai-report" disabled>Koppla rapporten till min tes</button>
+                    </div>
+                    <div id="aiResult" aria-live="polite"></div>
+                    <div id="aiDraftArea" hidden><label for="aiDraft">Accepterat förslag · redigerbart utkast</label>
+                        <textarea id="aiDraft" rows="3"></textarea>
+                        <p>Ingen tes har ändrats. Redigera och kopiera själv till tesens arbetsformulär, granska och spara en ny version som vanligt.</p>
+                    </div>
+                </details>
+            </section>
             <section class="card research-card-block" id="thesisHistorySection" aria-labelledby="thesis-history-heading" hidden>
+                <p><a href="min-ntm.html#behavioralSection">Beslutspaus, gemensamma antaganden och din privata retrospektiv i Min NTM</a></p>
                 <div class="section-heading">
                     <div>
                         <span class="section-kicker">Min analys</span>
@@ -837,6 +856,8 @@
     <script src="research-export.js"></script>
     <script src="research-outcomes.js"></script>
     <script src="research-outcome-ui.js"></script>
+    <script src="research-ai.js"></script>
+    <script src="research-ai-ui.js"></script>
     <script src="research.js"></script>
     <script src="min-review.js"></script>
     <script src="research-review.js"></script>

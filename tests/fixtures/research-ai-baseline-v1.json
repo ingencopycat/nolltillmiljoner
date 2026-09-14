@@ -1,0 +1,1330 @@
+{
+  "$schema": "ntm-stock-v1",
+  "symbol": "NVDA",
+  "metadata": {
+    "profile": "standard_company",
+    "methodVersion": "ntm-sec-normalizer/1",
+    "secCompanyFactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001045810.json"
+  },
+  "valuationBase": {
+    "currency": "USD"
+  },
+  "ttm": {
+    "asOfPeriod": "2027Q2",
+    "quarters": [
+      "2026Q3",
+      "2026Q4",
+      "2027Q1",
+      "2027Q2"
+    ],
+    "metrics": {
+      "revenue": {
+        "value": 302969000000,
+        "unit": "USD",
+        "concept": "Revenues",
+        "label": "Total Revenue",
+        "isDerived": true,
+        "derivationMethod": "sum_of_trailing_4_quarters",
+        "source": "SEC-derived",
+        "quartersIncluded": [
+          "2026Q3",
+          "2026Q4",
+          "2027Q1",
+          "2027Q2"
+        ],
+        "kind": "derived",
+        "qualityStatus": "available",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "revenue:us-gaap:Revenues:revenue:Revenues",
+        "periodStart": "2025-07-28",
+        "periodEnd": "2026-07-26",
+        "period": "2027Q2",
+        "periodType": "TTM",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q3",
+            "metric": "revenue",
+            "value": 57006000000,
+            "concept": "Revenues",
+            "accession": "0001045810-25-000230",
+            "filed": "2025-11-19",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "revenue",
+            "value": 68127000000,
+            "concept": "Revenues",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-26-000021",
+              "0001045810-25-000230"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-25-000230",
+                "filed": "2025-11-19"
+              },
+              {
+                "accession": "0001045810-26-000021",
+                "filed": "2026-02-25"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2027Q1",
+            "metric": "revenue",
+            "value": 81615000000,
+            "concept": "Revenues",
+            "accession": "0001045810-26-000052",
+            "filed": "2026-05-20",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2027Q2",
+            "metric": "revenue",
+            "value": 96221000000,
+            "concept": "Revenues",
+            "accession": "0001045810-26-000075",
+            "filed": "2026-08-26",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          }
+        ],
+        "filed": "2026-08-26"
+      },
+      "operatingIncome": {
+        "value": 197579000000,
+        "unit": "USD",
+        "concept": "OperatingIncomeLoss",
+        "label": "Operating Income",
+        "isDerived": true,
+        "derivationMethod": "sum_of_trailing_4_quarters",
+        "source": "SEC-derived",
+        "quartersIncluded": [
+          "2026Q3",
+          "2026Q4",
+          "2027Q1",
+          "2027Q2"
+        ],
+        "kind": "derived",
+        "qualityStatus": "available",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "operatingIncome:us-gaap:OperatingIncomeLoss:operatingIncome:OperatingIncomeLoss",
+        "periodStart": "2025-07-28",
+        "periodEnd": "2026-07-26",
+        "period": "2027Q2",
+        "periodType": "TTM",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q3",
+            "metric": "operatingIncome",
+            "value": 36010000000,
+            "concept": "OperatingIncomeLoss",
+            "accession": "0001045810-25-000230",
+            "filed": "2025-11-19",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "operatingIncome",
+            "value": 44299000000,
+            "concept": "OperatingIncomeLoss",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-26-000021",
+              "0001045810-25-000230"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-25-000230",
+                "filed": "2025-11-19"
+              },
+              {
+                "accession": "0001045810-26-000021",
+                "filed": "2026-02-25"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2027Q1",
+            "metric": "operatingIncome",
+            "value": 53536000000,
+            "concept": "OperatingIncomeLoss",
+            "accession": "0001045810-26-000052",
+            "filed": "2026-05-20",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2027Q2",
+            "metric": "operatingIncome",
+            "value": 63734000000,
+            "concept": "OperatingIncomeLoss",
+            "accession": "0001045810-26-000075",
+            "filed": "2026-08-26",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          }
+        ],
+        "filed": "2026-08-26"
+      },
+      "netIncome": {
+        "value": 192879000000,
+        "unit": "USD",
+        "concept": "NetIncomeLoss",
+        "label": "Net Income",
+        "isDerived": true,
+        "derivationMethod": "sum_of_trailing_4_quarters",
+        "source": "SEC-derived",
+        "quartersIncluded": [
+          "2026Q3",
+          "2026Q4",
+          "2027Q1",
+          "2027Q2"
+        ],
+        "kind": "derived",
+        "qualityStatus": "available",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "netIncome:us-gaap:NetIncomeLoss:netIncome:NetIncomeLoss",
+        "periodStart": "2025-07-28",
+        "periodEnd": "2026-07-26",
+        "period": "2027Q2",
+        "periodType": "TTM",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q3",
+            "metric": "netIncome",
+            "value": 31910000000,
+            "concept": "NetIncomeLoss",
+            "accession": "0001045810-25-000230",
+            "filed": "2025-11-19",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "netIncome",
+            "value": 42960000000,
+            "concept": "NetIncomeLoss",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-26-000021",
+              "0001045810-25-000230"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-25-000230",
+                "filed": "2025-11-19"
+              },
+              {
+                "accession": "0001045810-26-000021",
+                "filed": "2026-02-25"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2027Q1",
+            "metric": "netIncome",
+            "value": 58321000000,
+            "concept": "NetIncomeLoss",
+            "accession": "0001045810-26-000052",
+            "filed": "2026-05-20",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2027Q2",
+            "metric": "netIncome",
+            "value": 59688000000,
+            "concept": "NetIncomeLoss",
+            "accession": "0001045810-26-000075",
+            "filed": "2026-08-26",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          }
+        ],
+        "filed": "2026-08-26"
+      },
+      "netIncomeToCommon": {
+        "value": 192879000000,
+        "unit": "USD",
+        "concept": "NetIncomeLoss",
+        "label": "Net Income Attributable to Common Stockholders",
+        "isDerived": true,
+        "derivationMethod": "sum_of_trailing_4_quarters",
+        "source": "SEC-derived",
+        "quartersIncluded": [
+          "2026Q3",
+          "2026Q4",
+          "2027Q1",
+          "2027Q2"
+        ],
+        "kind": "derived",
+        "qualityStatus": "available",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "netIncomeToCommon:us-gaap:NetIncomeLoss:netIncomeToCommon:NetIncomeLoss",
+        "periodStart": "2025-07-28",
+        "periodEnd": "2026-07-26",
+        "period": "2027Q2",
+        "periodType": "TTM",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q3",
+            "metric": "netIncomeToCommon",
+            "value": 31910000000,
+            "concept": "NetIncomeLoss",
+            "accession": "0001045810-25-000230",
+            "filed": "2025-11-19",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "netIncomeToCommon",
+            "value": 42960000000,
+            "concept": "NetIncomeLoss",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-26-000021",
+              "0001045810-25-000230"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-25-000230",
+                "filed": "2025-11-19"
+              },
+              {
+                "accession": "0001045810-26-000021",
+                "filed": "2026-02-25"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2027Q1",
+            "metric": "netIncomeToCommon",
+            "value": 58321000000,
+            "concept": "NetIncomeLoss",
+            "accession": "0001045810-26-000052",
+            "filed": "2026-05-20",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2027Q2",
+            "metric": "netIncomeToCommon",
+            "value": 59688000000,
+            "concept": "NetIncomeLoss",
+            "accession": "0001045810-26-000075",
+            "filed": "2026-08-26",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          }
+        ],
+        "filed": "2026-08-26"
+      },
+      "operatingCashFlow": {
+        "value": 134360000000,
+        "unit": "USD",
+        "concept": "NetCashProvidedByUsedInOperatingActivities",
+        "label": "Net Cash Provided by Operating Activities",
+        "isDerived": true,
+        "derivationMethod": "sum_of_trailing_4_quarters",
+        "source": "SEC-derived",
+        "quartersIncluded": [
+          "2026Q3",
+          "2026Q4",
+          "2027Q1",
+          "2027Q2"
+        ],
+        "kind": "derived",
+        "qualityStatus": "available",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "operatingCashFlow:us-gaap:NetCashProvidedByUsedInOperatingActivities:operatingCashFlow:NetCashProvidedByUsedInOperatingActivities",
+        "periodStart": "2025-07-28",
+        "periodEnd": "2026-07-26",
+        "period": "2027Q2",
+        "periodType": "TTM",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q3",
+            "metric": "operatingCashFlow",
+            "value": 23751000000,
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-25-000230",
+              "0001045810-26-000075"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-25-000230",
+                "filed": "2025-11-19"
+              },
+              {
+                "accession": "0001045810-26-000075",
+                "filed": "2026-08-26"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "operatingCashFlow",
+            "value": 36188000000,
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-26-000021",
+              "0001045810-25-000230"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-25-000230",
+                "filed": "2025-11-19"
+              },
+              {
+                "accession": "0001045810-26-000021",
+                "filed": "2026-02-25"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2027Q1",
+            "metric": "operatingCashFlow",
+            "value": 50344000000,
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "accession": "0001045810-26-000052",
+            "filed": "2026-05-20",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2027Q2",
+            "metric": "operatingCashFlow",
+            "value": 24077000000,
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-26-000075",
+              "0001045810-26-000052"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-26-000052",
+                "filed": "2026-05-20"
+              },
+              {
+                "accession": "0001045810-26-000075",
+                "filed": "2026-08-26"
+              }
+            ],
+            "isDerived": true
+          }
+        ],
+        "filed": "2026-08-26"
+      },
+      "capex": {
+        "value": 7354000000,
+        "unit": "USD",
+        "concept": "PaymentsToAcquireProductiveAssets",
+        "label": "Capital Expenditures (Acquisition of Property & Equipment)",
+        "isDerived": true,
+        "derivationMethod": "sum_of_trailing_4_quarters",
+        "source": "SEC-derived",
+        "quartersIncluded": [
+          "2026Q3",
+          "2026Q4",
+          "2027Q1",
+          "2027Q2"
+        ],
+        "kind": "derived",
+        "qualityStatus": "available",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "capex:us-gaap:PaymentsToAcquireProductiveAssets:capex:PaymentsToAcquireProductiveAssets",
+        "periodStart": "2025-07-28",
+        "periodEnd": "2026-07-26",
+        "period": "2027Q2",
+        "periodType": "TTM",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q3",
+            "metric": "capex",
+            "value": 1636000000,
+            "concept": "PaymentsToAcquireProductiveAssets",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-25-000230",
+              "0001045810-26-000075"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-25-000230",
+                "filed": "2025-11-19"
+              },
+              {
+                "accession": "0001045810-26-000075",
+                "filed": "2026-08-26"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "capex",
+            "value": 1284000000,
+            "concept": "PaymentsToAcquireProductiveAssets",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-26-000021",
+              "0001045810-25-000230"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-25-000230",
+                "filed": "2025-11-19"
+              },
+              {
+                "accession": "0001045810-26-000021",
+                "filed": "2026-02-25"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2027Q1",
+            "metric": "capex",
+            "value": 1757000000,
+            "concept": "PaymentsToAcquireProductiveAssets",
+            "accession": "0001045810-26-000052",
+            "filed": "2026-05-20",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2027Q2",
+            "metric": "capex",
+            "value": 2677000000,
+            "concept": "PaymentsToAcquireProductiveAssets",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-26-000075",
+              "0001045810-26-000052"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-26-000052",
+                "filed": "2026-05-20"
+              },
+              {
+                "accession": "0001045810-26-000075",
+                "filed": "2026-08-26"
+              }
+            ],
+            "isDerived": true
+          }
+        ],
+        "filed": "2026-08-26"
+      },
+      "freeCashFlow": {
+        "value": 127006000000,
+        "unit": "USD",
+        "concept": null,
+        "label": "Free Cash Flow (FCF)",
+        "isDerived": true,
+        "derivationMethod": "sum_of_quarterly_ocf_minus_capex",
+        "source": "SEC-derived",
+        "quartersIncluded": [
+          "2026Q3",
+          "2026Q4",
+          "2027Q1",
+          "2027Q2"
+        ],
+        "kind": "derived",
+        "qualityStatus": "available",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "freeCashFlow:us-gaap:freeCashFlow:capex:PaymentsToAcquireProductiveAssets|operatingCashFlow:NetCashProvidedByUsedInOperatingActivities",
+        "periodStart": "2025-07-28",
+        "periodEnd": "2026-07-26",
+        "period": "2027Q2",
+        "periodType": "TTM",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q3",
+            "metric": "operatingCashFlow",
+            "value": 23751000000,
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-25-000230",
+              "0001045810-26-000075"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-25-000230",
+                "filed": "2025-11-19"
+              },
+              {
+                "accession": "0001045810-26-000075",
+                "filed": "2026-08-26"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q3",
+            "metric": "capex",
+            "value": 1636000000,
+            "concept": "PaymentsToAcquireProductiveAssets",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-25-000230",
+              "0001045810-26-000075"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-25-000230",
+                "filed": "2025-11-19"
+              },
+              {
+                "accession": "0001045810-26-000075",
+                "filed": "2026-08-26"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "operatingCashFlow",
+            "value": 36188000000,
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-26-000021",
+              "0001045810-25-000230"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-25-000230",
+                "filed": "2025-11-19"
+              },
+              {
+                "accession": "0001045810-26-000021",
+                "filed": "2026-02-25"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "capex",
+            "value": 1284000000,
+            "concept": "PaymentsToAcquireProductiveAssets",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-26-000021",
+              "0001045810-25-000230"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-25-000230",
+                "filed": "2025-11-19"
+              },
+              {
+                "accession": "0001045810-26-000021",
+                "filed": "2026-02-25"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2027Q1",
+            "metric": "operatingCashFlow",
+            "value": 50344000000,
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "accession": "0001045810-26-000052",
+            "filed": "2026-05-20",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2027Q1",
+            "metric": "capex",
+            "value": 1757000000,
+            "concept": "PaymentsToAcquireProductiveAssets",
+            "accession": "0001045810-26-000052",
+            "filed": "2026-05-20",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2027Q2",
+            "metric": "operatingCashFlow",
+            "value": 24077000000,
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-26-000075",
+              "0001045810-26-000052"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-26-000052",
+                "filed": "2026-05-20"
+              },
+              {
+                "accession": "0001045810-26-000075",
+                "filed": "2026-08-26"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2027Q2",
+            "metric": "capex",
+            "value": 2677000000,
+            "concept": "PaymentsToAcquireProductiveAssets",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-26-000075",
+              "0001045810-26-000052"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-26-000052",
+                "filed": "2026-05-20"
+              },
+              {
+                "accession": "0001045810-26-000075",
+                "filed": "2026-08-26"
+              }
+            ],
+            "isDerived": true
+          }
+        ],
+        "filed": "2026-08-26"
+      },
+      "stockBasedCompensation": {
+        "value": 7243000000,
+        "unit": "USD",
+        "concept": "AllocatedShareBasedCompensationExpense",
+        "label": "Stock-Based Compensation Expense",
+        "isDerived": true,
+        "derivationMethod": "sum_of_trailing_4_quarters",
+        "source": "SEC-derived",
+        "quartersIncluded": [
+          "2026Q3",
+          "2026Q4",
+          "2027Q1",
+          "2027Q2"
+        ],
+        "kind": "derived",
+        "qualityStatus": "available",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "stockBasedCompensation:us-gaap:AllocatedShareBasedCompensationExpense:stockBasedCompensation:AllocatedShareBasedCompensationExpense",
+        "periodStart": "2025-07-28",
+        "periodEnd": "2026-07-26",
+        "period": "2027Q2",
+        "periodType": "TTM",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q3",
+            "metric": "stockBasedCompensation",
+            "value": 1655000000,
+            "concept": "AllocatedShareBasedCompensationExpense",
+            "accession": "0001045810-25-000230",
+            "filed": "2025-11-19",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "stockBasedCompensation",
+            "value": 1633000000,
+            "concept": "AllocatedShareBasedCompensationExpense",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-26-000021",
+              "0001045810-25-000230"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-25-000230",
+                "filed": "2025-11-19"
+              },
+              {
+                "accession": "0001045810-26-000021",
+                "filed": "2026-02-25"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2027Q1",
+            "metric": "stockBasedCompensation",
+            "value": 1928000000,
+            "concept": "AllocatedShareBasedCompensationExpense",
+            "accession": "0001045810-26-000052",
+            "filed": "2026-05-20",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2027Q2",
+            "metric": "stockBasedCompensation",
+            "value": 2027000000,
+            "concept": "AllocatedShareBasedCompensationExpense",
+            "accession": "0001045810-26-000075",
+            "filed": "2026-08-26",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          }
+        ],
+        "filed": "2026-08-26"
+      },
+      "dilutedShares": {
+        "value": 24397250000,
+        "unit": "shares",
+        "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+        "label": "TTM Weighted Average Number of Diluted Shares Outstanding",
+        "source": "SEC-derived",
+        "isDerived": true,
+        "derivationMethod": "duration_weighted_trailing_4_quarters",
+        "notes": "Duration-weighted average of 4 trailing quarters (364 total days)",
+        "quartersIncluded": [
+          "2026Q3",
+          "2026Q4",
+          "2027Q1",
+          "2027Q2"
+        ],
+        "quarterShares": [
+          24483000000,
+          24430000000,
+          24391000000,
+          24285000000
+        ],
+        "quarterDurationsDays": [
+          91,
+          91,
+          91,
+          91
+        ],
+        "kind": "derived",
+        "qualityStatus": "available",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": null,
+        "definition": "dilutedShares:us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding:dilutedShares:WeightedAverageNumberOfDilutedSharesOutstanding",
+        "periodStart": "2025-07-28",
+        "periodEnd": "2026-07-26",
+        "period": "2027Q2",
+        "periodType": "TTM",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q3",
+            "metric": "dilutedShares",
+            "value": 24483000000,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": "0001045810-25-000230",
+            "filed": "2025-11-19",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "dilutedShares",
+            "value": 24430000000,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-26-000021",
+              "0001045810-25-000230"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-25-000230",
+                "filed": "2025-11-19"
+              },
+              {
+                "accession": "0001045810-26-000021",
+                "filed": "2026-02-25"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2027Q1",
+            "metric": "dilutedShares",
+            "value": 24391000000,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": "0001045810-26-000052",
+            "filed": "2026-05-20",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2027Q2",
+            "metric": "dilutedShares",
+            "value": 24285000000,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": "0001045810-26-000075",
+            "filed": "2026-08-26",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          }
+        ],
+        "filed": "2026-08-26",
+        "shareBasis": null,
+        "shareBasisStatus": "unverified"
+      },
+      "dilutedEps": {
+        "value": 7.91,
+        "exactValue": 7.905768068122432,
+        "unit": "USD/shares",
+        "concept": "EarningsPerShareDiluted",
+        "label": "TTM Diluted Earnings Per Share",
+        "source": "SEC-derived",
+        "isDerived": true,
+        "derivationMethod": "ttm_common_income_over_weighted_diluted_shares",
+        "quartersIncluded": [
+          "2026Q3",
+          "2026Q4",
+          "2027Q1",
+          "2027Q2"
+        ],
+        "numeratorMetric": "netIncomeToCommon",
+        "denominatorMetric": "dilutedShares",
+        "kind": "derived",
+        "qualityStatus": "available",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "dilutedEps:us-gaap:EarningsPerShareDiluted:dilutedShares:WeightedAverageNumberOfDilutedSharesOutstanding|netIncomeToCommon:NetIncomeLoss",
+        "periodStart": "2025-07-28",
+        "periodEnd": "2026-07-26",
+        "period": "2027Q2",
+        "periodType": "TTM",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q3",
+            "metric": "netIncomeToCommon",
+            "value": 31910000000,
+            "concept": "NetIncomeLoss",
+            "accession": "0001045810-25-000230",
+            "filed": "2025-11-19",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q3",
+            "metric": "dilutedShares",
+            "value": 24483000000,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": "0001045810-25-000230",
+            "filed": "2025-11-19",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "netIncomeToCommon",
+            "value": 42960000000,
+            "concept": "NetIncomeLoss",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-26-000021",
+              "0001045810-25-000230"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-25-000230",
+                "filed": "2025-11-19"
+              },
+              {
+                "accession": "0001045810-26-000021",
+                "filed": "2026-02-25"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "dilutedShares",
+            "value": 24430000000,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-26-000021",
+              "0001045810-25-000230"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-25-000230",
+                "filed": "2025-11-19"
+              },
+              {
+                "accession": "0001045810-26-000021",
+                "filed": "2026-02-25"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2027Q1",
+            "metric": "netIncomeToCommon",
+            "value": 58321000000,
+            "concept": "NetIncomeLoss",
+            "accession": "0001045810-26-000052",
+            "filed": "2026-05-20",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2027Q1",
+            "metric": "dilutedShares",
+            "value": 24391000000,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": "0001045810-26-000052",
+            "filed": "2026-05-20",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2027Q2",
+            "metric": "netIncomeToCommon",
+            "value": 59688000000,
+            "concept": "NetIncomeLoss",
+            "accession": "0001045810-26-000075",
+            "filed": "2026-08-26",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2027Q2",
+            "metric": "dilutedShares",
+            "value": 24285000000,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": "0001045810-26-000075",
+            "filed": "2026-08-26",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          }
+        ],
+        "filed": "2026-08-26",
+        "shareBasis": null,
+        "shareBasisStatus": "unverified"
+      },
+      "fcfPerShare": {
+        "value": 5.21,
+        "exactValue": 5.205750648126326,
+        "unit": "USD/shares",
+        "label": "TTM Free Cash Flow Per Share",
+        "source": "SEC-derived",
+        "isDerived": true,
+        "derivationMethod": "ttm_fcf_over_weighted_diluted_shares",
+        "quartersIncluded": [
+          "2026Q3",
+          "2026Q4",
+          "2027Q1",
+          "2027Q2"
+        ],
+        "numeratorMetric": "freeCashFlow",
+        "denominatorMetric": "dilutedShares",
+        "kind": "derived",
+        "qualityStatus": "available",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "fcfPerShare:us-gaap:fcfPerShare:dilutedShares:WeightedAverageNumberOfDilutedSharesOutstanding|freeCashFlow:None",
+        "periodStart": "2025-07-28",
+        "periodEnd": "2026-07-26",
+        "period": "2027Q2",
+        "periodType": "TTM",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q3",
+            "metric": "freeCashFlow",
+            "value": 22115000000,
+            "concept": null,
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "operatingCashFlow",
+              "capex"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-25-000230",
+                "filed": "2025-11-19"
+              },
+              {
+                "accession": "0001045810-26-000075",
+                "filed": "2026-08-26"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q3",
+            "metric": "dilutedShares",
+            "value": 24483000000,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": "0001045810-25-000230",
+            "filed": "2025-11-19",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "freeCashFlow",
+            "value": 34904000000,
+            "concept": null,
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "operatingCashFlow",
+              "capex"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-25-000230",
+                "filed": "2025-11-19"
+              },
+              {
+                "accession": "0001045810-26-000021",
+                "filed": "2026-02-25"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "dilutedShares",
+            "value": 24430000000,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-26-000021",
+              "0001045810-25-000230"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-25-000230",
+                "filed": "2025-11-19"
+              },
+              {
+                "accession": "0001045810-26-000021",
+                "filed": "2026-02-25"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2027Q1",
+            "metric": "freeCashFlow",
+            "value": 48587000000,
+            "concept": null,
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001045810-26-000052",
+              "0001045810-26-000052"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-26-000052",
+                "filed": "2026-05-20"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2027Q1",
+            "metric": "dilutedShares",
+            "value": 24391000000,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": "0001045810-26-000052",
+            "filed": "2026-05-20",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2027Q2",
+            "metric": "freeCashFlow",
+            "value": 21400000000,
+            "concept": null,
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "operatingCashFlow",
+              "capex"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001045810-26-000052",
+                "filed": "2026-05-20"
+              },
+              {
+                "accession": "0001045810-26-000075",
+                "filed": "2026-08-26"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2027Q2",
+            "metric": "dilutedShares",
+            "value": 24285000000,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": "0001045810-26-000075",
+            "filed": "2026-08-26",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          }
+        ],
+        "filed": "2026-08-26",
+        "shareBasis": null,
+        "shareBasisStatus": "unverified"
+      }
+    }
+  },
+  "quarterly": [
+    {
+      "period": "2025Q1",
+      "periodStart": "2024-01-29",
+      "periodEnd": "2024-04-28"
+    },
+    {
+      "period": "2025Q2",
+      "periodStart": "2024-04-29",
+      "periodEnd": "2024-07-28"
+    },
+    {
+      "period": "2025Q3",
+      "periodStart": "2024-07-29",
+      "periodEnd": "2024-10-27"
+    },
+    {
+      "period": "2025Q4",
+      "periodStart": "2024-10-28",
+      "periodEnd": "2025-01-26"
+    },
+    {
+      "period": "2026Q1",
+      "periodStart": "2025-01-27",
+      "periodEnd": "2025-04-27"
+    },
+    {
+      "period": "2026Q2",
+      "periodStart": "2025-04-28",
+      "periodEnd": "2025-07-27"
+    },
+    {
+      "period": "2026Q3",
+      "periodStart": "2025-07-28",
+      "periodEnd": "2025-10-26"
+    },
+    {
+      "period": "2026Q4",
+      "periodStart": "2025-10-27",
+      "periodEnd": "2026-01-25"
+    },
+    {
+      "period": "2027Q1",
+      "periodStart": "2026-01-26",
+      "periodEnd": "2026-04-26"
+    },
+    {
+      "period": "2027Q2",
+      "periodStart": "2026-04-27",
+      "periodEnd": "2026-07-26"
+    }
+  ],
+  "filings": [
+    {
+      "form": "10-Q",
+      "filingDate": "2026-08-26",
+      "reportPeriod": "2026-07-26",
+      "accessionNumber": "0001045810-26-000075",
+      "primaryDocument": "nvda-20260726.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/"
+    }
+  ]
+}

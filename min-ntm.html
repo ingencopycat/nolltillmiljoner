@@ -48,6 +48,7 @@
         <details class="depth-panel" id="cloudAccount"><summary>Konto &amp; valfri molnsynk <small id="cloudStatus">Sparat lokalt</small></summary>
             <section class="card calculator-card min-ntm-card" aria-labelledby="cloudHeading">
                 <h2 id="cloudHeading">Konto och synk</h2>
+                <p>Beslutspauser, antagandegrupper och mallval är endast lokala och ingår i JSON-backup. De skickas inte med denna molnsynk.</p>
                 <p>Lokal användning kräver inget konto. Molnsynk ersätter inte <a href="#localDataDepth">din JSON-backup</a>. Uppgifter kan finnas kvar lokalt efter utloggning.</p>
                 <p id="cloudMessage" role="status" aria-live="polite">Kontrollerar om valfri molnsynk är tillgänglig…</p>
                 <div id="cloudLogin" hidden>
@@ -81,7 +82,52 @@
             <p id="reviewQueueStatus" role="status">Kontrollerar sparade teser…</p>
             <p class="note">Lokala påminnelser visas när du öppnar eller återvänder till sidan. Inga bakgrundsnotiser skickas.</p>
             <div id="reviewQueue" class="min-ntm-list"></div>
+            <div id="pauseQueue" hidden></div>
             <details><summary>Avstod, stängda teser och historik</summary><div id="closedTheses" class="min-ntm-list"></div></details>
+        </section>
+        <section class="card calculator-card min-ntm-card" id="behavioralSection" aria-labelledby="behavioralHeading">
+            <h2 id="behavioralHeading">Beslutsminne &amp; metod</h2>
+            <p>Privat och lokalt. Du väljer vad du vill anteckna och ompröva. Ingen bedömning av dig eller dina investeringar görs.</p>
+            <p id="behavioralStatus" role="status" aria-live="polite"></p>
+            <details id="pausePanel"><summary>Beslut att ompröva · frivillig beslutspaus</summary>
+                <p>Anteckna ett övervägande och återvänd när du vill. Detta blockerar ingenting och innebär inte att väntan är bättre.</p>
+                <form id="pauseForm">
+                    <label for="pauseCompany">Bolag eller egen bolagsbenämning</label><input id="pauseCompany" required maxlength="160" />
+                    <label for="pauseTicker">Ticker eller manuell tesnyckel (valfritt)</label><input id="pauseTicker" maxlength="128" pattern="[A-Za-z0-9.\-]+" />
+                    <label for="pauseContext">Vad överväger du?</label><textarea id="pauseContext" required maxlength="2000" rows="2"></textarea>
+                    <label for="pauseReason">Kort skäl</label><textarea id="pauseReason" required maxlength="2000" rows="2"></textarea>
+                    <label for="pauseDate">Valfritt datum att återkomma</label><input id="pauseDate" type="date" />
+                    <button type="submit" class="secondary-btn">Spara beslutspaus</button>
+                </form>
+                <div id="pauseRecords"></div>
+            </details>
+            <details id="groupPanel"><summary>Gemensamma antaganden</summary>
+                <p>Skapa egna grupper och koppla sparade antaganden. Antal visar beroenden mellan teser, inte portföljrisk. Kopplingar avser exakt den valda sparade versionen.</p>
+                <form id="groupForm"><label for="groupName">Eget gruppnamn</label><input id="groupName" required maxlength="100" /><button type="submit" class="secondary-btn">Skapa grupp</button></form>
+                <form id="groupLinkForm"><label for="groupSelect">Grupp</label><select id="groupSelect" required></select>
+                    <label for="assumptionSelect">Antagande i senaste sparade tesversion</label><select id="assumptionSelect" required></select>
+                    <button type="submit" class="secondary-btn">Koppla antagande</button>
+                </form>
+                <div id="groupRecords"></div>
+            </details>
+            <details id="retrospectivePanel"><summary>Din historik / retrospektiv</summary><div id="retrospectiveResult"></div></details>
+            <details id="methodPanel"><summary>Dela en tom granskningsmetod</summary>
+                <p>Välj tomma mallsektioner. Dina teser, anteckningar, belopp, bolag, ID:n och utfall kopieras aldrig in. Ingen publicering sker.</p>
+                <form id="methodForm">
+                    <label><input type="checkbox" name="methodPart" value="thesis" checked /> Tom tesstruktur</label>
+                    <label><input type="checkbox" name="methodPart" value="assumptions" checked /> Antagandefrågor</label>
+                    <label><input type="checkbox" name="methodPart" value="falsification" checked /> Motbevisfrågor</label>
+                    <label><input type="checkbox" name="methodPart" value="questions" checked /> Rapportfrågor</label>
+                    <label><input type="checkbox" name="methodPart" value="checklist" checked /> Granskningschecklista</label>
+                    <button type="submit" class="secondary-btn">Förhandsgranska mall</button>
+                </form>
+                <div id="methodPreviewArea" hidden><label for="methodPreview">Exakt exporttext · kopiera vid behov</label><textarea id="methodPreview" rows="12" readonly></textarea>
+                    <details><summary>Visa exakt JSON-mall före export</summary><pre id="methodJSONPreview"></pre></details>
+                    <button type="button" id="methodMarkdown" class="secondary-btn">Ladda ned Markdown</button>
+                    <button type="button" id="methodJSON" class="secondary-btn">Ladda ned JSON-mall</button>
+                    <button type="button" id="methodSave" class="ghost-btn">Spara mallval lokalt</button>
+                </div><div id="methodRecords"></div>
+            </details>
         </section>
         <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-research-heading">
             <div class="section-heading"><div><span class="section-kicker">Mina analyser</span><h2 id="min-ntm-research-heading">Aktiva teser</h2></div></div>
@@ -124,13 +170,13 @@
         </section>
         <details class="depth-panel" id="localDataDepth"><summary>Backup &amp; datahantering <small>Exportera, importera eller radera</small></summary><section class="card calculator-card min-ntm-card" aria-labelledby="localDataHeading">
             <h2 id="localDataHeading">Backup och lokal Research-data</h2>
-            <p>JSON-backup innehåller thesis-versioner, snapshots, utfallskontroller med arkivkopior, kalkylatorscenarier och tema. Markdown är en läsexport, inte en backup. Förvara JSON-filen privat.</p>
+            <p>JSON-backup innehåller thesis-versioner, snapshots, utfallskontroller med arkivkopior, kalkylatorscenarier, beslutspauser, grupphistorik, sparade mallval och tema. Markdown är en läsexport, inte en backup. Förvara JSON-filen privat. Version 2 kräver en aktuell NTM-version för återställning; äldre version 1-backuper stöds fortfarande.</p>
             <button type="button" id="localDataExport" class="secondary-btn">Exportera all lokal data</button>
             <p><label for="localDataFile">Välj JSON-backup</label> <input type="file" id="localDataFile" accept=".json,application/json" /></p>
             <button type="button" id="localDataImport" class="secondary-btn">Importera backup – slå samman</button>
             <p>Import behåller befintliga poster. Nya versioner läggs sist och kan bli senaste version. Identiska ID:n dupliceras inte; motstridiga ID:n stoppar hela importen. Befintligt tema behålls.</p>
             <h3>Radera för ett bolag</h3>
-            <p>Vanlig thesis-radering behåller utfallskontroller och deras arkivkopior. Här kan du radera kontrollerna separat eller all privat Research-data för en ticker. Kalkylatorscenarier och andra bolag behålls.</p>
+            <p>Vanlig thesis-radering behåller utfallskontroller och deras arkivkopior. Full tickerradering tar även bort beslutspauser med angiven ticker och dess gruppkopplingar. Fristående pauser utan ticker, globala gruppnamn, mallval, kalkylatorscenarier och andra bolag behålls.</p>
             <label for="localDataTicker">Ticker för radering</label>
             <input id="localDataTicker" type="text" placeholder="NVDA" autocomplete="off" />
             <button type="button" id="localDataDeleteOutcomes" class="destructive-action ghost-btn">Radera utfallskontroller för angiven ticker</button>
@@ -146,7 +192,9 @@
     <script src="valuation-core.js"></script>
 <script src="script.js"></script>
     <script src="research-outcomes.js"></script>
+    <script src="behavioral.js"></script>
     <script src="local-data.js"></script>
+    <script src="behavioral-ui.js"></script>
     <script src="cloud-config.js"></script>
     <script src="cloud-sync.js"></script>
     <script src="cloud-adapter.js"></script>

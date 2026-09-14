@@ -7,7 +7,7 @@ function app(saved=new Map()) {
     localStorage:{getItem:k=>saved.has(k)?saved.get(k):null,setItem:(k,v)=>saved.set(k,v),removeItem:k=>saved.delete(k)},
     location:{pathname:'/',search:''},crypto:{randomUUID:()=>`new-${++id}`}});
   c.window=c;
-  for(const file of ['valuation-core.js','script.js','research-snapshot.js','thesis-storage.js','research-outcomes.js','local-data.js','cloud-sync.js','cloud-adapter.js'])vm.runInContext(fs.readFileSync(file,'utf8'),c);
+  for(const file of ['valuation-core.js','script.js','research-snapshot.js','thesis-storage.js','research-outcomes.js','behavioral.js','local-data.js','cloud-sync.js','cloud-adapter.js'])vm.runInContext(fs.readFileSync(file,'utf8'),c);
   const manual=()=>c.NTMThesisStorage.save('ACME',{text:'PRIVATE thesis',origin:'manual',companyName:'Manual',companyIdentity:{type:'ticker',key:'ACME'},
     assumptions:['Evidence'],assumptionDetails:[{status:'current',assessment:'unreviewed',falsification:'Counterevidence',reviewBy:'2030-01-01'}],
     reportQuestions:[{text:'Report question',status:'open'}],valuationSnapshot:null});

@@ -9,7 +9,7 @@ import sys
 
 WORKSPACE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REQUIRED_FILES = [
-    'cloud-config.js', 'cloud-sync.js', 'cloud-adapter.js', 'cloud-ui.js',
+    'behavioral.js', 'behavioral-ui.js', 'research-ai.js', 'research-ai-ui.js', 'cloud-config.js', 'cloud-sync.js', 'cloud-adapter.js', 'cloud-ui.js',
     'ntm-relations.js', 'ntm-relations-ui.js',
     'index.html', 'makro.html', 'rapporter.html', 'verktyg.html', 'inlagg.html',
     'post.html', 'resurser.html', 'community.html', 'min-ntm.html', 'calculator.html',

@@ -93,7 +93,9 @@
   function create({local,storage,adapter,now=()=>Date.now(),id=()=>root.crypto.randomUUID()}) {
     let owner=null,busy=false,epoch=0,restorePlan=null;
     const originals=new WeakMap();
-    const capture=()=>JSON.parse(local.exportJSON()).data;
+    // Behavioral records stay local-only. Never place their texts in sync payloads
+    // or queue signatures; restoring cloud data merges without replacing them.
+    const capture=()=>{const data=JSON.parse(local.exportJSON()).data;delete data.behavioral;return data;};
     function read() {
       if(!owner)throw fail('auth');
       const raw=storage.getItem(PREFIX+owner);

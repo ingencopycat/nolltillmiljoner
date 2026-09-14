@@ -730,3 +730,7 @@ failure: inspect the image against the structured identities/dates/times, correc
 the data, and record that review. The manifest intentionally does not freeze macro
 actual/previous/forecast values, which update independently of a historical image.
 See [weekly reliability findings and maintenance instructions](docs/weekly-data-reliability.md).
+
+Research AI B44–B48 is a disabled provider/product foundation with local deterministic test templates. See [architecture, privacy, evaluations and activation boundaries](docs/research-ai-foundation.md). No live model service is connected.
+
+Behavioral Intelligence B70/B71/B74/B75 is available locally in Min NTM: voluntary decision pauses, user-assigned assumption groups, factual retrospectives and blank method-template exports. [Architecture, privacy, backup V2 and limitations](docs/behavioral-intelligence.md). These new records are included in local JSON backup, not the optional cloud sync.

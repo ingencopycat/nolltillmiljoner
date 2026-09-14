@@ -5708,3 +5708,13 @@ body.light-theme .nav-learn-links { background: #fff; }
 .content-journey a { white-space: normal; }
 .destructive-action { border: 2px solid currentColor !important; text-decoration: underline; text-underline-offset: .2em; }
 @media (max-width: 600px) { .trust-page { padding: 1rem; } .editorial-note, .content-journey { padding: 1rem; } }
+#behavioralSection form { display: grid; gap: .65rem; margin: 1rem 0; }
+#behavioralSection input:not([type="checkbox"]),
+#behavioralSection select, #behavioralSection textarea { width: 100%; max-width: 100%; box-sizing: border-box; }
+#behavioralSection details { margin: 1rem 0; }
+#behavioralSection article > div { min-width: 0; width: 100%; }
+#behavioralSection p, #behavioralSection summary, #behavioralSection button { overflow-wrap: anywhere; white-space: normal; }
+#methodForm label { display: flex; align-items: center; gap: .65rem; }
+#methodForm input[type="checkbox"] { width: auto; min-width: 0; margin: 0; flex: none; }
+#methodPreviewArea:not([hidden]) { display: grid; gap: .65rem; }
+#methodJSONPreview { white-space: pre-wrap; overflow-wrap: anywhere; }

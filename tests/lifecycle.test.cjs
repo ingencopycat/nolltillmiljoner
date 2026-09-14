@@ -9,7 +9,7 @@ function app() {
     localStorage:{getItem:k=>saved.has(k)?saved.get(k):null,setItem:(k,v)=>saved.set(k,v),removeItem:k=>saved.delete(k)},
     location:{pathname:'/',search:''},crypto:{randomUUID:()=>`test-${++id}`}});
   c.window=c;
-  for(const file of ['valuation-core.js','script.js','research-snapshot.js','thesis-storage.js','research-outcomes.js','research-export.js','change-detection.js','local-data.js','min-review.js']) vm.runInContext(fs.readFileSync(file,'utf8'),c);
+  for(const file of ['valuation-core.js','script.js','research-snapshot.js','thesis-storage.js','research-outcomes.js','research-export.js','change-detection.js','behavioral.js','local-data.js','min-review.js']) vm.runInContext(fs.readFileSync(file,'utf8'),c);
   return {c,saved,store:c.NTMThesisStorage,backup:c.NTMLocalData};
 }
 const clone=x=>JSON.parse(JSON.stringify(x));
