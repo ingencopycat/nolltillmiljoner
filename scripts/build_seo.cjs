@@ -29,6 +29,9 @@ const excluded = new Set(['min-ntm.html', 'post.html', 'calculator.html', 'inves
 for(const o of require('../academy-activities.js').published())excluded.add(require('../academy-activities.js').url(o.id));
 const redirects = { 'calculator.html': 'ranta-pa-ranta.html', 'investeringar.html': 'inlagg.html' };
 const outputs = new Map();
+const knowledgeBuild=require('./build_knowledge.cjs').build(),knowledgePages=knowledgeBuild.pages;
+for(const e of require('./knowledge_source.cjs').publicEntries())if(e.status!=='published')excluded.add(require('./knowledge_source.cjs').url(e.id));
+for(const file of fs.readdirSync(root).filter(f=>/^fragor-svar-.+\.html$/.test(f)))if(!knowledgePages.has(file))throw new Error('Retire unpublished knowledge artifact explicitly: '+file);
 const academyPages = require('./build_academy.cjs').pages();
 for(const file of fs.readdirSync(root).filter(f=>/^academy-.+\.html$/.test(f))) {
   if(!academyPages.has(file)) throw new Error('Retire unpublished Academy artifact explicitly: '+file);
@@ -36,7 +39,7 @@ for(const file of fs.readdirSync(root).filter(f=>/^academy-.+\.html$/.test(f))) 
 function navigation(html, file) {
   html = html.replace(/\s*<footer class="trust-footer">[\s\S]*?<\/footer>/g, '');
   if (html.includes('src="script.js"')) html = html.replace('</main>', '</main>\n    <footer class="trust-footer"><a href="om-metod.html">Om NTM, integritet, metod och rättelser</a></footer>');
-  const secondary = [['academy.html','Academy'],['inlagg.html','Inlägg och videor'],['resurser.html','Resurser'],['makro.html','Makro'],['rapporter.html','Rapporter'],['community.html','Community']];
+  const secondary = [['academy.html','Academy'],['fragor-svar.html','Frågor & svar'],['inlagg.html','Inlägg och videor'],['resurser.html','Resurser'],['makro.html','Makro'],['rapporter.html','Rapporter'],['community.html','Community']];
   const link = ([url,label]) => `<a href="${url}"${url === file ? ' class="active" aria-current="page"' : ''}>${label}</a>`;
   return html.replace(/<nav class="main-nav"[^>]*>([\s\S]*?)<\/nav>/, (_, body) => {
     const theme = body.match(/<div class="mobile-theme-row">[\s\S]*?<\/div>/)?.[0] || '';
@@ -63,8 +66,8 @@ function metadata(html, file, title, description, schema) {
     + '\n    <!-- SEO END -->\n';
   return html.replace('</head>', block + '</head>');
 }
-for (const file of new Set([...fs.readdirSync(root).filter((name) => name.endsWith('.html') && !name.startsWith('post-') && !name.startsWith('academy-')), ...academyPages.keys()])) {
-  const html = academyPages.get(file) || read(file);
+for (const file of new Set([...fs.readdirSync(root).filter((name) => name.endsWith('.html') && !name.startsWith('post-') && !name.startsWith('academy-') && !name.startsWith('fragor-svar-')), ...academyPages.keys(), ...knowledgePages.keys()])) {
+  const html = knowledgePages.get(file) || academyPages.get(file) || read(file);
   const title = overrides[file]?.[0] || decode(html.match(/<title>(.*?)<\/title>/s)[1]);
   const description = overrides[file]?.[1] || decode(html.match(/<meta name="description" content="([^"]+)"/)[1]);
   const schema = file === 'index.html' ? { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Noll till Miljoner', url: base, inLanguage: 'sv' } : null;
@@ -78,6 +81,8 @@ context.window = context;
 vm.runInContext(read('posts.js'), context);
 vm.runInContext(read('academy-catalog.js'), context);
 vm.runInContext(read('academy-activities.js'), context);
+vm.runInContext(read('knowledge-core.js'), context);
+vm.runInContext(knowledgeBuild.script, context);
 vm.runInContext(read('ntm-relations.js'), context);
 vm.runInContext(read('valuation-core.js'), context);
 vm.runInContext(read('script.js'), context);
@@ -85,7 +90,7 @@ const posts = vm.runInContext('NTM_POSTS', context);
 const relationCatalog = relations.catalog(posts);
 // Generated articles may be new. Validate their canonical paths against the post registry.
 const postFiles = new Set(posts.map(post => `post-${post.slug}.html`));
-const relationErrors = relations.validate(relationCatalog, href => postFiles.has(href) || academyPages.has(href) || destinationExists(root, href));
+const relationErrors = relations.validate(relationCatalog, href => postFiles.has(href) || academyPages.has(href) || knowledgePages.has(href) || destinationExists(root, href));
 if (relationErrors.length) throw new Error(relationErrors.join('\n'));
 const postTemplate = outputs.get('post.html').replace('<script src="script.js">', '<script src="ntm-relations.js"></script>\n<script src="script.js">');
 outputs.set('post.html', postTemplate.replace(/(?:<script src="ntm-relations.js"><\/script>\s*){2}/g, '<script src="ntm-relations.js"></script>\n'));
@@ -115,6 +120,7 @@ const urls = [...outputs.keys()].filter((file) => !excluded.has(file)).sort().ma
 outputs.set('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
   + urls.map((url) => `  <url><loc>${escape(url)}</loc></url>`).join('\n') + '\n</urlset>\n');
 outputs.set('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${base}sitemap.xml\n`);
+outputs.set('knowledge-catalog.js',knowledgeBuild.script);
 const stale = [];
 for (const rule of JSON.parse(read('data/rule-registry.json')).rules) {
   let html = outputs.get(rule.page).replace(/\s*<!-- RULE START -->[\s\S]*?<!-- RULE END -->/g, '');
@@ -126,7 +132,7 @@ for (const [file, rawContent] of outputs) {
   let prepared = rawContent;
   if(file.endsWith('.html')) {
     if(file==='post-ai-portfolj.html'&&!prepared.includes('data-concept-help="thesis"'))prepared=prepared.replace('</article>','<p class="note"><a data-concept-help="thesis">Investeringstes</a></p></article>');
-    prepared=prepared.replace(/(?:<script src="academy-catalog.js"><\/script>\s*)?(?:<script src="academy-activities.js"><\/script>\s*)?(<script src="ntm-relations.js">)/g,'<script src="academy-catalog.js"></script>\n<script src="academy-activities.js"></script>\n$1');
+    prepared=prepared.replace(/(?:<script src="academy-catalog.js"><\/script>\s*)?(?:<script src="academy-activities.js"><\/script>\s*)?(?:<script src="knowledge-core.js"><\/script>\s*)?(?:<script src="knowledge-catalog.js"><\/script>\s*)?(<script src="ntm-relations.js">)/g,'<script src="academy-catalog.js"></script>\n<script src="academy-activities.js"></script>\n<script src="knowledge-core.js"></script>\n<script src="knowledge-catalog.js"></script>\n$1');
     prepared=prepared.replace(/<a\b([^>]*data-concept-help="([a-z-]+)"[^>]*)>[\s\S]*?<\/a>/g,(all,attrs,id)=>{
       const href=relations.conceptHref(relationCatalog,id);if(!href)throw new Error('Unknown concept hook '+id);
       return `<a ${attrs.replace(/\s*href="[^"]*"/g,'').trim()} href="${href}">Lär dig ${escape(relationCatalog.entities.find(e=>e.id==='learn-'+id).title)}</a>`;

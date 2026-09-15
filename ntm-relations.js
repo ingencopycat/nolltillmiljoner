@@ -2,6 +2,7 @@
 (function (root) {
   'use strict';
   const academy = typeof module !== 'undefined' ? require('./academy-catalog.js') : root.NTMAcademyCatalog;
+  const knowledge=typeof module!=='undefined'?require('./scripts/knowledge_source.cjs'):root.NTMKnowledgeCatalog;
   const activities=typeof module!=='undefined'?require('./academy-activities.js'):root.NTMAcademyActivities;
   const concepts = ['cagr', 'pe', 'eps', 'fcf', 'dilution', 'valuation', 'compounding',
     'fees', 'currency', 'inflation', 'interest-rates', 'ai', 'semiconductors', 'crypto', 'risk', 'thesis',
@@ -23,6 +24,12 @@
     return { id, from, to, type, priority, reason, cta, ...extra };
   }
   const relations = [
+    ...(knowledge?.publicEntries()||[]).flatMap(q=>[
+      ...q.relatedLessonIds.flatMap((id,i)=>[
+        edge('knowledge-lesson-'+q.id+'-'+id,'knowledge-'+q.id,'learn-'+id,'learn',10+i,'Fortsätt med en strukturerad lektion.','Lär dig mer'),
+        edge('lesson-knowledge-'+id+'-'+q.id,'learn-'+id,'knowledge-'+q.id,'related',55+i,'Ett kort svar på en vanlig fråga.','Läs svaret')]),
+      ...q.relatedEntityIds.map((id,i)=>edge('knowledge-tool-'+q.id+'-'+id,'knowledge-'+q.id,id,'try',20+i,'Pröva begreppet i NTM.','Öppna i NTM'))
+    ]),
     ...(activities?.published()||[]).flatMap(o=>[
       ...o.relatedEntityIds.map((id,i)=>edge('activity-tool-'+o.id+'-'+i,'activity-'+o.id,id,'try',10+i,'Använd NTM för att pröva resonemanget.','Öppna verktyget')),
       ...o.relatedConcepts.map((id,i)=>edge('activity-lesson-'+o.id+'-'+id,'activity-'+o.id,'learn-'+id,'learn',20+i,'Repetera begreppet som övningen bygger på.','Läs lektionen')),
@@ -118,6 +125,7 @@
           { tickers: [ticker], concepts: ['thesis'] })];
       }),
       ...(academy?.published() || []).map(l=>entity('learn-'+l.id,'learn',l.title,academy.url(l.id),{concepts:[l.id],difficulty:l.difficulty})),
+      ...(knowledge?.publicEntries()||[]).map(q=>entity('knowledge-'+q.id,'learn',q.question,knowledge.url(q.id),{concepts:q.concepts,difficulty:q.difficulty})),
       ...(activities?.published()||[]).map(o=>entity('activity-'+o.id,'learn',o.title,activities.url(o.id),{concepts:o.relatedConcepts,difficulty:o.difficulty})),
       ...posts.map(post => entity('post-' + post.slug, post.media.type === 'youtube' ? 'video' : 'content', post.title,
         'post-' + post.slug + '.html', { tags: post.tags, ...postMetadata[post.slug],

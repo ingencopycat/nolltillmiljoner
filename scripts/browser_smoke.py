@@ -74,6 +74,69 @@ class BrowserSmoke(unittest.TestCase):
             time.sleep(.05)
         self.fail('Browser condition timed out: ' + expression)
 
+    def test_knowledge_bank_search_links_and_accessibility(self):
+        p = self.page
+        self.go('fragor-svar.html')
+        expect(p.locator('[data-knowledge-controls]')).to_be_visible()
+        expect(p.locator('#knowledgeResults')).to_contain_text('26 av 26')
+        p.locator('#knowledgeSearch').focus()
+        p.keyboard.type('vinst per aktie')
+        expect(p.locator('[data-knowledge-card=eps]')).to_be_visible()
+        expect(p.locator('[data-knowledge-card=inflation]')).to_be_hidden()
+        self.assertTrue(p.evaluate("NTMEvents.snapshot().some(e=>e.event==='knowledge_search')"))
+        self.assertNotIn('vinst per aktie', p.evaluate('JSON.stringify(NTMEvents.snapshot())'))
+        for query, question in [('snittavkastning', 'cagr'), ('mäklaravgift', 'fees'), ('P/E', 'pe')]:
+            p.locator('#knowledgeSearch').fill(query)
+            expect(p.locator(f'[data-knowledge-card={question}]')).to_be_visible()
+        p.locator('#knowledgeSearch').fill('PRIVATE-UNKNOWN-QUERY')
+        expect(p.locator('#knowledgeEmpty')).to_be_visible()
+        expect(p.locator('#knowledgeResults')).to_contain_text('0 av 26')
+        self.assertNotIn('PRIVATE', p.evaluate('JSON.stringify(NTMEvents.snapshot())'))
+        self.assertNotIn('PRIVATE', p.url)
+        p.locator('#knowledgeClear').press('Enter')
+        self.assertTrue(p.locator('#knowledgeSearch').evaluate('(e)=>document.activeElement===e'))
+        p.locator('[data-knowledge-category=macro]').click()
+        expect(p.locator('#knowledgeCategory')).to_have_value('macro')
+        expect(p.locator('#knowledgeResults')).to_contain_text('3 av 26')
+        p.locator('#knowledgeCategory').select_option('valuation')
+        expect(p.locator('[data-knowledge-card=pe]')).to_be_visible()
+        p.locator('[data-knowledge-card=pe] a').click()
+        expect(p.locator('h1')).to_have_text('Vad betyder P/E?')
+        expect(p.locator('.knowledge-example')).to_contain_text('P/E 25')
+        self.assertTrue(p.evaluate("NTMEvents.snapshot().some(e=>e.event==='knowledge_answer_opened')"))
+        p.locator('.knowledge-related a[href="academy-pe.html"]').click()
+        expect(p.locator('h1')).to_contain_text('P/E')
+        p.get_by_text('Vanliga frågor', exact=True).click()
+        p.locator('a[href="fragor-svar-pe-tal.html"]').click()
+        p.locator('a[href="aktievarderingskalkylator.html"]').click()
+        self.assertIn('aktievarderingskalkylator.html', p.url)
+        for filename in ['fragor-svar.html', 'fragor-svar-usd-sek-avkastning.html', 'fragor-svar-isk-grunder.html']:
+            self.go(filename)
+            for width in [360, 390, 430]:
+                p.set_viewport_size({'width': width, 'height': 900})
+                for theme in ['light', 'dark']:
+                    p.evaluate('applyTheme', theme)
+                    p.evaluate('document.fonts.ready')
+                    self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'), width)
+                    p.screenshot(path=str(Path(tempfile.gettempdir())/f'ntm-kb-{filename}-{width}-{theme}.png'), full_page=True, animations='disabled')
+            if filename != 'fragor-svar.html':
+                p.locator('.knowledge-method summary').focus()
+                p.keyboard.press('Enter')
+                expect(p.locator('.knowledge-method')).to_have_attribute('open','')
+        expect(p.locator('[data-rule-registry=isk]')).to_contain_text('inkomstår 2026')
+        context = self.browser.new_context(java_script_enabled=False, viewport={'width':390,'height':900})
+        try:
+            page = context.new_page()
+            page.goto(self.base+'/fragor-svar.html')
+            expect(page.locator('[data-knowledge-card]')).to_have_count(26)
+            expect(page.locator('[data-knowledge-controls]')).to_be_hidden()
+            page.locator('[data-knowledge-card=eps] a').click()
+            expect(page.locator('.knowledge-short')).to_contain_text('vinst per aktie')
+            page.locator('.knowledge-method summary').click()
+            expect(page.locator('.knowledge-method')).to_have_attribute('open','')
+        finally:
+            context.close()
+
     def test_academy_v3_progression_projects_and_mobile(self):
         p = self.page
         self.go('academy.html')
@@ -1599,7 +1662,7 @@ class BrowserSmoke(unittest.TestCase):
         p.locator('#mobileThemeToggle').click()
         self.assertTrue(p.evaluate('document.body.classList.contains("light-theme")'))
         p.locator('.nav-learn summary').click()
-        expect(p.locator('.nav-learn-links a')).to_have_count(6)
+        expect(p.locator('.nav-learn-links a')).to_have_count(7)
         p.locator('.nav-learn-links a[href="resurser.html"]').click()
         p.locator('#mobileNavToggle').click()
         p.locator('.nav-learn summary').click()

@@ -43,6 +43,10 @@ class CloudFoundationTests(unittest.TestCase):
             public = '\n'.join(p.read_text(encoding='utf-8') for p in Path(target).glob('*.js'))
             self.assertNotIn('TEST-SESSION-', public)
             self.assertNotIn('ntm-browser-fixture', public)
+            knowledge = (Path(target) / 'knowledge-catalog.js').read_text(encoding='utf-8')
+            self.assertNotIn('internalEditorialNotes', knowledge)
+            self.assertNotIn('Editorial seed; source definitions', knowledge)
+            self.assertTrue((Path(target) / 'fragor-svar-pe-tal.html').exists())
 
     def test_schema_ownership_and_function_grant_boundaries(self):
         sql = (ROOT / 'supabase/migrations/202609140001_cloud_foundation.sql').read_text()
