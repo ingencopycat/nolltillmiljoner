@@ -1,5 +1,9 @@
 # B30/B31/B42/B43 — Accounts & cloud foundation
 
+For the current activation attempt, configuration commands, corrective migration,
+and evidence gaps, see [the activation report and runbook](activation-report.md).
+Its generated-site setup supersedes the manual config-copy instructions below.
+
 Prepared 2026-09-14. Live connection **disabled**. No project, hosted account,
 email delivery, paid plan or production database was created. Prior Growth &
 Business pack changes are preserved. This is an optional infrastructure boundary,

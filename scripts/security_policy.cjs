@@ -1,7 +1,7 @@
 const crypto = require('node:crypto');
 
-function policy(html) {
-  const cloud = html.includes('src="cloud-adapter.js"') ? require('./cloud_config.cjs').read() : null;
+function policy(html, cloudConfigFile) {
+  const cloud = html.includes('src="cloud-adapter.js"') ? require('./cloud_config.cjs').read(cloudConfigFile) : null;
   const tradingView = html.includes('src="https://widgets.tradingview-widget.com/');
   const hashes = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)]
     .filter(([, attrs]) => !/\bsrc\s*=/i.test(attrs))
@@ -13,9 +13,9 @@ function policy(html) {
     + "font-src 'self'; connect-src 'self' https://cloudflareinsights.com" + (cloud ? ' '+cloud.origin : '') + "; frame-src https://www.youtube.com"
     + (tradingView ? ' https://widgets.tradingview-widget.com' : '');
 }
-function apply(html) {
+function apply(html, cloudConfigFile) {
   html = html.replace(/\s*<meta http-equiv="Content-Security-Policy" content="[^"]*"\s*\/?\s*>/gi, '');
   return html.replace(/(<meta charset="utf-8"\s*\/?\s*>)/i,
-    `$1\n    <meta http-equiv="Content-Security-Policy" content="${policy(html)}" />`);
+    `$1\n    <meta http-equiv="Content-Security-Policy" content="${policy(html, cloudConfigFile)}" />`);
 }
 module.exports = { policy, apply };

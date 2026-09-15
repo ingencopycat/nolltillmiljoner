@@ -48,10 +48,11 @@
         <details class="depth-panel" id="cloudAccount"><summary>Konto &amp; valfri molnsynk <small id="cloudStatus">Sparat lokalt</small></summary>
             <section class="card calculator-card min-ntm-card" aria-labelledby="cloudHeading">
                 <h2 id="cloudHeading">Konto och synk</h2>
-                <p>Beslutspauser, antagandegrupper och mallval är endast lokala och ingår i JSON-backup. De skickas inte med denna molnsynk.</p>
+                <p>Academy-lärhistorik, beslutspauser, antagandegrupper och mallval är endast lokala och ingår i JSON-backup. De skickas inte med denna molnsynk.</p>
                 <p>Lokal användning kräver inget konto. Molnsynk ersätter inte <a href="#localDataDepth">din JSON-backup</a>. Uppgifter kan finnas kvar lokalt efter utloggning.</p>
                 <p id="cloudMessage" role="status" aria-live="polite">Kontrollerar om valfri molnsynk är tillgänglig…</p>
                 <div id="cloudLogin" hidden>
+                    <p>Med ett konto kan du spara de stödda kategorierna i molnet och hämta dem på en annan enhet. Du väljer själv när data skickas. Logga in igen efter omladdning eller när sessionen löper ut. Läs om <a href="om-metod.html#integritet">leverantörer, lagring och radering</a> innan du begär en kod.</p>
                     <label for="cloudEmail">E-postadress</label><input id="cloudEmail" type="email" autocomplete="email" required />
                     <button type="button" id="cloudRequestOtp" class="secondary-btn">Skicka engångskod</button>
                     <label for="cloudOtp">Engångskod från mejlet</label><input id="cloudOtp" type="text" inputmode="numeric" autocomplete="one-time-code" />
@@ -69,9 +70,9 @@
                     <button type="button" id="cloudAuditExport" class="ghost-btn">Exportera alla kontoposter</button>
                     <button type="button" id="cloudLogout" class="ghost-btn">Logga ut</button>
                     <details><summary>Radera konto och molndata</summary>
-                        <p>Permanent radering av kontot och privat molndata. Andra enheters lokala kopior kan inte raderas här.</p>
+                        <p>Permanent radering av kontot och privata poster i den aktiva molndatabasen. Leverantörsloggar, inloggningsmejl och säkerhetskopior kan finnas kvar enligt <a href="om-metod.html#integritet">lagringsvillkoren</a>. Andra enheters lokala kopior kan inte raderas här.</p>
                         <p>Lokala analyser och planer delas av alla som använder samma webbläsarprofil. Synkköer för andra konton och senaste verktyg påverkas inte.</p>
-                        <label><input type="checkbox" id="cloudDeleteLocal" /> Radera även lokala analyser, scenarier, planer, observationer, lärhistorik och tema på denna enhet</label>
+                        <label><input type="checkbox" id="cloudDeleteLocal" /> Radera även lokala analyser, scenarier, planer, observationer, lärhistorik, beslutspauser, antagandegrupper, mallval och tema på denna enhet</label>
                         <button type="button" id="cloudDelete" class="destructive-action ghost-btn">Radera konto och molndata</button>
                     </details>
                 </div>

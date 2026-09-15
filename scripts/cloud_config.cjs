@@ -1,9 +1,6 @@
 /* Validate public configuration before allowing its exact origin into CSP. */
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
-function read() {
-  const context={window:{}};
-  vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../cloud-config.js'),'utf8'),context,{timeout:100});
-  const config=context.window.NTMCloudConfig;
+function validate(config) {
   if(!config || typeof config.enabled!=='boolean' || Object.keys(config).some(k=>!['enabled','url','publishableKey'].includes(k)))throw new Error('Invalid public cloud configuration');
   if(config.publishableKey!==undefined && !/^sb_publishable_[A-Za-z0-9_-]+$/.test(config.publishableKey))throw new Error('Only public publishable keys may appear in cloud config, even when disabled');
   if(!config.enabled)return null;
@@ -13,4 +10,9 @@ function read() {
     || !/^sb_publishable_[A-Za-z0-9_-]+$/.test(config.publishableKey))throw new Error('Cloud needs a Supabase origin and public publishable key');
   return {origin:url.origin};
 }
-module.exports={read};
+function read(file=path.join(__dirname,'../cloud-config.js')) {
+  const context={window:{}};
+  vm.runInNewContext(fs.readFileSync(file,'utf8'),context,{timeout:100});
+  return validate(context.window.NTMCloudConfig);
+}
+module.exports={read,validate};

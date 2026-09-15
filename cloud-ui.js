@@ -11,10 +11,10 @@
     el('cloudStatus').textContent=states[engine?.status() || 'local'];
     if(logged) {
       const count=engine.localCounts();
-      el('cloudMigration').textContent=`Du har sparad NTM-data i den här webbläsaren: ${count.revisions} thesis-versioner, ${count.checkpoints} utfallskontroller och ${count.scenarios} scenarier/planer. Synk omfattar även sparade antaganden, rapportfrågor, manuella journaler, observationer och tema. Osparade utkast och senaste verktyg skickas inte.`;
+      el('cloudMigration').textContent=`Du har sparad NTM-data i den här webbläsaren: ${count.revisions} thesis-versioner, ${count.checkpoints} utfallskontroller och ${count.scenarios} scenarier/planer. Synk omfattar även sparade antaganden, rapportfrågor, manuella journaler, observationer och tema. Academy-lärhistorik, beslutspauser, antagandegrupper, mallval, osparade utkast och senaste verktyg skickas inte.`;
       const list=el('cloudQueue');list.replaceChildren();
       for(const op of engine.inspect().ops) {
-        const item=document.createElement('li');item.textContent=`${op.record.kind}: ${op.status}, försök ${op.attempts}/3`;list.appendChild(item);
+        const item=document.createElement('li');item.textContent=`${op.record.kind}: ${states[op.status==='ack'?'synced':op.status]}, försök ${op.attempts}/3`;list.appendChild(item);
       }
     }
   }

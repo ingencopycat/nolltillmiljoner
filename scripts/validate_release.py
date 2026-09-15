@@ -20,6 +20,7 @@ def main():
         [node, 'scripts/check_calendar_coverage.cjs'],
         [node, 'scripts/check_weekly_events.cjs'],
         [node, 'scripts/check_rules.cjs'],
+        [node, 'scripts/check_cloud_security.cjs'],
         ['git', '-c', 'core.safecrlf=false', 'diff', '--check'],
     ]
     for command in commands:
@@ -30,6 +31,7 @@ def main():
         missing = find_missing_local_references(directory)
         if missing:
             raise SystemExit(str(missing))
+        subprocess.run([node, 'scripts/check_cloud_security.cjs', '--site', directory], cwd=ROOT, check=True)
     print('PASS: release tests, generated artifacts, calendar/rules, staging and local references')
 
 if __name__ == '__main__':

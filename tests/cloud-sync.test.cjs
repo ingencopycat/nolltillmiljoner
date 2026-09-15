@@ -46,6 +46,7 @@ test('anonymous/login never uploads; migration is explicit, idempotent and resto
   const exported=await e.exportCloud();assert.ok(!exported.account.includes('NEVER'));assert.ok(!exported.account.includes('EXCLUDED'));
   const b=app(),next=setup(b,s);await next.e.authenticate();assert.equal(b.local.counts().revisions,0);
   await next.e.restore();assert.deepEqual(JSON.parse(b.local.exportJSON()).data,JSON.parse(before).data);
+  assert.equal(next.e.status(),'synced','local-only defaults must not prevent acknowledged fresh restore from being synced');
   const fresh=setup(b,s,'user-b');await fresh.e.authenticate();fresh.e.enqueue();await fresh.e.flush();
   assert.deepEqual((await fresh.adapter.list()).records.filter(r=>r.kind!=='preference'),(await next.adapter.list()).records.filter(r=>r.kind!=='preference'));
 });
@@ -113,6 +114,19 @@ test('real adapter rejects private/malformed config and does not persist session
   await adapter.verifyOtp('test@example.invalid','000000');assert.equal((await adapter.session()).userId,'user-a');
   assert.equal(a.saved.size,0);time=1001;assert.equal(await adapter.session(),null);
   await assert.rejects(()=>adapter.list());
+});
+
+test('post-delete logout accepts only user_not_found and still clears memory on other failures',async()=>{
+  for(const reason of ['user_not_found','unexpected_forbidden']) {
+    const a=app(),adapter=a.c.NTMCloudAdapter.create({enabled:true,url:'https://ntm-test.supabase.co',publishableKey:'sb_publishable_testOnly'},
+      {fetch:async url=>url.endsWith('/verify')
+        ?{ok:true,status:200,json:async()=>({access_token:'TEST_MEMORY_TOKEN',user:{id:'user-a'},expires_in:3600})}
+        :{ok:false,status:403,json:async()=>({error_code:reason,message:'DO_NOT_EXPOSE_PROVIDER_BODY'})}});
+    await adapter.verifyOtp('test@example.invalid','000000');
+    if(reason==='user_not_found')await adapter.logout();
+    else await assert.rejects(()=>adapter.logout(),e=>e.code==='network' && !e.message.includes('DO_NOT_EXPOSE'));
+    assert.equal(await adapter.session(),null);
+  }
 });
 
 test('legacy IDs, empty scenario groups, additional histories and read-only local use survive cloud preparation',async()=>{

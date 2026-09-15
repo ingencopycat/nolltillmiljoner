@@ -95,7 +95,8 @@
     const originals=new WeakMap();
     // Behavioral records stay local-only. Never place their texts in sync payloads
     // or queue signatures; restoring cloud data merges without replacing them.
-    const capture=()=>{const data=JSON.parse(local.exportJSON()).data;delete data.behavioral;delete data.academy;return data;};
+    const syncData=data=>{delete data.behavioral;delete data.academy;return data;};
+    const capture=()=>syncData(JSON.parse(local.exportJSON()).data);
     function read() {
       if(!owner)throw fail('auth');
       const raw=storage.getItem(PREFIX+owner);
@@ -199,7 +200,7 @@
       const q=read();
       // Re-validate current data immediately before the existing guarded merge/commit.
       local.importJSON(JSON.stringify(backup(cloud.data)));
-      if(stable(capture())===stable(cloud.data))q.confirmedSignature=signature();
+      if(stable(capture())===stable(syncData(copy(cloud.data))))q.confirmedSignature=signature();
       write(q);return local.counts();
     }
     async function exportCloud() {

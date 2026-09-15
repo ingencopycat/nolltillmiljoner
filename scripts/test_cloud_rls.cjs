@@ -11,7 +11,9 @@ async function main() {
       'select nullif(current_setting(''request.jwt.claim.sub'',true),'''')::uuid';
       grant usage on schema auth,public to anon,authenticated;
       grant execute on function auth.uid() to anon,authenticated;`);
-    await db.exec(fs.readFileSync('supabase/migrations/202609140001_cloud_foundation.sql','utf8'));
+    for(const file of fs.readdirSync('supabase/migrations').filter(f=>f.endsWith('.sql')).sort()) {
+      await db.exec(fs.readFileSync('supabase/migrations/'+file,'utf8'));
+    }
     const A='11111111-1111-4111-8111-111111111111',B='22222222-2222-4222-8222-222222222222';
     await db.query('insert into auth.users values ($1),($2)',[A,B]);
     const login=async(uid,role='authenticated')=>{
@@ -23,6 +25,20 @@ async function main() {
     const list=async()=> (await db.query('select public.ntm_export_records() as result')).rows[0].result;
     await login(A);await put([record('A','private-A')]);await put([record('A','private-A')]);
     assert.equal((await list()).records.length,1);
+    // Direct REST inserts must not bypass parent ownership via SQL NULL semantics.
+    for(const kind of ['revision','scenario','observation']) {
+      for(const missing of ['parent_kind','parent_scope','parent_id']) {
+        const parent={parent_kind:kind==='revision'?'journal':kind==='scenario'?'calculator':'scenario',
+          parent_scope:kind==='revision'?'theses':kind==='scenario'?'scenarios':'calc',parent_id:'absent'};
+        parent[missing]=null;
+        const r={kind,scope:kind==='observation'?'["calc","absent"]':'absent',id:'orphan',createdAt:null,
+          sourceVersion:kind==='revision'?2:1,payload:{}};
+        await assert.rejects(()=>db.query(`insert into public.ntm_private_records
+          (owner_id,kind,scope,id,record,parent_kind,parent_scope,parent_id) values ($1,$2,$3,$4,$5,$6,$7,$8)`,
+          [A,kind,r.scope,r.id,JSON.stringify(r),parent.parent_kind,parent.parent_scope,parent.parent_id]),
+          e=>e.code==='23514');
+      }
+    }
     await assert.rejects(()=>put([record('new','rollback-me'),record('A','changed')]),e=>e.code==='PT409');
     assert.equal((await list()).records.length,1,'whole batch rolled back');
     await login(B);await put([record('B','private-B')]);

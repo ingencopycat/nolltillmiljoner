@@ -565,6 +565,10 @@ class BrowserSmoke(unittest.TestCase):
                 token = request.headers.get('authorization', '').removeprefix('Bearer ')
                 uid = sessions.get(token)
                 if not uid:
+                    if url.endswith('/auth/v1/logout'):
+                        # Hosted Auth returns this after account deletion, before
+                        # the adapter's final local-session cleanup completes.
+                        reply({'error_code': 'user_not_found'}, 403); return
                     reply({}, 401); return
                 if url.endswith('/auth/v1/user'):
                     reply({'id': uid, 'email': next(email for email, user in users.items() if user == uid),
@@ -655,6 +659,7 @@ class BrowserSmoke(unittest.TestCase):
             expect(p2.locator('#cloudMessage')).to_contain_text('kontrollästs')
             self.assertEqual(p2.evaluate('JSON.parse(NTMLocalData.exportJSON()).data.theses'), before['theses'])
             expect(p2.locator('[data-min-ntm-theses]')).to_contain_text('NVDA')
+            expect(p2.locator('#cloudStatus')).to_have_text('Synkat')
             p2.emulate_media(reduced_motion='reduce')
             for theme in ['dark', 'light']:
                 p2.evaluate('(t)=>applyTheme(t)', theme)

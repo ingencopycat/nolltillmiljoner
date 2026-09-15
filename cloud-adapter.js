@@ -21,6 +21,12 @@
           headers:{apikey:c.key,'Content-Type':'application/json',...(authenticated?{Authorization:'Bearer '+auth.accessToken}:{})},
           body:body===undefined?undefined:JSON.stringify(body),signal:controller.signal,credentials:'omit',referrerPolicy:'no-referrer'});
         if(!response.ok) {
+          // Supabase returns this after confirmed account deletion: there is no
+          // remaining Auth user to log out. Inspect only the bounded error code.
+          if(path==='/auth/v1/logout' && response.status===403) {
+            const detail=await response.json().catch(()=>null);
+            if(detail?.error_code==='user_not_found') {auth=null;throw error('auth');}
+          }
           if(response.status===401)auth=null;
           // Provider responses can echo sensitive values; never log or display their bodies.
           throw error(response.status===409?'conflict':response.status===401?'auth':'network');
