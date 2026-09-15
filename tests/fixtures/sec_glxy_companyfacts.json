@@ -1,0 +1,1592 @@
+{
+  "cik": "0001859392",
+  "entityName": "Galaxy Digital Inc.",
+  "facts": {
+    "us-gaap": {
+      "Assets": {
+        "label": "Assets",
+        "description": "Sum of the carrying amounts as of the balance sheet date of all assets that are recognized. Assets are probable future economic benefits obtained or controlled by an entity as a result of past transactions or events.",
+        "units": {
+          "USD": [
+            {
+              "end": "2024-12-31",
+              "val": 1000,
+              "accn": "0001859392-25-000005",
+              "fy": 2025,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2025-05-13"
+            },
+            {
+              "end": "2024-12-31",
+              "val": 7119855000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "end": "2024-12-31",
+              "val": 7119855000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10"
+            },
+            {
+              "end": "2024-12-31",
+              "val": 7119855000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2024Q4I"
+            },
+            {
+              "end": "2025-03-31",
+              "val": 1000,
+              "accn": "0001859392-25-000005",
+              "fy": 2025,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2025-05-13",
+              "frame": "CY2025Q1I"
+            },
+            {
+              "end": "2025-06-30",
+              "val": 9085951000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05",
+              "frame": "CY2025Q2I"
+            },
+            {
+              "end": "2025-09-30",
+              "val": 11522716000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10",
+              "frame": "CY2025Q3I"
+            },
+            {
+              "end": "2025-12-31",
+              "val": 11348081000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26"
+            },
+            {
+              "end": "2025-12-31",
+              "val": 11348081000,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08"
+            },
+            {
+              "end": "2025-12-31",
+              "val": 11348081000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "frame": "CY2025Q4I"
+            },
+            {
+              "end": "2026-03-31",
+              "val": 9991981000,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "frame": "CY2026Q1I"
+            },
+            {
+              "end": "2026-06-30",
+              "val": 10843981000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "frame": "CY2026Q2I"
+            }
+          ]
+        }
+      },
+      "CashAndCashEquivalentsAtCarryingValue": {
+        "label": "Cash and Cash Equivalents, at Carrying Value",
+        "description": "Amount of currency on hand as well as demand deposits with banks or financial institutions. Includes other kinds of accounts that have the general characteristics of demand deposits. Also includes short-term, highly liquid investments that are both readily convertible to known amounts of cash and so near their maturity that they present insignificant risk of changes in value because of changes in interest rates. Excludes cash and cash equivalents within disposal group and discontinued operation.",
+        "units": {
+          "USD": [
+            {
+              "end": "2024-12-31",
+              "val": 1000,
+              "accn": "0001859392-25-000005",
+              "fy": 2025,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2025-05-13"
+            },
+            {
+              "end": "2024-12-31",
+              "val": 462103000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "end": "2024-12-31",
+              "val": 462103000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10"
+            },
+            {
+              "end": "2024-12-31",
+              "val": 462103000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2024Q4I"
+            },
+            {
+              "end": "2025-03-31",
+              "val": 1000,
+              "accn": "0001859392-25-000005",
+              "fy": 2025,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2025-05-13",
+              "frame": "CY2025Q1I"
+            },
+            {
+              "end": "2025-06-30",
+              "val": 691331000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05",
+              "frame": "CY2025Q2I"
+            },
+            {
+              "end": "2025-09-30",
+              "val": 1137426000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10",
+              "frame": "CY2025Q3I"
+            },
+            {
+              "end": "2025-12-31",
+              "val": 1246240000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26"
+            },
+            {
+              "end": "2025-12-31",
+              "val": 1246240000,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08"
+            },
+            {
+              "end": "2025-12-31",
+              "val": 1246240000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "frame": "CY2025Q4I"
+            },
+            {
+              "end": "2026-03-31",
+              "val": 910691000,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "frame": "CY2026Q1I"
+            },
+            {
+              "end": "2026-06-30",
+              "val": 895744000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "frame": "CY2026Q2I"
+            }
+          ]
+        }
+      },
+      "NetCashProvidedByUsedInOperatingActivities": {
+        "label": "Net Cash Provided by (Used in) Operating Activities",
+        "description": "Amount of cash inflow (outflow) from operating activities, including discontinued operations. Operating activity cash flows include transactions, adjustments, and changes in value not defined as investing or financing activities.",
+        "units": {
+          "USD": [
+            {
+              "start": "2023-01-01",
+              "end": "2023-12-31",
+              "val": -4079000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2023"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "val": -1000,
+              "accn": "0001859392-25-000005",
+              "fy": 2025,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2025-05-13",
+              "frame": "CY2024Q1"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-06-30",
+              "val": 221270000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-09-30",
+              "val": 172735000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-12-31",
+              "val": -205079000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2024"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "val": 0,
+              "accn": "0001859392-25-000005",
+              "fy": 2025,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2025-05-13"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "val": 159413000,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "frame": "CY2025Q1"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-06-30",
+              "val": 329289000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-06-30",
+              "val": 329289000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-09-30",
+              "val": 756948000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": -316636000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2025"
+            },
+            {
+              "start": "2026-01-01",
+              "end": "2026-03-31",
+              "val": -83349000,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "frame": "CY2026Q1"
+            },
+            {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 288645000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10"
+            }
+          ]
+        }
+      },
+      "NetIncomeLoss": {
+        "label": "Net Income (Loss) Attributable to Parent",
+        "description": "The portion of profit or loss for the period, net of income taxes, which is attributable to the parent.",
+        "units": {
+          "USD": [
+            {
+              "start": "2023-01-01",
+              "end": "2023-12-31",
+              "val": 228514000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2023"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "val": -1000,
+              "accn": "0001859392-25-000005",
+              "fy": 2025,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2025-05-13",
+              "frame": "CY2024Q1"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-06-30",
+              "val": 262531000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "start": "2024-04-01",
+              "end": "2024-06-30",
+              "val": -125596000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05",
+              "frame": "CY2024Q2"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-09-30",
+              "val": 229201000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10"
+            },
+            {
+              "start": "2024-07-01",
+              "end": "2024-09-30",
+              "val": -33330000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10",
+              "frame": "CY2024Q3"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-12-31",
+              "val": 346722000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2024"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "val": 0,
+              "accn": "0001859392-25-000005",
+              "fy": 2025,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2025-05-13"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "val": -295432000,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "frame": "CY2025Q1"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-06-30",
+              "val": -264740000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-06-30",
+              "val": -264740000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10"
+            },
+            {
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "val": 30691000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "val": 30691000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "frame": "CY2025Q2"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-09-30",
+              "val": 240316000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10"
+            },
+            {
+              "start": "2025-07-01",
+              "end": "2025-09-30",
+              "val": 505057000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10",
+              "frame": "CY2025Q3"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": -241349000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": -241349000,
+              "accn": "0001859392-26-000037",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-04-08",
+              "frame": "CY2025"
+            },
+            {
+              "start": "2026-01-01",
+              "end": "2026-03-31",
+              "val": -216311000,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "frame": "CY2026Q1"
+            },
+            {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": -301627000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10"
+            },
+            {
+              "start": "2026-04-01",
+              "end": "2026-06-30",
+              "val": -85316000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "frame": "CY2026Q2"
+            }
+          ]
+        }
+      },
+      "Revenues": {
+        "label": "Revenues",
+        "description": "Amount of revenue recognized from goods sold, services rendered, insurance premiums, or other activities that constitute an earning process. Includes, but is not limited to, investment and interest income before deduction of interest expense when recognized as a component of revenue, and sales and trading gain (loss).",
+        "units": {
+          "USD": [
+            {
+              "start": "2023-01-01",
+              "end": "2023-12-31",
+              "val": 51626779000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2023"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-03-31",
+              "val": 0,
+              "accn": "0001859392-25-000005",
+              "fy": 2025,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2025-05-13",
+              "frame": "CY2024Q1"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-06-30",
+              "val": 18218263000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "start": "2024-04-01",
+              "end": "2024-06-30",
+              "val": 8882891000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05",
+              "frame": "CY2024Q2"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-09-30",
+              "val": 26788920000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10"
+            },
+            {
+              "start": "2024-07-01",
+              "end": "2024-09-30",
+              "val": 8570657000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10",
+              "frame": "CY2024Q3"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-12-31",
+              "val": 42596673000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2024"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "val": 0,
+              "accn": "0001859392-25-000005",
+              "fy": 2025,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2025-05-13"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "val": 12976206000,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "frame": "CY2025Q1"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-06-30",
+              "val": 21637761000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-06-30",
+              "val": 21637761000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10"
+            },
+            {
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "val": 8661555000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "val": 8661555000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "frame": "CY2025Q2"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-09-30",
+              "val": 50039632000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10"
+            },
+            {
+              "start": "2025-07-01",
+              "end": "2025-09-30",
+              "val": 28401871000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10",
+              "frame": "CY2025Q3"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 60406728000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2025"
+            },
+            {
+              "start": "2026-01-01",
+              "end": "2026-03-31",
+              "val": 10041444000,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "frame": "CY2026Q1"
+            },
+            {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 18598780000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10"
+            },
+            {
+              "start": "2026-04-01",
+              "end": "2026-06-30",
+              "val": 8557336000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "frame": "CY2026Q2"
+            }
+          ]
+        }
+      },
+      "StockholdersEquity": {
+        "label": "Stockholders' Equity Attributable to Parent",
+        "description": "Total of all stockholders' equity (deficit) items, net of receivables from officers, directors, owners, and affiliates of the entity which are attributable to the parent. The amount of the economic entity's stockholders' equity attributable to the parent excludes the amount of stockholders' equity which is allocable to that ownership interest in subsidiary equity which is not attributable to the parent (noncontrolling interest, minority interest). This excludes temporary equity and is sometimes called permanent equity.",
+        "units": {
+          "USD": [
+            {
+              "end": "2023-12-31",
+              "val": 3000,
+              "accn": "0001859392-25-000005",
+              "fy": 2025,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2025-05-13",
+              "frame": "CY2023Q4I"
+            },
+            {
+              "end": "2024-03-31",
+              "val": 2000,
+              "accn": "0001859392-25-000005",
+              "fy": 2025,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2025-05-13",
+              "frame": "CY2024Q1I"
+            },
+            {
+              "end": "2024-12-31",
+              "val": 1000,
+              "accn": "0001859392-25-000005",
+              "fy": 2025,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2025-05-13"
+            },
+            {
+              "end": "2024-12-31",
+              "val": 2194352000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "end": "2024-12-31",
+              "val": 2194352000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10"
+            },
+            {
+              "end": "2024-12-31",
+              "val": 2194352000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2024Q4I"
+            },
+            {
+              "end": "2025-03-31",
+              "val": 1000,
+              "accn": "0001859392-25-000005",
+              "fy": 2025,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2025-05-13",
+              "frame": "CY2025Q1I"
+            },
+            {
+              "end": "2025-06-30",
+              "val": 1506321000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05",
+              "frame": "CY2025Q2I"
+            },
+            {
+              "end": "2025-09-30",
+              "val": 1762366000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10",
+              "frame": "CY2025Q3I"
+            },
+            {
+              "end": "2025-12-31",
+              "val": 1955735000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26"
+            },
+            {
+              "end": "2025-12-31",
+              "val": 1955735000,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08"
+            },
+            {
+              "end": "2025-12-31",
+              "val": 1955735000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "frame": "CY2025Q4I"
+            },
+            {
+              "end": "2026-03-31",
+              "val": 1811707000,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "frame": "CY2026Q1I"
+            },
+            {
+              "end": "2026-06-30",
+              "val": 1823366000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "frame": "CY2026Q2I"
+            }
+          ]
+        }
+      },
+      "Liabilities": {
+        "label": "Liabilities",
+        "description": "Sum of the carrying amounts as of the balance sheet date of all liabilities that are recognized. Liabilities are probable future sacrifices of economic benefits arising from present obligations of an entity to transfer assets or provide services to other entities in the future.",
+        "units": {
+          "USD": [
+            {
+              "end": "2024-12-31",
+              "val": 4925503000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "end": "2024-12-31",
+              "val": 4925503000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10"
+            },
+            {
+              "end": "2024-12-31",
+              "val": 4925503000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2024Q4I"
+            },
+            {
+              "end": "2025-06-30",
+              "val": 6461733000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05",
+              "frame": "CY2025Q2I"
+            },
+            {
+              "end": "2025-09-30",
+              "val": 8350397000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10",
+              "frame": "CY2025Q3I"
+            },
+            {
+              "end": "2025-12-31",
+              "val": 8313304000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26"
+            },
+            {
+              "end": "2025-12-31",
+              "val": 8313304000,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08"
+            },
+            {
+              "end": "2025-12-31",
+              "val": 8313304000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "frame": "CY2025Q4I"
+            },
+            {
+              "end": "2026-03-31",
+              "val": 7213366000,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "frame": "CY2026Q1I"
+            },
+            {
+              "end": "2026-06-30",
+              "val": 8123873000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "frame": "CY2026Q2I"
+            }
+          ]
+        }
+      },
+      "NetIncomeLossAvailableToCommonStockholdersBasic": {
+        "label": "Net Income (Loss) Available to Common Stockholders, Basic",
+        "description": "Amount, after deduction of tax, noncontrolling interests, dividends on preferred stock and participating securities; of income (loss) available to common shareholders.",
+        "units": {
+          "USD": [
+            {
+              "start": "2023-01-01",
+              "end": "2023-12-31",
+              "val": 75858000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2023"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-06-30",
+              "val": 84969000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "start": "2024-04-01",
+              "end": "2024-06-30",
+              "val": -45370000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05",
+              "frame": "CY2024Q2"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-06-30",
+              "val": -95441000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "val": 14500000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05",
+              "frame": "CY2025Q2"
+            }
+          ]
+        }
+      },
+      "RevenueFromContractWithCustomerExcludingAssessedTax": {
+        "label": "Revenue from Contract with Customer, Excluding Assessed Tax",
+        "description": "Amount, excluding tax collected from customer, of revenue from satisfaction of performance obligation by transferring promised good or service to customer. Tax collected from customer is tax assessed by governmental authority that is both imposed on and concurrent with specific revenue-producing transaction, including, but not limited to, sales, use, value added and excise.",
+        "units": {
+          "USD": [
+            {
+              "start": "2023-01-01",
+              "end": "2023-12-31",
+              "val": 51577737000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2023"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-06-30",
+              "val": 18181905000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "start": "2024-04-01",
+              "end": "2024-06-30",
+              "val": 8866197000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05",
+              "frame": "CY2024Q2"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-09-30",
+              "val": 26726988000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10"
+            },
+            {
+              "start": "2024-07-01",
+              "end": "2024-09-30",
+              "val": 8545083000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10",
+              "frame": "CY2024Q3"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-12-31",
+              "val": 42503233000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2024"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "val": 12943433000,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "frame": "CY2025Q1"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-06-30",
+              "val": 21567511000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "val": 8624078000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05",
+              "frame": "CY2025Q2"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-09-30",
+              "val": 49924184000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10"
+            },
+            {
+              "start": "2025-07-01",
+              "end": "2025-09-30",
+              "val": 28356673000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10",
+              "frame": "CY2025Q3"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 60243860000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2025"
+            },
+            {
+              "start": "2026-01-01",
+              "end": "2026-03-31",
+              "val": 10014578000,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "frame": "CY2026Q1"
+            }
+          ]
+        }
+      },
+      "ShareBasedCompensation": {
+        "label": "Share-based Payment Arrangement, Noncash Expense",
+        "description": "Amount of noncash expense for share-based payment arrangement.",
+        "units": {
+          "USD": [
+            {
+              "start": "2023-01-01",
+              "end": "2023-12-31",
+              "val": 81654000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2023"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-06-30",
+              "val": 37002000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-09-30",
+              "val": 54946000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-12-31",
+              "val": 74857000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2024"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "val": 13738000,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "frame": "CY2025Q1"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-06-30",
+              "val": 27591000,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-06-30",
+              "val": 27591000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-09-30",
+              "val": 38476000,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 53612000,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2025"
+            },
+            {
+              "start": "2026-01-01",
+              "end": "2026-03-31",
+              "val": 18378000,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "frame": "CY2026Q1"
+            },
+            {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 34541000,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10"
+            }
+          ]
+        }
+      },
+      "WeightedAverageNumberOfDilutedSharesOutstanding": {
+        "label": "Weighted Average Number of Shares Outstanding, Diluted",
+        "description": "The average number of shares or units issued and outstanding that are used in calculating diluted EPS or earnings per unit (EPU), determined based on the timing of issuance of shares or units in the period.",
+        "units": {
+          "shares": [
+            {
+              "start": "2023-01-01",
+              "end": "2023-12-31",
+              "val": 325978160,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2023"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-06-30",
+              "val": 129910597,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "start": "2024-04-01",
+              "end": "2024-06-30",
+              "val": 338212221,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05",
+              "frame": "CY2024Q2"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-09-30",
+              "val": 132996975,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10"
+            },
+            {
+              "start": "2024-07-01",
+              "end": "2024-09-30",
+              "val": 341208036,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10",
+              "frame": "CY2024Q3"
+            },
+            {
+              "start": "2024-01-01",
+              "end": "2024-12-31",
+              "val": 356723762,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2024"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-03-31",
+              "val": 127863254,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "frame": "CY2025Q1"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-06-30",
+              "val": 349390820,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-06-30",
+              "val": 349390820,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10"
+            },
+            {
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "val": 371717071,
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2025-08-05"
+            },
+            {
+              "start": "2025-04-01",
+              "end": "2025-06-30",
+              "val": 371717071,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "frame": "CY2025Q2"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-09-30",
+              "val": 375881574,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10"
+            },
+            {
+              "start": "2025-07-01",
+              "end": "2025-09-30",
+              "val": 221463809,
+              "accn": "0001859392-25-000082",
+              "fy": 2025,
+              "fp": "Q3",
+              "form": "10-Q",
+              "filed": "2025-11-10",
+              "frame": "CY2025Q3"
+            },
+            {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 366475172,
+              "accn": "0001859392-26-000016",
+              "fy": 2025,
+              "fp": "FY",
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "frame": "CY2025"
+            },
+            {
+              "start": "2026-01-01",
+              "end": "2026-03-31",
+              "val": 390482653,
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1",
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "frame": "CY2026Q1"
+            },
+            {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 390465556,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10"
+            },
+            {
+              "start": "2026-04-01",
+              "end": "2026-06-30",
+              "val": 192869271,
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2",
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "frame": "CY2026Q2"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-// Presentation only: keep native number values, validation and events untouched.
+// Shared money editor: live grouped text with raw numeric values for consumers.
 // Explicit money-field allowlist; rates, years, share counts and per-share prices stay native.
 const groupedNumberInputIds = [
   'startkapital', 'manadssparande', 'dividend-startkapital', 'dividend-manadssparande',
@@ -17,42 +17,48 @@ const groupedNumberInputIds = [
   'interest-loan', 'interest-property', 'fx-rate-amount', 'fx-percent-amount'
 ];
 const groupedNumberDisplays = new WeakMap();
-
 function formatGroupedInputValue(raw) {
-  // Group the string, never round or convert it back into a calculation value.
-  // Leave blanks, incomplete input and scientific notation in their native form.
-  const parts = /^(-?)([0-9]+)(\.[0-9]+)?$/.exec(raw);
-  if (!parts || !Number.isFinite(Number(raw))) return raw;
-  return parts[1] + parts[2].replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + (parts[3] || '');
+  const parts = /^(-?)([0-9]+)([.,][0-9]*)?$/.exec(raw);
+  return parts ? parts[1]+parts[2].replace(/\B(?=(\d{3})+(?!\d))/g,' ')+(parts[3]||'') : raw;
 }
-
-function refreshGroupedNumberInput(input) {
-  const display = groupedNumberDisplays.get(input);
-  if (!display) return;
-  const formatted = formatGroupedInputValue(input.value);
-  display.textContent = formatted;
-  input.parentElement.classList.toggle('has-grouped-value', formatted !== input.value);
-}
-
+function refreshGroupedNumberInput(input) { groupedNumberDisplays.get(input)?.refresh(); }
 function initGroupedNumberInputs() {
-  groupedNumberInputIds.forEach((id) => {
-    const input = document.getElementById(id);
-    if (!input || input.type !== 'number' || groupedNumberDisplays.has(input)) return;
-    const wrapper = document.createElement('span');
-    wrapper.className = 'grouped-number-input';
-    const display = document.createElement('span');
-    display.className = 'grouped-number-display';
-    display.setAttribute('aria-hidden', 'true');
-    input.before(wrapper);
-    wrapper.append(input, display);
-    groupedNumberDisplays.set(input, display);
-    if (!input.hasAttribute('inputmode')) input.setAttribute('inputmode', 'decimal');
-    const refresh = () => refreshGroupedNumberInput(input);
-    input.addEventListener('input', refresh);
-    input.addEventListener('change', refresh);
-    input.addEventListener('blur', refresh);
-    input.form?.addEventListener('reset', () => setTimeout(refresh, 0));
-    refresh();
+  groupedNumberInputIds.forEach(id => {
+    const input=document.getElementById(id);
+    if(!input||input.type!=='number'||groupedNumberDisplays.has(input))return;
+    // Narrow input adapter: the DOM editor groups text; .value remains the raw
+    // numeric string consumed by existing calculations and scenario snapshots.
+    const native=Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value');
+    const initial=input.value, validator=document.createElement('input');validator.type='number';
+    input.type='text';input.inputMode='decimal';
+    const raw=()=>native.get.call(input).replace(/[ \u00a0\u202f]/g,'').replace(',','.');
+    const validate=()=>{
+      for(const key of ['min','max','step']){const value=input.getAttribute(key);if(value===null)validator.removeAttribute(key);else validator.setAttribute(key,value);}
+      validator.required=input.required;validator.value=raw();
+      input.setCustomValidity(raw()&&(!validator.value||!Number.isFinite(Number(raw())))?'Ange ett giltigt tal.':validator.validationMessage);
+    };
+    const refresh=()=>{
+      const text=native.get.call(input),start=input.selectionStart,end=input.selectionEnd;
+      const logical=pos=>text.slice(0,pos??text.length).replace(/[ \u00a0\u202f]/g,'').length;
+      const left=logical(start),right=logical(end),formatted=formatGroupedInputValue(text.replace(/[ \u00a0\u202f]/g,''));
+      const position=n=>{let count=0;for(let i=0;i<formatted.length;i++){if(formatted[i]!==' ')count++;if(count===n)return i+1;}return formatted.length;};
+      if(formatted!==text){native.set.call(input,formatted);input.setSelectionRange(left?position(left):0,right?position(right):0);}
+      validate();
+    };
+    Object.defineProperty(input,'value',{configurable:true,get:raw,set(value){native.set.call(input,String(value??''));refresh();}});
+    Object.defineProperty(input,'valueAsNumber',{configurable:true,get:()=>raw()===''?NaN:Number(raw()),set:value=>{input.value=Number.isFinite(value)?String(value):'';}});
+    input.addEventListener('beforeinput',e=>{
+      if(input.selectionStart!==input.selectionEnd)return;
+      const pos=input.selectionStart,text=native.get.call(input);
+      if(e.inputType==='deleteContentBackward'&&text[pos-1]===' ')input.setSelectionRange(Math.max(0,pos-2),pos);
+      if(e.inputType==='deleteContentForward'&&text[pos]===' ')input.setSelectionRange(pos,Math.min(text.length,pos+2));
+    });
+    let composing=false;input.addEventListener('compositionstart',()=>composing=true);
+    input.addEventListener('compositionend',()=>{composing=false;refresh();});
+    input.addEventListener('input',()=>{if(!composing)refresh();});
+    input.addEventListener('change',refresh);input.addEventListener('blur',refresh);
+    input.form?.addEventListener('reset',()=>setTimeout(refresh,0));
+    groupedNumberDisplays.set(input,{refresh});input.value=initial;
   });
 }
 
@@ -239,6 +245,12 @@ class CalcState {
 
 const SCENARIO_STORAGE_KEY = 'investment-scenarios-v1';
 
+function validYearlyScenario(scenario){
+  const inputs=scenario?.inputs;if(!inputs||!inputs['growth-yearly-mode']?.checked)return true;
+  if(inputs['growth-yearly-mode'].checked!==true)return false;
+  const years=Number(inputs.ar?.value);
+  return Number.isInteger(years)&&years>=1&&years<=100&&Array.from({length:years},(_,i)=>inputs['growth-year-'+(i+1)]?.value).every(v=>typeof v==='string'&&v.trim()!==''&&Number.isFinite(Number(v))&&Number(v)>=-100);
+}
 function readScenarioStore(rawOverride) {
   let raw = null;
   try {
@@ -257,7 +269,7 @@ function readScenarioStore(rawOverride) {
           && scenarios.every((scenario) => object(scenario) && typeof scenario.id === 'string' && scenario.id
             && typeof scenario.name === 'string' && typeof scenario.mode === 'string'
             && typeof scenario.createdAt === 'string' && object(scenario.inputs)
-            && validSavingsFollowup(scenario.followup)))) {
+            && validSavingsFollowup(scenario.followup)&&validYearlyScenario(scenario)))) {
       throw new Error('Unsupported or damaged scenario store');
     }
     return { data: parsed, error: null, raw };
@@ -293,6 +305,7 @@ function createScenarioId() {
 }
 
 function saveScenario(calculatorId, scenario, maxScenarios = 10) {
+  if(!validYearlyScenario(scenario))return {ok:false,error:'Ange en giltig avkastning för varje år innan scenariot sparas.'};
   const result = readScenarioStore();
   if (result.error) return { ok: false, error: result.error };
   const scenarios = Array.isArray(result.data.calculators[calculatorId])
@@ -333,7 +346,7 @@ function snapshotForm(form) {
   if (!form) return inputs;
   form.querySelectorAll('input[id], select[id], textarea[id]').forEach((control) => {
     inputs[control.id] = {
-      type: control.type || control.tagName.toLowerCase(),
+      type: groupedNumberDisplays.has(control)?'number':control.type || control.tagName.toLowerCase(),
       value: control.value,
       checked: control.type === 'checkbox' || control.type === 'radio' ? control.checked : undefined
     };
@@ -343,6 +356,11 @@ function snapshotForm(form) {
 
 function restoreFormSnapshot(form, inputs) {
   if (!form || !inputs || typeof inputs !== 'object') return;
+  if(form.id==='calculator-form'&&document.getElementById('growth-yearly-mode')){
+    document.getElementById('growth-yearly-mode').checked=Boolean(inputs['growth-yearly-mode']?.checked);
+    if(inputs.ar)document.getElementById('ar').value=inputs.ar.value;
+    syncYearlyReturns();
+  }
   Object.entries(inputs).forEach(([id, saved]) => {
     const control = form.querySelector(`#${CSS.escape(id)}`);
     if (!control || !saved) return;
@@ -369,7 +387,7 @@ window.NTMScenarioStorage = {
 
 const RECENT_TOOLS_STORAGE_KEY = 'investment-recent-tools-v1';
 const NTM_TOOL_REGISTRY = {
-  'ranta-pa-ranta.html': { id: 'ranta-pa-ranta', name: 'Investeringskalkylator', url: 'ranta-pa-ranta.html' },
+  'ranta-pa-ranta.html': { id: 'ranta-pa-ranta', name: 'Ränta-på-ränta-kalkylator', url: 'ranta-pa-ranta.html' },
   'fire-kalkylator.html': { id: 'fire', name: 'FIRE-kalkylator', url: 'fire-kalkylator.html' },
   'sparmalskalkylator.html': { id: 'sparmal', name: 'Sparmålskalkylator', url: 'sparmalskalkylator.html' },
   'avgifter.html': { id: 'avgifter', name: 'Jämför avgifter', url: 'avgifter.html' },
@@ -515,6 +533,31 @@ function getActiveMode() {
   return activeTab ? activeTab.dataset.mode : 'growth';
 }
 
+function getYearlyReturns(){
+  if(!document.getElementById('growth-yearly-mode')?.checked)return null;
+  return [...document.querySelectorAll('#growth-yearly-rows input')].map(input=>input.value.trim()===''?NaN:Number(input.value));
+}
+function syncYearlyReturns(){
+  const toggle=document.getElementById('growth-yearly-mode'),rows=document.getElementById('growth-yearly-rows');if(!toggle||!rows)return;
+  const years=Number(document.getElementById('ar').value),count=Number.isInteger(years)&&years>=1&&years<=100?years:0;
+  const saved=new Map([...rows.querySelectorAll('input')].map(input=>[input.id,input.value]));
+  rows.replaceChildren();
+  for(let year=1;year<=count;year++){
+    const label=document.createElement('label'),input=document.createElement('input');input.id='growth-year-'+year;input.type='number';input.min='-100';input.step='any';input.inputMode='decimal';input.required=true;input.disabled=!toggle.checked;
+    input.value=saved.get(input.id)??document.getElementById('avkastning').value;
+    label.textContent=`År ${year} (%)`;label.append(input);rows.append(label);
+  }
+  rows.hidden=!toggle.checked;document.getElementById('avkastning').disabled=toggle.checked;
+  toggle.setCustomValidity(toggle.checked&&!count?'Årsserien stöder 1–100 hela år.':'');
+  if(toggle.checked)toggle.closest('details').open=true;
+}
+function initYearlyReturns(){
+  const toggle=document.getElementById('growth-yearly-mode');if(!toggle)return;
+  toggle.addEventListener('change',syncYearlyReturns);
+  document.getElementById('ar').addEventListener('input',syncYearlyReturns);
+  document.getElementById('growth-constant-reset').addEventListener('click',()=>{toggle.checked=false;syncYearlyReturns();toggle.dispatchEvent(new Event('change',{bubbles:true}));});
+  form.addEventListener('reset',()=>setTimeout(syncYearlyReturns,0));syncYearlyReturns();
+}
 function getInputs() {
   return {
     startCapital: Number(document.getElementById('startkapital').value) || 0,
@@ -526,7 +569,20 @@ function getInputs() {
   };
 }
 
-function calculateProjection(startCapital, monthlySavings, annualReturn, annualFee, years) {
+function calculateProjection(startCapital, monthlySavings, annualReturn, annualFee, years, yearlyReturns) {
+  if(yearlyReturns!==undefined){
+    if(!Array.isArray(yearlyReturns)||!Number.isInteger(years)||years<1||years>100||yearlyReturns.length!==years||yearlyReturns.some(r=>!Number.isFinite(r)||r< -100)||![startCapital,monthlySavings,annualFee].every(Number.isFinite)||startCapital<0||monthlySavings<0||annualFee<0||annualFee>100)throw new Error('Ogiltig årsserie. Använd 1–100 år och avkastning från −100 %.');
+    let value=startCapital,invested=startCapital,grossFactor=1;
+    const portfolioValues=[value],investedValues=[invested],labels=['0'];
+    yearlyReturns.forEach((rate,index)=>{
+      const monthlyFactor=Math.pow((1+rate/100)*(1-annualFee/100),1/12);
+      for(let month=0;month<12;month++){value=value*monthlyFactor+monthlySavings;invested+=monthlySavings;}
+      grossFactor*=1+rate/100;
+      if(!Number.isFinite(value)||!Number.isFinite(grossFactor))throw new Error('Antagandena ger ett för stort resultat. Minska tid eller avkastning.');
+      labels.push(String(index+1));portfolioValues.push(value);investedValues.push(invested);
+    });
+    return {futureValue:value,totalInvested:invested,earnings:value-invested,labels,portfolioValues,investedValues,arithmetic:yearlyReturns.reduce((a,b)=>a+b,0)/years,geometric:(Math.pow(grossFactor,1/years)-1)*100};
+  }
   const annualReturnBeforeFee = annualReturn / 100;
   const annualFeeRate = annualFee / 100;
   const annualNetReturn = (1 + annualReturnBeforeFee) * (1 - annualFeeRate) - 1;
@@ -553,6 +609,7 @@ function calculateProjection(startCapital, monthlySavings, annualReturn, annualF
 
 function buildGrowthSeries() {
   const { startCapital, monthlySavings, annualReturn, annualFee, years } = getInputs();
+  const path=getYearlyReturns();if(path)return calculateProjection(startCapital,monthlySavings,annualReturn,annualFee,years,path);
   const labels = ['0'];
   const portfolioValues = [startCapital];
   const investedValues = [startCapital];
@@ -1321,7 +1378,12 @@ function calculateInvestment() {
     return 'Ange giltiga värden i alla fält (antal år måste vara minst 1).';
   }
 
-  const result = calculateProjection(startCapital, monthlySavings, annualReturn, annualFee, years);
+  let result;const path=getYearlyReturns();
+  try{result = calculateProjection(startCapital, monthlySavings, annualReturn, annualFee, years,path||undefined);}catch(error){return error.message;}
+  if(!Number.isFinite(result.futureValue)||annualFee>100)return 'Antagandena ger inget ändligt resultat. Kontrollera avkastning, tid och avgift.';
+  const explanation=document.getElementById('growth-return-summary');
+  if(explanation){explanation.hidden=!path;explanation.textContent=path?`Årsserien före avgift: aritmetiskt medel ${formatPercent(result.arithmetic,2)}. Geometrisk årstakt (CAGR) ${formatPercent(result.geometric,2)}. Dessa mått gäller avkastningsserien utan insättningar, inte ditt kontos slutvärde delat med startkapitalet.`:'';}
+  const comparison=document.querySelector('.comparison-section');if(comparison)comparison.hidden=Boolean(path);
 
   // Calculate real value (inflation-adjusted)
   const inflationRate = annualInflation / 100;
@@ -1338,7 +1400,7 @@ function calculateInvestment() {
   let totalFees = 0;
   if (annualFee > 0) {
     // Calculate value without fees for comparison
-    const resultWithoutFees = calculateProjection(startCapital, monthlySavings, annualReturn, 0, years);
+    const resultWithoutFees = calculateProjection(startCapital, monthlySavings, annualReturn, 0, years,path||undefined);
     totalFees = resultWithoutFees.futureValue - result.futureValue;
   }
 
@@ -5125,6 +5187,7 @@ if (dividendToggle) {
 
 function initPage() {
   initGroupedNumberInputs();
+  initYearlyReturns();
   initTheme();
   recordRecentToolVisit();
   initNtmToday();
@@ -5282,7 +5345,7 @@ function initMinNtmPage() {
   const scenarioSources = [
     {
       id: 'ranta-pa-ranta',
-      name: 'Investeringskalkylator',
+      name: 'Ränta-på-ränta-kalkylator',
       url: 'ranta-pa-ranta.html',
       modeLabels: { growth: 'Tillväxt', dividend: 'Utdelning' }
     },

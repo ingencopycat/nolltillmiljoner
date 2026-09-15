@@ -22,7 +22,7 @@ test('relation schema rejects corrupt IDs, references, vocabulary, metadata and 
     d => d.entities[0].tickers = ['nvda'], d => d.entities[0].concepts = null,
     d => d.entities[0].url = 'javascript:alert(1)', d => d.entities[0].url = '//evil.test/a.html',
     d => d.entities[0].concept = 'pe', d => d.entities[0].themes = ['random'],
-    d => d.entities.find(e => e.id === 'learn-pe').url = 'academy.html',
+    d => { d.entities.find(e => e.id === 'learn-pe').status = 'planned'; },
     d => d.entities.find(e => e.id === 'research-nvda').url = 'research.html?ticker=MU',
     d => d.entities.find(e => e.id === 'research-sofi').tickers = ['NVDA']
   ];
@@ -43,7 +43,7 @@ test('queries are deterministic, bounded, explicit and suppress planned Academy 
   const d = fresh(), reversed = fresh(); reversed.relations.reverse();
   assert.deepEqual(R.query(d, 'research-nvda'), R.query(reversed, 'research-nvda'));
   assert.deepEqual(R.query(d, 'unknown'), []);
-  assert.deepEqual(R.query(d, 'tool-valuation', { type: 'learn' }), []);
+  assert.ok(R.query(d, 'tool-valuation', { type: 'learn' }).some(r => r.to === 'learn-pe'));
   assert.equal(R.query(d, 'research-nvda', { limit: 1 })[0].to, 'workflow-nvda-thesis');
   assert.equal(R.query(d, 'tool-valuation', { ticker: 'NVDA' })[0].to, 'research-nvda');
   assert.equal(R.query(d, 'tool-valuation', { concept: 'thesis' })[0].to, 'research-nvda');
@@ -60,7 +60,7 @@ test('one renderer produces escaped, descriptive, crawlable anchors in all gener
   for (const entity of d.entities) {
     const html = R.render(d, entity.id);
     if (!html) continue;
-    assert.doesNotMatch(html, /academy\.html|ticker=MU|Du kanske också gillar/);
+    assert.doesNotMatch(html, /academy\.html|ticker=AVEX|Du kanske också gillar/);
     assert.ok((html.match(/<a /g) || []).length <= 5);
     for (const r of R.query(d, entity.id)) {
       assert.ok(html.includes(r.cta));
@@ -81,8 +81,9 @@ test('one renderer produces escaped, descriptive, crawlable anchors in all gener
 
 test('a future Learn publication slots in without changing the renderer or exposing placeholders now', () => {
   const d = fresh(), source = 'tool-valuation';
+  const topic = d.entities.find(e => e.id === 'learn-pe'); topic.status = 'planned'; topic.url = null;
   assert.ok(!R.render(d, source).includes('Lär dig P/E'));
-  const topic = d.entities.find(e => e.id === 'learn-pe'); topic.status = 'published'; topic.url = 'learn-pe.html';
+  topic.status = 'published'; topic.url = 'learn-pe.html';
   assert.ok(R.validate(d, href => destinationExists(root, href)).some(e => e === 'Missing destination: learn-pe.html'));
   assert.deepEqual(R.validate(d, href => href === 'learn-pe.html' || destinationExists(root, href)), []);
   assert.ok(R.render(d, source).includes('href="learn-pe.html"'));

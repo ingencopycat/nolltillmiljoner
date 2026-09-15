@@ -420,3 +420,21 @@ body .week-report-image { min-height: 0; height: auto; aspect-ratio: 16 / 9; pad
 
 .ntm-earnings-more > summary, .ntm-macro-more > summary { cursor: pointer; min-height: 44px; padding-block: 10px; }
 .ntm-earnings-more > summary:focus-visible, .ntm-macro-more > summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+[aria-labelledby="academyMiniHeading"] a {
+    color: var(--primary);
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}
+[hidden].ntm-menu-backdrop { display:none; }
+.ntm-menu-backdrop { position:fixed;inset:0;background:rgba(0,0,0,.48);z-index:2147483000;pointer-events:auto;touch-action:none; }
+.topbar.ntm-menu-layer { position:relative;z-index:2147483001; }
+.ntm-menu-layer .main-nav.open { max-height:calc(100dvh - 90px);overflow-y:auto;overscroll-behavior:contain; }
+.year-return-grid { display:grid;grid-template-columns:1fr;gap:12px;margin-block:16px; }
+.year-return-grid[hidden],.comparison-section[hidden] { display:none; }
+.year-return-grid label { display:grid;grid-template-columns:1fr minmax(100px,10rem);align-items:center;gap:12px; }
+#growth-yearly-depth > label { display:flex;align-items:center;gap:12px;min-height:44px; }
+#growth-yearly-depth #growth-yearly-mode { width:20px;height:20px;min-height:20px;margin:0;flex:0 0 20px; }
+#growth-yearly-depth a { color:var(--primary);display:inline-flex;align-items:center;min-height:44px; }
+#growth-yearly-depth > p:not(.note) { color:var(--text); }

@@ -13,7 +13,7 @@ const decode = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
 const overrides = {
   'index.html': ['Investeringar, aktieanalys och börsverktyg | Noll till Miljoner', 'Utforska kalkylatorer för sparande, ränta på ränta och investeringar. Följ makro, bolagsrapporter och aktieanalys med Noll till Miljoner.'],
   'verktyg.html': ['Börsverktyg och kalkylatorer för ditt sparande | Noll till Miljoner', 'Räkna på ränta på ränta, utdelningar, FIRE, sparmål och aktievärdering. Välj bland Noll till Miljoners kalkylatorer för investeringar och privatekonomi.'],
-  'ranta-pa-ranta.html': ['Investeringskalkylator – ränta på ränta och utdelningar | Noll till Miljoner', 'Beräkna ränta på ränta med startkapital och månadssparande. Använd utdelningsläget för att räkna på utdelningar och återinvestering över tid.'],
+  'ranta-pa-ranta.html': ['Ränta-på-ränta-kalkylator – ränta på ränta och utdelningar | Noll till Miljoner', 'Beräkna ränta på ränta med startkapital och månadssparande. Använd utdelningsläget för att räkna på utdelningar och återinvestering över tid.'],
   'research.html': ['Aktieanalys med SEC-data och värderingsscenarier | Noll till Miljoner', 'Analysera NVIDIA, SoFi och CrowdStrike med normaliserad SEC-data. Räkna på värdering, jämför scenarier och spara din investeringstes lokalt.'],
   'resurser.html': ['Resurser för investeringar – YouTube, poddar och böcker | Noll till Miljoner', 'Upptäck NTM:s utvalda YouTube-kanaler, poddar och böcker om investeringar, ekonomi och personlig utveckling. Fler perspektiv för din egen research.'],
   'makro.html': ['Makrokalender – veckans ekonomiska händelser | Noll till Miljoner', 'Följ veckans makrohändelser, ekonomiska statistik och kommande publiceringar. Se kalendern och tidigare veckor hos Noll till Miljoner.'],
@@ -28,10 +28,14 @@ const overrides = {
 const excluded = new Set(['min-ntm.html', 'post.html', 'calculator.html', 'investeringar.html']);
 const redirects = { 'calculator.html': 'ranta-pa-ranta.html', 'investeringar.html': 'inlagg.html' };
 const outputs = new Map();
+const academyPages = require('./build_academy.cjs').pages();
+for(const file of fs.readdirSync(root).filter(f=>/^academy-.+\.html$/.test(f))) {
+  if(!academyPages.has(file)) throw new Error('Retire unpublished Academy artifact explicitly: '+file);
+}
 function navigation(html, file) {
   html = html.replace(/\s*<footer class="trust-footer">[\s\S]*?<\/footer>/g, '');
   if (html.includes('src="script.js"')) html = html.replace('</main>', '</main>\n    <footer class="trust-footer"><a href="om-metod.html">Om NTM, integritet, metod och rättelser</a></footer>');
-  const secondary = [['inlagg.html','Inlägg och videor'],['resurser.html','Resurser'],['makro.html','Makro'],['rapporter.html','Rapporter'],['community.html','Community']];
+  const secondary = [['academy.html','Academy'],['inlagg.html','Inlägg och videor'],['resurser.html','Resurser'],['makro.html','Makro'],['rapporter.html','Rapporter'],['community.html','Community']];
   const link = ([url,label]) => `<a href="${url}"${url === file ? ' class="active" aria-current="page"' : ''}>${label}</a>`;
   return html.replace(/<nav class="main-nav"[^>]*>([\s\S]*?)<\/nav>/, (_, body) => {
     const theme = body.match(/<div class="mobile-theme-row">[\s\S]*?<\/div>/)?.[0] || '';
@@ -58,8 +62,8 @@ function metadata(html, file, title, description, schema) {
     + '\n    <!-- SEO END -->\n';
   return html.replace('</head>', block + '</head>');
 }
-for (const file of fs.readdirSync(root).filter((name) => name.endsWith('.html') && !name.startsWith('post-'))) {
-  const html = read(file);
+for (const file of new Set([...fs.readdirSync(root).filter((name) => name.endsWith('.html') && !name.startsWith('post-') && !name.startsWith('academy-')), ...academyPages.keys()])) {
+  const html = academyPages.get(file) || read(file);
   const title = overrides[file]?.[0] || decode(html.match(/<title>(.*?)<\/title>/s)[1]);
   const description = overrides[file]?.[1] || decode(html.match(/<meta name="description" content="([^"]+)"/)[1]);
   const schema = file === 'index.html' ? { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Noll till Miljoner', url: base, inLanguage: 'sv' } : null;
@@ -71,6 +75,7 @@ const context = vm.createContext({ document: { getElementById() { return null; }
   URL, URLSearchParams, location: { pathname: '/', search: '' }, console, setTimeout() {} });
 context.window = context;
 vm.runInContext(read('posts.js'), context);
+vm.runInContext(read('academy-catalog.js'), context);
 vm.runInContext(read('ntm-relations.js'), context);
 vm.runInContext(read('valuation-core.js'), context);
 vm.runInContext(read('script.js'), context);
@@ -78,7 +83,7 @@ const posts = vm.runInContext('NTM_POSTS', context);
 const relationCatalog = relations.catalog(posts);
 // Generated articles may be new. Validate their canonical paths against the post registry.
 const postFiles = new Set(posts.map(post => `post-${post.slug}.html`));
-const relationErrors = relations.validate(relationCatalog, href => postFiles.has(href) || destinationExists(root, href));
+const relationErrors = relations.validate(relationCatalog, href => postFiles.has(href) || academyPages.has(href) || destinationExists(root, href));
 if (relationErrors.length) throw new Error(relationErrors.join('\n'));
 const postTemplate = outputs.get('post.html').replace('<script src="script.js">', '<script src="ntm-relations.js"></script>\n<script src="script.js">');
 outputs.set('post.html', postTemplate.replace(/(?:<script src="ntm-relations.js"><\/script>\s*){2}/g, '<script src="ntm-relations.js"></script>\n'));
@@ -116,7 +121,16 @@ for (const rule of JSON.parse(read('data/rule-registry.json')).rules) {
   outputs.set(rule.page, html);
 }
 for (const [file, rawContent] of outputs) {
-  const content = file.endsWith('.html') ? require('./security_policy.cjs').apply(rawContent) : rawContent;
+  let prepared = rawContent;
+  if(file.endsWith('.html')) {
+    if(file==='post-ai-portfolj.html'&&!prepared.includes('data-concept-help="thesis"'))prepared=prepared.replace('</article>','<p class="note"><a data-concept-help="thesis">Investeringstes</a></p></article>');
+    prepared=prepared.replace(/(?:<script src="academy-catalog.js"><\/script>\s*)?(<script src="ntm-relations.js">)/g,'<script src="academy-catalog.js"></script>\n$1');
+    prepared=prepared.replace(/<a\b([^>]*data-concept-help="([a-z-]+)"[^>]*)>[\s\S]*?<\/a>/g,(all,attrs,id)=>{
+      const href=relations.conceptHref(relationCatalog,id);if(!href)throw new Error('Unknown concept hook '+id);
+      return `<a ${attrs.replace(/\s*href="[^"]*"/g,'').trim()} href="${href}">Lär dig ${escape(relationCatalog.entities.find(e=>e.id==='learn-'+id).title)}</a>`;
+    });
+  }
+  const content = file.endsWith('.html') ? require('./security_policy.cjs').apply(prepared) : prepared;
   const previous = fs.existsSync(path.join(root, file)) ? read(file).replace(/\r\n/g, '\n') : null;
   const normalized = content.replace(/\r\n/g, '\n');
   if (previous !== normalized) {

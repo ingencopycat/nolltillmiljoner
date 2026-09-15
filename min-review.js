@@ -23,7 +23,7 @@
     const rows=await Promise.all(Object.values(store.theses).map(async thesis => {
       if (['close','abstain'].includes(thesis.review?.decision)) return {thesis,reasons:[],closed:true};
       let data=null, unavailable=false;
-      if (thesis.origin !== 'manual' && ['NVDA','SOFI','CRWD'].includes(thesis.ticker)) {
+      if (thesis.origin !== 'manual' && ['NVDA','SOFI','CRWD', 'MU', 'MRVL', 'VRT', 'COHR', 'RKLB', 'TTMI', 'SNDK', 'FLY', 'CRWV'].includes(thesis.ticker)) {
         try { const response=await fetch(`data/stocks/${thesis.ticker}.json`);if(!response.ok)throw new Error('data');data=await response.json(); }
         catch (_) {unavailable=true;}
       } else unavailable=thesis.origin !== 'manual';

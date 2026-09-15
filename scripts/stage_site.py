@@ -9,6 +9,7 @@ import sys
 
 WORKSPACE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REQUIRED_FILES = [
+    'academy.html', 'academy-catalog.js', 'academy-progress.js', 'academy-ui.js', 'academy.css',
     'behavioral.js', 'behavioral-ui.js', 'research-ai.js', 'research-ai-ui.js', 'cloud-config.js', 'cloud-sync.js', 'cloud-adapter.js', 'cloud-ui.js',
     'ntm-relations.js', 'ntm-relations-ui.js',
     'index.html', 'makro.html', 'rapporter.html', 'verktyg.html', 'inlagg.html',

@@ -95,7 +95,7 @@
     const originals=new WeakMap();
     // Behavioral records stay local-only. Never place their texts in sync payloads
     // or queue signatures; restoring cloud data merges without replacing them.
-    const capture=()=>{const data=JSON.parse(local.exportJSON()).data;delete data.behavioral;return data;};
+    const capture=()=>{const data=JSON.parse(local.exportJSON()).data;delete data.behavioral;delete data.academy;return data;};
     function read() {
       if(!owner)throw fail('auth');
       const raw=storage.getItem(PREFIX+owner);

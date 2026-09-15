@@ -146,7 +146,7 @@ class SeoFoundationTests(unittest.TestCase):
                 self.assertIn(name, ['calculator.html'])
                 continue
             links = re.findall(r'<a href="([^"]+)"([^>]*)>', nav.group())
-            self.assertEqual([href for href, _ in links], ['verktyg.html','research.html','min-ntm.html','inlagg.html','resurser.html','makro.html','rapporter.html','community.html'])
+            self.assertEqual([href for href, _ in links], ['verktyg.html','research.html','min-ntm.html','academy.html','inlagg.html','resurser.html','makro.html','rapporter.html','community.html'])
             self.assertIn('<summary>Lär dig</summary>', nav.group())
             for href, attrs in links:
                 self.assertEqual('aria-current="page"' in attrs, href == name)

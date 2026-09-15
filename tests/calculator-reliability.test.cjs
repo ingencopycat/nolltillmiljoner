@@ -30,6 +30,27 @@ function app(values = {}) {
   return {context,nodes,charts,saved};
 }
 
+test('yearly compound path: hand oracle, constant parity, contributions, fee and loss boundaries',()=>{
+ const c=app().context,close=(a,b)=>assert.ok(Math.abs(a-b)<1e-7,`${a} != ${b}`);
+ const path=[50,25,40,-10,15];
+ const r=c.calculateProjection(100,0,0,0,5,path);close(r.futureValue,271.6875);close(r.arithmetic,24);close(r.portfolioValues.at(-1),r.futureValue);
+ close(c.calculateProjection(1000,100,7,.5,5,[7,7,7,7,7]).futureValue,c.calculateProjection(1000,100,7,.5,5).futureValue);
+ const cash=c.calculateProjection(1000,100,0,0,2,[0,0]);close(cash.futureValue,3400);close(cash.totalInvested,3400);
+ close(c.calculateProjection(100,0,0,1,2,[50,-50]).futureValue,75*.99*.99);
+ close(c.calculateProjection(100,0,0,0,1,[-100]).futureValue,0);
+ close(c.calculateProjection(100,10,0,0,1,[-100]).futureValue,10);
+ assert.notEqual(c.calculateProjection(100,10,0,0,2,[50,-50]).futureValue,c.calculateProjection(100,10,0,0,2,[-50,50]).futureValue);
+ for(const values of [[NaN],[Infinity],[-101],[]])assert.throws(()=>c.calculateProjection(100,0,0,0,1,values));
+ assert.throws(()=>c.calculateProjection(100,0,0,0,100,Array(100).fill(1e300)));
+});
+
+test('yearly scenario records roundtrip and reject missing years; legacy scenarios remain valid',()=>{
+ const c=app().context,inputs={'growth-yearly-mode':{type:'checkbox',checked:true},ar:{value:'2'},'growth-year-1':{value:'50'},'growth-year-2':{value:'-50'}};
+ const saved=c.saveScenario('ranta-pa-ranta',{mode:'growth',name:'Path',inputs});assert.equal(saved.ok,true);assert.equal(c.getSavedScenarios('ranta-pa-ranta').scenarios[0].inputs['growth-year-2'].value,'-50');
+ assert.equal(c.validYearlyScenario({inputs:{}}),true);delete inputs['growth-year-2'];assert.equal(c.saveScenario('ranta-pa-ranta',{mode:'growth',name:'Broken',inputs}).ok,false);
+ const raw=JSON.stringify({version:1,calculators:{'ranta-pa-ranta':[{id:'bad',name:'bad',mode:'growth',createdAt:'2026-09-15',inputs}]}});assert.ok(c.readScenarioStore(raw).error);
+});
+
 test('quality boundaries: recovery zero, impossible and non-finite values; error replaces success state', () => {
   const a = app(), c = a.context;
   assert.equal(c.calculateRecoveryRequiredGain(0, 0).requiredGain, 0);

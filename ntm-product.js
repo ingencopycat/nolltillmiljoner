@@ -2,6 +2,7 @@
 (function (root) {
   'use strict';
   const names = new Set(['landing_view', 'tool_opened', 'cta_clicked', 'calculator_completed',
+    'academy_lesson_opened','academy_lesson_completed','academy_path_started','academy_path_completed','academy_search','academy_tool_cta_clicked',
     'research_opened', 'valuation_calculated', 'thesis_first_saved', 'assumptions_added',
     'review_date_set', 'thesis_reviewed', 'outcome_checkpoint_saved', 'content_to_tool',
     'backup_exported', 'backup_imported', 'delete_completed', 'delete_error', 'relation_click', 'fire_stress_view_opened', 'savings_plan_observation_saved', 'stock_purchase_thesis_prompt_clicked', 'fx_explanation_opened']);
@@ -77,7 +78,7 @@
       const next = event.target.closest?.('a[href]');
       if (next && ['research', 'local'].includes(category) && ['instagram', 'home', 'content'].includes(source) && fields.cta.includes(cta)) {
         const url = new URL(next.href, root.location.href);
-        if (url.origin === root.location.origin && url.pathname.endsWith('/research.html') && ['NVDA', 'SOFI', 'CRWD'].includes(url.searchParams.get('ticker'))) {
+        if (url.origin === root.location.origin && url.pathname.endsWith('/research.html') && ['NVDA', 'SOFI', 'CRWD', 'MU', 'MRVL', 'VRT', 'COHR', 'RKLB', 'TTMI', 'SNDK', 'FLY', 'CRWV'].includes(url.searchParams.get('ticker'))) {
           url.searchParams.set('from', source); url.searchParams.set('via', cta);
           next.href = url.pathname + url.search + url.hash;
         }
@@ -91,7 +92,7 @@
       intro.textContent = copy[cta]; root.document.querySelector('main')?.prepend(intro);
       root.document.querySelectorAll('a[href^="research.html?ticker="]').forEach(link => {
         const url = new URL(link.href);
-        if (!['NVDA', 'SOFI', 'CRWD'].includes(url.searchParams.get('ticker'))) return;
+        if (!['NVDA', 'SOFI', 'CRWD', 'MU', 'MRVL', 'VRT', 'COHR', 'RKLB', 'TTMI', 'SNDK', 'FLY', 'CRWV'].includes(url.searchParams.get('ticker'))) return;
         url.searchParams.set('from', 'instagram'); url.searchParams.set('via', cta);
         url.hash = cta === 'counterevidence' ? 'thesis-trigger' : 'thesis-assumption-1';
         link.href = url.pathname + url.search + url.hash;

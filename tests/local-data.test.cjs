@@ -6,7 +6,7 @@ function app() {
     localStorage:{getItem:k => saved.has(k) ? saved.get(k) : null,setItem:(k,v) => saved.set(k,v),removeItem:k => saved.delete(k)},
     location:{pathname:'/',search:''},crypto:{randomUUID:() => 'id-'+(++id)}});
   context.window=context;
-  for (const file of ['valuation-core.js','script.js','research-snapshot.js','thesis-storage.js','research-outcomes.js','research-export.js','change-detection.js','behavioral.js','local-data.js','min-review.js']) vm.runInContext(fs.readFileSync(file,'utf8'),context);
+  for (const file of ['valuation-core.js','script.js','research-snapshot.js','thesis-storage.js','research-outcomes.js','research-export.js','change-detection.js','behavioral.js','academy-progress.js','local-data.js','min-review.js']) vm.runInContext(fs.readFileSync(file,'utf8'),context);
   function seed(ticker='NVDA') {
     const data=JSON.parse(fs.readFileSync(`data/stocks/${ticker}.json`,'utf8'));
     const snapshot={...context.NTMResearchSnapshot.fromStockData(data),schemaVersion:2,ticker,
@@ -19,6 +19,15 @@ function app() {
   }
   return {c:context,saved,seed,api:context.NTMLocalData};
 }
+test('yearly return scenario survives backup/import and malformed series never overwrites storage',()=>{
+ const a=app(),inputs={'growth-yearly-mode':{type:'checkbox',checked:true},ar:{type:'number',value:'2'},'growth-year-1':{type:'number',value:'50'},'growth-year-2':{type:'number',value:'-50'}};
+ assert.equal(a.c.NTMScenarioStorage.save('ranta-pa-ranta',{name:'Path',mode:'growth',inputs}).ok,true);
+ const exported=a.api.exportJSON(),b=app();b.api.importJSON(exported);
+ assert.deepEqual(JSON.parse(b.api.exportJSON()).data.scenarios,JSON.parse(exported).data.scenarios);
+ const bad=JSON.parse(exported);delete bad.data.scenarios.calculators['ranta-pa-ranta'][0].inputs['growth-year-2'];
+ const before=JSON.stringify([...b.saved]);assert.throws(()=>b.api.importJSON(JSON.stringify(bad)));assert.equal(JSON.stringify([...b.saved]),before);
+});
+
 test('complete backup round trip, repeat merge, conflict rejection, legacy migration and privacy allowlist',()=>{
   const a=app(); a.seed(); a.seed('SOFI');
   a.c.NTMScenarioStorage.save('ranta-pa-ranta',{name:'My scenario',mode:'growth',inputs:{x:{value:'123',type:'number'}}});

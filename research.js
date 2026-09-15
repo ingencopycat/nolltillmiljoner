@@ -8,7 +8,7 @@ let annualChartInstance = null;
 let quarterlyChartInstance = null;
 let currentStockData = null;
 
-const SUPPORTED_TICKERS = ['SOFI', 'NVDA', 'CRWD'];
+const SUPPORTED_TICKERS = ['SOFI', 'NVDA', 'CRWD', 'MU', 'MRVL', 'VRT', 'COHR', 'RKLB', 'TTMI', 'SNDK', 'FLY', 'CRWV'];
 
 document.addEventListener('DOMContentLoaded', () => {
     initResearchApp();
@@ -135,7 +135,7 @@ async function showIndexView() {
             const snapshot = window.NTMResearchSnapshot.fromStockData(data);
             const metrics = snapshot.ttmMetrics;
             document.getElementById(`index-${ticker}-revenue`).textContent = formatCurrency(metrics.revenue, 2);
-            document.getElementById(`index-${ticker}-secondary`).textContent = formatCurrency(ticker === 'SOFI' ? metrics.netIncome : metrics.fcf, 2);
+            document.getElementById(`index-${ticker}-secondary`).textContent = formatCurrency(ticker === 'SOFI' || data.metadata?.profile === 'financing_sensitive' ? metrics.netIncome : metrics.fcf, 2);
             document.getElementById(`index-${ticker}-margin`).textContent = formatResearchPercent(metrics.netMargin);
             status.textContent = `TTM t.o.m. ${snapshot.asOfPeriod || 'okänd period'} · rapportperiod, inte dagens marknadsdata`;
         } catch (error) {
@@ -221,11 +221,34 @@ function renderStockDetail(data) {
         profileBadge.textContent = 'Teknologi & Hårdvara';
     }
 
+    if (profile === 'limited_history') profileBadge.textContent = 'Begränsad historik';
+    if (profile === 'financing_sensitive') profileBadge.textContent = 'Särskild finansiering';
+    const notice = document.getElementById('companyCoverageNotice');
+    notice.hidden = !metadata.coverageNotice;
+    notice.textContent = metadata.coverageNotice || '';
+    const limitations = document.getElementById('companyMetricLimitations');
+    document.getElementById('companyLimitationsDetails').hidden = !metadata.coverageNotice;
+    limitations.hidden = !metadata.coverageNotice;
+    limitations.replaceChildren();
+    if (metadata.coverageNotice) {
+        const latest = data.quarterly?.at(-1)?.metrics || {};
+        const labels = {dilutedShares: 'Aktieantal (utspätt)', dilutedEps: 'EPS (utspätt)',
+            netIncomeToCommon: 'Resultat till stamaktier', debt: 'Total skuld',
+            deferredRevenue: 'Förutbetalda intäkter', capex: 'CapEx',
+            freeCashFlow: 'Fritt kassaflöde', fcfPerShare: 'Fritt kassaflöde per aktie'};
+        for (const [key, metric] of Object.entries({...latest, ...data.ttm?.metrics})) {
+            if (metric.value !== null) continue;
+            const item = document.createElement('li');
+            item.textContent = `${labels[key] || metric.label || key}: saknas. ${metric.unsupportedReason || metric.notes || 'Tillräckligt jämförbart SEC-underlag saknas.'}`;
+            limitations.appendChild(item);
+        }
+    }
+
     document.getElementById('companyCikPill').textContent = `CIK ${company.cik || ''}`;
     
     // Format Fiscal year end text
     const fye = company.fiscalYearEnd || 'datum saknas';
-    const fyeText = formatFye(fye);
+    const fyeText = metadata.fiscalCalendarLabel || formatFye(fye);
     document.getElementById('companyMetaLine').textContent = `${company.ticker} • ${company.sicDescription || 'Verksamhet'} • Räkenskapsår slutar ${fyeText}`;
 
     // Last updated

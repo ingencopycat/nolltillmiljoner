@@ -36,7 +36,7 @@
                 <img class="brand-logo" src="images/ntm-logo.webp" width="192" height="192" alt="NTM" />
                 <div class="brand-text"><span class="brand-name"><span class="brand-zero">NOLL</span> <span class="brand-neutral">TILL</span> <span class="brand-million">MILJONER</span></span><span class="brand-subtitle">Min NTM</span></div>
             </a>
-            <nav class="main-nav" aria-label="Huvudnavigering"><div class="mobile-theme-row"><span class="mobile-theme-label">Tema</span><button id="mobileThemeToggle" class="theme-toggle mobile-theme-btn" type="button" aria-label="Växla tema" title="Växla tema"><span class="toggle-icon toggle-icon-sun"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4L19 5"/></svg></span><span class="toggle-icon toggle-icon-moon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.5 14.2A8.7 8.7 0 0 1 9.8 3.5a8.7 8.7 0 1 0 10.7 10.7Z"/></svg></span></button></div><a href="verktyg.html">Verktyg</a><a href="research.html">Research</a><a href="min-ntm.html" class="active" aria-current="page">Min NTM</a><details class="nav-learn"><summary>Lär dig</summary><div class="nav-learn-links"><a href="inlagg.html">Inlägg och videor</a><a href="resurser.html">Resurser</a><a href="makro.html">Makro</a><a href="rapporter.html">Rapporter</a><a href="community.html">Community</a></div></details></nav>
+            <nav class="main-nav" aria-label="Huvudnavigering"><div class="mobile-theme-row"><span class="mobile-theme-label">Tema</span><button id="mobileThemeToggle" class="theme-toggle mobile-theme-btn" type="button" aria-label="Växla tema" title="Växla tema"><span class="toggle-icon toggle-icon-sun"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4L19 5"/></svg></span><span class="toggle-icon toggle-icon-moon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.5 14.2A8.7 8.7 0 0 1 9.8 3.5a8.7 8.7 0 1 0 10.7 10.7Z"/></svg></span></button></div><a href="verktyg.html">Verktyg</a><a href="research.html">Research</a><a href="min-ntm.html" class="active" aria-current="page">Min NTM</a><details class="nav-learn"><summary>Lär dig</summary><div class="nav-learn-links"><a href="academy.html">Academy</a><a href="inlagg.html">Inlägg och videor</a><a href="resurser.html">Resurser</a><a href="makro.html">Makro</a><a href="rapporter.html">Rapporter</a><a href="community.html">Community</a></div></details></nav>
             <button id="mobileNavToggle" class="nav-toggle" type="button" aria-label="Öppna meny" aria-expanded="false">☰</button>
             <button id="themeToggle" class="theme-toggle" type="button" aria-label="Växla tema" title="Växla tema"><span class="toggle-icon toggle-icon-sun"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4L19 5"/></svg></span><span class="toggle-icon toggle-icon-moon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.5 14.2A8.7 8.7 0 0 1 9.8 3.5a8.7 8.7 0 1 0 10.7 10.7Z"/></svg></span></button>
         </div>
@@ -71,12 +71,19 @@
                     <details><summary>Radera konto och molndata</summary>
                         <p>Permanent radering av kontot och privat molndata. Andra enheters lokala kopior kan inte raderas här.</p>
                         <p>Lokala analyser och planer delas av alla som använder samma webbläsarprofil. Synkköer för andra konton och senaste verktyg påverkas inte.</p>
-                        <label><input type="checkbox" id="cloudDeleteLocal" /> Radera även lokala analyser, scenarier, planer, observationer och tema på denna enhet</label>
+                        <label><input type="checkbox" id="cloudDeleteLocal" /> Radera även lokala analyser, scenarier, planer, observationer, lärhistorik och tema på denna enhet</label>
                         <button type="button" id="cloudDelete" class="destructive-action ghost-btn">Radera konto och molndata</button>
                     </details>
                 </div>
             </section>
         </details>
+        <section class="card calculator-card min-ntm-card" aria-labelledby="academyMiniHeading">
+            <h2 id="academyMiniHeading">Ditt läranderum</h2>
+            <p data-academy-progress>Lärhistorik sparas lokalt.</p>
+            <a data-academy-continue href="academy.html">Öppna Academy</a>
+            <p class="note">Ingår i JSON-backup. Lärhistorik skickas inte med den valfria molnsynken.</p>
+            <p id="academyStatus" role="status"></p>
+        </section>
         <section class="card calculator-card min-ntm-card" aria-labelledby="reviewQueueHeading">
             <h2 id="reviewQueueHeading">Att granska</h2>
             <p id="reviewQueueStatus" role="status">Kontrollerar sparade teser…</p>
@@ -193,6 +200,7 @@
 <script src="script.js"></script>
     <script src="research-outcomes.js"></script>
     <script src="behavioral.js"></script>
+    <script src="academy-progress.js"></script>
     <script src="local-data.js"></script>
     <script src="behavioral-ui.js"></script>
     <script src="cloud-config.js"></script>
@@ -200,6 +208,8 @@
     <script src="cloud-adapter.js"></script>
     <script src="cloud-ui.js"></script>
     <script src="min-review.js"></script>
+    <script src="academy-catalog.js"></script>
+    <script src="academy-ui.js"></script>
     <script src="ntm-ui.js"></script>
 </body>
 </html>

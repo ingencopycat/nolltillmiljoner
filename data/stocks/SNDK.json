@@ -1,0 +1,4114 @@
+{
+  "$schema": "ntm-stock-v1",
+  "symbol": "SNDK",
+  "company": {
+    "name": "Sandisk Corp",
+    "ticker": "SNDK",
+    "cik": "0002023554",
+    "sic": "3572",
+    "sicDescription": "Computer Storage Devices",
+    "fiscalYearEnd": "0628",
+    "stateOfIncorporation": "DE",
+    "currency": "USD",
+    "lastUpdated": "2026-09-14T22:44:08.310510+00:00"
+  },
+  "metadata": {
+    "source": "SEC EDGAR",
+    "profile": "limited_history",
+    "industry": "semiconductors",
+    "profileDescription": "Sandisk: USD SEC fundamentals; manual EPS; verified metric scope only.",
+    "coverageNotice": "Endast FY2026 efter avknoppningen ingår (28 juni 2025–3 juli 2026). Året har 53 veckor och Q1 14 veckor. Föregångarhistorik och tillväxt mot föregående år saknas. Skuld och per-aktievärden är inte verifierade; ange EPS manuellt.",
+    "secCompanyFactsUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002023554.json",
+    "secSubmissionsUrl": "https://data.sec.gov/submissions/CIK0002023554.json",
+    "lastUpdated": "2026-09-14T22:44:08.310510+00:00",
+    "methodVersion": "ntm-sec-normalizer/1",
+    "generatedAt": "2026-09-14T22:44:08.310510+00:00",
+    "fetchedAt": "2026-09-14T22:44:08.310510+00:00",
+    "updateStatus": "success",
+    "qualityStatus": "validated",
+    "fiscalCalendarLabel": "3 juli 2026 för FY2026 (52/53-veckorskalender)"
+  },
+  "valuationBase": {
+    "asOfPeriod": "2026Q4",
+    "currency": "USD",
+    "latestAnnualPeriod": "FY2026",
+    "latestAnnualEps": {
+      "value": null,
+      "unit": "USD/shares",
+      "period": "FY2026",
+      "periodStart": "2025-06-28",
+      "periodEnd": "2026-07-03",
+      "source": "SEC",
+      "taxonomy": "us-gaap",
+      "concept": "EarningsPerShareDiluted",
+      "label": "dilutedEps",
+      "form": null,
+      "filed": null,
+      "accession": null,
+      "isDerived": false,
+      "derivationNotes": null,
+      "derivedFrom": null,
+      "unsupported": true,
+      "unsupportedReason": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+      "kind": "unavailable",
+      "qualityStatus": "unavailable",
+      "methodVersion": "ntm-sec-normalizer/1",
+      "currency": "USD",
+      "definition": "dilutedEps:us-gaap:EarningsPerShareDiluted",
+      "periodType": "annual",
+      "shareBasis": null,
+      "shareBasisStatus": "unverified"
+    },
+    "ttmNetIncomeToCommon": {
+      "value": null,
+      "unit": "USD",
+      "unsupported": true,
+      "unsupportedReason": "A reconciled diluted/common numerator is not verified. Consolidated net income is not a substitute; enter EPS manually for valuation.",
+      "kind": "unavailable",
+      "qualityStatus": "unavailable",
+      "methodVersion": "ntm-sec-normalizer/1",
+      "currency": "USD",
+      "definition": "netIncomeToCommon:us-gaap:netIncomeToCommon:netIncomeToCommon:None",
+      "periodStart": "2025-06-28",
+      "periodEnd": "2026-07-03",
+      "period": "2026Q4",
+      "periodType": "TTM",
+      "source": "SEC-derived",
+      "derivationMethod": "standalone_period_difference",
+      "sourceFilings": [],
+      "inputs": [
+        {
+          "quarter": "2026Q1",
+          "metric": "netIncomeToCommon",
+          "value": null,
+          "concept": null,
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        },
+        {
+          "quarter": "2026Q2",
+          "metric": "netIncomeToCommon",
+          "value": null,
+          "concept": null,
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        },
+        {
+          "quarter": "2026Q3",
+          "metric": "netIncomeToCommon",
+          "value": null,
+          "concept": null,
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        },
+        {
+          "quarter": "2026Q4",
+          "metric": "netIncomeToCommon",
+          "value": null,
+          "concept": null,
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        }
+      ],
+      "filed": null
+    },
+    "ttmDilutedShares": {
+      "value": null,
+      "unit": "shares",
+      "unsupported": true,
+      "unsupportedReason": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+      "kind": "unavailable",
+      "qualityStatus": "unavailable",
+      "methodVersion": "ntm-sec-normalizer/1",
+      "currency": null,
+      "definition": "dilutedShares:us-gaap:dilutedShares:dilutedShares:WeightedAverageNumberOfDilutedSharesOutstanding",
+      "periodStart": "2025-06-28",
+      "periodEnd": "2026-07-03",
+      "period": "2026Q4",
+      "periodType": "TTM",
+      "source": "SEC-derived",
+      "derivationMethod": "duration_weighted_annual_minus_ytd9m",
+      "sourceFilings": [],
+      "inputs": [
+        {
+          "quarter": "2026Q1",
+          "metric": "dilutedShares",
+          "value": null,
+          "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        },
+        {
+          "quarter": "2026Q2",
+          "metric": "dilutedShares",
+          "value": null,
+          "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        },
+        {
+          "quarter": "2026Q3",
+          "metric": "dilutedShares",
+          "value": null,
+          "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        },
+        {
+          "quarter": "2026Q4",
+          "metric": "dilutedShares",
+          "value": null,
+          "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        }
+      ],
+      "filed": null,
+      "shareBasis": null,
+      "shareBasisStatus": "unverified"
+    },
+    "ttmDilutedEps": {
+      "value": null,
+      "unit": "USD/shares",
+      "unsupported": true,
+      "unsupportedReason": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+      "kind": "unavailable",
+      "qualityStatus": "unavailable",
+      "methodVersion": "ntm-sec-normalizer/1",
+      "currency": "USD",
+      "definition": "dilutedEps:us-gaap:dilutedEps:dilutedShares:WeightedAverageNumberOfDilutedSharesOutstanding|netIncomeToCommon:None",
+      "periodStart": "2025-06-28",
+      "periodEnd": "2026-07-03",
+      "period": "2026Q4",
+      "periodType": "TTM",
+      "source": "SEC-derived",
+      "derivationMethod": "standalone_period_difference",
+      "sourceFilings": [],
+      "inputs": [
+        {
+          "quarter": "2026Q1",
+          "metric": "netIncomeToCommon",
+          "value": null,
+          "concept": null,
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        },
+        {
+          "quarter": "2026Q1",
+          "metric": "dilutedShares",
+          "value": null,
+          "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        },
+        {
+          "quarter": "2026Q2",
+          "metric": "netIncomeToCommon",
+          "value": null,
+          "concept": null,
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        },
+        {
+          "quarter": "2026Q2",
+          "metric": "dilutedShares",
+          "value": null,
+          "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        },
+        {
+          "quarter": "2026Q3",
+          "metric": "netIncomeToCommon",
+          "value": null,
+          "concept": null,
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        },
+        {
+          "quarter": "2026Q3",
+          "metric": "dilutedShares",
+          "value": null,
+          "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        },
+        {
+          "quarter": "2026Q4",
+          "metric": "netIncomeToCommon",
+          "value": null,
+          "concept": null,
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        },
+        {
+          "quarter": "2026Q4",
+          "metric": "dilutedShares",
+          "value": null,
+          "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        }
+      ],
+      "filed": null,
+      "shareBasis": null,
+      "shareBasisStatus": "unverified"
+    },
+    "ttmFreeCashFlow": {
+      "value": 11494000000,
+      "unit": "USD",
+      "concept": null,
+      "label": "Free Cash Flow (OCF minus cash PP&E purchases)",
+      "isDerived": true,
+      "derivationMethod": "sum_of_quarterly_ocf_minus_capex",
+      "source": "SEC-derived",
+      "quartersIncluded": [
+        "2026Q1",
+        "2026Q2",
+        "2026Q3",
+        "2026Q4"
+      ],
+      "kind": "derived",
+      "qualityStatus": "available",
+      "methodVersion": "ntm-sec-normalizer/1",
+      "currency": "USD",
+      "definition": "freeCashFlow:us-gaap:freeCashFlow:capex:PaymentsToAcquirePropertyPlantAndEquipment|operatingCashFlow:NetCashProvidedByUsedInOperatingActivities",
+      "periodStart": "2025-06-28",
+      "periodEnd": "2026-07-03",
+      "period": "2026Q4",
+      "periodType": "TTM",
+      "sourceFilings": [],
+      "inputs": [
+        {
+          "quarter": "2026Q1",
+          "metric": "operatingCashFlow",
+          "value": 488000000,
+          "concept": "NetCashProvidedByUsedInOperatingActivities",
+          "accession": "0001628280-25-050698",
+          "filed": "2025-11-07",
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        },
+        {
+          "quarter": "2026Q1",
+          "metric": "capex",
+          "value": 50000000,
+          "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+          "accession": "0001628280-25-050698",
+          "filed": "2025-11-07",
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        },
+        {
+          "quarter": "2026Q2",
+          "metric": "operatingCashFlow",
+          "value": 1019000000,
+          "concept": "NetCashProvidedByUsedInOperatingActivities",
+          "accession": null,
+          "filed": null,
+          "derivedFrom": [
+            "0001628280-26-004407",
+            "0001628280-25-050698"
+          ],
+          "sourceFilings": [
+            {
+              "accession": "0001628280-25-050698",
+              "filed": "2025-11-07"
+            },
+            {
+              "accession": "0001628280-26-004407",
+              "filed": "2026-01-30"
+            }
+          ],
+          "isDerived": true
+        },
+        {
+          "quarter": "2026Q2",
+          "metric": "capex",
+          "value": 39000000,
+          "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+          "accession": null,
+          "filed": null,
+          "derivedFrom": [
+            "0001628280-26-004407",
+            "0001628280-25-050698"
+          ],
+          "sourceFilings": [
+            {
+              "accession": "0001628280-25-050698",
+              "filed": "2025-11-07"
+            },
+            {
+              "accession": "0001628280-26-004407",
+              "filed": "2026-01-30"
+            }
+          ],
+          "isDerived": true
+        },
+        {
+          "quarter": "2026Q3",
+          "metric": "operatingCashFlow",
+          "value": 3038000000,
+          "concept": "NetCashProvidedByUsedInOperatingActivities",
+          "accession": null,
+          "filed": null,
+          "derivedFrom": [
+            "0001628280-26-029401",
+            "0001628280-26-004407"
+          ],
+          "sourceFilings": [
+            {
+              "accession": "0001628280-26-004407",
+              "filed": "2026-01-30"
+            },
+            {
+              "accession": "0001628280-26-029401",
+              "filed": "2026-05-01"
+            }
+          ],
+          "isDerived": true
+        },
+        {
+          "quarter": "2026Q3",
+          "metric": "capex",
+          "value": 45000000,
+          "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+          "accession": null,
+          "filed": null,
+          "derivedFrom": [
+            "0001628280-26-029401",
+            "0001628280-26-004407"
+          ],
+          "sourceFilings": [
+            {
+              "accession": "0001628280-26-004407",
+              "filed": "2026-01-30"
+            },
+            {
+              "accession": "0001628280-26-029401",
+              "filed": "2026-05-01"
+            }
+          ],
+          "isDerived": true
+        },
+        {
+          "quarter": "2026Q4",
+          "metric": "operatingCashFlow",
+          "value": 7126000000,
+          "concept": "NetCashProvidedByUsedInOperatingActivities",
+          "accession": null,
+          "filed": null,
+          "derivedFrom": [
+            "0001628280-26-057406",
+            "0001628280-26-029401"
+          ],
+          "sourceFilings": [
+            {
+              "accession": "0001628280-26-029401",
+              "filed": "2026-05-01"
+            },
+            {
+              "accession": "0001628280-26-057406",
+              "filed": "2026-08-17"
+            }
+          ],
+          "isDerived": true
+        },
+        {
+          "quarter": "2026Q4",
+          "metric": "capex",
+          "value": 43000000,
+          "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+          "accession": null,
+          "filed": null,
+          "derivedFrom": [
+            "0001628280-26-057406",
+            "0001628280-26-029401"
+          ],
+          "sourceFilings": [
+            {
+              "accession": "0001628280-26-029401",
+              "filed": "2026-05-01"
+            },
+            {
+              "accession": "0001628280-26-057406",
+              "filed": "2026-08-17"
+            }
+          ],
+          "isDerived": true
+        }
+      ],
+      "filed": "2026-08-17"
+    },
+    "ttmFcfPerShare": {
+      "value": null,
+      "unit": "USD/shares",
+      "isDerived": true,
+      "derivationMethod": "incomplete_quarters",
+      "notes": "One or more trailing quarters missing valid diluted share count",
+      "quartersIncluded": [
+        "2026Q1",
+        "2026Q2",
+        "2026Q3",
+        "2026Q4"
+      ],
+      "kind": "unavailable",
+      "qualityStatus": "unavailable",
+      "methodVersion": "ntm-sec-normalizer/1",
+      "currency": "USD",
+      "definition": "fcfPerShare:us-gaap:fcfPerShare:dilutedShares:WeightedAverageNumberOfDilutedSharesOutstanding|freeCashFlow:None",
+      "periodStart": "2025-06-28",
+      "periodEnd": "2026-07-03",
+      "period": "2026Q4",
+      "periodType": "TTM",
+      "source": "SEC-derived",
+      "sourceFilings": [],
+      "inputs": [
+        {
+          "quarter": "2026Q1",
+          "metric": "freeCashFlow",
+          "value": 438000000,
+          "concept": null,
+          "accession": null,
+          "filed": null,
+          "derivedFrom": [
+            "0001628280-25-050698",
+            "0001628280-25-050698"
+          ],
+          "sourceFilings": [
+            {
+              "accession": "0001628280-25-050698",
+              "filed": "2025-11-07"
+            }
+          ],
+          "isDerived": true
+        },
+        {
+          "quarter": "2026Q1",
+          "metric": "dilutedShares",
+          "value": null,
+          "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        },
+        {
+          "quarter": "2026Q2",
+          "metric": "freeCashFlow",
+          "value": 980000000,
+          "concept": null,
+          "accession": null,
+          "filed": null,
+          "derivedFrom": [
+            "operatingCashFlow",
+            "capex"
+          ],
+          "sourceFilings": [
+            {
+              "accession": "0001628280-25-050698",
+              "filed": "2025-11-07"
+            },
+            {
+              "accession": "0001628280-26-004407",
+              "filed": "2026-01-30"
+            }
+          ],
+          "isDerived": true
+        },
+        {
+          "quarter": "2026Q2",
+          "metric": "dilutedShares",
+          "value": null,
+          "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        },
+        {
+          "quarter": "2026Q3",
+          "metric": "freeCashFlow",
+          "value": 2993000000,
+          "concept": null,
+          "accession": null,
+          "filed": null,
+          "derivedFrom": [
+            "operatingCashFlow",
+            "capex"
+          ],
+          "sourceFilings": [
+            {
+              "accession": "0001628280-26-004407",
+              "filed": "2026-01-30"
+            },
+            {
+              "accession": "0001628280-26-029401",
+              "filed": "2026-05-01"
+            }
+          ],
+          "isDerived": true
+        },
+        {
+          "quarter": "2026Q3",
+          "metric": "dilutedShares",
+          "value": null,
+          "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        },
+        {
+          "quarter": "2026Q4",
+          "metric": "freeCashFlow",
+          "value": 7083000000,
+          "concept": null,
+          "accession": null,
+          "filed": null,
+          "derivedFrom": [
+            "operatingCashFlow",
+            "capex"
+          ],
+          "sourceFilings": [
+            {
+              "accession": "0001628280-26-029401",
+              "filed": "2026-05-01"
+            },
+            {
+              "accession": "0001628280-26-057406",
+              "filed": "2026-08-17"
+            }
+          ],
+          "isDerived": true
+        },
+        {
+          "quarter": "2026Q4",
+          "metric": "dilutedShares",
+          "value": null,
+          "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+          "accession": null,
+          "filed": null,
+          "derivedFrom": null,
+          "sourceFilings": null,
+          "isDerived": false
+        }
+      ],
+      "filed": "2026-08-17",
+      "shareBasis": null,
+      "shareBasisStatus": "unverified"
+    }
+  },
+  "annual": [
+    {
+      "fiscalYear": 2026,
+      "period": "FY2026",
+      "periodStart": "2025-06-28",
+      "periodEnd": "2026-07-03",
+      "filingDate": "2026-08-17",
+      "form": "10-K",
+      "accession": "0001628280-26-057406",
+      "metrics": {
+        "revenue": {
+          "value": 20248000000,
+          "unit": "USD",
+          "period": "FY2026",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "label": "revenue",
+          "form": "10-K",
+          "filed": "2026-08-17",
+          "accession": "0001628280-26-057406",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "revenue:us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "periodType": "annual"
+        },
+        "operatingIncome": {
+          "value": 12389000000,
+          "unit": "USD",
+          "period": "FY2026",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "OperatingIncomeLoss",
+          "label": "operatingIncome",
+          "form": "10-K",
+          "filed": "2026-08-17",
+          "accession": "0001628280-26-057406",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "operatingIncome:us-gaap:OperatingIncomeLoss",
+          "periodType": "annual"
+        },
+        "netIncome": {
+          "value": 11433000000,
+          "unit": "USD",
+          "period": "FY2026",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "NetIncomeLoss",
+          "label": "netIncome",
+          "form": "10-K",
+          "filed": "2026-08-17",
+          "accession": "0001628280-26-057406",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "netIncome:us-gaap:NetIncomeLoss",
+          "periodType": "annual"
+        },
+        "dilutedEps": {
+          "value": null,
+          "unit": "USD/shares",
+          "period": "FY2026",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "EarningsPerShareDiluted",
+          "label": "dilutedEps",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "dilutedEps:us-gaap:EarningsPerShareDiluted",
+          "periodType": "annual",
+          "shareBasis": null,
+          "shareBasisStatus": "unverified"
+        },
+        "dilutedShares": {
+          "value": null,
+          "unit": "shares",
+          "period": "FY2026",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+          "label": "dilutedShares",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": null,
+          "definition": "dilutedShares:us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+          "periodType": "annual",
+          "shareBasis": null,
+          "shareBasisStatus": "unverified"
+        },
+        "cashAndCashEquivalents": {
+          "value": 4762000000,
+          "unit": "USD",
+          "period": "FY2026",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "CashAndCashEquivalentsAtCarryingValue",
+          "label": "cashAndCashEquivalents",
+          "form": "10-K",
+          "filed": "2026-08-17",
+          "accession": "0001628280-26-057406",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "cashAndCashEquivalents:us-gaap:CashAndCashEquivalentsAtCarryingValue",
+          "periodType": "annual"
+        },
+        "totalAssets": {
+          "value": 22507000000,
+          "unit": "USD",
+          "period": "FY2026",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "Assets",
+          "label": "totalAssets",
+          "form": "10-K",
+          "filed": "2026-08-17",
+          "accession": "0001628280-26-057406",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "totalAssets:us-gaap:Assets",
+          "periodType": "annual"
+        },
+        "totalLiabilities": {
+          "value": 6771000000,
+          "unit": "USD",
+          "period": "FY2026",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "Liabilities",
+          "label": "totalLiabilities",
+          "form": "10-K",
+          "filed": "2026-08-17",
+          "accession": "0001628280-26-057406",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "totalLiabilities:us-gaap:Liabilities",
+          "periodType": "annual"
+        },
+        "stockholdersEquity": {
+          "value": 15736000000,
+          "unit": "USD",
+          "period": "FY2026",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "StockholdersEquity",
+          "label": "stockholdersEquity",
+          "form": "10-K",
+          "filed": "2026-08-17",
+          "accession": "0001628280-26-057406",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "stockholdersEquity:us-gaap:StockholdersEquity",
+          "periodType": "annual"
+        },
+        "operatingCashFlow": {
+          "value": 11671000000,
+          "unit": "USD",
+          "period": "FY2026",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "NetCashProvidedByUsedInOperatingActivities",
+          "label": "operatingCashFlow",
+          "form": "10-K",
+          "filed": "2026-08-17",
+          "accession": "0001628280-26-057406",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "operatingCashFlow:us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "periodType": "annual"
+        },
+        "capex": {
+          "value": 177000000,
+          "unit": "USD",
+          "period": "FY2026",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+          "label": "capex",
+          "form": "10-K",
+          "filed": "2026-08-17",
+          "accession": "0001628280-26-057406",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "capex:us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "periodType": "annual"
+        },
+        "stockBasedCompensation": {
+          "value": 232000000,
+          "unit": "USD",
+          "period": "FY2026",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "ShareBasedCompensation",
+          "label": "stockBasedCompensation",
+          "form": "10-K",
+          "filed": "2026-08-17",
+          "accession": "0001628280-26-057406",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "stockBasedCompensation:us-gaap:ShareBasedCompensation",
+          "periodType": "annual"
+        },
+        "netIncomeToCommon": {
+          "value": null,
+          "unit": "USD",
+          "period": "FY2026",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": null,
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "A reconciled diluted/common numerator is not verified. Consolidated net income is not a substitute; enter EPS manually for valuation.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "netIncomeToCommon:us-gaap:netIncomeToCommon",
+          "periodType": "annual"
+        },
+        "debt": {
+          "value": null,
+          "unit": "USD",
+          "period": "FY2026",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": null,
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "A complete comparable debt scope is not verified for this coverage profile; no partial debt is labelled total debt.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "debt:us-gaap:debt",
+          "periodType": "annual"
+        },
+        "deferredRevenue": {
+          "value": null,
+          "unit": "USD",
+          "period": "FY2026",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": null,
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "No comparable combined current/noncurrent contract-liability mapping is configured.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "deferredRevenue:us-gaap:deferredRevenue",
+          "periodType": "annual"
+        },
+        "freeCashFlow": {
+          "value": 11494000000,
+          "unit": "USD",
+          "period": "FY2026",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2026-07-03",
+          "source": "SEC-derived",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": "Free Cash Flow (OCF minus cash PP&E purchases)",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": true,
+          "derivationNotes": "Free Cash Flow computed as Operating Cash Flow minus CapEx",
+          "derivedFrom": [
+            "0001628280-26-057406",
+            "0001628280-26-057406"
+          ],
+          "kind": "derived",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "freeCashFlow:us-gaap:freeCashFlow",
+          "periodType": "annual",
+          "derivationMethod": "operatingCashFlow_minus_capex",
+          "sourceFilings": [
+            {
+              "accession": "0001628280-26-057406",
+              "filed": "2026-08-17"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "quarterly": [
+    {
+      "fiscalYear": 2026,
+      "fiscalPeriod": "Q1",
+      "period": "2026Q1",
+      "periodStart": "2025-06-28",
+      "periodEnd": "2025-10-03",
+      "filingDate": "2025-11-07",
+      "form": "10-Q",
+      "accession": "0001628280-25-050698",
+      "metrics": {
+        "revenue": {
+          "value": 2308000000,
+          "unit": "USD",
+          "period": "2026Q1",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2025-10-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "label": "revenue",
+          "form": "10-Q",
+          "filed": "2025-11-07",
+          "accession": "0001628280-25-050698",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "revenue:us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "periodType": "quarter"
+        },
+        "operatingIncome": {
+          "value": 176000000,
+          "unit": "USD",
+          "period": "2026Q1",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2025-10-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "OperatingIncomeLoss",
+          "label": "operatingIncome",
+          "form": "10-Q",
+          "filed": "2025-11-07",
+          "accession": "0001628280-25-050698",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "operatingIncome:us-gaap:OperatingIncomeLoss",
+          "periodType": "quarter"
+        },
+        "netIncome": {
+          "value": 112000000,
+          "unit": "USD",
+          "period": "2026Q1",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2025-10-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "NetIncomeLoss",
+          "label": "netIncome",
+          "form": "10-Q",
+          "filed": "2026-05-01",
+          "accession": "0001628280-26-029401",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "netIncome:us-gaap:NetIncomeLoss",
+          "periodType": "quarter"
+        },
+        "dilutedEps": {
+          "value": null,
+          "unit": "USD/shares",
+          "period": "2026Q1",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2025-10-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "EarningsPerShareDiluted",
+          "label": "dilutedEps",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "dilutedEps:us-gaap:EarningsPerShareDiluted",
+          "periodType": "quarter",
+          "shareBasis": null,
+          "shareBasisStatus": "unverified"
+        },
+        "dilutedShares": {
+          "value": null,
+          "unit": "shares",
+          "period": "2026Q1",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2025-10-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+          "label": "dilutedShares",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": null,
+          "definition": "dilutedShares:us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+          "periodType": "quarter",
+          "shareBasis": null,
+          "shareBasisStatus": "unverified"
+        },
+        "cashAndCashEquivalents": {
+          "value": 1442000000,
+          "unit": "USD",
+          "period": "2026Q1",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2025-10-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "CashAndCashEquivalentsAtCarryingValue",
+          "label": "cashAndCashEquivalents",
+          "form": "10-Q",
+          "filed": "2025-11-07",
+          "accession": "0001628280-25-050698",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "cashAndCashEquivalents:us-gaap:CashAndCashEquivalentsAtCarryingValue",
+          "periodType": "quarter"
+        },
+        "totalAssets": {
+          "value": 12749000000,
+          "unit": "USD",
+          "period": "2026Q1",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2025-10-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "Assets",
+          "label": "totalAssets",
+          "form": "10-Q",
+          "filed": "2025-11-07",
+          "accession": "0001628280-25-050698",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "totalAssets:us-gaap:Assets",
+          "periodType": "quarter"
+        },
+        "totalLiabilities": {
+          "value": 3368000000,
+          "unit": "USD",
+          "period": "2026Q1",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2025-10-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "Liabilities",
+          "label": "totalLiabilities",
+          "form": "10-Q",
+          "filed": "2025-11-07",
+          "accession": "0001628280-25-050698",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "totalLiabilities:us-gaap:Liabilities",
+          "periodType": "quarter"
+        },
+        "stockholdersEquity": {
+          "value": 9381000000,
+          "unit": "USD",
+          "period": "2026Q1",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2025-10-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "StockholdersEquity",
+          "label": "stockholdersEquity",
+          "form": "10-Q",
+          "filed": "2026-05-01",
+          "accession": "0001628280-26-029401",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "stockholdersEquity:us-gaap:StockholdersEquity",
+          "periodType": "quarter"
+        },
+        "operatingCashFlow": {
+          "value": 488000000,
+          "unit": "USD",
+          "period": "2026Q1",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2025-10-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "NetCashProvidedByUsedInOperatingActivities",
+          "label": "operatingCashFlow",
+          "form": "10-Q",
+          "filed": "2025-11-07",
+          "accession": "0001628280-25-050698",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "operatingCashFlow:us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "periodType": "quarter"
+        },
+        "capex": {
+          "value": 50000000,
+          "unit": "USD",
+          "period": "2026Q1",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2025-10-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+          "label": "capex",
+          "form": "10-Q",
+          "filed": "2025-11-07",
+          "accession": "0001628280-25-050698",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "capex:us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "periodType": "quarter"
+        },
+        "stockBasedCompensation": {
+          "value": 53000000,
+          "unit": "USD",
+          "period": "2026Q1",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2025-10-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "ShareBasedCompensation",
+          "label": "stockBasedCompensation",
+          "form": "10-Q",
+          "filed": "2025-11-07",
+          "accession": "0001628280-25-050698",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "stockBasedCompensation:us-gaap:ShareBasedCompensation",
+          "periodType": "quarter"
+        },
+        "netIncomeToCommon": {
+          "value": null,
+          "unit": "USD",
+          "period": "2026Q1",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2025-10-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": null,
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "A reconciled diluted/common numerator is not verified. Consolidated net income is not a substitute; enter EPS manually for valuation.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "netIncomeToCommon:us-gaap:netIncomeToCommon",
+          "periodType": "quarter"
+        },
+        "debt": {
+          "value": null,
+          "unit": "USD",
+          "period": "2026Q1",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2025-10-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": null,
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "A complete comparable debt scope is not verified for this coverage profile; no partial debt is labelled total debt.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "debt:us-gaap:debt",
+          "periodType": "quarter"
+        },
+        "deferredRevenue": {
+          "value": null,
+          "unit": "USD",
+          "period": "2026Q1",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2025-10-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": null,
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "No comparable combined current/noncurrent contract-liability mapping is configured.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "deferredRevenue:us-gaap:deferredRevenue",
+          "periodType": "quarter"
+        },
+        "freeCashFlow": {
+          "value": 438000000,
+          "unit": "USD",
+          "period": "2026Q1",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2025-10-03",
+          "source": "SEC-derived",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": "Free Cash Flow (OCF minus cash PP&E purchases)",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": true,
+          "derivationNotes": "Free Cash Flow computed as Operating Cash Flow minus CapEx",
+          "derivedFrom": [
+            "0001628280-25-050698",
+            "0001628280-25-050698"
+          ],
+          "kind": "derived",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "freeCashFlow:us-gaap:freeCashFlow",
+          "periodType": "quarter",
+          "derivationMethod": "operatingCashFlow_minus_capex",
+          "sourceFilings": [
+            {
+              "accession": "0001628280-25-050698",
+              "filed": "2025-11-07"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fiscalYear": 2026,
+      "fiscalPeriod": "Q2",
+      "period": "2026Q2",
+      "periodStart": "2025-10-04",
+      "periodEnd": "2026-01-02",
+      "filingDate": "2026-01-30",
+      "form": "10-Q",
+      "accession": "0001628280-26-004407",
+      "metrics": {
+        "revenue": {
+          "value": 3025000000,
+          "unit": "USD",
+          "period": "2026Q2",
+          "periodStart": "2025-10-04",
+          "periodEnd": "2026-01-02",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "label": "revenue",
+          "form": "10-Q",
+          "filed": "2026-01-30",
+          "accession": "0001628280-26-004407",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "revenue:us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "periodType": "quarter"
+        },
+        "operatingIncome": {
+          "value": 1065000000,
+          "unit": "USD",
+          "period": "2026Q2",
+          "periodStart": "2025-10-04",
+          "periodEnd": "2026-01-02",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "OperatingIncomeLoss",
+          "label": "operatingIncome",
+          "form": "10-Q",
+          "filed": "2026-01-30",
+          "accession": "0001628280-26-004407",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "operatingIncome:us-gaap:OperatingIncomeLoss",
+          "periodType": "quarter"
+        },
+        "netIncome": {
+          "value": 803000000,
+          "unit": "USD",
+          "period": "2026Q2",
+          "periodStart": "2025-10-04",
+          "periodEnd": "2026-01-02",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "NetIncomeLoss",
+          "label": "netIncome",
+          "form": "10-Q",
+          "filed": "2026-05-01",
+          "accession": "0001628280-26-029401",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "netIncome:us-gaap:NetIncomeLoss",
+          "periodType": "quarter"
+        },
+        "dilutedEps": {
+          "value": null,
+          "unit": "USD/shares",
+          "period": "2026Q2",
+          "periodStart": "2025-10-04",
+          "periodEnd": "2026-01-02",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "EarningsPerShareDiluted",
+          "label": "dilutedEps",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "dilutedEps:us-gaap:EarningsPerShareDiluted",
+          "periodType": "quarter",
+          "shareBasis": null,
+          "shareBasisStatus": "unverified"
+        },
+        "dilutedShares": {
+          "value": null,
+          "unit": "shares",
+          "period": "2026Q2",
+          "periodStart": "2025-10-04",
+          "periodEnd": "2026-01-02",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+          "label": "dilutedShares",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": null,
+          "definition": "dilutedShares:us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+          "periodType": "quarter",
+          "shareBasis": null,
+          "shareBasisStatus": "unverified"
+        },
+        "cashAndCashEquivalents": {
+          "value": 1539000000,
+          "unit": "USD",
+          "period": "2026Q2",
+          "periodStart": "2025-10-04",
+          "periodEnd": "2026-01-02",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "CashAndCashEquivalentsAtCarryingValue",
+          "label": "cashAndCashEquivalents",
+          "form": "10-Q",
+          "filed": "2026-01-30",
+          "accession": "0001628280-26-004407",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "cashAndCashEquivalents:us-gaap:CashAndCashEquivalentsAtCarryingValue",
+          "periodType": "quarter"
+        },
+        "totalAssets": {
+          "value": 12998000000,
+          "unit": "USD",
+          "period": "2026Q2",
+          "periodStart": "2025-10-04",
+          "periodEnd": "2026-01-02",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "Assets",
+          "label": "totalAssets",
+          "form": "10-Q",
+          "filed": "2026-01-30",
+          "accession": "0001628280-26-004407",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "totalAssets:us-gaap:Assets",
+          "periodType": "quarter"
+        },
+        "totalLiabilities": {
+          "value": 2785000000,
+          "unit": "USD",
+          "period": "2026Q2",
+          "periodStart": "2025-10-04",
+          "periodEnd": "2026-01-02",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "Liabilities",
+          "label": "totalLiabilities",
+          "form": "10-Q",
+          "filed": "2026-01-30",
+          "accession": "0001628280-26-004407",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "totalLiabilities:us-gaap:Liabilities",
+          "periodType": "quarter"
+        },
+        "stockholdersEquity": {
+          "value": 10213000000,
+          "unit": "USD",
+          "period": "2026Q2",
+          "periodStart": "2025-10-04",
+          "periodEnd": "2026-01-02",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "StockholdersEquity",
+          "label": "stockholdersEquity",
+          "form": "10-Q",
+          "filed": "2026-05-01",
+          "accession": "0001628280-26-029401",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "stockholdersEquity:us-gaap:StockholdersEquity",
+          "periodType": "quarter"
+        },
+        "operatingCashFlow": {
+          "value": 1019000000,
+          "unit": "USD",
+          "period": "2026Q2",
+          "periodStart": "2025-10-04",
+          "periodEnd": "2026-01-02",
+          "source": "SEC-derived",
+          "taxonomy": "us-gaap",
+          "concept": "NetCashProvidedByUsedInOperatingActivities",
+          "label": "operatingCashFlow",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": true,
+          "derivationNotes": "Derived standalone quarter flow via YTD_6M_minus_Q1_3M",
+          "derivedFrom": [
+            "0001628280-26-004407",
+            "0001628280-25-050698"
+          ],
+          "kind": "derived",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "operatingCashFlow:us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "periodType": "quarter",
+          "derivationMethod": "standalone_period_difference",
+          "sourceFilings": [
+            {
+              "accession": "0001628280-25-050698",
+              "filed": "2025-11-07"
+            },
+            {
+              "accession": "0001628280-26-004407",
+              "filed": "2026-01-30"
+            }
+          ]
+        },
+        "capex": {
+          "value": 39000000,
+          "unit": "USD",
+          "period": "2026Q2",
+          "periodStart": "2025-10-04",
+          "periodEnd": "2026-01-02",
+          "source": "SEC-derived",
+          "taxonomy": "us-gaap",
+          "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+          "label": "capex",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": true,
+          "derivationNotes": "Derived standalone quarter flow via YTD_6M_minus_Q1_3M",
+          "derivedFrom": [
+            "0001628280-26-004407",
+            "0001628280-25-050698"
+          ],
+          "kind": "derived",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "capex:us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "periodType": "quarter",
+          "derivationMethod": "standalone_period_difference",
+          "sourceFilings": [
+            {
+              "accession": "0001628280-25-050698",
+              "filed": "2025-11-07"
+            },
+            {
+              "accession": "0001628280-26-004407",
+              "filed": "2026-01-30"
+            }
+          ]
+        },
+        "stockBasedCompensation": {
+          "value": 58000000,
+          "unit": "USD",
+          "period": "2026Q2",
+          "periodStart": "2025-10-04",
+          "periodEnd": "2026-01-02",
+          "source": "SEC-derived",
+          "taxonomy": "us-gaap",
+          "concept": "ShareBasedCompensation",
+          "label": "stockBasedCompensation",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": true,
+          "derivationNotes": "Derived standalone quarter flow via YTD_6M_minus_Q1_3M",
+          "derivedFrom": [
+            "0001628280-26-004407",
+            "0001628280-25-050698"
+          ],
+          "kind": "derived",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "stockBasedCompensation:us-gaap:ShareBasedCompensation",
+          "periodType": "quarter",
+          "derivationMethod": "standalone_period_difference",
+          "sourceFilings": [
+            {
+              "accession": "0001628280-25-050698",
+              "filed": "2025-11-07"
+            },
+            {
+              "accession": "0001628280-26-004407",
+              "filed": "2026-01-30"
+            }
+          ]
+        },
+        "netIncomeToCommon": {
+          "value": null,
+          "unit": "USD",
+          "period": "2026Q2",
+          "periodStart": "2025-10-04",
+          "periodEnd": "2026-01-02",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": null,
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "A reconciled diluted/common numerator is not verified. Consolidated net income is not a substitute; enter EPS manually for valuation.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "netIncomeToCommon:us-gaap:netIncomeToCommon",
+          "periodType": "quarter"
+        },
+        "debt": {
+          "value": null,
+          "unit": "USD",
+          "period": "2026Q2",
+          "periodStart": "2025-10-04",
+          "periodEnd": "2026-01-02",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": null,
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "A complete comparable debt scope is not verified for this coverage profile; no partial debt is labelled total debt.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "debt:us-gaap:debt",
+          "periodType": "quarter"
+        },
+        "deferredRevenue": {
+          "value": null,
+          "unit": "USD",
+          "period": "2026Q2",
+          "periodStart": "2025-10-04",
+          "periodEnd": "2026-01-02",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": null,
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "No comparable combined current/noncurrent contract-liability mapping is configured.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "deferredRevenue:us-gaap:deferredRevenue",
+          "periodType": "quarter"
+        },
+        "freeCashFlow": {
+          "value": 980000000,
+          "unit": "USD",
+          "period": "2026Q2",
+          "periodStart": "2025-10-04",
+          "periodEnd": "2026-01-02",
+          "source": "SEC-derived",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": "Free Cash Flow (OCF minus cash PP&E purchases)",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": true,
+          "derivationNotes": "Free Cash Flow computed as Operating Cash Flow minus CapEx",
+          "derivedFrom": [
+            "operatingCashFlow",
+            "capex"
+          ],
+          "kind": "derived",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "freeCashFlow:us-gaap:freeCashFlow",
+          "periodType": "quarter",
+          "derivationMethod": "operatingCashFlow_minus_capex",
+          "sourceFilings": [
+            {
+              "accession": "0001628280-25-050698",
+              "filed": "2025-11-07"
+            },
+            {
+              "accession": "0001628280-26-004407",
+              "filed": "2026-01-30"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fiscalYear": 2026,
+      "fiscalPeriod": "Q3",
+      "period": "2026Q3",
+      "periodStart": "2026-01-03",
+      "periodEnd": "2026-04-03",
+      "filingDate": "2026-05-01",
+      "form": "10-Q",
+      "accession": "0001628280-26-029401",
+      "metrics": {
+        "revenue": {
+          "value": 5950000000,
+          "unit": "USD",
+          "period": "2026Q3",
+          "periodStart": "2026-01-03",
+          "periodEnd": "2026-04-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "label": "revenue",
+          "form": "10-Q",
+          "filed": "2026-05-01",
+          "accession": "0001628280-26-029401",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "revenue:us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "periodType": "quarter"
+        },
+        "operatingIncome": {
+          "value": 4111000000,
+          "unit": "USD",
+          "period": "2026Q3",
+          "periodStart": "2026-01-03",
+          "periodEnd": "2026-04-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "OperatingIncomeLoss",
+          "label": "operatingIncome",
+          "form": "10-Q",
+          "filed": "2026-05-01",
+          "accession": "0001628280-26-029401",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "operatingIncome:us-gaap:OperatingIncomeLoss",
+          "periodType": "quarter"
+        },
+        "netIncome": {
+          "value": 3615000000,
+          "unit": "USD",
+          "period": "2026Q3",
+          "periodStart": "2026-01-03",
+          "periodEnd": "2026-04-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "NetIncomeLoss",
+          "label": "netIncome",
+          "form": "10-Q",
+          "filed": "2026-05-01",
+          "accession": "0001628280-26-029401",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "netIncome:us-gaap:NetIncomeLoss",
+          "periodType": "quarter"
+        },
+        "dilutedEps": {
+          "value": null,
+          "unit": "USD/shares",
+          "period": "2026Q3",
+          "periodStart": "2026-01-03",
+          "periodEnd": "2026-04-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "EarningsPerShareDiluted",
+          "label": "dilutedEps",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "dilutedEps:us-gaap:EarningsPerShareDiluted",
+          "periodType": "quarter",
+          "shareBasis": null,
+          "shareBasisStatus": "unverified"
+        },
+        "dilutedShares": {
+          "value": null,
+          "unit": "shares",
+          "period": "2026Q3",
+          "periodStart": "2026-01-03",
+          "periodEnd": "2026-04-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+          "label": "dilutedShares",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": null,
+          "definition": "dilutedShares:us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+          "periodType": "quarter",
+          "shareBasis": null,
+          "shareBasisStatus": "unverified"
+        },
+        "cashAndCashEquivalents": {
+          "value": 3735000000,
+          "unit": "USD",
+          "period": "2026Q3",
+          "periodStart": "2026-01-03",
+          "periodEnd": "2026-04-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "CashAndCashEquivalentsAtCarryingValue",
+          "label": "cashAndCashEquivalents",
+          "form": "10-Q",
+          "filed": "2026-05-01",
+          "accession": "0001628280-26-029401",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "cashAndCashEquivalents:us-gaap:CashAndCashEquivalentsAtCarryingValue",
+          "periodType": "quarter"
+        },
+        "totalAssets": {
+          "value": 17075000000,
+          "unit": "USD",
+          "period": "2026Q3",
+          "periodStart": "2026-01-03",
+          "periodEnd": "2026-04-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "Assets",
+          "label": "totalAssets",
+          "form": "10-Q",
+          "filed": "2026-05-01",
+          "accession": "0001628280-26-029401",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "totalAssets:us-gaap:Assets",
+          "periodType": "quarter"
+        },
+        "totalLiabilities": {
+          "value": 3298000000,
+          "unit": "USD",
+          "period": "2026Q3",
+          "periodStart": "2026-01-03",
+          "periodEnd": "2026-04-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "Liabilities",
+          "label": "totalLiabilities",
+          "form": "10-Q",
+          "filed": "2026-05-01",
+          "accession": "0001628280-26-029401",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "totalLiabilities:us-gaap:Liabilities",
+          "periodType": "quarter"
+        },
+        "stockholdersEquity": {
+          "value": 13777000000,
+          "unit": "USD",
+          "period": "2026Q3",
+          "periodStart": "2026-01-03",
+          "periodEnd": "2026-04-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "StockholdersEquity",
+          "label": "stockholdersEquity",
+          "form": "10-Q",
+          "filed": "2026-05-01",
+          "accession": "0001628280-26-029401",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "stockholdersEquity:us-gaap:StockholdersEquity",
+          "periodType": "quarter"
+        },
+        "operatingCashFlow": {
+          "value": 3038000000,
+          "unit": "USD",
+          "period": "2026Q3",
+          "periodStart": "2026-01-03",
+          "periodEnd": "2026-04-03",
+          "source": "SEC-derived",
+          "taxonomy": "us-gaap",
+          "concept": "NetCashProvidedByUsedInOperatingActivities",
+          "label": "operatingCashFlow",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": true,
+          "derivationNotes": "Derived standalone quarter flow via YTD_9M_minus_YTD_6M",
+          "derivedFrom": [
+            "0001628280-26-029401",
+            "0001628280-26-004407"
+          ],
+          "kind": "derived",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "operatingCashFlow:us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "periodType": "quarter",
+          "derivationMethod": "standalone_period_difference",
+          "sourceFilings": [
+            {
+              "accession": "0001628280-26-004407",
+              "filed": "2026-01-30"
+            },
+            {
+              "accession": "0001628280-26-029401",
+              "filed": "2026-05-01"
+            }
+          ]
+        },
+        "capex": {
+          "value": 45000000,
+          "unit": "USD",
+          "period": "2026Q3",
+          "periodStart": "2026-01-03",
+          "periodEnd": "2026-04-03",
+          "source": "SEC-derived",
+          "taxonomy": "us-gaap",
+          "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+          "label": "capex",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": true,
+          "derivationNotes": "Derived standalone quarter flow via YTD_9M_minus_YTD_6M",
+          "derivedFrom": [
+            "0001628280-26-029401",
+            "0001628280-26-004407"
+          ],
+          "kind": "derived",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "capex:us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "periodType": "quarter",
+          "derivationMethod": "standalone_period_difference",
+          "sourceFilings": [
+            {
+              "accession": "0001628280-26-004407",
+              "filed": "2026-01-30"
+            },
+            {
+              "accession": "0001628280-26-029401",
+              "filed": "2026-05-01"
+            }
+          ]
+        },
+        "stockBasedCompensation": {
+          "value": 54000000,
+          "unit": "USD",
+          "period": "2026Q3",
+          "periodStart": "2026-01-03",
+          "periodEnd": "2026-04-03",
+          "source": "SEC-derived",
+          "taxonomy": "us-gaap",
+          "concept": "ShareBasedCompensation",
+          "label": "stockBasedCompensation",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": true,
+          "derivationNotes": "Derived standalone quarter flow via YTD_9M_minus_YTD_6M",
+          "derivedFrom": [
+            "0001628280-26-029401",
+            "0001628280-26-004407"
+          ],
+          "kind": "derived",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "stockBasedCompensation:us-gaap:ShareBasedCompensation",
+          "periodType": "quarter",
+          "derivationMethod": "standalone_period_difference",
+          "sourceFilings": [
+            {
+              "accession": "0001628280-26-004407",
+              "filed": "2026-01-30"
+            },
+            {
+              "accession": "0001628280-26-029401",
+              "filed": "2026-05-01"
+            }
+          ]
+        },
+        "netIncomeToCommon": {
+          "value": null,
+          "unit": "USD",
+          "period": "2026Q3",
+          "periodStart": "2026-01-03",
+          "periodEnd": "2026-04-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": null,
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "A reconciled diluted/common numerator is not verified. Consolidated net income is not a substitute; enter EPS manually for valuation.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "netIncomeToCommon:us-gaap:netIncomeToCommon",
+          "periodType": "quarter"
+        },
+        "debt": {
+          "value": null,
+          "unit": "USD",
+          "period": "2026Q3",
+          "periodStart": "2026-01-03",
+          "periodEnd": "2026-04-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": null,
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "A complete comparable debt scope is not verified for this coverage profile; no partial debt is labelled total debt.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "debt:us-gaap:debt",
+          "periodType": "quarter"
+        },
+        "deferredRevenue": {
+          "value": null,
+          "unit": "USD",
+          "period": "2026Q3",
+          "periodStart": "2026-01-03",
+          "periodEnd": "2026-04-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": null,
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "No comparable combined current/noncurrent contract-liability mapping is configured.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "deferredRevenue:us-gaap:deferredRevenue",
+          "periodType": "quarter"
+        },
+        "freeCashFlow": {
+          "value": 2993000000,
+          "unit": "USD",
+          "period": "2026Q3",
+          "periodStart": "2026-01-03",
+          "periodEnd": "2026-04-03",
+          "source": "SEC-derived",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": "Free Cash Flow (OCF minus cash PP&E purchases)",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": true,
+          "derivationNotes": "Free Cash Flow computed as Operating Cash Flow minus CapEx",
+          "derivedFrom": [
+            "operatingCashFlow",
+            "capex"
+          ],
+          "kind": "derived",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "freeCashFlow:us-gaap:freeCashFlow",
+          "periodType": "quarter",
+          "derivationMethod": "operatingCashFlow_minus_capex",
+          "sourceFilings": [
+            {
+              "accession": "0001628280-26-004407",
+              "filed": "2026-01-30"
+            },
+            {
+              "accession": "0001628280-26-029401",
+              "filed": "2026-05-01"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fiscalYear": 2026,
+      "fiscalPeriod": "Q4",
+      "period": "2026Q4",
+      "periodStart": "2026-04-04",
+      "periodEnd": "2026-07-03",
+      "filingDate": "2026-08-17",
+      "form": "10-K",
+      "accession": "0001628280-26-057406",
+      "metrics": {
+        "revenue": {
+          "value": 8965000000,
+          "unit": "USD",
+          "period": "2026Q4",
+          "periodStart": "2026-04-04",
+          "periodEnd": "2026-07-03",
+          "source": "SEC-derived",
+          "taxonomy": "us-gaap",
+          "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "label": "revenue",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": true,
+          "derivationNotes": "Derived standalone quarter flow via FY_12M_minus_YTD_9M",
+          "derivedFrom": [
+            "0001628280-26-057406",
+            "0001628280-26-029401"
+          ],
+          "kind": "derived",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "revenue:us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "periodType": "quarter",
+          "derivationMethod": "standalone_period_difference",
+          "sourceFilings": [
+            {
+              "accession": "0001628280-26-029401",
+              "filed": "2026-05-01"
+            },
+            {
+              "accession": "0001628280-26-057406",
+              "filed": "2026-08-17"
+            }
+          ]
+        },
+        "operatingIncome": {
+          "value": 7037000000,
+          "unit": "USD",
+          "period": "2026Q4",
+          "periodStart": "2026-04-04",
+          "periodEnd": "2026-07-03",
+          "source": "SEC-derived",
+          "taxonomy": "us-gaap",
+          "concept": "OperatingIncomeLoss",
+          "label": "operatingIncome",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": true,
+          "derivationNotes": "Derived standalone quarter flow via FY_12M_minus_YTD_9M",
+          "derivedFrom": [
+            "0001628280-26-057406",
+            "0001628280-26-029401"
+          ],
+          "kind": "derived",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "operatingIncome:us-gaap:OperatingIncomeLoss",
+          "periodType": "quarter",
+          "derivationMethod": "standalone_period_difference",
+          "sourceFilings": [
+            {
+              "accession": "0001628280-26-029401",
+              "filed": "2026-05-01"
+            },
+            {
+              "accession": "0001628280-26-057406",
+              "filed": "2026-08-17"
+            }
+          ]
+        },
+        "netIncome": {
+          "value": 6903000000,
+          "unit": "USD",
+          "period": "2026Q4",
+          "periodStart": "2026-04-04",
+          "periodEnd": "2026-07-03",
+          "source": "SEC-derived",
+          "taxonomy": "us-gaap",
+          "concept": "NetIncomeLoss",
+          "label": "netIncome",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": true,
+          "derivationNotes": "Derived standalone quarter flow via FY_12M_minus_YTD_9M",
+          "derivedFrom": [
+            "0001628280-26-057406",
+            "0001628280-26-029401"
+          ],
+          "kind": "derived",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "netIncome:us-gaap:NetIncomeLoss",
+          "periodType": "quarter",
+          "derivationMethod": "standalone_period_difference",
+          "sourceFilings": [
+            {
+              "accession": "0001628280-26-029401",
+              "filed": "2026-05-01"
+            },
+            {
+              "accession": "0001628280-26-057406",
+              "filed": "2026-08-17"
+            }
+          ]
+        },
+        "dilutedEps": {
+          "value": null,
+          "unit": "USD/shares",
+          "period": "2026Q4",
+          "periodStart": "2026-04-04",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "EarningsPerShareDiluted",
+          "label": "dilutedEps",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "dilutedEps:us-gaap:EarningsPerShareDiluted",
+          "periodType": "quarter",
+          "shareBasis": null,
+          "shareBasisStatus": "unverified"
+        },
+        "dilutedShares": {
+          "value": null,
+          "unit": "shares",
+          "period": "2026Q4",
+          "periodStart": "2026-04-04",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+          "label": "dilutedShares",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": null,
+          "definition": "dilutedShares:us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+          "periodType": "quarter",
+          "shareBasis": null,
+          "shareBasisStatus": "unverified"
+        },
+        "cashAndCashEquivalents": {
+          "value": 4762000000,
+          "unit": "USD",
+          "period": "2026Q4",
+          "periodStart": "2026-04-04",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "CashAndCashEquivalentsAtCarryingValue",
+          "label": "cashAndCashEquivalents",
+          "form": "10-K",
+          "filed": "2026-08-17",
+          "accession": "0001628280-26-057406",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "cashAndCashEquivalents:us-gaap:CashAndCashEquivalentsAtCarryingValue",
+          "periodType": "quarter"
+        },
+        "totalAssets": {
+          "value": 22507000000,
+          "unit": "USD",
+          "period": "2026Q4",
+          "periodStart": "2026-04-04",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "Assets",
+          "label": "totalAssets",
+          "form": "10-K",
+          "filed": "2026-08-17",
+          "accession": "0001628280-26-057406",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "totalAssets:us-gaap:Assets",
+          "periodType": "quarter"
+        },
+        "totalLiabilities": {
+          "value": 6771000000,
+          "unit": "USD",
+          "period": "2026Q4",
+          "periodStart": "2026-04-04",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "Liabilities",
+          "label": "totalLiabilities",
+          "form": "10-K",
+          "filed": "2026-08-17",
+          "accession": "0001628280-26-057406",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "totalLiabilities:us-gaap:Liabilities",
+          "periodType": "quarter"
+        },
+        "stockholdersEquity": {
+          "value": 15736000000,
+          "unit": "USD",
+          "period": "2026Q4",
+          "periodStart": "2026-04-04",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": "StockholdersEquity",
+          "label": "stockholdersEquity",
+          "form": "10-K",
+          "filed": "2026-08-17",
+          "accession": "0001628280-26-057406",
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "kind": "reported",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "stockholdersEquity:us-gaap:StockholdersEquity",
+          "periodType": "quarter"
+        },
+        "operatingCashFlow": {
+          "value": 7126000000,
+          "unit": "USD",
+          "period": "2026Q4",
+          "periodStart": "2026-04-04",
+          "periodEnd": "2026-07-03",
+          "source": "SEC-derived",
+          "taxonomy": "us-gaap",
+          "concept": "NetCashProvidedByUsedInOperatingActivities",
+          "label": "operatingCashFlow",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": true,
+          "derivationNotes": "Derived standalone quarter flow via FY_12M_minus_YTD_9M",
+          "derivedFrom": [
+            "0001628280-26-057406",
+            "0001628280-26-029401"
+          ],
+          "kind": "derived",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "operatingCashFlow:us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "periodType": "quarter",
+          "derivationMethod": "standalone_period_difference",
+          "sourceFilings": [
+            {
+              "accession": "0001628280-26-029401",
+              "filed": "2026-05-01"
+            },
+            {
+              "accession": "0001628280-26-057406",
+              "filed": "2026-08-17"
+            }
+          ]
+        },
+        "capex": {
+          "value": 43000000,
+          "unit": "USD",
+          "period": "2026Q4",
+          "periodStart": "2026-04-04",
+          "periodEnd": "2026-07-03",
+          "source": "SEC-derived",
+          "taxonomy": "us-gaap",
+          "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+          "label": "capex",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": true,
+          "derivationNotes": "Derived standalone quarter flow via FY_12M_minus_YTD_9M",
+          "derivedFrom": [
+            "0001628280-26-057406",
+            "0001628280-26-029401"
+          ],
+          "kind": "derived",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "capex:us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "periodType": "quarter",
+          "derivationMethod": "standalone_period_difference",
+          "sourceFilings": [
+            {
+              "accession": "0001628280-26-029401",
+              "filed": "2026-05-01"
+            },
+            {
+              "accession": "0001628280-26-057406",
+              "filed": "2026-08-17"
+            }
+          ]
+        },
+        "stockBasedCompensation": {
+          "value": 67000000,
+          "unit": "USD",
+          "period": "2026Q4",
+          "periodStart": "2026-04-04",
+          "periodEnd": "2026-07-03",
+          "source": "SEC-derived",
+          "taxonomy": "us-gaap",
+          "concept": "ShareBasedCompensation",
+          "label": "stockBasedCompensation",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": true,
+          "derivationNotes": "Derived standalone quarter flow via FY_12M_minus_YTD_9M",
+          "derivedFrom": [
+            "0001628280-26-057406",
+            "0001628280-26-029401"
+          ],
+          "kind": "derived",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "stockBasedCompensation:us-gaap:ShareBasedCompensation",
+          "periodType": "quarter",
+          "derivationMethod": "standalone_period_difference",
+          "sourceFilings": [
+            {
+              "accession": "0001628280-26-029401",
+              "filed": "2026-05-01"
+            },
+            {
+              "accession": "0001628280-26-057406",
+              "filed": "2026-08-17"
+            }
+          ]
+        },
+        "netIncomeToCommon": {
+          "value": null,
+          "unit": "USD",
+          "period": "2026Q4",
+          "periodStart": "2026-04-04",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": null,
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "A reconciled diluted/common numerator is not verified. Consolidated net income is not a substitute; enter EPS manually for valuation.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "netIncomeToCommon:us-gaap:netIncomeToCommon",
+          "periodType": "quarter"
+        },
+        "debt": {
+          "value": null,
+          "unit": "USD",
+          "period": "2026Q4",
+          "periodStart": "2026-04-04",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": null,
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "A complete comparable debt scope is not verified for this coverage profile; no partial debt is labelled total debt.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "debt:us-gaap:debt",
+          "periodType": "quarter"
+        },
+        "deferredRevenue": {
+          "value": null,
+          "unit": "USD",
+          "period": "2026Q4",
+          "periodStart": "2026-04-04",
+          "periodEnd": "2026-07-03",
+          "source": "SEC",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": null,
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": false,
+          "derivationNotes": null,
+          "derivedFrom": null,
+          "unsupported": true,
+          "unsupportedReason": "No comparable combined current/noncurrent contract-liability mapping is configured.",
+          "kind": "unavailable",
+          "qualityStatus": "unavailable",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "deferredRevenue:us-gaap:deferredRevenue",
+          "periodType": "quarter"
+        },
+        "freeCashFlow": {
+          "value": 7083000000,
+          "unit": "USD",
+          "period": "2026Q4",
+          "periodStart": "2026-04-04",
+          "periodEnd": "2026-07-03",
+          "source": "SEC-derived",
+          "taxonomy": "us-gaap",
+          "concept": null,
+          "label": "Free Cash Flow (OCF minus cash PP&E purchases)",
+          "form": null,
+          "filed": null,
+          "accession": null,
+          "isDerived": true,
+          "derivationNotes": "Free Cash Flow computed as Operating Cash Flow minus CapEx",
+          "derivedFrom": [
+            "operatingCashFlow",
+            "capex"
+          ],
+          "kind": "derived",
+          "qualityStatus": "available",
+          "methodVersion": "ntm-sec-normalizer/1",
+          "currency": "USD",
+          "definition": "freeCashFlow:us-gaap:freeCashFlow",
+          "periodType": "quarter",
+          "derivationMethod": "operatingCashFlow_minus_capex",
+          "sourceFilings": [
+            {
+              "accession": "0001628280-26-029401",
+              "filed": "2026-05-01"
+            },
+            {
+              "accession": "0001628280-26-057406",
+              "filed": "2026-08-17"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "ttm": {
+    "asOfPeriod": "2026Q4",
+    "quarters": [
+      "2026Q1",
+      "2026Q2",
+      "2026Q3",
+      "2026Q4"
+    ],
+    "metrics": {
+      "revenue": {
+        "value": 20248000000,
+        "unit": "USD",
+        "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "label": "revenue",
+        "isDerived": true,
+        "derivationMethod": "sum_of_trailing_4_quarters",
+        "source": "SEC-derived",
+        "quartersIncluded": [
+          "2026Q1",
+          "2026Q2",
+          "2026Q3",
+          "2026Q4"
+        ],
+        "kind": "derived",
+        "qualityStatus": "available",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "revenue:us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax:revenue:RevenueFromContractWithCustomerExcludingAssessedTax",
+        "periodStart": "2025-06-28",
+        "periodEnd": "2026-07-03",
+        "period": "2026Q4",
+        "periodType": "TTM",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q1",
+            "metric": "revenue",
+            "value": 2308000000,
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "accession": "0001628280-25-050698",
+            "filed": "2025-11-07",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q2",
+            "metric": "revenue",
+            "value": 3025000000,
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "accession": "0001628280-26-004407",
+            "filed": "2026-01-30",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q3",
+            "metric": "revenue",
+            "value": 5950000000,
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "accession": "0001628280-26-029401",
+            "filed": "2026-05-01",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "revenue",
+            "value": 8965000000,
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001628280-26-057406",
+              "0001628280-26-029401"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-26-029401",
+                "filed": "2026-05-01"
+              },
+              {
+                "accession": "0001628280-26-057406",
+                "filed": "2026-08-17"
+              }
+            ],
+            "isDerived": true
+          }
+        ],
+        "filed": "2026-08-17"
+      },
+      "operatingIncome": {
+        "value": 12389000000,
+        "unit": "USD",
+        "concept": "OperatingIncomeLoss",
+        "label": "operatingIncome",
+        "isDerived": true,
+        "derivationMethod": "sum_of_trailing_4_quarters",
+        "source": "SEC-derived",
+        "quartersIncluded": [
+          "2026Q1",
+          "2026Q2",
+          "2026Q3",
+          "2026Q4"
+        ],
+        "kind": "derived",
+        "qualityStatus": "available",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "operatingIncome:us-gaap:OperatingIncomeLoss:operatingIncome:OperatingIncomeLoss",
+        "periodStart": "2025-06-28",
+        "periodEnd": "2026-07-03",
+        "period": "2026Q4",
+        "periodType": "TTM",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q1",
+            "metric": "operatingIncome",
+            "value": 176000000,
+            "concept": "OperatingIncomeLoss",
+            "accession": "0001628280-25-050698",
+            "filed": "2025-11-07",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q2",
+            "metric": "operatingIncome",
+            "value": 1065000000,
+            "concept": "OperatingIncomeLoss",
+            "accession": "0001628280-26-004407",
+            "filed": "2026-01-30",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q3",
+            "metric": "operatingIncome",
+            "value": 4111000000,
+            "concept": "OperatingIncomeLoss",
+            "accession": "0001628280-26-029401",
+            "filed": "2026-05-01",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "operatingIncome",
+            "value": 7037000000,
+            "concept": "OperatingIncomeLoss",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001628280-26-057406",
+              "0001628280-26-029401"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-26-029401",
+                "filed": "2026-05-01"
+              },
+              {
+                "accession": "0001628280-26-057406",
+                "filed": "2026-08-17"
+              }
+            ],
+            "isDerived": true
+          }
+        ],
+        "filed": "2026-08-17"
+      },
+      "netIncome": {
+        "value": 11433000000,
+        "unit": "USD",
+        "concept": "NetIncomeLoss",
+        "label": "netIncome",
+        "isDerived": true,
+        "derivationMethod": "sum_of_trailing_4_quarters",
+        "source": "SEC-derived",
+        "quartersIncluded": [
+          "2026Q1",
+          "2026Q2",
+          "2026Q3",
+          "2026Q4"
+        ],
+        "kind": "derived",
+        "qualityStatus": "available",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "netIncome:us-gaap:NetIncomeLoss:netIncome:NetIncomeLoss",
+        "periodStart": "2025-06-28",
+        "periodEnd": "2026-07-03",
+        "period": "2026Q4",
+        "periodType": "TTM",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q1",
+            "metric": "netIncome",
+            "value": 112000000,
+            "concept": "NetIncomeLoss",
+            "accession": "0001628280-26-029401",
+            "filed": "2026-05-01",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q2",
+            "metric": "netIncome",
+            "value": 803000000,
+            "concept": "NetIncomeLoss",
+            "accession": "0001628280-26-029401",
+            "filed": "2026-05-01",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q3",
+            "metric": "netIncome",
+            "value": 3615000000,
+            "concept": "NetIncomeLoss",
+            "accession": "0001628280-26-029401",
+            "filed": "2026-05-01",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "netIncome",
+            "value": 6903000000,
+            "concept": "NetIncomeLoss",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001628280-26-057406",
+              "0001628280-26-029401"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-26-029401",
+                "filed": "2026-05-01"
+              },
+              {
+                "accession": "0001628280-26-057406",
+                "filed": "2026-08-17"
+              }
+            ],
+            "isDerived": true
+          }
+        ],
+        "filed": "2026-08-17"
+      },
+      "operatingCashFlow": {
+        "value": 11671000000,
+        "unit": "USD",
+        "concept": "NetCashProvidedByUsedInOperatingActivities",
+        "label": "operatingCashFlow",
+        "isDerived": true,
+        "derivationMethod": "sum_of_trailing_4_quarters",
+        "source": "SEC-derived",
+        "quartersIncluded": [
+          "2026Q1",
+          "2026Q2",
+          "2026Q3",
+          "2026Q4"
+        ],
+        "kind": "derived",
+        "qualityStatus": "available",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "operatingCashFlow:us-gaap:NetCashProvidedByUsedInOperatingActivities:operatingCashFlow:NetCashProvidedByUsedInOperatingActivities",
+        "periodStart": "2025-06-28",
+        "periodEnd": "2026-07-03",
+        "period": "2026Q4",
+        "periodType": "TTM",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q1",
+            "metric": "operatingCashFlow",
+            "value": 488000000,
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "accession": "0001628280-25-050698",
+            "filed": "2025-11-07",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q2",
+            "metric": "operatingCashFlow",
+            "value": 1019000000,
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001628280-26-004407",
+              "0001628280-25-050698"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-25-050698",
+                "filed": "2025-11-07"
+              },
+              {
+                "accession": "0001628280-26-004407",
+                "filed": "2026-01-30"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q3",
+            "metric": "operatingCashFlow",
+            "value": 3038000000,
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001628280-26-029401",
+              "0001628280-26-004407"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-26-004407",
+                "filed": "2026-01-30"
+              },
+              {
+                "accession": "0001628280-26-029401",
+                "filed": "2026-05-01"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "operatingCashFlow",
+            "value": 7126000000,
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001628280-26-057406",
+              "0001628280-26-029401"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-26-029401",
+                "filed": "2026-05-01"
+              },
+              {
+                "accession": "0001628280-26-057406",
+                "filed": "2026-08-17"
+              }
+            ],
+            "isDerived": true
+          }
+        ],
+        "filed": "2026-08-17"
+      },
+      "capex": {
+        "value": 177000000,
+        "unit": "USD",
+        "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+        "label": "capex",
+        "isDerived": true,
+        "derivationMethod": "sum_of_trailing_4_quarters",
+        "source": "SEC-derived",
+        "quartersIncluded": [
+          "2026Q1",
+          "2026Q2",
+          "2026Q3",
+          "2026Q4"
+        ],
+        "kind": "derived",
+        "qualityStatus": "available",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "capex:us-gaap:PaymentsToAcquirePropertyPlantAndEquipment:capex:PaymentsToAcquirePropertyPlantAndEquipment",
+        "periodStart": "2025-06-28",
+        "periodEnd": "2026-07-03",
+        "period": "2026Q4",
+        "periodType": "TTM",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q1",
+            "metric": "capex",
+            "value": 50000000,
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "accession": "0001628280-25-050698",
+            "filed": "2025-11-07",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q2",
+            "metric": "capex",
+            "value": 39000000,
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001628280-26-004407",
+              "0001628280-25-050698"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-25-050698",
+                "filed": "2025-11-07"
+              },
+              {
+                "accession": "0001628280-26-004407",
+                "filed": "2026-01-30"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q3",
+            "metric": "capex",
+            "value": 45000000,
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001628280-26-029401",
+              "0001628280-26-004407"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-26-004407",
+                "filed": "2026-01-30"
+              },
+              {
+                "accession": "0001628280-26-029401",
+                "filed": "2026-05-01"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "capex",
+            "value": 43000000,
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001628280-26-057406",
+              "0001628280-26-029401"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-26-029401",
+                "filed": "2026-05-01"
+              },
+              {
+                "accession": "0001628280-26-057406",
+                "filed": "2026-08-17"
+              }
+            ],
+            "isDerived": true
+          }
+        ],
+        "filed": "2026-08-17"
+      },
+      "stockBasedCompensation": {
+        "value": 232000000,
+        "unit": "USD",
+        "concept": "ShareBasedCompensation",
+        "label": "stockBasedCompensation",
+        "isDerived": true,
+        "derivationMethod": "sum_of_trailing_4_quarters",
+        "source": "SEC-derived",
+        "quartersIncluded": [
+          "2026Q1",
+          "2026Q2",
+          "2026Q3",
+          "2026Q4"
+        ],
+        "kind": "derived",
+        "qualityStatus": "available",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "stockBasedCompensation:us-gaap:ShareBasedCompensation:stockBasedCompensation:ShareBasedCompensation",
+        "periodStart": "2025-06-28",
+        "periodEnd": "2026-07-03",
+        "period": "2026Q4",
+        "periodType": "TTM",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q1",
+            "metric": "stockBasedCompensation",
+            "value": 53000000,
+            "concept": "ShareBasedCompensation",
+            "accession": "0001628280-25-050698",
+            "filed": "2025-11-07",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q2",
+            "metric": "stockBasedCompensation",
+            "value": 58000000,
+            "concept": "ShareBasedCompensation",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001628280-26-004407",
+              "0001628280-25-050698"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-25-050698",
+                "filed": "2025-11-07"
+              },
+              {
+                "accession": "0001628280-26-004407",
+                "filed": "2026-01-30"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q3",
+            "metric": "stockBasedCompensation",
+            "value": 54000000,
+            "concept": "ShareBasedCompensation",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001628280-26-029401",
+              "0001628280-26-004407"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-26-004407",
+                "filed": "2026-01-30"
+              },
+              {
+                "accession": "0001628280-26-029401",
+                "filed": "2026-05-01"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "stockBasedCompensation",
+            "value": 67000000,
+            "concept": "ShareBasedCompensation",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001628280-26-057406",
+              "0001628280-26-029401"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-26-029401",
+                "filed": "2026-05-01"
+              },
+              {
+                "accession": "0001628280-26-057406",
+                "filed": "2026-08-17"
+              }
+            ],
+            "isDerived": true
+          }
+        ],
+        "filed": "2026-08-17"
+      },
+      "freeCashFlow": {
+        "value": 11494000000,
+        "unit": "USD",
+        "concept": null,
+        "label": "Free Cash Flow (OCF minus cash PP&E purchases)",
+        "isDerived": true,
+        "derivationMethod": "sum_of_quarterly_ocf_minus_capex",
+        "source": "SEC-derived",
+        "quartersIncluded": [
+          "2026Q1",
+          "2026Q2",
+          "2026Q3",
+          "2026Q4"
+        ],
+        "kind": "derived",
+        "qualityStatus": "available",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "freeCashFlow:us-gaap:freeCashFlow:capex:PaymentsToAcquirePropertyPlantAndEquipment|operatingCashFlow:NetCashProvidedByUsedInOperatingActivities",
+        "periodStart": "2025-06-28",
+        "periodEnd": "2026-07-03",
+        "period": "2026Q4",
+        "periodType": "TTM",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q1",
+            "metric": "operatingCashFlow",
+            "value": 488000000,
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "accession": "0001628280-25-050698",
+            "filed": "2025-11-07",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q1",
+            "metric": "capex",
+            "value": 50000000,
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "accession": "0001628280-25-050698",
+            "filed": "2025-11-07",
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q2",
+            "metric": "operatingCashFlow",
+            "value": 1019000000,
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001628280-26-004407",
+              "0001628280-25-050698"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-25-050698",
+                "filed": "2025-11-07"
+              },
+              {
+                "accession": "0001628280-26-004407",
+                "filed": "2026-01-30"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q2",
+            "metric": "capex",
+            "value": 39000000,
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001628280-26-004407",
+              "0001628280-25-050698"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-25-050698",
+                "filed": "2025-11-07"
+              },
+              {
+                "accession": "0001628280-26-004407",
+                "filed": "2026-01-30"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q3",
+            "metric": "operatingCashFlow",
+            "value": 3038000000,
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001628280-26-029401",
+              "0001628280-26-004407"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-26-004407",
+                "filed": "2026-01-30"
+              },
+              {
+                "accession": "0001628280-26-029401",
+                "filed": "2026-05-01"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q3",
+            "metric": "capex",
+            "value": 45000000,
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001628280-26-029401",
+              "0001628280-26-004407"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-26-004407",
+                "filed": "2026-01-30"
+              },
+              {
+                "accession": "0001628280-26-029401",
+                "filed": "2026-05-01"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "operatingCashFlow",
+            "value": 7126000000,
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001628280-26-057406",
+              "0001628280-26-029401"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-26-029401",
+                "filed": "2026-05-01"
+              },
+              {
+                "accession": "0001628280-26-057406",
+                "filed": "2026-08-17"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "capex",
+            "value": 43000000,
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001628280-26-057406",
+              "0001628280-26-029401"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-26-029401",
+                "filed": "2026-05-01"
+              },
+              {
+                "accession": "0001628280-26-057406",
+                "filed": "2026-08-17"
+              }
+            ],
+            "isDerived": true
+          }
+        ],
+        "filed": "2026-08-17"
+      },
+      "dilutedShares": {
+        "value": null,
+        "unit": "shares",
+        "unsupported": true,
+        "unsupportedReason": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+        "kind": "unavailable",
+        "qualityStatus": "unavailable",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": null,
+        "definition": "dilutedShares:us-gaap:dilutedShares:dilutedShares:WeightedAverageNumberOfDilutedSharesOutstanding",
+        "periodStart": "2025-06-28",
+        "periodEnd": "2026-07-03",
+        "period": "2026Q4",
+        "periodType": "TTM",
+        "source": "SEC-derived",
+        "derivationMethod": "duration_weighted_annual_minus_ytd9m",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q1",
+            "metric": "dilutedShares",
+            "value": null,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q2",
+            "metric": "dilutedShares",
+            "value": null,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q3",
+            "metric": "dilutedShares",
+            "value": null,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "dilutedShares",
+            "value": null,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          }
+        ],
+        "filed": null,
+        "shareBasis": null,
+        "shareBasisStatus": "unverified"
+      },
+      "dilutedEps": {
+        "value": null,
+        "unit": "USD/shares",
+        "unsupported": true,
+        "unsupportedReason": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+        "kind": "unavailable",
+        "qualityStatus": "unavailable",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "dilutedEps:us-gaap:dilutedEps:dilutedShares:WeightedAverageNumberOfDilutedSharesOutstanding|netIncomeToCommon:None",
+        "periodStart": "2025-06-28",
+        "periodEnd": "2026-07-03",
+        "period": "2026Q4",
+        "periodType": "TTM",
+        "source": "SEC-derived",
+        "derivationMethod": "standalone_period_difference",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q1",
+            "metric": "netIncomeToCommon",
+            "value": null,
+            "concept": null,
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q1",
+            "metric": "dilutedShares",
+            "value": null,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q2",
+            "metric": "netIncomeToCommon",
+            "value": null,
+            "concept": null,
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q2",
+            "metric": "dilutedShares",
+            "value": null,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q3",
+            "metric": "netIncomeToCommon",
+            "value": null,
+            "concept": null,
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q3",
+            "metric": "dilutedShares",
+            "value": null,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "netIncomeToCommon",
+            "value": null,
+            "concept": null,
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "dilutedShares",
+            "value": null,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          }
+        ],
+        "filed": null,
+        "shareBasis": null,
+        "shareBasisStatus": "unverified"
+      },
+      "fcfPerShare": {
+        "value": null,
+        "unit": "USD/shares",
+        "isDerived": true,
+        "derivationMethod": "incomplete_quarters",
+        "notes": "One or more trailing quarters missing valid diluted share count",
+        "quartersIncluded": [
+          "2026Q1",
+          "2026Q2",
+          "2026Q3",
+          "2026Q4"
+        ],
+        "kind": "unavailable",
+        "qualityStatus": "unavailable",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "fcfPerShare:us-gaap:fcfPerShare:dilutedShares:WeightedAverageNumberOfDilutedSharesOutstanding|freeCashFlow:None",
+        "periodStart": "2025-06-28",
+        "periodEnd": "2026-07-03",
+        "period": "2026Q4",
+        "periodType": "TTM",
+        "source": "SEC-derived",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q1",
+            "metric": "freeCashFlow",
+            "value": 438000000,
+            "concept": null,
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "0001628280-25-050698",
+              "0001628280-25-050698"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-25-050698",
+                "filed": "2025-11-07"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q1",
+            "metric": "dilutedShares",
+            "value": null,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q2",
+            "metric": "freeCashFlow",
+            "value": 980000000,
+            "concept": null,
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "operatingCashFlow",
+              "capex"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-25-050698",
+                "filed": "2025-11-07"
+              },
+              {
+                "accession": "0001628280-26-004407",
+                "filed": "2026-01-30"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q2",
+            "metric": "dilutedShares",
+            "value": null,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q3",
+            "metric": "freeCashFlow",
+            "value": 2993000000,
+            "concept": null,
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "operatingCashFlow",
+              "capex"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-26-004407",
+                "filed": "2026-01-30"
+              },
+              {
+                "accession": "0001628280-26-029401",
+                "filed": "2026-05-01"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q3",
+            "metric": "dilutedShares",
+            "value": null,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "freeCashFlow",
+            "value": 7083000000,
+            "concept": null,
+            "accession": null,
+            "filed": null,
+            "derivedFrom": [
+              "operatingCashFlow",
+              "capex"
+            ],
+            "sourceFilings": [
+              {
+                "accession": "0001628280-26-029401",
+                "filed": "2026-05-01"
+              },
+              {
+                "accession": "0001628280-26-057406",
+                "filed": "2026-08-17"
+              }
+            ],
+            "isDerived": true
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "dilutedShares",
+            "value": null,
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          }
+        ],
+        "filed": "2026-08-17",
+        "shareBasis": null,
+        "shareBasisStatus": "unverified"
+      },
+      "netIncomeToCommon": {
+        "value": null,
+        "unit": "USD",
+        "unsupported": true,
+        "unsupportedReason": "A reconciled diluted/common numerator is not verified. Consolidated net income is not a substitute; enter EPS manually for valuation.",
+        "kind": "unavailable",
+        "qualityStatus": "unavailable",
+        "methodVersion": "ntm-sec-normalizer/1",
+        "currency": "USD",
+        "definition": "netIncomeToCommon:us-gaap:netIncomeToCommon:netIncomeToCommon:None",
+        "periodStart": "2025-06-28",
+        "periodEnd": "2026-07-03",
+        "period": "2026Q4",
+        "periodType": "TTM",
+        "source": "SEC-derived",
+        "derivationMethod": "standalone_period_difference",
+        "sourceFilings": [],
+        "inputs": [
+          {
+            "quarter": "2026Q1",
+            "metric": "netIncomeToCommon",
+            "value": null,
+            "concept": null,
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q2",
+            "metric": "netIncomeToCommon",
+            "value": null,
+            "concept": null,
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q3",
+            "metric": "netIncomeToCommon",
+            "value": null,
+            "concept": null,
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          },
+          {
+            "quarter": "2026Q4",
+            "metric": "netIncomeToCommon",
+            "value": null,
+            "concept": null,
+            "accession": null,
+            "filed": null,
+            "derivedFrom": null,
+            "sourceFilings": null,
+            "isDerived": false
+          }
+        ],
+        "filed": null
+      }
+    },
+    "periodStart": "2025-06-28",
+    "periodEnd": "2026-07-03",
+    "period": "2026Q4"
+  },
+  "filings": [
+    {
+      "form": "10-K",
+      "filingDate": "2026-08-17",
+      "reportPeriod": "2026-07-03",
+      "accessionNumber": "0001628280-26-057406",
+      "primaryDocument": "sndk-20260703.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000162828026057406/sndk-20260703.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000162828026057406/"
+    },
+    {
+      "form": "10-Q",
+      "filingDate": "2026-05-01",
+      "reportPeriod": "2026-04-03",
+      "accessionNumber": "0001628280-26-029401",
+      "primaryDocument": "sndk-20260403.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000162828026029401/sndk-20260403.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000162828026029401/"
+    },
+    {
+      "form": "10-Q",
+      "filingDate": "2026-01-30",
+      "reportPeriod": "2026-01-02",
+      "accessionNumber": "0001628280-26-004407",
+      "primaryDocument": "sndk-20260102.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000162828026004407/sndk-20260102.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000162828026004407/"
+    },
+    {
+      "form": "10-Q",
+      "filingDate": "2025-11-07",
+      "reportPeriod": "2025-10-03",
+      "accessionNumber": "0001628280-25-050698",
+      "primaryDocument": "sndk-20251003.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000162828025050698/sndk-20251003.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000162828025050698/"
+    },
+    {
+      "form": "10-K",
+      "filingDate": "2025-08-21",
+      "reportPeriod": "2025-06-27",
+      "accessionNumber": "0002023554-25-000034",
+      "primaryDocument": "sndk-20250627.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000202355425000034/sndk-20250627.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000202355425000034/"
+    },
+    {
+      "form": "10-Q",
+      "filingDate": "2025-05-12",
+      "reportPeriod": "2025-03-28",
+      "accessionNumber": "0002023554-25-000027",
+      "primaryDocument": "sndk-20250328.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000202355425000027/sndk-20250328.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000202355425000027/"
+    },
+    {
+      "form": "10-Q/A",
+      "filingDate": "2025-03-17",
+      "reportPeriod": "2024-12-27",
+      "accessionNumber": "0002023554-25-000016",
+      "primaryDocument": "sndk-20241227.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000202355425000016/sndk-20241227.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000202355425000016/"
+    },
+    {
+      "form": "10-Q",
+      "filingDate": "2025-03-07",
+      "reportPeriod": "2024-12-27",
+      "accessionNumber": "0002023554-25-000004",
+      "primaryDocument": "sndk-20241227.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000202355425000004/sndk-20241227.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000202355425000004/"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+# Academy V1 delivery and validation
+
+Validated locally on 2026-09-15. Academy V1 is complete within the requested foundational scope. No commit, push or deployment was performed. Existing uncommitted Research expansion work was preserved.
+
+1. **Architecture:** one maintained static catalog (`academy-catalog.js`), generated HTML (`scripts/build_academy.cjs` through the existing SEO builder), scoped styles, a small browser enhancement module and a separate versioned local progress store. Static lesson reading works without JavaScript. No paid API, login requirement or live AI.
+2. **Categories:** Kom igång; Sparande & kostnader; Förstå bolaget; Värdering; Makro; Din egen analys.
+3. **Initial lessons (25):** Aktier, Fonder, ETF, Avkastning, Risk, Diversifiering, Ränta på ränta, Avgifter och courtage, GAV, ISK, Valutarisk, Omsättning, EPS, FCF, Marginal, Skuld, Utspädning, P/E, CAGR, Omvänd värdering, Bear/Base/Bull, Inflation och köpkraft, Räntor och obligationspriser, Investeringstes, Rapportuppföljning. Adjacent concepts are taught within these lessons rather than turned into thin pages.
+4. **Lesson structure:** short answer, practical relevance, worked example, optional deeper explanation, common mistake, tool/workflow exercise, related concepts and source/method disclosure. Original Swedish prose separates examples and assumptions from definitions; the ISK lesson references the existing rule registry without duplicating a current tax rate.
+5. **Learning paths:** Jag är helt ny; Jag vill analysera aktier; Jag vill förstå värdering; Jag vill förstå makro. Ordered subsets provide next-step links; every lesson remains directly accessible.
+6. **Progress:** no event means unstarted; opening an unfinished lesson records ongoing; completion is reversible. Immutable events carry stable IDs, lesson IDs, status and timestamps. Home shows total/category completion and a local continuation link. Unknown future lesson IDs survive import without affecting current totals. Corrupt data is preserved with an error message. See architecture notes for multi-tab and clock limitations.
+7. **Checks:** five optional single-question checks covering risk, CAGR, EPS, currency and reverse valuation. Immediate explanations, accessible radio groups, no grades, no stored answers, no completion gate.
+8. **Connected Experience:** published learning entities and deduplicated relations connect lessons, calculators, all supported Research pages and the portfolio article. Existing Research thesis, valuation and article destinations remain available. The reusable concept-help hook resolves CAGR, EPS, P/E, FCF and GAV; Research demonstrates inline EPS help.
+9. **Discovery:** client-side search matches titles, summaries, aliases, concepts and categories, normalizing case and Swedish accents. Category filters and an explicit empty state complement paths and local continuation. Search terms are not recorded.
+10. **SEO:** Academy home plus 25 substantive static lesson pages have unique metadata and canonical URLs and enter the sitemap. Only published lessons generate. Stale unpublished lesson artifacts fail generation. Query parameters for paths do not alter canonical URLs. No fabricated ratings or credentials.
+11. **Min NTM:** one compact section displays completion and a continuation link, with a reminder about local backup. The final dark-theme link uses the shared primary token and a minimum 44-pixel target.
+12. **Backup/cloud:** backup schema V3 includes Academy. Legacy V1/V2 imports preserve existing learning history; repeated imports are idempotent and conflicting event IDs are rejected. Clear-all includes learning history; ticker deletion does not. Academy is excluded from the current cloud payload and persistent queue. Stable IDs and a versioned store prepare a future opt-in adapter.
+13. **Files:** new catalog, progress, UI and CSS modules; new Academy builder; home plus 25 generated lessons; `tests/academy.test.cjs`; this report and `docs/academy.md`. Shared updates cover relations, backup, cloud exclusion, event allowlist, Min NTM, Research inline help, Premium CSS, SEO/staging/quality/browser scripts, sitemap, README and backup documentation. Existing root HTML pages receive the shared Academy navigation/catalog dependency through generation. Research expansion files already present in the workspace remain separate work.
+14. **Tests added/updated:** nine Academy JavaScript tests cover schema/content, IDs/slugs/categories, search, published static pages/SEO, relations and concept hooks, progress, category totals, V3/legacy backup/merge/failure behavior, cloud exclusion, quiz data, privacy and ISK registry integration. Existing backup, lifecycle, behavioral, cloud, relation and SEO expectations were updated. Browser coverage exercises actual learning and backup interactions.
+15. **Browser flows/screenshots:** fresh isolated Edge contexts cover new-user home, beginner path, lesson reading, advanced disclosure, relevant tool CTA, completion/reload, alias search, empty/category filtering, quiz explanations, Min NTM and export/clear/import. Home and CAGR screenshots were captured at 1440 and 375 pixels in both themes and visually inspected. Supplemental mobile category, quiz and Min NTM captures and a JavaScript-disabled reading/tool-link check passed. Screenshot review led to corrections for the reading container, shared theme tokens and Min NTM link contrast.
+16. **Validation:** full Python suite: 163 run, 162 passed, one optional database test skipped because `PGLITE_MODULE` is not configured. Full JavaScript suite: 173 passed, including Academy, Connected Experience and backup tests. Full browser suite: 32 passed on Edge Chromium 153.0.4234.32. The Academy browser flow passed again after the final scoped CSS correction. Accessibility/CSP checks passed on 19 pages including Academy home, CAGR, ISK and Min NTM. Release validation passed SEO generation/idempotence, calendar and rule checks, staging/local references and `git diff --check`. These automated checks and visual samples are not a claim of exhaustive accessibility certification.
+17. **Content gaps:** dedicated bonds/duration, portfolio allocation exercises, fund-document walkthroughs, advanced valuation, Swedish report examples, deeper macro releases and a reviewed FAQ bank are outside V1. Source/method detail is intentionally proportional to each lesson; mathematical examples state simplifications.
+18. **Completion:** V1 ships 25 useful lessons rather than stretching to 30 weaker pages. All requested product areas and validation categories are implemented. Work is local and ready for review.
+19. **V2:** prioritize observed learner questions and richer exercises, then printable learning plans and cross-lesson navigation. Documented knowledge-bank workflow: permitted/redacted question → editor-verified answer and sources → stable reviewed knowledge-bank entry → optional lesson/FAQ promotion. Future AI must use reviewed static material; cloud progress needs explicit opt-in and a defined clock/conflict policy.
+
+## Local evidence
+
+Logs and screenshots are in the current Windows temporary directory, outside the published site:
+
+- `ntm-academy-release-verified.log`
+- `ntm-academy-browser-verified.log`
+- `ntm-academy-focused-verified.log`
+- `ntm-academy-quality-verified.log` and `.json`
+- `ntm-academy.html-{1440,375}-{light,dark}.png`
+- `ntm-academy-cagr.html-{1440,375}-{light,dark}.png`
+- `ntm-academy-category.png`, `ntm-academy-quiz.png`, `ntm-academy-min-ntm.png`
+
+The existing PowerShell host wraps redirected unittest stderr in `NativeCommandError` records even when unittest reports `OK`; the test summaries above use the actual unittest results. Browser tests use synthetic data in disposable contexts and do not modify a user's browser profile.
+
+See [Academy architecture and editorial guide](academy.md) for schema, source ownership, maintenance and future workflow details.

@@ -18,6 +18,7 @@ Key architectural rules:
 9. Defensive Null Handling: Incomplete or unsupported metrics return null instead of guesses.
 """
 
+from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, List, Optional, Tuple
 from stock_contract import enrich
@@ -442,6 +443,85 @@ COMPANY_PROFILES: Dict[str, Dict[str, Any]] = {
 }
 
 
+
+# B78: explicit USD domestic-issuer profiles; existing profiles remain untouched.
+# No fallback from consolidated earnings to a common/diluted numerator or partial debt.
+EXPANSION_COMPANIES = {
+    'MU': ('semiconductors', 'Micron Technology'),
+    'MRVL': ('semiconductors', 'Marvell Technology'),
+    'VRT': ('electrical_infrastructure', 'Vertiv Holdings'),
+    'COHR': ('photonics', 'Coherent'),
+    'RKLB': ('aerospace', 'Rocket Lab'),
+}
+EXPANSION_CONCEPTS = {
+    'revenue': 'RevenueFromContractWithCustomerExcludingAssessedTax',
+    'operatingIncome': 'OperatingIncomeLoss', 'netIncome': 'NetIncomeLoss',
+    'dilutedEps': 'EarningsPerShareDiluted',
+    'dilutedShares': 'WeightedAverageNumberOfDilutedSharesOutstanding',
+    'cashAndCashEquivalents': 'CashAndCashEquivalentsAtCarryingValue',
+    'totalAssets': 'Assets', 'totalLiabilities': 'Liabilities',
+    'stockholdersEquity': 'StockholdersEquity',
+    'operatingCashFlow': 'NetCashProvidedByUsedInOperatingActivities',
+    'capex': 'PaymentsToAcquirePropertyPlantAndEquipment',
+    'stockBasedCompensation': 'ShareBasedCompensation',
+}
+for _ticker, (_industry, _name) in EXPANSION_COMPANIES.items():
+    _metrics = {}
+    for _key, _concept in EXPANSION_CONCEPTS.items():
+        _metrics[_key] = {'concept': _concept, 'taxonomy': 'us-gaap', 'label': _key,
+            'type': 'instant' if _key in ('cashAndCashEquivalents', 'totalAssets', 'totalLiabilities', 'stockholdersEquity') else 'flow',
+            'unit': 'shares' if _key == 'dilutedShares' else 'USD/shares' if _key == 'dilutedEps' else 'USD',
+            'isAdditive': _key not in ('dilutedEps', 'dilutedShares')}
+    for _key, _reason in {
+        'netIncomeToCommon': 'A reconciled diluted/common numerator is not verified. Consolidated net income is not a substitute; enter EPS manually for valuation.',
+        'debt': 'A complete comparable debt scope is not verified for this coverage profile; no partial debt is labelled total debt.',
+        'deferredRevenue': 'No comparable combined current/noncurrent contract-liability mapping is configured.',
+    }.items():
+        _metrics[_key] = {'concept': None, 'type': 'flow' if _key == 'netIncomeToCommon' else 'instant',
+            'unit': 'USD', 'unsupported': True, 'unsupportedReason': _reason}
+    _metrics['freeCashFlow'] = {'concept': None, 'type': 'flow', 'unit': 'USD',
+        'label': 'Free Cash Flow (OCF minus cash PP&E purchases)', 'compute': 'fcf_from_ocf_capex'}
+    COMPANY_PROFILES[_ticker] = {'profileName': 'standard_company', 'industry': _industry,
+        'description': _name + ': USD domestic SEC filings; cash PP&E FCF; unverified TTM EPS and total debt unavailable.',
+        'metrics': _metrics, 'filingFiscalLabels': _ticker == 'MRVL'}
+
+
+# Phase 2 opts in explicitly; the eight existing profiles are unchanged.
+for _ticker, _name, _industry in [
+    ('TTMI', 'TTM Technologies', 'electronics'),
+    ('SNDK', 'Sandisk', 'semiconductors'),
+    ('FLY', 'Firefly Aerospace', 'aerospace'),
+    ('CRWV', 'CoreWeave', 'cloud_infrastructure'),
+]:
+    _profile = deepcopy(COMPANY_PROFILES['MU'])
+    _profile.update(industry=_industry, strictUnits=True, filingFiscalLabels=True,
+                    description=_name + ': USD SEC fundamentals; manual EPS; verified metric scope only.')
+    _profile['coverageNotice'] = 'Total skuld och jämförbar TTM-EPS är inte verifierade. Ange EPS manuellt för värdering.'
+    # Do not infer a comparable share denominator across corporate actions or
+    # treat a weighted average as a verified basis merely because it is finite.
+    for _key in ('dilutedShares', 'dilutedEps'):
+        _profile['metrics'][_key].update(unsupported=True, unsupportedReason=
+            'Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.')
+    COMPANY_PROFILES[_ticker] = _profile
+
+COMPANY_PROFILES['TTMI'].update(fiscalCalendar='monday_nearest_dec31',
+    fiscalCalendarLabel='måndagen närmast 31 december',
+    comparableStart='2023-01-03', coverageNotice=
+    'TTMI använder måndagen närmast 31 december som årsslut. FY2023 slutar 1 januari 2024. Skuld och per-aktievärden saknas: jämförbar aktiebas är inte verifierad; ange EPS manuellt.')
+COMPANY_PROFILES['SNDK'].update(profileName='limited_history', comparableStart='2025-06-28',
+    fiscalCalendarLabel='3 juli 2026 för FY2026 (52/53-veckorskalender)',
+    coverageNotice='Endast FY2026 efter avknoppningen ingår (28 juni 2025–3 juli 2026). Året har 53 veckor och Q1 14 veckor. Föregångarhistorik och tillväxt mot föregående år saknas. Skuld och per-aktievärden är inte verifierade; ange EPS manuellt.')
+COMPANY_PROFILES['FLY'].update(profileName='limited_history',
+    coverageNotice='Börsintroduktion 8 augusti 2025: historiken innehåller perioder före och efter IPO. Fundamenta visas, men aktieantal, EPS och FCF per aktie saknas eftersom jämförbar aktiebas inte är verifierad. Total skuld saknas. Ange EPS manuellt.')
+COMPANY_PROFILES['CRWV'].update(profileName='financing_sensitive',
+    coverageNotice='CapEx, FCF och total skuld visas inte: kontanta investeringar fångar inte finansierade och icke-kontanta tillgångsköp. Rapporterat operativt kassaflöde visas. Aktieantal och per-aktievärden är inte verifierade; ange EPS manuellt.')
+for _key in ('capex', 'freeCashFlow', 'debt'):
+    COMPANY_PROFILES['CRWV']['metrics'][_key] = {
+        'concept': None, 'type': 'instant' if _key == 'debt' else 'flow', 'unit': 'USD',
+        'unsupported': True, 'unsupportedReason':
+        'CoreWeave: cash PP&E purchases exclude non-cash additions and OEM/lease financing. A comparable comprehensive investment/debt scope is not verified; simple FCF is disabled.'}
+
+
 def get_company_profile(ticker: str) -> Dict[str, Any]:
     """Retrieve the XBRL metric mapping profile for a given ticker."""
     ticker_upper = ticker.strip().upper()
@@ -510,6 +590,13 @@ class StockNormalizer:
         if not units_dict:
             return []
         unit_key = list(units_dict.keys())[0]
+        if self.profile.get('strictUnits'):
+            expected = {m['unit'] for m in self.metric_defs.values() if m.get('concept') == concept}
+            if len(expected) != 1:
+                raise ValueError('Ambiguous configured concept unit')
+            unit_key = next(iter(expected))
+            if unit_key not in units_dict:
+                return []
         entries = units_dict[unit_key]
         return [
             entry for entry in entries
@@ -698,6 +785,43 @@ class StockNormalizer:
         rev_tax = self.metric_defs['revenue'].get('taxonomy', 'us-gaap')
         rev_facts = self._filter_facts(facts_data, rev_tax, rev_concept)
 
+        def fiscal_label(report, accession, form):
+            if self.profile.get('fiscalCalendar') == 'monday_nearest_dec31':
+                # TTMI's reported fiscal convention, not Company Facts' fy
+                # (which calls the 2024-01-01 annual filing FY2024).
+                current = [f for f in rev_facts if f.get('accn') == accession
+                           and f.get('end') == report and f.get('start') and f.get('form') == form]
+                if not current:
+                    raise ValueError('Missing TTMI exact-filing fiscal context')
+                start = min(datetime.fromisoformat(f['start']) for f in current)
+                end = datetime.fromisoformat(report)
+                year = (start + timedelta(days=180)).year
+                dec31 = datetime(year, 12, 31)
+                annual_end = dec31 + timedelta(days=((0 - dec31.weekday() + 3) % 7) - 3)
+                if form.startswith('10-K'):
+                    if end != annual_end or not 350 <= (end-start).days+1 <= 378:
+                        raise ValueError('TTMI annual calendar conflict')
+                    return year, 4
+                days = (end-start).days+1
+                quarter = round(days / 91)
+                labels = {(f.get('fy'), f.get('fp')) for f in current}
+                if quarter not in (1, 2, 3) or abs(days-quarter*91) > 7 or labels != {(year, f'Q{quarter}')}:
+                    raise ValueError('TTMI quarterly fiscal-label conflict')
+                return year, quarter
+            if not self.profile.get('filingFiscalLabels'):
+                return derive_fiscal_year_and_quarter(report, fye)
+            # Opt-in MRVL mapping: only the current period in the exact source filing.
+            labels = {(f.get('fy'), f.get('fp')) for f in rev_facts
+                      if f.get('accn') == accession and f.get('end') == report
+                      and f.get('start') and f.get('form') == form}
+            if len(labels) != 1:
+                raise ValueError('Missing or conflicting source fiscal labels')
+            year, period = next(iter(labels))
+            valid = ('FY',) if form.startswith('10-K') else ('Q1', 'Q2', 'Q3')
+            if type(year) is not int or period not in valid:
+                raise ValueError('Unsupported source fiscal label')
+            return year, 4 if period == 'FY' else int(period[-1])
+
         # 1. Annual 10-Ks: each unique 10-K filing
         annual_periods: List[Dict[str, Any]] = []
         seen_annual_reports = set()
@@ -707,6 +831,8 @@ class StockNormalizer:
             if form in ('10-K', '10-K/A'):
                 rep = report_dates[i]
                 accn = accessions[i]
+                if self.profile.get('comparableStart') and rep < self.profile['comparableStart']:
+                    continue
                 if rep in seen_annual_reports:
                     continue
                 seen_annual_reports.add(rep)
@@ -733,7 +859,7 @@ class StockNormalizer:
                 if matching:
                     matching.sort(key=lambda x: (x.get('filed', ''), 1 if '/A' in x.get('form', '') else 0), reverse=True)
                     best_f = matching[0]
-                    fy, _ = derive_fiscal_year_and_quarter(rep, fye)
+                    fy, _ = fiscal_label(rep, accn, form)
                     annual_periods.append({
                         'fiscalYear': fy,
                         'period': f'FY{fy}',
@@ -755,6 +881,8 @@ class StockNormalizer:
             if form in ('10-Q', '10-Q/A'):
                 rep = report_dates[i]
                 accn = accessions[i]
+                if self.profile.get('comparableStart') and rep < self.profile['comparableStart']:
+                    continue
                 if rep in seen_q_reports:
                     continue
                 seen_q_reports.add(rep)
@@ -782,7 +910,7 @@ class StockNormalizer:
                         elif d_days > 110:
                             f_ytd = mf
 
-                    fy, q_num = derive_fiscal_year_and_quarter(rep, fye)
+                    fy, q_num = fiscal_label(rep, accn, form)
 
                     quarterly_periods.append({
                         'fiscalYear': fy,
@@ -815,6 +943,10 @@ class StockNormalizer:
                 'accession': a['accession'],
             })
 
+        if self.profile.get('comparableStart'):
+            cutoff = self.profile['comparableStart']
+            annual_periods = [a for a in annual_periods if a['periodStart'] >= cutoff]
+            quarterly_periods = [q for q in quarterly_periods if q.get('ytdStart') and q['ytdStart'] >= cutoff]
         quarterly_periods.sort(key=lambda x: (x['fiscalYear'], x['qNum']))
         return annual_periods, quarterly_periods
 
@@ -1478,6 +1610,12 @@ class StockNormalizer:
                     'quartersIncluded': included_periods,
                 }
 
+        if self.profile.get('strictUnits'):
+            for key, cfg in self.metric_defs.items():
+                if cfg.get('unsupported') and cfg.get('type') == 'flow':
+                    ttm_metrics[key] = {'value': None, 'unit': cfg['unit'], 'unsupported': True,
+                        'unsupportedReason': cfg['unsupportedReason']}
+
         return {
             'asOfPeriod': as_of_period,
             'quarters': included_periods,
@@ -1536,6 +1674,8 @@ class StockNormalizer:
                 'profile': self.profile['profileName'],
                 'industry': self.profile.get('industry', ''),
                 'profileDescription': self.profile['description'],
+                **({'coverageNotice': self.profile['coverageNotice']} if self.profile.get('coverageNotice') else {}),
+                **({'fiscalCalendarLabel': self.profile['fiscalCalendarLabel']} if self.profile.get('fiscalCalendarLabel') else {}),
                 'secCompanyFactsUrl': f"https://data.sec.gov/api/xbrl/companyfacts/CIK{company_info['cik']}.json",
                 'secSubmissionsUrl': f"https://data.sec.gov/submissions/CIK{company_info['cik']}.json",
                 'lastUpdated': company_info['lastUpdated'],

@@ -6,7 +6,7 @@
       "id": "sec",
       "provider": "SEC",
       "dataset": "EDGAR companyfacts, submissions and ticker mapping",
-      "currentUse": "Build-time normalized fundamentals for NVDA/SOFI/CRWD; current checked-in files are offline fixtures",
+      "currentUse": "Build-time normalized SEC fundamentals for NVDA/SOFI/CRWD/MU/MRVL/VRT/COHR/RKLB/TTMI/SNDK/FLY/CRWV; source and fetch metadata are recorded per file. B78 audited on 2026-09-15; see docs/research-coverage.md.",
       "classification": "official",
       "publicDisplay": "Needs verification",
       "caching": "Needs verification",

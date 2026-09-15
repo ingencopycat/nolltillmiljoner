@@ -1,0 +1,3275 @@
+{
+  "version": 1,
+  "auditedOn": "2026-09-15",
+  "source": "Direct SEC API responses; latest means observed, not a guaranteed absence of later filings. Counts reflect existing discovery; they do not certify compatibility.",
+  "companies": [
+    {
+      "requestedTicker": "AVEX",
+      "verifiedTicker": "AVEX",
+      "name": "AEVEX Corp.",
+      "cik": "0002096300",
+      "issuerType": "domestic_us",
+      "forms": [
+        "10-Q"
+      ],
+      "fiscalYearEnd": "1231",
+      "classification": "D",
+      "implemented": false,
+      "reason": "2026 IPO; no normalized annual period and only one discovered quarter; predecessor LLC/common allocation cannot form safe TTM.",
+      "companyFactsSufficient": "Not safe for current publication contract; see metric evidence and reason",
+      "mappingFit": "deferred",
+      "metrics": {
+        "revenue": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "unit": "USD",
+            "count": 4,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 418484000,
+              "form": "10-Q",
+              "filed": "2026-08-12",
+              "accn": "0002096300-26-000022",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "netIncome": [
+          {
+            "concept": "NetIncomeLoss",
+            "unit": "USD",
+            "count": 4,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 23254000,
+              "form": "10-Q",
+              "filed": "2026-08-12",
+              "accn": "0002096300-26-000022",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "ProfitLoss",
+            "unit": "USD",
+            "count": 7,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 27692000,
+              "form": "10-Q",
+              "filed": "2026-08-12",
+              "accn": "0002096300-26-000022",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "commonIncome": [
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "unit": "USD",
+            "count": 1,
+            "latest": {
+              "start": "2026-04-17",
+              "end": "2026-06-30",
+              "val": 603000,
+              "form": "10-Q",
+              "filed": "2026-08-12",
+              "accn": "0002096300-26-000022",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "eps": [
+          {
+            "concept": "EarningsPerShareDiluted",
+            "unit": "USD/shares",
+            "count": 5,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 0.01,
+              "form": "10-Q",
+              "filed": "2026-08-12",
+              "accn": "0002096300-26-000022",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "dilutedShares": [
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "count": 5,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 52805593,
+              "form": "10-Q",
+              "filed": "2026-08-12",
+              "accn": "0002096300-26-000022",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "ocf": [
+          {
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "USD",
+            "count": 2,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 8616000,
+              "form": "10-Q",
+              "filed": "2026-08-12",
+              "accn": "0002096300-26-000022",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "capex": [
+          {
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "USD",
+            "count": 2,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 3268000,
+              "form": "10-Q",
+              "filed": "2026-08-12",
+              "accn": "0002096300-26-000022",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "debt": [
+          {
+            "concept": "LongTermDebtCurrent",
+            "unit": "USD",
+            "count": 2,
+            "latest": {
+              "start": null,
+              "end": "2026-06-30",
+              "val": 2500000,
+              "form": "10-Q",
+              "filed": "2026-08-12",
+              "accn": "0002096300-26-000022",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "LongTermDebtNoncurrent",
+            "unit": "USD",
+            "count": 2,
+            "latest": {
+              "start": null,
+              "end": "2026-06-30",
+              "val": 96607000,
+              "form": "10-Q",
+              "filed": "2026-08-12",
+              "accn": "0002096300-26-000022",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ]
+      },
+      "stockSplitShareBasis": "No verified adjusted share basis asserted; historical per-share comparisons remain blocked. 2026 IPO; no normalized annual period and only one discovered quarter; predecessor LLC/common allocation cannot form safe TTM.",
+      "corporateHistory": "2026 IPO; no normalized annual period and only one discovered quarter; predecessor LLC/common allocation cannot form safe TTM.",
+      "currencyIssues": "Observed supported facts are USD; no FX conversion is performed",
+      "ttmFeasibility": "deferred",
+      "probe": {
+        "annualPeriods": 0,
+        "quarterlyPeriods": 1,
+        "ttmAsOf": null
+      },
+      "historicalQuarterContinuity": "Not approved",
+      "valuationSafety": "No coverage enabled",
+      "manualEpsRequired": true,
+      "sources": {
+        "tickerMap": "https://www.sec.gov/files/company_tickers.json",
+        "submissions": "https://data.sec.gov/submissions/CIK0002096300.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002096300.json",
+        "latestFiling": "https://www.sec.gov/Archives/edgar/data/2096300/000209630026000022/avex-20260630.htm"
+      },
+      "sourceSHA256": {
+        "submissions": "32f6204563018da07474e66021adff37e1c10739ae5d1ca3bc26357777ce97b5",
+        "companyfacts": "77495206479fa8c706fa00cd5150e9fe37fb1c1057a5bc8f3f8278eea748f813"
+      }
+    },
+    {
+      "requestedTicker": "BULL",
+      "verifiedTicker": "BULL",
+      "name": "Webull Corp",
+      "cik": "0001866364",
+      "issuerType": "foreign_private_issuer",
+      "forms": [
+        "20-F",
+        "20-F/A",
+        "6-K"
+      ],
+      "fiscalYearEnd": "1231",
+      "classification": "C",
+      "implemented": false,
+      "reason": "Foreign private issuer with 20-F/6-K and brokerage net-interest/trading definitions; domestic USD industrial profile does not fit.",
+      "companyFactsSufficient": "Not safe for current publication contract; see metric evidence and reason",
+      "mappingFit": "deferred",
+      "metrics": {
+        "revenue": [],
+        "netIncome": [
+          {
+            "concept": "NetIncomeLoss",
+            "unit": "USD",
+            "count": 12,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 24770704,
+              "form": "20-F",
+              "filed": "2026-04-09",
+              "accn": "0001213900-26-041653",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "ProfitLoss",
+            "unit": "USD",
+            "count": 10,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 24366029,
+              "form": "20-F",
+              "filed": "2026-04-09",
+              "accn": "0001213900-26-041653",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "commonIncome": [
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "unit": "USD",
+            "count": 10,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": -487519324,
+              "form": "20-F",
+              "filed": "2026-04-09",
+              "accn": "0001213900-26-041653",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "eps": [
+          {
+            "concept": "EarningsPerShareDiluted",
+            "unit": "USD/shares",
+            "count": 6,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": -1.23,
+              "form": "20-F",
+              "filed": "2026-04-09",
+              "accn": "0001213900-26-041653",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "dilutedShares": [
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "count": 10,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 396999679,
+              "form": "20-F",
+              "filed": "2026-04-09",
+              "accn": "0001213900-26-041653",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "ocf": [
+          {
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "USD",
+            "count": 8,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 566424456,
+              "form": "20-F",
+              "filed": "2026-04-09",
+              "accn": "0001213900-26-041653",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "capex": [
+          {
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "USD",
+            "count": 8,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 4887272,
+              "form": "20-F",
+              "filed": "2026-04-09",
+              "accn": "0001213900-26-041653",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "debt": []
+      },
+      "stockSplitShareBasis": "No verified adjusted share basis asserted; historical per-share comparisons remain blocked. Foreign private issuer with 20-F/6-K and brokerage net-interest/trading definitions; domestic USD industrial profile does not fit.",
+      "corporateHistory": "Foreign private issuer with 20-F/6-K and brokerage net-interest/trading definitions; domestic USD industrial profile does not fit.",
+      "currencyIssues": "Observed supported facts are USD; no FX conversion is performed",
+      "ttmFeasibility": "deferred",
+      "probe": {
+        "annualPeriods": 0,
+        "quarterlyPeriods": 0,
+        "ttmAsOf": null
+      },
+      "historicalQuarterContinuity": "Not approved",
+      "valuationSafety": "No coverage enabled",
+      "manualEpsRequired": true,
+      "sources": {
+        "tickerMap": "https://www.sec.gov/files/company_tickers.json",
+        "submissions": "https://data.sec.gov/submissions/CIK0001866364.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001866364.json",
+        "latestFiling": "https://www.sec.gov/Archives/edgar/data/1866364/000121390026099290/ea0304093-6k_webull.htm"
+      },
+      "sourceSHA256": {
+        "submissions": "aa97557a340e45975ac78c33c5b6e409a3750b0b675dce86f686ecbfece7128d",
+        "companyfacts": "aa9af226fc2a76b16443dca5d05bfff7c605129bdb6c87747f2b7d5b12834356"
+      }
+    },
+    {
+      "requestedTicker": "FLY",
+      "verifiedTicker": "FLY",
+      "name": "Firefly Aerospace Inc.",
+      "cik": "0001860160",
+      "issuerType": "domestic_us",
+      "forms": [
+        "10-K",
+        "10-Q"
+      ],
+      "fiscalYearEnd": "1231",
+      "classification": "C",
+      "implemented": false,
+      "reason": "Recent IPO and recapitalization; only one normalized annual period; losses and pre/post-IPO share denominator require separate review.",
+      "companyFactsSufficient": "Not safe for current publication contract; see metric evidence and reason",
+      "mappingFit": "deferred",
+      "metrics": {
+        "revenue": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "unit": "USD",
+            "count": 17,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 198562000,
+              "form": "10-Q",
+              "filed": "2026-08-11",
+              "accn": "0001860160-26-000023",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "netIncome": [
+          {
+            "concept": "NetIncomeLoss",
+            "unit": "USD",
+            "count": 25,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": -188995000,
+              "form": "10-Q",
+              "filed": "2026-08-11",
+              "accn": "0001860160-26-000023",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "ProfitLoss",
+            "unit": "USD",
+            "count": 11,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": -188995000,
+              "form": "10-Q",
+              "filed": "2026-08-11",
+              "accn": "0001860160-26-000023",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "commonIncome": [
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "unit": "USD",
+            "count": 17,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": -188995000,
+              "form": "10-Q",
+              "filed": "2026-08-11",
+              "accn": "0001860160-26-000023",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "eps": [
+          {
+            "concept": "EarningsPerShareDiluted",
+            "unit": "USD/shares",
+            "count": 17,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": -1.18,
+              "form": "10-Q",
+              "filed": "2026-08-11",
+              "accn": "0001860160-26-000023",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "dilutedShares": [
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "count": 18,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 160711000,
+              "form": "10-Q",
+              "filed": "2026-08-11",
+              "accn": "0001860160-26-000023",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "ocf": [
+          {
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "USD",
+            "count": 11,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": -144110000,
+              "form": "10-Q",
+              "filed": "2026-08-11",
+              "accn": "0001860160-26-000023",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "capex": [
+          {
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "USD",
+            "count": 11,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 41089000,
+              "form": "10-Q",
+              "filed": "2026-08-11",
+              "accn": "0001860160-26-000023",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "debt": [
+          {
+            "concept": "LongTermDebt",
+            "unit": "USD",
+            "count": 3,
+            "latest": {
+              "start": null,
+              "end": "2025-06-30",
+              "val": 136117000,
+              "form": "10-Q",
+              "filed": "2025-09-22",
+              "accn": "0001193125-25-211265",
+              "fy": 2025,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "DebtCurrent",
+            "unit": "USD",
+            "count": 6,
+            "latest": {
+              "start": null,
+              "end": "2026-06-30",
+              "val": 7410000,
+              "form": "10-Q",
+              "filed": "2026-08-11",
+              "accn": "0001860160-26-000023",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ]
+      },
+      "stockSplitShareBasis": "No verified adjusted share basis asserted; historical per-share comparisons remain blocked. Recent IPO and recapitalization; only one normalized annual period; losses and pre/post-IPO share denominator require separate review.",
+      "corporateHistory": "Recent IPO and recapitalization; only one normalized annual period; losses and pre/post-IPO share denominator require separate review.",
+      "currencyIssues": "Observed supported facts are USD; no FX conversion is performed",
+      "ttmFeasibility": "deferred",
+      "probe": {
+        "annualPeriods": 1,
+        "quarterlyPeriods": 5,
+        "ttmAsOf": "2026Q2"
+      },
+      "historicalQuarterContinuity": "Not approved",
+      "valuationSafety": "No coverage enabled",
+      "manualEpsRequired": true,
+      "sources": {
+        "tickerMap": "https://www.sec.gov/files/company_tickers.json",
+        "submissions": "https://data.sec.gov/submissions/CIK0001860160.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001860160.json",
+        "latestFiling": "https://www.sec.gov/Archives/edgar/data/1860160/000186016026000023/fly-20260630.htm"
+      },
+      "sourceSHA256": {
+        "submissions": "09f94606ef7adbeea749a2df2ee04430190f2bd8283ae647b91d30398d48a685",
+        "companyfacts": "83a495285a903fc01fd89274177aa5d6a540f20a87480da0199e50cacae1f8f5"
+      }
+    },
+    {
+      "requestedTicker": "RKLB",
+      "verifiedTicker": "RKLB",
+      "name": "Rocket Lab Corp",
+      "cik": "0001819994",
+      "issuerType": "domestic_us",
+      "forms": [
+        "10-K",
+        "10-K/A",
+        "10-Q"
+      ],
+      "fiscalYearEnd": "1231",
+      "classification": "B",
+      "implemented": true,
+      "reason": "Domestic USD core metrics pass. 2025 holding-company reorganization and participating preferred stock prevent an assumed common/diluted numerator; manual EPS and no total-debt aggregation.",
+      "companyFactsSufficient": "Core revenue/net income/cash flows only, with explicit unavailable metrics",
+      "mappingFit": "explicit_profile",
+      "metrics": {
+        "revenue": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "unit": "USD",
+            "count": 64,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 434414000,
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "accn": "0001819994-26-000062",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "netIncome": [
+          {
+            "concept": "NetIncomeLoss",
+            "unit": "USD",
+            "count": 100,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": -94280000,
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "accn": "0001819994-26-000062",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "ProfitLoss",
+            "unit": "USD",
+            "count": 51,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": -94280000,
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "accn": "0001819994-26-000062",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "commonIncome": [
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "unit": "USD",
+            "count": 4,
+            "latest": {
+              "start": "2021-01-01",
+              "end": "2021-06-30",
+              "val": 9673,
+              "form": "10-Q",
+              "filed": "2021-08-03",
+              "accn": "0001193125-21-234954",
+              "fy": 2021,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "eps": [
+          {
+            "concept": "EarningsPerShareDiluted",
+            "unit": "USD/shares",
+            "count": 56,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": -0.15,
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "accn": "0001819994-26-000062",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "dilutedShares": [
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "count": 56,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 617625210,
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "accn": "0001819994-26-000062",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "ocf": [
+          {
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "USD",
+            "count": 49,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": -134407000,
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "accn": "0001819994-26-000062",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "capex": [
+          {
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "USD",
+            "count": 44,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 53112000,
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "accn": "0001819994-26-000062",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "debt": [
+          {
+            "concept": "LongTermDebt",
+            "unit": "USD",
+            "count": 18,
+            "latest": {
+              "start": null,
+              "end": "2026-06-30",
+              "val": 13129000,
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "accn": "0001819994-26-000062",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "LongTermDebtCurrent",
+            "unit": "USD",
+            "count": 34,
+            "latest": {
+              "start": null,
+              "end": "2025-12-31",
+              "val": 0,
+              "form": "10-K",
+              "filed": "2026-02-26",
+              "accn": "0001819994-26-000013",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "LongTermDebtNoncurrent",
+            "unit": "USD",
+            "count": 39,
+            "latest": {
+              "start": null,
+              "end": "2026-06-30",
+              "val": 1716000,
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "accn": "0001819994-26-000062",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ]
+      },
+      "stockSplitShareBasis": "No verified adjusted share basis asserted; historical per-share comparisons remain blocked. Domestic USD core metrics pass. 2025 holding-company reorganization and participating preferred stock prevent an assumed common/diluted numerator; manual EPS and no total-debt aggregation.",
+      "corporateHistory": "Domestic USD core metrics pass. 2025 holding-company reorganization and participating preferred stock prevent an assumed common/diluted numerator; manual EPS and no total-debt aggregation.",
+      "currencyIssues": "Observed supported facts are USD; no FX conversion is performed",
+      "ttmFeasibility": "validated",
+      "probe": {
+        "annualPeriods": 3,
+        "quarterlyPeriods": 10,
+        "ttmAsOf": "2026Q2"
+      },
+      "historicalQuarterContinuity": "Pass final publication validation",
+      "valuationSafety": "Explicit manual EPS example only; no invented automatic TTM EPS",
+      "manualEpsRequired": true,
+      "sources": {
+        "tickerMap": "https://www.sec.gov/files/company_tickers.json",
+        "submissions": "https://data.sec.gov/submissions/CIK0001819994.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001819994.json",
+        "latestFiling": "https://www.sec.gov/Archives/edgar/data/1819994/000181999426000062/rklb-20260630.htm"
+      },
+      "sourceSHA256": {
+        "submissions": "8072e0482a3eecf42312936a76885a36626d9a77aca8ffeaae2c9fa07fee95bd",
+        "companyfacts": "51f2310062989094d2eacda2564fdfc89f0aecb8c2835e247be184be6faac089"
+      }
+    },
+    {
+      "requestedTicker": "CRWV",
+      "verifiedTicker": "CRWV",
+      "name": "CoreWeave, Inc.",
+      "cik": "0001769628",
+      "issuerType": "domestic_us",
+      "forms": [
+        "10-K",
+        "10-Q"
+      ],
+      "fiscalYearEnd": "1231",
+      "classification": "C",
+      "implemented": false,
+      "reason": "Recent IPO, capital-intensive financing and non-cash/leased infrastructure require issuer-specific cash-capex/debt scope; short denominator history.",
+      "companyFactsSufficient": "Not safe for current publication contract; see metric evidence and reason",
+      "mappingFit": "deferred",
+      "metrics": {
+        "revenue": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "unit": "USD",
+            "count": 19,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 4653000000,
+              "form": "10-Q",
+              "filed": "2026-08-12",
+              "accn": "0001769628-26-000366",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "netIncome": [
+          {
+            "concept": "NetIncomeLoss",
+            "unit": "USD",
+            "count": 27,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": -1366000000,
+              "form": "10-Q",
+              "filed": "2026-08-12",
+              "accn": "0001769628-26-000366",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "commonIncome": [
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "unit": "USD",
+            "count": 19,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": -1366000000,
+              "form": "10-Q",
+              "filed": "2026-08-12",
+              "accn": "0001769628-26-000366",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "eps": [
+          {
+            "concept": "EarningsPerShareDiluted",
+            "unit": "USD/shares",
+            "count": 19,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": -2.53,
+              "form": "10-Q",
+              "filed": "2026-08-12",
+              "accn": "0001769628-26-000366",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "dilutedShares": [
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "count": 19,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 539000000,
+              "form": "10-Q",
+              "filed": "2026-08-12",
+              "accn": "0001769628-26-000366",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "ocf": [
+          {
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "USD",
+            "count": 13,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 3663000000,
+              "form": "10-Q",
+              "filed": "2026-08-12",
+              "accn": "0001769628-26-000366",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "capex": [
+          {
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "USD",
+            "count": 13,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 14117000000,
+              "form": "10-Q",
+              "filed": "2026-08-12",
+              "accn": "0001769628-26-000366",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "debt": [
+          {
+            "concept": "LongTermDebt",
+            "unit": "USD",
+            "count": 10,
+            "latest": {
+              "start": null,
+              "end": "2026-03-31",
+              "val": 24859000000,
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "accn": "0001769628-26-000222",
+              "fy": 2026,
+              "fp": "Q1"
+            }
+          },
+          {
+            "concept": "LongTermDebtCurrent",
+            "unit": "USD",
+            "count": 10,
+            "latest": {
+              "start": null,
+              "end": "2026-03-31",
+              "val": 7547000000,
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "accn": "0001769628-26-000222",
+              "fy": 2026,
+              "fp": "Q1"
+            }
+          },
+          {
+            "concept": "LongTermDebtNoncurrent",
+            "unit": "USD",
+            "count": 10,
+            "latest": {
+              "start": null,
+              "end": "2026-03-31",
+              "val": 17312000000,
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "accn": "0001769628-26-000222",
+              "fy": 2026,
+              "fp": "Q1"
+            }
+          }
+        ]
+      },
+      "stockSplitShareBasis": "No verified adjusted share basis asserted; historical per-share comparisons remain blocked. Recent IPO, capital-intensive financing and non-cash/leased infrastructure require issuer-specific cash-capex/debt scope; short denominator history.",
+      "corporateHistory": "Recent IPO, capital-intensive financing and non-cash/leased infrastructure require issuer-specific cash-capex/debt scope; short denominator history.",
+      "currencyIssues": "Observed supported facts are USD; no FX conversion is performed",
+      "ttmFeasibility": "deferred",
+      "probe": {
+        "annualPeriods": 1,
+        "quarterlyPeriods": 5,
+        "ttmAsOf": "2026Q2"
+      },
+      "historicalQuarterContinuity": "Not approved",
+      "valuationSafety": "No coverage enabled",
+      "manualEpsRequired": true,
+      "sources": {
+        "tickerMap": "https://www.sec.gov/files/company_tickers.json",
+        "submissions": "https://data.sec.gov/submissions/CIK0001769628.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001769628.json",
+        "latestFiling": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm"
+      },
+      "sourceSHA256": {
+        "submissions": "b50f995d4075423bffcbba9f7460042c170ea0f7241c1bad17636092f64110f9",
+        "companyfacts": "263badd5d78cea3d0e3393befe4fbc5e1d5eda94899d1182ba6494b617348b18"
+      }
+    },
+    {
+      "requestedTicker": "NBIS",
+      "verifiedTicker": "NBIS",
+      "name": "Nebius Group N.V.",
+      "cik": "0001513845",
+      "issuerType": "foreign_private_issuer",
+      "forms": [
+        "20-F",
+        "20-F/A",
+        "6-K",
+        "6-K/A"
+      ],
+      "fiscalYearEnd": null,
+      "classification": "C",
+      "implemented": false,
+      "reason": "20-F/6-K foreign issuer; former Yandex restructuring and RUB/USD histories cannot be combined into domestic comparable TTM.",
+      "companyFactsSufficient": "Not safe for current publication contract; see metric evidence and reason",
+      "mappingFit": "deferred",
+      "metrics": {
+        "revenue": [
+          {
+            "concept": "Revenues",
+            "unit": "RUB",
+            "count": 39,
+            "latest": {
+              "start": "2023-01-01",
+              "end": "2023-12-31",
+              "val": 800125000000,
+              "form": "20-F",
+              "filed": "2024-04-26",
+              "accn": "0001558370-24-005891",
+              "fy": 2023,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "Revenues",
+            "unit": "USD",
+            "count": 19,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 529800000,
+              "form": "20-F",
+              "filed": "2026-04-30",
+              "accn": "0001104659-26-052948",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "netIncome": [
+          {
+            "concept": "NetIncomeLoss",
+            "unit": "RUB",
+            "count": 12,
+            "latest": {
+              "start": "2023-01-01",
+              "end": "2023-12-31",
+              "val": 19870000000,
+              "form": "20-F",
+              "filed": "2024-04-26",
+              "accn": "0001558370-24-005891",
+              "fy": 2023,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "unit": "USD",
+            "count": 10,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 82500000,
+              "form": "20-F",
+              "filed": "2026-04-30",
+              "accn": "0001104659-26-052948",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "ProfitLoss",
+            "unit": "RUB",
+            "count": 24,
+            "latest": {
+              "start": "2023-01-01",
+              "end": "2023-12-31",
+              "val": 21775000000,
+              "form": "20-F",
+              "filed": "2024-04-26",
+              "accn": "0001558370-24-005891",
+              "fy": 2023,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "ProfitLoss",
+            "unit": "USD",
+            "count": 14,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 82500000,
+              "form": "20-F",
+              "filed": "2026-04-30",
+              "accn": "0001104659-26-052948",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "commonIncome": [
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "unit": "RUB",
+            "count": 31,
+            "latest": {
+              "start": "2021-01-01",
+              "end": "2021-12-31",
+              "val": -14669000000,
+              "form": "20-F",
+              "filed": "2022-04-20",
+              "accn": "0001558370-22-005654",
+              "fy": 2021,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "unit": "USD",
+            "count": 10,
+            "latest": {
+              "start": "2021-01-01",
+              "end": "2021-12-31",
+              "val": -197400000,
+              "form": "20-F",
+              "filed": "2022-04-20",
+              "accn": "0001558370-22-005654",
+              "fy": 2021,
+              "fp": "FY"
+            }
+          }
+        ],
+        "eps": [
+          {
+            "concept": "EarningsPerShareDiluted",
+            "unit": "RUB/shares",
+            "count": 39,
+            "latest": {
+              "start": "2023-01-01",
+              "end": "2023-12-31",
+              "val": 53.26,
+              "form": "20-F",
+              "filed": "2024-04-26",
+              "accn": "0001558370-24-005891",
+              "fy": 2023,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "unit": "USD/shares",
+            "count": 19,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 0.33,
+              "form": "20-F",
+              "filed": "2026-04-30",
+              "accn": "0001104659-26-052948",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "dilutedShares": [
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "count": 45,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 247679946,
+              "form": "20-F",
+              "filed": "2026-04-30",
+              "accn": "0001104659-26-052948",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "ocf": [
+          {
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "RUB",
+            "count": 21,
+            "latest": {
+              "start": "2023-01-01",
+              "end": "2023-12-31",
+              "val": 70282000000,
+              "form": "20-F",
+              "filed": "2024-04-26",
+              "accn": "0001558370-24-005891",
+              "fy": 2023,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "USD",
+            "count": 13,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 384800000,
+              "form": "20-F",
+              "filed": "2026-04-30",
+              "accn": "0001104659-26-052948",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "capex": [
+          {
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "RUB",
+            "count": 39,
+            "latest": {
+              "start": "2023-01-01",
+              "end": "2023-12-31",
+              "val": 90641000000,
+              "form": "20-F",
+              "filed": "2024-04-26",
+              "accn": "0001558370-24-005891",
+              "fy": 2023,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "USD",
+            "count": 19,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 4066000000,
+              "form": "20-F",
+              "filed": "2026-04-30",
+              "accn": "0001104659-26-052948",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "debt": [
+          {
+            "concept": "LongTermDebt",
+            "unit": "RUB",
+            "count": 4,
+            "latest": {
+              "start": null,
+              "end": "2023-12-31",
+              "val": 141484000000,
+              "form": "20-F",
+              "filed": "2024-04-26",
+              "accn": "0001558370-24-005891",
+              "fy": 2023,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "LongTermDebt",
+            "unit": "USD",
+            "count": 3,
+            "latest": {
+              "start": null,
+              "end": "2025-12-31",
+              "val": 4103200000,
+              "form": "20-F",
+              "filed": "2026-04-30",
+              "accn": "0001104659-26-052948",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "LongTermDebtCurrent",
+            "unit": "RUB",
+            "count": 4,
+            "latest": {
+              "start": null,
+              "end": "2023-12-31",
+              "val": 92046000000,
+              "form": "20-F",
+              "filed": "2024-04-26",
+              "accn": "0001558370-24-005891",
+              "fy": 2023,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "LongTermDebtCurrent",
+            "unit": "USD",
+            "count": 6,
+            "latest": {
+              "start": null,
+              "end": "2025-12-31",
+              "val": 24500000,
+              "form": "20-F",
+              "filed": "2026-04-30",
+              "accn": "0001104659-26-052948",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "LongTermDebtNoncurrent",
+            "unit": "RUB",
+            "count": 4,
+            "latest": {
+              "start": null,
+              "end": "2023-12-31",
+              "val": 49438000000,
+              "form": "20-F",
+              "filed": "2024-04-26",
+              "accn": "0001558370-24-005891",
+              "fy": 2023,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "LongTermDebtNoncurrent",
+            "unit": "USD",
+            "count": 3,
+            "latest": {
+              "start": null,
+              "end": "2025-12-31",
+              "val": 4103200000,
+              "form": "20-F",
+              "filed": "2026-04-30",
+              "accn": "0001104659-26-052948",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ]
+      },
+      "stockSplitShareBasis": "No verified adjusted share basis asserted; historical per-share comparisons remain blocked. 20-F/6-K foreign issuer; former Yandex restructuring and RUB/USD histories cannot be combined into domestic comparable TTM.",
+      "corporateHistory": "20-F/6-K foreign issuer; former Yandex restructuring and RUB/USD histories cannot be combined into domestic comparable TTM.",
+      "currencyIssues": "RUB/USD mixed history",
+      "ttmFeasibility": "deferred",
+      "probe": {
+        "annualPeriods": 0,
+        "quarterlyPeriods": 0,
+        "ttmAsOf": null
+      },
+      "historicalQuarterContinuity": "Not approved",
+      "valuationSafety": "No coverage enabled",
+      "manualEpsRequired": true,
+      "sources": {
+        "tickerMap": "https://www.sec.gov/files/company_tickers.json",
+        "submissions": "https://data.sec.gov/submissions/CIK0001513845.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001513845.json",
+        "latestFiling": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926105749/tm2624958d1_6k.htm"
+      },
+      "sourceSHA256": {
+        "submissions": "13d61a75e13c1877671dba46e2fe125ed28b0d7757e01a6f250be25be7704107",
+        "companyfacts": "174b9b95abe3cdfb05d5ff172cc547c7f2d212b906bb4d69cbf97017847d1c43"
+      }
+    },
+    {
+      "requestedTicker": "TEM",
+      "verifiedTicker": "TEM",
+      "name": "Tempus AI, Inc.",
+      "cik": "0001717115",
+      "issuerType": "domestic_us",
+      "forms": [
+        "10-K",
+        "10-Q"
+      ],
+      "fiscalYearEnd": "1231",
+      "classification": "D",
+      "implemented": false,
+      "reason": "Observed SEC weighted diluted-share value is 179404 shares for 2026H1 against -120277000 USD income and -0.67 EPS; apparent scale mismatch must be reconciled, never multiplied speculatively.",
+      "companyFactsSufficient": "Not safe for current publication contract; see metric evidence and reason",
+      "mappingFit": "deferred",
+      "metrics": {
+        "revenue": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "unit": "USD",
+            "count": 30,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 730602000,
+              "form": "10-Q",
+              "filed": "2026-07-30",
+              "accn": "0001193125-26-326090",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "netIncome": [
+          {
+            "concept": "NetIncomeLoss",
+            "unit": "USD",
+            "count": 30,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": -120277000,
+              "form": "10-Q",
+              "filed": "2026-07-30",
+              "accn": "0001193125-26-326090",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "commonIncome": [
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "unit": "USD",
+            "count": 24,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": -245028000,
+              "form": "10-K",
+              "filed": "2026-02-24",
+              "accn": "0001193125-26-066961",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "eps": [
+          {
+            "concept": "EarningsPerShareDiluted",
+            "unit": "USD/shares",
+            "count": 30,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": -0.67,
+              "form": "10-Q",
+              "filed": "2026-07-30",
+              "accn": "0001193125-26-326090",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "dilutedShares": [
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "count": 30,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 179404,
+              "form": "10-Q",
+              "filed": "2026-07-30",
+              "accn": "0001193125-26-326090",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "ocf": [
+          {
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "USD",
+            "count": 20,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": -80802000,
+              "form": "10-Q",
+              "filed": "2026-07-30",
+              "accn": "0001193125-26-326090",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "capex": [
+          {
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "USD",
+            "count": 20,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 14327000,
+              "form": "10-Q",
+              "filed": "2026-07-30",
+              "accn": "0001193125-26-326090",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "debt": []
+      },
+      "stockSplitShareBasis": "No verified adjusted share basis asserted; historical per-share comparisons remain blocked. Observed SEC weighted diluted-share value is 179404 shares for 2026H1 against -120277000 USD income and -0.67 EPS; apparent scale mismatch must be reconciled, never multiplied speculatively.",
+      "corporateHistory": "Observed SEC weighted diluted-share value is 179404 shares for 2026H1 against -120277000 USD income and -0.67 EPS; apparent scale mismatch must be reconciled, never multiplied speculatively.",
+      "currencyIssues": "Observed supported facts are USD; no FX conversion is performed",
+      "ttmFeasibility": "deferred",
+      "probe": {
+        "annualPeriods": 2,
+        "quarterlyPeriods": 9,
+        "ttmAsOf": "2026Q2"
+      },
+      "historicalQuarterContinuity": "Not approved",
+      "valuationSafety": "No coverage enabled",
+      "manualEpsRequired": true,
+      "sources": {
+        "tickerMap": "https://www.sec.gov/files/company_tickers.json",
+        "submissions": "https://data.sec.gov/submissions/CIK0001717115.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001717115.json",
+        "latestFiling": "https://www.sec.gov/Archives/edgar/data/1717115/000119312526326090/tem-20260630.htm"
+      },
+      "sourceSHA256": {
+        "submissions": "bab4a28b0a9c49bdd5ea2a10b260d1d8a4adf4242a93b5639fdf24d78aa77007",
+        "companyfacts": "8360ecba4c3f3da597747f065f5a1b503da81c05dc8ffecf93d89e6f0b1a5e59"
+      }
+    },
+    {
+      "requestedTicker": "TTMI",
+      "verifiedTicker": "TTMI",
+      "name": "TTM TECHNOLOGIES INC",
+      "cik": "0001116942",
+      "issuerType": "domestic_us",
+      "forms": [
+        "10-K",
+        "10-Q"
+      ],
+      "fiscalYearEnd": "1228",
+      "classification": "C",
+      "implemented": false,
+      "reason": "Valid recent TTM is insufficient: discovery duplicates FY2024 and older quarters near January/July boundaries. Exact-file fiscal labels also assign FY2024 to the year ended 2024-01-01. Needs a reviewed fiscal-year model.",
+      "companyFactsSufficient": "Not safe for current publication contract; see metric evidence and reason",
+      "mappingFit": "deferred",
+      "metrics": {
+        "revenue": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "unit": "USD",
+            "count": 104,
+            "latest": {
+              "start": "2025-12-30",
+              "end": "2026-06-29",
+              "val": 1850030000,
+              "form": "10-Q",
+              "filed": "2026-08-05",
+              "accn": "0001193125-26-335107",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "Revenues",
+            "unit": "USD",
+            "count": 9,
+            "latest": {
+              "start": "2025-12-30",
+              "end": "2026-06-29",
+              "val": 1850030000,
+              "form": "10-Q",
+              "filed": "2026-08-05",
+              "accn": "0001193125-26-335107",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "netIncome": [
+          {
+            "concept": "NetIncomeLoss",
+            "unit": "USD",
+            "count": 243,
+            "latest": {
+              "start": "2025-12-30",
+              "end": "2026-06-29",
+              "val": 133035000,
+              "form": "10-Q",
+              "filed": "2026-08-05",
+              "accn": "0001193125-26-335107",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "ProfitLoss",
+            "unit": "USD",
+            "count": 163,
+            "latest": {
+              "start": "2024-12-31",
+              "end": "2025-12-29",
+              "val": 177448000,
+              "form": "10-K",
+              "filed": "2026-02-17",
+              "accn": "0001193125-26-051976",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "commonIncome": [],
+        "eps": [
+          {
+            "concept": "EarningsPerShareDiluted",
+            "unit": "USD/shares",
+            "count": 198,
+            "latest": {
+              "start": "2025-12-30",
+              "end": "2026-06-29",
+              "val": 1.24,
+              "form": "10-Q",
+              "filed": "2026-08-05",
+              "accn": "0001193125-26-335107",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "dilutedShares": [
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "count": 191,
+            "latest": {
+              "start": "2025-12-30",
+              "end": "2026-06-29",
+              "val": 107334000,
+              "form": "10-Q",
+              "filed": "2026-08-05",
+              "accn": "0001193125-26-335107",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "ocf": [
+          {
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "USD",
+            "count": 99,
+            "latest": {
+              "start": "2025-12-30",
+              "end": "2026-06-29",
+              "val": 118172000,
+              "form": "10-Q",
+              "filed": "2026-08-05",
+              "accn": "0001193125-26-335107",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "capex": [
+          {
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "USD",
+            "count": 137,
+            "latest": {
+              "start": "2025-12-30",
+              "end": "2026-06-29",
+              "val": 169205000,
+              "form": "10-Q",
+              "filed": "2026-08-05",
+              "accn": "0001193125-26-335107",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "PaymentsToAcquireProductiveAssets",
+            "unit": "USD",
+            "count": 9,
+            "latest": {
+              "start": "2013-01-01",
+              "end": "2013-12-30",
+              "val": 128271000,
+              "form": "10-K",
+              "filed": "2014-02-21",
+              "accn": "0001193125-14-062314",
+              "fy": 2013,
+              "fp": "FY"
+            }
+          }
+        ],
+        "debt": [
+          {
+            "concept": "LongTermDebt",
+            "unit": "USD",
+            "count": 60,
+            "latest": {
+              "start": null,
+              "end": "2026-06-29",
+              "val": 973456000,
+              "form": "10-Q",
+              "filed": "2026-08-05",
+              "accn": "0001193125-26-335107",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "LongTermDebtCurrent",
+            "unit": "USD",
+            "count": 54,
+            "latest": {
+              "start": null,
+              "end": "2026-06-29",
+              "val": 4000000,
+              "form": "10-Q",
+              "filed": "2026-08-05",
+              "accn": "0001193125-26-335107",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "LongTermDebtNoncurrent",
+            "unit": "USD",
+            "count": 98,
+            "latest": {
+              "start": null,
+              "end": "2026-06-29",
+              "val": 969456000,
+              "form": "10-Q",
+              "filed": "2026-08-05",
+              "accn": "0001193125-26-335107",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "DebtCurrent",
+            "unit": "USD",
+            "count": 72,
+            "latest": {
+              "start": null,
+              "end": "2020-09-28",
+              "val": 249975000,
+              "form": "10-Q",
+              "filed": "2020-11-05",
+              "accn": "0001564590-20-051296",
+              "fy": 2020,
+              "fp": "Q3"
+            }
+          }
+        ]
+      },
+      "stockSplitShareBasis": "No verified adjusted share basis asserted; historical per-share comparisons remain blocked. Valid recent TTM is insufficient: discovery duplicates FY2024 and older quarters near January/July boundaries. Exact-file fiscal labels also assign FY2024 to the year ended 2024-01-01. Needs a reviewed fiscal-year model.",
+      "corporateHistory": "Valid recent TTM is insufficient: discovery duplicates FY2024 and older quarters near January/July boundaries. Exact-file fiscal labels also assign FY2024 to the year ended 2024-01-01. Needs a reviewed fiscal-year model.",
+      "currencyIssues": "Observed supported facts are USD; no FX conversion is performed",
+      "ttmFeasibility": "deferred",
+      "probe": {
+        "annualPeriods": 3,
+        "quarterlyPeriods": 10,
+        "ttmAsOf": "2026Q2"
+      },
+      "historicalQuarterContinuity": "Not approved",
+      "valuationSafety": "No coverage enabled",
+      "manualEpsRequired": true,
+      "sources": {
+        "tickerMap": "https://www.sec.gov/files/company_tickers.json",
+        "submissions": "https://data.sec.gov/submissions/CIK0001116942.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001116942.json",
+        "latestFiling": "https://www.sec.gov/Archives/edgar/data/1116942/000119312526335107/ttmi-20260629.htm"
+      },
+      "sourceSHA256": {
+        "submissions": "a828912377baddd0072055f488b16afe319a13d06ba0399f6db6fde59c16db30",
+        "companyfacts": "fa480673a73ac98a5ea1ecdcef807d6fa9521970d28f4e54948ea9aa8eee1a0e"
+      }
+    },
+    {
+      "requestedTicker": "SNDK",
+      "verifiedTicker": "SNDK",
+      "name": "Sandisk Corp",
+      "cik": "0002023554",
+      "issuerType": "domestic_us",
+      "forms": [
+        "10-K",
+        "10-Q",
+        "10-Q/A"
+      ],
+      "fiscalYearEnd": "0628",
+      "classification": "C",
+      "implemented": false,
+      "reason": "Current Sandisk spin-off issuer, not old acquired SanDisk CIK. Carve-out share history and 52/53-week labels produce no valid TTM in current discovery.",
+      "companyFactsSufficient": "Not safe for current publication contract; see metric evidence and reason",
+      "mappingFit": "deferred",
+      "metrics": {
+        "revenue": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "unit": "USD",
+            "count": 28,
+            "latest": {
+              "start": "2025-06-28",
+              "end": "2026-07-03",
+              "val": 20248000000,
+              "form": "10-K",
+              "filed": "2026-08-17",
+              "accn": "0001628280-26-057406",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          }
+        ],
+        "netIncome": [
+          {
+            "concept": "NetIncomeLoss",
+            "unit": "USD",
+            "count": 42,
+            "latest": {
+              "start": "2025-06-28",
+              "end": "2026-07-03",
+              "val": 11433000000,
+              "form": "10-K",
+              "filed": "2026-08-17",
+              "accn": "0001628280-26-057406",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          }
+        ],
+        "commonIncome": [],
+        "eps": [
+          {
+            "concept": "EarningsPerShareDiluted",
+            "unit": "USD/shares",
+            "count": 20,
+            "latest": {
+              "start": "2025-06-28",
+              "end": "2026-07-03",
+              "val": 73.76,
+              "form": "10-K",
+              "filed": "2026-08-17",
+              "accn": "0001628280-26-057406",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          }
+        ],
+        "dilutedShares": [
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "count": 20,
+            "latest": {
+              "start": "2025-06-28",
+              "end": "2026-07-03",
+              "val": 155000000,
+              "form": "10-K",
+              "filed": "2026-08-17",
+              "accn": "0001628280-26-057406",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          }
+        ],
+        "ocf": [
+          {
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "USD",
+            "count": 18,
+            "latest": {
+              "start": "2025-06-28",
+              "end": "2026-07-03",
+              "val": 11671000000,
+              "form": "10-K",
+              "filed": "2026-08-17",
+              "accn": "0001628280-26-057406",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          }
+        ],
+        "capex": [
+          {
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "USD",
+            "count": 18,
+            "latest": {
+              "start": "2025-06-28",
+              "end": "2026-07-03",
+              "val": 177000000,
+              "form": "10-K",
+              "filed": "2026-08-17",
+              "accn": "0001628280-26-057406",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          }
+        ],
+        "debt": [
+          {
+            "concept": "LongTermDebt",
+            "unit": "USD",
+            "count": 11,
+            "latest": {
+              "start": null,
+              "end": "2026-07-03",
+              "val": 0,
+              "form": "10-K",
+              "filed": "2026-08-17",
+              "accn": "0001628280-26-057406",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "LongTermDebtCurrent",
+            "unit": "USD",
+            "count": 12,
+            "latest": {
+              "start": null,
+              "end": "2026-07-03",
+              "val": 0,
+              "form": "10-K",
+              "filed": "2026-08-17",
+              "accn": "0001628280-26-057406",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "LongTermDebtNoncurrent",
+            "unit": "USD",
+            "count": 12,
+            "latest": {
+              "start": null,
+              "end": "2026-07-03",
+              "val": 0,
+              "form": "10-K",
+              "filed": "2026-08-17",
+              "accn": "0001628280-26-057406",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          }
+        ]
+      },
+      "stockSplitShareBasis": "No verified adjusted share basis asserted; historical per-share comparisons remain blocked. Current Sandisk spin-off issuer, not old acquired SanDisk CIK. Carve-out share history and 52/53-week labels produce no valid TTM in current discovery.",
+      "corporateHistory": "Current Sandisk spin-off issuer, not old acquired SanDisk CIK. Carve-out share history and 52/53-week labels produce no valid TTM in current discovery.",
+      "currencyIssues": "Observed supported facts are USD; no FX conversion is performed",
+      "ttmFeasibility": "deferred",
+      "probe": {
+        "annualPeriods": 2,
+        "quarterlyPeriods": 7,
+        "ttmAsOf": null
+      },
+      "historicalQuarterContinuity": "Not approved",
+      "valuationSafety": "No coverage enabled",
+      "manualEpsRequired": true,
+      "sources": {
+        "tickerMap": "https://www.sec.gov/files/company_tickers.json",
+        "submissions": "https://data.sec.gov/submissions/CIK0002023554.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002023554.json",
+        "latestFiling": "https://www.sec.gov/Archives/edgar/data/2023554/000162828026057406/sndk-20260703.htm"
+      },
+      "sourceSHA256": {
+        "submissions": "29bca95af723f1782cee247da41757a208df075d0ff6c11b1c89dfdee9857be1",
+        "companyfacts": "a79546f03f508ad62b473a0cb563694c7020efe34878715e7492fd07a3590258"
+      }
+    },
+    {
+      "requestedTicker": "GLXY",
+      "verifiedTicker": "GLXY",
+      "name": "Galaxy Digital Inc.",
+      "cik": "0001859392",
+      "issuerType": "domestic_us",
+      "forms": [
+        "10-K",
+        "10-Q"
+      ],
+      "fiscalYearEnd": "1231",
+      "classification": "C",
+      "implemented": false,
+      "reason": "Current domestic Galaxy Digital Inc.; reorganization, gross digital-asset trading revenue and changing revenue concepts prevent generic industrial mapping; probe lagged newest filing.",
+      "companyFactsSufficient": "Not safe for current publication contract; see metric evidence and reason",
+      "mappingFit": "deferred",
+      "metrics": {
+        "revenue": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "unit": "USD",
+            "count": 13,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-03-31",
+              "val": 10014578000,
+              "form": "10-Q",
+              "filed": "2026-05-08",
+              "accn": "0001859392-26-000054",
+              "fy": 2026,
+              "fp": "Q1"
+            }
+          },
+          {
+            "concept": "Revenues",
+            "unit": "USD",
+            "count": 19,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 18598780000,
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "netIncome": [
+          {
+            "concept": "NetIncomeLoss",
+            "unit": "USD",
+            "count": 19,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": -301627000,
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "ProfitLoss",
+            "unit": "USD",
+            "count": 17,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": -301627000,
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "commonIncome": [
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "unit": "USD",
+            "count": 5,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-06-30",
+              "val": -95441000,
+              "form": "10-Q",
+              "filed": "2025-08-05",
+              "accn": "0001859392-25-000030",
+              "fy": 2025,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "eps": [],
+        "dilutedShares": [
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "count": 17,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 390465556,
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "ocf": [
+          {
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "USD",
+            "count": 13,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 288645000,
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "capex": [
+          {
+            "concept": "PaymentsToAcquireProductiveAssets",
+            "unit": "USD",
+            "count": 11,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 736674000,
+              "form": "10-Q",
+              "filed": "2026-08-10",
+              "accn": "0001859392-26-000091",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "debt": []
+      },
+      "stockSplitShareBasis": "No verified adjusted share basis asserted; historical per-share comparisons remain blocked. Current domestic Galaxy Digital Inc.; reorganization, gross digital-asset trading revenue and changing revenue concepts prevent generic industrial mapping; probe lagged newest filing.",
+      "corporateHistory": "Current domestic Galaxy Digital Inc.; reorganization, gross digital-asset trading revenue and changing revenue concepts prevent generic industrial mapping; probe lagged newest filing.",
+      "currencyIssues": "Observed supported facts are USD; no FX conversion is performed",
+      "ttmFeasibility": "deferred",
+      "probe": {
+        "annualPeriods": 1,
+        "quarterlyPeriods": 5,
+        "ttmAsOf": "2026Q1"
+      },
+      "historicalQuarterContinuity": "Not approved",
+      "valuationSafety": "No coverage enabled",
+      "manualEpsRequired": true,
+      "sources": {
+        "tickerMap": "https://www.sec.gov/files/company_tickers.json",
+        "submissions": "https://data.sec.gov/submissions/CIK0001859392.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001859392.json",
+        "latestFiling": "https://www.sec.gov/Archives/edgar/data/1859392/000185939226000091/glxy-20260630.htm"
+      },
+      "sourceSHA256": {
+        "submissions": "c019db9528bdbd8b03e208e17e424bef8b5a21eec1369555fb09b182e81842f2",
+        "companyfacts": "ccf2c0280a6ca7f482203e55a9085570f98939d87b47b4f84826449f7f6407ff"
+      }
+    },
+    {
+      "requestedTicker": "COHR",
+      "verifiedTicker": "COHR",
+      "name": "COHERENT CORP.",
+      "cik": "0000820318",
+      "issuerType": "domestic_us",
+      "forms": [
+        "10-K",
+        "10-Q",
+        "10-Q/A"
+      ],
+      "fiscalYearEnd": "0630",
+      "classification": "B",
+      "implemented": true,
+      "reason": "Current Coherent is former II-VI issuer. June year end passes; preferred conversion/dilution adjustments require unavailable reconstructed TTM EPS. Total debt scope not aggregated.",
+      "companyFactsSufficient": "Core revenue/net income/cash flows only, with explicit unavailable metrics",
+      "mappingFit": "explicit_profile",
+      "metrics": {
+        "revenue": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "unit": "USD",
+            "count": 128,
+            "latest": {
+              "start": "2025-07-01",
+              "end": "2026-06-30",
+              "val": 7118181000,
+              "form": "10-K",
+              "filed": "2026-08-14",
+              "accn": "0000820318-26-000020",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "Revenues",
+            "unit": "USD",
+            "count": 168,
+            "latest": {
+              "start": "2017-07-01",
+              "end": "2018-06-30",
+              "val": 1158794000,
+              "form": "10-K",
+              "filed": "2018-08-28",
+              "accn": "0001564590-18-022409",
+              "fy": 2018,
+              "fp": "FY"
+            }
+          }
+        ],
+        "netIncome": [
+          {
+            "concept": "NetIncomeLoss",
+            "unit": "USD",
+            "count": 256,
+            "latest": {
+              "start": "2025-07-01",
+              "end": "2026-06-30",
+              "val": 804998000,
+              "form": "10-K",
+              "filed": "2026-08-14",
+              "accn": "0000820318-26-000020",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "ProfitLoss",
+            "unit": "USD",
+            "count": 290,
+            "latest": {
+              "start": "2025-07-01",
+              "end": "2026-06-30",
+              "val": 786884000,
+              "form": "10-K",
+              "filed": "2026-08-14",
+              "accn": "0000820318-26-000020",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          }
+        ],
+        "commonIncome": [
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "unit": "USD",
+            "count": 86,
+            "latest": {
+              "start": "2025-07-01",
+              "end": "2026-06-30",
+              "val": 769896000,
+              "form": "10-K",
+              "filed": "2026-08-14",
+              "accn": "0000820318-26-000020",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          }
+        ],
+        "eps": [
+          {
+            "concept": "EarningsPerShareDiluted",
+            "unit": "USD/shares",
+            "count": 296,
+            "latest": {
+              "start": "2025-07-01",
+              "end": "2026-06-30",
+              "val": 4.12,
+              "form": "10-K",
+              "filed": "2026-08-14",
+              "accn": "0000820318-26-000020",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          }
+        ],
+        "dilutedShares": [
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "count": 198,
+            "latest": {
+              "start": "2025-07-01",
+              "end": "2026-06-30",
+              "val": 195387000,
+              "form": "10-K",
+              "filed": "2026-08-14",
+              "accn": "0000820318-26-000020",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          }
+        ],
+        "ocf": [
+          {
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "USD",
+            "count": 138,
+            "latest": {
+              "start": "2025-07-01",
+              "end": "2026-06-30",
+              "val": 79514000,
+              "form": "10-K",
+              "filed": "2026-08-14",
+              "accn": "0000820318-26-000020",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          }
+        ],
+        "capex": [
+          {
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "USD",
+            "count": 168,
+            "latest": {
+              "start": "2025-07-01",
+              "end": "2026-06-30",
+              "val": 1102909000,
+              "form": "10-K",
+              "filed": "2026-08-14",
+              "accn": "0000820318-26-000020",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          }
+        ],
+        "debt": [
+          {
+            "concept": "LongTermDebt",
+            "unit": "USD",
+            "count": 122,
+            "latest": {
+              "start": null,
+              "end": "2026-06-30",
+              "val": 3222224000,
+              "form": "10-K",
+              "filed": "2026-08-14",
+              "accn": "0000820318-26-000020",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "LongTermDebtCurrent",
+            "unit": "USD",
+            "count": 107,
+            "latest": {
+              "start": null,
+              "end": "2026-06-30",
+              "val": 7916000,
+              "form": "10-K",
+              "filed": "2026-08-14",
+              "accn": "0000820318-26-000020",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "LongTermDebtNoncurrent",
+            "unit": "USD",
+            "count": 122,
+            "latest": {
+              "start": null,
+              "end": "2026-06-30",
+              "val": 3214308000,
+              "form": "10-K",
+              "filed": "2026-08-14",
+              "accn": "0000820318-26-000020",
+              "fy": 2026,
+              "fp": "FY"
+            }
+          }
+        ]
+      },
+      "stockSplitShareBasis": "No verified adjusted share basis asserted; historical per-share comparisons remain blocked. Current Coherent is former II-VI issuer. June year end passes; preferred conversion/dilution adjustments require unavailable reconstructed TTM EPS. Total debt scope not aggregated.",
+      "corporateHistory": "Current Coherent is former II-VI issuer. June year end passes; preferred conversion/dilution adjustments require unavailable reconstructed TTM EPS. Total debt scope not aggregated.",
+      "currencyIssues": "Observed supported facts are USD; no FX conversion is performed",
+      "ttmFeasibility": "validated",
+      "probe": {
+        "annualPeriods": 3,
+        "quarterlyPeriods": 10,
+        "ttmAsOf": "2026Q4"
+      },
+      "historicalQuarterContinuity": "Pass final publication validation",
+      "valuationSafety": "Explicit manual EPS example only; no invented automatic TTM EPS",
+      "manualEpsRequired": true,
+      "sources": {
+        "tickerMap": "https://www.sec.gov/files/company_tickers.json",
+        "submissions": "https://data.sec.gov/submissions/CIK0000820318.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000820318.json",
+        "latestFiling": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000020/iivi-20260630.htm"
+      },
+      "sourceSHA256": {
+        "submissions": "8b7726137bea6dc55bc3abe7c0068fa29696b6383ac6c841f39aa0a495b9e556",
+        "companyfacts": "5a1f718032536191412fdcf47a5bfdc499427086137fcef367706de3c7c532a1"
+      }
+    },
+    {
+      "requestedTicker": "VRT",
+      "verifiedTicker": "VRT",
+      "name": "Vertiv Holdings Co",
+      "cik": "0001674101",
+      "issuerType": "domestic_us",
+      "forms": [
+        "10-K",
+        "10-K/A",
+        "10-Q"
+      ],
+      "fiscalYearEnd": "1231",
+      "classification": "B",
+      "implemented": true,
+      "reason": "Domestic calendar-year USD core metrics pass. SPAC-era history is outside selected three-year window; common/diluted numerator and total debt not inferred.",
+      "companyFactsSufficient": "Core revenue/net income/cash flows only, with explicit unavailable metrics",
+      "mappingFit": "explicit_profile",
+      "metrics": {
+        "revenue": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "unit": "USD",
+            "count": 103,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 5923800000,
+              "form": "10-Q",
+              "filed": "2026-07-29",
+              "accn": "0001628280-26-050609",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "Revenues",
+            "unit": "USD",
+            "count": 24,
+            "latest": {
+              "start": "2019-01-01",
+              "end": "2019-12-31",
+              "val": 0,
+              "form": "10-K",
+              "filed": "2020-03-12",
+              "accn": "0001104659-20-032055",
+              "fy": 2019,
+              "fp": "FY"
+            }
+          }
+        ],
+        "netIncome": [
+          {
+            "concept": "NetIncomeLoss",
+            "unit": "USD",
+            "count": 177,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 887900000,
+              "form": "10-Q",
+              "filed": "2026-07-29",
+              "accn": "0001628280-26-050609",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "ProfitLoss",
+            "unit": "USD",
+            "count": 12,
+            "latest": {
+              "start": "2019-01-01",
+              "end": "2019-12-31",
+              "val": 4389796,
+              "form": "10-K",
+              "filed": "2020-03-12",
+              "accn": "0001104659-20-032055",
+              "fy": 2019,
+              "fp": "FY"
+            }
+          }
+        ],
+        "commonIncome": [],
+        "eps": [
+          {
+            "concept": "EarningsPerShareDiluted",
+            "unit": "USD/shares",
+            "count": 97,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 2.26,
+              "form": "10-Q",
+              "filed": "2026-07-29",
+              "accn": "0001628280-26-050609",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "dilutedShares": [
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "count": 95,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 392511287,
+              "form": "10-Q",
+              "filed": "2026-07-29",
+              "accn": "0001628280-26-050609",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "ocf": [
+          {
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "USD",
+            "count": 72,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 1866600000,
+              "form": "10-Q",
+              "filed": "2026-07-29",
+              "accn": "0001628280-26-050609",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "capex": [
+          {
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "USD",
+            "count": 65,
+            "latest": {
+              "start": "2026-01-01",
+              "end": "2026-06-30",
+              "val": 285900000,
+              "form": "10-Q",
+              "filed": "2026-07-29",
+              "accn": "0001628280-26-050609",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "debt": [
+          {
+            "concept": "LongTermDebt",
+            "unit": "USD",
+            "count": 54,
+            "latest": {
+              "start": null,
+              "end": "2026-06-30",
+              "val": 2939800000,
+              "form": "10-Q",
+              "filed": "2026-07-29",
+              "accn": "0001628280-26-050609",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "LongTermDebtCurrent",
+            "unit": "USD",
+            "count": 54,
+            "latest": {
+              "start": null,
+              "end": "2026-06-30",
+              "val": 0,
+              "form": "10-Q",
+              "filed": "2026-07-29",
+              "accn": "0001628280-26-050609",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "LongTermDebtNoncurrent",
+            "unit": "USD",
+            "count": 54,
+            "latest": {
+              "start": null,
+              "end": "2026-06-30",
+              "val": 2939800000,
+              "form": "10-Q",
+              "filed": "2026-07-29",
+              "accn": "0001628280-26-050609",
+              "fy": 2026,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "DebtCurrent",
+            "unit": "USD",
+            "count": 12,
+            "latest": {
+              "start": null,
+              "end": "2021-12-31",
+              "val": 21800000,
+              "form": "10-K",
+              "filed": "2022-03-01",
+              "accn": "0001628280-22-004533",
+              "fy": 2021,
+              "fp": "FY"
+            }
+          }
+        ]
+      },
+      "stockSplitShareBasis": "No verified adjusted share basis asserted; historical per-share comparisons remain blocked. Domestic calendar-year USD core metrics pass. SPAC-era history is outside selected three-year window; common/diluted numerator and total debt not inferred.",
+      "corporateHistory": "Domestic calendar-year USD core metrics pass. SPAC-era history is outside selected three-year window; common/diluted numerator and total debt not inferred.",
+      "currencyIssues": "Observed supported facts are USD; no FX conversion is performed",
+      "ttmFeasibility": "validated",
+      "probe": {
+        "annualPeriods": 3,
+        "quarterlyPeriods": 10,
+        "ttmAsOf": "2026Q2"
+      },
+      "historicalQuarterContinuity": "Pass final publication validation",
+      "valuationSafety": "Explicit manual EPS example only; no invented automatic TTM EPS",
+      "manualEpsRequired": true,
+      "sources": {
+        "tickerMap": "https://www.sec.gov/files/company_tickers.json",
+        "submissions": "https://data.sec.gov/submissions/CIK0001674101.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001674101.json",
+        "latestFiling": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026050609/vrt-20260630.htm"
+      },
+      "sourceSHA256": {
+        "submissions": "d00c24492adea0b7f9578bb3642f6379425c9edafcdc2afa3f65f24ab1c268d8",
+        "companyfacts": "5f771a234556a960bf2d47287ec9021439defc71dabbfe70c2fbd18871aa0a74"
+      }
+    },
+    {
+      "requestedTicker": "ASML",
+      "verifiedTicker": "ASML",
+      "name": "ASML HOLDING NV",
+      "cik": "0000937966",
+      "issuerType": "foreign_private_issuer",
+      "forms": [
+        "20-F",
+        "20-F/A",
+        "6-K",
+        "6-K/A"
+      ],
+      "fiscalYearEnd": "1231",
+      "classification": "C",
+      "implemented": false,
+      "reason": "Foreign private issuer 20-F/6-K with EUR facts and US-traded shares; current USD/10-K/10-Q pipeline cannot represent it safely.",
+      "companyFactsSufficient": "Not safe for current publication contract; see metric evidence and reason",
+      "mappingFit": "deferred",
+      "metrics": {
+        "revenue": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "unit": "EUR",
+            "count": 24,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 32667300000,
+              "form": "20-F",
+              "filed": "2026-02-25",
+              "accn": "0001628280-26-011378",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "netIncome": [
+          {
+            "concept": "NetIncomeLoss",
+            "unit": "EUR",
+            "count": 51,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 9609400000,
+              "form": "20-F",
+              "filed": "2026-02-25",
+              "accn": "0001628280-26-011378",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "commonIncome": [],
+        "eps": [
+          {
+            "concept": "EarningsPerShareDiluted",
+            "unit": "EUR/shares",
+            "count": 51,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 24.71,
+              "form": "20-F",
+              "filed": "2026-02-25",
+              "accn": "0001628280-26-011378",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "dilutedShares": [
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "count": 51,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 388900000,
+              "form": "20-F",
+              "filed": "2026-02-25",
+              "accn": "0001628280-26-011378",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "ocf": [
+          {
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "EUR",
+            "count": 36,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 12658500000,
+              "form": "20-F",
+              "filed": "2026-02-25",
+              "accn": "0001628280-26-011378",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "capex": [
+          {
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "EUR",
+            "count": 51,
+            "latest": {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 1573600000,
+              "form": "20-F",
+              "filed": "2026-02-25",
+              "accn": "0001628280-26-011378",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ],
+        "debt": [
+          {
+            "concept": "LongTermDebt",
+            "unit": "EUR",
+            "count": 12,
+            "latest": {
+              "start": null,
+              "end": "2018-12-31",
+              "val": 3007500000,
+              "form": "20-F",
+              "filed": "2019-02-06",
+              "accn": "0000937966-19-000007",
+              "fy": 2018,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "LongTermDebtCurrent",
+            "unit": "EUR",
+            "count": 20,
+            "latest": {
+              "start": null,
+              "end": "2025-12-31",
+              "val": 1681900000,
+              "form": "20-F",
+              "filed": "2026-02-25",
+              "accn": "0001628280-26-011378",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          },
+          {
+            "concept": "LongTermDebtNoncurrent",
+            "unit": "EUR",
+            "count": 26,
+            "latest": {
+              "start": null,
+              "end": "2025-12-31",
+              "val": 2709000000,
+              "form": "20-F",
+              "filed": "2026-02-25",
+              "accn": "0001628280-26-011378",
+              "fy": 2025,
+              "fp": "FY"
+            }
+          }
+        ]
+      },
+      "stockSplitShareBasis": "No verified adjusted share basis asserted; historical per-share comparisons remain blocked. Foreign private issuer 20-F/6-K with EUR facts and US-traded shares; current USD/10-K/10-Q pipeline cannot represent it safely.",
+      "corporateHistory": "Foreign private issuer 20-F/6-K with EUR facts and US-traded shares; current USD/10-K/10-Q pipeline cannot represent it safely.",
+      "currencyIssues": "EUR requires currency-aware issuer handling",
+      "ttmFeasibility": "deferred",
+      "probe": {
+        "annualPeriods": 0,
+        "quarterlyPeriods": 0,
+        "ttmAsOf": null
+      },
+      "historicalQuarterContinuity": "Not approved",
+      "valuationSafety": "No coverage enabled",
+      "manualEpsRequired": true,
+      "sources": {
+        "tickerMap": "https://www.sec.gov/files/company_tickers.json",
+        "submissions": "https://data.sec.gov/submissions/CIK0000937966.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000937966.json",
+        "latestFiling": "https://www.sec.gov/Archives/edgar/data/937966/000162828026048235/form6-kquarterlyfilings.htm"
+      },
+      "sourceSHA256": {
+        "submissions": "d0a533464022a11456839c2fbf310b91ca0ec2cbfa14c259603b1d9c27dfb015",
+        "companyfacts": "dc0bde5c7d61847744ff81b9007fe32c1520f80ce82972e7d35d11b7cb347c8b"
+      }
+    },
+    {
+      "requestedTicker": "MRVL",
+      "verifiedTicker": "MRVL",
+      "name": "Marvell Technology, Inc.",
+      "cik": "0001835632",
+      "issuerType": "domestic_us",
+      "forms": [
+        "10-K",
+        "10-Q"
+      ],
+      "fiscalYearEnd": "0130",
+      "classification": "B",
+      "implemented": true,
+      "reason": "52/53-week fiscal calendar breaks legacy month inference. Exact current-filing revenue fy/fp labels pass opt-in strict discovery. No cross-CIK predecessor history merged.",
+      "companyFactsSufficient": "Core revenue/net income/cash flows only, with explicit unavailable metrics",
+      "mappingFit": "explicit_profile",
+      "metrics": {
+        "revenue": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "unit": "USD",
+            "count": 71,
+            "latest": {
+              "start": "2026-02-01",
+              "end": "2026-08-01",
+              "val": 5157100000,
+              "form": "10-Q",
+              "filed": "2026-08-28",
+              "accn": "0001835632-26-000025",
+              "fy": 2027,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "netIncome": [
+          {
+            "concept": "NetIncomeLoss",
+            "unit": "USD",
+            "count": 103,
+            "latest": {
+              "start": "2026-02-01",
+              "end": "2026-08-01",
+              "val": 342500000,
+              "form": "10-Q",
+              "filed": "2026-08-28",
+              "accn": "0001835632-26-000025",
+              "fy": 2027,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "commonIncome": [
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "unit": "USD",
+            "count": 6,
+            "latest": {
+              "start": "2026-02-01",
+              "end": "2026-08-01",
+              "val": 342500000,
+              "form": "10-Q",
+              "filed": "2026-08-28",
+              "accn": "0001835632-26-000025",
+              "fy": 2027,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "eps": [
+          {
+            "concept": "EarningsPerShareDiluted",
+            "unit": "USD/shares",
+            "count": 71,
+            "latest": {
+              "start": "2026-02-01",
+              "end": "2026-08-01",
+              "val": 0.38,
+              "form": "10-Q",
+              "filed": "2026-08-28",
+              "accn": "0001835632-26-000025",
+              "fy": 2027,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "dilutedShares": [
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "count": 71,
+            "latest": {
+              "start": "2026-02-01",
+              "end": "2026-08-01",
+              "val": 907100000,
+              "form": "10-Q",
+              "filed": "2026-08-28",
+              "accn": "0001835632-26-000025",
+              "fy": 2027,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "ocf": [
+          {
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "USD",
+            "count": 49,
+            "latest": {
+              "start": "2026-02-01",
+              "end": "2026-08-01",
+              "val": 1244300000,
+              "form": "10-Q",
+              "filed": "2026-08-28",
+              "accn": "0001835632-26-000025",
+              "fy": 2027,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "capex": [
+          {
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "USD",
+            "count": 49,
+            "latest": {
+              "start": "2026-02-01",
+              "end": "2026-08-01",
+              "val": 282400000,
+              "form": "10-Q",
+              "filed": "2026-08-28",
+              "accn": "0001835632-26-000025",
+              "fy": 2027,
+              "fp": "Q2"
+            }
+          }
+        ],
+        "debt": [
+          {
+            "concept": "LongTermDebt",
+            "unit": "USD",
+            "count": 44,
+            "latest": {
+              "start": null,
+              "end": "2026-08-01",
+              "val": 4962900000,
+              "form": "10-Q",
+              "filed": "2026-08-28",
+              "accn": "0001835632-26-000025",
+              "fy": 2027,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "LongTermDebtCurrent",
+            "unit": "USD",
+            "count": 9,
+            "latest": {
+              "start": null,
+              "end": "2026-08-01",
+              "val": 0,
+              "form": "10-Q",
+              "filed": "2026-08-28",
+              "accn": "0001835632-26-000025",
+              "fy": 2027,
+              "fp": "Q2"
+            }
+          },
+          {
+            "concept": "LongTermDebtNoncurrent",
+            "unit": "USD",
+            "count": 44,
+            "latest": {
+              "start": null,
+              "end": "2026-08-01",
+              "val": 4962900000,
+              "form": "10-Q",
+              "filed": "2026-08-28",
+              "accn": "0001835632-26-000025",
+              "fy": 2027,
+              "fp": "Q2"
+            }
+          }
+        ]
+      },
+      "stockSplitShareBasis": "No verified adjusted share basis asserted; historical per-share comparisons remain blocked. 52/53-week fiscal calendar breaks legacy month inference. Exact current-filing revenue fy/fp labels pass opt-in strict discovery. No cross-CIK predecessor history merged.",
+      "corporateHistory": "52/53-week fiscal calendar breaks legacy month inference. Exact current-filing revenue fy/fp labels pass opt-in strict discovery. No cross-CIK predecessor history merged.",
+      "currencyIssues": "Observed supported facts are USD; no FX conversion is performed",
+      "ttmFeasibility": "validated",
+      "probe": {
+        "annualPeriods": 3,
+        "quarterlyPeriods": 10,
+        "ttmAsOf": null
+      },
+      "historicalQuarterContinuity": "Pass final publication validation",
+      "valuationSafety": "Explicit manual EPS example only; no invented automatic TTM EPS",
+      "manualEpsRequired": true,
+      "sources": {
+        "tickerMap": "https://www.sec.gov/files/company_tickers.json",
+        "submissions": "https://data.sec.gov/submissions/CIK0001835632.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001835632.json",
+        "latestFiling": "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000025/mrvl-20260801.htm"
+      },
+      "sourceSHA256": {
+        "submissions": "fe1bdd319875e3a66c9340a94d0a9fcb092787ea157af1805cda49495ce28987",
+        "companyfacts": "428167c79354dc2fa26f9397afb70648e7665f0b9f03edb4cc6e3ae541715f5a"
+      }
+    },
+    {
+      "requestedTicker": "MU",
+      "verifiedTicker": "MU",
+      "name": "MICRON TECHNOLOGY INC",
+      "cik": "0000723125",
+      "issuerType": "domestic_us",
+      "forms": [
+        "10-K",
+        "10-Q"
+      ],
+      "fiscalYearEnd": "0903",
+      "classification": "B",
+      "implemented": true,
+      "reason": "52/53-week August/September year end passes existing continuity. Recent LongTermDebt tag is stale/partial; total debt and reconstructed common EPS withheld.",
+      "companyFactsSufficient": "Core revenue/net income/cash flows only, with explicit unavailable metrics",
+      "mappingFit": "explicit_profile",
+      "metrics": {
+        "revenue": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "unit": "USD",
+            "count": 117,
+            "latest": {
+              "start": "2025-08-29",
+              "end": "2026-05-28",
+              "val": 78959000000,
+              "form": "10-Q",
+              "filed": "2026-06-25",
+              "accn": "0000723125-26-000015",
+              "fy": 2026,
+              "fp": "Q3"
+            }
+          },
+          {
+            "concept": "Revenues",
+            "unit": "USD",
+            "count": 11,
+            "latest": {
+              "start": "2017-09-01",
+              "end": "2018-08-30",
+              "val": 30391000000,
+              "form": "10-K",
+              "filed": "2018-10-15",
+              "accn": "0000723125-18-000092",
+              "fy": 2018,
+              "fp": "FY"
+            }
+          }
+        ],
+        "netIncome": [
+          {
+            "concept": "NetIncomeLoss",
+            "unit": "USD",
+            "count": 314,
+            "latest": {
+              "start": "2025-08-29",
+              "end": "2026-05-28",
+              "val": 47268000000,
+              "form": "10-Q",
+              "filed": "2026-06-25",
+              "accn": "0000723125-26-000015",
+              "fy": 2026,
+              "fp": "Q3"
+            }
+          },
+          {
+            "concept": "ProfitLoss",
+            "unit": "USD",
+            "count": 231,
+            "latest": {
+              "start": "2021-09-03",
+              "end": "2022-09-01",
+              "val": 8687000000,
+              "form": "10-K",
+              "filed": "2022-10-07",
+              "accn": "0000723125-22-000048",
+              "fy": 2022,
+              "fp": "FY"
+            }
+          }
+        ],
+        "commonIncome": [],
+        "eps": [
+          {
+            "concept": "EarningsPerShareDiluted",
+            "unit": "USD/shares",
+            "count": 287,
+            "latest": {
+              "start": "2025-08-29",
+              "end": "2026-05-28",
+              "val": 41.4,
+              "form": "10-Q",
+              "filed": "2026-06-25",
+              "accn": "0000723125-26-000015",
+              "fy": 2026,
+              "fp": "Q3"
+            }
+          }
+        ],
+        "dilutedShares": [
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "unit": "shares",
+            "count": 207,
+            "latest": {
+              "start": "2025-08-29",
+              "end": "2026-05-28",
+              "val": 1142000000,
+              "form": "10-Q",
+              "filed": "2026-06-25",
+              "accn": "0000723125-26-000015",
+              "fy": 2026,
+              "fp": "Q3"
+            }
+          }
+        ],
+        "ocf": [
+          {
+            "concept": "NetCashProvidedByUsedInOperatingActivities",
+            "unit": "USD",
+            "count": 107,
+            "latest": {
+              "start": "2025-08-29",
+              "end": "2026-05-28",
+              "val": 45702000000,
+              "form": "10-Q",
+              "filed": "2026-06-25",
+              "accn": "0000723125-26-000015",
+              "fy": 2026,
+              "fp": "Q3"
+            }
+          }
+        ],
+        "capex": [
+          {
+            "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+            "unit": "USD",
+            "count": 143,
+            "latest": {
+              "start": "2025-08-29",
+              "end": "2026-05-28",
+              "val": 19602000000,
+              "form": "10-Q",
+              "filed": "2026-06-25",
+              "accn": "0000723125-26-000015",
+              "fy": 2026,
+              "fp": "Q3"
+            }
+          }
+        ],
+        "debt": [
+          {
+            "concept": "LongTermDebt",
+            "unit": "USD",
+            "count": 41,
+            "latest": {
+              "start": null,
+              "end": "2025-11-27",
+              "val": 8844000000,
+              "form": "10-Q",
+              "filed": "2025-12-18",
+              "accn": "0000723125-25-000046",
+              "fy": 2026,
+              "fp": "Q1"
+            }
+          },
+          {
+            "concept": "LongTermDebtCurrent",
+            "unit": "USD",
+            "count": 24,
+            "latest": {
+              "start": null,
+              "end": "2013-05-30",
+              "val": 357000000,
+              "form": "10-Q",
+              "filed": "2013-07-08",
+              "accn": "0000723125-13-000108",
+              "fy": 2013,
+              "fp": "Q3"
+            }
+          },
+          {
+            "concept": "LongTermDebtNoncurrent",
+            "unit": "USD",
+            "count": 24,
+            "latest": {
+              "start": null,
+              "end": "2013-05-30",
+              "val": 3267000000,
+              "form": "10-Q",
+              "filed": "2013-07-08",
+              "accn": "0000723125-13-000108",
+              "fy": 2013,
+              "fp": "Q3"
+            }
+          },
+          {
+            "concept": "DebtCurrent",
+            "unit": "USD",
+            "count": 104,
+            "latest": {
+              "start": null,
+              "end": "2026-05-28",
+              "val": 582000000,
+              "form": "10-Q",
+              "filed": "2026-06-25",
+              "accn": "0000723125-26-000015",
+              "fy": 2026,
+              "fp": "Q3"
+            }
+          }
+        ]
+      },
+      "stockSplitShareBasis": "No verified adjusted share basis asserted; historical per-share comparisons remain blocked. 52/53-week August/September year end passes existing continuity. Recent LongTermDebt tag is stale/partial; total debt and reconstructed common EPS withheld.",
+      "corporateHistory": "52/53-week August/September year end passes existing continuity. Recent LongTermDebt tag is stale/partial; total debt and reconstructed common EPS withheld.",
+      "currencyIssues": "Observed supported facts are USD; no FX conversion is performed",
+      "ttmFeasibility": "validated",
+      "probe": {
+        "annualPeriods": 3,
+        "quarterlyPeriods": 10,
+        "ttmAsOf": "2026Q3"
+      },
+      "historicalQuarterContinuity": "Pass final publication validation",
+      "valuationSafety": "Explicit manual EPS example only; no invented automatic TTM EPS",
+      "manualEpsRequired": true,
+      "sources": {
+        "tickerMap": "https://www.sec.gov/files/company_tickers.json",
+        "submissions": "https://data.sec.gov/submissions/CIK0000723125.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000723125.json",
+        "latestFiling": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm"
+      },
+      "sourceSHA256": {
+        "submissions": "539e2b258ca25b17cbe7d7b0d7d006fa69b353504d4c294fbaac6167b363f143",
+        "companyfacts": "7f2ae456deab03b96e7e5a562962f6dd42c6ddbfb545b9623d492c3b4450ee49"
+      }
+    }
+  ]
+}

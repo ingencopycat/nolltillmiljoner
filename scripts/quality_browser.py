@@ -9,11 +9,16 @@ import json
 from pathlib import Path
 from browser_smoke import BrowserSmoke
 
-PAGES = ['index.html', 'havstang.html', 'isk-skattkalkylator.html',
+PAGES = ['index.html', 'ranta-pa-ranta.html', 'havstang.html', 'isk-skattkalkylator.html',
          'bolanekalkylator.html', 'research.html?ticker=NVDA', 'min-ntm.html',
          'post-jordi-visser-linjart-exponentiellt-ai-trading.html',
          'fire-kalkylator.html', 'sparmalskalkylator.html', 'aktiekopskalkylator.html',
-         'valutajusterad-avkastning.html', 'rapporter.html']
+         'valutajusterad-avkastning.html', 'rapporter.html',
+         'research.html?ticker=TTMI', 'research.html?ticker=SNDK',
+         'research.html?ticker=FLY', 'research.html?ticker=CRWV',
+         'academy.html', 'academy-cagr.html', 'academy-isk.html',
+         'academy.html?category=statements', 'academy-financial-statements.html',
+         'academy-enterprise-value.html', 'academy-forward-metrics.html', 'academy-position-sizing.html']
 
 def run():
     report = {'version': 1, 'measuredAt': datetime.now(timezone.utc).isoformat(),
@@ -36,6 +41,9 @@ def run():
             page.add_init_script("document.addEventListener('securitypolicyviolation', e => { window.__cspViolations = [...(window.__cspViolations || []), e.violatedDirective + ': ' + e.blockedURI]; });")
             try:
                 case.go(path); page.wait_for_load_state('networkidle')
+                if path == 'ranta-pa-ranta.html':
+                    page.locator('#growth-yearly-depth > summary').click()
+                    page.locator('#growth-yearly-mode').check()
                 page.evaluate('document.fonts.ready')
                 metrics = page.evaluate('''() => {
                     const navigation = performance.getEntriesByType('navigation')[0];

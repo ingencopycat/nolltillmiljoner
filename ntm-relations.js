@@ -1,11 +1,13 @@
 /* Canonical public relation catalog + shared static/runtime renderer. No private state. */
 (function (root) {
   'use strict';
+  const academy = typeof module !== 'undefined' ? require('./academy-catalog.js') : root.NTMAcademyCatalog;
   const concepts = ['cagr', 'pe', 'eps', 'fcf', 'dilution', 'valuation', 'compounding',
-    'fees', 'currency', 'inflation', 'interest-rates', 'ai', 'semiconductors', 'crypto', 'risk', 'thesis'];
+    'fees', 'currency', 'inflation', 'interest-rates', 'ai', 'semiconductors', 'crypto', 'risk', 'thesis',
+    ...((academy?.lessons || []).map(l=>l.id).filter(id=>!['pe','eps','fcf','cagr','currency','compounding','fees','inflation','interest-rates','risk','thesis','dilution'].includes(id)))];
   const types = ['content', 'video', 'tool', 'calculator', 'research', 'learn', 'macro', 'workflow', 'community'];
   const relationTypes = ['learn', 'try', 'research', 'related', 'source', 'continue', 'discuss'];
-  const supportedTickers = ['NVDA', 'SOFI', 'CRWD'];
+  const supportedTickers = ['NVDA', 'SOFI', 'CRWD', 'MU', 'MRVL', 'VRT', 'COHR', 'RKLB', 'TTMI', 'SNDK', 'FLY', 'CRWV'];
   const postMetadata = {
     'jordi-visser-linjart-exponentiellt-ai-trading': { concepts: ['ai', 'valuation', 'risk'], themes: ['ai-infrastructure'] },
     'jordi-visser-anthony-pompliano-ai-krypto-makro': { concepts: ['ai', 'crypto', 'interest-rates'], themes: ['macro'] },
@@ -20,12 +22,21 @@
     return { id, from, to, type, priority, reason, cta, ...extra };
   }
   const relations = [
+    ...(academy?.published() || []).flatMap(l=>[
+      ...l.relatedEntityIds.map((id,i)=>edge('academy-try-'+l.id+'-'+i,'learn-'+l.id,id,'try',10+i,'Pröva lektionens exempel med egna antaganden.','Öppna verktyget')),
+      ...l.relatedConcepts.map((id,i)=>edge('academy-related-'+l.id+'-'+id,'learn-'+l.id,'learn-'+id,'learn',20+i,'Bygg vidare på begreppet i en annan lektion.','Läs lektionen')),
+      edge('academy-back-'+l.id,l.relatedEntityIds[0],'learn-'+l.id,'learn',40,'Förstå begreppet innan du väljer antaganden.','Lär dig: '+l.title)
+    ]),
+    ...supportedTickers.map(t=>edge('academy-research-'+t.toLowerCase(),'research-'+t.toLowerCase(),'learn-pe','learn',24,'Skilj aktiens pris från vinst och egna antaganden.','Lär dig P/E')),
+    edge('academy-video-thesis','post-ai-portfolj','learn-thesis','learn',25,'Gör ett marknadstema till ett prövbart eget resonemang.','Lär dig skriva en tes'),
     edge('purchase-thesis', 'tool-purchase', 'workflow-manual-thesis', 'continue', 10, 'Har din tes förändrats? Skriv eller öppna dina antaganden före ett tilläggsköp.', 'Öppna Research och din tes'),
     edge('compound-followup', 'tool-compound', 'workflow-goal-followup', 'continue', 25, 'Spara en originalplan och jämför senare med egna observationer.', 'Följ upp ett sparmål'),
     edge('exponential-reverse', 'post-jordi-visser-linjart-exponentiellt-ai-trading', 'tool-reverse', 'try', 10,
       'Videons AI-tillväxt säger inte vad en aktie är värd. Testa vilken EPS-tillväxt dina egna pris- och avkastningsantaganden kräver.', 'Pröva omvänd värdering', { legacyCta: 'ai_reverse' }),
     edge('micron-scenarios', 'post-micron-ai-memory', 'tool-scenarios', 'try', 10,
-      'Pröva lägre och högre vinsttillväxt och multiplar med egna, kontrollerade värden. Micron ingår inte i NTM Research; videons siffror fylls inte i.', 'Jämför tre värderingsscenarier', { legacyCta: 'memory_scenarios' }),
+      'Pröva lägre och högre vinsttillväxt och multiplar med egna, kontrollerade värden. Videons siffror fylls inte i.', 'Jämför tre värderingsscenarier', { legacyCta: 'memory_scenarios' }),
+    edge('micron-research', 'post-micron-ai-memory', 'research-mu', 'research', 20,
+      'Granska Microns rapporterade SEC-data. Värderingskalkylen kräver ditt eget EPS-antagande.', 'Öppna Micron Research'),
     edge('portfolio-thesis', 'post-ai-portfolj', 'workflow-nvda-thesis', 'continue', 10,
       'Portföljens AI-tema nämner Nvidia. Skriv vad som måste bli sant och vad som skulle få dig att ändra dig. En arbetsövning, ingen köprekommendation.', 'Skriv en egen Nvidia-tes i Research', { legacyCta: 'ai_thesis' }),
     edge('portfolio-fx', 'post-ai-portfolj', 'tool-fx', 'try', 20,
@@ -76,10 +87,11 @@
     'ranta-pa-ranta.html': ['tool-compound'], 'valutajusterad-avkastning.html': ['tool-fx'],
     'avkastningskalkylator.html': ['tool-return'],
     'aktiekopskalkylator.html': ['tool-purchase'],
-    'research.html': ['research-nvda', 'research-sofi', 'research-crwd']
+    'research.html': supportedTickers.map(t=>'research-'+t.toLowerCase())
   };
   function catalog(posts) {
     const entities = [
+      entity('tool-tax', 'calculator', 'ISK-skatt per inkomstår', 'isk-skattkalkylator.html', {concepts:['isk']}),
       entity('tool-purchase', 'calculator', 'Aktieköp och GAV', 'aktiekopskalkylator.html', { concepts: ['fees', 'thesis'] }),
       entity('workflow-manual-thesis', 'workflow', 'Din investeringstes', 'research.html#manualThesisEntry', { concepts: ['thesis'] }),
       entity('workflow-goal-followup', 'workflow', 'Sparmål och uppföljning', 'sparmalskalkylator.html#goal-followup', { concepts: ['compounding'] }),
@@ -93,14 +105,13 @@
       entity('macro-calendar', 'macro', 'Makrokalender', 'makro.html', { concepts: ['inflation', 'interest-rates'], themes: ['macro'] }),
       entity('community', 'community', 'NTM Community', 'community.html'),
       ...supportedTickers.flatMap(ticker => {
-        const name = { NVDA: 'Nvidia', SOFI: 'SoFi', CRWD: 'CrowdStrike' }[ticker];
+        const name = { NVDA: 'Nvidia', SOFI: 'SoFi', CRWD: 'CrowdStrike', MU: 'Micron', MRVL: 'Marvell', VRT: 'Vertiv', COHR: 'Coherent', RKLB: 'Rocket Lab', TTMI: 'TTM Technologies', SNDK: 'Sandisk', FLY: 'Firefly Aerospace', CRWV: 'CoreWeave' }[ticker];
         return [entity('research-' + ticker.toLowerCase(), 'research', name + ' Research', 'research.html?ticker=' + ticker,
           { tickers: [ticker], companies: [name], concepts: ['valuation', 'thesis'] }),
         entity('workflow-' + ticker.toLowerCase() + '-thesis', 'workflow', 'Din tes om ' + name, 'research.html?ticker=' + ticker + '#thesisSection',
           { tickers: [ticker], concepts: ['thesis'] })];
       }),
-      ...[['pe', 'P/E'], ['eps', 'EPS'], ['cagr', 'CAGR'], ['currency', 'Valutarisk'], ['compounding', 'Ränta på ränta']]
-        .map(([id, title]) => entity('learn-' + id, 'learn', title, null, { status: 'planned', concepts: [id], difficulty: 'beginner' })),
+      ...(academy?.published() || []).map(l=>entity('learn-'+l.id,'learn',l.title,academy.url(l.id),{concepts:[l.id],difficulty:l.difficulty})),
       ...posts.map(post => entity('post-' + post.slug, post.media.type === 'youtube' ? 'video' : 'content', post.title,
         'post-' + post.slug + '.html', { tags: post.tags, ...postMetadata[post.slug],
           distribution: { category: post.media.type === 'youtube' ? 'video' : 'article', shareTitle: post.title, summary: post.excerpt } }))
@@ -110,11 +121,13 @@
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   function query(data, id, { limit = 3, type, concept, ticker } = {}) {
     const byId = new Map(data.entities.map(e => [e.id, e]));
+    const destinations = new Set();
     return data.relations.filter(r => r.from === id && (!type || r.type === type))
       .map(r => ({ ...r, destination: byId.get(r.to) }))
       .filter(r => r.destination?.status === 'published' && r.destination.url
         && (!concept || r.destination.concepts.includes(concept)) && (!ticker || r.destination.tickers.includes(ticker)))
       .sort((a, b) => a.priority - b.priority || a.id.localeCompare(b.id, 'en'))
+      .filter(r => { if(destinations.has(r.to)) return false; destinations.add(r.to); return true; })
       .slice(0, Math.max(0, Math.min(5, Number.isInteger(limit) ? limit : 3)));
   }
   function href(relation, source) {
@@ -125,7 +138,7 @@
     return url.pathname.slice(1) + url.search + url.hash;
   }
   function render(data, id) {
-    const source = data.entities.find(e => e.id === id), rows = query(data, id);
+    const source = data.entities.find(e => e.id === id), rows = query(data, id, {limit:source?.type === 'research' ? 4 : 3});
     if (!source || !rows.length) return '';
     const heading = source.type === 'research' ? 'Fortsätt med ' + source.title : 'Nästa steg i NTM';
     return `<aside class="ntm-relations" data-relation-source="${esc(id)}"${source.type === 'research' ? ` data-relation-ticker="${esc(source.tickers[0])}"` : ''} aria-labelledby="relations-${esc(id)}"><h2 id="relations-${esc(id)}">${esc(heading)}</h2><ul>${rows.map(r =>
@@ -172,6 +185,7 @@
     }
     return errors;
   }
-  root.NTMRelations = Object.freeze({ catalog, query, render, validate, concepts, types, relationTypes, placements, supportedTickers });
+  function conceptHref(data, concept) { return data.entities.find(e=>e.id==='learn-'+concept && e.status==='published')?.url || null; }
+  root.NTMRelations = Object.freeze({ catalog, query, render, validate, conceptHref, concepts, types, relationTypes, placements, supportedTickers });
   if (typeof module !== 'undefined') module.exports = root.NTMRelations;
 })(typeof window !== 'undefined' ? window : globalThis);

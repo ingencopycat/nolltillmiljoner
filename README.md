@@ -39,7 +39,7 @@ Redirect shims kept for old links (do not build on these): `calculator.html` →
 ### Architecture & Data Flow
 - **URL entry point:** `research.html?ticker=<TICKER>` (e.g. `SOFI`, `NVDA`, `CRWD`).
 - **Static JSON Data:** The frontend consumes pre-normalized JSON files from `data/stocks/<TICKER>.json`. The browser **never** calls SEC EDGAR endpoints directly at runtime.
-- **Supported Tickers:** Currently `SOFI`, `NVDA`, `CRWD` with company-specific profiles (`financial_services`, `standard_company`, `software_saas`).
+- **Supported Tickers:** `SOFI`, `NVDA`, `CRWD`, `MU`, `MRVL`, `VRT`, `COHR`, `RKLB`, `TTMI`, `SNDK`, `FLY`, `CRWV`. See the [coverage source of truth and 15-company B78 audit](docs/research-coverage.md). The nine additions use explicit USD domestic-issuer mappings, manual EPS fallback and unavailable total debt. Phase 2 adds four companies with restricted history/share/financing treatment; Galaxy remains deferred.
 - **Research Index View:** When visiting `research.html` without a `ticker` parameter, the page renders an index overview with summary cards and key TTM metrics for all supported stocks.
 
 ### Key Features
@@ -264,7 +264,7 @@ documents the additive V2 fields and future identity boundaries.
 
 ### JSON backup and deliberate deletion
 
-The **Backup och lokal Research-data** section uses `local-data.js`. “Exportera all lokal data” downloads a readable envelope `{ application: "NTM", schemaVersion: 1, exportedAt, data: { theses, outcomes, scenarios, theme } }`. It includes complete records, immutable revisions and snapshots, archived checkpoint source revisions, calculator inputs and theme. Known V1 thesis records migrate in memory through the existing storage adapter with deterministic legacy IDs and original dates/content; export does not write storage. Missing financial values remain null. Recent-tool navigation, session greetings and public SEC/macro data are excluded as transient/recreatable state. Markdown is not a backup. Keep JSON backups private.
+The **Backup och lokal Research-data** section uses `local-data.js`. “Exportera all lokal data” downloads a readable envelope `{ application: "NTM", schemaVersion: 3, exportedAt, data: { theses, outcomes, scenarios, theme, behavioral, academy } }`. It includes complete records, immutable revisions and snapshots, archived checkpoint source revisions, calculator inputs and theme. Known V1 thesis records migrate in memory through the existing storage adapter with deterministic legacy IDs and original dates/content; export does not write storage. Missing financial values remain null. Recent-tool navigation, session greetings and public SEC/macro data are excluded as transient/recreatable state. Markdown is not a backup. Keep JSON backups private.
 
 Import validates the entire envelope and all stores before writing. Only **merge** is supported: existing records remain; unseen IDs append in source order, so an imported revision can become latest even if its timestamp is older. Identical IDs/content are no-ops; conflicting IDs or unknown-field values abort the entire import. Existing theme wins. Unsupported/corrupt backups or current stores block import; no automatic discard/repair occurs. Import is limited to 20 MB in the UI. Writes are checked against the captured store, read back and rolled back on failure where possible. LocalStorage is not a multi-key transaction: a browser crash, concurrent tab, or failure of rollback itself can still leave partial changes; keep the source backup and heed the explicit partial-write error. Close other NTM tabs during import/deletion.
 
@@ -733,4 +733,13 @@ See [weekly reliability findings and maintenance instructions](docs/weekly-data-
 
 Research AI B44–B48 is a disabled provider/product foundation with local deterministic test templates. See [architecture, privacy, evaluations and activation boundaries](docs/research-ai-foundation.md). No live model service is connected.
 
-Behavioral Intelligence B70/B71/B74/B75 is available locally in Min NTM: voluntary decision pauses, user-assigned assumption groups, factual retrospectives and blank method-template exports. [Architecture, privacy, backup V2 and limitations](docs/behavioral-intelligence.md). These new records are included in local JSON backup, not the optional cloud sync.
+Behavioral Intelligence B70/B71/B74/B75 is available locally in Min NTM: voluntary decision pauses, user-assigned assumption groups, factual retrospectives and blank method-template exports. [Architecture, privacy, backup compatibility and limitations](docs/behavioral-intelligence.md). These new records are included in local JSON backup, not the optional cloud sync.
+
+
+### NTM Academy V1
+
+[Academy](academy.html) provides 25 Swedish lessons, six areas, four optional learning paths, local progress and five optional understanding checks. The existing Connected Experience catalog supplies lesson/tool links. Portable backup V3 includes learning history; V1/V2 imports remain supported. Academy progress is excluded from the current cloud adapter. See [architecture, curriculum and editorial workflow](docs/academy.md) and [validation](docs/academy-validation.md). Generate pages with `node scripts/build_seo.cjs`; edit the catalog rather than generated lesson HTML.
+
+## Academy V2
+
+Academy now includes 29 reviewed Swedish lessons, six paths, eleven optional checks and an internal reviewed-question schema. See [V2 architecture and delivery](docs/academy-v2.md), [editorial audit](docs/internal/academy/editorial-audit.md) and [validation](docs/academy-v2-validation.md). Progress remains local with backup V3; no cloud requirement or live AI was added.

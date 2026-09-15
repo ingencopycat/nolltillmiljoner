@@ -1,0 +1,1073 @@
+{
+  "auditDate": "2026-09-15",
+  "phase": 2,
+  "supportedCount": 12,
+  "implemented": [
+    "TTMI",
+    "SNDK",
+    "FLY",
+    "CRWV"
+  ],
+  "deferred": [
+    "GLXY"
+  ],
+  "existingEightBaseline": {
+    "SOFI": {
+      "data": "c818963445bfd49197eb66f1366a52f60ddd77735a2ece91bb41aca5e5a53b37",
+      "profile": "ea293980c7a7ce380e56450060b7966fd6d5caca80c4b203c3f129134ddaebf8"
+    },
+    "NVDA": {
+      "data": "4d5287fd6994767fda8b49a6748781bc65e734a405658a64b65582fc3108e98e",
+      "profile": "2f337a051ccc73a379c4aabaf06bfd8df34dd3533a05aa33ab5fb41fb49f47b0"
+    },
+    "CRWD": {
+      "data": "2a83daf28a564a65906ebd614f60841ef87bc4fdaf5b6790b72bd5de37827113",
+      "profile": "47bf358b0e9801c2053db274970ff96c3ad6a6cdaba90c276370e96b77d3cd44"
+    },
+    "MU": {
+      "data": "3ec88582022f2332b4c9a09ce6737c21e85b81eef5cff14c65a1b0904d070413",
+      "profile": "51c4e341ec1df74daab89ede954565832849f461893671cc2d64a0c6bc48760f"
+    },
+    "MRVL": {
+      "data": "ecd0741ab976232fff46dfc37b7ca1650a97050c6f21f53a8b68df8a12430de8",
+      "profile": "d016d31d3f15de8a7705f7fa355aa3ca7eeb878329a6efd984acea3216669627"
+    },
+    "VRT": {
+      "data": "d2ea589de4256864668a8c4fe27df25d9294b33bde87d522f5204d69ae9bb8e6",
+      "profile": "5d2ad2ac94aebaa97799e7005e3dea3fe82c0dcde893e378c45f857b38f7eab8"
+    },
+    "COHR": {
+      "data": "96e65c733fb968a5eb0c5f8022d981d0a5c6ad2a9fccbacdb265aeb64aec44ca",
+      "profile": "e189c08cb3c16e69cf4a3f3c9e75ace4f62ae5640789ddc7384d055bab3fc0c8"
+    },
+    "RKLB": {
+      "data": "93a4bb28cde43276492ee3eb3ba0370dc7635e75498c5f480ee0c87962186612",
+      "profile": "a421e9aa80ea23210143c5d649f2e619f81cbff09ba885babdb11f98125aecc3"
+    }
+  },
+  "phase3Classifications": {
+    "AVEX": "D",
+    "BULL": "C",
+    "NBIS": "C",
+    "TEM": "D",
+    "ASML": "C"
+  },
+  "companies": [
+    {
+      "ticker": "TTMI",
+      "company": "TTM TECHNOLOGIES INC",
+      "cik": "0001116942",
+      "issuerType": "domestic US 10-K/10-Q",
+      "currency": "USD",
+      "fiscalYearEndMetadata": "1228",
+      "status": "implemented with restrictions",
+      "classification": "B",
+      "profile": "standard_company",
+      "epsMode": "manual; no published comparable per-share metrics",
+      "shareBasis": "unverified; no current-share substitution",
+      "filings": [
+        {
+          "form": "10-Q",
+          "periodEnd": "2026-06-29",
+          "filed": "2026-08-05",
+          "accepted": "2026-08-05T20:10:50.000Z",
+          "accession": "0001193125-26-335107",
+          "url": "https://www.sec.gov/Archives/edgar/data/1116942/000119312526335107/ttmi-20260629.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2026-03-30",
+          "filed": "2026-05-01",
+          "accepted": "2026-05-01T20:05:45.000Z",
+          "accession": "0001193125-26-201403",
+          "url": "https://www.sec.gov/Archives/edgar/data/1116942/000119312526201403/ttmi-20260330.htm"
+        },
+        {
+          "form": "10-K",
+          "periodEnd": "2025-12-29",
+          "filed": "2026-02-17",
+          "accepted": "2026-02-14T00:00:49.000Z",
+          "accession": "0001193125-26-051976",
+          "url": "https://www.sec.gov/Archives/edgar/data/1116942/000119312526051976/ttmi-20251229.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2025-09-29",
+          "filed": "2025-10-31",
+          "accepted": "2025-10-31T20:01:59.000Z",
+          "accession": "0001193125-25-260708",
+          "url": "https://www.sec.gov/Archives/edgar/data/1116942/000119312525260708/ttmi-20250929.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2025-06-30",
+          "filed": "2025-08-04",
+          "accepted": "2025-08-04T20:25:55.000Z",
+          "accession": "0000950170-25-102042",
+          "url": "https://www.sec.gov/Archives/edgar/data/1116942/000095017025102042/ttmi-20250630.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2025-03-31",
+          "filed": "2025-05-06",
+          "accepted": "2025-05-06T10:05:22.000Z",
+          "accession": "0000950170-25-063937",
+          "url": "https://www.sec.gov/Archives/edgar/data/1116942/000095017025063937/ttmi-20250331.htm"
+        },
+        {
+          "form": "10-K",
+          "periodEnd": "2024-12-30",
+          "filed": "2025-02-21",
+          "accepted": "2025-02-21T21:08:06.000Z",
+          "accession": "0000950170-25-024839",
+          "url": "https://www.sec.gov/Archives/edgar/data/1116942/000095017025024839/ttmi-20241230.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2024-09-30",
+          "filed": "2024-11-05",
+          "accepted": "2024-11-05T21:05:28.000Z",
+          "accession": "0000950170-24-121449",
+          "url": "https://www.sec.gov/Archives/edgar/data/1116942/000095017024121449/ttmi-20240930.htm"
+        }
+      ],
+      "concepts": {
+        "Assets": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-29"
+        },
+        "CashAndCashEquivalentsAtCarryingValue": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-29"
+        },
+        "EarningsPerShareDiluted": {
+          "units": [
+            "USD/shares"
+          ],
+          "latestEnd": "2026-06-29"
+        },
+        "NetCashProvidedByUsedInOperatingActivities": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-29"
+        },
+        "NetIncomeLoss": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-29"
+        },
+        "OperatingIncomeLoss": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-29"
+        },
+        "PaymentsToAcquirePropertyPlantAndEquipment": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-29"
+        },
+        "RevenueFromContractWithCustomerExcludingAssessedTax": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-29"
+        },
+        "ShareBasedCompensation": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-29"
+        },
+        "StockholdersEquity": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-29"
+        },
+        "WeightedAverageNumberOfDilutedSharesOutstanding": {
+          "units": [
+            "shares"
+          ],
+          "latestEnd": "2026-06-29"
+        },
+        "Revenues": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-29"
+        }
+      },
+      "sources": {
+        "submissions": "https://data.sec.gov/submissions/CIK0001116942.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001116942.json"
+      },
+      "fullSourceSha256": {
+        "submissions": "a828912377baddd0072055f488b16afe319a13d06ba0399f6db6fde59c16db30",
+        "companyfacts": "fa480673a73ac98a5ea1ecdcef807d6fa9521970d28f4e54948ea9aa8eee1a0e"
+      },
+      "annualPeriods": [
+        {
+          "period": "FY2023",
+          "periodStart": "2023-01-03",
+          "periodEnd": "2024-01-01",
+          "accession": "0000950170-24-021098"
+        },
+        {
+          "period": "FY2024",
+          "periodStart": "2024-01-02",
+          "periodEnd": "2024-12-30",
+          "accession": "0000950170-25-024839"
+        },
+        {
+          "period": "FY2025",
+          "periodStart": "2024-12-31",
+          "periodEnd": "2025-12-29",
+          "accession": "0001193125-26-051976"
+        }
+      ],
+      "quarters": [
+        {
+          "period": "2024Q1",
+          "periodStart": "2024-01-02",
+          "periodEnd": "2024-04-01",
+          "accession": "0000950170-24-054464"
+        },
+        {
+          "period": "2024Q2",
+          "periodStart": "2024-04-02",
+          "periodEnd": "2024-07-01",
+          "accession": "0000950170-24-091772"
+        },
+        {
+          "period": "2024Q3",
+          "periodStart": "2024-07-02",
+          "periodEnd": "2024-09-30",
+          "accession": "0000950170-24-121449"
+        },
+        {
+          "period": "2024Q4",
+          "periodStart": "2024-10-01",
+          "periodEnd": "2024-12-30",
+          "accession": "0000950170-25-024839"
+        },
+        {
+          "period": "2025Q1",
+          "periodStart": "2024-12-31",
+          "periodEnd": "2025-03-31",
+          "accession": "0000950170-25-063937"
+        },
+        {
+          "period": "2025Q2",
+          "periodStart": "2025-04-01",
+          "periodEnd": "2025-06-30",
+          "accession": "0000950170-25-102042"
+        },
+        {
+          "period": "2025Q3",
+          "periodStart": "2025-07-01",
+          "periodEnd": "2025-09-29",
+          "accession": "0001193125-25-260708"
+        },
+        {
+          "period": "2025Q4",
+          "periodStart": "2025-09-30",
+          "periodEnd": "2025-12-29",
+          "accession": "0001193125-26-051976"
+        },
+        {
+          "period": "2026Q1",
+          "periodStart": "2025-12-30",
+          "periodEnd": "2026-03-30",
+          "accession": "0001193125-26-201403"
+        },
+        {
+          "period": "2026Q2",
+          "periodStart": "2026-03-31",
+          "periodEnd": "2026-06-29",
+          "accession": "0001193125-26-335107"
+        }
+      ],
+      "ttm": {
+        "period": "2026Q2",
+        "start": "2025-07-01",
+        "end": "2026-06-29",
+        "quarters": [
+          "2025Q3",
+          "2025Q4",
+          "2026Q1",
+          "2026Q2"
+        ]
+      },
+      "limitations": "TTMI använder måndagen närmast 31 december som årsslut. FY2023 slutar 1 januari 2024. Skuld och per-aktievärden saknas: jämförbar aktiebas är inte verifierad; ange EPS manuellt.",
+      "unavailableMetrics": {
+        "dilutedEps": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+        "dilutedShares": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+        "totalLiabilities": null,
+        "netIncomeToCommon": "A reconciled diluted/common numerator is not verified. Consolidated net income is not a substitute; enter EPS manually for valuation.",
+        "debt": "A complete comparable debt scope is not verified for this coverage profile; no partial debt is labelled total debt.",
+        "deferredRevenue": "No comparable combined current/noncurrent contract-liability mapping is configured.",
+        "fcfPerShare": "One or more trailing quarters missing valid diluted share count"
+      }
+    },
+    {
+      "ticker": "SNDK",
+      "company": "Sandisk Corp",
+      "cik": "0002023554",
+      "issuerType": "domestic US 10-K/10-Q",
+      "currency": "USD",
+      "fiscalYearEndMetadata": "0628",
+      "status": "implemented with restrictions",
+      "classification": "B",
+      "profile": "limited_history",
+      "epsMode": "manual; no published comparable per-share metrics",
+      "shareBasis": "unverified; no current-share substitution",
+      "filings": [
+        {
+          "form": "10-K",
+          "periodEnd": "2026-07-03",
+          "filed": "2026-08-17",
+          "accepted": "2026-08-17T20:50:29.000Z",
+          "accession": "0001628280-26-057406",
+          "url": "https://www.sec.gov/Archives/edgar/data/2023554/000162828026057406/sndk-20260703.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2026-04-03",
+          "filed": "2026-05-01",
+          "accepted": "2026-05-01T20:56:23.000Z",
+          "accession": "0001628280-26-029401",
+          "url": "https://www.sec.gov/Archives/edgar/data/2023554/000162828026029401/sndk-20260403.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2026-01-02",
+          "filed": "2026-01-30",
+          "accepted": "2026-01-30T21:46:47.000Z",
+          "accession": "0001628280-26-004407",
+          "url": "https://www.sec.gov/Archives/edgar/data/2023554/000162828026004407/sndk-20260102.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2025-10-03",
+          "filed": "2025-11-07",
+          "accepted": "2025-11-07T21:59:35.000Z",
+          "accession": "0001628280-25-050698",
+          "url": "https://www.sec.gov/Archives/edgar/data/2023554/000162828025050698/sndk-20251003.htm"
+        },
+        {
+          "form": "10-K",
+          "periodEnd": "2025-06-27",
+          "filed": "2025-08-21",
+          "accepted": "2025-08-21T00:31:19.000Z",
+          "accession": "0002023554-25-000034",
+          "url": "https://www.sec.gov/Archives/edgar/data/2023554/000202355425000034/sndk-20250627.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2025-03-28",
+          "filed": "2025-05-12",
+          "accepted": "2025-05-12T20:27:40.000Z",
+          "accession": "0002023554-25-000027",
+          "url": "https://www.sec.gov/Archives/edgar/data/2023554/000202355425000027/sndk-20250328.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2024-12-27",
+          "filed": "2025-03-07",
+          "accepted": "2025-03-07T21:44:37.000Z",
+          "accession": "0002023554-25-000004",
+          "url": "https://www.sec.gov/Archives/edgar/data/2023554/000202355425000004/sndk-20241227.htm"
+        }
+      ],
+      "concepts": {
+        "Assets": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-07-03"
+        },
+        "CashAndCashEquivalentsAtCarryingValue": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-07-03"
+        },
+        "Liabilities": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-07-03"
+        },
+        "NetCashProvidedByUsedInOperatingActivities": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-07-03"
+        },
+        "NetIncomeLoss": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-07-03"
+        },
+        "OperatingIncomeLoss": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-07-03"
+        },
+        "PaymentsToAcquirePropertyPlantAndEquipment": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-07-03"
+        },
+        "RevenueFromContractWithCustomerExcludingAssessedTax": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-07-03"
+        },
+        "ShareBasedCompensation": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-07-03"
+        },
+        "StockholdersEquity": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-07-03"
+        },
+        "EarningsPerShareDiluted": {
+          "units": [
+            "USD/shares"
+          ],
+          "latestEnd": "2026-07-03"
+        },
+        "WeightedAverageNumberOfDilutedSharesOutstanding": {
+          "units": [
+            "shares"
+          ],
+          "latestEnd": "2026-07-03"
+        }
+      },
+      "sources": {
+        "submissions": "https://data.sec.gov/submissions/CIK0002023554.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002023554.json"
+      },
+      "fullSourceSha256": {
+        "submissions": "29bca95af723f1782cee247da41757a208df075d0ff6c11b1c89dfdee9857be1",
+        "companyfacts": "a79546f03f508ad62b473a0cb563694c7020efe34878715e7492fd07a3590258"
+      },
+      "annualPeriods": [
+        {
+          "period": "FY2026",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2026-07-03",
+          "accession": "0001628280-26-057406"
+        }
+      ],
+      "quarters": [
+        {
+          "period": "2026Q1",
+          "periodStart": "2025-06-28",
+          "periodEnd": "2025-10-03",
+          "accession": "0001628280-25-050698"
+        },
+        {
+          "period": "2026Q2",
+          "periodStart": "2025-10-04",
+          "periodEnd": "2026-01-02",
+          "accession": "0001628280-26-004407"
+        },
+        {
+          "period": "2026Q3",
+          "periodStart": "2026-01-03",
+          "periodEnd": "2026-04-03",
+          "accession": "0001628280-26-029401"
+        },
+        {
+          "period": "2026Q4",
+          "periodStart": "2026-04-04",
+          "periodEnd": "2026-07-03",
+          "accession": "0001628280-26-057406"
+        }
+      ],
+      "ttm": {
+        "period": "2026Q4",
+        "start": "2025-06-28",
+        "end": "2026-07-03",
+        "quarters": [
+          "2026Q1",
+          "2026Q2",
+          "2026Q3",
+          "2026Q4"
+        ]
+      },
+      "limitations": "Endast FY2026 efter avknoppningen ingår (28 juni 2025–3 juli 2026). Året har 53 veckor och Q1 14 veckor. Föregångarhistorik och tillväxt mot föregående år saknas. Skuld och per-aktievärden är inte verifierade; ange EPS manuellt.",
+      "unavailableMetrics": {
+        "dilutedEps": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+        "dilutedShares": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+        "netIncomeToCommon": "A reconciled diluted/common numerator is not verified. Consolidated net income is not a substitute; enter EPS manually for valuation.",
+        "debt": "A complete comparable debt scope is not verified for this coverage profile; no partial debt is labelled total debt.",
+        "deferredRevenue": "No comparable combined current/noncurrent contract-liability mapping is configured.",
+        "fcfPerShare": "One or more trailing quarters missing valid diluted share count"
+      }
+    },
+    {
+      "ticker": "FLY",
+      "company": "Firefly Aerospace Inc.",
+      "cik": "0001860160",
+      "issuerType": "domestic US 10-K/10-Q",
+      "currency": "USD",
+      "fiscalYearEndMetadata": "1231",
+      "status": "implemented with restrictions",
+      "classification": "B",
+      "profile": "limited_history",
+      "epsMode": "manual; no published comparable per-share metrics",
+      "shareBasis": "unverified; no current-share substitution",
+      "filings": [
+        {
+          "form": "10-Q",
+          "periodEnd": "2026-06-30",
+          "filed": "2026-08-11",
+          "accepted": "2026-08-11T21:15:50.000Z",
+          "accession": "0001860160-26-000023",
+          "url": "https://www.sec.gov/Archives/edgar/data/1860160/000186016026000023/fly-20260630.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2026-03-31",
+          "filed": "2026-05-04",
+          "accepted": "2026-05-04T21:08:48.000Z",
+          "accession": "0001860160-26-000009",
+          "url": "https://www.sec.gov/Archives/edgar/data/1860160/000186016026000009/fly-20260331.htm"
+        },
+        {
+          "form": "10-K",
+          "periodEnd": "2025-12-31",
+          "filed": "2026-03-20",
+          "accepted": "2026-03-19T22:00:35.000Z",
+          "accession": "0001193125-26-116309",
+          "url": "https://www.sec.gov/Archives/edgar/data/1860160/000119312526116309/fly-20251231.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2025-09-30",
+          "filed": "2025-11-12",
+          "accepted": "2025-11-12T22:10:52.000Z",
+          "accession": "0001193125-25-277941",
+          "url": "https://www.sec.gov/Archives/edgar/data/1860160/000119312525277941/fly-20250930.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2025-06-30",
+          "filed": "2025-09-22",
+          "accepted": "2025-09-22T20:04:51.000Z",
+          "accession": "0001193125-25-211265",
+          "url": "https://www.sec.gov/Archives/edgar/data/1860160/000119312525211265/fly-20250630.htm"
+        }
+      ],
+      "concepts": {
+        "Assets": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "CashAndCashEquivalentsAtCarryingValue": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "EarningsPerShareDiluted": {
+          "units": [
+            "USD/shares"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "Liabilities": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "NetCashProvidedByUsedInOperatingActivities": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "NetIncomeLoss": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "NetIncomeLossAvailableToCommonStockholdersBasic": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "OperatingIncomeLoss": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "PaymentsToAcquirePropertyPlantAndEquipment": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "RevenueFromContractWithCustomerExcludingAssessedTax": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "ShareBasedCompensation": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "WeightedAverageNumberOfDilutedSharesOutstanding": {
+          "units": [
+            "shares"
+          ],
+          "latestEnd": "2026-06-30"
+        }
+      },
+      "sources": {
+        "submissions": "https://data.sec.gov/submissions/CIK0001860160.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001860160.json"
+      },
+      "fullSourceSha256": {
+        "submissions": "09f94606ef7adbeea749a2df2ee04430190f2bd8283ae647b91d30398d48a685",
+        "companyfacts": "83a495285a903fc01fd89274177aa5d6a540f20a87480da0199e50cacae1f8f5"
+      },
+      "annualPeriods": [
+        {
+          "period": "FY2025",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "accession": "0001193125-26-116309"
+        }
+      ],
+      "quarters": [
+        {
+          "period": "2025Q2",
+          "periodStart": "2025-04-01",
+          "periodEnd": "2025-06-30",
+          "accession": "0001193125-25-211265"
+        },
+        {
+          "period": "2025Q3",
+          "periodStart": "2025-07-01",
+          "periodEnd": "2025-09-30",
+          "accession": "0001193125-25-277941"
+        },
+        {
+          "period": "2025Q4",
+          "periodStart": "2025-10-01",
+          "periodEnd": "2025-12-31",
+          "accession": "0001193125-26-116309"
+        },
+        {
+          "period": "2026Q1",
+          "periodStart": "2026-01-01",
+          "periodEnd": "2026-03-31",
+          "accession": "0001860160-26-000009"
+        },
+        {
+          "period": "2026Q2",
+          "periodStart": "2026-04-01",
+          "periodEnd": "2026-06-30",
+          "accession": "0001860160-26-000023"
+        }
+      ],
+      "ttm": {
+        "period": "2026Q2",
+        "start": "2025-07-01",
+        "end": "2026-06-30",
+        "quarters": [
+          "2025Q3",
+          "2025Q4",
+          "2026Q1",
+          "2026Q2"
+        ]
+      },
+      "limitations": "Börsintroduktion 8 augusti 2025: historiken innehåller perioder före och efter IPO. Fundamenta visas, men aktieantal, EPS och FCF per aktie saknas eftersom jämförbar aktiebas inte är verifierad. Total skuld saknas. Ange EPS manuellt.",
+      "unavailableMetrics": {
+        "dilutedEps": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+        "dilutedShares": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+        "stockholdersEquity": null,
+        "netIncomeToCommon": "A reconciled diluted/common numerator is not verified. Consolidated net income is not a substitute; enter EPS manually for valuation.",
+        "debt": "A complete comparable debt scope is not verified for this coverage profile; no partial debt is labelled total debt.",
+        "deferredRevenue": "No comparable combined current/noncurrent contract-liability mapping is configured.",
+        "fcfPerShare": "One or more trailing quarters missing valid diluted share count"
+      }
+    },
+    {
+      "ticker": "CRWV",
+      "company": "CoreWeave, Inc.",
+      "cik": "0001769628",
+      "issuerType": "domestic US 10-K/10-Q",
+      "currency": "USD",
+      "fiscalYearEndMetadata": "1231",
+      "status": "implemented with restrictions",
+      "classification": "B",
+      "profile": "financing_sensitive",
+      "epsMode": "manual; no published comparable per-share metrics",
+      "shareBasis": "unverified; no current-share substitution",
+      "filings": [
+        {
+          "form": "10-Q",
+          "periodEnd": "2026-06-30",
+          "filed": "2026-08-12",
+          "accepted": "2026-08-11T23:24:42.000Z",
+          "accession": "0001769628-26-000366",
+          "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2026-03-31",
+          "filed": "2026-05-08",
+          "accepted": "2026-05-07T23:21:42.000Z",
+          "accession": "0001769628-26-000222",
+          "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000222/crwv-20260331.htm"
+        },
+        {
+          "form": "10-K",
+          "periodEnd": "2025-12-31",
+          "filed": "2026-03-02",
+          "accepted": "2026-03-02T21:14:01.000Z",
+          "accession": "0001769628-26-000104",
+          "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000104/crwv-20251231.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2025-09-30",
+          "filed": "2025-11-13",
+          "accepted": "2025-11-13T21:19:11.000Z",
+          "accession": "0001769628-25-000062",
+          "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962825000062/crwv-20250930.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2025-06-30",
+          "filed": "2025-08-13",
+          "accepted": "2025-08-12T22:18:48.000Z",
+          "accession": "0001769628-25-000041",
+          "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962825000041/crwv-20250630.htm"
+        }
+      ],
+      "concepts": {
+        "Assets": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "CashAndCashEquivalentsAtCarryingValue": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "EarningsPerShareDiluted": {
+          "units": [
+            "USD/shares"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "Liabilities": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "NetCashProvidedByUsedInOperatingActivities": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "NetIncomeLoss": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "NetIncomeLossAvailableToCommonStockholdersBasic": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "OperatingIncomeLoss": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "PaymentsToAcquirePropertyPlantAndEquipment": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "RevenueFromContractWithCustomerExcludingAssessedTax": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "ShareBasedCompensation": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "StockholdersEquity": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "WeightedAverageNumberOfDilutedSharesOutstanding": {
+          "units": [
+            "shares"
+          ],
+          "latestEnd": "2026-06-30"
+        }
+      },
+      "sources": {
+        "submissions": "https://data.sec.gov/submissions/CIK0001769628.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001769628.json"
+      },
+      "fullSourceSha256": {
+        "submissions": "d41ed0b540ba15fe87be5330e82cab2684dcf985f07f103c58ca25f26fcbc6f9",
+        "companyfacts": "263badd5d78cea3d0e3393befe4fbc5e1d5eda94899d1182ba6494b617348b18"
+      },
+      "annualPeriods": [
+        {
+          "period": "FY2025",
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-12-31",
+          "accession": "0001769628-26-000104"
+        }
+      ],
+      "quarters": [
+        {
+          "period": "2025Q2",
+          "periodStart": "2025-04-01",
+          "periodEnd": "2025-06-30",
+          "accession": "0001769628-25-000041"
+        },
+        {
+          "period": "2025Q3",
+          "periodStart": "2025-07-01",
+          "periodEnd": "2025-09-30",
+          "accession": "0001769628-25-000062"
+        },
+        {
+          "period": "2025Q4",
+          "periodStart": "2025-10-01",
+          "periodEnd": "2025-12-31",
+          "accession": "0001769628-26-000104"
+        },
+        {
+          "period": "2026Q1",
+          "periodStart": "2026-01-01",
+          "periodEnd": "2026-03-31",
+          "accession": "0001769628-26-000222"
+        },
+        {
+          "period": "2026Q2",
+          "periodStart": "2026-04-01",
+          "periodEnd": "2026-06-30",
+          "accession": "0001769628-26-000366"
+        }
+      ],
+      "ttm": {
+        "period": "2026Q2",
+        "start": "2025-07-01",
+        "end": "2026-06-30",
+        "quarters": [
+          "2025Q3",
+          "2025Q4",
+          "2026Q1",
+          "2026Q2"
+        ]
+      },
+      "limitations": "CapEx, FCF och total skuld visas inte: kontanta investeringar fångar inte finansierade och icke-kontanta tillgångsköp. Rapporterat operativt kassaflöde visas. Aktieantal och per-aktievärden är inte verifierade; ange EPS manuellt.",
+      "unavailableMetrics": {
+        "dilutedEps": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+        "dilutedShares": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+        "capex": "CoreWeave: cash PP&E purchases exclude non-cash additions and OEM/lease financing. A comparable comprehensive investment/debt scope is not verified; simple FCF is disabled.",
+        "netIncomeToCommon": "A reconciled diluted/common numerator is not verified. Consolidated net income is not a substitute; enter EPS manually for valuation.",
+        "debt": "CoreWeave: cash PP&E purchases exclude non-cash additions and OEM/lease financing. A comparable comprehensive investment/debt scope is not verified; simple FCF is disabled.",
+        "deferredRevenue": "No comparable combined current/noncurrent contract-liability mapping is configured.",
+        "freeCashFlow": "CoreWeave: cash PP&E purchases exclude non-cash additions and OEM/lease financing. A comparable comprehensive investment/debt scope is not verified; simple FCF is disabled.",
+        "fcfPerShare": "CoreWeave: cash PP&E purchases exclude non-cash additions and OEM/lease financing. A comparable comprehensive investment/debt scope is not verified; simple FCF is disabled."
+      }
+    },
+    {
+      "ticker": "GLXY",
+      "company": "Galaxy Digital Inc.",
+      "cik": "0001859392",
+      "issuerType": "domestic US 10-K/10-Q",
+      "currency": "USD",
+      "fiscalYearEndMetadata": "1231",
+      "status": "deferred",
+      "classification": "C",
+      "profile": null,
+      "epsMode": "not supported",
+      "shareBasis": "unverified; no current-share substitution",
+      "filings": [
+        {
+          "form": "10-Q",
+          "periodEnd": "2026-06-30",
+          "filed": "2026-08-10",
+          "accepted": "2026-08-10T21:03:52.000Z",
+          "accession": "0001859392-26-000091",
+          "url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939226000091/glxy-20260630.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2026-03-31",
+          "filed": "2026-05-08",
+          "accepted": "2026-05-08T20:21:01.000Z",
+          "accession": "0001859392-26-000054",
+          "url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939226000054/glxy-20260331.htm"
+        },
+        {
+          "form": "10-K",
+          "periodEnd": "2025-12-31",
+          "filed": "2026-02-26",
+          "accepted": "2026-02-26T22:24:51.000Z",
+          "accession": "0001859392-26-000016",
+          "url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939226000016/glxy-20251231.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2025-09-30",
+          "filed": "2025-11-10",
+          "accepted": "2025-11-10T22:10:49.000Z",
+          "accession": "0001859392-25-000082",
+          "url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939225000082/glxy-20250930.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2025-06-30",
+          "filed": "2025-08-05",
+          "accepted": "2025-08-05T11:04:19.000Z",
+          "accession": "0001859392-25-000030",
+          "url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939225000030/glxy-20250630.htm"
+        },
+        {
+          "form": "10-Q",
+          "periodEnd": "2025-03-31",
+          "filed": "2025-05-13",
+          "accepted": "2025-05-13T10:41:34.000Z",
+          "accession": "0001859392-25-000005",
+          "url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939225000005/glxy-20250331.htm"
+        }
+      ],
+      "concepts": {
+        "Assets": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "CashAndCashEquivalentsAtCarryingValue": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "NetCashProvidedByUsedInOperatingActivities": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "NetIncomeLoss": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "Revenues": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "StockholdersEquity": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "Liabilities": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "NetIncomeLossAvailableToCommonStockholdersBasic": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2025-06-30"
+        },
+        "RevenueFromContractWithCustomerExcludingAssessedTax": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-03-31"
+        },
+        "ShareBasedCompensation": {
+          "units": [
+            "USD"
+          ],
+          "latestEnd": "2026-06-30"
+        },
+        "WeightedAverageNumberOfDilutedSharesOutstanding": {
+          "units": [
+            "shares"
+          ],
+          "latestEnd": "2026-06-30"
+        }
+      },
+      "sources": {
+        "submissions": "https://data.sec.gov/submissions/CIK0001859392.json",
+        "companyFacts": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001859392.json"
+      },
+      "fullSourceSha256": {
+        "submissions": "c019db9528bdbd8b03e208e17e424bef8b5a21eec1369555fb09b182e81842f2",
+        "companyfacts": "ccf2c0280a6ca7f482203e55a9085570f98939d87b47b4f84826449f7f6407ff"
+      },
+      "ttm": null,
+      "limitations": "2025-05-13 Delaware reorganization; GDH LP accounting predecessor; gross principal digital-asset sales obscure net operating economics. Revenues and ASC606 revenue differ in the SAME 2025 annual filing (60,406,728,000 vs 60,243,860,000 USD); ASC606 stops at 2026Q1. No equivalent-concept switch or safe EPS/share reconciliation approved. Financial/restructured profile requires reviewed net revenue, expense and ownership scopes before publication.",
+      "unavailableMetrics": "All: no production data or route enabled"
+    }
+  ]
+}
