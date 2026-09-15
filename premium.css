@@ -438,3 +438,5 @@ body .week-report-image { min-height: 0; height: auto; aspect-ratio: 16 / 9; pad
 #growth-yearly-depth #growth-yearly-mode { width:20px;height:20px;min-height:20px;margin:0;flex:0 0 20px; }
 #growth-yearly-depth a { color:var(--primary);display:inline-flex;align-items:center;min-height:44px; }
 #growth-yearly-depth > p:not(.note) { color:var(--text); }
+
+[aria-labelledby="academyMiniHeading"] [data-xp-bar] {width:100%;accent-color:var(--primary)}

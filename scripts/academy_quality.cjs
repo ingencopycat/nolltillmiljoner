@@ -24,7 +24,8 @@ function validateBank(bank,A){
   for(const e of bank.entries){
     if(!e||typeof e!=='object'){errors.push('Invalid knowledge entry');continue;}
     if(typeof e.id!=='string'||!/^[a-z][a-z0-9-]+$/.test(e.id)||ids.has(e.id))errors.push('Invalid knowledge ID');ids.add(e.id);
-    const allowed=['id','question','answer','lessonId','category','sources','reviewedAt','reviewedBy','status','provenance'];
+    if(e.relatedActivityIds!==undefined&&(!Array.isArray(e.relatedActivityIds)||e.relatedActivityIds.some(id=>!require('../academy-activities.js').url(id))))errors.push('Invalid knowledge activity '+e.id);
+    const allowed=['id','question','answer','lessonId','category','sources','reviewedAt','reviewedBy','status','provenance','relatedActivityIds'];
     if(Object.keys(e).some(k=>!allowed.includes(k))||!['draft','reviewed','published'].includes(e.status)||!A.url(e.lessonId)||A.lessons.find(l=>l.id===e.lessonId)?.category!==e.category)errors.push('Invalid knowledge metadata '+e.id);
     if(typeof e.question!=='string'||!e.question.trim()||typeof e.answer!=='string'||!Array.isArray(e.sources))errors.push('Invalid knowledge content '+e.id);
     if(e.status!=='draft'&&(!validDate(e.reviewedAt)||typeof e.reviewedBy!=='string'||!e.reviewedBy.trim()||typeof e.answer!=='string'||e.answer.trim().length<80||e.provenance!=='real-user-question-reviewed'||!e.sources?.length))errors.push('Unreviewed knowledge entry '+e.id);

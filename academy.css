@@ -41,4 +41,27 @@
 @media(max-width:600px){.academy-list article{display:block}.academy-list [data-academy-status]{text-align:left}.academy-lesson .academy-example{padding:1rem}.academy-eyebrow{letter-spacing:.06em}}
 [data-academy-status] {font-size:.85rem;display:block;margin-top:.8rem;}
 .academy-lesson a,.academy-grid a {overflow-wrap:anywhere;}
+.academy-roadmap {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;padding:0;list-style:none;counter-reset:stage}
+.academy-roadmap .card {margin:0;padding:1.4rem;min-width:0}
+.academy-roadmap a,.academy-activity-list a,.academy-lesson nav a {display:inline-flex;align-items:center;min-height:44px}
+.academy-roadmap h3 {margin:.5rem 0}
+.academy-roadmap [data-state=ongoing] {border-left:4px solid var(--primary)}
+.academy-roadmap [data-state=complete] {border-left:4px solid var(--primary);background:var(--panel)}
+.academy-xp {margin-block:2rem}
+.academy-xp progress,[data-skill-bar] {width:100%;accent-color:var(--primary)}
+.academy-step {border-top:1px solid var(--border);padding-block:1rem}
+.academy-step .academy-quiz {background:var(--panel)}
+.academy-step fieldset {border:0;padding:0;min-width:0}
+.academy-step legend {font-weight:600;color:var(--text);padding:0}
+.academy-step label:has(input[type=number]),.academy-step label:has(textarea) {display:block}
+.academy-step input[type=number],.academy-step textarea {margin-top:.5rem}
+.academy-quiz input[type=number],.academy-quiz textarea {display:block;width:100%;box-sizing:border-box;min-height:44px;font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.8rem}
+.academy-quiz textarea {resize:vertical}
+.academy-activity-list {padding-left:1.2rem}
+.academy-activity-list li {margin-bottom:.8rem}
+.academy-activity-list span {display:block;font-size:.85rem}
+.academy-achievements li {padding:.65rem 0}
+.academy-achievements span {display:block;font-size:.85rem}
+.academy-achievements .is-earned {font-weight:700}
+@media(max-width:600px){.academy-roadmap{grid-template-columns:1fr}.academy-roadmap .card{padding:1rem}}
 @media(max-width:600px){.academy-paths{grid-template-columns:1fr}.academy-lesson{margin-top:1rem}.academy-progress{padding:1rem}.academy-hero{margin-top:1rem}.academy-next>*{width:100%}}

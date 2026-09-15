@@ -26,6 +26,7 @@ const overrides = {
   'investeringar.html': ['Inläggsarkivet har flyttat | Noll till Miljoner', 'Besök inläggsarkivet hos Noll till Miljoner för nyheter och investeringstankar.'],
 };
 const excluded = new Set(['min-ntm.html', 'post.html', 'calculator.html', 'investeringar.html']);
+for(const o of require('../academy-activities.js').published())excluded.add(require('../academy-activities.js').url(o.id));
 const redirects = { 'calculator.html': 'ranta-pa-ranta.html', 'investeringar.html': 'inlagg.html' };
 const outputs = new Map();
 const academyPages = require('./build_academy.cjs').pages();
@@ -76,6 +77,7 @@ const context = vm.createContext({ document: { getElementById() { return null; }
 context.window = context;
 vm.runInContext(read('posts.js'), context);
 vm.runInContext(read('academy-catalog.js'), context);
+vm.runInContext(read('academy-activities.js'), context);
 vm.runInContext(read('ntm-relations.js'), context);
 vm.runInContext(read('valuation-core.js'), context);
 vm.runInContext(read('script.js'), context);
@@ -124,7 +126,7 @@ for (const [file, rawContent] of outputs) {
   let prepared = rawContent;
   if(file.endsWith('.html')) {
     if(file==='post-ai-portfolj.html'&&!prepared.includes('data-concept-help="thesis"'))prepared=prepared.replace('</article>','<p class="note"><a data-concept-help="thesis">Investeringstes</a></p></article>');
-    prepared=prepared.replace(/(?:<script src="academy-catalog.js"><\/script>\s*)?(<script src="ntm-relations.js">)/g,'<script src="academy-catalog.js"></script>\n$1');
+    prepared=prepared.replace(/(?:<script src="academy-catalog.js"><\/script>\s*)?(?:<script src="academy-activities.js"><\/script>\s*)?(<script src="ntm-relations.js">)/g,'<script src="academy-catalog.js"></script>\n<script src="academy-activities.js"></script>\n$1');
     prepared=prepared.replace(/<a\b([^>]*data-concept-help="([a-z-]+)"[^>]*)>[\s\S]*?<\/a>/g,(all,attrs,id)=>{
       const href=relations.conceptHref(relationCatalog,id);if(!href)throw new Error('Unknown concept hook '+id);
       return `<a ${attrs.replace(/\s*href="[^"]*"/g,'').trim()} href="${href}">Lär dig ${escape(relationCatalog.entities.find(e=>e.id==='learn-'+id).title)}</a>`;

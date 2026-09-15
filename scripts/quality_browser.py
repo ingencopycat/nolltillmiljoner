@@ -18,7 +18,7 @@ PAGES = ['index.html', 'ranta-pa-ranta.html', 'havstang.html', 'isk-skattkalkyla
          'research.html?ticker=FLY', 'research.html?ticker=CRWV',
          'academy.html', 'academy-cagr.html', 'academy-isk.html',
          'academy.html?category=statements', 'academy-financial-statements.html',
-         'academy-enterprise-value.html', 'academy-forward-metrics.html', 'academy-position-sizing.html']
+         'academy-enterprise-value.html', 'academy-forward-metrics.html', 'academy-position-sizing.html', 'academy-activity-recovery.html', 'academy-activity-analyse-company.html', 'academy-activity-cycle-study.html']
 
 def run():
     report = {'version': 1, 'measuredAt': datetime.now(timezone.utc).isoformat(),

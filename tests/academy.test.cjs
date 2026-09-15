@@ -12,7 +12,7 @@ test('aliases, Swedish diacritics and category searches work without external se
  assert.ok(A.search('vinst per aktie').some(l=>l.id==='eps'));assert.ok(A.search('courtage').some(l=>l.id==='fees'));assert.ok(A.search('ranta pa ranta').some(l=>l.id==='compounding'));assert.equal(A.search('unfindablexyz').length,0);assert.ok(A.search('','macro').every(l=>l.category==='macro'));
 });
 test('each published lesson has original static content, unique SEO and crawlable links; drafts are not generated',()=>{
- for(const file of fs.readdirSync('.').filter(f=>/^academy-.+\.html$/.test(f)))assert.ok(A.published().some(l=>A.url(l.id)===file),'Unpublished artifact: '+file);
+ for(const file of fs.readdirSync('.').filter(f=>/^academy-.+\.html$/.test(f)))assert.ok(A.published().some(l=>A.url(l.id)===file)||require('../academy-activities.js').published().some(o=>require('../academy-activities.js').url(o.id)===file),'Unpublished artifact: '+file);
  const titles=new Set(),canonicals=new Set();for(const l of A.published()){const html=read(A.url(l.id));assert.ok(html.includes(l.sections.deep.replaceAll('&','&amp;')));assert.match(html,/<details><summary>Fördjupa/);assert.match(html,/<h1>/);assert.match(html,/name="robots" content="index, follow"/);assert.match(html,/data-academy-tool/);const title=html.match(/<title>(.*?)<\/title>/)[1],canonical=html.match(/rel="canonical" href="([^"]+)"/)[1];assert.ok(!titles.has(title));titles.add(title);assert.ok(!canonicals.has(canonical));canonicals.add(canonical);assert.ok(read('sitemap.xml').includes(canonical));}
  const lesson=A.lessons[0],old=lesson.status;try{lesson.status='draft';assert.equal(A.url(lesson.id),null);assert.ok(!A.published().includes(lesson));}finally{lesson.status=old;}
 });
@@ -38,6 +38,15 @@ test('backup V3 roundtrip, legacy V1/V2 merge, conflicts and failed writes prese
 test('Academy never enters current cloud rows or queue and a cloud restore preserves local learning',async()=>{
  const a=app();a.P.set('private-learning-id','complete');const cloud=a.c.NTMCloudSync,rows=cloud.encode(JSON.parse(a.B.exportJSON()).data,a.B);assert.ok(!JSON.stringify(rows).includes('private-learning-id'));const data=cloud.decode(rows,a.B);assert.equal(data.academy.events.length,0);a.B.importJSON(JSON.stringify({application:'NTM',schemaVersion:1,exportedAt:new Date().toISOString(),data}));assert.equal(a.P.read().data.events.length,1);
  const sync=cloud.create({local:a.B,storage:a.c.localStorage,adapter:{session:async()=>({userId:'test-user'})},id:()=> 'queue-id'});await sync.authenticate();sync.enqueue();assert.ok(!JSON.stringify([...a.saved].filter(([k])=>k.includes('sync-queue'))).includes('private-learning-id'));
+});
+
+test('V3 attempts round-trip, merge once, migrate V2 Academy and reject conflicts atomically',()=>{
+ const a=app();a.P.set('eps','complete');a.P.attempt('recovery','drawdown',false);a.P.attempt('recovery','drawdown',true);
+ const backup=JSON.parse(a.B.exportJSON()),b=app();b.B.importJSON(JSON.stringify(backup));b.B.importJSON(JSON.stringify(backup));assert.equal(b.P.read().data.attempts.length,2);assert.deepEqual(JSON.parse(b.B.exportJSON()).data,backup.data);
+ const legacy=JSON.parse(JSON.stringify(backup));legacy.data.academy={version:1,events:legacy.data.academy.events};b.B.importJSON(JSON.stringify(legacy));assert.equal(b.P.read().data.attempts.length,2);const fresh=app();fresh.B.importJSON(JSON.stringify(legacy));assert.equal(fresh.P.read().data.events.length,1);assert.equal(fresh.P.read().data.attempts.length,0);
+ const bad=JSON.parse(JSON.stringify(backup));bad.data.academy.attempts[0].correct=true;const before=b.saved.get(b.P.key);assert.throws(()=>b.B.importJSON(JSON.stringify(bad)),/ID/);assert.equal(b.saved.get(b.P.key),before);
+ const cloud=a.c.NTMCloudSync.encode(backup.data,a.B);assert.ok(!JSON.stringify(cloud).includes('drawdown'));
+ b.c.localStorage.setItem=()=>{throw Error('quota');};assert.throws(()=>b.P.attempt('recovery','drawdown',true));assert.equal(b.saved.get(b.P.key),before);
 });
 test('optional checks have valid answers and explanations; no quiz or identity analytics payload',()=>{
  for(const l of A.lessons)for(const q of l.quiz){assert.ok(q.options.length>=2);assert.ok(Number.isInteger(q.answer)&&q.answer>=0&&q.answer<q.options.length);assert.ok(q.explanation.length>40);}
@@ -91,6 +100,6 @@ test('knowledge bank starts empty and publication requires real reviewed provena
 
 test('new analytics signals accept no search, quiz, or financial content',()=>{
  const c=vm.createContext({document:{addEventListener(){},querySelector(){return null;}},location:{pathname:'/academy.html',search:'',origin:'https://test.local'},URL,URLSearchParams});c.window=c;vm.runInContext(read('ntm-product.js'),c);
- for(const event of ['academy_search','academy_path_completed']){assert.equal(c.NTMEvents.emit(event,{query:'PRIVATE'}),false);assert.equal(c.NTMEvents.emit(event,{answer:'PRIVATE'}),false);assert.equal(c.NTMEvents.emit(event),true);}
+ for(const event of ['academy_search','academy_path_completed','academy_xp_earned','academy_level_reached','academy_scenario_complete','academy_challenge_complete','academy_case_complete','academy_path_complete']){assert.equal(c.NTMEvents.emit(event,{query:'PRIVATE'}),false);assert.equal(c.NTMEvents.emit(event,{answer:'PRIVATE'}),false);assert.equal(c.NTMEvents.emit(event),true);}
  assert.ok(!JSON.stringify(c.NTMEvents.snapshot()).includes('PRIVATE'));
 });

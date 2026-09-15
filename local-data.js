@@ -47,7 +47,7 @@
   }
   function counts(data) {
     return { revisions: Object.values(data.theses.theses).reduce((n,r) => n+r.revisions.length,0),
-      checkpoints:data.outcomes.checkpoints.length, behavioralEvents:data.behavioral.events.length, academyEvents:data.academy.events.length,
+      checkpoints:data.outcomes.checkpoints.length, behavioralEvents:data.behavioral.events.length, academyEvents:data.academy.events.length+data.academy.attempts.length,
       scenarios:Object.values(data.scenarios.calculators).reduce((n,r) => n+r.length,0) };
   }
   function exportJSON() {
@@ -104,7 +104,7 @@
     for (const [key,records] of Object.entries(bs)) result.scenarios.calculators[key] = mergeScenarios(as[key] || [],records);
     result.theme = a.theme ?? b.theme;
     result.behavioral = {version:1,events:mergeRecords(a.behavioral.events,b.behavioral.events)};
-    result.academy = {version:1,events:mergeRecords(a.academy.events,b.academy.events)};
+    result.academy = {version:2,events:mergeRecords(a.academy.events,b.academy.events),attempts:mergeRecords(a.academy.attempts,b.academy.attempts)};
     return validate(result);
   }
   function prepare(text) {
@@ -196,7 +196,7 @@
     if (file.size > 20 * 1024 * 1024) throw new Error('Backupfilen är större än 20 MB. Ingen data ändrades.');
     const text = await file.text(), summary = prepare(text).incoming;
     if (!confirm(`Slå samman ${summary.revisions} versioner, ${summary.checkpoints} utfallskontroller, ${summary.scenarios} scenarier, ${summary.behavioralEvents} beteendehändelser och ${summary.academyEvents} ändringar i lärhistoriken? Nya versioner läggs sist och kan bli senaste version. Samma ID med olika innehåll stoppar hela importen. Befintligt tema behålls.`)) return;
-    importJSON(text); window.initMinNtmPage?.(); window.NTMAcademyRefresh?.();
+    importJSON(text); window.initMinNtmPage?.(); window.NTMAcademyRefresh?.(); window.NTMAcademyV3Refresh?.();
     window.NTMEvents?.emit('backup_imported');
     status.textContent='Backup importerad och kontrolläst. Befintliga poster behölls; identiska ID:n duplicerades inte. Ladda om för att använda ett importerat tema.';
   });

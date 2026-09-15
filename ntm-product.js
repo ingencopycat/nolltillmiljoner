@@ -2,7 +2,7 @@
 (function (root) {
   'use strict';
   const names = new Set(['landing_view', 'tool_opened', 'cta_clicked', 'calculator_completed',
-    'academy_lesson_opened','academy_lesson_completed','academy_path_started','academy_path_completed','academy_search','academy_tool_cta_clicked',
+    'academy_lesson_opened','academy_lesson_completed','academy_path_started','academy_path_completed','academy_search','academy_xp_earned','academy_level_reached','academy_scenario_complete','academy_challenge_complete','academy_case_complete','academy_path_complete','academy_tool_cta_clicked',
     'research_opened', 'valuation_calculated', 'thesis_first_saved', 'assumptions_added',
     'review_date_set', 'thesis_reviewed', 'outcome_checkpoint_saved', 'content_to_tool',
     'backup_exported', 'backup_imported', 'delete_completed', 'delete_error', 'relation_click', 'fire_stress_view_opened', 'savings_plan_observation_saved', 'stock_purchase_thesis_prompt_clicked', 'fx_explanation_opened']);
