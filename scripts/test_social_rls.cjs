@@ -1,0 +1,78 @@
+/* Execute all migrations and social authorization against local PostgreSQL/PGlite. */
+const assert=require('node:assert/strict'),fs=require('node:fs'),{pathToFileURL}=require('node:url');
+async function main(){
+ const {PGlite}=await import(pathToFileURL(process.env.PGLITE_MODULE).href),db=new PGlite();
+ try{
+ await db.exec(`create role anon;create role authenticated;create schema auth;create table auth.users(id uuid primary key);
+ create function auth.uid() returns uuid language sql stable as 'select nullif(current_setting(''request.jwt.claim.sub'',true),'''')::uuid';
+ grant usage on schema auth,public to anon,authenticated;grant execute on function auth.uid() to anon,authenticated;`);
+ for(const f of fs.readdirSync('supabase/migrations').filter(f=>f.endsWith('.sql')).sort())await db.exec(fs.readFileSync('supabase/migrations/'+f,'utf8'));
+ const A='11111111-1111-4111-8111-111111111111',B='22222222-2222-4222-8222-222222222222',D='33333333-3333-4333-8333-333333333333';
+ await db.query('insert into auth.users values($1),($2),($3)',[A,B,D]);
+ const login=async(uid,role='authenticated')=>{await db.exec('reset role');await db.query("select set_config('request.jwt.claim.sub',$1,false)",[uid||'']);await db.exec('set role '+role);};
+ const rpc=async(fn,action,args={})=>(await db.query(`select public.${fn}($1,$2::jsonb) as r`,[action,JSON.stringify(args)])).rows[0].r;
+ const write=(a,b)=>rpc('ntm_social_write',a,b),read=(a,b)=>rpc('ntm_social_read',a,b);
+ const create=username=>write('create',{username,displayName:'Reader',confirmed:true});
+ const settings=(over={})=>write('settings',{displayName:'Reader',bio:'<img src=x onerror=alert(1)> https://example.org',active:true,showLevel:false,showXp:false,...over});
+ const denied=async fn=>assert.rejects(fn);
+ const availability=async name=>(await db.query('select public.ntm_username_availability($1) as r',[name])).rows[0].r;
+ await login(null,'anon');await denied(()=>availability('reader_a'));
+ await login(null);await denied(()=>availability('reader_a'));
+ await login(A);
+ for(const [name,result] of [['ADMIN','reserved'],['a_d_m_i_n','reserved'],['nigger123','blocked'],['ab','length'],['x'.repeat(25),'length'],['a.b','invalid'],[' Fresh_Name ','available']])assert.equal(await availability(name),result);
+ await login(A);assert.equal(await write('mine'),null);assert.deepEqual(await read('search',{username:'rea'}),[]);
+ for(const username of ['ADMIN','a_d_m_i_n','nolltillmiljoner','nigger123','ab','x'.repeat(25),'a.b','a%b'])await denied(()=>create(username));
+ await denied(()=>write('create',{username:'reader_a',displayName:'A'}));await create('Reader_A');
+ assert.equal((await write('mine')).username,'reader_a');assert.equal((await write('mine')).role,'user');
+ await denied(()=>write('create',{username:'new_name',displayName:'A',confirmed:true}));
+ assert.equal(await availability('READER_A'),'unavailable');
+ await settings({role:'admin',username:'changed',owner_id:B});assert.equal((await write('mine')).role,'user');assert.equal((await write('mine')).username,'reader_a');
+ await login(B);await denied(()=>create('READER_A'));await create('reader_b');
+ await denied(()=>write('follow',{username:'reader_b'}));
+ await write('follow',{username:'reader_a'});await write('follow',{username:'reader_a'});
+ assert.equal((await read('profile',{username:'reader_a'})).followers,1);assert.equal((await read('followers',{username:'reader_a'}))[0].username,'reader_b');
+ await login(D);assert.equal(await write('mine'),null);await denied(()=>write('follow',{username:'reader_a'}));
+ await write('report',{username:'reader_a',reason:'spam',detail:'private-report-sentinel'});
+ await denied(()=>write('report',{username:'reader_a',reason:'other'}));
+ await db.exec('reset role');await db.exec("update public.ntm_profile_reports set created_at=now()-interval '25 hours'");await login(D);
+ await write('report',{username:'reader_a',reason:'other'});
+ const publicKeys=['bio','displayName','followers','following','level','memberSince','role','username','xp'];
+ await login(null,'anon');assert.deepEqual(Object.keys(await read('profile',{username:'reader_a'})).sort(),publicKeys.sort());
+ for(const t of ['ntm_public_profiles','ntm_profile_follows','ntm_public_analyses','ntm_profile_reports','ntm_username_rules','ntm_private_records'])await denied(()=>db.query('select * from public.'+t));
+ await denied(()=>write('create',{username:'anon',confirmed:true,displayName:'anon'}));
+ assert.deepEqual(await read('search',{username:''}),[]);assert.deepEqual(await read('search',{username:'%'}),[]);
+ await login(A);await settings({showLevel:true,level:'Nivå 2',showXp:false,xp:100});
+ let p=await read('profile',{username:'reader_a'});assert.equal(p.level,'Nivå 2');assert.equal(p.xp,null);
+ await settings({showLevel:false,showXp:true,xp:100});p=await read('profile',{username:'reader_a'});assert.equal(p.level,null);assert.equal(p.xp,100);
+ const records=[{kind:'journal',scope:'theses',id:'EX',createdAt:null,sourceVersion:2,payload:{}},
+ {kind:'revision',scope:'EX',id:'r1',createdAt:null,sourceVersion:2,payload:{text:'PRIVATE-SENTINEL',notes:'PRIVATE-NOTES',reportQuestions:[{answer:'HIDDEN-ANSWER'}]}}];
+ await db.query('select public.ntm_put_records($1)',[JSON.stringify(records)]);
+ const snapshot={company:'Example',ticker:'EX',thesis:'A deliberately selected public thesis with enough reasoning.',analysisDate:'2026-09-16'};
+ const publish=(over={})=>write('publish',{scope:'EX',revision:'r1',snapshot,requestId:require('node:crypto').randomUUID(),confirmed:true,...over});
+ await denied(()=>publish({confirmed:false}));await denied(()=>publish({snapshot:{...snapshot,notes:'leak'}}));
+ await denied(()=>publish({snapshot:{...snapshot,assumptions:{nested:'leak'}}}));await denied(()=>publish({revision:'missing'}));
+ const requestId=require('node:crypto').randomUUID(),first=await publish({requestId});assert.deepEqual((await read('analysis',{id:first.id})).content,snapshot);
+ assert.deepEqual(await publish({requestId}),first);assert.equal((await write('ownAnalyses')).length,1);
+ await denied(()=>publish({requestId,snapshot:{...snapshot,thesis:'A different payload may not reuse the same publication request.'}}));
+ await login(B);await denied(()=>publish());await denied(()=>write('unpublish',{id:first.id}));
+ for(const sql of ["update public.ntm_public_profiles set role='admin'", "update public.ntm_public_profiles set username='hijack'",'delete from public.ntm_profile_follows','select * from public.ntm_profile_reports'])await denied(()=>db.query(sql));
+ await login(A);const second=await publish({snapshot:{...snapshot,thesis:'A newly approved public thesis, explicitly replacing the earlier snapshot.'},supersedes:first.id});
+ assert.equal(await read('analysis',{id:first.id}),null);assert.equal((await write('ownAnalyses')).length,2);
+ await settings({active:false});assert.equal(await read('profile',{username:'reader_a'}),null);assert.equal(await read('analysis',{id:second.id}),null);
+ assert.equal(await availability('reader_a'),'unavailable');
+ assert.deepEqual(await read('search',{username:'reader_a'}),[]);assert.equal((await read('profile',{username:'reader_b'})).following,0);
+ await settings();assert.ok(await read('analysis',{id:second.id}));assert.equal((await read('profile',{username:'reader_a'})).followers,1);
+ await write('unpublish',{id:second.id});assert.equal(await read('analysis',{id:second.id}),null);
+ const priv=(await db.query('select public.ntm_export_records() r')).rows[0].r;assert.equal(priv.records.length,2);
+ await publish();await login(null,'anon');
+ const wire=JSON.stringify({recent:await read('recent'),profile:await read('profile',{username:'reader_a'}),followers:await read('followers',{username:'reader_a'})});
+ for(const secret of [A,B,D,'PRIVATE-SENTINEL','PRIVATE-NOTES','HIDDEN-ANSWER','private-report-sentinel','sourceRevision','owner_id'])assert.ok(!wire.includes(secret),secret);
+ await login(A);await db.query('select public.ntm_delete_account()');await denied(()=>create('revived'));await denied(()=>availability('new_name'));assert.equal(await read('profile',{username:'reader_a'}),null);assert.deepEqual(await read('recent'),[]);
+ await db.exec('reset role');assert.equal((await db.query('select count(*) n from public.ntm_public_analyses')).rows[0].n,0);
+ assert.equal((await db.query('select count(*) n from public.ntm_profile_follows')).rows[0].n,0);
+ assert.ok((await db.query('select target from public.ntm_profile_reports')).rows.every(r=>r.target===null));
+ await login(D);await db.query('select public.ntm_delete_account()');await db.exec('reset role');assert.ok((await db.query('select reporter from public.ntm_profile_reports')).rows.every(r=>r.reporter===null));
+ console.log('PASS social PostgreSQL: usernames, roles, A/B/anon boundaries, projection minimization, Academy controls, follows, reports/24h, owned snapshots, unpublish, deactivation/reactivation, cascades and stale tokens');
+ }finally{await db.close();}
+}
+main().catch(e=>{console.error('Social database test failed:',e);process.exitCode=1;});

@@ -7,23 +7,25 @@ const env={SUPABASE_URL:'https://ntm-config-test.supabase.co',SUPABASE_PUBLISHAB
 function stage(t) {
   const dir=fs.mkdtempSync(path.join(os.tmpdir(),'ntm-public-config-'));
   t.after(()=>fs.rmSync(dir,{recursive:true,force:true}));
-  for(const name of ['min-ntm.html','index.html','cloud-config.js'])fs.copyFileSync(path.join(root,name),path.join(dir,name));
+  for(const name of ['min-ntm.html','konto.html','profil.html','analys.html','upptack.html','index.html','cloud-config.js'])fs.copyFileSync(path.join(root,name),path.join(dir,name));
   return dir;
 }
-test('generated public config is isolated, allowlisted and grants CSP only to account page',t=>{
+test('generated public config is isolated and grants CSP only to account and public social pages',t=>{
   const dir=stage(t),source=fs.readFileSync(path.join(root,'cloud-config.js'),'utf8');
   configure(dir,{...env,UNRELATED_PRIVATE_VALUE:'never-copy-this'});
   const content=fs.readFileSync(path.join(dir,'cloud-config.js'),'utf8'),c={window:{}};
   vm.runInNewContext(content,c);
   assert.deepEqual(JSON.parse(JSON.stringify(c.window.NTMCloudConfig)),{enabled:true,url:env.SUPABASE_URL,publishableKey:env.SUPABASE_PUBLISHABLE_KEY});
   assert.ok(!content.includes('never-copy-this'));
-  const account=fs.readFileSync(path.join(dir,'min-ntm.html'),'utf8');
+  const account=fs.readFileSync(path.join(dir,'konto.html'),'utf8');
   assert.match(account,/connect-src [^;]*https:\/\/ntm-config-test.supabase.co;/);
   assert.ok(!fs.readFileSync(path.join(dir,'index.html'),'utf8').includes(env.SUPABASE_URL));
   assert.equal(fs.readFileSync(path.join(root,'cloud-config.js'),'utf8'),source);
-  configure(dir,env);assert.equal(fs.readFileSync(path.join(dir,'min-ntm.html'),'utf8'),account);
+  assert.ok(!fs.readFileSync(path.join(dir,'min-ntm.html'),'utf8').includes(env.SUPABASE_URL));
+  for(const page of ['profil.html','analys.html','upptack.html'])assert.ok(fs.readFileSync(path.join(dir,page),'utf8').includes(env.SUPABASE_URL));
+  configure(dir,env);assert.equal(fs.readFileSync(path.join(dir,'konto.html'),'utf8'),account);
   checkSite(dir);
-  fs.writeFileSync(path.join(dir,'min-ntm.html'),account.replace(env.SUPABASE_URL,'https://unexpected.supabase.co'));
+  fs.writeFileSync(path.join(dir,'konto.html'),account.replace(env.SUPABASE_URL,'https://unexpected.supabase.co'));
   assert.throws(()=>checkSite(dir),/CSP mismatch/);
 });
 test('invalid or privileged config fails before changing artifacts',t=>{

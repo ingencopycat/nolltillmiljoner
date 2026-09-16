@@ -2200,6 +2200,7 @@ function initTheme() {
 }
 
 function injectInstagramPromo() {
+  if (document.querySelector('[data-social-page]')) return;
   if (document.getElementById('site-instagram-promo')) {
     return;
   }

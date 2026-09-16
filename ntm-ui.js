@@ -10,6 +10,9 @@
       }
     });
     const nav = document.querySelector('.main-nav');
+    if(nav && !nav.querySelector('[data-account-nav]')) {
+      const account=document.createElement('a');account.href='konto.html';account.textContent='Logga in';account.dataset.accountNav='';nav.appendChild(account);
+    }
     const menu = document.getElementById('mobileNavToggle');
     const learn = document.querySelector('.nav-learn');
     const topbar=menu?.closest('.topbar');

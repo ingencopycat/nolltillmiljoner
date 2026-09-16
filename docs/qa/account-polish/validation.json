@@ -1,0 +1,41 @@
+{
+  "date": "2026-09-16T00:32:29.164581+00:00",
+  "python": {
+    "passed": 163
+  },
+  "javascript": {
+    "passed": 213
+  },
+  "browser_smoke": {
+    "passed": 37
+  },
+  "social_browser": "passed",
+  "social_database": "passed",
+  "accessibility_csp_pages": 36,
+  "seo_staging_references_security_diff": "passed",
+  "hosted_changes_in_this_pass": false,
+  "release_gate": "Closed: 202609160002 applied; focused hosted availability verification and cleanup passed",
+  "source_sha256": {
+    "cloud-ui.js": "039fe56a35703331ba6bb5afea3fb12c396c3787d302dae4dd232521e1e92ba2",
+    "cloud-adapter.js": "023400e7398ab4e59ce2e8d8ad0fbd35ecb74d2847959d04133ea1e37613f507",
+    "social-ui.js": "d5af8ac7b802991c99f3e123adf873a3f77184b63579984e534fa329636bb596",
+    "social.css": "cf2e3907b2ed9ba43e390b28e313f329b40ab02070bca8d99e059de263b3600a",
+    "konto.html": "c04dac0cbaf4fdb1cde9c3dc8695e93168b8bc910c1a38907c02a8ff6daf0152",
+    "profil.html": "4ec1d48724c90d33f649e2fcebc5dd9060bea813ba7df026ad98191c2544cbac",
+    "analys.html": "a25ae95dd9bd80038694fe05f893899730e88e5f7ac4404da0098abac7a554c6",
+    "upptack.html": "0c48eb460fafcb29da19962052e4240f285be811fa76842b4b3831e3146ed592",
+    "supabase/migrations/202609160002_username_availability.sql": "bddc8d7200cf99cb500cf830fab5a78a80725136da65abfca517cc1d8cadc6b0"
+  },
+  "hosted_username_evidence": "hosted-username-results.json",
+  "post_audit_fix": {
+    "file": "social-ui.js",
+    "reason": "Preserve deletion confirmation during background profile refresh",
+    "sha256": "776d88e4b618509ae80005c574bc32a485b162c4f44d15053d39f74985cbb125",
+    "validation": [
+      "expanded deterministic social browser passed",
+      "complete focused hosted rerun and cleanup passed",
+      "credential-pattern scan passed",
+      "git diff --check passed"
+    ]
+  }
+}

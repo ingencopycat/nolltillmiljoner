@@ -11,6 +11,10 @@ const read = (name) => fs.readFileSync(path.join(root, name), 'utf8');
 const escape = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const decode = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
 const overrides = {
+  'konto.html': ['Ditt konto | Noll till Miljoner', 'Hantera ditt privata NTM-konto, synk och backup. Skapa en offentlig profil och publicera utvalda analyser bara om du själv vill.'],
+  'profil.html': ['Offentlig NTM-profil | Noll till Miljoner', 'Visa en offentlig NTM-identitet, följrelationer och uttryckligen publicerad Research. Privata kontouppgifter visas aldrig här.'],
+  'analys.html': ['Användarpublicerad analys | Noll till Miljoner', 'Läs en uttryckligen publicerad Research-analys och dess valda antaganden. Innehållet är användarens eget resonemang.'],
+  'upptack.html': ['Upptäck Research | Noll till Miljoner', 'Sök offentliga NTM-användarnamn och läs nyligen publicerade analyser. En plats för resonemang och egen Research.'],
   'index.html': ['Investeringar, aktieanalys och börsverktyg | Noll till Miljoner', 'Utforska kalkylatorer för sparande, ränta på ränta och investeringar. Följ makro, bolagsrapporter och aktieanalys med Noll till Miljoner.'],
   'verktyg.html': ['Börsverktyg och kalkylatorer för ditt sparande | Noll till Miljoner', 'Räkna på ränta på ränta, utdelningar, FIRE, sparmål och aktievärdering. Välj bland Noll till Miljoners kalkylatorer för investeringar och privatekonomi.'],
   'ranta-pa-ranta.html': ['Ränta-på-ränta-kalkylator – ränta på ränta och utdelningar | Noll till Miljoner', 'Beräkna ränta på ränta med startkapital och månadssparande. Använd utdelningsläget för att räkna på utdelningar och återinvestering över tid.'],
@@ -25,7 +29,7 @@ const overrides = {
   'calculator.html': ['Kalkylatorn har flyttat | Noll till Miljoner', 'Öppna Noll till Miljoners investeringskalkylator för ränta på ränta och utdelningar.'],
   'investeringar.html': ['Inläggsarkivet har flyttat | Noll till Miljoner', 'Besök inläggsarkivet hos Noll till Miljoner för nyheter och investeringstankar.'],
 };
-const excluded = new Set(['min-ntm.html', 'post.html', 'calculator.html', 'investeringar.html']);
+const excluded = new Set(['min-ntm.html', 'post.html', 'calculator.html', 'investeringar.html','konto.html','profil.html','analys.html','upptack.html']);
 for(const o of require('../academy-activities.js').published())excluded.add(require('../academy-activities.js').url(o.id));
 const redirects = { 'calculator.html': 'ranta-pa-ranta.html', 'investeringar.html': 'inlagg.html' };
 const outputs = new Map();

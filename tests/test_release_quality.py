@@ -8,6 +8,20 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 
 class ReleaseQualityTests(unittest.TestCase):
+    def test_pages_publish_requires_release_gate_on_selected_revision(self):
+        text = (ROOT/'.github/workflows/deploy.yml').read_text()
+        build = text.split('\n  build:\n')[1].split('\n  deploy:\n')[0]
+        self.assertIn('ref: ${{ needs.commit-data.outputs.revision }}', build)
+        self.assertIn("if: vars.NTM_CLOUD_ENABLED != 'true'", build)
+        self.assertIn('exit 1', build)
+        upload = build.index('uses: actions/upload-pages-artifact')
+        for command in ('validate_release.py', 'test_social_rls.cjs', 'browser_smoke.py',
+                        'test_social_browser.py', 'quality_browser.py', 'check_workflows.py',
+                        'configure_cloud.cjs', 'check_cloud_security.cjs'):
+            self.assertLess(build.index(command), upload)
+        self.assertNotIn('continue-on-error', build)
+        self.assertIn('needs: build', text.split('\n  deploy:\n')[1])
+
     def test_validation_permission_and_command_boundaries(self):
         for name in ('validation.yml', 'browser-smoke.yml'):
             text = (ROOT/'.github/workflows'/name).read_text()

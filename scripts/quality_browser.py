@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 from browser_smoke import BrowserSmoke
 
-PAGES = ['index.html', 'ranta-pa-ranta.html', 'havstang.html', 'isk-skattkalkylator.html',
+PAGES = ['konto.html','profil.html?u=reader_a','analys.html?id=11111111-1111-4111-8111-111111111111','upptack.html','index.html', 'ranta-pa-ranta.html', 'havstang.html', 'isk-skattkalkylator.html',
          'bolanekalkylator.html', 'research.html?ticker=NVDA', 'min-ntm.html',
          'post-jordi-visser-linjart-exponentiellt-ai-trading.html',
          'fire-kalkylator.html', 'sparmalskalkylator.html', 'aktiekopskalkylator.html',

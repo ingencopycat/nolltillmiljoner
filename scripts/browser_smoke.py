@@ -573,6 +573,8 @@ class BrowserSmoke(unittest.TestCase):
                 if url.endswith('/auth/v1/user'):
                     reply({'id': uid, 'email': next(email for email, user in users.items() if user == uid),
                            'created_at': '2026-09-14T00:00:00Z'}); return
+                if url.endswith('/ntm_social_write'):
+                    reply(None if body['action']=='mine' else []); return
                 if url.endswith('/auth/v1/logout'):
                     sessions.pop(token, None); reply({}); return
                 if url.endswith('/ntm_put_records'):
@@ -598,8 +600,8 @@ class BrowserSmoke(unittest.TestCase):
             if url.split('?')[0].endswith('/cloud-config.js'):
                 route.fulfill(content_type='application/javascript', body='window.NTMCloudConfig=' + json.dumps({
                     'enabled': True, 'url': origin, 'publishableKey': 'sb_publishable_browserFixture'}) + ';'); return
-            if url.split('?')[0].endswith('/min-ntm.html'):
-                html = (ROOT / 'min-ntm.html').read_text(encoding='utf-8')
+            if url.split('?')[0].endswith('/konto.html'):
+                html = (ROOT / 'konto.html').read_text(encoding='utf-8')
                 # Permit only the fixture origin in this intercepted test document.
                 route.fulfill(content_type='text/html', body=html.replace("connect-src 'self'", "connect-src 'self' " + origin)); return
             if url.startswith(self.base):
@@ -608,19 +610,19 @@ class BrowserSmoke(unittest.TestCase):
                 route.fulfill(status=200, body='')
 
         def login(page, email):
-            page.locator('#cloudAccount > summary').click()
+            expect(page.locator('#cloudLogin')).to_be_visible()
             page.locator('#cloudEmail').fill(email)
             page.locator('#cloudRequestOtp').click()
-            expect(page.locator('#cloudMessage')).to_contain_text('engångskod')
+            expect(page.locator('#cloudCodeForm')).to_be_visible()
             page.locator('#cloudOtp').fill('000000')
             page.locator('#cloudVerifyOtp').click()
-            expect(page.locator('#cloudMessage')).to_contain_text('Ingen uppladdning')
+            expect(page.locator('#cloudMessage')).to_contain_text('Ditt NTM-konto är klart')
 
         self.context.route('**/*', handle)
         self.go('research.html?ticker=NVDA')
         self.page.locator('#thesis-text').fill('CLOUD-PRIVATE-SENTINEL')
         self.page.locator('#thesisForm button[type=submit]').click()
-        self.go('min-ntm.html')
+        self.go('konto.html')
         before = self.page.evaluate('JSON.parse(NTMLocalData.exportJSON()).data')
         login(self.page, 'a@example.invalid')
         self.assertEqual(cloud, {})
@@ -633,6 +635,7 @@ class BrowserSmoke(unittest.TestCase):
         self.assertTrue(all('CLOUD-PRIVATE' not in url for url in requests))
         self.assertNotIn('TEST-SESSION-', self.page.evaluate('JSON.stringify({...localStorage})'))
         with self.page.expect_download() as downloaded:
+            self.page.locator('details:has(> summary:text-is("Exportera kontodata")) > summary').click()
             self.page.locator('#cloudExport').click()
         portable = json.loads(Path(downloaded.value.path()).read_text())
         self.assertEqual(portable['data'], before)
@@ -643,22 +646,23 @@ class BrowserSmoke(unittest.TestCase):
         p2.on('dialog', lambda dialog: dialog.accept())
         p2.on('pageerror', lambda error: self.errors.append(str(error)))
         try:
-            p2.goto(self.base + '/min-ntm.html')
+            p2.goto(self.base + '/konto.html')
             login(p2, 'b@example.invalid')
             p2.locator('#cloudRestore').click()
-            expect(p2.locator('#cloudMessage')).to_contain_text('kontrollästs')
+            expect(p2.locator('#cloudMessage')).to_contain_text('slagits samman')
             self.assertEqual(p2.evaluate('NTMLocalData.counts().revisions'), 0)
             p2.locator('#cloudLogout').click()
             expect(p2.locator('#cloudMessage')).to_contain_text('Utloggad')
             # Disclosure remains open after logout.
             p2.locator('#cloudEmail').fill('a@example.invalid')
+            p2.locator('#cloudRequestOtp').click()
             p2.locator('#cloudOtp').fill('000000')
             p2.locator('#cloudVerifyOtp').click()
-            expect(p2.locator('#cloudMessage')).to_contain_text('Ingen uppladdning')
+            expect(p2.locator('#cloudMessage')).to_contain_text('Ditt NTM-konto är klart')
             p2.locator('#cloudRestore').click()
-            expect(p2.locator('#cloudMessage')).to_contain_text('kontrollästs')
+            expect(p2.locator('#cloudMessage')).to_contain_text('slagits samman')
             self.assertEqual(p2.evaluate('JSON.parse(NTMLocalData.exportJSON()).data.theses'), before['theses'])
-            expect(p2.locator('[data-min-ntm-theses]')).to_contain_text('NVDA')
+            self.assertIsNotNone(p2.evaluate("NTMThesisStorage.get('NVDA').thesis"))
             expect(p2.locator('#cloudStatus')).to_have_text('Synkat')
             p2.emulate_media(reduced_motion='reduce')
             for theme in ['dark', 'light']:
@@ -683,10 +687,11 @@ class BrowserSmoke(unittest.TestCase):
             p2.locator('#cloudLogout').click()
             expect(p2.locator('#cloudMessage')).to_contain_text('Utloggad')
             p2.locator('#cloudEmail').fill('a@example.invalid')
+            p2.locator('#cloudRequestOtp').click()
             p2.locator('#cloudOtp').fill('000000')
             p2.locator('#cloudVerifyOtp').click()
             expect(p2.locator('#cloudConnected')).to_be_visible()
-            p2.locator('#cloudConnected > details').last.locator('summary').click()
+            p2.locator('#accountDanger > summary').click()
             expect(p2.locator('#cloudDeleteLocal')).not_to_be_checked()
             p2.locator('#cloudDelete').click()
             expect(p2.locator('#cloudMessage')).to_contain_text('Lokal data finns kvar')
@@ -1661,7 +1666,7 @@ class BrowserSmoke(unittest.TestCase):
         self.go('index.html')
         expect(p.locator('.product-intro a.primary-btn')).to_have_attribute('href','ranta-pa-ranta.html?from=home&via=home_calculator')
         expect(p.locator('.product-intro a.secondary-btn')).to_have_attribute('href','research.html?from=home&via=home_research')
-        self.assertEqual(p.locator('.main-nav > a').all_text_contents(),['Verktyg','Research','Min NTM'])
+        self.assertEqual(p.locator('.main-nav > a').all_text_contents(),['Verktyg','Research','Min NTM','Logga in'])
         p.set_viewport_size({'width':390,'height':844})
         p.locator('#mobileNavToggle').click()
         p.locator('#mobileThemeToggle').click()

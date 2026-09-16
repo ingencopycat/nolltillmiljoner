@@ -129,6 +129,15 @@ test('post-delete logout accepts only user_not_found and still clears memory on 
   }
 });
 
+test('OTP failures expose only bounded product codes, including rate limits and ambiguous expired codes',async()=>{
+ for(const [status,code,expected] of [[403,'otp_expired','otp_expired'],[422,'validation_failed','otp_invalid'],[429,'unknown','auth_rate_limit'],[400,'over_email_send_rate_limit','auth_rate_limit'],[503,'unknown','network']]) {
+  const a=app(),adapter=a.c.NTMCloudAdapter.create({enabled:true,url:'https://ntm-test.supabase.co',publishableKey:'sb_publishable_testOnly'},
+   {fetch:async()=>({ok:false,status,json:async()=>({code,message:'PRIVATE-PROVIDER-BODY'})})});
+  await assert.rejects(()=>adapter.verifyOtp('test@example.invalid','000000'),e=>e.code===expected&&!e.message.includes('PRIVATE'));
+  assert.equal(await adapter.session(),null);
+ }
+});
+
 test('legacy IDs, empty scenario groups, additional histories and read-only local use survive cloud preparation',async()=>{
   const a=app();a.saved.set('investment-research-theses-v1',JSON.stringify({version:1,theses:{ACME:{text:'Legacy',createdAt:'2020-01-01',custom:'preserve',valuationSnapshot:null}}}));
   a.saved.set('investment-scenarios-v1',JSON.stringify({version:1,calculators:{sparmal:[]}}));

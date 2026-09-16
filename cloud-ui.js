@@ -2,33 +2,53 @@
 (() => {
   const el=id=>document.getElementById(id);
   if(!el('cloudAccount'))return;
-  const states={local:'Sparat lokalt',pending:'Väntar på synk',synced:'Synkat',error:'Synkfel',conflict:'Konflikt'};
+  const states={local:'Sparat på enheten',pending:'Väntar på synk',synced:'Synkat',error:'Synkfel',conflict:'Konflikt'};
   let adapter,engine,busy=false;
+  const notify=()=>setTimeout(()=>window.dispatchEvent(new CustomEvent('ntm-account-change')),0);
   const message=text=>{el('cloudMessage').textContent=text;};
   function render() {
     const logged=Boolean(engine?.owner());
+    document.querySelector('.page-intro h1').textContent=logged?'Ditt konto':'Ta med NTM mellan dina enheter.';
     el('cloudLogin').hidden=logged;el('cloudConnected').hidden=!logged;
+    document.querySelectorAll('[data-connected]').forEach(n=>n.hidden=!logged);
+    if(!logged){el('cloudLastSync').textContent='Ingen bekräftad synk under denna inloggning.';el('cloudIdentity').textContent='';}
     el('cloudStatus').textContent=states[engine?.status() || 'local'];
     if(logged) {
       const count=engine.localCounts();
-      el('cloudMigration').textContent=`Du har sparad NTM-data i den här webbläsaren: ${count.revisions} thesis-versioner, ${count.checkpoints} utfallskontroller och ${count.scenarios} scenarier/planer. Synk omfattar även sparade antaganden, rapportfrågor, manuella journaler, observationer och tema. Academy-lärhistorik, beslutspauser, antagandegrupper, mallval, osparade utkast och senaste verktyg skickas inte.`;
+      el('cloudMigration').textContent=engine.status()==='synced'?'Ditt sparade arbete finns på kontot. Synka igen när du har gjort nya ändringar.':count.revisions+count.checkpoints+count.scenarios
+        ?`På den här enheten: ${count.revisions} Research-versioner, ${count.checkpoints} utfallskontroller och ${count.scenarios} scenarier eller planer. Vill du spara ditt arbete på kontot?`
+        :'Inga sparade Research-versioner, utfallskontroller eller scenarier ännu. Du kan hämta tidigare arbete under Data & backup. Övriga sparade inställningar kan synkas.';
       const list=el('cloudQueue');list.replaceChildren();
-      for(const op of engine.inspect().ops) {
-        const item=document.createElement('li');item.textContent=`${op.record.kind}: ${states[op.status==='ack'?'synced':op.status]}, försök ${op.attempts}/3`;list.appendChild(item);
+      const ops=engine.inspect().ops;el('cloudStayLocal').hidden=ops.length>0;
+      el('cloudRetry').hidden=!ops.some(op=>['pending','error'].includes(op.status));
+      for(const state of ["pending","error","conflict"]) {
+        const count=ops.filter(op=>op.status===state).length;if(!count)continue;
+        const item=document.createElement('li');item.textContent=`${count} ${count===1?'ändring':'ändringar'}: ${states[state]}`;list.appendChild(item);
       }
+      el('cloudProblems').hidden=!list.children.length;
     }
   }
-  async function act(action) {
-    if(busy)return;busy=true;
-    for(const button of el('cloudAccount').querySelectorAll('button'))button.disabled=true;
-    try {await action();render();}
+  async function act(action,progress='',userInitiated=true) {
+    if(busy)return;busy=true;if(window.NTMAccount)window.NTMAccount.busy=true;const previousOwner=engine?.owner();
+    const controls=[...el('cloudAccount').querySelectorAll('button')].map(b=>[b,b.disabled]);
+    for(const [button] of controls)button.disabled=true;
+    el('cloudAccount').setAttribute('aria-busy','true');if(progress)message(progress);
+    if(userInitiated&&el('socialStatus'))el('socialStatus').textContent='';
+    try {
+      if(engine?.owner() && !(await adapter.session())) {await engine.logout();message('Din inloggning har gått ut. Logga in igen för att fortsätta.');}
+      else await action();
+      render();
+    }
     catch(e) {
       try{render();}catch(_){}
-      message(e.code==='cleanup'?'Kontot och molndata har raderats och du är utloggad lokalt, men enhetens städning eller serverutloggning kunde inte bekräftas. Kontrollera lokal backup och lagring.'
-        :e.code==='conflict'?'Konflikt: samma ID har olika innehåll. Inget skrivs över. Exportera båda kopiorna för manuell granskning.'
-        :'Åtgärden kunde inte bekräftas. Kontrollera anslutning, inloggning eller lokal lagring. Dina lokala källposter raderas inte av synk.');
-      el('cloudStatus').textContent=e.code==='conflict'?'Konflikt':'Synkfel';
-    } finally {busy=false;for(const button of el('cloudAccount').querySelectorAll('button'))button.disabled=false;}
+      message(e.code==='otp_expired'?'Koden är felaktig eller har gått ut. Använd den senaste koden eller välj Skicka ny kod.'
+        :e.code==='otp_invalid'?'Koden kunde inte verifieras. Kontrollera siffrorna och försök igen.'
+        :e.code==='auth_rate_limit'?'För många försök just nu. Vänta en stund innan du skickar en ny kod eller försöker igen.'
+        :e.code==='cleanup'?'Kontot och molndata har raderats och du är utloggad lokalt, men enhetens städning eller serverutloggning kunde inte bekräftas. Kontrollera lokal backup och lagring.'
+        :e.code==='conflict'?'En sparad version har olika innehåll på enheten och i molnet. Inget skrivs över. Exportera båda kopiorna för manuell granskning.'
+        :'Det gick inte att slutföra åtgärden. Kontrollera anslutningen och försök igen. Det du sparat på enheten finns kvar.');
+      if(engine?.owner()&&e.code==='conflict')el('cloudStatus').textContent='Konflikt';
+    } finally {busy=false;el('cloudAccount').setAttribute('aria-busy','false');if(window.NTMAccount)window.NTMAccount.busy=false;for(const [button,disabled] of controls)button.disabled=disabled;if(previousOwner!==engine?.owner())notify();}
   }
   function download(text,name) {
     const url=URL.createObjectURL(new Blob([text],{type:'application/json'})),a=document.createElement('a');
@@ -40,39 +60,50 @@
       message('Konton och molnsynk är inte aktiverade på den här webbplatsen. Du kan fortsätta lokalt och exportera JSON-backup.');return;
     }
     adapter=window.NTMCloudAdapter.create(window.NTMCloudConfig);
-    engine=window.NTMCloudSync.create({local:window.NTMLocalData,storage:localStorage,adapter});render();
+    engine=window.NTMCloudSync.create({local:window.NTMLocalData,storage:localStorage,adapter});
+    window.NTMAccount={adapter,engine};render();message('');
   } catch(_) {el('cloudLogin').hidden=true;message('Molnanslutningen är inte konfigurerad. Lokal användning fungerar som vanligt.');return;}
-  el('cloudRequestOtp').onclick=()=>act(async()=>{
+  const requestCode=()=>act(async()=>{
     if(!el('cloudEmail').reportValidity())return;
     await adapter.requestOtp(el('cloudEmail').value.trim());
-    message('Om e-postadressen kan användas skickas en engångskod. Ingen lokal data har laddats upp.');
-  });
-  el('cloudVerifyOtp').onclick=()=>act(async()=>{
+    el('cloudEmailForm').hidden=true;el('cloudCodeForm').hidden=false;
+    el('cloudCodeDestination').textContent='Kod begärd till '+el('cloudEmail').value.trim();
+    message('Om adressen kan användas kommer koden via mejl. Skriv in den nedan.');el('cloudOtp').value='';el('cloudOtp').focus();
+  },'Skickar engångskod…');
+  el('cloudEmailForm').onsubmit=e=>{e.preventDefault();requestCode();};
+  el('cloudResend').onclick=requestCode;
+  el('cloudChangeEmail').onclick=()=>{el('cloudCodeForm').hidden=true;el('cloudEmailForm').hidden=false;el('cloudOtp').value='';message('');el('cloudEmail').focus();};
+  el('cloudCodeForm').onsubmit=e=>{e.preventDefault();act(async()=>{
+    if(!el('cloudOtp').reportValidity())return;
     await adapter.verifyOtp(el('cloudEmail').value.trim(),el('cloudOtp').value.trim());
     el('cloudIdentity').textContent='Inloggad som '+el('cloudEmail').value.trim();
     el('cloudOtp').value='';el('cloudEmail').value='';await engine.authenticate();
-    message('Inloggad. Ingen uppladdning eller import har gjorts. Välj själv nästa steg. Exportera gärna lokal backup först.');
-  });
+    el('cloudCodeForm').hidden=true;el('cloudEmailForm').hidden=false;
+    message('Ditt NTM-konto är klart. Vill du synka det du redan har sparat på den här enheten? Du kan välja Inte nu och fortsätta privat.');
+  },'Kontrollerar koden…');};
   el('cloudStayLocal').onclick=()=>message('Dina uppgifter behålls endast lokalt just nu. Redan bekräftade molnkopior påverkas inte.');
   el('cloudUpload').onclick=()=>act(async()=>{
     if(!confirm('Synka de visade sparade kategorierna till det inloggade kontot? Lokal data behålls. Exportera gärna backup först.'))return;
-    engine.enqueue();render();await engine.flush();
-    message(engine.status()==='synced'?'Servern har bekräftat de köade posterna. Lokal data finns kvar.':'Kön väntar på nytt försök eller innehåller ett fel. Senare lokala ändringar kräver ny synk.');
-  });
-  el('cloudRetry').onclick=()=>act(async()=>{await engine.flush();message('Kön har kontrollerats. Högst tre försök per post; fel och konflikter finns kvar för granskning.');});
+    engine.enqueue();render();await engine.flush();if(engine.status()==='synced' && el('cloudLastSync'))el('cloudLastSync').textContent='Senast synkat: '+new Date().toLocaleString('sv-SE');
+    message(engine.status()==='synced'?'Dina sparade uppgifter har synkats. Lokal data finns kvar.':engine.status()==='conflict'?'En version skiljer sig mellan enheten och kontot. Inget skrivs över. Exportera båda kopiorna under Data & backup för granskning.':'Synken kunde inte slutföras. Kontrollera anslutningen och välj Försök synka igen.');
+  },'Synkar ditt sparade arbete…');
+  el('cloudRetry').onclick=()=>act(async()=>{await engine.flush();if(engine.status()==='synced' && el('cloudLastSync'))el('cloudLastSync').textContent='Senast synkat: '+new Date().toLocaleString('sv-SE');message('Synken har kontrollerats. Kvarstående fel och konflikter behöver din granskning.');});
   el('cloudRestore').onclick=()=>act(async()=>{
     const plan=await engine.previewRestore();
-    if(!confirm(`Slå samman ${plan.counts} molnposter med denna enhet? Nya versioner kan bli senaste version. Samma ID med olika innehåll stoppar importen; lokala poster och befintligt tema behålls.`))return;
-    await engine.restore();window.initMinNtmPage?.();message('Molnposter har slagits samman med lokal data och kontrollästs. Ladda om för att använda ett importerat tema.');
+    if(!confirm(`Hämta ${plan.counts} sparade delar från ditt konto till denna enhet? Nya versioner kan bli senaste version. Om samma version har olika innehåll avbryts hämtningen. Sparat arbete och befintligt tema på enheten behålls.`))return;
+    await engine.restore();notify();window.initMinNtmPage?.();message('Arbetet från ditt konto har slagits samman med det som finns på enheten. Ladda om för att använda ett importerat tema.');
   });
   el('cloudExport').onclick=()=>act(async()=>{const r=await engine.exportCloud();download(r.portable,'ntm-cloud-backup.json');message('Portabel molnbackup exporterad. Förvara filen privat.');});
-  el('cloudAuditExport').onclick=()=>act(async()=>{const r=await engine.exportCloud();download(r.account,'ntm-account-records.json');message('Alla egna molnposter exporterade, inklusive preferenshistorik. Använd portabel backup för lokal import.');});
-  el('cloudLogout').onclick=()=>act(async()=>{await engine.logout();message('Utloggad. Lokal data och väntande kö finns kvar på den här enheten.');});
+  el('cloudAuditExport').onclick=()=>act(async()=>{const r=await engine.exportCloud();download(r.account,'ntm-account-records.json');message('Din privata kontodata har exporterats, inklusive tidigare inställningar. Använd portabel backup för lokal import.');});
+  el('cloudLogout').onclick=()=>act(async()=>{await engine.logout();message('Utloggad. Lokal data och ännu inte synkade ändringar finns kvar på den här enheten.');});
   el('cloudDelete').onclick=()=>act(async()=>{
     const deleteLocal=el('cloudDeleteLocal').checked;
-    if(!confirm(`Radera kontot och all privat molndata permanent? ${deleteLocal?'Även denna enhets lokala NTM-data raderas.':'Denna enhets lokala data behålls.'} Exportera gärna backup först.`))return;
+    if(!confirm(`Radera kontot, offentlig profil, publicerade analyser, följrelationer och all privat molndata permanent? ${deleteLocal?'Även denna enhets lokala NTM-data raderas.':'Denna enhets lokala data behålls.'} Exportera gärna backup först.`))return;
     await engine.deleteAccount({deleteLocal});el('cloudDeleteLocal').checked=false;window.initMinNtmPage?.();
     message(deleteLocal?'Konto, molndata och vald lokal data har raderats.':'Konto och molndata har raderats. Lokal data finns kvar.');
   });
-  window.addEventListener('focus',()=>{if(!busy)act(async()=>{});});
+  window.addEventListener('focus',()=>{if(!busy)act(async()=>{},'',false);});
+  const refresh=()=>{if(!busy){try{render();}catch(_){message('Enhetens sparade data kunde inte läsas. Kontrollera lokal lagring och backup.');}}};
+  window.addEventListener('storage',refresh);
+  el('themeToggle')?.addEventListener('click',refresh);
 })();

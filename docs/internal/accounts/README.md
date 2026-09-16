@@ -295,3 +295,10 @@ automatic deletion sync/tombstones, selective cloud deletion, merge branch UI,
 pagination/deltas and richer retry recovery are deliberately not claimed. Existing
 local workflows continue regardless. No commits, pushes, payment, AI, paid data,
 broker connections or framework migration are part of this task.
+# Public profile extension
+
+The additive Account Experience & Public Profiles V1 implementation, owner migration steps, role assignment and verification limits are documented in [public-profiles-v1.md](public-profiles-v1.md). The private cloud foundation below remains in place.
+
+## Current account polish release audit
+
+See [account-polish-release-audit.md](account-polish-release-audit.md) for the current 23-section UX/release report. The prior hosted V1 run and cleanup passed. The subsequent UI polish adds `202609160002_username_availability.sql`, which is now applied and has passed focused hosted verification and cleanup; see [the hosted record](username-hosted-verification.md). Earlier foundation delivery notes above describe their original milestone; consult the linked later evidence for current status. No commit, push or deployment has been performed.

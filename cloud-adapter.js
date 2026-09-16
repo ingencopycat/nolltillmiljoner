@@ -28,6 +28,14 @@
             if(detail?.error_code==='user_not_found') {auth=null;throw error('auth');}
           }
           if(response.status===401)auth=null;
+          if(path==='/auth/v1/otp' || path==='/auth/v1/verify') {
+            const detail=await response.json().catch(()=>null),code=detail?.code||detail?.error_code;
+            if(response.status===429 || ['over_email_send_rate_limit','over_request_rate_limit'].includes(code))throw error('auth_rate_limit');
+            if(code==='otp_expired')throw error('otp_expired');
+            if(path==='/auth/v1/verify' && [400,401,403,422].includes(response.status))throw error('otp_invalid');
+          }
+          if(path.startsWith('/rest/v1/rpc/ntm_social_') && [400,403,404,429].includes(response.status))
+            throw error(({400:'invalid',403:'forbidden',404:'missing',429:'rate_limit'})[response.status]);
           // Provider responses can echo sensitive values; never log or display their bodies.
           throw error(response.status===409?'conflict':response.status===401?'auth':'network');
         }
@@ -43,6 +51,9 @@
         return {userId:auth.userId}; // No retained refresh token; re-authenticate after reload/expiry.
       },
       async session(){if(auth?.expiresAt<=now())auth=null;return auth?{userId:auth.userId}:null;},
+      async socialRead(action,args={}) {return call('/rest/v1/rpc/ntm_social_read',{action,args});},
+      async usernameAvailability(username) {return call('/rest/v1/rpc/ntm_username_availability',{username},true);},
+      async socialWrite(action,args={}) {return call('/rest/v1/rpc/ntm_social_write',{action,args},true);},
       async put(records) {return call('/rest/v1/rpc/ntm_put_records',{records},true);},
       async list() {return call('/rest/v1/rpc/ntm_export_records',{},true);},
       async profile() {const user=await call('/auth/v1/user',undefined,true);return {id:user.id,email:user.email,createdAt:user.created_at};},

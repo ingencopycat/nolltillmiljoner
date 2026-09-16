@@ -1,7 +1,7 @@
 /* Provider-neutral, bounded, memory-only events. Never pass user input to emit(). */
 (function (root) {
   'use strict';
-  const names = new Set(['landing_view', 'tool_opened', 'cta_clicked', 'calculator_completed',
+  const names = new Set(['public_profile_created','profile_followed','public_analysis_published','public_analysis_unpublished','profile_report_submitted','user_search_used','landing_view', 'tool_opened', 'cta_clicked', 'calculator_completed',
     'academy_lesson_opened','academy_lesson_completed','academy_path_started','academy_path_completed','knowledge_search','knowledge_answer_opened','knowledge_related_cta_clicked','academy_search','academy_xp_earned','academy_level_reached','academy_scenario_complete','academy_challenge_complete','academy_case_complete','academy_path_complete','academy_tool_cta_clicked',
     'research_opened', 'valuation_calculated', 'thesis_first_saved', 'assumptions_added',
     'review_date_set', 'thesis_reviewed', 'outcome_checkpoint_saved', 'content_to_tool',

@@ -89,6 +89,7 @@ jobs:
   build:
     needs: commit-data
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     permissions:
       contents: read
     steps:
@@ -102,8 +103,27 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node scripts/check_weekly_events.cjs
-      - run: node scripts/build_seo.cjs --check
+      - name: Require intended production account configuration
+        if: vars.NTM_CLOUD_ENABLED != 'true'
+        run: |
+          echo "Production account release requires NTM_CLOUD_ENABLED=true and the public Supabase variables."
+          exit 1
+      - name: Install isolated release-test dependencies
+        run: |
+          pip install -r requirements-browser.txt
+          python -m playwright install --with-deps chromium
+          npm install --prefix "$RUNNER_TEMP/ntm-pglite" --no-save --ignore-scripts @electric-sql/pglite@0.5.8
+          echo "PGLITE_MODULE=$RUNNER_TEMP/ntm-pglite/node_modules/@electric-sql/pglite/dist/index.js" >> "$GITHUB_ENV"
+      - name: Validate the exact revision before publishing
+        env:
+          BROWSER_CHANNEL: ''
+        run: |
+          python -B scripts/validate_release.py
+          node scripts/test_social_rls.cjs
+          python -B scripts/browser_smoke.py
+          python -B scripts/test_social_browser.py
+          python -B scripts/quality_browser.py --output "$RUNNER_TEMP/ntm-release-quality.json"
+          python -B scripts/check_workflows.py
       - run: |
           python scripts/stage_site.py _site
           python -c "import sys;sys.path.insert(0,'scripts');from stage_site import find_missing_local_references;missing=find_missing_local_references('_site');assert not missing,missing"

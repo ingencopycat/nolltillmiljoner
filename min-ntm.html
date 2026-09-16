@@ -45,39 +45,7 @@
     <main id="main-content" tabindex="-1" class="container tool-landing" data-min-ntm>
         <header class="page-intro tool-intro min-ntm-intro"><span class="section-kicker">Lokalt på din enhet</span><h1>Min NTM</h1><p>Din personliga översikt.</p><p class="min-ntm-local-note">Sparas lokalt på den här enheten. Ingen inloggning krävs.</p></header>
 
-        <details class="depth-panel" id="cloudAccount"><summary>Konto &amp; valfri molnsynk <small id="cloudStatus">Sparat lokalt</small></summary>
-            <section class="card calculator-card min-ntm-card" aria-labelledby="cloudHeading">
-                <h2 id="cloudHeading">Konto och synk</h2>
-                <p>Academy-lärhistorik, beslutspauser, antagandegrupper och mallval är endast lokala och ingår i JSON-backup. De skickas inte med denna molnsynk.</p>
-                <p>Lokal användning kräver inget konto. Molnsynk ersätter inte <a href="#localDataDepth">din JSON-backup</a>. Uppgifter kan finnas kvar lokalt efter utloggning.</p>
-                <p id="cloudMessage" role="status" aria-live="polite">Kontrollerar om valfri molnsynk är tillgänglig…</p>
-                <div id="cloudLogin" hidden>
-                    <p>Med ett konto kan du spara de stödda kategorierna i molnet och hämta dem på en annan enhet. Du väljer själv när data skickas. Logga in igen efter omladdning eller när sessionen löper ut. Läs om <a href="om-metod.html#integritet">leverantörer, lagring och radering</a> innan du begär en kod.</p>
-                    <label for="cloudEmail">E-postadress</label><input id="cloudEmail" type="email" autocomplete="email" required />
-                    <button type="button" id="cloudRequestOtp" class="secondary-btn">Skicka engångskod</button>
-                    <label for="cloudOtp">Engångskod från mejlet</label><input id="cloudOtp" type="text" inputmode="numeric" autocomplete="one-time-code" />
-                    <button type="button" id="cloudVerifyOtp" class="secondary-btn">Logga in med kod</button>
-                </div>
-                <div id="cloudConnected" hidden>
-                    <p id="cloudIdentity"></p>
-                    <p id="cloudMigration"></p>
-                    <button type="button" id="cloudUpload" class="secondary-btn">Synka till mitt konto</button>
-                    <button type="button" id="cloudStayLocal" class="ghost-btn">Behåll endast lokalt just nu</button>
-                    <button type="button" id="cloudRestore" class="secondary-btn">Hämta och slå samman molndata</button>
-                    <p>Lokal radering raderar inte molnkopior. En senare import kan återställa lokalt raderad historik. Automatisk synk av raderingar ingår inte.</p>
-                    <details><summary>Synkkö och försök</summary><ul id="cloudQueue"></ul><button type="button" id="cloudRetry" class="secondary-btn">Försök med väntande kö</button></details>
-                    <button type="button" id="cloudExport" class="secondary-btn">Exportera portabel molnbackup</button>
-                    <button type="button" id="cloudAuditExport" class="ghost-btn">Exportera alla kontoposter</button>
-                    <button type="button" id="cloudLogout" class="ghost-btn">Logga ut</button>
-                    <details><summary>Radera konto och molndata</summary>
-                        <p>Permanent radering av kontot och privata poster i den aktiva molndatabasen. Leverantörsloggar, inloggningsmejl och säkerhetskopior kan finnas kvar enligt <a href="om-metod.html#integritet">lagringsvillkoren</a>. Andra enheters lokala kopior kan inte raderas här.</p>
-                        <p>Lokala analyser och planer delas av alla som använder samma webbläsarprofil. Synkköer för andra konton och senaste verktyg påverkas inte.</p>
-                        <label><input type="checkbox" id="cloudDeleteLocal" /> Radera även lokala analyser, scenarier, planer, observationer, lärhistorik, beslutspauser, antagandegrupper, mallval och tema på denna enhet</label>
-                        <button type="button" id="cloudDelete" class="destructive-action ghost-btn">Radera konto och molndata</button>
-                    </details>
-                </div>
-            </section>
-        </details>
+        <p><a class="secondary-btn" href="konto.html">Konto, synk &amp; offentlig profil</a></p>
         <section class="card calculator-card min-ntm-card" aria-labelledby="academyMiniHeading">
             <h2 id="academyMiniHeading">Ditt läranderum</h2>
             <p data-xp-label>0 XP</p><progress data-xp-bar max="100" value="0" aria-label="Academy progression"></progress><p data-xp-next></p><p data-current-path></p><a data-next-activity href="academy.html">Academy</a>
@@ -204,10 +172,6 @@
     <script src="academy-progress.js"></script>
     <script src="local-data.js"></script>
     <script src="behavioral-ui.js"></script>
-    <script src="cloud-config.js"></script>
-    <script src="cloud-sync.js"></script>
-    <script src="cloud-adapter.js"></script>
-    <script src="cloud-ui.js"></script>
     <script src="min-review.js"></script>
     <script src="academy-catalog.js"></script>
     <script src="academy-activities.js"></script>
