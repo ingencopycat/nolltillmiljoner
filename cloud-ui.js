@@ -39,7 +39,7 @@
   }
   async function act(action,progress='',userInitiated=true,validateSession=true) {
     if(busy)return;busy=true;if(window.NTMAccount)window.NTMAccount.busy=true;const previousOwner=engine?.owner();
-    const controls=[...el('cloudAccount').querySelectorAll('button')].map(b=>[b,b.disabled]);
+    const controls=[...el('cloudAccount').querySelectorAll('button[id^=cloud]')].map(b=>[b,b.disabled]);
     for(const [button] of controls)button.disabled=true;
     el('cloudAccount').setAttribute('aria-busy','true');if(progress)message(progress);
     if(userInitiated&&el('socialStatus'))el('socialStatus').textContent='';

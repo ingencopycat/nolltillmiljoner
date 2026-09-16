@@ -4,6 +4,8 @@ from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 import json
 import os
+import shutil
+import subprocess
 import tempfile
 import threading
 from playwright.sync_api import sync_playwright, expect
@@ -20,6 +22,10 @@ class QuietHandler(SimpleHTTPRequestHandler):
 def main():
     with tempfile.TemporaryDirectory(prefix='ntm-social-stage-') as stage, sync_playwright() as pw:
         stage_site(stage)
+        node = os.environ.get('NODE_BINARY') or shutil.which('node')
+        subprocess.run([node, 'scripts/configure_cloud.cjs', '--site', stage], cwd=ROOT, check=True,
+                       env={**os.environ, 'SUPABASE_URL':'https://offline-fixture.supabase.co',
+                            'SUPABASE_PUBLISHABLE_KEY':'sb_publishable_offline_fixture'})
         server = ThreadingHTTPServer(('127.0.0.1', 0), partial(QuietHandler, directory=stage))
         threading.Thread(target=server.serve_forever, daemon=True).start()
         # Match CI's pinned Playwright browser; opt into system Chrome explicitly.
@@ -87,7 +93,8 @@ def main():
                 result = {}
             route.fulfill(status=200, content_type='application/json', body=json.dumps(result))
 
-        context = browser.new_context(viewport={'width': 390, 'height': 844}, bypass_csp=True)
+        context = browser.new_context(viewport={'width': 390, 'height': 844})
+        context.add_init_script("document.addEventListener('securitypolicyviolation',e=>{window.__publicationCsp=(window.__publicationCsp||[]).concat(e.violatedDirective)})")
         context.route('**/cloud-config.js', lambda r: r.fulfill(content_type='application/javascript', body="window.NTMCloudConfig={enabled:true,url:'https://offline-fixture.supabase.co',publishableKey:'sb_publishable_offline_fixture'}"))
         context.route('https://*.supabase.co/**', route)
         page = context.new_page()
@@ -114,6 +121,19 @@ def main():
         # A real local Research record; private sentinels must not enter publication requests.
         saved = page.evaluate("""() => NTMThesisStorage.save('EX', {companyName:'Example',text:'En genomtänkt tes om efterfrågan och uthålliga marginaler.',risks:'Valfri risk',triggerChange:'Valfritt motbevis',notes:'PRIVATE-SENTINEL',assumptions:['Valfritt antagande']})""")
         assert saved['success'], saved
+        page.goto(base + '/research.html?ticker=EMPTY')
+        page.locator('#researchPublishBtn').click()
+        expect(page.locator('#researchPublicationStatus')).to_have_text('Spara analysen innan du publicerar den.')
+        page.keyboard.press('Escape')
+        backup=page.evaluate("localStorage.getItem('investment-research-theses-v1')")
+        page.evaluate("localStorage.setItem('investment-research-theses-v1','{invalid')")
+        page.locator('#researchPublishBtn').click()
+        expect(page.locator('#researchPublicationStatus')).to_contain_text('kan inte läsas säkert')
+        page.evaluate("raw=>localStorage.setItem('investment-research-theses-v1',raw)",backup)
+        page.goto(base + '/research.html?ticker=EX')
+        page.locator('#researchPublishBtn').click()
+        expect(page.locator('#researchPublicationStatus')).to_have_text('Logga in för att publicera analyser.')
+        page.goto(base + '/konto.html')
         page.locator('#cloudEmail').fill('fixture@example.invalid')
         state['failure']=(429,'over_email_send_rate_limit')
         page.locator('#cloudRequestOtp').click()
@@ -136,6 +156,10 @@ def main():
         page.locator('#cloudVerifyOtp').click()
         expect(page.get_by_role('button', name='Skapa offentlig profil', exact=True)).to_be_visible()
         assert not any('ntm_put_records' in url for url, _ in calls), 'Login must not upload'
+        page.goto(base + '/research.html?ticker=EX')
+        page.locator('#researchPublishBtn').click()
+        expect(page.locator('#researchPublicationStatus')).to_have_text('Skapa en offentlig profil för att publicera analyser.')
+        page.goto(base + '/konto.html')
         page.get_by_role('button', name='Inte nu', exact=True).click()
         expect(page.locator('#profileSettings')).to_contain_text('fortsätter vara privat')
         page.get_by_role('button', name='Skapa offentlig profil', exact=True).click()
@@ -158,46 +182,86 @@ def main():
         expect(page.locator('#socialDialogBody')).to_contain_text('Redigera profil')
         assert page.locator('#socialDialogBody [aria-pressed]').count()==0
         page.keyboard.press('Escape')
-        page.locator('#publicationCompose > summary').click()
-        expect(page.locator('#publicationSource')).to_be_visible()
-        page.get_by_role('button', name='Förhandsgranska publicering', exact=True).click()
-        expect(page.locator('#socialDialog')).to_be_visible()
-        capture('publication-preview',dialog=True)
-        assert 'PRIVATE-SENTINEL' not in page.locator('#socialDialogBody').inner_text()
-        assert 'Valfri risk' not in page.locator('#socialDialogBody').inner_text()
-        assert not any(d.get('action') == 'publish' for _, d in calls)
-        page.keyboard.press('Escape')
-        expect(page.get_by_role('button', name='Förhandsgranska publicering', exact=True)).to_be_focused()
-        # Keyboard activation and the explicit close control must restore focus too.
+        assert page.locator('#publicationCompose').count()==0
+        page.goto(base + '/research.html?ticker=EX')
+        expect(page.locator('#researchPublishBtn')).to_be_visible()
+        page.locator('#thesis-text').fill('UNSAVED-EDITOR-SENTINEL')
+        page.locator('#researchPublishBtn').click()
+        assert '/research.html' in page.url
+        publication=page.locator('.research-publication dialog')
+        expect(publication).to_contain_text('osparade ändringar')
+        preview=page.get_by_role('button',name='Förhandsgranska publicering',exact=True)
+        expect(preview).to_be_enabled()
+        assert page.locator('#publish_thesis').input_value()==public['content']['thesis']
+        page.locator('#publish_thesis').fill('Kort')
+        preview.click()
+        expect(page.locator('#researchPublicationStatus')).to_contain_text('minst 30 tecken')
+        page.locator('#publish_thesis').fill(public['content']['thesis'])
+        preview.focus()
         page.keyboard.press('Enter')
-        expect(page.locator('#socialDialog')).to_be_visible()
-        page.locator('#socialDialogClose').click()
-        expect(page.get_by_role('button', name='Förhandsgranska publicering', exact=True)).to_be_focused()
-        page.get_by_role('button', name='Förhandsgranska publicering', exact=True).click()
+        expect(publication).to_contain_text('Det här kommer att bli offentligt')
+        assert 'PRIVATE-SENTINEL' not in publication.inner_text()
+        assert 'Valfri risk' not in publication.inner_text()
+        assert 'UNSAVED-EDITOR-SENTINEL' not in publication.inner_text()
+        for theme in ('dark','light'):
+            page.evaluate('applyTheme',theme)
+            for width in (360,390,430,1440):
+                page.set_viewport_size({'width':width,'height':900})
+                assert publication.evaluate('(e)=>e.scrollWidth<=e.clientWidth')
+                assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
+        assert not page.evaluate('window.__publicationCsp||[]')
+        assert not any(d.get('action')=='publish' for _,d in calls)
+        page.keyboard.press('Escape')
+        expect(page.locator('#researchPublishBtn')).to_be_focused()
+        page.keyboard.press('Enter')
+        preview.click()
         state['failure']=(503,'unknown')
-        page.get_by_role('button', name='Publicera analys', exact=True).click()
-        expect(page.locator('#dialogStatus')).to_contain_text('kunde inte bekräftas')
-        page.get_by_role('button', name='Publicera analys', exact=True).click()
-        expect(page.locator('#socialStatus')).to_contain_text('Analysen är publicerad')
-        payload = next(d['args']['snapshot'] for _, d in calls if d.get('action') == 'publish')
-        assert set(payload) == {'company', 'ticker', 'thesis', 'analysisDate'}
+        page.get_by_role('button',name='Publicera',exact=True).click()
+        expect(page.locator('#researchPublicationStatus')).to_contain_text('kunde inte bekräftas')
+        page.get_by_role('button',name='Publicera',exact=True).click()
+        expect(page.locator('#researchPublicationStatus')).to_contain_text('Analysen är publicerad')
+        payload=next(d['args']['snapshot'] for _,d in calls if d.get('action')=='publish')
+        assert set(payload)=={'company','ticker','thesis','analysisDate'}
         assert 'PRIVATE-SENTINEL' not in json.dumps(calls)
-        assert not any('ntm_put_records' in url for url, _ in calls), 'Publication must not upload a private revision'
+        assert not any('ntm_put_records' in url for url,_ in calls),'Publication must not upload private source'
         publish_calls=[d['args'] for _,d in calls if d.get('action')=='publish']
-        assert publish_calls[-1]['requestId']==publish_calls[-2]['requestId'],'Retry must reuse publication identity'
-        page.evaluate("""() => NTMThesisStorage.save('EX',{companyName:'Example',text:'En ny privat tes med ett förändrat antagande om marginalerna.'})""")
-        page.evaluate("window.dispatchEvent(new Event('ntm-account-change'))")
-        expect(page.locator('#ownAnalyses')).to_contain_text('Du har en nyare privat version.')
+        assert publish_calls[-1]['requestId']==publish_calls[-2]['requestId']
+        page.keyboard.press('Escape')
+        page.evaluate("""() => {NTMThesisStorage.save('EX',{companyName:'Example',text:'En ny privat tes med ett förändrat antagande om marginalerna.'});renderRevisionHistory(currentStockData);}""")
+        expect(page.locator('#researchPublicState')).to_contain_text('Du har en nyare privat version.')
+        assert state['own'][0]['content']==payload
+        page.reload()
         page.get_by_role('button',name='Uppdatera publicerad analys').click()
-        page.get_by_role('button',name='Förhandsgranska publicering',exact=True).click()
-        expect(page.locator('#socialDialogBody')).to_contain_text('ersätter din synliga analys')
-        page.get_by_role('button',name='Publicera analys',exact=True).click()
-        expect(page.locator('#socialStatus')).to_contain_text('Analysen är publicerad')
+        preview.click()
+        expect(publication).to_contain_text('ersätter din tidigare synliga analys')
+        page.get_by_role('button',name='Publicera',exact=True).click()
+        expect(page.locator('#researchPublicationStatus')).to_contain_text('Analysen är publicerad')
         assert [d['args'] for _,d in calls if d.get('action')=='publish'][-1]['supersedes']==public['id']
-        page.get_by_role('button', name='Ta bort från min profil', exact=True).click()
-        page.get_by_role('button', name='Bekräfta borttagning', exact=True).click()
+        page.keyboard.press('Escape')
+        page.get_by_role('button',name='Ta bort från profil',exact=True).click()
+        page.get_by_role('button',name='Bekräfta borttagning',exact=True).click()
+        expect(page.locator('#researchPublicationStatus')).to_contain_text('tagits bort')
+        assert page.evaluate("NTMThesisStorage.get('EX').thesis.revisions.length")==2
+        page.keyboard.press('Escape')
+        state['mine']['active']=False
+        page.locator('#researchPublishBtn').click()
+        expect(page.locator('#researchPublicationStatus')).to_have_text('Aktivera din offentliga profil för att publicera analyser.')
+        page.keyboard.press('Escape')
+        state['mine']['active']=True
+        state['mine']['suspended']=True
+        page.locator('#researchPublishBtn').click()
+        expect(page.locator('#researchPublicationStatus')).to_contain_text('dold av moderering')
+        page.keyboard.press('Escape')
+        state['mine']['suspended']=False
+        state['mine']['role']='admin'
+        page.locator('#researchPublishBtn').click()
+        preview.click()
+        expect(publication).to_contain_text('Det här kommer att bli offentligt')
+        page.get_by_role('button',name='Avbryt',exact=True).click()
+        expect(page.locator('#researchPublishBtn')).to_be_focused()
+        state['mine']['role']='user'
+        page.goto(base + '/konto.html')
         expect(page.locator('#ownAnalyses')).to_contain_text('Borttagen från profilen')
-        assert page.evaluate("NTMThesisStorage.get('EX').thesis.revisions.length") == 2
         page.locator('#profileEdit > summary').click()
         page.locator('#displayName').fill('Lugnare Research')
         page.locator('#profileBio').fill('Ett långsiktigt perspektiv.')

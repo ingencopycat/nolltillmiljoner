@@ -207,6 +207,7 @@ function element() {
     value: '', textContent: '', innerHTML: '', style: {}, children: [],
     classList: { add(name) { classes.add(name); }, remove(name) { classes.delete(name); }, contains(name) { return classes.has(name); } },
     appendChild(child) { this.children.push(child); },
+    append(...children) { this.children.push(...children); }, after() {},
     replaceChildren() { this.children = []; }, focus() {}, remove() {}, click() {},
     addEventListener() {}, setAttribute() {},
   };
@@ -216,6 +217,7 @@ function app(saved = new Map()) {
   // Minimal DOM boundary; every product function below runs unmodified.
   const nodes = new Map([...read('research.html').matchAll(/\bid="([^"]+)"/g)]
     .map((match) => [match[1], Object.assign(element(), { id: match[1] })]));
+  nodes.get('researchPublishBtn').parentElement = element();
   const context = vm.createContext({
     document: {
       body: element(), title: 'Research',

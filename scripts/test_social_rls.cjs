@@ -46,15 +46,18 @@ async function main(){
  await settings({showLevel:false,showXp:true,xp:100});p=await read('profile',{username:'reader_a'});assert.equal(p.level,null);assert.equal(p.xp,100);
  const records=[{kind:'journal',scope:'theses',id:'EX',createdAt:null,sourceVersion:2,payload:{}},
  {kind:'revision',scope:'EX',id:'r1',createdAt:null,sourceVersion:2,payload:{text:'PRIVATE-SENTINEL',notes:'PRIVATE-NOTES',reportQuestions:[{answer:'HIDDEN-ANSWER'}]}}];
- await db.query('select public.ntm_put_records($1)',[JSON.stringify(records)]);
+
  const snapshot={company:'Example',ticker:'EX',thesis:'A deliberately selected public thesis with enough reasoning.',analysisDate:'2026-09-16'};
  const publish=(over={})=>write('publish',{scope:'EX',revision:'r1',snapshot,requestId:require('node:crypto').randomUUID(),confirmed:true,...over});
  await denied(()=>publish({confirmed:false}));await denied(()=>publish({snapshot:{...snapshot,notes:'leak'}}));
- await denied(()=>publish({snapshot:{...snapshot,assumptions:{nested:'leak'}}}));await denied(()=>publish({revision:'missing'}));
+ await denied(()=>publish({snapshot:{...snapshot,assumptions:{nested:'leak'}}}));for(const revision of [null,'',123,' '.repeat(5),'x'.repeat(513)])await denied(()=>publish({revision}));
  const requestId=require('node:crypto').randomUUID(),first=await publish({requestId});assert.deepEqual((await read('analysis',{id:first.id})).content,snapshot);
+ assert.equal((await db.query('select public.ntm_export_records() r')).rows[0].r.records.length,0,'local publication must not upload private source');
+ await db.query('select public.ntm_put_records($1)',[JSON.stringify(records)]);
+ assert.deepEqual((await read('analysis',{id:first.id})).content,snapshot,'optional sync does not mutate publication');
  assert.deepEqual(await publish({requestId}),first);assert.equal((await write('ownAnalyses')).length,1);
  await denied(()=>publish({requestId,snapshot:{...snapshot,thesis:'A different payload may not reuse the same publication request.'}}));
- await login(B);await denied(()=>publish());await denied(()=>write('unpublish',{id:first.id}));
+ await login(B);await denied(()=>publish({supersedes:first.id}));const bLocal=await publish();assert.equal((await read('analysis',{id:bLocal.id})).author.username,'reader_b');await write('unpublish',{id:bLocal.id});await denied(()=>write('unpublish',{id:first.id}));
  for(const sql of ["update public.ntm_public_profiles set role='admin'", "update public.ntm_public_profiles set username='hijack'",'delete from public.ntm_profile_follows','select * from public.ntm_profile_reports'])await denied(()=>db.query(sql));
  await login(A);const second=await publish({snapshot:{...snapshot,thesis:'A newly approved public thesis, explicitly replacing the earlier snapshot.'},supersedes:first.id});
  assert.equal(await read('analysis',{id:first.id}),null);assert.equal((await write('ownAnalyses')).length,2);
@@ -68,7 +71,7 @@ async function main(){
  const wire=JSON.stringify({recent:await read('recent'),profile:await read('profile',{username:'reader_a'}),followers:await read('followers',{username:'reader_a'})});
  for(const secret of [A,B,D,'PRIVATE-SENTINEL','PRIVATE-NOTES','HIDDEN-ANSWER','private-report-sentinel','sourceRevision','owner_id'])assert.ok(!wire.includes(secret),secret);
  await login(A);await db.query('select public.ntm_delete_account()');await denied(()=>create('revived'));await denied(()=>availability('new_name'));assert.equal(await read('profile',{username:'reader_a'}),null);assert.deepEqual(await read('recent'),[]);
- await db.exec('reset role');assert.equal((await db.query('select count(*) n from public.ntm_public_analyses')).rows[0].n,0);
+ await db.exec('reset role');assert.deepEqual((await db.query('select id from public.ntm_public_analyses')).rows,[{id:bLocal.id}],'A deletion cascades all A publications and preserves B');
  assert.equal((await db.query('select count(*) n from public.ntm_profile_follows')).rows[0].n,0);
  assert.ok((await db.query('select target from public.ntm_profile_reports')).rows.every(r=>r.target===null));
  await login(D);await db.query('select public.ntm_delete_account()');await db.exec('reset role');assert.ok((await db.query('select reporter from public.ntm_profile_reports')).rows.every(r=>r.reporter===null));

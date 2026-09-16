@@ -1807,6 +1807,7 @@ function restoreRevisionAssumptions(revision, data) {
 }
 
 function renderRevisionHistory(data) {
+    if (window.NTMResearchPublication) Promise.resolve().then(() => window.NTMResearchPublication.refreshSource());
     const section = document.getElementById('thesisHistorySection');
     if (!section) return;
     const { thesis } = window.NTMThesisStorage.get(data?.symbol || currentThesisState.ticker);
