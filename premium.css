@@ -147,6 +147,8 @@ body.light-theme .feature-card, body.light-theme .resource-card, body.light-them
 .section-local-nav { display: flex; flex-wrap: wrap; gap: 4px 12px; padding: 12px 0; margin-bottom: 24px; border-bottom: 1px solid var(--border); }
 .section-local-nav a { color: var(--muted); font-size: .82rem; padding: 8px 4px; min-height: 40px; text-decoration: none; }
 .section-local-nav a:hover, .section-local-nav a:focus-visible { color: var(--primary); text-decoration: underline; }
+.section-local-nav.research-journeys a { font-size: .95rem; min-height: 44px; }
+.research-journeys a[aria-current="page"] { color: var(--text); font-weight: 600; text-decoration: underline; text-underline-offset: 6px; }
 #thesisSection, #thesisReview { border-inline-start: 3px solid var(--primary); }
 .research-card-block { margin-block: 24px; }
 .valuation-section { border-top: 2px solid var(--primary); }

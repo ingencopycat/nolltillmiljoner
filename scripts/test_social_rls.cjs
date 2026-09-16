@@ -66,6 +66,11 @@ async function main(){
  assert.deepEqual(await read('search',{username:'reader_a'}),[]);assert.equal((await read('profile',{username:'reader_b'})).following,0);
  await settings();assert.ok(await read('analysis',{id:second.id}));assert.equal((await read('profile',{username:'reader_a'})).followers,1);
  await write('unpublish',{id:second.id});assert.equal(await read('analysis',{id:second.id}),null);
+ await login(null,'anon');
+ assert.equal(await read('analysis',{id:second.id}),null,'unpublished direct public lookup');
+ assert.ok(!(await read('analyses',{username:'reader_a'})).some(a=>a.id===second.id),'unpublished absent from profile');
+ assert.ok(!(await read('recent')).some(a=>a.id===second.id),'unpublished absent from discovery');
+ await login(A);
  const priv=(await db.query('select public.ntm_export_records() r')).rows[0].r;assert.equal(priv.records.length,2);
  await publish();await login(null,'anon');
  const wire=JSON.stringify({recent:await read('recent'),profile:await read('profile',{username:'reader_a'}),followers:await read('followers',{username:'reader_a'})});

@@ -9,7 +9,7 @@
  status.id='researchPublicationStatus';status.setAttribute('role','status');status.setAttribute('aria-live','polite');
  cancel.type='button';cancel.onclick=()=>dialog.close();dialog.append(heading,status,body,cancel);shell.append(dialog);document.body.append(shell);
  const publicState=node('div');publicState.id='researchPublicState';trigger.parentElement.after(publicState);
- let adapter,busy=false,owner=null,mine=null,own=[],sourceProblem=false;
+ let adapter,busy=false,owner=null,mine=null,own=[],sourceProblem=false,opener=null;
  const tell=text=>status.textContent=text;
  const link=(label,url)=>{const a=node('a',label);a.href=url;return a;};
  const button=(label,fn)=>{const b=node('button',label);b.type='button';b.className='secondary-btn';b.onclick=()=>run(fn);return b;};
@@ -23,20 +23,23 @@
  const stillSaved=s=>window.NTMThesisStorage.get(s.scope).thesis?.revisions.some(r=>r.id===s.rev.id);
  async function identity(){const session=await adapter.session();owner=session?.userId||null;mine=owner?await adapter.socialWrite('mine'):null;
    own=mine&&!mine.suspended?await adapter.socialWrite('ownAnalyses'):[];refreshSource();}
- function show(){tell('');if(!dialog.open)dialog.showModal();heading.focus();}
- dialog.addEventListener('close',()=>trigger.focus());
- function refreshSource(){publicState.replaceChildren();const s=saved();if(!s)return;
-   const active=own.find(a=>a.sourceScope===s.scope&&!a.hidden&&!a.moderated);if(!active)return;
-   publicState.append(node('p','Publicerad'),link('Visa',C.analysisUrl(active.id)));
-   if(window.NTMThesisStorage.get(s.scope).thesis?.latestRevisionId!==active.sourceRevision)publicState.append(node('p','Du har en nyare privat version.'));
-   publicState.append(button('Uppdatera publicerad analys',open),button('Ta bort från profil',async()=>{show();body.replaceChildren(node('p','Den offentliga kopian döljs. Din privata Research finns kvar.'));
-     const user=owner;body.append(button('Bekräfta borttagning',async()=>{if((await adapter.session())?.userId!==user){tell('Inloggningen har ändrats. Öppna publiceringen igen.');return;}await adapter.socialWrite('unpublish',{id:active.id});await identity();body.replaceChildren();tell('Analysen har tagits bort från profilen.');}));}));}
+ function show(title='Publicera analys'){tell('');heading.textContent=title;if(!dialog.open){opener=document.activeElement;dialog.showModal();}heading.focus();}
+ dialog.addEventListener('close',()=>{const target=opener?.isConnected&&!opener.hidden?opener:trigger.hidden?publicState.querySelector('a,button'):trigger;target?.focus();});
+ function refreshSource(){publicState.replaceChildren();trigger.hidden=false;const scope=currentStockData?.symbol;if(!scope)return;
+   const active=own.find(a=>a.sourceScope===scope&&!a.hidden&&!a.moderated);if(!active)return;
+   trigger.hidden=true;publicState.append(node('p','Publicerad'),link('Visa analys',C.analysisUrl(active.id)));
+   const journal=window.NTMThesisStorage.get(scope).thesis,latest=journal?.revisions.find(r=>r.id===journal.latestRevisionId);
+   const sourceIndex=journal?.revisions.findIndex(r=>r.id===active.sourceRevision)??-1;
+   const newer=latest&&latest.id!==active.sourceRevision&&(sourceIndex>=0?journal.revisions.indexOf(latest)>sourceIndex:Date.parse(latest.savedAt||latest.createdAt)>Date.parse(active.publishedAt));
+   if(newer)publicState.append(node('p','Nyare privat version'),button('Uppdatera publicerad analys',()=>open({scope,rev:latest})));
+   publicState.append(button('Avpublicera',async()=>{show('Avpublicera analys');body.replaceChildren(node('p','Analysen tas bort från din profil och Upptäck Research och är inte längre offentligt tillgänglig. Din privata analys finns kvar.'));
+     const user=owner;body.append(button('Avpublicera analys',async()=>{if((await adapter.session())?.userId!==user){tell('Inloggningen har ändrats. Öppna publiceringen igen.');return;}await adapter.socialWrite('unpublish',{id:active.id});await identity();body.replaceChildren();tell('Analysen är avpublicerad. Din privata analys finns kvar.');}));}));}
  function login(){tell('Logga in för att publicera analyser.');const form=node('form'),email=node('input'),emailLabel=node('label','E-post'),otp=node('input'),otpLabel=node('label','Engångskod');
    email.type='email';email.required=true;email.autocomplete='email';email.id='publicationEmail';emailLabel.htmlFor=email.id;
    otp.id='publicationOtp';otp.autocomplete='one-time-code';otp.inputMode='numeric';otpLabel.htmlFor=otp.id;
    const send=node('button','Skicka engångskod');send.type='submit';form.append(emailLabel,email,send);form.onsubmit=e=>{e.preventDefault();run(async()=>{await adapter.requestOtp(email.value.trim());tell('Om adressen kan användas skickas en engångskod.');});};
    body.append(form,otpLabel,otp,button('Logga in',async()=>{await adapter.verifyOtp(email.value.trim(),otp.value.trim());await open();}));}
- async function open(){show();body.replaceChildren();const s=saved();if(!s){tell(sourceProblem?'Den sparade Research-datan kan inte läsas säkert. Kontrollera lokal backup innan du fortsätter.':'Spara analysen innan du publicerar den.');return;}
+ async function open(selected=null){show();body.replaceChildren();const s=selected&&stillSaved(selected)?selected:saved();if(!s){tell(sourceProblem?'Den sparade Research-datan kan inte läsas säkert. Kontrollera lokal backup innan du fortsätter.':'Spara analysen innan du publicerar den.');return;}
    if(!window.NTMCloudConfig?.enabled){tell('Publicering är inte tillgänglig i denna miljö. Din sparade Research finns kvar.');return;}
    adapter ||= window.NTMSocialAdapter||window.NTMCloudAdapter.create(window.NTMCloudConfig);window.NTMSocialAdapter=adapter;
    await identity();if(!owner){login();return;}

@@ -127,7 +127,7 @@
    list.append(node('p',own.filter(a=>!a.hidden&&!a.moderated).length+' publicerade'));
    if(mine?.active)list.append(link('Visa profil',C.profileUrl(mine.username)));
    for(const a of own){const item=node('div',undefined,'social-item');
-     item.append(link(a.content.company,C.analysisUrl(a.id)),node('p',a.moderated?'Dold av moderering':a.hidden?'Borttagen från profilen':'Publicerad'),link('Hantera i Research','research.html?ticker='+encodeURIComponent(a.sourceScope)));
+     item.append(a.hidden?node('span',a.content.company):link(a.content.company,C.analysisUrl(a.id)),node('p',a.moderated?'Dold av moderering':a.hidden?'Avpublicerad':'Publicerad'),link('Hantera i Research','research.html?ticker='+encodeURIComponent(a.sourceScope)));
      list.append(item);
    }
  }

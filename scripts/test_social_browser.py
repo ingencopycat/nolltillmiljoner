@@ -185,6 +185,10 @@ def main():
         assert page.locator('#publicationCompose').count()==0
         page.goto(base + '/research.html?ticker=EX')
         expect(page.locator('#researchPublishBtn')).to_be_visible()
+        journeys=page.get_by_role('navigation',name='Research',exact=True)
+        expect(journeys.get_by_role('link',name='Analysera',exact=True)).to_have_attribute('aria-current','page')
+        expect(journeys.get_by_role('link',name='Upptäck Research',exact=True)).to_have_attribute('href','upptack.html')
+        expect(page.get_by_role('link',name='Se publicerade analyser',exact=True)).to_have_count(0)
         page.locator('#thesis-text').fill('UNSAVED-EDITOR-SENTINEL')
         page.locator('#researchPublishBtn').click()
         assert '/research.html' in page.url
@@ -220,6 +224,14 @@ def main():
         expect(page.locator('#researchPublicationStatus')).to_contain_text('kunde inte bekräftas')
         page.get_by_role('button',name='Publicera',exact=True).click()
         expect(page.locator('#researchPublicationStatus')).to_contain_text('Analysen är publicerad')
+        expect(page.locator('#researchPublishBtn')).to_be_hidden()
+        expect(page.locator('#researchPublicState')).to_contain_text('Publicerad')
+        expect(page.locator('#researchPublicState').get_by_role('link',name='Visa analys')).to_be_visible()
+        expect(page.get_by_role('button',name='Uppdatera publicerad analys')).to_have_count(0)
+        local_source=page.evaluate("localStorage.getItem('investment-research-theses-v1')")
+        page.evaluate("localStorage.removeItem('investment-research-theses-v1');NTMResearchPublication.refreshSource()")
+        expect(page.get_by_role('button',name='Avpublicera',exact=True)).to_be_visible()
+        page.evaluate("raw=>{localStorage.setItem('investment-research-theses-v1',raw);NTMResearchPublication.refreshSource()}",local_source)
         payload=next(d['args']['snapshot'] for _,d in calls if d.get('action')=='publish')
         assert set(payload)=={'company','ticker','thesis','analysisDate'}
         assert 'PRIVATE-SENTINEL' not in json.dumps(calls)
@@ -228,7 +240,7 @@ def main():
         assert publish_calls[-1]['requestId']==publish_calls[-2]['requestId']
         page.keyboard.press('Escape')
         page.evaluate("""() => {NTMThesisStorage.save('EX',{companyName:'Example',text:'En ny privat tes med ett förändrat antagande om marginalerna.'});renderRevisionHistory(currentStockData);}""")
-        expect(page.locator('#researchPublicState')).to_contain_text('Du har en nyare privat version.')
+        expect(page.locator('#researchPublicState')).to_contain_text('Nyare privat version')
         assert state['own'][0]['content']==payload
         page.reload()
         page.get_by_role('button',name='Uppdatera publicerad analys').click()
@@ -238,9 +250,15 @@ def main():
         expect(page.locator('#researchPublicationStatus')).to_contain_text('Analysen är publicerad')
         assert [d['args'] for _,d in calls if d.get('action')=='publish'][-1]['supersedes']==public['id']
         page.keyboard.press('Escape')
-        page.get_by_role('button',name='Ta bort från profil',exact=True).click()
-        page.get_by_role('button',name='Bekräfta borttagning',exact=True).click()
-        expect(page.locator('#researchPublicationStatus')).to_contain_text('tagits bort')
+        page.get_by_role('button',name='Avpublicera',exact=True).click()
+        expect(publication).to_contain_text('Analysen tas bort från din profil och Upptäck Research och är inte längre offentligt tillgänglig. Din privata analys finns kvar.')
+        page.get_by_role('button',name='Avbryt',exact=True).click()
+        assert not state['own'][0]['hidden'], 'Cancel must preserve public visibility'
+        page.get_by_role('button',name='Avpublicera',exact=True).click()
+        page.get_by_role('button',name='Avpublicera analys',exact=True).click()
+        expect(page.locator('#researchPublicationStatus')).to_contain_text('Analysen är avpublicerad.')
+        expect(page.locator('#researchPublishBtn')).to_be_visible()
+        expect(page.locator('#researchPublicState')).to_be_empty()
         assert page.evaluate("NTMThesisStorage.get('EX').thesis.revisions.length")==2
         page.keyboard.press('Escape')
         state['mine']['active']=False
@@ -261,7 +279,7 @@ def main():
         expect(page.locator('#researchPublishBtn')).to_be_focused()
         state['mine']['role']='user'
         page.goto(base + '/konto.html')
-        expect(page.locator('#ownAnalyses')).to_contain_text('Borttagen från profilen')
+        expect(page.locator('#ownAnalyses')).to_contain_text('Avpublicerad')
         page.locator('#profileEdit > summary').click()
         page.locator('#displayName').fill('Lugnare Research')
         page.locator('#profileBio').fill('Ett långsiktigt perspektiv.')
@@ -323,6 +341,7 @@ def main():
                 page.keyboard.press('Escape')
                 expect(page.get_by_role('button', name='1 följare')).to_be_focused()
             if url.startswith('upptack'):
+                expect(page.get_by_role('navigation',name='Research',exact=True).get_by_role('link',name='Upptäck Research')).to_have_attribute('aria-current','page')
                 page.locator('#usernameSearch').fill('@missing')
                 page.get_by_role('button', name='Sök', exact=True).click()
                 expect(page.locator('#searchResults')).to_contain_text('Vi hittade ingen offentlig profil')

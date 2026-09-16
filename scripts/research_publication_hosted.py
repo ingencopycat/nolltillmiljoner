@@ -62,7 +62,9 @@ class PublicationHosted(Hosted):
         print('READY_FOR_PUBLICATION_CHECKS',flush=True)
 
     def publish_ui(self, keyboard=False):
-        p=self.pages['a'];p.locator('#researchPublishBtn').click()
+        p=self.pages['a']
+        if p.locator('#researchPublishBtn').is_visible():p.locator('#researchPublishBtn').click()
+        else:p.get_by_role('button',name='Uppdatera publicerad analys',exact=True).click()
         preview=p.get_by_role('button',name='Förhandsgranska publicering',exact=True)
         expect(preview).to_be_enabled()
         if keyboard:preview.focus();p.keyboard.press('Enter')
@@ -87,14 +89,14 @@ class PublicationHosted(Hosted):
         old_id=self.latest
         p.locator('#thesis-text').fill('A newer private saved thesis about changed demand, verification only.')
         p.get_by_role('button',name='Spara ny version',exact=True).click()
-        expect(p.locator('#researchPublicState')).to_contain_text('Du har en nyare privat version.')
+        expect(p.locator('#researchPublicState')).to_contain_text('Nyare privat version')
         self.check('new private version leaves public snapshot unchanged',self.ok(self.read('analysis',{'id':old_id}))==first)
         second=self.publish_ui()
         self.check('explicit republish replaces public copy',second['content']!=first['content'] and self.read('analysis',{'id':old_id})==(200,None))
         private=p.evaluate("JSON.stringify(NTMThesisStorage.get('SYNTH').thesis)")
-        p.get_by_role('button',name='Ta bort från profil',exact=True).click()
-        p.get_by_role('button',name='Bekräfta borttagning',exact=True).click()
-        expect(p.locator('#researchPublicationStatus')).to_contain_text('tagits bort')
+        p.get_by_role('button',name='Avpublicera',exact=True).click()
+        p.get_by_role('button',name='Avpublicera analys',exact=True).click()
+        expect(p.locator('#researchPublicationStatus')).to_contain_text('Analysen är avpublicerad.')
         self.check('unpublish hides public copy and preserves private Research',self.read('analysis',{'id':self.latest})==(200,None) and p.evaluate("JSON.stringify(NTMThesisStorage.get('SYNTH').thesis)")==private)
         p.goto(self.base+'/konto.html',wait_until='networkidle')
         p.locator('#cloudUpload').click();expect(p.locator('#cloudStatus')).to_have_text('Synkat')
