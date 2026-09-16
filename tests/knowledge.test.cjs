@@ -26,6 +26,14 @@ test('search matches Swedish aliases, category, concepts and P/E punctuation',()
  assert.equal(K.search('vinst per aktie')[0].id,'eps');assert.equal(K.search('nonexistent-secret').length,0);assert.equal(K.search('EPS','macro').length,0);
  assert.ok(K.search('','macro').every(e=>e.category==='macro'));assert.equal(K.search('Makro').length,3);assert.equal(K.search('<img onerror=alert(1)>').length,0);
 });
+test('reviewed question matching is deterministic and abstains on unknown input',()=>{
+ assert.equal(K.ask('Vad är PEG?')[0].id,'peg');
+ assert.equal(K.ask('Hur påverkar USD SEK min avkastning?')[0].id,'fx');
+ assert.deepEqual(K.ask('Berätta om mina privata investeringar'),[]);
+ assert.deepEqual(K.ask(''),[]);
+ assert.ok(K.ask('PEG').every(e=>['reviewed','published'].includes(e.status)));
+ assert.ok(!read('knowledge-ui.js').includes('fetch('));
+});
 test('publication gate rejects malformed sources, thin text, IDs, dates and references',()=>{
  for(const patch of [{id:'bad id'},{slug:'../../bad'},{status:'public'},{category:'missing'},{difficulty:'expert'},{reviewedAt:'2026-02-30'},{publishedAt:'2999-01-01'},{shortAnswer:''},{fullAnswer:''},{caveats:''},{sources:[]},{sources:[{title:'Unsafe',url:'javascript:alert(1)',reviewedAt:'2026-09-15'}]},{relatedLessonIds:['missing']},{aliases:null},{privateField:'secret'}]){
   const data=clone(raw);Object.assign(data.entries[0],patch);assert.ok(Q.validate(data,rules).length,JSON.stringify(patch));

@@ -73,12 +73,16 @@
      await adapter.socialWrite('report',{username:p.username,reason:reason.value,detail:detail.value});emit('profile_report_submitted');close();status('Rapporten har skickats för granskning.');});};body.append(form);
  }
  async function account(){const version=++accountVersion;close();mine=null;const box=$('profileSettings');box.replaceChildren();$('publicationPanel').hidden=true;
-   const logged=await adapter.session();if(!logged){box.append(node('p','Logga in ovan för att skapa eller hantera din valfria offentliga profil.'));$('profileExport').replaceChildren();const nav=document.querySelector('[data-account-nav]');if(nav){nav.textContent='Logga in';nav.href='konto.html';}return;}
+   const logged=await adapter.session();if(!logged){box.append(node('p','Logga in ovan för att skapa eller hantera din valfria offentliga profil.'));$('profileExport').replaceChildren();return;}
    const result=await adapter.socialWrite('mine');if(version!==accountVersion)return;mine=result;
-   const nav=document.querySelector('[data-account-nav]');if(nav){nav.textContent=mine?'@'+mine.username:'Konto';nav.href='#socialAccount';}
+   if($('cloudIdentity'))$('cloudIdentity').textContent=mine?'@'+mine.username:'Privat konto';
+   window.dispatchEvent(new CustomEvent('ntm-profile-change'));
    if(!mine){box.append(node('p','Vill du skapa en offentlig NTM-profil? Ditt privata konto fungerar även utan profil.'),button('Skapa offentlig profil',setup),button('Inte nu',()=>{box.replaceChildren(node('p','Ditt konto fortsätter vara privat. Du kan skapa en profil senare.'),button('Skapa offentlig profil',setup));}));}
    else if(mine.suspended){box.append(node('p','Profilen är dold av moderering. Ditt privata konto fungerar fortfarande.'));}
-   else{settings(box);$('publicationPanel').hidden=false;await publications();}
+   else settings(box);
+   $('publicationPanel').hidden=false;
+   if(!mine||mine.suspended){$('publicationCompose').hidden=true;$('ownAnalyses').replaceChildren(node('p',mine?.suspended?'Profilen är dold av moderering. Publicering är inte tillgänglig.':'Skapa och aktivera en offentlig profil ovan för att publicera en analys. Din privata Research förblir privat.'));}
+   else {$('publicationCompose').hidden=false;await publications();}
    $('profileExport').replaceChildren(button('Exportera profildata och egna rapporter',async()=>{const data=await adapter.socialWrite('export');const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));
      const a=link('Export',url);a.download='ntm-profile-export.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);status('Profildata exporterad. Filen kan innehålla dolda publiceringar och dina egna rapporter. Förvara den privat.');}));
    if(params.get('u')){let target=$('accountTarget');if(!target){target=node('section');target.id='accountTarget';$('socialAccount').after(target);}await publicProfile(C.normalizeUsername(params.get('u')),target);}
@@ -122,7 +126,7 @@
    own=await adapter.socialWrite('ownAnalyses');const editor=$('publicationEditor');editor.replaceChildren();if(params.get('research'))$('publicationCompose').open=true;const label=node('label','Sparad privat Research-version');label.htmlFor='publicationSource';const select=node('select');select.id='publicationSource';
    const records=[];for(const [scope,journal] of Object.entries(window.NTMThesisStorage.all().theses||{}))for(const rev of journal.revisions){records.push({scope,rev});const opt=node('option',scope+' · '+(rev.savedAt||rev.createdAt||'Datum saknas').slice(0,10));opt.value=String(records.length-1);select.append(opt);}
    if(!records.length){editor.append(node('p','Spara en tes i Research eller hämta dina privata molnkopior för att börja.'),link('Öppna Research','research.html'));}
-   else{editor.append(label,select);const formHost=node('div');editor.append(formHost);const chosen=records.findIndex(r=>r.scope===params.get('research')&&(!params.get('revision')||r.rev.id===params.get('revision')));select.value=String(chosen>=0?chosen:records.length-1);
+   else{editor.append(node('p','Den privata versionen måste först synkas under Synk & data ovan. Publiceringen visar sedan bara de fält du väljer.'),label,select);const formHost=node('div');editor.append(formHost);const chosen=records.findIndex(r=>r.scope===params.get('research')&&(!params.get('revision')||r.rev.id===params.get('revision')));select.value=String(chosen>=0?chosen:records.length-1);
      const update=()=>{selected=records[Number(select.value)];publicationForm(formHost,selected);};select.onchange=update;update();}
    const list=$('ownAnalyses');list.replaceChildren();if(!own.length)list.append(node('p','Du har inga publicerade analyser.'));
    for(const a of own){const item=node('div',undefined,'social-item');item.append(link(a.content.company,C.analysisUrl(a.id)),node('p',a.moderated?'Dold av moderering':a.hidden?'Borttagen från profilen':'Publicerad '+new Date(a.publishedAt).toLocaleDateString('sv-SE')));
@@ -149,7 +153,7 @@
        $('socialStatus').append(document.createTextNode(' '),link('Visa analys',C.analysisUrl(result.id)));
      }));});};host.append(form);
  }
- async function init(){try{status('Hämtar…');if(!adapter){if(!window.NTMCloudConfig?.enabled){status('Konton och offentliga profiler är inte aktiverade här ännu. Din lokala Research fungerar som vanligt.');return;}adapter=window.NTMCloudAdapter.create(window.NTMCloudConfig);}
+ async function init(){try{status('Hämtar…');if(!adapter){if(!window.NTMCloudConfig?.enabled){status('Konton och offentliga profiler är inte aktiverade här ännu. Din lokala Research fungerar som vanligt.');return;}adapter=window.NTMCloudAdapter.create(window.NTMCloudConfig);}window.NTMSocialAdapter=adapter;
    if(page==='konto'){if(!accountListening){accountListening=true;window.addEventListener('ntm-account-change',()=>{accountVersion++;close();if(busy){refreshPending=true;return;}run(account);});}await account();}
    if(page==='profil'){const username=C.normalizeUsername(params.get('u'));await publicProfile(username,$('publicProfile'));await list($('publicAnalyses'),'analyses',{username});}
    if(page==='analys'){const a=await adapter.socialRead('analysis',{id:params.get('id')});if(!a){status('');$('publicAnalysis').append(node('p','Analysen finns inte eller är inte offentlig.'));return;}

@@ -14,7 +14,19 @@
    const score=e=>e.aliases.some(a=>normalize(a)===normalize(query))?100:normalize(e.question).includes(normalize(query))?50:0;
    return publicEntries().filter(e=>!category||e.category===category).filter(e=>{const hay=normalize([e.question,...e.aliases,...e.concepts,e.category,catalog.categories.find(c=>c.id===e.category)?.title].join(' '));return terms.every(term=>hay.includes(term));}).sort((a,b)=>score(b)-score(a));
   };
-  return {...catalog,publicEntries,url,search};
+  function ask(question){
+   const q=normalize(question).replace(/^(vad|hur|varfor|kan|ar|betyder)(\s+(ar|betyder))?\s+/,'').trim();
+   if(q.length<2)return [];
+   const terms=q.split(' ').filter(t=>t.length>2&&!['min','mina','och','det','ett','en'].includes(t));
+   const scored=publicEntries().map(e=>{
+    const exact=[e.question,...e.aliases,...e.concepts].some(v=>normalize(v)===q);
+    const phrases=[...e.aliases,...e.concepts].map(normalize).filter(v=>v.length>=3&&q.includes(v));
+    const title=normalize(e.question),hits=terms.filter(t=>title.includes(t)||e.aliases.some(a=>normalize(a).includes(t)));
+    return {entry:e,score:exact?100:title.includes(q)?90:phrases.length?70+Math.max(...phrases.map(v=>v.length)):hits.length===terms.length&&hits.length>=1&&terms.some(t=>t.length>=3)?40:0};
+   }).filter(v=>v.score>=40).sort((a,b)=>b.score-a.score||a.entry.id.localeCompare(b.entry.id));
+   return scored.slice(0,3).map(v=>v.entry);
+  }
+  return {...catalog,publicEntries,url,search,ask};
  }
  const api={fields,normalize,visible,project,create};root.NTMKnowledgeCore=api;if(typeof module!=='undefined')module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

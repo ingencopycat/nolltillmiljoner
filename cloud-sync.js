@@ -100,10 +100,11 @@
     function read() {
       if(!owner)throw fail('auth');
       const raw=storage.getItem(PREFIX+owner);
-      if(raw===null){const q={version:VERSION,owner,ops:[],confirmedSignature:null,lastPreference:null};originals.set(q,null);return q;}
+      if(raw===null){const q={version:VERSION,owner,ops:[],confirmedSignature:null,lastPreference:null,lastSyncedAt:null};originals.set(q,null);return q;}
       let q;try{q=JSON.parse(raw);}catch(_){throw fail('queue');}
       if(q?.version!==VERSION || q.owner!==owner || !Array.isArray(q.ops)
-        || Object.keys(q).some(k=>!['version','owner','ops','confirmedSignature','lastPreference','requestedSignature'].includes(k)))throw fail('queue');
+        || Object.keys(q).some(k=>!['version','owner','ops','confirmedSignature','lastPreference','requestedSignature','lastSyncedAt'].includes(k))
+        || (q.lastSyncedAt!==undefined&&q.lastSyncedAt!==null&&(typeof q.lastSyncedAt!=='string'||!/^\d{4}-\d\d-\d\dT/.test(q.lastSyncedAt))))throw fail('queue');
       const seen=new Set();
       for(const op of q.ops) {
         try{checkRow(op.record);}catch(_){throw fail('queue');}
@@ -170,7 +171,7 @@
         if(!receipt || receipt.userId!==owner || !Array.isArray(receipt.accepted)
           || stable(receipt.accepted.map(k=>Array.isArray(k)?JSON.stringify(k):k).sort())!==stable(batch.map(o=>key(o.record)).sort()))throw fail('receipt');
         for(const op of batch)op.status='ack';
-        if(q.ops.every(o=>o.status==='ack'))q.confirmedSignature=q.requestedSignature;
+        if(q.ops.every(o=>o.status==='ack')){q.confirmedSignature=q.requestedSignature;q.lastSyncedAt=new Date(now()).toISOString();}
         write(q);
       } catch(e) {
         if(owner===activeOwner && epoch===token) {
@@ -200,7 +201,7 @@
       const q=read();
       // Re-validate current data immediately before the existing guarded merge/commit.
       local.importJSON(JSON.stringify(backup(cloud.data)));
-      if(stable(capture())===stable(syncData(copy(cloud.data))))q.confirmedSignature=signature();
+      if(stable(capture())===stable(syncData(copy(cloud.data)))){q.confirmedSignature=signature();q.lastSyncedAt=new Date(now()).toISOString();}
       write(q);return local.counts();
     }
     async function exportCloud() {

@@ -2818,7 +2818,23 @@ function getAllNormalizedMacroEvents() {
     }
   });
 
-  return allEvents;
+  // A release can occur in adjacent weekly feeds. Count and render it once.
+  const seen=new Set();
+  return allEvents.filter(event=>{const key=event.id||[event.date,event.time,event.eventName].join('|');if(seen.has(key))return false;seen.add(key);return true;});
+}
+
+// Editorial classes based on stable indicator IDs; source priority is the
+// fallback. Within each class, the displayed events remain chronological.
+function homepageMacroPriority(event){
+  const id=String(event.id||'').toLowerCase();
+  if(/(?:fomc|fed-rate|ecb-rate|riksbank|policy-rate|rate-decision)/.test(id))return 5;
+  if(/(?:^|[-_])(?:cpi|pce|payrolls|unemployment|gdp)(?:[-_]|$)/.test(id))return 4;
+  return getPriorityValue(event.priority);
+}
+function selectHomepageMacro(events,limit=3){
+  const ordered=[...events].sort((a,b)=>homepageMacroPriority(b)-homepageMacroPriority(a)||Number(b.hasTime)-Number(a.hasTime)||a.timestamp-b.timestamp||String(a.id||'').localeCompare(String(b.id||'')));
+  const selected=ordered.slice(0,limit),keys=new Set(selected);
+  return {selected:selected.sort((a,b)=>Number(b.hasTime)-Number(a.hasTime)||a.timestamp-b.timestamp),hidden:events.filter(e=>!keys.has(e)).sort((a,b)=>Number(b.hasTime)-Number(a.hasTime)||a.timestamp-b.timestamp)};
 }
 
 function formatMacroValue(val) {
@@ -2854,6 +2870,8 @@ function getIsoWeekDateRange(isoWeekKey) {
 window.NTM_MACRO = {
   normalizeMacroEvent,
   getAllNormalizedMacroEvents,
+  homepageMacroPriority,
+  selectHomepageMacro,
   formatMacroValue,
   getIsoWeekDateRange,
   getSourceDateTime,
@@ -2932,9 +2950,10 @@ function renderWeeklyEvents(now = getNtmNow()) {
     macroPanel?.classList.remove('is-empty');
     const previous = macroList.querySelector('.ntm-macro-more');
     const keepExpanded = previous?.open && previous.dataset.date === todayKey;
-    const remaining = macroItems.length - 3;
-    macroList.innerHTML = renderHomepageMacroItems(macroItems.slice(0, 3)) + (remaining > 0
-      ? `<details class="ntm-macro-more" data-date="${todayKey}"${keepExpanded ? ' open' : ''}><summary class="text-link ntm-more-link">Visa ${remaining} makrohändelser till</summary>${renderHomepageMacroItems(macroItems.slice(3))}</details>` : '') + updateNote;
+    const {selected,hidden}=selectHomepageMacro(macroItems);
+    const remaining=hidden.length;
+    macroList.innerHTML = renderHomepageMacroItems(selected) + (remaining > 0
+      ? `<details class="ntm-macro-more" data-date="${todayKey}"${keepExpanded ? ' open' : ''}><summary class="text-link ntm-more-link">Visa ${remaining} ${remaining===1?'makrohändelse':'makrohändelser'} till</summary>${renderHomepageMacroItems(hidden)}</details>` : '') + updateNote;
   }
 
   const earningsPanel = earningsList.closest('.ntm-event-panel');

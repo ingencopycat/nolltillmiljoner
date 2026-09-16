@@ -107,6 +107,7 @@ def main():
         def account(page, logged=True):
             page.goto(base+'/konto.html')
             expect(page.locator('#cloudConnected' if logged else '#cloudLogin')).to_be_visible()
+            expect(page.locator('[data-account-nav]')).to_have_text('Konto' if logged else 'Logga in')
             if logged:
                 expect(page.locator('#profileSettings')).to_contain_text('offentlig')
 
@@ -123,6 +124,7 @@ def main():
         login(page)
         for target in ('min-ntm.html', 'research.html', 'profil.html?u=fixture', 'index.html'):
             page.goto(base+'/'+target)
+            expect(page.locator('[data-account-nav]')).to_have_text('Konto')
             account(page)
         page.reload()
         expect(page.locator('#cloudConnected')).to_be_visible()

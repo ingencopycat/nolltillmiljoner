@@ -11,7 +11,37 @@
     });
     const nav = document.querySelector('.main-nav');
     if(nav && !nav.querySelector('[data-account-nav]')) {
-      const account=document.createElement('a');account.href='konto.html';account.textContent='Logga in';account.dataset.accountNav='';nav.appendChild(account);
+      const account=document.createElement('a');account.href='konto.html';account.textContent='Konto';account.dataset.accountNav='';account.setAttribute('aria-label','Kontrollerar kontostatus');nav.appendChild(account);
+      // Use the same persisted Supabase session adapter on every page. Never infer
+      // authentication from a local owner ID or briefly present a logged-out label.
+      let accountAdapter=window.NTMAccount?.adapter||window.NTMSocialAdapter, request=0, subscribed=false;
+      const load=src=>new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=src;script.onload=resolve;script.onerror=reject;document.head.append(script);});
+      async function updateAccountNav(){
+        const current=++request;
+        try {
+          if(!window.NTMCloudConfig)await load('cloud-config.js');
+          if(!window.NTMCloudConfig?.enabled){account.textContent='Logga in';account.removeAttribute('aria-label');return;}
+          if(!accountAdapter){
+            if(!window.supabase)await load('vendor/supabase/supabase.js');
+            if(!window.NTMCloudAdapter)await load('cloud-adapter.js');
+            accountAdapter=window.NTMAccount?.adapter||window.NTMSocialAdapter||window.NTMCloudAdapter.create(window.NTMCloudConfig);
+          }
+          if(!subscribed){accountAdapter.onSessionChange(updateAccountNav);subscribed=true;}
+          const session=await accountAdapter.session();
+          if(current!==request)return;
+          if(!session){account.textContent='Logga in';account.href='konto.html';}
+          else {
+            account.textContent='Konto';account.href='konto.html';
+            try {const profile=await accountAdapter.socialWrite('mine');if(current===request&&profile?.username)account.textContent='@'+profile.username;}
+            catch(_){/* An unavailable public profile must not erase a valid account state. */}
+          }
+          account.removeAttribute('aria-label');
+        } catch(_) {if(current===request){account.textContent='Konto';account.href='konto.html';account.removeAttribute('aria-label');}}
+      }
+      updateAccountNav();
+      window.addEventListener('ntm-account-change',updateAccountNav);
+      window.addEventListener('ntm-profile-change',updateAccountNav);
+      window.addEventListener('focus',updateAccountNav);
     }
     const menu = document.getElementById('mobileNavToggle');
     const learn = document.querySelector('.nav-learn');

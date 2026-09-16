@@ -13,7 +13,7 @@ function loadRepository(root = ROOT) {
   const artifacts = Object.entries(c.imageWeeks).map(([week,w])=>({kind:'earnings',week,image:w.fallback || w.image}));
   for (const [week,w] of Object.entries(data.macroWeeks)) if (w.fallbackImage) artifacts.push({kind:'macro',week,image:w.fallbackImage});
   const reviewPath=path.join(root,'data/weekly-artifacts.json');
-  return {root,data,artifacts,api:c.NTMWeekly,
+  return {root,data,artifacts,api:c.NTMWeekly,macro:c.NTM_MACRO,
     review:fs.existsSync(reviewPath)?JSON.parse(fs.readFileSync(reviewPath,'utf8')):{version:1,artifacts:[]},
     coverage:JSON.parse(read(root,'data/calendar-coverage.json'))};
 }

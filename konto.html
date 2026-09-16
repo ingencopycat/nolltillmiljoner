@@ -103,32 +103,31 @@
 <button type="submit" id="cloudVerifyOtp" class="primary-btn">Logga in med kod</button>
 <div class="social-actions"><button type="button" id="cloudResend" class="ghost-btn">Skicka ny kod</button><button type="button" id="cloudChangeEmail" class="ghost-btn">Ändra e-postadress</button></div>
 </form>
-<p class="social-note">Inloggningen gäller på den här sidan. Efter omladdning eller sidbyte loggar du in igen.</p>
+<p class="social-note">Inloggningen sparas i den här webbläsaren tills du loggar ut.</p>
 <a href="min-ntm.html">Fortsätt utan konto</a>
 </div>
 <div id="cloudConnected" hidden><p id="cloudIdentity"></p><button type="button" id="cloudLogout" class="ghost-btn">Logga ut</button></div>
 </section>
 <section class="card" id="accountSync" aria-labelledby="syncHeading">
-<div class="social-section-heading"><h2 id="syncHeading">Ditt sparade arbete</h2><span id="cloudStatus" class="sync-status">Sparat på enheten</span></div>
-<p>Spara ditt arbete på kontot för att hämta det på en annan enhet.</p>
-<details class="social-disclosure"><summary>Det här kan synkas</summary><p>Research-teser och versioner, utfallskontroller, sparade antaganden och rapportfrågor, manuella journaler, observationer, scenarier, planer och tema.</p></details>
+<div class="social-section-heading"><h2 id="syncHeading">Synk &amp; data</h2><span id="cloudStatus" class="sync-status">Sparat på enheten</span></div>
+<p id="cloudSyncIntro" data-connected hidden>Synka när du vill ta med nytt arbete till en annan enhet.</p>
 <div data-connected hidden>
 <p id="cloudLastSync" class="social-note">Ingen bekräftad synk under denna inloggning.</p>
 <p id="cloudMigration"></p>
 <div class="social-actions"><button type="button" id="cloudUpload" class="primary-btn">Synka till mitt konto</button><button type="button" id="cloudStayLocal" class="ghost-btn">Inte nu – behåll lokalt</button></div>
 <div id="cloudProblems" hidden><ul id="cloudQueue"></ul><button type="button" id="cloudRetry" class="secondary-btn">Försök synka igen</button></div>
 </div>
-<details class="social-disclosure"><summary>Vad stannar på enheten?</summary><p>Academy-lärhistorik, beslutspauser, antagandegrupper och mallval ingår i lokal JSON-backup. De synkas inte. Osparade utkast och senaste verktyg synkas inte heller.</p><p>Du väljer när data skickas. Senare ändringar behöver synkas igen. Lokal radering tar inte bort kopior på kontot.</p></details>
+<details class="social-disclosure"><summary>Hantera synk &amp; data</summary><p>Research-teser och versioner, utfallskontroller, sparade antaganden och rapportfrågor, manuella journaler, observationer, scenarier, planer och tema kan synkas när du väljer det.</p><p>Academy-lärhistorik, beslutspauser, antagandegrupper och mallval ingår i lokal JSON-backup. De synkas inte. Osparade utkast och senaste verktyg synkas inte heller.</p><p>Senare ändringar behöver synkas igen. Lokal radering tar inte bort kopior på kontot.</p><a href="#backupHeading">Data &amp; backup</a></details>
 </section>
 <section class="card" id="socialAccount"><h2>Offentlig profil <span class="social-note">Valfritt</span></h2><div id="profileSettings"></div></section>
 <section class="card" id="publicationPanel" hidden>
 <h2>Din publicerade Research</h2>
-<p>Du väljer själv vad som publiceras. Din privata Research ändras inte.</p>
+<p>Publicera en vald kopia. Din privata Research ändras inte.</p>
 <details id="publicationCompose" class="social-disclosure"><summary>Publicera en analys</summary><p>Välj en sparad version som du har synkat privat till kontot. Granska texten innan du delar en offentlig kopia.</p><div id="publicationEditor"></div></details>
 <div id="ownAnalyses"></div>
 </section>
 <section class="account-secondary" aria-labelledby="backupHeading"><h2 id="backupHeading">Data &amp; backup</h2><p><a href="min-ntm.html#localDataDepth">Exportera eller importera lokal JSON-backup</a></p><div data-connected hidden><button type="button" id="cloudRestore" class="secondary-btn">Hämta sparat arbete från kontot</button><details class="social-disclosure"><summary>Exportera kontodata</summary><button type="button" id="cloudExport" class="ghost-btn">Exportera portabel molnbackup</button><button type="button" id="cloudAuditExport" class="ghost-btn">Exportera all privat kontodata</button><div id="profileExport"></div></details></div><p class="social-note">Synk ersätter inte din backup. Förvara exporterade filer privat.</p></section>
-<section class="account-secondary"><h2>Integritet</h2><p>Ditt konto är privat. En offentlig profil är ett separat val. Varje analys publiceras först efter din bekräftelse.</p><p class="social-note">Alla som använder samma webbläsarprofil kan nå enhetens sparade data. Utloggning tar inte bort den. <a href="om-metod.html#integritet">Om integritet, leverantörer och lagring</a>.</p></section>
+<section class="account-secondary"><h2>Integritet</h2><p>Ditt konto är privat. En offentlig profil är valfri.</p><details class="social-disclosure"><summary>Läs mer om integritet</summary><p>Varje analys publiceras först efter din bekräftelse. Alla som använder samma webbläsarprofil kan nå enhetens sparade data. Utloggning tar inte bort den.</p><p><a href="om-metod.html#integritet">Om integritet, leverantörer och lagring</a></p></details></section>
 <details id="accountDanger" class="account-secondary" data-connected hidden><summary>Radera konto</summary><p>Kontot, privata molnkopior, offentlig profil, publicerade analyser och följrelationer raderas permanent. Modereringsrapporter behålls utan koppling till kontot.</p><p>Leverantörsloggar, inloggningsmejl och säkerhetskopior kan finnas kvar enligt <a href="om-metod.html#integritet">lagringsvillkoren</a>. Andra enheters lokala kopior kan inte raderas här.</p><label><input type="checkbox" id="cloudDeleteLocal" /> Radera även denna enhets lokala NTM-data och tema</label><p class="social-note">Detta omfattar sparad Research, scenarier, planer, observationer, lärhistorik, beslutspauser, antagandegrupper och mallval i denna webbläsarprofil. Andra kontons väntande synk och senaste verktyg påverkas inte.</p><button type="button" id="cloudDelete" class="destructive-action ghost-btn">Radera konto och molndata</button></details>
 </div>
 <dialog id="socialDialog" aria-labelledby="socialDialogTitle">

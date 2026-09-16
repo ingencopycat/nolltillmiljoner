@@ -3,6 +3,18 @@ const V=require('../scripts/check_weekly_events.cjs');
 function model(){return V.loadRepository();}
 const today=new Date('2026-09-14T12:00:00Z');
 const codes=m=>V.check(m,today).filter(i=>i.level==='error').map(i=>i.code);
+test('homepage macro priority keeps major releases visible and counts every hidden event exactly',()=>{
+  const {macro}=model();
+  const make=(id,priority,timestamp)=>({id,priority,timestamp,hasTime:true,swedishTime:'12:00'});
+  const items=[make('minor-1','low',1),make('minor-2','low',2),make('minor-3','low',3),make('us-fomc-rate-decision','high',4),make('us-cpi','high',5)];
+  const picked=macro.selectHomepageMacro(items);
+  assert.ok(picked.selected.some(e=>e.id==='us-fomc-rate-decision'));
+  assert.ok(picked.selected.some(e=>e.id==='us-cpi'));
+  assert.equal(picked.hidden.length,2);
+  assert.deepEqual(new Set([...picked.selected,...picked.hidden].map(e=>e.id)).size,items.length);
+  assert.equal(macro.selectHomepageMacro(items.slice(0,4)).hidden.length,1);
+  assert.equal(macro.selectHomepageMacro([]).hidden.length,0);
+});
 test('published weekly artifacts and homepage resolve; honest partial/future statuses stay visible',()=>{
   const m=model();assert.deepEqual(codes(m),[]);
   const issues=V.check(m,today);assert.ok(issues.some(i=>i.code==='partial_update'&&i.level==='warning'));

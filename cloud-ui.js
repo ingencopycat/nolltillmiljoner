@@ -9,17 +9,26 @@
   function render() {
     const logged=Boolean(engine?.owner());
     document.querySelector('.page-intro h1').textContent=logged?'Ditt konto':'Ta med NTM mellan dina enheter.';
+    document.querySelector('.page-intro > p:last-child').hidden=logged;
     el('cloudLogin').hidden=logged;el('cloudConnected').hidden=!logged;
     document.querySelectorAll('[data-connected]').forEach(n=>n.hidden=!logged);
     if(!logged){el('cloudLastSync').textContent='Ingen bekräftad synk under denna inloggning.';el('cloudIdentity').textContent='';}
     el('cloudStatus').textContent=states[engine?.status() || 'local'];
     if(logged) {
       const count=engine.localCounts();
-      el('cloudMigration').textContent=engine.status()==='synced'?'Ditt sparade arbete finns på kontot. Synka igen när du har gjort nya ändringar.':count.revisions+count.checkpoints+count.scenarios
-        ?`På den här enheten: ${count.revisions} Research-versioner, ${count.checkpoints} utfallskontroller och ${count.scenarios} scenarier eller planer. Vill du spara ditt arbete på kontot?`
-        :'Inga sparade Research-versioner, utfallskontroller eller scenarier ännu. Du kan hämta tidigare arbete under Data & backup. Övriga sparade inställningar kan synkas.';
+      const hasLocalWork=count.revisions+count.checkpoints+count.scenarios>0;
+      const healthy=engine.status()==='synced';
+      el('cloudSyncIntro').hidden=healthy;
+      el('cloudMigration').textContent=healthy?'':hasLocalWork?'Du har data sparad på den här enheten.':'Inget nytt lokalt arbete att synka.';
+      el('cloudMigration').hidden=healthy;
+      el('cloudUpload').hidden=false;
+      el('cloudUpload').className=healthy?'ghost-btn':'primary-btn';
+      el('cloudUpload').textContent='Synka till ditt konto';
+      el('cloudStayLocal').hidden=healthy||!hasLocalWork;
       const list=el('cloudQueue');list.replaceChildren();
-      const ops=engine.inspect().ops;el('cloudStayLocal').hidden=ops.length>0;
+      const inspection=engine.inspect(),ops=inspection.ops;
+      el('cloudLastSync').textContent=inspection.lastSyncedAt?'Senast synkad '+new Date(inspection.lastSyncedAt).toLocaleString('sv-SE'):'Ingen bekräftad synk ännu.';
+      el('cloudStayLocal').hidden=healthy||!hasLocalWork||ops.length>0;
       el('cloudRetry').hidden=!ops.some(op=>['pending','error'].includes(op.status));
       for(const state of ["pending","error","conflict"]) {
         const count=ops.filter(op=>op.status===state).length;if(!count)continue;

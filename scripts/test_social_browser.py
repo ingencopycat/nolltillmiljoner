@@ -153,6 +153,7 @@ def main():
         expect(page.get_by_role('button',name='Skapa profil',exact=True)).to_be_focused()
         page.get_by_role('button', name='Skapa profil', exact=True).click()
         capture('account')
+        expect(page.locator('[data-account-nav]')).to_have_text('@'+state['mine']['username'])
         page.get_by_role('button',name='Visa min profil',exact=True).click()
         expect(page.locator('#socialDialogBody')).to_contain_text('Redigera profil')
         assert page.locator('#socialDialogBody [aria-pressed]').count()==0
