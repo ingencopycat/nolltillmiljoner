@@ -28,14 +28,14 @@
       el('cloudProblems').hidden=!list.children.length;
     }
   }
-  async function act(action,progress='',userInitiated=true) {
+  async function act(action,progress='',userInitiated=true,validateSession=true) {
     if(busy)return;busy=true;if(window.NTMAccount)window.NTMAccount.busy=true;const previousOwner=engine?.owner();
     const controls=[...el('cloudAccount').querySelectorAll('button')].map(b=>[b,b.disabled]);
     for(const [button] of controls)button.disabled=true;
     el('cloudAccount').setAttribute('aria-busy','true');if(progress)message(progress);
     if(userInitiated&&el('socialStatus'))el('socialStatus').textContent='';
     try {
-      if(engine?.owner() && !(await adapter.session())) {await engine.logout();message('Din inloggning har gått ut. Logga in igen för att fortsätta.');}
+      if(validateSession && engine?.owner() && !(await adapter.session())) {await engine.logout();message('Din inloggning har gått ut. Logga in igen för att fortsätta.');}
       else await action();
       render();
     }
@@ -95,14 +95,30 @@
   });
   el('cloudExport').onclick=()=>act(async()=>{const r=await engine.exportCloud();download(r.portable,'ntm-cloud-backup.json');message('Portabel molnbackup exporterad. Förvara filen privat.');});
   el('cloudAuditExport').onclick=()=>act(async()=>{const r=await engine.exportCloud();download(r.account,'ntm-account-records.json');message('Din privata kontodata har exporterats, inklusive tidigare inställningar. Använd portabel backup för lokal import.');});
-  el('cloudLogout').onclick=()=>act(async()=>{await engine.logout();message('Utloggad. Lokal data och ännu inte synkade ändringar finns kvar på den här enheten.');});
+  el('cloudLogout').onclick=()=>act(async()=>{await engine.logout();message('Utloggad. Lokal data och ännu inte synkade ändringar finns kvar på den här enheten.');},'',true,false);
   el('cloudDelete').onclick=()=>act(async()=>{
     const deleteLocal=el('cloudDeleteLocal').checked;
     if(!confirm(`Radera kontot, offentlig profil, publicerade analyser, följrelationer och all privat molndata permanent? ${deleteLocal?'Även denna enhets lokala NTM-data raderas.':'Denna enhets lokala data behålls.'} Exportera gärna backup först.`))return;
     await engine.deleteAccount({deleteLocal});el('cloudDeleteLocal').checked=false;window.initMinNtmPage?.();
     message(deleteLocal?'Konto, molndata och vald lokal data har raderats.':'Konto och molndata har raderats. Lokal data finns kvar.');
   });
-  window.addEventListener('focus',()=>{if(!busy)act(async()=>{},'',false);});
+  async function reconcileSession(){
+    const session=await adapter.session();
+    if(session && engine.owner()!==session.userId)await engine.authenticate();
+    else if(!session && engine.owner())await engine.logout();
+  }
+  let restoreTimer;
+  const restoreSession=async()=>{
+    clearTimeout(restoreTimer);
+    if(busy){restoreTimer=setTimeout(restoreSession,100);return;}
+    try {
+      const session=await adapter.session();
+      if((session?.userId||null)!==engine.owner())act(reconcileSession,'',false);
+    }catch(_){/* A transient network failure must not sign out a valid session. */}
+  };
+  adapter.onSessionChange(restoreSession);
+  restoreSession();
+  window.addEventListener('focus',restoreSession);
   const refresh=()=>{if(!busy){try{render();}catch(_){message('Enhetens sparade data kunde inte läsas. Kontrollera lokal lagring och backup.');}}};
   window.addEventListener('storage',refresh);
   el('themeToggle')?.addEventListener('click',refresh);

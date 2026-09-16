@@ -16,7 +16,7 @@ class ReleaseQualityTests(unittest.TestCase):
         self.assertIn('exit 1', build)
         upload = build.index('uses: actions/upload-pages-artifact')
         for command in ('validate_release.py', 'test_social_rls.cjs', 'browser_smoke.py',
-                        'test_social_browser.py', 'quality_browser.py', 'check_workflows.py',
+                        'test_social_browser.py', 'test_auth_browser.py', 'quality_browser.py', 'check_workflows.py',
                         'configure_cloud.cjs', 'check_cloud_security.cjs'):
             self.assertLess(build.index(command), upload)
         self.assertNotIn('continue-on-error', build)

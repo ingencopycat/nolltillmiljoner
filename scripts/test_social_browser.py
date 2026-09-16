@@ -37,12 +37,15 @@ def main():
             req = route.request
             data = req.post_data_json or {}
             calls.append((req.url, data))
-            failure=state.pop('failure',None)
+            # Background identity validation must not consume the next action's failure.
+            failure=state.pop('failure',None) if not req.url.endswith('/auth/v1/user') else None
             if failure:
-                route.fulfill(status=failure[0],content_type='application/json',body=json.dumps({'code':failure[1],'message':'PRIVATE-PROVIDER-BODY'}))
+                route.fulfill(status=failure[0],content_type='application/json',body=json.dumps({'code':failure[1],'error_code':failure[1],'message':'PRIVATE-PROVIDER-BODY'}))
                 return
             if req.url.endswith('/auth/v1/verify'):
-                result = dict(access_token='OFFLINE-FIXTURE', expires_in=3600, user={'id': 'fixture-owner'})
+                result = dict(access_token='OFFLINE-FIXTURE', refresh_token='OFFLINE-REFRESH', token_type='bearer', expires_in=3600, user={'id': 'fixture-owner'})
+            elif req.url.endswith('/auth/v1/user'):
+                result = {'id': 'fixture-owner'}
             elif req.url.endswith('/auth/v1/otp'):
                 result = {}
             elif req.url.endswith('/ntm_put_records'):
@@ -267,10 +270,7 @@ def main():
                 expect(page.locator('#mobileNavToggle')).to_have_attribute('aria-expanded', 'false')
         state['mine']['active'] = True
         page.goto(base + '/konto.html?u=reader_b')
-        page.locator('#cloudEmail').fill('fixture@example.invalid')
-        page.locator('#cloudRequestOtp').click()
-        page.locator('#cloudOtp').fill('123456')
-        page.locator('#cloudVerifyOtp').click()
+        expect(page.locator('#cloudConnected')).to_be_visible()
         expect(page.get_by_role('button',name='Följ',exact=True)).to_be_visible()
         state['failure']=(503,'unknown')
         page.get_by_role('button',name='Följ',exact=True).click()

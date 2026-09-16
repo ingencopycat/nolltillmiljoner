@@ -561,11 +561,11 @@ class BrowserSmoke(unittest.TestCase):
                     uid = users[body['email']]
                     token = 'TEST-SESSION-' + str(len(requests))
                     sessions[token] = uid
-                    reply({'user': {'id': uid}, 'access_token': token, 'expires_in': 3600}); return
+                    reply({'user': {'id': uid}, 'access_token': token, 'refresh_token': 'REFRESH-' + token, 'token_type': 'bearer', 'expires_in': 3600}); return
                 token = request.headers.get('authorization', '').removeprefix('Bearer ')
                 uid = sessions.get(token)
                 if not uid:
-                    if url.endswith('/auth/v1/logout'):
+                    if url.split('?')[0].endswith('/auth/v1/logout'):
                         # Hosted Auth returns this after account deletion, before
                         # the adapter's final local-session cleanup completes.
                         reply({'error_code': 'user_not_found'}, 403); return
@@ -575,7 +575,7 @@ class BrowserSmoke(unittest.TestCase):
                            'created_at': '2026-09-14T00:00:00Z'}); return
                 if url.endswith('/ntm_social_write'):
                     reply(None if body['action']=='mine' else []); return
-                if url.endswith('/auth/v1/logout'):
+                if url.split('?')[0].endswith('/auth/v1/logout'):
                     sessions.pop(token, None); reply({}); return
                 if url.endswith('/ntm_put_records'):
                     next_rows = copy.deepcopy(cloud.get(uid, {}))
@@ -633,7 +633,8 @@ class BrowserSmoke(unittest.TestCase):
         self.assertEqual(self.page.evaluate('JSON.parse(NTMLocalData.exportJSON()).data'), before)
         self.assertNotIn('CLOUD-PRIVATE', self.page.evaluate('JSON.stringify(NTMEvents.snapshot())'))
         self.assertTrue(all('CLOUD-PRIVATE' not in url for url in requests))
-        self.assertNotIn('TEST-SESSION-', self.page.evaluate('JSON.stringify({...localStorage})'))
+        self.assertEqual(self.page.evaluate("Object.keys(localStorage).filter(k=>/^sb-.*-auth-token$/.test(k)).length"), 1)
+        self.assertNotIn('TEST-SESSION-', self.page.evaluate("JSON.stringify(Object.fromEntries(Object.entries(localStorage).filter(([k])=>!/^sb-.*-auth-token$/.test(k))))"))
         with self.page.expect_download() as downloaded:
             self.page.locator('details:has(> summary:text-is("Exportera kontodata")) > summary').click()
             self.page.locator('#cloudExport').click()

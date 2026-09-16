@@ -105,36 +105,30 @@ test('cloud deletion preserves local by default; explicit local removal and logo
   assert.equal(three.e.status(),'local');assert.equal(a.local.counts().revisions,1);assert.ok(a.saved.has(a.api.PREFIX+'user-c'));
 });
 
-test('real adapter rejects private/malformed config and does not persist session or echo error bodies',async()=>{
-  const a=app(),valid={enabled:true,url:'https://ntm-test.supabase.co',publishableKey:'sb_publishable_testOnly'};
-  for(const c of [{...valid,url:'https://evil.test'}, {...valid,publishableKey:'sb_secret_forbidden'}, {...valid,publishableKey:'eyJlegacyAdminKey'}])assert.throws(()=>a.c.NTMCloudAdapter.validConfig(c));
-  let time=0;const calls=[];
-  const adapter=a.c.NTMCloudAdapter.create(valid,{now:()=>time,fetch:async(url,options)=>{
-    calls.push({url,options});return {ok:true,status:200,json:async()=>({access_token:'TEST_MEMORY_TOKEN',refresh_token:'DO_NOT_STORE',user:{id:'user-a'},expires_in:1})};}});
-  await adapter.verifyOtp('test@example.invalid','000000');assert.equal((await adapter.session()).userId,'user-a');
-  assert.equal(a.saved.size,0);time=1001;assert.equal(await adapter.session(),null);
-  await assert.rejects(()=>adapter.list());
+test('adapter delegates persistence/refresh to SDK and returns only verified identity',async()=>{
+ const a=app(),config={enabled:true,url:'https://ntm-test.supabase.co',publishableKey:'sb_publishable_testOnly'};
+ for(const c of [{...config,url:'https://evil.test'},{...config,publishableKey:'sb_secret_forbidden'}])assert.throws(()=>a.c.NTMCloudAdapter.validConfig(c));
+ let options;
+ const adapter=a.c.NTMCloudAdapter.create(config,{fetch:async()=>{},createClient:(url,key,o)=>{options=o;return {auth:{
+   getSession:async()=>({data:{session:{access_token:'FIXTURE'}}}),getUser:async()=>({data:{user:{id:'user-a',email:'fixture@example.invalid'}}})}};}});
+ assert.deepEqual(clone(options.auth),{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false});
+ assert.deepEqual(clone(await adapter.session()),{userId:'user-a'});
+ assert.equal(a.saved.size,0); // App/domain storage never receives SDK credentials.
 });
 
-test('post-delete logout accepts only user_not_found and still clears memory on other failures',async()=>{
-  for(const reason of ['user_not_found','unexpected_forbidden']) {
-    const a=app(),adapter=a.c.NTMCloudAdapter.create({enabled:true,url:'https://ntm-test.supabase.co',publishableKey:'sb_publishable_testOnly'},
-      {fetch:async url=>url.endsWith('/verify')
-        ?{ok:true,status:200,json:async()=>({access_token:'TEST_MEMORY_TOKEN',user:{id:'user-a'},expires_in:3600})}
-        :{ok:false,status:403,json:async()=>({error_code:reason,message:'DO_NOT_EXPOSE_PROVIDER_BODY'})}});
-    await adapter.verifyOtp('test@example.invalid','000000');
-    if(reason==='user_not_found')await adapter.logout();
-    else await assert.rejects(()=>adapter.logout(),e=>e.code==='network' && !e.message.includes('DO_NOT_EXPOSE'));
-    assert.equal(await adapter.session(),null);
-  }
+test('adapter rejects stale restored identity and delegates session removal to SDK',async()=>{
+ const a=app();let removed=false;
+ const adapter=a.c.NTMCloudAdapter.create({enabled:true,url:'https://ntm-test.supabase.co',publishableKey:'sb_publishable_testOnly'},
+ {fetch:async()=>{},createClient:()=>({auth:{getSession:async()=>({data:{session:{}}}),
+ getUser:async()=>({error:{status:403,code:'user_not_found'}}),signOut:async()=>{removed=true;return {};}}})});
+ assert.equal(await adapter.session(),null);assert.equal(removed,true);
 });
 
-test('OTP failures expose only bounded product codes, including rate limits and ambiguous expired codes',async()=>{
+test('SDK OTP errors expose bounded product codes, never provider details',async()=>{
  for(const [status,code,expected] of [[403,'otp_expired','otp_expired'],[422,'validation_failed','otp_invalid'],[429,'unknown','auth_rate_limit'],[400,'over_email_send_rate_limit','auth_rate_limit'],[503,'unknown','network']]) {
-  const a=app(),adapter=a.c.NTMCloudAdapter.create({enabled:true,url:'https://ntm-test.supabase.co',publishableKey:'sb_publishable_testOnly'},
-   {fetch:async()=>({ok:false,status,json:async()=>({code,message:'PRIVATE-PROVIDER-BODY'})})});
-  await assert.rejects(()=>adapter.verifyOtp('test@example.invalid','000000'),e=>e.code===expected&&!e.message.includes('PRIVATE'));
-  assert.equal(await adapter.session(),null);
+ const a=app(),adapter=a.c.NTMCloudAdapter.create({enabled:true,url:'https://ntm-test.supabase.co',publishableKey:'sb_publishable_testOnly'},
+ {fetch:async()=>{},createClient:()=>({auth:{verifyOtp:async()=>({error:{status,code,message:'PRIVATE-PROVIDER-BODY'}})}})});
+ await assert.rejects(()=>adapter.verifyOtp('fixture@example.invalid','000000'),e=>e.code===expected&&!e.message.includes('PRIVATE'));
  }
 });
 

@@ -122,6 +122,7 @@ jobs:
           node scripts/test_social_rls.cjs
           python -B scripts/browser_smoke.py
           python -B scripts/test_social_browser.py
+          python -B scripts/test_auth_browser.py
           python -B scripts/quality_browser.py --output "$RUNNER_TEMP/ntm-release-quality.json"
           python -B scripts/check_workflows.py
       - run: |

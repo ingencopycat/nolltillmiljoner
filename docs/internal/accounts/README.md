@@ -34,13 +34,18 @@ local. Supabase's email template must show the OTP, because its default template
 uses a magic link. No token-bearing callback URL is used. Google is a future optional
 provider; BankID, brokers, payments and AI are out of scope.
 
-Access tokens live only in adapter memory. Refresh tokens are not retained. Reload
-or token expiry requires signing in again; the owner-scoped offline queue survives.
-This is a deliberate small foundation, not a polished persistent-session product.
-The app shows the verified email in memory, clears code/email inputs after login,
-and never places them in analytics. Losing network or auth does not prevent local
-editing, export or calculations. Sync is only available on Min NTM in V1; navigate
-back and explicitly sync newly saved changes.
+Session persistence now uses the self-hosted official Supabase JS SDK (2.116.0):
+`persistSession: true`, `autoRefreshToken: true`, `detectSessionInUrl: false`.
+The SDK owns its standard browser storage, refresh rotation and cross-tab events;
+NTM does not implement a separate token store. Account validates restored identity
+with Auth and restores the sync owner without migration, upload or restore.
+OTP is required on a new device/browser profile, after explicit logout or when Auth
+rejects the session. Explicit logout revokes this session and clears SDK storage;
+if revocation is unreachable, SDK local cleanup still completes and the UI reports
+failure. Deletion retains the existing receipt/queue/local-data cleanup boundaries.
+See [session-persistence-release-fix.md](session-persistence-release-fix.md) for evidence.
+Private editing/export/calculations remain usable offline; cloud sync remains explicit.
+
 
 `auth.users` owns account identity. `ntm_private_records` stores one logical object
 per row, with relational owner FK, `(owner_id,kind,scope,id)` primary key, immutable
@@ -137,7 +142,7 @@ owner must remain the project database owner; do not grant client SQL/admin acce
 
 Account deletion may leave already-issued JWTs cryptographically valid until expiry.
 Rows are gone, and the deleted owner FK rejects subsequent inserts. The adapter
-clears session memory even when logout fails. Live gateway revocation/expiry behavior
+clears the SDK session even when logout revocation fails. Live gateway revocation/expiry behavior
 still needs verification; RLS tests alone do not test Supabase's JWT/email gateway.
 No service-role key, database password or admin token is sent to the browser.
 
@@ -290,7 +295,8 @@ Windows in this workspace uses the already installed Playwright-bundled Node via
 Repository foundation is implemented for B30/B31/B42/B43; **live production connection
 is not complete or enabled**. Remaining work: project/region/configuration, real OTP
 delivery/abuse testing, managed logs/retention/processor review, production JWT checks,
-operational backup/restore drill and owner release decision. Persistent sessions,
+operational backup/restore drill and owner release decision. (Historical foundation
+status; persistent sessions are now implemented as documented above.) Deferred:
 automatic deletion sync/tombstones, selective cloud deletion, merge branch UI,
 pagination/deltas and richer retry recovery are deliberately not claimed. Existing
 local workflows continue regardless. No commits, pushes, payment, AI, paid data,
