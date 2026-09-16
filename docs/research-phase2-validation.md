@@ -18,6 +18,12 @@ All four additions intentionally omit diluted shares, EPS, FCF/share, a reconcil
 
 TTMI uses a narrow fiscal-calendar rule. Sandisk and Firefly use `limited_history`; CoreWeave uses `financing_sensitive`. New profiles explicitly select configured units. Existing schemas, provenance requirements and publication thresholds were not relaxed. All eight pre-existing output files and profiles match their recorded SHA-256 baselines.
 
+### Cross-platform baseline correction (2026-09-16)
+
+The original data hashes were recorded from a Windows CRLF checkout. Git stores LF, so Linux CI rejected SOFI first; all eight raw file hashes differ for this same reason. Comparing SOFI, NVDA, CRWD, MU, MRVL, VRT, COHR and RKLB against baseline-introduction commit `0699f91215f5236a45159cfff1ae54d3d3c07de3` found no semantic JSON differences: financial values, periods, schema and provenance are unchanged. This is a test portability defect, not a later data update or financial regression.
+
+The test now normalizes only LF/CRLF to the historical CRLF representation before hashing. Original expected hashes and stock files remain unchanged. Every other byte remains protected; a regression test checks that value, unit, provenance and field-name mutations still fail. Phase 2 also passes from a temporary Git archive containing the LF files used by CI.
+
 ## Files changed for Phase 2
 
 - Data: `data/stocks/TTMI.json`, `SNDK.json`, `FLY.json`, `CRWV.json`.

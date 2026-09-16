@@ -17,6 +17,13 @@ from update_stocks import update_stock
 ADDED = ['TTMI', 'SNDK', 'FLY', 'CRWV']
 
 
+def baseline_data_hash(raw):
+    # The historical Phase 2 hashes were recorded from a CRLF checkout.
+    # Git/Linux uses LF: normalize only line endings, preserving every other byte
+    # (including financial values, provenance, schema and JSON string contents).
+    return hashlib.sha256(raw.replace(b'\r\n', b'\n').replace(b'\n', b'\r\n')).hexdigest()
+
+
 def fixture(ticker, kind):
     return json.loads((ROOT / f'tests/fixtures/sec_{ticker.lower()}_{kind}.json').read_text())
 
@@ -31,8 +38,18 @@ class PhaseTwoTests(unittest.TestCase):
         baseline = json.loads((ROOT / 'docs/research-phase2-audit.json').read_text(encoding='utf-8'))['existingEightBaseline']
         self.assertEqual(len(baseline), 8)
         for ticker, hashes in baseline.items():
-            self.assertEqual(hashlib.sha256((ROOT / f'data/stocks/{ticker}.json').read_bytes()).hexdigest(), hashes['data'])
-            self.assertEqual(hashlib.sha256(json.dumps(COMPANY_PROFILES[ticker], sort_keys=True).encode()).hexdigest(), hashes['profile'])
+            with self.subTest(ticker=ticker):
+                self.assertEqual(baseline_data_hash((ROOT / f'data/stocks/{ticker}.json').read_bytes()), hashes['data'])
+                self.assertEqual(hashlib.sha256(json.dumps(COMPANY_PROFILES[ticker], sort_keys=True).encode()).hexdigest(), hashes['profile'])
+
+    def test_baseline_hash_ignores_only_checkout_line_endings(self):
+        lf = b'{\n  "value": 123.5, "unit": "USD", "accession": "original"\n}\n'
+        expected = baseline_data_hash(lf)
+        self.assertEqual(baseline_data_hash(lf.replace(b'\n', b'\r\n')), expected)
+        for before, after in ((b'123.5', b'123.6'), (b'USD', b'EUR'),
+                              (b'original', b'changed'), (b'value', b'other')):
+            with self.subTest(change=before):
+                self.assertNotEqual(baseline_data_hash(lf.replace(before, after)), expected)
 
     def test_publication_periods_finite_provenance_and_no_per_share_substitution(self):
         for ticker in ADDED:
