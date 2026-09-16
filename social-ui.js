@@ -4,7 +4,7 @@
  const C=window.NTMSocialCore,$=id=>document.getElementById(id),page=document.querySelector('[data-social-page]')?.dataset.socialPage;
  if(!page)return;
  $('socialStatus').textContent='';
- let adapter=window.NTMAccount?.adapter,mine=null,busy=false,opener=null,own=[],selected=null,accountVersion=0,refreshPending=false,accountListening=false;
+ let adapter=window.NTMAccount?.adapter,mine=null,busy=false,opener=null,actionOpener=null,own=[],selected=null,accountVersion=0,refreshPending=false,accountListening=false;
  const params=new URLSearchParams(location.search),status=text=>{$('socialStatus').textContent=text;if($('dialogStatus'))$('dialogStatus').textContent=text;};
  const node=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
  const button=(label,fn)=>{const b=node('button',label,label==='Publicera analys'?'primary-btn':'secondary-btn');b.type='button';b.onclick=()=>run(fn);return b;};
@@ -17,13 +17,15 @@
  function check(form,label,id,value=false){const l=node('label'),n=node('input');n.type='checkbox';n.id=id;n.checked=value;l.append(n,document.createTextNode(label));form.append(l);return n;}
  async function run(fn){if(busy)return;if(window.NTMAccount?.busy){status('Vänta tills kontoåtgärden är klar.');return;}busy=true;status('');
    if(fn!==account&&$('cloudMessage')&&mine)$('cloudMessage').textContent='';
+   // Disabling a focused button can move focus to body before the dialog opens.
+   actionOpener=document.activeElement;
    const accountButtons=[...document.querySelectorAll('.social-shell button')].map(b=>[b,b.disabled]);accountButtons.forEach(([b])=>b.disabled=true);document.querySelector('.social-shell').setAttribute('aria-busy','true');status('Arbetar…');
    try{await fn();}catch(e){status(e.code==='conflict'?'Användarnamnet är inte tillgängligt. Välj ett annat.':e.code==='auth'?'Logga in igen för att fortsätta.':
    e.code==='rate_limit'?'Du har redan rapporterat profilen under de senaste 24 timmarna.':e.code==='forbidden'?'Åtgärden är inte tillgänglig. För publicering behöver du en aktiv profil och en privat synkad Research-version.':
    e.code==='invalid'?'Kontrollera uppgifterna. Användarnamnet kan vara reserverat eller otillåtet.':
    'Åtgärden kunde inte bekräftas. Kontrollera inloggning och anslutning och försök igen.');}
-   finally{busy=false;document.querySelector('.social-shell').setAttribute('aria-busy','false');if($('socialStatus').textContent==='Arbetar…')status('');accountButtons.forEach(([b,disabled])=>b.disabled=disabled);if(refreshPending){refreshPending=false;queueMicrotask(()=>run(account));}}}
- function dialog(title){opener=document.activeElement;$('socialDialogTitle').textContent=title;$('socialDialogBody').replaceChildren();
+   finally{busy=false;actionOpener=null;document.querySelector('.social-shell').setAttribute('aria-busy','false');if($('socialStatus').textContent==='Arbetar…')status('');accountButtons.forEach(([b,disabled])=>b.disabled=disabled);if(refreshPending){refreshPending=false;queueMicrotask(()=>run(account));}}}
+ function dialog(title){opener=actionOpener||document.activeElement;$('socialDialogTitle').textContent=title;$('socialDialogBody').replaceChildren();
    const message=node('p');message.id='dialogStatus';message.setAttribute('role','status');message.setAttribute('aria-live','polite');$('socialDialogBody').append(message);
    $('socialDialogTitle').tabIndex=-1;$('socialDialog').showModal();$('socialDialogTitle').focus();return $('socialDialogBody');}
  function close(){if($('socialDialog').open)$('socialDialog').close();}

@@ -22,7 +22,8 @@ def main():
         stage_site(stage)
         server = ThreadingHTTPServer(('127.0.0.1', 0), partial(QuietHandler, directory=stage))
         threading.Thread(target=server.serve_forever, daemon=True).start()
-        browser = pw.chromium.launch(channel=os.environ.get('BROWSER_CHANNEL', 'chrome') or None)
+        # Match CI's pinned Playwright browser; opt into system Chrome explicitly.
+        browser = pw.chromium.launch(channel=os.environ.get('BROWSER_CHANNEL') or None)
         base = f'http://127.0.0.1:{server.server_port}'
         screenshots = ROOT / 'docs/qa/account-polish'
         screenshots.mkdir(parents=True, exist_ok=True)
@@ -162,6 +163,11 @@ def main():
         assert 'Valfri risk' not in page.locator('#socialDialogBody').inner_text()
         assert not any(d.get('action') == 'publish' for _, d in calls)
         page.keyboard.press('Escape')
+        expect(page.get_by_role('button', name='Förhandsgranska publicering', exact=True)).to_be_focused()
+        # Keyboard activation and the explicit close control must restore focus too.
+        page.keyboard.press('Enter')
+        expect(page.locator('#socialDialog')).to_be_visible()
+        page.locator('#socialDialogClose').click()
         expect(page.get_by_role('button', name='Förhandsgranska publicering', exact=True)).to_be_focused()
         page.get_by_role('button', name='Förhandsgranska publicering', exact=True).click()
         state['failure']=(503,'unknown')
