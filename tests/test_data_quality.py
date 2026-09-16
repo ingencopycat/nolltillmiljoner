@@ -10,13 +10,45 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 from stock_contract import validate, METHOD
 from stock_normalizer import StockNormalizer
-from update_stocks import update_stock
+from update_stocks import update_stock, same_published_content
 from sec_client import SECNetworkError
 from macro_provenance import set_field, complete_fields, status_meta
 import update_macro
 
 
 class DataQualityTests(unittest.TestCase):
+    def test_unchanged_sec_refresh_preserves_exact_published_bytes(self):
+        original = (ROOT / 'data/stocks/NVDA.json').read_bytes()
+        old = json.loads(original)
+        refreshed = deepcopy(old)
+        for section, key in (('company', 'lastUpdated'), ('metadata', 'lastUpdated'),
+                             ('metadata', 'generatedAt'), ('metadata', 'fetchedAt')):
+            refreshed[section][key] = '2026-09-20T12:00:00+00:00'
+        self.assertTrue(same_published_content(old, refreshed))
+        changed_value = deepcopy(refreshed)
+        changed_value['annual'][-1]['metrics']['revenue']['value'] += 1
+        self.assertFalse(same_published_content(old, changed_value))
+        changed_source = deepcopy(refreshed)
+        changed_source['annual'][-1]['metrics']['revenue']['accession'] = 'changed'
+        self.assertFalse(same_published_content(old, changed_source))
+        client = Mock()
+        client.resolve_cik.return_value = '0001045810'
+        client.get_submissions.return_value = json.loads((ROOT / 'tests/fixtures/sec_nvda_submissions.json').read_text())
+        client.get_company_facts.return_value = json.loads((ROOT / 'tests/fixtures/sec_nvda_companyfacts.json').read_text())
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / 'NVDA.json'
+            target.write_bytes(original)
+            with patch.object(StockNormalizer, 'normalize', return_value=refreshed):
+                update_stock('NVDA', client=client, output_dir=directory)
+            self.assertEqual(target.read_bytes(), original)
+            changed_description = deepcopy(refreshed)
+            changed_description['metadata']['profileDescription'] += ' reviewed'
+            with patch.object(StockNormalizer, 'normalize', return_value=changed_description):
+                update_stock('NVDA', client=client, output_dir=directory)
+            self.assertNotEqual(target.read_bytes(), original)
+            self.assertEqual(json.loads(target.read_text())['metadata']['profileDescription'],
+                             changed_description['metadata']['profileDescription'])
+
     def test_provenance_and_fixture_values(self):
         for ticker in ('NVDA', 'SOFI', 'CRWD'):
             with self.subTest(ticker=ticker), tempfile.TemporaryDirectory() as directory:

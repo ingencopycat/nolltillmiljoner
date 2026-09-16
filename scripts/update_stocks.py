@@ -12,6 +12,7 @@ Usage:
 """
 
 import argparse
+import copy
 import json
 import os
 import sys
@@ -27,6 +28,22 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from sec_client import SECClient, SECClientError
 from stock_normalizer import StockNormalizer, COMPANY_PROFILES
 from stock_contract import validate, IDENTITIES
+
+
+def same_published_content(previous: dict, refreshed: dict) -> bool:
+    """Ignore only run timestamps when deciding whether to republish a stock.
+
+    A successful fetch with unchanged SEC evidence must not churn protected
+    Research snapshots. Values, source provenance, status, and formatting of
+    an existing file remain untouched; any other change is still published.
+    """
+    old, new = copy.deepcopy(previous), copy.deepcopy(refreshed)
+    for document in (old, new):
+        document.get('company', {}).pop('lastUpdated', None)
+        metadata = document.get('metadata', {})
+        for key in ('lastUpdated', 'generatedAt', 'fetchedAt'):
+            metadata.pop(key, None)
+    return old == new
 
 
 def save_atomic_json(data: dict, target_path: str) -> None:
@@ -113,6 +130,9 @@ def update_stock(
     normalized_doc['metadata'].update(
         qualityStatus='validated', updateStatus='offline_fixture' if offline else 'success',
         fetchedAt=None if offline else normalized_doc['metadata']['generatedAt'])
+    if previous is not None and same_published_content(previous, normalized_doc):
+        print(f"[OK] Verified unchanged SEC evidence for {ticker_upper}; kept published file intact: {target_file}")
+        return target_file
     save_atomic_json(normalized_doc, target_file)
     print(f"[OK] Successfully generated verified fundamentals: {target_file}")
     return target_file
