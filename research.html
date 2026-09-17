@@ -507,7 +507,7 @@
                 <!-- Thesis Metadata -->
                 <div id="thesisMetadata" class="thesis-metadata" style="display: none;">
                     <p class="metadata-note">
-                        🔒 Sparas lokalt på den här enheten. Ingen inloggning, ingen moln, ingen delning.
+                        🔒 Sparas lokalt på den här enheten. Valfri synk kopierar privata data till ditt konto. En analys blir offentlig först när du själv publicerar den.
                     </p>
                     <details class="thesis-snapshot-details" id="latestSnapshotDetails">
                         <summary id="latestSnapshotSummary">Senaste sparade värdering</summary>
@@ -526,7 +526,7 @@
                     </div>
                 </div>
                 <p class="valuation-intro-text">
-                    Vad måste bolaget prestera framåt för att dagens aktiekurs ska ge din önskade avkastning?
+                    Vad måste bolaget prestera framåt för att det angivna värderingspriset ska ge din önskade avkastning?
                     Mata in aktiekurs och dina egna antaganden – inte konsensus eller analytikerestimat.
                 </p>
 
@@ -544,7 +544,7 @@
                     <div class="form-grid form-grid--aligned">
                         <div class="field-group">
                             <label for="val-price">Manuellt värderingspris ($)</label>
-                            <p id="valuationPriceInputStatus" role="status">Exempelpris – inte aktuell börskurs.</p><input id="val-price" type="number" min="0.01" step="0.01" value="120.00" inputmode="decimal" required />
+                            <p id="valuationPriceInputStatus" role="status">Exempelpris – inte aktuell börskurs. Verifierat kursdatum saknas.</p><input id="val-price" type="number" min="0.01" step="0.01" value="120.00" inputmode="decimal" required />
                             <small class="field-help">Ange aktuell aktiekurs i USD manuellt.</small>
                         </div>
                         <div class="field-group" id="val-eps-group">
@@ -568,7 +568,7 @@
                         <div class="field-group">
                             <label for="val-exit-pe">Antagen exit-P/E</label>
                             <input id="val-exit-pe" type="number" min="0.1" max="1000" step="0.1" value="25" inputmode="decimal" required />
-                            <small class="field-help">P/E-multipel marknaden antas betala vid periodens slut.</small>
+                            <small class="field-help">Antagen P/E-multipel vid periodens slut.</small>
                         </div>
                     </div>
 
@@ -605,7 +605,7 @@
                     <!-- Reverse Valuation: What is priced in? -->
                     <div class="reverse-valuation-card">
                         <div class="reverse-val-header">
-                            <h3>Vad prisar marknaden in? (Omvänd värdering)</h3>
+                            <h3>Vilken tillväxt krävs vid det angivna priset? (Omvänd värdering)</h3>
                             <span class="reverse-val-sub">Krävd vinsttillväxt för att nå ditt avkastningskrav</span>
                         </div>
                         <div class="results reverse-results-grid">

@@ -28,7 +28,7 @@ function entry(id,slug,question,category,lessons,entities,aliases,sourceIds,shor
  return {id,slug,question,category,concepts:lessons,relatedLessonIds:lessons,relatedEntityIds:entities,aliases,sources:sourceIds.map(id=>({title:sources[id][0],url:sources[id][1],reviewedAt:date})),shortAnswer,fullAnswer,example,caveats,difficulty:'beginner',status:'published',reviewedAt:date,publishedAt:date,internalEditorialNotes:'Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.',...extra};
 }
 const entries=[
- entry('pe','pe-tal','Vad betyder P/E?', 'valuation',['pe','eps'],['tool-valuation','research-nvda'],['pris vinst','p/e tal','price earnings'],['evaluation'],
+ entry('pe','pe-tal','Vad betyder P/E?', 'valuation',['pe','eps'],['tool-valuation','research-nvda'],['pris vinst','p/e tal','price earnings','vad påverkar p/e'],['evaluation'],
  'P/E är aktiekursen delad med vinsten per aktie, EPS. Talet visar vilket pris marknaden sätter på en krona av den angivna årsvinsten.',
  'Kontrollera alltid vilken vinst som används: rapporterad historik eller en prognos. En hög multipel kan spegla höga förväntningar, men säger inte att de kommer att infrias. Börja med att göra nämnaren jämförbar mellan bolagen.',
  'En kurs på 150 kr och en års-EPS på 6 kr ger P/E 25. Om kursen står stilla och EPS blir 5 kr stiger P/E till 30 utan någon kursuppgång.',

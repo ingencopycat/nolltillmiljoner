@@ -48,7 +48,8 @@
             ['Periodslut (UTC)', date(snapshot?.periodEnd)], ['Kvartal', text(snapshot?.quarters.join(', '))],
         ]);
         table('Sparade värderingsantaganden', [
-            [inputs.priceSource === 'example' ? 'Historiskt sparat exempelpris (inte livekurs)' : 'Historiskt sparat manuellt pris (inte livekurs)', money(inputs.stockPrice)],
+            [inputs.priceSource === 'example' ? 'Historiskt sparat exempelpris (inte livekurs)' : inputs.priceSource === 'manual' ? 'Historiskt sparat manuellt pris (inte livekurs)' : 'Historiskt sparat pris (ursprunglig källa ej dokumenterad; inte livekurs)', money(inputs.stockPrice)],
+            ['Verifierat kursdatum', unavailable],
             ['Årligt avkastningskrav', number(inputs.requiredReturn, ' %')], ['Tidshorisont', number(inputs.years, ' år')],
             ['Exit P/E', number(inputs.exitPE, '×')],
             ['EPS-källa', inputs.epsSource === 'manual' ? 'Manuell EPS' : inputs.epsSource === 'sec' ? 'SEC-härledd EPS vid spartillfället' : unavailable],

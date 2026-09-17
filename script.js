@@ -757,21 +757,23 @@ function renderScenarioComparison() {
   }
 
   const activeMode = getActiveMode();
-  let startCapital, monthlySavings, years;
+  let startCapital, monthlySavings, years, annualFee;
 
   if (activeMode === 'dividend') {
     startCapital = Number(document.getElementById('dividend-startkapital').value) || 0;
     monthlySavings = Number(document.getElementById('dividend-manadssparande').value) || 0;
     years = Number(document.getElementById('dividend-ar').value) || 0;
+    annualFee = Number(document.getElementById('dividend-avgift').value) || 0;
   } else {
     startCapital = Number(document.getElementById('startkapital').value) || 0;
     monthlySavings = Number(document.getElementById('manadssparande').value) || 0;
     years = Number(document.getElementById('ar').value) || 0;
+    annualFee = Number(document.getElementById('avgift').value) || 0;
   }
 
   const scenarioReturns = [7, 10, 20];
   const scenarioValues = scenarioReturns.map((scenarioReturn) => {
-    const result = calculateProjection(startCapital, monthlySavings, scenarioReturn, 0, years);
+    const result = calculateProjection(startCapital, monthlySavings, scenarioReturn, annualFee, years);
     return {
       returnRate: scenarioReturn,
       value: result.futureValue,
@@ -782,11 +784,14 @@ function renderScenarioComparison() {
 
   scenarioGrid.innerHTML = scenarioValues.map((scenario) => `
     <article class="scenario-card">
-      <h3>${scenario.returnRate}%</h3>
+      <h3>${scenario.returnRate}%${scenario.returnRate === 20 ? ' · högt illustrativt scenario' : ''}</h3>
       <p class="scenario-value">${formatCurrency(scenario.value)}</p>
-      <div class="scenario-meta">Avkastning: ${formatCurrency(scenario.earnings)}</div>
+      <div class="scenario-meta">Avkastning efter avgift: ${formatCurrency(scenario.earnings)}</div>
     </article>
   `).join('');
+
+  const basis = document.getElementById('scenarioBasis');
+  if (basis) basis.textContent = `Kort och diagram visar nominellt slutvärde efter vald årlig avgift (${formatPercent(annualFee, 2)}), före skatt och utan inflationsjustering. Samma startkapital, spartid och insättningar i slutet av månaden som ovan. Procentsatserna är antagen totalavkastning före avgift med all avkastning återinvesterad.${activeMode === 'dividend' ? ' Detta är separata totalavkastningsscenarier; utdelningsmodellens direktavkastning, utdelningstillväxt och val för återinvestering ingår inte.' : ''}`;
 
   const scenarioChartCanvas = document.getElementById('scenarioChart');
   const colors = getChartColors();
@@ -805,7 +810,7 @@ function renderScenarioComparison() {
       labels: scenarioValues.map((scenario) => `${scenario.returnRate}%`),
       datasets: [
         {
-          label: 'Slutvärde',
+          label: 'Nominellt slutvärde efter avgift',
           data: scenarioValues.map((scenario) => scenario.value),
           backgroundColor: [colors.primary, colors.accent, colors.tertiary],
           borderRadius: 10

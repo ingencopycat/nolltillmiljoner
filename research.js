@@ -57,7 +57,7 @@ function initManualThesisEntry() {
         if(ticker && (!/^[A-Z0-9.-]{1,24}$/.test(ticker) || ticker.startsWith('MANUAL-'))) {
             document.getElementById('manualEntryStatus').textContent='Ange en ticker med bokstäver, siffror, punkt eller bindestreck. MANUAL- är reserverat för egna beteckningar.';return;
         }
-        if(currentThesisState.isDirty && !confirm('Lämna osparade ?ndringar och öppna ett annat bolag?'))return;
+        if(currentThesisState.isDirty && !confirm('Lämna osparade ändringar och öppna ett annat bolag?'))return;
         const key=ticker || `MANUAL-${window.crypto.randomUUID().toUpperCase()}`;
         // Only the stable key enters the URL; private company labels never enter URLs/events.
         window.history.replaceState(null,'',`research.html?ticker=${encodeURIComponent(key)}`);
@@ -232,14 +232,10 @@ function renderStockDetail(data) {
     limitations.replaceChildren();
     if (metadata.coverageNotice) {
         const latest = data.quarterly?.at(-1)?.metrics || {};
-        const labels = {dilutedShares: 'Aktieantal (utspätt)', dilutedEps: 'EPS (utspätt)',
-            netIncomeToCommon: 'Resultat till stamaktier', debt: 'Total skuld',
-            deferredRevenue: 'Förutbetalda intäkter', capex: 'CapEx',
-            freeCashFlow: 'Fritt kassaflöde', fcfPerShare: 'Fritt kassaflöde per aktie'};
         for (const [key, metric] of Object.entries({...latest, ...data.ttm?.metrics})) {
             if (metric.value !== null) continue;
             const item = document.createElement('li');
-            item.textContent = `${labels[key] || metric.label || key}: saknas. ${metric.unsupportedReason || metric.notes || 'Tillräckligt jämförbart SEC-underlag saknas.'}`;
+            item.textContent = `${researchMetricLabel(key)}: saknas. ${metric.unsupportedReason || metric.notes || 'Tillräckligt jämförbart SEC-underlag saknas.'}`;
             limitations.appendChild(item);
         }
     }
@@ -295,6 +291,42 @@ function formatFye(fye) {
 // ============================================================================
 // Formatting Helpers
 // ============================================================================
+
+// Presentation only: keep the data's original keys, values and provenance intact.
+function researchMetricLabel(key) {
+    const labels = {
+        revenue: 'Intäkter', operatingIncome: 'Rörelseresultat', netIncome: 'Nettoresultat',
+        operatingCashFlow: 'Operativt kassaflöde', capex: 'Investeringar (CapEx)',
+        freeCashFlow: 'Fritt kassaflöde', dilutedEps: 'EPS (utspätt)',
+        dilutedShares: 'Aktieantal (utspätt)', fcfPerShare: 'Fritt kassaflöde per aktie',
+        netIncomeToCommon: 'Resultat till stamaktier', debt: 'Skuld enligt tillgängligt underlag',
+        cashAndCashEquivalents: 'Kassa och likvida medel', stockholdersEquity: 'Eget kapital',
+        deferredRevenue: 'Förutbetalda intäkter', stockBasedCompensation: 'Aktiebaserad ersättning',
+        totalAssets: 'Totala tillgångar', totalLiabilities: 'Totala skulder och förpliktelser',
+    };
+    return labels[key] || 'Nyckeltal';
+}
+
+function researchMetricBasis(metric) {
+    return metric.isDerived ? 'Beräknat från rapporterade värden' : 'Rapporterat värde';
+}
+
+function researchDerivationLabel(metric) {
+    const methods = {
+        sum_of_trailing_4_quarters: 'Summa av de fyra senaste kvartalen',
+        operatingCashFlow_minus_capex: 'Operativt kassaflöde minus investeringar (CapEx)',
+        sum_of_quarterly_ocf_minus_capex: 'Summa av kvartalens operativa kassaflöde minus investeringar (CapEx)',
+        standalone_period_difference: 'Separat kvartal beräknat som skillnad mellan rapportperioder',
+        duration_weighted_annual_minus_ytd9m: 'Tidsvägd beräkning från helår och årets första nio månader',
+        duration_weighted_trailing_4_quarters: 'Tidsvägt genomsnitt av de fyra senaste kvartalen',
+        ttm_common_income_over_weighted_diluted_shares: 'Resultat till stamaktier för TTM delat med vägt utspätt aktieantal',
+        ttm_fcf_over_weighted_diluted_shares: 'Fritt kassaflöde för TTM delat med vägt utspätt aktieantal',
+        incomplete_quarters: 'Otillgängligt: ofullständigt kvartalsunderlag',
+        missing_numerator: 'Otillgängligt: underlag för täljaren saknas',
+        unsupported_inconsistent_share_basis: 'Otillgängligt: aktiebaserna är inte jämförbara',
+    };
+    return metric.derivationNotes || methods[metric.derivationMethod] || 'Beräkning från underliggande källor';
+}
 
 function formatCurrency(val, decimals = 1, showPlus = false) {
     if (!Number.isFinite(val)) return '–';
@@ -353,7 +385,7 @@ function renderKeyMetrics(data) {
         cards.push({
             title: profile === 'financial_services' ? 'Nettointäkter TTM' : 'Intäkter TTM',
             value: formatCurrency(ttmMetrics.revenue.value, 2),
-            sub: ttmMetrics.revenue.label,
+            sub: researchMetricBasis(ttmMetrics.revenue),
             metricKey: 'revenue',
             provenance: ttmMetrics.revenue,
             highlight: true,
@@ -365,7 +397,7 @@ function renderKeyMetrics(data) {
         cards.push({
             title: 'Rörelseresultat TTM',
             value: formatCurrency(ttmMetrics.operatingIncome.value, 2),
-            sub: ttmMetrics.operatingIncome.label,
+            sub: researchMetricBasis(ttmMetrics.operatingIncome),
             metricKey: 'operatingIncome',
             provenance: ttmMetrics.operatingIncome,
         });
@@ -376,7 +408,7 @@ function renderKeyMetrics(data) {
         cards.push({
             title: 'Nettoresultat TTM',
             value: formatCurrency(ttmMetrics.netIncome.value, 2),
-            sub: ttmMetrics.netIncome.label,
+            sub: researchMetricBasis(ttmMetrics.netIncome),
             metricKey: 'netIncome',
             provenance: ttmMetrics.netIncome,
         });
@@ -397,9 +429,9 @@ function renderKeyMetrics(data) {
     // 5. Operating Cash Flow TTM
     if (ttmMetrics.operatingCashFlow && ttmMetrics.operatingCashFlow.value !== null) {
         cards.push({
-            title: 'Op. Kassaflöde TTM',
+            title: 'Operativt kassaflöde TTM',
             value: formatCurrency(ttmMetrics.operatingCashFlow.value, 2),
-            sub: ttmMetrics.operatingCashFlow.label,
+            sub: researchMetricBasis(ttmMetrics.operatingCashFlow),
             metricKey: 'operatingCashFlow',
             provenance: ttmMetrics.operatingCashFlow,
         });
@@ -421,7 +453,7 @@ function renderKeyMetrics(data) {
         cards.push({
             title: latestQMetrics.debt.concept === 'LongTermDebtNoncurrent' ? 'Långfristig skuld (ej kortfristig del)' : 'Rapporterad skuldkomponent',
             value: formatCurrency(latestQMetrics.debt.value, 2),
-            sub: `${latestQMetrics.debt.concept || 'Skuld enligt vald SEC-mappning'} · per ${latestQ.period}. Täcker inte nödvändigtvis all skuld.`,
+            sub: `Skuld enligt tillgängligt SEC-underlag · per ${latestQ.period}. Täcker inte nödvändigtvis all skuld.`,
             metricKey: 'debt',
             provenance: latestQMetrics.debt,
         });
@@ -443,7 +475,7 @@ function renderKeyMetrics(data) {
         cards.push({
             title: 'Förutbetalda intäkter',
             value: formatCurrency(latestQMetrics.deferredRevenue.value, 2),
-            sub: 'Avtalsskulder / Deferred Rev',
+            sub: 'Avtalsskulder',
             metricKey: 'deferredRevenue',
             provenance: latestQMetrics.deferredRevenue,
         });
@@ -792,20 +824,20 @@ function renderAnnualTable(data) {
         tdPeriod.innerHTML = `<strong>${escapeHtml(item.period)}</strong> <span class="badge badge-subtle">${escapeHtml(item.form)}</span>`;
 
         // Revenue
-        const tdRev = createMetricCell(m.revenue);
+        const tdRev = createMetricCell(m.revenue, 'revenue');
         // Op Income
-        const tdOpInc = createMetricCell(m.operatingIncome);
+        const tdOpInc = createMetricCell(m.operatingIncome, 'operatingIncome');
         // Net Income
-        const tdNetInc = createMetricCell(m.netIncome);
+        const tdNetInc = createMetricCell(m.netIncome, 'netIncome');
         // EPS
         const tdEps = document.createElement('td');
         tdEps.textContent = m.dilutedEps?.value !== null && m.dilutedEps?.value !== undefined ? `$${Number(m.dilutedEps.value).toFixed(2)}` : '–';
         // OCF
-        const tdOcf = createMetricCell(m.operatingCashFlow);
+        const tdOcf = createMetricCell(m.operatingCashFlow, 'operatingCashFlow');
         // CapEx
-        const tdCapEx = createMetricCell(m.capex);
+        const tdCapEx = createMetricCell(m.capex, 'capex');
         // FCF
-        const tdFcf = profile !== 'financial_services' ? createMetricCell(m.freeCashFlow) : document.createElement('td');
+        const tdFcf = profile !== 'financial_services' ? createMetricCell(m.freeCashFlow, 'freeCashFlow') : document.createElement('td');
         if (profile === 'financial_services') tdFcf.textContent = '–';
 
         tr.appendChild(tdPeriod);
@@ -845,18 +877,18 @@ function renderQuarterlyTable(data) {
         tdSpan.textContent = item.periodStart ? `${item.periodStart} → ${item.periodEnd}` : `T.o.m. ${item.periodEnd}`;
 
         // Revenue
-        const tdRev = createMetricCell(m.revenue);
+        const tdRev = createMetricCell(m.revenue, 'revenue');
         // Net Income
-        const tdNetInc = createMetricCell(m.netIncome);
+        const tdNetInc = createMetricCell(m.netIncome, 'netIncome');
         // EPS
         const tdEps = document.createElement('td');
         tdEps.textContent = m.dilutedEps?.value !== null && m.dilutedEps?.value !== undefined ? `$${Number(m.dilutedEps.value).toFixed(2)}` : '–';
         // OCF
-        const tdOcf = createMetricCell(m.operatingCashFlow);
+        const tdOcf = createMetricCell(m.operatingCashFlow, 'operatingCashFlow');
         // CapEx
-        const tdCapEx = createMetricCell(m.capex);
+        const tdCapEx = createMetricCell(m.capex, 'capex');
         // FCF
-        const tdFcf = profile !== 'financial_services' ? createMetricCell(m.freeCashFlow) : document.createElement('td');
+        const tdFcf = profile !== 'financial_services' ? createMetricCell(m.freeCashFlow, 'freeCashFlow') : document.createElement('td');
         if (profile === 'financial_services') tdFcf.textContent = '–';
 
         tr.appendChild(tdPeriod);
@@ -872,7 +904,7 @@ function renderQuarterlyTable(data) {
     });
 }
 
-function createMetricCell(metric) {
+function createMetricCell(metric, key) {
     const td = document.createElement('td');
     if (!metric || metric.value === null || metric.value === undefined) {
         td.textContent = '–';
@@ -884,12 +916,12 @@ function createMetricCell(metric) {
     button.type = 'button';
     button.className = 'metric-source-button';
     button.textContent = valFormatted;
-    button.setAttribute('aria-label', `${metric.label || 'Nyckeltal'}: ${valFormatted}. Visa källa`);
-    button.onclick = () => openProvenanceDialog(metric.label || 'Nyckeltal', metric);
+    button.setAttribute('aria-label', `${researchMetricLabel(key)}: ${valFormatted}. Visa källa`);
+    button.onclick = () => openProvenanceDialog(researchMetricLabel(key), metric);
     td.appendChild(button);
 
     if (metric.isDerived) {
-        td.title = `${metric.derivationNotes || 'Härlett värde'} (Klicka för källa)`;
+        td.title = `${researchDerivationLabel(metric)} (Klicka för källa)`;
         td.classList.add('cell-derived');
     }
 
@@ -974,7 +1006,7 @@ function openProvenanceDialog(title, provenance) {
     }
 
     if (provenance.isDerived) {
-        rowsHtml += `<div class="prov-row"><span class="prov-label">Härledning:</span><span class="prov-val">${escapeHtml(provenance.derivationNotes || provenance.derivationMethod || 'Säker matematisk härledning')}</span></div>`;
+        rowsHtml += `<div class="prov-row"><span class="prov-label">Härledning:</span><span class="prov-val">${escapeHtml(researchDerivationLabel(provenance))}</span></div>`;
         if (provenance.derivedFrom && provenance.derivedFrom.length > 0) {
             rowsHtml += `<div class="prov-row"><span class="prov-label">Underliggande källor:</span><span class="prov-val"><code>${escapeHtml(provenance.derivedFrom.join(', '))}</code></span></div>`;
         }
@@ -989,7 +1021,7 @@ function openProvenanceDialog(title, provenance) {
 
     if (provenance.notes) rowsHtml += `<div class="prov-row"><span class="prov-label">Begränsningar:</span><span class="prov-val">${escapeHtml(provenance.notes)}</span></div>`;
     if (provenance.methodVersion) rowsHtml += `<div class="prov-row"><span class="prov-label">Metodversion:</span><span class="prov-val">${escapeHtml(provenance.methodVersion)}</span></div>`;
-    if (provenance.inputs) rowsHtml += `<details><summary>Underliggande kvartal och källor</summary>${provenance.inputs.map((i) => `<p>${escapeHtml(i.quarter)} · ${escapeHtml(i.metric)} · ${escapeHtml(i.concept || 'begrepp saknas')} · ${escapeHtml(i.accession || 'käll-ID saknas')} · ${escapeHtml(i.filed || 'datum saknas')}</p>`).join('')}</details>`;
+    if (provenance.inputs) rowsHtml += `<details><summary>Underliggande kvartal och källor</summary>${provenance.inputs.map((i) => `<p>${escapeHtml(i.quarter)} · ${escapeHtml(researchMetricLabel(i.metric))} · ${escapeHtml(i.concept || 'begrepp saknas')} · ${escapeHtml(i.accession || 'käll-ID saknas')} · ${escapeHtml(i.filed || 'datum saknas')}</p>`).join('')}</details>`;
     content.innerHTML = rowsHtml;
 
     if (typeof dialog.showModal === 'function') {
@@ -1986,7 +2018,7 @@ function displayThesisSnapshotPreview(snapshot, targetId = 'thesisSnapshotPrevie
             <h4>Värderingsantaganden</h4>
             <div class="snapshot-grid">
                 <div class="snapshot-cell">
-                    <span class="snapshot-label">Historiskt sparat ${inputs.priceSource === 'example' ? 'exempelpris' : 'manuellt pris'} – inte livekurs</span>
+                    <span class="snapshot-label">Historiskt sparat ${inputs.priceSource === 'example' ? 'exempelpris' : inputs.priceSource === 'manual' ? 'manuellt pris' : 'pris (ursprunglig källa ej dokumenterad)'} – inte livekurs. Verifierat kursdatum saknas.</span>
                     <span class="snapshot-value">$${inputs.stockPrice?.toFixed(2) || '–'}</span>
                 </div>
                 <div class="snapshot-cell">
@@ -2287,9 +2319,9 @@ function renderValuationPriceStatus(calculated = false) {
         : valuationState.priceSource === 'manual' ? 'Pris angivet av dig – manuell kurs, inte livekurs'
         : 'Exempelpris – inte aktuell börskurs';
     const input = document.getElementById('valuationPriceInputStatus');
-    if (input) input.textContent = label;
+    if (input) input.textContent = `${label}. Verifierat kursdatum saknas.`;
     if (input) input.setAttribute('data-ntm-status', valuationState.priceSource === 'historical' ? 'warning' : 'manual');
     const output = document.getElementById('valuationPriceResultStatus');
-    if (calculated && output) output.textContent = `${label}: $${document.getElementById('val-price').value}. Alla värderingsresultat och scenarier nedan bygger på detta pris. Fundamenta kommer från normaliserade SEC-data; ingen livekurs hämtas.`;
+    if (calculated && output) output.textContent = `${label}: $${document.getElementById('val-price').value}. Verifierat kursdatum saknas. Alla värderingsresultat och scenarier nedan är modellerade utifrån detta pris och dina antaganden. Fundamenta kommer från normaliserade SEC-data; ingen livekurs hämtas.`;
     if (calculated && output) output.setAttribute('data-ntm-status', 'derived');
 }

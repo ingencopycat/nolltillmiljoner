@@ -34,6 +34,25 @@ test('reviewed question matching is deterministic and abstains on unknown input'
  assert.ok(K.ask('PEG').every(e=>['reviewed','published'].includes(e.status)));
  assert.ok(!read('knowledge-ui.js').includes('fetch('));
 });
+test('direct definitions outrank shared concepts and preserve question intent',()=>{
+ for(const [query,id] of [
+  ['Vad är P/E?','pe'],['VAD AR P / E!!!','pe'],['Vad betyder P/E?','pe'],['P/E','pe'],
+  ['Vad är forward P/E?','forward'],['Vad betyder trailing P/E?','forward'],
+  ['Vad påverkar P/E?','pe'],['Varför spelar obligationsräntor roll för aktier?','bond-yields'],
+  ['Vad är EPS?','eps'],['Vad är guidning?','guidance'],['LTTM','ttm'],['mäklaravgift','fees'],
+ ]) {
+  assert.equal(K.ask(query)[0]?.id,id,query);
+  assert.deepEqual(K.ask(query).map(e=>e.id),K.ask(query).map(e=>e.id));
+ }
+ for(const query of ['Hur bakar jag pannkakor?','Vad är pepparkakor?','Berätta om mina privata investeringar'])assert.deepEqual(K.ask(query),[]);
+ const data=clone(raw),direct=data.entries.find(e=>e.id==='pe');
+ direct.question='Vad betyder '+('lång tydlig fråga ').repeat(12)+'P/E?';
+ // An arbitrarily long overlapping alias must never overtake a direct question.
+ data.entries.find(e=>e.id==='bond-yields').aliases.push(('lång tydlig fråga ').repeat(12).trim());
+ assert.equal(Core.create(data).ask(direct.question.replace('betyder','är'))[0].id,'pe');
+ data.entries.reverse();
+ assert.equal(Core.create(data).ask(direct.question.replace('betyder','är'))[0].id,'pe');
+});
 test('publication gate rejects malformed sources, thin text, IDs, dates and references',()=>{
  for(const patch of [{id:'bad id'},{slug:'../../bad'},{status:'public'},{category:'missing'},{difficulty:'expert'},{reviewedAt:'2026-02-30'},{publishedAt:'2999-01-01'},{shortAnswer:''},{fullAnswer:''},{caveats:''},{sources:[]},{sources:[{title:'Unsafe',url:'javascript:alert(1)',reviewedAt:'2026-09-15'}]},{relatedLessonIds:['missing']},{aliases:null},{privateField:'secret'}]){
   const data=clone(raw);Object.assign(data.entries[0],patch);assert.ok(Q.validate(data,rules).length,JSON.stringify(patch));

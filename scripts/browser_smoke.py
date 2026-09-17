@@ -74,6 +74,32 @@ class BrowserSmoke(unittest.TestCase):
             time.sleep(.05)
         self.fail('Browser condition timed out: ' + expression)
 
+    def test_wave0_credibility_in_real_pages(self):
+        p = self.page
+        self.go('fragor-svar.html')
+        for query, answer in [('Vad är P/E?', 'Vad betyder P/E?'), ('Vad är forward P/E?', 'Vad skiljer forward P/E från trailing P/E?')]:
+            p.locator('#knowledgeAskInput').fill(query)
+            p.locator('#knowledgeAskInput').press('Enter')
+            expect(p.locator('#knowledgeAskResult a').first).to_have_text(answer)
+        self.go('ranta-pa-ranta.html')
+        p.locator('#avgift').fill('1')
+        p.locator('#startkapital').fill('10000')
+        p.locator('#manadssparande').fill('100')
+        p.locator('#ar').fill('2')
+        p.locator('#avkastning').fill('7')
+        p.locator('#calculator-form button[type=submit]').click()
+        expect(p.locator('#scenarioBasis')).to_contain_text('utan inflationsjustering')
+        expected = p.evaluate('formatCurrency(calculateProjection(10000,100,7,1,2).futureValue)')
+        expect(p.locator('#scenarioGrid .scenario-value').first).to_have_text(expected)
+        expect(p.locator('#scenarioGrid h3').last).to_contain_text('högt illustrativt scenario')
+        self.go('research.html?ticker=NVDA')
+        expect(p.locator('#valuationPriceInputStatus')).to_contain_text('Verifierat kursdatum saknas')
+        expect(p.locator('#keyMetricsGrid')).to_contain_text('Operativt kassaflöde TTM')
+        expect(p.locator('#keyMetricsGrid')).not_to_contain_text('operatingCashFlow')
+        for width in [390, 1440]:
+            p.set_viewport_size({'width': width, 'height': 900})
+            self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'), width)
+
     def test_knowledge_bank_search_links_and_accessibility(self):
         p = self.page
         self.go('fragor-svar.html')

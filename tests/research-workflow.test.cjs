@@ -382,6 +382,39 @@ test('quality: provenance uses keyboard buttons and distinguishes derived, missi
   assert.equal(a.nodes.get('thesisSavedTime').textContent, 'datum saknas');
 });
 
+test('Research editorial labels never expose metric keys and preserve values, units and source concepts',()=>{
+ const a=app(),data=stock(),before=JSON.stringify(data);
+ const keys=new Set();
+ for(const ticker of ['SOFI','NVDA','CRWD','MU','MRVL','VRT','COHR','RKLB','TTMI','SNDK','FLY','CRWV']) {
+  const d=stock(ticker);
+  for(const section of [d.ttm,...d.quarterly])for(const key of Object.keys(section.metrics))keys.add(key);
+  a.context.renderKeyMetrics(d);
+ }
+ for(const key of keys)assert.notEqual(a.context.researchMetricLabel(key),'Nyckeltal',key);
+ const metric={...data.ttm.metrics.operatingCashFlow,label:'operatingCashFlow',concept:'NetCashProvidedByUsedInOperatingActivities'};
+ const cell=a.context.createMetricCell(metric,'operatingCashFlow');cell.children[0].onclick();
+ const dialog=a.nodes.get('provenanceDialogContent').innerHTML;
+ assert.match(dialog,/Operativt kassaflöde/);assert.doesNotMatch(dialog,/operatingCashFlow/);
+ assert.ok(dialog.includes(metric.concept));assert.ok(dialog.includes(metric.unit));
+ assert.equal(cell.children[0].textContent,a.context.formatCurrency(metric.value,2));
+ assert.equal(JSON.stringify(data),before);
+});
+
+test('Research example, manual and restored price states disclose missing quote date and model basis',()=>{
+ const a=app();a.nodes.get('val-price').value='120';
+ for(const [source,label] of [['example','Exempelpris'],['manual','Pris angivet av dig'],['historical','Historiskt sparat pris']]) {
+  vm.runInContext(`valuationState.priceSource='${source}'`,a.context);
+  a.context.renderValuationPriceStatus(true);
+  assert.ok(a.nodes.get('valuationPriceInputStatus').textContent.startsWith(label));
+  assert.match(a.nodes.get('valuationPriceInputStatus').textContent,/Verifierat kursdatum saknas/);
+  assert.match(a.nodes.get('valuationPriceResultStatus').textContent,/modellerade utifrån detta pris och dina antaganden/);
+ }
+ const html=read('research.html');
+ assert.doesNotMatch(html,/dagens aktiekurs|Vad prisar marknaden in|Ingen inloggning, ingen moln, ingen delning/);
+ assert.match(html,/Sparas lokalt på den här enheten\. Valfri synk kopierar privata data till ditt konto\. En analys blir offentlig först när du själv publicerar den/);
+ assert.doesNotMatch(read('research.js'),/osparade \?ndringar/);
+});
+
 function outcomeFixture() {
   const a = app();
   const source = { id: 'source-1', text: 'Original source thesis', savedAt: '2024-01-01T00:00:00Z',
@@ -698,6 +731,8 @@ test('legacy, missing and unsupported snapshots export safely without current-da
     const model = a.context.NTMResearchExport.build('NVDA', thesis.revisions[0], thesis.latestRevisionId);
     const md = a.context.NTMResearchExport.markdown(model);
     assert.match(md, /Historical thesis/); assert.match(md, /Ej tillgängligt/);
+    assert.match(md, /ursprunglig källa ej dokumenterad/);
+    assert.match(md, /Verifierat kursdatum/);
     assert.doesNotMatch(md, /\b(?:NaN|undefined|null|Infinity)\b/);
     assert.ok(model.sections.filter((s) => s.rows).every((s) => s.rows.length));
     a.nodes.get('researchExportPrint').onclick();

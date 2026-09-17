@@ -15,15 +15,22 @@
    return publicEntries().filter(e=>!category||e.category===category).filter(e=>{const hay=normalize([e.question,...e.aliases,...e.concepts,e.category,catalog.categories.find(c=>c.id===e.category)?.title].join(' '));return terms.every(term=>hay.includes(term));}).sort((a,b)=>score(b)-score(a));
   };
   function ask(question){
-   const q=normalize(question).replace(/^(vad|hur|varfor|kan|ar|betyder)(\s+(ar|betyder))?\s+/,'').trim();
+   // Apply definition synonyms to both sides; keep how/why/driver intent intact.
+   const definition=value=>normalize(value).replace(/^(vad (ar|betyder|innebar)|betyder)\s+/,'');
+   const raw=normalize(question),q=definition(question);
    if(q.length<2)return [];
-   const terms=q.split(' ').filter(t=>t.length>2&&!['min','mina','och','det','ett','en'].includes(t));
+   const terms=q.split(' ').filter(t=>!['vad','hur','varfor','kan','ar','min','mina','och','det','ett','en'].includes(t));
+   const contains=(text,phrase)=>(' '+text+' ').includes(' '+phrase+' ');
    const scored=publicEntries().map(e=>{
-    const exact=[e.question,...e.aliases,...e.concepts].some(v=>normalize(v)===q);
-    const phrases=[...e.aliases,...e.concepts].map(normalize).filter(v=>v.length>=3&&q.includes(v));
-    const title=normalize(e.question),hits=terms.filter(t=>title.includes(t)||e.aliases.some(a=>normalize(a).includes(t)));
-    return {entry:e,score:exact?100:title.includes(q)?90:phrases.length?70+Math.max(...phrases.map(v=>v.length)):hits.length===terms.length&&hits.length>=1&&terms.some(t=>t.length>=3)?40:0};
-   }).filter(v=>v.score>=40).sort((a,b)=>b.score-a.score||a.entry.id.localeCompare(b.entry.id));
+    const title=normalize(e.question),aliases=e.aliases.map(definition),concepts=e.concepts.map(normalize);
+    const phrases=[...aliases,...concepts].filter(v=>v.length>=3&&contains(q,v));
+    const hits=terms.filter(t=>title.includes(t)||aliases.some(a=>a.includes(t)));
+    // Separate tiers: broad overlaps, however long, cannot outrank direct questions.
+    const tier=title===raw?7:definition(e.question)===q?6:aliases.includes(q)?5:
+     contains(title,q)?4:concepts.includes(q)?3:
+     hits.length===terms.length&&hits.length>=1?2:phrases.length?1:0;
+    return {entry:e,tier,specificity:Math.max(0,...phrases.map(v=>v.length))};
+   }).filter(v=>v.tier>0).sort((a,b)=>b.tier-a.tier||b.specificity-a.specificity||a.entry.id.localeCompare(b.entry.id));
    return scored.slice(0,3).map(v=>v.entry);
   }
   return {...catalog,publicEntries,url,search,ask};

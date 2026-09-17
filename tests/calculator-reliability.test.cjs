@@ -30,6 +30,58 @@ function app(values = {}) {
   return {context,nodes,charts,saved};
 }
 
+test('FIRE fixed purchasing-power withdrawals and nominal inflation linkage match independent oracles',()=>{
+ const c=app().context,close=(a,b)=>assert.ok(Math.abs(a-b)<1e-6,`${a} != ${b}`);
+ const s=c.simulateFire({monthlyExpenses:1000,currentCapital:300000,monthlySavings:0,nominalReturn:2,inflation:2,withdrawalRate:4,currentAge:60});
+ close(s.fireTarget,300000);close(s.realAnnualReturn,0);
+ const post=c.buildPostFireProjection(s);
+ close(post.series[12].value,288000);close(post.series[24].value,276000);
+ close(post.series[24].withdrawal,1000);close(post.series[300].value,0);close(post.series[301].withdrawal,0);
+ // Changing portfolio growth does not turn spending into a percentage of the balance.
+ const growing=c.buildPostFireProjection({...s,realAnnualReturn:.12});
+ close(growing.series[24].withdrawal,1000);
+ const inputs={startCapital:1000000,monthlyWithdrawal:1000,nominalReturn:0,annualFee:0,inflation:12,inflationLinked:true};
+ const nominal=c.simulateFireWithdrawal(inputs);
+ close(nominal.series[12].withdrawal,1120);close(nominal.series[24].withdrawal,1254.4);
+ const sum=Array.from({length:12},(_,i)=>1000*1.12**((i+1)/12)).reduce((a,b)=>a+b,0);
+ close(nominal.series[12].value,1000000-sum);
+ close(c.simulateFireWithdrawal({...inputs,inflationLinked:false}).series[24].value,976000);
+});
+
+test('comparison cards and chart use selected fees, month-end saving and nominal values in both modes',()=>{
+ for(const mode of ['growth','dividend']) {
+  const a=app({startkapital:10000,manadssparande:100,ar:2,avgift:1,inflation:9,
+   'dividend-startkapital':20000,'dividend-manadssparande':200,'dividend-ar':3,'dividend-avgift':2,
+   'dividend-inflation':8,scenarioGrid:'',scenarioChart:'',scenarioBasis:''});
+  const tab=element();tab.dataset.mode=mode;a.nodes.set('mode-tab.active',tab);
+  a.context.renderScenarioComparison();
+  const start=mode==='growth'?10000:20000,saving=mode==='growth'?100:200,years=mode==='growth'?2:3,fee=mode==='growth'?.01:.02;
+  const values=[7,10,20].map(rate=>{
+   let value=start;const factor=((1+rate/100)*(1-fee))**(1/12);
+   for(let m=0;m<years*12;m++)value=value*factor+saving;
+   return value;
+  });
+  const chart=a.charts.at(-1);
+  values.forEach((value,i)=>{
+   assert.ok(Math.abs(chart.data.datasets[0].data[i]-value)<1e-6);
+   assert.ok(a.nodes.get('scenarioGrid').innerHTML.includes(a.context.formatCurrency(value)));
+  });
+  assert.match(a.nodes.get('scenarioBasis').textContent,/nominellt slutvärde efter vald årlig avgift/);
+  assert.match(a.nodes.get('scenarioBasis').textContent,/utan inflationsjustering/);
+  assert.match(a.nodes.get('scenarioGrid').innerHTML,/20% · högt illustrativt scenario/);
+  if(mode==='dividend')assert.match(a.nodes.get('scenarioBasis').textContent,/utdelningsmodellens.*ingår inte/);
+  else assert.ok(Math.abs(values[0]-a.context.calculateProjection(start,saving,7,fee*100,years).futureValue)<1e-6);
+ }
+});
+
+test('FIRE definition agrees across body, FAQ and structured data',()=>{
+ const html=fs.readFileSync('fire-kalkylator.html','utf8');
+ const definition='4 %-regeln är en historisk tumregel: första årets uttag är ungefär 4 % av portföljens värde vid pensionens början. Därefter justeras uttagsbeloppet för inflation, inte till 4 % av portföljens nya värde varje år. Det är ingen garanti.';
+ assert.equal(html.split(definition).length-1,3);
+ assert.match(html,/beloppet månadsvis från första månaden/);
+ assert.doesNotMatch(html,/4 % av portföljen (i början av varje år|per år)/);
+});
+
 test('yearly compound path: hand oracle, constant parity, contributions, fee and loss boundaries',()=>{
  const c=app().context,close=(a,b)=>assert.ok(Math.abs(a-b)<1e-7,`${a} != ${b}`);
  const path=[50,25,40,-10,15];
