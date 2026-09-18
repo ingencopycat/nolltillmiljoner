@@ -1,5 +1,5 @@
 .knowledge-hero {max-width:52rem;margin-bottom:2rem}
-.knowledge-hero h1 {font-size:clamp(2.2rem,5vw,3.6rem)}
+.knowledge-hero h1 {font-size:clamp(2.75rem,5vw,4.5rem);font-weight:400}
 .knowledge-shell a {color:var(--primary);text-underline-offset:.2em;overflow-wrap:anywhere}
 .knowledge-shell a:focus-visible,.knowledge-shell :is(input,select,button,summary):focus-visible {outline:2px solid var(--primary);outline-offset:4px}
 .knowledge-controls {display:flex;gap:1rem;align-items:end;flex-wrap:wrap;margin:1.5rem 0}
@@ -8,7 +8,7 @@
 .knowledge-controls input,.knowledge-controls select {width:100%;min-height:46px;box-sizing:border-box}
 .knowledge-categories {display:flex;flex-wrap:wrap;gap:.5rem}
 .knowledge-categories[hidden],.knowledge-shell [data-knowledge-featured][hidden],.knowledge-shell #knowledgeResults[hidden]{display:none}
-.knowledge-categories a {display:inline-flex;align-items:center;min-height:44px;padding:.3rem .8rem;border:1px solid var(--border);border-radius:8px}
+.knowledge-categories a {display:inline-flex;align-items:center;min-height:44px;padding:.3rem .8rem;border:1px solid var(--border);border-radius:3px}
 .knowledge-categories [aria-current] {background:var(--primary-soft);font-weight:700}
 .knowledge-featured {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem 1.5rem;padding:0;list-style:none}
 .knowledge-featured a,.knowledge-related a,.knowledge-bottom a,.knowledge-answer nav a {display:inline-flex;align-items:center;min-height:44px}
@@ -26,16 +26,17 @@
 .knowledge-ask{max-width:44rem;margin:2rem 0;padding:1rem 0;border-block:1px solid var(--border)}
 .knowledge-ask h2,.knowledge-ask p{margin:.35rem 0}
 .knowledge-ask-row{display:flex;gap:.7rem;align-items:center}
-.knowledge-ask-row input{flex:1;min-width:0;padding:.8rem;border:1px solid var(--border);border-radius:8px;background:var(--panel);color:var(--text);font:inherit}
+.knowledge-ask-row input{flex:1;min-width:0;padding:.8rem;border:1px solid var(--border);border-radius:3px;background:var(--panel);color:var(--text);font:inherit}
 .knowledge-ask-row button{min-height:44px}
 #knowledgeAskResult article{padding:.8rem 0;border-bottom:1px solid var(--border)}
 @media(max-width:600px){.knowledge-ask-row{flex-direction:column;align-items:stretch}.knowledge-count{white-space:normal}}
-.knowledge-answer {max-width:48rem;margin:1rem auto;line-height:1.8}
+.knowledge-answer {max-width:50rem;margin:1rem auto;line-height:1.8}
+.knowledge-answer > p {font:21px/1.8 var(--font-reading)}
 .knowledge-answer h1 {font-size:clamp(2rem,4vw,3rem);line-height:1.2;margin-bottom:1.5rem}
 .knowledge-answer h2 {margin-top:2rem}
-.knowledge-short {background:var(--panel);padding:1.3rem;border:1px solid var(--border);border-radius:12px}
+.knowledge-short {background:none;padding:1.3rem 0;border:0;border-block:1px solid var(--border);border-radius:0}
 .knowledge-short h2 {margin-top:0}
-.knowledge-short p {font-size:1.15rem;margin-bottom:0}
+.knowledge-short p {font:25px/1.6 var(--font-reading);margin-bottom:0}
 .knowledge-example {padding:1rem 1.3rem;border-left:3px solid var(--primary);background:var(--panel);margin:1.5rem 0}
 .knowledge-example h2 {margin-top:0}
 .knowledge-method {border-block:1px solid var(--border);padding:1rem 0;margin-top:2rem}

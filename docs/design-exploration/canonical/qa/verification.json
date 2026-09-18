@@ -1,0 +1,54 @@
+{
+  "errors": [],
+  "overflow": [],
+  "contrast": [
+    {
+      "variant": "1",
+      "theme": "light",
+      "ink/bg": 15.25,
+      "ink/surface": 14.25,
+      "muted/bg": 5.61,
+      "muted/surface": 5.24,
+      "secondary/bg": 7.93,
+      "secondary/surface": 7.41,
+      "positive/bg": 6.27,
+      "positive/surface": 5.86,
+      "negative/bg": 6.31,
+      "negative/surface": 5.89,
+      "warning/bg": 6.04,
+      "warning/surface": 5.65,
+      "primary": 7.12,
+      "primary-hover": 9.88
+    },
+    {
+      "variant": "1",
+      "theme": "dark",
+      "ink/bg": 16.13,
+      "ink/surface": 13.87,
+      "muted/bg": 8.58,
+      "muted/surface": 7.38,
+      "secondary/bg": 12.16,
+      "secondary/surface": 10.46,
+      "positive/bg": 10.52,
+      "positive/surface": 9.05,
+      "negative/bg": 9.05,
+      "negative/surface": 7.79,
+      "warning/bg": 10.46,
+      "warning/surface": 9.0,
+      "primary": 9.81,
+      "primary-hover": 12.37
+    }
+  ],
+  "checks": [
+    "2 canonical theme palettes and actual primary/hover contrast >=4.5",
+    "18 additional 360/430/720px reflow states",
+    "Keyboard chart tooltip, source dialog, Escape and focus return",
+    "Primary/secondary/tertiary/destructive focus, disabled state",
+    "Control specimen activation",
+    "Canonical hub seeded thesis, theme and size",
+    "Zero browser storage writes",
+    "184 production baseline hashes unchanged"
+  ],
+  "storageWrites": [],
+  "productionChanged": []
+}

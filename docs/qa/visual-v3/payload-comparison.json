@@ -1,0 +1,55 @@
+{
+  "method": "Fresh Chromium contexts; localhost, no compression/throttling. HEAD assets intercepted for before. Public shell uses disabled local cloud configuration. Durations are diagnostic, not field Core Web Vitals.",
+  "runs": [
+    {
+      "phase": "before",
+      "page": "research.html?ticker=NVDA",
+      "decodedBytes": 1515988,
+      "requests": 28,
+      "domContentLoadedMs": 296.2999999821186,
+      "loadMs": 297.19999998807907
+    },
+    {
+      "phase": "before",
+      "page": "analys.html",
+      "decodedBytes": 770859,
+      "requests": 14,
+      "domContentLoadedMs": 100.2000000178814,
+      "loadMs": 100.30000001192093
+    },
+    {
+      "phase": "after",
+      "page": "research.html?ticker=NVDA",
+      "decodedBytes": 1541221,
+      "requests": 30,
+      "domContentLoadedMs": 196.19999998807907,
+      "loadMs": 197.09999999403954
+    },
+    {
+      "phase": "after",
+      "page": "analys.html",
+      "decodedBytes": 786434,
+      "requests": 15,
+      "domContentLoadedMs": 107.40000000596046,
+      "loadMs": 107.59999999403954
+    }
+  ],
+  "newAssets": {
+    "research-v3.css": {
+      "bytes": 13279,
+      "gzipBytes": 2969
+    },
+    "research-v3.js": {
+      "bytes": 7387,
+      "gzipBytes": 2846
+    }
+  },
+  "changedAssetsByteDelta": {
+    "research.html": 2659,
+    "analys.html": 213,
+    "premium.css": 995,
+    "research.js": 663,
+    "research-outcome-ui.js": 250,
+    "social-ui.js": 1088
+  }
+}

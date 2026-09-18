@@ -313,7 +313,8 @@ def main():
             expect(page.locator(selector)).not_to_be_empty()
             for theme in ('dark', 'light'):
                 page.evaluate('applyTheme',theme)
-                expect(page.locator('body')).to_have_css('background-color', 'rgb(245, 247, 250)' if theme == 'light' else 'rgb(11, 15, 20)')
+                palette = ('rgb(244, 247, 249)', 'rgb(16, 24, 32)') if url.startswith('analys') else ('rgb(244, 247, 249)', 'rgb(16, 24, 32)')
+                expect(page.locator('body')).to_have_css('background-color', palette[0 if theme == 'light' else 1])
                 for width in (360, 390, 430):
                     page.set_viewport_size({'width': width, 'height': 844})
                     assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), f'{url} overflow {width}/{theme}'

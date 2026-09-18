@@ -1,0 +1,2702 @@
+{
+  "overflow": [],
+  "contrast": [
+    {
+      "direction": "a",
+      "theme": "light",
+      "body": 13.13,
+      "secondary": 5.12,
+      "secondary-on-surface": 4.79,
+      "button": 8.0
+    },
+    {
+      "direction": "a",
+      "theme": "dark",
+      "body": 14.17,
+      "secondary": 8.01,
+      "secondary-on-surface": 6.93,
+      "button": 9.73
+    },
+    {
+      "direction": "b",
+      "theme": "light",
+      "body": 15.39,
+      "secondary": 5.71,
+      "secondary-on-surface": 5.28,
+      "button": 8.62
+    },
+    {
+      "direction": "b",
+      "theme": "dark",
+      "body": 14.88,
+      "secondary": 6.86,
+      "secondary-on-surface": 6.26,
+      "button": 10.1
+    },
+    {
+      "direction": "c",
+      "theme": "light",
+      "body": 10.91,
+      "secondary": 4.92,
+      "secondary-on-surface": 4.52,
+      "button": 8.29
+    },
+    {
+      "direction": "c",
+      "theme": "dark",
+      "body": 13.08,
+      "secondary": 8.09,
+      "secondary-on-surface": 6.57,
+      "button": 9.38
+    }
+  ],
+  "checks": [
+    "All six palettes >=4.5 text contrast",
+    "Chart keyboard activation and focus return",
+    "54 additional reflow states at 360/430/720px",
+    "18 mobile full-page views",
+    "Hub direction/surface/theme/viewport switching",
+    "Side-by-side three iframe state",
+    "Zero local/session storage",
+    "No external requests or writes"
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=overview&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=overview&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=overview&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=overview&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=overview&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=thesis&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=thesis&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=thesis&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=thesis&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=public&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=public&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=public&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=public&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=overview&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=overview&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=overview&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=overview&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=overview&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=public&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=public&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=public&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=public&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=overview&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=overview&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=overview&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=overview&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=overview&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=thesis&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=thesis&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=thesis&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=thesis&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=public&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=public&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=public&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=public&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=overview&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=overview&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=overview&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=overview&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=overview&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=public&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=public&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=public&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=public&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=overview&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=overview&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=overview&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=overview&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=overview&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=thesis&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=thesis&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=thesis&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=thesis&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=public&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=public&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=public&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=public&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=overview&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=overview&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=overview&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=overview&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=overview&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=public&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=public&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=public&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=public&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=overview&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=overview&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=thesis&theme=light",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=a&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=b&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/prototype.html?direction=c&surface=thesis&theme=dark",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.css",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/pass2.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/docs/design-exploration/exploration.js",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/data/stocks/NVDA.json",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    },
+    {
+      "url": "LOCAL/images/ntm-logo.webp",
+      "method": "GET"
+    }
+  ]
+}

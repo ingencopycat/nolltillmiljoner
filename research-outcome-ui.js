@@ -114,7 +114,7 @@
         if(data.manual || revision?.origin === 'manual') {el('outcomeSection').hidden=true;active=null;return;}
         const ticker = data.symbol;
         const store = history(ticker);
-        el('outcomeSection').hidden = false;
+        el('outcomeSection').hidden = !revision && !store.error && !store.checkpoints.some(record => record.ticker === ticker);
         el('outcomeCurrent').hidden = !revision;
         el('outcomeSource').textContent = revision
             ? `Utfall mot vald Research-version ${date(revision.savedAt)} (${revision.id}). Sparad tes och gamla antaganden finns i versionsinspektören ovan.`

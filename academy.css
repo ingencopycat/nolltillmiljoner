@@ -8,21 +8,22 @@
 .academy-grid a {text-underline-offset:.2em;}
 .academy-grid h3 a,.academy-progress > a,.academy-next > a,.academy-lesson nav a {display:inline-flex;align-items:center;min-height:44px;}
 .academy-grid p {line-height:1.65;}
-.academy-progress {border:1px solid var(--border);background:var(--panel);border-radius:12px;margin:1rem 0 2rem;}
+.academy-progress {border:0;border-block:1px solid var(--border);background:none;border-radius:0;margin:1rem 0 2rem;}
 .academy-progress progress {display:block;width:100%;height:.7rem;margin:1rem 0;accent-color:var(--primary);}
 .academy-paths {grid-template-columns:repeat(2,minmax(0,1fr));}
 .academy-paths summary {cursor:pointer;min-height:44px;padding:.5rem 0;}
 .academy-filter {display:flex;gap:1rem;flex-wrap:wrap;align-items:end;}
 .academy-filter label {display:grid;gap:.5rem;flex:1;min-width:min(100%,16rem);}
 .academy-filter input,.academy-filter select {width:100%;min-height:46px;}
-.academy-lesson {max-width:48rem;margin:2rem auto;line-height:1.85;}
+.academy-lesson {max-width:50rem;margin:2rem auto;line-height:1.85;font-size:18px;}
+.academy-lesson > p {font-family:var(--font-reading);font-size:21px;}
 .academy-lesson h1 {font-size:clamp(2rem,5vw,3rem);line-height:1.2;}
 .academy-lesson h2 {margin-top:2rem;line-height:1.35;}
-.academy-lesson .academy-short {font-size:1.2rem;}
+.academy-lesson .academy-short {font:25px/1.6 var(--font-reading);}
 .academy-lesson .academy-example {border-inline-start:3px solid var(--primary);padding:1rem 1.5rem;margin:1.5rem 0;background:var(--panel);}
 .academy-lesson details {padding:1rem 0;border-block:1px solid var(--border);}
 .academy-lesson summary {cursor:pointer;min-height:44px;padding:.5rem 0;font-weight:600;}
-.academy-quiz {padding:1rem;margin:1.5rem 0;border:1px solid var(--border);border-radius:12px;}
+.academy-quiz {padding:1.5rem 0;margin:1.5rem 0;border:0;border-block:1px solid var(--border);border-radius:0;}
 .academy-quiz label {display:flex;align-items:center;gap:.7rem;padding:.6rem 0;min-height:44px;cursor:pointer;}
 .academy-quiz input {width:auto;}
 .academy-next {display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin:2rem 0;}
@@ -47,15 +48,15 @@
 .academy-roadmap h3 {margin:.5rem 0}
 .academy-roadmap [data-state=ongoing] {border-left:4px solid var(--primary)}
 .academy-roadmap [data-state=complete] {border-left:4px solid var(--primary);background:var(--panel)}
-.academy-xp {margin-block:2rem}
+.academy-xp {margin-block:2rem;font-size:14px;background:none;border-left:0;}
 .academy-xp progress,[data-skill-bar] {width:100%;accent-color:var(--primary)}
 .academy-step {border-top:1px solid var(--border);padding-block:1rem}
-.academy-step .academy-quiz {background:var(--panel)}
+.academy-step .academy-quiz {background:none}
 .academy-step fieldset {border:0;padding:0;min-width:0}
 .academy-step legend {font-weight:600;color:var(--text);padding:0}
 .academy-step label:has(input[type=number]),.academy-step label:has(textarea) {display:block}
 .academy-step input[type=number],.academy-step textarea {margin-top:.5rem}
-.academy-quiz input[type=number],.academy-quiz textarea {display:block;width:100%;box-sizing:border-box;min-height:44px;font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.8rem}
+.academy-quiz input[type=number],.academy-quiz textarea {display:block;width:100%;box-sizing:border-box;min-height:44px;font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:.8rem}
 .academy-quiz textarea {resize:vertical}
 .academy-activity-list {padding-left:1.2rem}
 .academy-activity-list li {margin-bottom:.8rem}
@@ -65,3 +66,13 @@
 .academy-achievements .is-earned {font-weight:700}
 @media(max-width:600px){.academy-roadmap{grid-template-columns:1fr}.academy-roadmap .card{padding:1rem}}
 @media(max-width:600px){.academy-paths{grid-template-columns:1fr}.academy-lesson{margin-top:1rem}.academy-progress{padding:1rem}.academy-hero{margin-top:1rem}.academy-next>*{width:100%}}
+
+.academy-roadmap .card,body.light-theme .academy-roadmap .card,.academy-grid .card,body.light-theme .academy-grid .card {background:none;border:0;border-top:1px solid var(--border);border-radius:0;padding:1.4rem 0;}
+.academy-roadmap [data-state=ongoing] {border-top:2px solid var(--primary);}
+.academy-hero h1,.academy-lesson h1 {font-family:var(--font-reading);font-weight:400;}
+.academy-progress > a {font-family:var(--font-reading);font-size:26px;}
+.academy-xp > a {font:600 12px var(--font-ui);}
+.academy-xp {display:flex;flex-direction:column;gap:8px;}
+.academy-xp [data-next-activity] {order:-2;align-self:flex-start;}
+.academy-xp [data-next-reason] {order:-1;margin-top:0;}
+.academy-xp :is([data-xp-label],[data-xp-next],[data-current-path]) {font-size:13px;margin-block:4px;}

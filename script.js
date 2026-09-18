@@ -632,7 +632,7 @@ function getChartColors() {
     muted: style.getPropertyValue('--muted').trim() || '#9bb0c4',
     primary: style.getPropertyValue('--primary').trim() || '#86b1ff',
     primarySoft: style.getPropertyValue('--primary-soft').trim() || '#182332',
-    accent: style.getPropertyValue('--accent').trim() || '#a0aec0',
+    accent: style.getPropertyValue('--chart-secondary').trim() || style.getPropertyValue('--accent').trim() || '#a0aec0',
     tertiary: style.getPropertyValue('--chart-tertiary').trim() || '#c3cddd',
     accentSoft: style.getPropertyValue('--accent-soft').trim() || 'rgba(94, 163, 255, 0.08)',
     warning: style.getPropertyValue('--warning').trim() || '#ffd166',

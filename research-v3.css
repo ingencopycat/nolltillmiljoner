@@ -1,0 +1,192 @@
+/* Canonical V3 production components. Shared, scoped roles: visual-v3-tokens.css. */
+.visual-v3 { --radius-control: 3px; --chart-revenue: var(--primary); font-size: var(--type-body); }
+.visual-v3 [hidden] { display: none !important; }
+.visual-v3 .research-container { max-width: var(--width-workspace); padding-top: var(--space-6); margin-top: 0; }
+.visual-v3 :is(h1,h2,h3) { font-family: var(--font-reading); font-weight: 400; }
+.visual-v3 h1 { font-size: var(--type-page); }
+.visual-v3 :is(.note, .field-help, .metadata-note, .social-note) { font-size: var(--type-meta); line-height: 1.55; }
+.visual-v3 .research-journeys { margin: 0; border: 0; padding: 0; }
+.research-toolbar { display: flex; flex-wrap: wrap; align-items: start; justify-content: space-between; gap: 8px 16px; margin-bottom: 16px; }
+.company-picker { margin: 0; max-width: 600px; }
+.company-picker[open] { flex-basis: 100%; max-width: none; }
+.company-picker > summary { cursor: pointer; min-height: 44px; padding: 10px 0; color: var(--primary); text-align: right; font-weight: 600; }
+.company-picker > summary span { color: var(--muted); font-size: var(--type-meta); font-weight: 400; margin-left: 8px; }
+.company-picker-body { padding: var(--space-6); background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-surface); }
+.visual-v3 .research-switcher-wrap { margin: 0; padding: 0; background: none; border: 0; }
+.visual-v3 .research-switcher { display: block; }
+.visual-v3 .research-pills { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 4px; margin-top: 16px; }
+.visual-v3 .research-pill { display: flex; align-items: center; gap: 8px; border: 0; font-size: var(--type-data); }
+.visual-v3 .research-pill[hidden] { display: none; }
+.visual-v3 #manualThesisEntry { background: none; box-shadow: none; border: 0; border-top: 1px solid var(--border); padding: 0; margin: 16px 0 0; border-radius: 0; }
+.visual-v3 #companySearch { width: 100%; margin-top: 8px; }
+.visual-v3 #companySearchStatus:empty { display: none; }
+.visual-v3 #companyHeaderCard { background: none; border: 0; box-shadow: none; border-radius: 0; padding: 16px 0 24px; margin: 0; }
+.visual-v3 .research-header-top { gap: 24px; align-items: start; }
+.visual-v3 .company-title-wrap h1 { font-size: clamp(3.875rem,6.8vw,6.125rem); line-height: 1.04; overflow-wrap: anywhere; text-transform: none; margin-block: 8px 12px; letter-spacing: -.04em; }
+.visual-v3 .company-badge-row .badge { color: var(--muted); background: none; padding: 0; border: 0; font-size: var(--type-meta); }
+.visual-v3 .company-meta-line { font-size: var(--type-meta); line-height: 1.5; }
+.visual-v3 .source-stamp-wrap { text-align: left; align-items: start; max-width: 340px; }
+.visual-v3 .sec-source-badge { background: none; border: 0; padding: 0; font-size: var(--type-meta); }
+.visual-v3 .last-updated-text { font-size: var(--type-meta); line-height: 1.6; }
+.visual-v3 .company-source-details { margin-top: 8px; color: var(--muted); font-size: var(--type-meta); }
+.visual-v3 .company-source-details summary { cursor: pointer; min-height: 32px; }
+.visual-v3 .company-action { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; margin-top: 16px; }
+.visual-v3 #researchDetail > .section-local-nav { border-block: 1px solid var(--border); margin: 0 0 24px; padding: 4px 0; }
+.visual-v3 #researchDetail > .section-local-nav a { font-size: var(--type-data); }
+.visual-v3 .section-title-row { gap: 12px; align-items: baseline; margin-bottom: 16px; }
+.visual-v3 .section-title-row h2 { font-size: 1.75rem; }
+.visual-v3 .section-subtitle { font-size: var(--type-meta); }
+.visual-v3 .metrics-dashboard-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); border-block: 1px solid var(--border); padding-block: 18px; gap: 28px; }
+.visual-v3 #keyMetricsGrid .metric-box { display: flex; flex-direction: column; min-width: 0; padding: 0; background: none; border: 0; box-shadow: none; }
+.visual-v3 .metric-box-header { display: flex; align-items: center; gap: 4px; margin-bottom: 4px; justify-content: start; }
+.visual-v3 .metric-box-title { min-width: 0; overflow-wrap: anywhere; font-size: var(--type-data); color: var(--muted); }
+.visual-v3 .metric-box-value { font-family: var(--font-reading); font-size: 3.5625rem; letter-spacing: -.055em; font-variant-numeric: tabular-nums; font-weight: 400; color: var(--text); line-height: 1.2; }
+.visual-v3 #keyMetricsGrid .metric-box-value { margin: 0; }
+.visual-v3 .metric-box:first-child .metric-box-value { font-size: 3.5625rem; letter-spacing: -.045em; }
+.visual-v3 .metric-box-sub { font-size: var(--type-meta); margin-top: 8px; }
+.visual-v3 .metric-info-btn { flex: 0 0 44px; width: 44px; min-width: 44px; min-height: 44px; background: none; border: 0; color: var(--muted); }
+.visual-v3 [data-metrics-toggle] { padding-left: 0; border: 0; color: var(--primary); }
+.overview-revenue { margin: 24px 0 32px; }
+.revenue-plot { display: grid; grid-template-columns: repeat(var(--period-count), minmax(0,1fr)); align-items: end; height: 260px; gap: 16px; padding-top: 12px; border-bottom: 1px solid var(--border); }
+.revenue-column { height: 100%; display: grid; grid-template-rows: 1fr auto; gap: 8px; text-align: center; font-size: var(--type-meta); color: var(--muted); }
+.revenue-bar-slot { display: flex; flex-direction: column; justify-content: end; align-items: center; min-height: 0; }
+.revenue-bar { flex-shrink: 0; width: min(100%,80px); height: var(--bar-height); min-height: 1px; background: var(--bar); border: 1px solid var(--bar-stroke); border-radius: 0; }
+.revenue-column:last-child .revenue-bar { background: var(--primary); border-color: var(--primary); }
+.revenue-value { color: var(--text); margin-bottom: 4px; font-variant-numeric: tabular-nums; font: 1.1875rem var(--font-reading); }
+.overview-revenue > .depth-panel { margin: 8px 0 0; border: 0; }
+.visual-v3 #overviewRevenueValues { max-width: 100%; overflow-x: auto; }
+.overview-revenue .depth-panel summary { color: var(--primary); font-size: var(--type-meta); font-weight: 400; padding-left: 0; }
+body.visual-v3 .research-card-block { border: 0; border-radius: 0; box-shadow: none; background: none; padding: 32px 0; margin: 0; }
+.visual-v3 :is(#thesisSection, #thesisReview, #thesisHistorySection, #outcomeSection) { border: 0; max-width: var(--width-editor); margin-inline: 0; }
+.visual-v3 #thesisSection { border-top: 1px solid var(--border); margin-top: 32px; }
+.visual-v3 .thesis-intro-text { color: var(--muted); font-size: var(--type-body); margin: 8px 0 24px; }
+.visual-v3 .thesis-fieldset { border: 0; padding: 0; margin: 0 0 24px; min-width: 0; }
+.visual-v3 .thesis-fieldset legend { font-size: var(--type-meta); color: var(--muted); text-transform: none; letter-spacing: .02em; padding: 0; margin: 0 0 8px; }
+.visual-v3 .thesis-form label { font-size: var(--type-body); font-weight: 600; }
+.visual-v3 .thesis-form { gap: 0; }
+.visual-v3 .thesis-fieldset legend { border: 0; }
+.visual-v3 input[type=date] { color-scheme: dark; }
+.visual-v3.light-theme input[type=date] { color-scheme: light; }
+.visual-v3 .thesis-form .field-group { margin-bottom: 16px; }
+.visual-v3 :is(input,textarea,select) { border-radius: var(--radius-control); font-size: var(--type-body); background: var(--panel); color: var(--text); border: 1px solid var(--border); min-height: 44px; max-width: 100%; }
+.visual-v3 textarea { line-height: 1.6; padding: 12px 16px; }
+.visual-v3 .thesis-fieldset .field-help { color: var(--muted); }
+.visual-v3 .depth-panel { border: 0; border-top: 1px solid var(--border); border-radius: 0; margin-block: 24px; box-shadow: none; }
+.visual-v3 .depth-panel > summary { padding: 16px 0; }
+.visual-v3 .depth-panel[open] > summary { border: 0; margin-bottom: 16px; }
+.visual-v3 .thesis-form-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; border: 0; padding-top: 8px; }
+.visual-v3 .thesis-form-actions .ghost-btn { background: none; border: 0; color: var(--muted); font-size: var(--type-data); }
+.visual-v3 .thesis-form-actions .destructive-action { color: var(--danger); }
+.visual-v3 .thesis-metadata { border: 0; background: none; padding: 0; }
+.visual-v3 .workspace-depth { max-width: var(--width-editor); margin-inline: 0; }
+.visual-v3 .workspace-depth:has(> section[hidden]) { display: none; }
+.visual-v3 #researchChartStatus:empty { display: none; }
+.visual-v3 #manualCompanyField[hidden] { display: none; }
+.visual-v3 .workspace-state { margin-bottom: 24px; color: var(--muted); font-size: var(--type-data); }
+.visual-v3 .workspace-state a { margin-left: 12px; color: var(--primary); }
+.visual-v3 .growth-metric-card { background: none; border: 0; border-radius: 0; box-shadow: none; padding: 16px 0; }
+.visual-v3 #valuationSection { border-top: 1px solid var(--border); }
+.visual-v3 table { font-size: var(--type-data); }
+.visual-v3 .research-chart-wrap canvas { max-width: 100%; }
+.visual-v3 dialog { border-radius: var(--radius-dialog); box-shadow: var(--shadow-overlay); }
+.visual-v3 .provenance-technical summary { min-height: 44px; padding-block: 12px; cursor: pointer; color: var(--primary); }
+.public-report-page .social-shell { max-width: var(--width-workspace); padding: 32px 24px 64px; }
+.public-report-page .social-shell a { color: var(--primary); text-underline-offset: 3px; }
+.public-report-page .page-intro { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin: 0 0 40px; }
+.public-report-page .page-intro p { margin: 0; font-size: var(--type-meta); }
+.public-report-page #socialStatus:empty { display: none; }
+.public-report-page .public-report { background: none; border: 0; padding: 0; box-shadow: none; }
+.report-header { border-bottom: 1px solid var(--border); padding-bottom: 32px; margin-bottom: 32px; }
+.public-report-page .report-header h1 { font-size: clamp(4.625rem,8vw,7.0625rem); font-weight: 400; overflow-wrap: anywhere; line-height: 1.04; margin: 12px 0 24px; letter-spacing: -.045em; }
+.report-byline { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: var(--type-data); }
+.report-dates { display: flex; flex-wrap: wrap; gap: 8px 24px; color: var(--muted); font-size: var(--type-meta); margin-top: 16px; }
+.report-ownership { color: var(--muted); font-size: var(--type-meta); margin: 24px 0 0; max-width: 65ch; }
+.report-section { margin: 0 0 40px; }
+.report-section h2 { font-size: 1.25rem; margin: 8px 0 16px; }
+.public-report-page .social-shell #publicAnalysis .social-text { font-family: var(--font-reading); font-size: 1.375rem; line-height: 1.75; margin: 0; }
+.public-report-page .social-shell #publicAnalysis .report-section:first-of-type .social-text { font-size: 1.8125rem; line-height: 1.6; }
+.claim-label { font-size: var(--type-meta); color: var(--muted); }
+.claim-label[data-claim=assumption] { color: var(--manual); }
+.claim-label[data-claim=reported] { color: var(--informational); }
+.claim-label[data-claim=calculated] { color: var(--derived); }
+.public-report-page .account-secondary { border: 0; border-top: 1px solid var(--border); border-radius: 0; padding: 24px 0; background: none; }
+@media (max-width: 640px) {
+  .visual-v3 .research-container { padding: 16px 20px 48px; }
+  .visual-v3 .research-journeys a { font-size: var(--type-data); }
+  .research-toolbar { gap: 4px 8px; margin-bottom: 8px; }
+  .company-picker { margin: 0; max-width: 90px; }
+  .company-picker[open] { max-width: none; margin-top: 0; }
+  .company-picker > summary { font-size: var(--type-data); }
+  .company-picker > summary span { display: none; }
+  .company-picker-body { padding: 16px; }
+  .visual-v3 .research-pills { grid-template-columns: 1fr; }
+  .visual-v3 #companyHeaderCard { padding: 8px 0 24px; }
+  .visual-v3 .research-header-top { display: block; }
+  .visual-v3 .company-title-wrap h1 { font-size: 3.875rem; }
+  .visual-v3 .company-action { margin-top: 12px; width: 100%; }
+  .visual-v3 .source-stamp-wrap { display: block; margin-top: 12px; max-width: none; }
+  .visual-v3 .source-stamp-wrap .sec-source-badge { display: none; }
+  .visual-v3 .company-source-details { margin-top: 0; }
+  .visual-v3 #researchDetail > .section-local-nav { gap: 0 12px; margin-bottom: 24px; }
+  .visual-v3 #researchDetail > .section-local-nav a { font-size: var(--type-meta); }
+  .visual-v3 .section-title-row { display: block; }
+  .visual-v3 .section-title-row h2 { margin-bottom: 4px; }
+  .visual-v3 .metrics-dashboard-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 16px; }
+  .visual-v3 .metric-box:first-child { grid-column: 1 / -1; }
+  .visual-v3 .metric-box:first-child .metric-box-header { justify-content: start; }
+  .visual-v3 .metric-box-header { min-height: 44px; }
+  .visual-v3 .metric-box-title { font-size: var(--type-meta); }
+  .visual-v3 .metric-box-header .metric-box-title { flex: 1; }
+  .visual-v3 .metric-box:first-child .metric-box-header .metric-box-title { flex: 0 1 auto; }
+  .visual-v3 .metric-box-value { font-size: 2.0625rem; }
+  .visual-v3 .metric-box:first-child .metric-box-value { font-size: 3rem; }
+  .visual-v3 .research-section { margin: 20px 0 8px; }
+  .visual-v3 .metric-box-sub { line-height: 1.4; }
+  .revenue-plot { height: 240px; gap: 8px; }
+  .revenue-value { font-size: 1rem; }
+  .visual-v3 .depth-panel > summary small { display: block; margin: 4px 0 0; }
+  .visual-v3 .thesis-form-actions button[type=submit] { width: 100%; }
+  .visual-v3 .workspace-state a { display: block; margin: 8px 0 0; }
+  .public-report-page .social-shell { padding: 24px 20px 48px; }
+  .public-report-page .page-intro { margin-bottom: 32px; }
+  .public-report-page .report-header h1 { font-size: 4.625rem; }
+  .report-header { padding-bottom: 24px; margin-bottom: 24px; }
+  .report-section { margin-bottom: 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .visual-v3 *, .visual-v3 *::before, .visual-v3 *::after { scroll-behavior: auto; transition: none; animation: none; }
+}
+
+.visual-v3 #keyMetricsGrid[data-metrics=compact] > .metric-box:nth-child(n+4) { display: none; }
+.visual-v3 .metric-unit { font: 12px var(--font-ui); letter-spacing: 0; color: var(--muted); margin-left: 10px; white-space: nowrap; }
+.visual-v3 :is(#thesis-text,#thesis-trigger) { font: 27px/1.6 var(--font-reading); background: var(--bg); }
+.visual-v3 .company-action::after { content: "→"; border-left: 1px solid currentColor; padding-left: 20px; margin-left: 24px; }
+.visual-v3 .report-body { display: grid; grid-template-columns: minmax(0,800px) minmax(160px,1fr); gap: 64px; }
+.visual-v3 .report-index { grid-column: 2; grid-row: 1; align-self: start; border-top: 1px solid var(--border); padding-top: 20px; display: grid; gap: 16px; font-size: 12px; }
+.visual-v3 .report-copy { grid-column: 1; grid-row: 1; min-width: 0; }
+.visual-v3 .report-byline { overflow-wrap: anywhere; }
+.visual-v3 .report-section { scroll-margin-top: 110px; }
+.visual-v3 .revenue-plot { background: repeating-linear-gradient(to top,transparent 0,transparent 55px,var(--border) 56px,transparent 57px); }
+.visual-v3 .overview-revenue { display: grid; grid-template-columns: minmax(0,3fr) minmax(180px,1fr); column-gap: 48px; }
+.visual-v3 .overview-revenue > :not(.revenue-context) { grid-column: 1; }
+.visual-v3 .revenue-context { grid-column: 2; grid-row: 1 / 4; border-top: 1px solid var(--border); padding-top: 20px; font-size: 14px; line-height: 1.7; }
+.visual-v3 .revenue-context h3 { font-size: 28px; }
+.visual-v3 #keyMetricsGrid .metric-box:nth-child(2), .visual-v3 #keyMetricsGrid .metric-box:nth-child(3) { border-left: 1px solid var(--border); padding-left: 28px; }
+.visual-v3 #keyMetricsGrid .metric-box:first-child .metric-box-value { color: var(--primary); }
+.visual-v3 .research-section { margin-block: 16px; }
+.visual-v3 .metric-box-value { margin-top: 0; }
+.visual-v3 .metric-box-header .metric-box-title { flex: 0 1 auto; }
+.visual-v3 button.revenue-bar { min-height: 1px; padding: 0; cursor: pointer; }
+@media (max-width: 800px) {
+  .visual-v3 .overview-revenue { display: block; }
+  .visual-v3 .revenue-context { margin-top: 24px; }
+  .visual-v3 .report-body { display: block; }
+  .visual-v3 .report-index { display: flex; flex-wrap: wrap; margin-bottom: 32px; }
+}
+@media (max-width: 640px) {
+  .visual-v3 :is(#thesis-text,#thesis-trigger) { font-size: 23px; }
+  .public-report-page .social-shell #publicAnalysis .report-section:first-of-type .social-text { font-size: 25px; }
+  .visual-v3 #keyMetricsGrid .metric-box:nth-child(2) { border-left: 0; padding-left: 0; }
+  .visual-v3 #keyMetricsGrid .metric-box:nth-child(3) { padding-left: 16px; }
+  .visual-v3 .metric-unit { display: block; margin: 6px 0 0; }
+}

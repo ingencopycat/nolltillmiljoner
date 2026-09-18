@@ -135,7 +135,25 @@
    if(page==='konto'){if(!accountListening){accountListening=true;window.addEventListener('ntm-account-change',()=>{accountVersion++;close();if(busy){refreshPending=true;return;}run(account);});}await account();}
    if(page==='profil'){const username=C.normalizeUsername(params.get('u'));await publicProfile(username,$('publicProfile'));await list($('publicAnalyses'),'analyses',{username});}
    if(page==='analys'){const a=await adapter.socialRead('analysis',{id:params.get('id')});if(!a){status('');$('publicAnalysis').append(node('p','Analysen finns inte eller är inte offentlig.'));return;}
-     document.querySelector('.page-intro h1').hidden=true;$('publicAnalysis').append(node('p',a.content.ticker,'section-kicker'),node('h1',a.content.company),link('Av @'+a.author.username,C.profileUrl(a.author.username)),node('p','Publicerad '+new Date(a.publishedAt).toLocaleString('sv-SE'),'social-note'),node('p','Publicerad av användaren. Resonemanget är användarens eget och innebär inget godkännande från NTM.','social-note'));content($('publicAnalysis'),{...a.content,company:null,ticker:null});}
+     document.querySelector('.page-intro h1').hidden=true;
+     const report=$('publicAnalysis'),header=node('header',undefined,'report-header');
+     header.append(node('p',a.content.ticker+' · Investeringsanalys','section-kicker'),node('h1',a.content.company));
+     const byline=node('div',undefined,'report-byline');byline.append(link('Av @'+a.author.username,C.profileUrl(a.author.username)));header.append(byline);
+     const dates=node('div',undefined,'report-dates');
+     dates.append(node('span','Publicerad '+new Date(a.publishedAt).toLocaleDateString('sv-SE')));
+     if(a.content.analysisDate)dates.append(node('span','Analysdatum '+a.content.analysisDate));header.append(dates);
+     header.append(node('p','Publicerad av användaren. Resonemanget är användarens eget och innebär inget godkännande från NTM.','report-ownership'));report.append(header);
+     const body=node('div',undefined,'report-body'),index=node('nav',undefined,'report-index'),copy=node('div',undefined,'report-copy');
+     index.setAttribute('aria-label','I analysen');body.append(index,copy);report.append(body);
+     for(const [key,label] of Object.entries(C.fields)){
+       if(['company','ticker','analysisDate'].includes(key)||!a.content[key])continue;
+       const section=node('section',undefined,'report-section');section.id='report-'+key;
+       index.append(link(label,'#'+section.id));
+       const ownership=node('span',key==='assumptions'?'Författarens antagande':key==='sources'?'Författarens källhänvisningar':'Författarens bedömning','claim-label');
+       ownership.dataset.claim=key==='assumptions'?'assumption':'judgment';
+       section.append(ownership,node('h2',label),node('p',a.content[key],'social-text'));copy.append(section);
+     }
+   }
    if(page==='upptack'){$('userSearch').onsubmit=e=>{e.preventDefault();run(async()=>{const username=C.normalizeUsername($('usernameSearch').value.replace(/^@/,''));if(!/^[a-z0-9_]{3,24}$/.test(username))return;await list($('searchResults'),'search',{username},'profiles');emit('user_search_used');});};await list($('recentAnalyses'),'recent');}
    if($('socialStatus').textContent==='Hämtar…')status('');
  }catch(_){status('Det gick inte att hämta profildata. Kontrollera anslutningen och försök igen.');$('socialStatus').append(button('Försök igen',init));}}

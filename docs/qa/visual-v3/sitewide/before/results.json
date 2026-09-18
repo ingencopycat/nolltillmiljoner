@@ -1,0 +1,485 @@
+{
+  "states": [
+    {
+      "route": "index.html",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "index.html",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "index.html",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "index.html",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "verktyg.html",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "verktyg.html",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "verktyg.html",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "verktyg.html",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "ranta-pa-ranta.html",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "ranta-pa-ranta.html",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "ranta-pa-ranta.html",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "ranta-pa-ranta.html",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "fire-kalkylator.html",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "fire-kalkylator.html",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "fire-kalkylator.html",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "fire-kalkylator.html",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "min-ntm.html",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "min-ntm.html",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "min-ntm.html",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "min-ntm.html",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "academy.html",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "academy.html",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "academy.html",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "academy.html",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "academy-cagr.html",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "academy-cagr.html",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "academy-cagr.html",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "academy-cagr.html",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "academy-activity-recovery.html",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "academy-activity-recovery.html",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "academy-activity-recovery.html",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "academy-activity-recovery.html",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "fragor-svar.html",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "fragor-svar.html",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "fragor-svar.html",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "fragor-svar.html",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "fragor-svar-pe-tal.html",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "fragor-svar-pe-tal.html",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "fragor-svar-pe-tal.html",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "fragor-svar-pe-tal.html",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "konto.html",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "konto.html",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "konto.html",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "konto.html",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "profil.html?u=reader_a",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "profil.html?u=reader_a",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "profil.html?u=reader_a",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "profil.html?u=reader_a",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "upptack.html",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "upptack.html",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "upptack.html",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "upptack.html",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "makro.html",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "makro.html",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "makro.html",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "makro.html",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "rapporter.html",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "rapporter.html",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "rapporter.html",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "rapporter.html",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "om-metod.html",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "om-metod.html",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "om-metod.html",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "om-metod.html",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "resurser.html",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "resurser.html",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "resurser.html",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "resurser.html",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "post-jordi-visser-linjart-exponentiellt-ai-trading.html",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "post-jordi-visser-linjart-exponentiellt-ai-trading.html",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "post-jordi-visser-linjart-exponentiellt-ai-trading.html",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "post-jordi-visser-linjart-exponentiellt-ai-trading.html",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "research.html?ticker=NVDA",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "research.html?ticker=NVDA",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "research.html?ticker=NVDA",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "research.html?ticker=NVDA",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "analys.html?id=11111111-1111-4111-8111-111111111111",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "analys.html?id=11111111-1111-4111-8111-111111111111",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "analys.html?id=11111111-1111-4111-8111-111111111111",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "analys.html?id=11111111-1111-4111-8111-111111111111",
+      "width": 390,
+      "theme": "light",
+      "overflow": false
+    }
+  ],
+  "errors": []
+}

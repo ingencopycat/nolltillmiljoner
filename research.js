@@ -76,8 +76,9 @@ function showManualThesis(ticker, label = '', identityType = 'ticker') {
     for(const id of ['researchLoading','researchError','researchIndex']) document.getElementById(id).style.display='none';
     const detail=document.getElementById('researchDetail');detail.style.display='block';detail.classList.add('is-manual');
     document.getElementById('manualThesisEntry').open=false;
+    document.getElementById('companyPicker').open=false;
     updateStockPills(ticker);
-    const visible=['manualJournalHeader','thesisReview','thesisSection','researchExportSection','thesisHistorySection'];
+    const visible=['manualJournalHeader','thesisReviewDepth','thesisSection','researchExportSection','thesisHistorySectionDepth'];
     for(const child of detail.children) child.hidden=!visible.includes(child.id);
     document.getElementById('manualThesisHeading').hidden=false;
     document.getElementById('manualThesisHeading').textContent=data.company.name;
@@ -258,6 +259,7 @@ function renderStockDetail(data) {
 
     // 3. Render Growth & Margins
     renderGrowthAndMargins(data);
+    window.NTMVisualV3?.revenue(data);
 
     // 4. Initialize & Render Valuation Section
     initValuationSection(data);
@@ -492,6 +494,18 @@ function renderKeyMetrics(data) {
         });
     }
 
+    if (Number.isFinite(ttmMetrics.dilutedEps?.value)) {
+        cards.push({title: 'Vinst per aktie TTM', value: formatCurrency(ttmMetrics.dilutedEps.value, 2),
+            sub: researchMetricBasis(ttmMetrics.dilutedEps), metricKey: 'dilutedEps', provenance: ttmMetrics.dilutedEps});
+    }
+    // Lead with profile-appropriate existing evidence; retain every other metric in depth.
+    const leading = profile === 'financial_services'
+        ? ['revenue', 'netIncome', 'dilutedEps']
+        : ['revenue', 'freeCashFlow', 'dilutedEps'];
+    cards.sort((a, b) => {
+        const rank = key => leading.includes(key) ? leading.indexOf(key) : leading.length;
+        return rank(a.metricKey) - rank(b.metricKey);
+    });
     // Render cards into DOM
     cards.forEach((card) => {
         const box = document.createElement('article');
@@ -517,7 +531,13 @@ function renderKeyMetrics(data) {
 
         const valEl = document.createElement('span');
         valEl.className = 'metric-box-value';
-        valEl.textContent = card.value;
+        const raw = card.provenance.value;
+        const scale = Math.abs(raw) >= 1e9 ? 1e9 : Math.abs(raw) >= 1e6 ? 1e6 : 1;
+        valEl.textContent = Number.isFinite(raw) ? (raw / scale).toLocaleString('sv-SE', {maximumFractionDigits: 2}) : card.value;
+        const unitEl = document.createElement('span');
+        unitEl.className = 'metric-unit';
+        unitEl.textContent = (scale === 1e9 ? 'md ' : scale === 1e6 ? 'mn ' : '') + (data.company?.currency || 'USD') + (card.metricKey === 'dilutedEps' ? '/aktie' : '');
+        valEl.appendChild(unitEl);
 
         const subEl = document.createElement('span');
         subEl.className = 'metric-box-sub';
@@ -979,14 +999,16 @@ function openProvenanceDialog(title, provenance) {
 
     if (!dialog || !content || !provenance) return;
 
+    let technicalHtml = '';
     let rowsHtml = `
+        <p class="provenance-explanation">${escapeHtml(researchMetricBasis(provenance))}. ${!Number.isFinite(provenance.value) ? 'Jämförbart underlag saknas. Se begränsningarna nedan.' : provenance.isDerived ? 'NTM sammanställer rapporterade värden enligt beräkningen nedan.' : 'Värdet kommer från bolagets rapportering.'}</p>
         <div class="prov-row"><span class="prov-label">Metrik:</span><span class="prov-val"><strong>${escapeHtml(title)}</strong></span></div>
         <div class="prov-row"><span class="prov-label">${provenance.isDerived ? 'Härlett värde' : 'Rapporterat värde'}:</span><span class="prov-val">${Number.isFinite(provenance.value) ? provenance.value.toLocaleString('sv-SE') + ' ' + escapeHtml(provenance.unit || 'enhet saknas') : 'Ej tillgängligt'}</span></div>
         <div class="prov-row"><span class="prov-label">Källa:</span><span class="prov-val">Officiell SEC EDGAR XBRL</span></div>
     `;
 
     if (provenance.concept) {
-        rowsHtml += `<div class="prov-row"><span class="prov-label">XBRL Concept:</span><span class="prov-val"><code>${escapeHtml(provenance.taxonomy || 'us-gaap')}:${escapeHtml(provenance.concept)}</code></span></div>`;
+        technicalHtml += `<div class="prov-row"><span class="prov-label">XBRL Concept:</span><span class="prov-val"><code>${escapeHtml(provenance.taxonomy || 'us-gaap')}:${escapeHtml(provenance.concept)}</code></span></div>`;
     }
 
     if (provenance.period) {
@@ -1002,13 +1024,13 @@ function openProvenanceDialog(title, provenance) {
     }
 
     if (provenance.accession) {
-        rowsHtml += `<div class="prov-row"><span class="prov-label">Accession Number:</span><span class="prov-val"><code>${escapeHtml(provenance.accession)}</code></span></div>`;
+        technicalHtml += `<div class="prov-row"><span class="prov-label">Accession Number:</span><span class="prov-val"><code>${escapeHtml(provenance.accession)}</code></span></div>`;
     }
 
     if (provenance.isDerived) {
         rowsHtml += `<div class="prov-row"><span class="prov-label">Härledning:</span><span class="prov-val">${escapeHtml(researchDerivationLabel(provenance))}</span></div>`;
         if (provenance.derivedFrom && provenance.derivedFrom.length > 0) {
-            rowsHtml += `<div class="prov-row"><span class="prov-label">Underliggande källor:</span><span class="prov-val"><code>${escapeHtml(provenance.derivedFrom.join(', '))}</code></span></div>`;
+            technicalHtml += `<div class="prov-row"><span class="prov-label">Underliggande källor:</span><span class="prov-val"><code>${escapeHtml(provenance.derivedFrom.join(', '))}</code></span></div>`;
         }
         if (provenance.quartersIncluded) {
             rowsHtml += `<div class="prov-row"><span class="prov-label">Kvartal i TTM:</span><span class="prov-val">${escapeHtml(provenance.quartersIncluded.join(' + '))}</span></div>`;
@@ -1020,9 +1042,9 @@ function openProvenanceDialog(title, provenance) {
     }
 
     if (provenance.notes) rowsHtml += `<div class="prov-row"><span class="prov-label">Begränsningar:</span><span class="prov-val">${escapeHtml(provenance.notes)}</span></div>`;
-    if (provenance.methodVersion) rowsHtml += `<div class="prov-row"><span class="prov-label">Metodversion:</span><span class="prov-val">${escapeHtml(provenance.methodVersion)}</span></div>`;
+    if (provenance.methodVersion) technicalHtml += `<div class="prov-row"><span class="prov-label">Metodversion:</span><span class="prov-val">${escapeHtml(provenance.methodVersion)}</span></div>`;
     if (provenance.inputs) rowsHtml += `<details><summary>Underliggande kvartal och källor</summary>${provenance.inputs.map((i) => `<p>${escapeHtml(i.quarter)} · ${escapeHtml(researchMetricLabel(i.metric))} · ${escapeHtml(i.concept || 'begrepp saknas')} · ${escapeHtml(i.accession || 'käll-ID saknas')} · ${escapeHtml(i.filed || 'datum saknas')}</p>`).join('')}</details>`;
-    content.innerHTML = rowsHtml;
+    content.innerHTML = rowsHtml + (technicalHtml ? `<details class="provenance-technical"><summary>Tekniska källdetaljer</summary>${technicalHtml}</details>` : '');
 
     if (typeof dialog.showModal === 'function') {
         dialog.showModal();
@@ -1839,6 +1861,7 @@ function restoreRevisionAssumptions(revision, data) {
 }
 
 function renderRevisionHistory(data) {
+    window.NTMVisualV3?.workspace(data);
     if (window.NTMResearchPublication) Promise.resolve().then(() => window.NTMResearchPublication.refreshSource());
     const section = document.getElementById('thesisHistorySection');
     if (!section) return;

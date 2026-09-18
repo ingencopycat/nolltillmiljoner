@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="premium.css" />
     <link rel="stylesheet" href="social.css" />
+    <link rel="stylesheet" href="visual-v3-tokens.css" />
+    <link rel="stylesheet" href="research-v3.css" />
     <script src="vendor/chart-4.5.1.umd.min.js"></script>
 
     <!-- SEO START -->
@@ -30,7 +32,7 @@
     <link rel="icon" type="image/png" href="images/ntm-icon.png" />
     <!-- SEO END -->
 </head>
-<body>
+<body class="visual-v3">
     <a class="skip-link" href="#main-content">Till innehållet</a>
     <header class="topbar">
         <div class="topbar-inner">
@@ -59,14 +61,15 @@
     </header>
 
     <main id="main-content" tabindex="-1" class="container research-container">
+        <div class="research-toolbar">
         <nav class="section-local-nav research-journeys" aria-label="Research">
             <a href="research.html" aria-current="page">Analysera</a>
             <a href="upptack.html">Upptäck Research</a>
         </nav>
-        <!-- Stock Switcher Bar -->
+<details class="company-picker" id="companyPicker"><summary>Byt bolag <span>SEC-data eller manuell tes</span></summary><div class="company-picker-body">        <!-- Stock Switcher Bar -->
         <nav class="research-switcher-wrap" aria-label="Välj bolag att analysera">
             <div class="research-switcher">
-                <span class="research-switcher-label">Bolag:</span>
+                <label for="companySearch">Sök bland bolag med SEC-data</label><input id="companySearch" type="search" placeholder="Bolag eller ticker" autocomplete="off" aria-controls="stockSwitcherPills" /><p id="companySearchStatus" class="note" role="status"></p>
                 <div class="research-pills" id="stockSwitcherPills">
                     <a href="research.html" class="research-pill" data-ticker="ALL">Alla bolag</a>
                     <a href="research.html?ticker=NVDA" class="research-pill" data-ticker="NVDA">NVDA <span class="pill-badge">NVIDIA</span></a>
@@ -85,6 +88,13 @@
             </div>
         </nav>
 
+<details class="card depth-panel" id="manualThesisEntry"><summary>Skapa en manuell tes för ett annat bolag</summary>
+                <p>Manuell tes — automatisk bolagsdata saknas. Din text och historik sparas lokalt. Ange ticker eller en egen bolagsbeteckning.</p>
+                <form id="manualThesisForm" class="calculator-form">
+                <div class="field-group"><label for="manualTicker">Ticker (valfritt om bolagsnamn anges)</label><input id="manualTicker" type="text" maxlength="24" pattern="[A-Za-z0-9.\-]+" /></div>
+                <div class="field-group"><label for="manualLabel">Bolagsnamn eller egen beteckning (valfritt om ticker anges)</label><input id="manualLabel" type="text" maxlength="120" /></div>
+                <button type="submit">Öppna tesformulär</button><p id="manualEntryStatus" role="status"></p></form></details></div></details>
+        </div>
         <!-- Loading State -->
         <div id="researchLoading" class="card research-state-card" role="status" aria-live="polite" style="display: none;">
             <div class="research-spinner" aria-hidden="true"></div>
@@ -103,12 +113,7 @@
             </div>
         </section>
 
-<details class="card depth-panel" id="manualThesisEntry"><summary>Skapa en manuell tes för ett annat bolag</summary>
-                <p>Manuell tes — automatisk bolagsdata saknas. Din text och historik sparas lokalt. Ange ticker eller en egen bolagsbeteckning.</p>
-                <form id="manualThesisForm" class="calculator-form">
-                <div class="field-group"><label for="manualTicker">Ticker (valfritt om bolagsnamn anges)</label><input id="manualTicker" type="text" maxlength="24" pattern="[A-Za-z0-9.\-]+" /></div>
-                <div class="field-group"><label for="manualLabel">Bolagsnamn eller egen beteckning (valfritt om ticker anges)</label><input id="manualLabel" type="text" maxlength="120" /></div>
-                <button type="submit">Öppna tesformulär</button><p id="manualEntryStatus" role="status"></p></form></details>
+
 
         <!-- Index / Directory View (When no ticker is chosen) -->
         <section id="researchIndex" class="research-view" style="display: none;">
@@ -341,8 +346,7 @@
             <!-- Section B: Key Metrics Grid (Nyckeltal TTM / Balansräkning) -->
             <section class="research-section" aria-labelledby="key-metrics-heading">
                 <div class="section-title-row">
-                    <h2 id="key-metrics-heading">Översikt & Nyckeltal (TTM)</h2>
-                    <a data-concept-help="eps" href="academy-eps.html">Lär dig EPS: vinst per aktie</a>
+                    <h2 id="key-metrics-heading">Bolaget i siffror</h2>
                     <span class="section-subtitle" id="ttmPeriodSubtitle">Senaste 12 månaderna</span>
                 </div>
                 <div class="metrics-dashboard-grid" id="keyMetricsGrid" data-metrics="compact">
@@ -351,7 +355,8 @@
             </section>
 
             <button class="ghost-btn" type="button" data-metrics-toggle aria-controls="keyMetricsGrid" aria-expanded="false">Visa alla nyckeltal</button>
-            <!-- Section E: Growth & Margins (Tillväxt & Marginaler) -->
+<section id="overviewRevenue" class="overview-revenue" aria-labelledby="revenueHeading" hidden><div class="section-title-row"><div><span class="section-kicker">Bolagsrapporterad data</span><h2 id="revenueHeading">Intäkter över tid</h2></div><span class="note">Räkenskapsår · USD</span></div><div id="overviewRevenuePlot" class="revenue-plot" role="img"></div><details class="depth-panel" id="revenueSources"><summary>Visa värden och källor</summary><p>Årsintäkter från normaliserade SEC-rapporter. Saknade värden visas som luckor.</p><div id="overviewRevenueValues"></div><a href="#researchFinancials">Bokslut och fullständiga källor</a></details></section>
+<details class="depth-panel" id="growthDepth"><summary>Tillväxt och marginaler</summary>            <!-- Section E: Growth & Margins (Tillväxt & Marginaler) -->
             <section class="research-section" aria-labelledby="growth-margins-heading">
                 <div class="section-title-row">
                     <h2 id="growth-margins-heading">Tillväxt & Marginaler</h2>
@@ -362,8 +367,9 @@
                 </div>
             </section>
 
+</details>
             <!-- Section: Valuation & Scenario Explorer -->
-            <section class="card research-card-block" id="thesisReview" aria-labelledby="reviewHeading" hidden>
+            <details class="depth-panel workspace-depth" id="thesisReviewDepth"><summary>Granska din tes och fatta ett beslut</summary><section class="card research-card-block" id="thesisReview" aria-labelledby="reviewHeading" hidden>
                 <h2 id="reviewHeading">Granska tes</h2>
                 <p>Håller din investeringsteori fortfarande? Utgå från vad du själv trodde och vilka antaganden som behövde stämma. Detta är din bedömning, inte investeringsråd.</p>
                 <h3>Det här trodde du</h3><p id="reviewBelief"></p>
@@ -380,16 +386,16 @@
                 <button type="button" id="review-close" class="ghost-btn">Stäng tes</button>
                 <p id="reviewStatus" role="status" aria-live="polite"></p>
                 <p id="researchReminders" class="note" role="status" hidden></p>
-            </section>
+            </section></details>
 <section class="card research-card-block thesis-section" id="thesisSection" aria-labelledby="thesis-heading">
                 <div class="section-heading">
                     <div>
                         <span class="section-kicker">Min analys</span>
-                        <h2 id="thesis-heading">Spara din investeringsteori</h2>
+                        <h2 id="thesis-heading">Formulera din tes</h2>
                     </div>
                 </div>
                 <p class="thesis-intro-text">
-                    Redigera din senaste analys. Spara en ny version när din tes eller dina antaganden ändras; tidigare versioner finns kvar på den här enheten.
+                    Börja med vad du tror. Pröva vad som skulle ändra din slutsats.
                 </p>
 
                 <!-- Thesis Status Banner -->
@@ -398,10 +404,10 @@
                 <div class="field-group" id="manualCompanyField" hidden><label for="manualCompanyName">Bolagsnamn eller egen beteckning</label><input id="manualCompanyName" type="text" maxlength="120" /></div>
                 <form id="thesisForm" class="calculator-form thesis-form" novalidate>
 
-                    <fieldset class="thesis-fieldset">
-                        <legend>Min tes</legend>
+<fieldset class="thesis-fieldset">
+                        <legend>01 · Din övertygelse</legend>
                         <div class="field-group">
-                            <label for="thesis-text">Min teori</label>
+                            <label for="thesis-text">Vad tror jag?</label>
                             <textarea
                                 id="thesis-text"
                                 class="thesis-textarea"
@@ -411,8 +417,19 @@
                             ></textarea>
                             <small class="field-help">Obligatorisk. Fritt skriven investeringstesi för detta bolag.</small>
                         </div>
-                    </fieldset>
-<fieldset class="thesis-fieldset">
+                    </fieldset><fieldset class="thesis-fieldset">
+                        <legend>02 · Motargumentet</legend>
+                        <div class="field-group">
+                            <label for="thesis-trigger">Vad skulle göra mig fel?</label>
+                            <textarea
+                                id="thesis-trigger"
+                                class="thesis-textarea"
+                                placeholder="Vilka konkreta händelser eller siffror skulle få dig att skriva av eller sälja?"
+                                rows="3"
+                            ></textarea>
+                            <small class="field-help">Valfritt. Tydliga triggers för att revidera positionen.</small>
+                        </div>
+                    </fieldset><div class="field-group"><label for="thesis-review-date">03 · När ska jag granska det igen? (valfritt)</label><input id="thesis-review-date" type="date" /><small>Din egen planering, inte en prognos eller automatisk avisering.</small></div><details class="depth-panel thesis-advanced" id="thesisAdvanced"><summary>Fördjupa tesen <small>Antaganden, risker, anteckningar och rapportfrågor</small></summary><fieldset class="thesis-fieldset">
                         <legend>Min tes bygger på att</legend>
                         <p>Skriv gärna minst ett antagande: något som behöver stämma för att din investeringsteori ska hålla. Upp till tre, med dina egna ord.</p>
                         <div class="field-group"><label for="thesis-assumption-1">Antagande 1 (valfritt)</label><input id="thesis-assumption-1" type="text" /></div><details class="depth-panel assumption-detail" id="assumptionDetail1"><summary>Motbevis och granskning av antagande 1 (valfritt)</summary>
@@ -439,10 +456,8 @@
                         <div class="field-group"><label for="assumption-note-3">Underlag och anteckning för antagande 3</label><textarea id="assumption-note-3" rows="2"></textarea></div>
                         <p class="note">Datumet påminner om din egen planering. Det betyder inte att antagandet är falskt. Spara en ny version för att bevara din granskning.</p>
                         </details>
-                        <div class="field-group"><label for="thesis-review-date">Nästa granskning (valfritt)</label><input id="thesis-review-date" type="date" /><small>Din egen planering, inte en prognos eller automatisk avisering.</small></div>
-                    </fieldset>
 
-                    <fieldset class="thesis-fieldset">
+                    </fieldset><fieldset class="thesis-fieldset">
                         <legend>Viktigaste risker</legend>
                         <div class="field-group">
                             <label for="thesis-risks">Identifierade risker</label>
@@ -454,23 +469,7 @@
                             ></textarea>
                             <small class="field-help">Valfritt. Konkreta risker eller motargument.</small>
                         </div>
-                    </fieldset>
-
-                    <fieldset class="thesis-fieldset">
-                        <legend>Vad skulle få mig att ändra mig?</legend>
-                        <div class="field-group">
-                            <label for="thesis-trigger">Falsifiering av tes</label>
-                            <textarea
-                                id="thesis-trigger"
-                                class="thesis-textarea"
-                                placeholder="Vilka konkreta händelser eller siffror skulle få dig att skriva av eller sälja?"
-                                rows="3"
-                            ></textarea>
-                            <small class="field-help">Valfritt. Tydliga triggers för att revidera positionen.</small>
-                        </div>
-                    </fieldset>
-
-                    <fieldset class="thesis-fieldset">
+                    </fieldset><fieldset class="thesis-fieldset">
                         <legend>Anteckningar</legend>
                         <div class="field-group">
                             <label for="thesis-notes">Övriga anteckningar</label>
@@ -482,18 +481,16 @@
                             ></textarea>
                             <small class="field-help">Valfritt. Personliga noteringar eller remissteknik.</small>
                         </div>
-                    </fieldset>
-
-<details class="depth-panel" id="reportQuestionsEditor"><summary>Frågor inför nästa rapport (valfritt)</summary><p>Upp till tre egna frågor. Efter rapporten kan du svara och spara en ny version. Inga svar hämtas automatiskt.</p><fieldset class="thesis-fieldset"><legend>Rapportfråga 1</legend><div class="field-group"><label for="report-question-1">Fråga 1</label><input id="report-question-1" type="text" /></div>
+                    </fieldset><details class="depth-panel" id="reportQuestionsEditor"><summary>Frågor inför nästa rapport (valfritt)</summary><p>Upp till tre egna frågor. Efter rapporten kan du svara och spara en ny version. Inga svar hämtas automatiskt.</p><fieldset class="thesis-fieldset"><legend>Rapportfråga 1</legend><div class="field-group"><label for="report-question-1">Fråga 1</label><input id="report-question-1" type="text" /></div>
     <div class="field-group"><label for="report-status-1">Status för fråga 1</label><select id="report-status-1"><option value="open">Fortfarande öppen</option><option value="answered">Besvarad</option></select></div>
     <div class="field-group"><label for="report-answer-1">Svar eller anteckning till fråga 1</label><textarea id="report-answer-1" rows="2"></textarea></div></fieldset><fieldset class="thesis-fieldset"><legend>Rapportfråga 2</legend><div class="field-group"><label for="report-question-2">Fråga 2</label><input id="report-question-2" type="text" /></div>
     <div class="field-group"><label for="report-status-2">Status för fråga 2</label><select id="report-status-2"><option value="open">Fortfarande öppen</option><option value="answered">Besvarad</option></select></div>
     <div class="field-group"><label for="report-answer-2">Svar eller anteckning till fråga 2</label><textarea id="report-answer-2" rows="2"></textarea></div></fieldset><fieldset class="thesis-fieldset"><legend>Rapportfråga 3</legend><div class="field-group"><label for="report-question-3">Fråga 3</label><input id="report-question-3" type="text" /></div>
     <div class="field-group"><label for="report-status-3">Status för fråga 3</label><select id="report-status-3"><option value="open">Fortfarande öppen</option><option value="answered">Besvarad</option></select></div>
     <div class="field-group"><label for="report-answer-3">Svar eller anteckning till fråga 3</label><textarea id="report-answer-3" rows="2"></textarea></div></fieldset></details>
+</details>
                     <div class="thesis-form-actions">
                         <button type="submit" class="thesis-submit-btn">Spara ny version</button>
-                        <button type="button" id="thesisDeleteBtn" class="destructive-action ghost-btn thesis-delete-btn" style="display: none;">Radera all thesis-historik</button>
                         <button type="button" id="researchPublishBtn" class="ghost-btn">Publicera analys</button>
                     </div>
                 </form>
@@ -507,7 +504,7 @@
                 <!-- Thesis Metadata -->
                 <div id="thesisMetadata" class="thesis-metadata" style="display: none;">
                     <p class="metadata-note">
-                        🔒 Sparas lokalt på den här enheten. Valfri synk kopierar privata data till ditt konto. En analys blir offentlig först när du själv publicerar den.
+                        Sparas lokalt på den här enheten. Valfri synk kopierar privata data till ditt konto. En analys blir offentlig först när du själv publicerar den.
                     </p>
                     <details class="thesis-snapshot-details" id="latestSnapshotDetails">
                         <summary id="latestSnapshotSummary">Senaste sparade värdering</summary>
@@ -529,6 +526,7 @@
                     Vad måste bolaget prestera framåt för att det angivna värderingspriset ska ge din önskade avkastning?
                     Mata in aktiekurs och dina egna antaganden – inte konsensus eller analytikerestimat.
                 </p>
+                <a data-concept-help="eps" href="academy-eps.html">Lär dig EPS: vinst per aktie</a>
 
                 <!-- Missing TTM EPS / Manual Override Banner -->
                 <div id="val-override-banner" class="info-callout" style="display: none;">
@@ -863,7 +861,7 @@
                     </div>
                 </details>
             </section>
-            <section class="card research-card-block" id="thesisHistorySection" aria-labelledby="thesis-history-heading" hidden>
+            <details class="depth-panel workspace-depth" id="thesisHistorySectionDepth"><summary>Versioner och sparade underlag</summary><section class="card research-card-block" id="thesisHistorySection" aria-labelledby="thesis-history-heading" hidden>
                 <p><a href="min-ntm.html#behavioralSection">Beslutspaus, gemensamma antaganden och din privata retrospektiv i Min NTM</a></p>
                 <div class="section-heading">
                     <div>
@@ -895,10 +893,11 @@
                 <button type="button" id="revisionRestoreBtn" class="ghost-btn" aria-describedby="revisionRestoreHelp">Använd dessa antaganden med aktuell Research-data</button>
                 <p id="revisionRestoreHelp" class="note"></p>
                 <button type="button" id="revisionDeleteBtn" class="destructive-action ghost-btn">Radera vald version</button>
+                <button type="button" id="thesisDeleteBtn" class="destructive-action ghost-btn thesis-delete-btn" style="display: none;">Radera all thesis-historik</button>
                 <p class="note">Sparade utfallsobservationer behålls med en arkivkopia av källversionen även om en eller alla Research-versioner raderas.</p>
-            </section>
+            </section></details>
 
-            <section class="card research-card-block" id="outcomeSection" aria-labelledby="outcome-heading" hidden>
+            <details class="depth-panel workspace-depth" id="outcomeSectionDepth"><summary>Följ upp process och utfall</summary><section class="card research-card-block" id="outcomeSection" aria-labelledby="outcome-heading" hidden>
                 <h2 id="outcome-heading">Utfall sedan analysen</h2>
                 <p id="outcomeSource" class="note"></p>
                 <div id="outcomeCurrent">
@@ -921,7 +920,7 @@
                     <select id="outcomeCheckpointSelect"></select>
                     <div id="outcomeCheckpointContent"></div>
                 </details>
-            </section>
+            </section></details>
 
             <section class="card research-card-block change-section" id="changeDetectionSection" aria-labelledby="change-heading" style="display: none;">
                 <div class="section-heading">
@@ -942,7 +941,7 @@
         <dialog id="provenanceDialog" class="provenance-dialog" aria-labelledby="provenance-heading">
             <div class="provenance-dialog-inner">
                 <div class="provenance-dialog-header">
-                    <h3 id="provenance-heading">Källhänvisning (SEC Provenance)</h3>
+                    <h3 id="provenance-heading">Källa och beräkning</h3>
                     <button type="button" class="close-dialog-btn" id="closeProvenanceDialog" aria-label="Stäng">✕</button>
                 </div>
                 <div class="provenance-dialog-body" id="provenanceDialogContent">
@@ -987,6 +986,7 @@
     <script src="research-outcome-ui.js"></script>
     <script src="research-ai.js"></script>
     <script src="research-ai-ui.js"></script>
+    <script src="research-v3.js"></script>
     <script src="research.js"></script>
     <script src="min-review.js"></script>
     <script src="research-review.js"></script>

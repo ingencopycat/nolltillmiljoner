@@ -1,0 +1,47 @@
+[
+  {
+    "check": "release",
+    "passed": true,
+    "evidence": "PASS: release tests, generated artifacts, calendar/rules, staging and local references"
+  },
+  {
+    "check": "social",
+    "passed": true,
+    "evidence": "PASS offline browser: opt-in, immutable-name confirmation, preview/cancel/focus, request allowlist, no silent upload, unpublish/private preservation, privacy, XSS text, lists/search, mobile menu and 360/390/430px dark/light overflow"
+  },
+  {
+    "check": "auth",
+    "passed": true,
+    "evidence": "PASS SDK persistence: navigation/reload/hard reload/tab/browser restart, new device, automatic refresh, cross-tab logout, deletion/stale rejection, offline logout; no silent upload"
+  },
+  {
+    "check": "rls",
+    "passed": true,
+    "evidence": "PASS social PostgreSQL: usernames, roles, A/B/anon boundaries, projection minimization, Academy controls, follows, reports/24h, owned snapshots, unpublish, deactivation/reactivation, cascades and stale tokens"
+  },
+  {
+    "check": "accessibility",
+    "passed": true,
+    "evidence": "PASS accessibility/CSP: fragor-svar-isk-grunder.html"
+  },
+  {
+    "check": "provenance",
+    "passed": true,
+    "evidence": "ℹ pass 72"
+  },
+  {
+    "check": "workflow",
+    "passed": true,
+    "evidence": "PASS: actionlint 1.7.7 workflow syntax and expressions"
+  },
+  {
+    "check": "visual-v3",
+    "passed": true,
+    "evidence": "54 viewport capture records; no overflow or page errors; plus two source-dialog screenshots. Chart gap, verification and immutability checks passed."
+  },
+  {
+    "check": "browser",
+    "passed": true,
+    "evidence": "38 Chromium tests passed; subprocess exit 0. See browser-validation.log."
+  }
+]

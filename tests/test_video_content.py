@@ -36,7 +36,9 @@ for(const post of videos){
   assert.ok(!html.includes('<iframe'));
   for(const language of ['sv','en']) for(const paragraph of post.summary[language]) assert.ok(html.includes(context.constrainPostMarkup(paragraph)));
   const file = 'post-' + post.slug + '.html';
-  assert.ok(fs.readFileSync(file,'utf8').includes(html));
+  // The static generator normalizes LF; Git on Windows may check source out as CRLF.
+  // Compare the complete renderer output, with only line endings normalized.
+  assert.ok(fs.readFileSync(file,'utf8').replace(/\r\n/g,'\n').includes(html.replace(/\r\n/g,'\n')));
 }
 const post = videos.find(p => p.media.videoId === 'Uzc3tBB9pLg');
 assert.ok(post); assert.equal(post.category, 'Video');

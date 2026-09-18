@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="premium.css" />
+<link rel="stylesheet" href="visual-v3-tokens.css" />
 
     <!-- SEO START -->
     <title>Min NTM – dina lokalt sparade analyser | Noll till Miljoner</title>
@@ -28,7 +29,7 @@
     <link rel="icon" type="image/png" href="images/ntm-icon.png" />
     <!-- SEO END -->
 </head>
-<body>
+<body class="visual-v3">
     <a class="skip-link" href="#main-content">Till innehållet</a>
     <header class="topbar">
         <div class="topbar-inner">
@@ -45,14 +46,8 @@
     <main id="main-content" tabindex="-1" class="container tool-landing" data-min-ntm>
         <header class="page-intro tool-intro min-ntm-intro"><span class="section-kicker">Lokalt på din enhet</span><h1>Min NTM</h1><p>Din personliga översikt.</p><p class="min-ntm-local-note">Sparas lokalt på den här enheten. Ingen inloggning krävs.</p></header>
 
-        <p><a class="secondary-btn" href="konto.html">Konto, synk &amp; offentlig profil</a></p>
-        <section class="card calculator-card min-ntm-card" aria-labelledby="academyMiniHeading">
-            <h2 id="academyMiniHeading">Ditt läranderum</h2>
-            <p data-xp-label>0 XP</p><progress data-xp-bar max="100" value="0" aria-label="Academy progression"></progress><p data-xp-next></p><p data-current-path></p><a data-next-activity href="academy.html">Academy</a>
-            <p data-academy-progress>Lärhistorik sparas lokalt.</p>
-            <p class="note">Ingår i JSON-backup. Lärhistorik skickas inte med den valfria molnsynken.</p>
-            <p id="academyStatus" role="status"></p>
-        </section>
+        <p><a href="konto.html">Konto, synk &amp; offentlig profil</a></p>
+
         <section class="card calculator-card min-ntm-card" aria-labelledby="reviewQueueHeading">
             <h2 id="reviewQueueHeading">Att granska</h2>
             <p id="reviewQueueStatus" role="status">Kontrollerar sparade teser…</p>
@@ -61,7 +56,50 @@
             <div id="pauseQueue" hidden></div>
             <details><summary>Avstod, stängda teser och historik</summary><div id="closedTheses" class="min-ntm-list"></div></details>
         </section>
-        <section class="card calculator-card min-ntm-card" id="behavioralSection" aria-labelledby="behavioralHeading">
+
+        <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-research-heading">
+            <div class="section-heading"><div><span class="section-kicker">Mina analyser</span><h2 id="min-ntm-research-heading">Aktiva teser</h2></div></div>
+            <p class="min-ntm-status" data-min-ntm-theses-status hidden></p>
+            <div class="min-ntm-list" data-min-ntm-theses></div>
+            <div class="empty-state min-ntm-empty" data-min-ntm-theses-empty>
+                <h3>Inga aktiva teser</h3>
+                <p>Spara en analys från NTM Research så dyker den upp här. Börja med att analysera ett bolag!</p>
+                <div class="min-ntm-actions"><a class="secondary-btn" href="research.html?ticker=NVDA">Analysera NVIDIA</a><a class="secondary-btn" href="research.html?ticker=SOFI">Analysera SoFi</a><a class="ghost-btn" href="research.html">Alla bolag →</a></div>
+            </div>
+        </section>
+<section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-scenarios-heading">
+            <div class="section-heading"><div><span class="section-kicker">Sparade scenarier</span><h2 id="min-ntm-scenarios-heading">Sparade planer</h2></div></div>
+            <p class="min-ntm-status" data-min-ntm-scenarios-status hidden></p>
+            <div class="min-ntm-list" data-min-ntm-scenarios></div>
+            <div class="empty-state min-ntm-empty" data-min-ntm-scenarios-empty>
+                <h3>Inga sparade scenarier ännu</h3>
+                <p>Spara ett scenario i Investeringskalkylatorn eller Sparmålskalkylatorn så dyker det upp här.</p>
+                <div class="min-ntm-actions"><a class="secondary-btn" href="ranta-pa-ranta.html">Öppna investering</a><a class="ghost-btn" href="sparmalskalkylator.html">Öppna sparmål</a></div>
+            </div>
+        </section>
+
+
+
+
+
+        <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-recent-heading">
+            <div class="section-heading"><div><span class="section-kicker">Senaste verktyg</span><h2 id="min-ntm-recent-heading">Senaste verktyg</h2></div></div>
+            <p class="min-ntm-status" data-min-ntm-recent-status hidden></p>
+            <div class="min-ntm-list" data-min-ntm-recent-tools></div>
+            <div class="empty-state min-ntm-empty" data-min-ntm-recent-empty>
+                <h3>Inga använda verktyg ännu</h3>
+                <p>När du öppnar ett verktyg sparas det här lokalt som en genväg tillbaka.</p>
+            </div>
+        </section>
+
+        <section class="card calculator-card min-ntm-card" aria-labelledby="academyMiniHeading">
+            <h2 id="academyMiniHeading">Ditt läranderum</h2>
+            <p data-xp-label>0 XP</p><progress data-xp-bar max="100" value="0" aria-label="Academy progression"></progress><p data-xp-next></p><p data-current-path></p><a data-next-activity href="academy.html">Academy</a>
+            <p data-academy-progress>Lärhistorik sparas lokalt.</p>
+            <p class="note">Ingår i JSON-backup. Lärhistorik skickas inte med den valfria molnsynken.</p>
+            <p id="academyStatus" role="status"></p>
+        </section>
+<section class="card calculator-card min-ntm-card" id="behavioralSection" aria-labelledby="behavioralHeading">
             <h2 id="behavioralHeading">Beslutsminne &amp; metod</h2>
             <p>Privat och lokalt. Du väljer vad du vill anteckna och ompröva. Ingen bedömning av dig eller dina investeringar görs.</p>
             <p id="behavioralStatus" role="status" aria-live="polite"></p>
@@ -105,42 +143,7 @@
                 </div><div id="methodRecords"></div>
             </details>
         </section>
-        <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-research-heading">
-            <div class="section-heading"><div><span class="section-kicker">Mina analyser</span><h2 id="min-ntm-research-heading">Aktiva teser</h2></div></div>
-            <p class="min-ntm-status" data-min-ntm-theses-status hidden></p>
-            <div class="min-ntm-list" data-min-ntm-theses></div>
-            <div class="empty-state min-ntm-empty" data-min-ntm-theses-empty>
-                <h3>Inga aktiva teser</h3>
-                <p>Spara en analys från NTM Research så dyker den upp här. Börja med att analysera ett bolag!</p>
-                <div class="min-ntm-actions"><a class="secondary-btn" href="research.html?ticker=NVDA">Analysera NVIDIA</a><a class="secondary-btn" href="research.html?ticker=SOFI">Analysera SoFi</a><a class="ghost-btn" href="research.html">Alla bolag →</a></div>
-            </div>
-        </section>
-<section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-scenarios-heading">
-            <div class="section-heading"><div><span class="section-kicker">Sparade scenarier</span><h2 id="min-ntm-scenarios-heading">Sparade planer</h2></div></div>
-            <p class="min-ntm-status" data-min-ntm-scenarios-status hidden></p>
-            <div class="min-ntm-list" data-min-ntm-scenarios></div>
-            <div class="empty-state min-ntm-empty" data-min-ntm-scenarios-empty>
-                <h3>Inga sparade scenarier ännu</h3>
-                <p>Spara ett scenario i Investeringskalkylatorn eller Sparmålskalkylatorn så dyker det upp här.</p>
-                <div class="min-ntm-actions"><a class="secondary-btn" href="ranta-pa-ranta.html">Öppna investering</a><a class="ghost-btn" href="sparmalskalkylator.html">Öppna sparmål</a></div>
-            </div>
-        </section>
-
-
-
-
-
-        <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-recent-heading">
-            <div class="section-heading"><div><span class="section-kicker">Senaste verktyg</span><h2 id="min-ntm-recent-heading">Senaste verktyg</h2></div></div>
-            <p class="min-ntm-status" data-min-ntm-recent-status hidden></p>
-            <div class="min-ntm-list" data-min-ntm-recent-tools></div>
-            <div class="empty-state min-ntm-empty" data-min-ntm-recent-empty>
-                <h3>Inga använda verktyg ännu</h3>
-                <p>När du öppnar ett verktyg sparas det här lokalt som en genväg tillbaka.</p>
-            </div>
-        </section>
-
-        <section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-links-heading">
+<section class="card calculator-card min-ntm-card" aria-labelledby="min-ntm-links-heading">
             <div class="section-heading"><div><span class="section-kicker">Snabblänkar</span><h2 id="min-ntm-links-heading">Gå vidare</h2></div></div>
             <div class="min-ntm-quick-links"><a class="secondary-btn" href="research.html">Research</a><a class="secondary-btn" href="makro.html">Makro</a><a class="secondary-btn" href="rapporter.html">Rapporter</a><a class="secondary-btn" href="verktyg.html">Alla verktyg</a></div>
         </section>

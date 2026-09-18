@@ -1,0 +1,33 @@
+{
+  "checked": 27,
+  "changed": [],
+  "files": {
+    "change-detection.js": "869ff0e89d9a8f83bf888c41ab8787e671d638f006c2c1b909b39080a802a33e",
+    "cloud-adapter.js": "f419d45c893186395a63926ce27debb9eeddf6e1e1082913de6dde2c18ba89f5",
+    "cloud-sync.js": "05257fce70518acbfc59dcfea6ee8de653677905c9c94bfe4ce8bfe701e7c54f",
+    "research-outcomes.js": "8c507dc5aad0c1b3a0a0e1a25bd3c84228632cb91fcfe4c8bf018aa496f4c052",
+    "research-publication.js": "a4182efff6cdddd38c2fc1af27f459c3371184f64771c3ec64fcc332e3218559",
+    "research-review.js": "1edef82c75e6e2d159ffb0cd36e13bd4e97569f71c3c588197bd61badc3d7204",
+    "research-snapshot.js": "fbee7d1c500ca739989ef89a1f9e1a4d279812a99f4a0d6621b36163768be78e",
+    "social-core.js": "3d9330a6c3d52793ba3bd831dd3cc55b8d04a81029d35fa2c46973baf04edfe4",
+    "thesis-storage.js": "98f85545d80230135f1db293864e91c043ce3e232ab8565bdaded2ef58458557",
+    "valuation-core.js": "0c064b59f89c570b6aca12d6942375186f6b00ae49278cc91778dab4ee31d8f8",
+    "data/stocks/COHR.json": "96e65c733fb968a5eb0c5f8022d981d0a5c6ad2a9fccbacdb265aeb64aec44ca",
+    "data/stocks/CRWD.json": "d6ad70286d0a1fdeaf1423cc5d397a2b5bd069670a28c429ca24e11ba44a17e9",
+    "data/stocks/CRWV.json": "8105aaa3f1adbbe97ab4ef1732c7dbaa3b62aa00b95fc47e3228b10864d2d573",
+    "data/stocks/FLY.json": "671f78c4a8275f77aaf913890618da8aaf09fd9ac576d0fef41ddfca588120b0",
+    "data/stocks/MRVL.json": "ecd0741ab976232fff46dfc37b7ca1650a97050c6f21f53a8b68df8a12430de8",
+    "data/stocks/MU.json": "3ec88582022f2332b4c9a09ce6737c21e85b81eef5cff14c65a1b0904d070413",
+    "data/stocks/NVDA.json": "5f51888dc9b6311016e0aadff7e14afe86b2cb86fdd4840737c946bf47e7c4e5",
+    "data/stocks/RKLB.json": "93a4bb28cde43276492ee3eb3ba0370dc7635e75498c5f480ee0c87962186612",
+    "data/stocks/SNDK.json": "25d2acf1cc5dfecf83590802986d96328f10f0c364b2e6c9a4e99db11f159139",
+    "data/stocks/SOFI.json": "73f2ed2defe6b8095eb3b7ed42178e64cf3cbfb1b76d352792403b402abb3d5d",
+    "data/stocks/TTMI.json": "efa8ce58bdcd4163db52af11ab62cd9f25d2b9a5e8fede39b220ad29cd281a1f",
+    "data/stocks/VRT.json": "d2ea589de4256864668a8c4fe27df25d9294b33bde87d522f5204d69ae9bb8e6",
+    "supabase/migrations/202609140001_cloud_foundation.sql": "3924a436636af01f3d89d6df07670b2df7d33b59c445cbdda49bf9fbfe999a30",
+    "supabase/migrations/202609150001_complete_parent_identity.sql": "47a87d89619aa928152d098902d6e0291b6dbabc649f33561a30ec604f8be040",
+    "supabase/migrations/202609160001_public_profiles.sql": "a1efc503e7ebdc760173190459945ab67b447711ea966a7cecd94bd28077fd9d",
+    "supabase/migrations/202609160002_username_availability.sql": "bddc8d7200cf99cb500cf830fab5a78a80725136da65abfca517cc1d8cadc6b0",
+    "supabase/migrations/202609170001_local_research_publication.sql": "ceec25b58267e6f680989910baaaa82e5183bcb1641ce9f9563c2b28b4eea7dd"
+  }
+}

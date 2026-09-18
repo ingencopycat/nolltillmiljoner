@@ -1,0 +1,1253 @@
+{
+  "checks": [
+    {
+      "name": "NVDA-1440-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "NVDA-metrics-1440-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "NVDA-1440-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "NVDA-metrics-1440-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "NVDA-360-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "NVDA-metrics-360-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "NVDA-360-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "NVDA-metrics-360-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "NVDA-390-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "NVDA-metrics-390-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "NVDA-390-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "NVDA-metrics-390-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "NVDA-430-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "NVDA-metrics-430-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "NVDA-430-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "NVDA-metrics-430-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "SOFI-1440-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "SOFI-metrics-1440-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "SOFI-1440-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "SOFI-metrics-1440-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "SOFI-360-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "SOFI-metrics-360-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "SOFI-360-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "SOFI-metrics-360-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "SOFI-390-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "SOFI-metrics-390-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "SOFI-390-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "SOFI-metrics-390-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "SOFI-430-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "SOFI-metrics-430-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "SOFI-430-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "SOFI-metrics-430-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "CRWD-1440-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "CRWD-metrics-1440-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "CRWD-1440-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "CRWD-metrics-1440-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "CRWD-360-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "CRWD-metrics-360-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "CRWD-360-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "CRWD-metrics-360-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "CRWD-390-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "CRWD-metrics-390-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "CRWD-390-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "CRWD-metrics-390-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "CRWD-430-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "CRWD-metrics-430-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "CRWD-430-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "CRWD-metrics-430-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "FLY-1440-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "FLY-metrics-1440-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "FLY-1440-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "FLY-metrics-1440-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "FLY-360-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "FLY-metrics-360-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "FLY-360-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "FLY-metrics-360-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "FLY-390-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "FLY-metrics-390-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "FLY-390-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "FLY-metrics-390-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "FLY-430-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "FLY-metrics-430-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "FLY-430-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "FLY-metrics-430-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "CRWV-1440-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "CRWV-metrics-1440-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "CRWV-1440-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "CRWV-metrics-1440-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "CRWV-360-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "CRWV-metrics-360-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "CRWV-360-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "CRWV-metrics-360-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "CRWV-390-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "CRWV-metrics-390-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "CRWV-390-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "CRWV-metrics-390-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "CRWV-430-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "CRWV-metrics-430-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "CRWV-430-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "CRWV-metrics-430-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "long-saved-thesis",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "advanced-long-thesis",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "public-short-1440-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "public-short-1440-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "public-short-360-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "public-short-360-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "public-short-390-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "public-short-390-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "public-short-430-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "public-short-430-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "public-long-1440-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "public-long-1440-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "public-long-360-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "public-long-360-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "public-long-390-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "public-long-390-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "public-long-430-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "public-long-430-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "public-optional-absent-1440-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "public-optional-absent-1440-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "public-optional-absent-360-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "public-optional-absent-360-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "public-optional-absent-390-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "public-optional-absent-390-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    },
+    {
+      "name": "public-optional-absent-430-dark",
+      "overflow": false,
+      "contrast": {
+        "--text": 16.131642023678257,
+        "--muted": 8.578119889623974,
+        "--primary": 10.871193263753772,
+        "--warning": 10.461718929016314,
+        "--danger": 9.05459483961223
+      }
+    },
+    {
+      "name": "public-optional-absent-430-light",
+      "overflow": false,
+      "contrast": {
+        "--text": 15.25347510288731,
+        "--muted": 5.606503873196803,
+        "--primary": 6.619727110508125,
+        "--warning": 6.043710938690283,
+        "--danger": 6.305558146761401
+      }
+    }
+  ],
+  "errors": [],
+  "publicResources": [
+    {
+      "name": "http://127.0.0.1:59510/style.css",
+      "bytes": 118068,
+      "duration": 6.9000000059604645
+    },
+    {
+      "name": "http://127.0.0.1:59510/premium.css",
+      "bytes": 35007,
+      "duration": 7.800000011920929
+    },
+    {
+      "name": "http://127.0.0.1:59510/social.css",
+      "bytes": 5277,
+      "duration": 7.9000000059604645
+    },
+    {
+      "name": "http://127.0.0.1:59510/visual-v3-tokens.css",
+      "bytes": 3221,
+      "duration": 8.699999988079071
+    },
+    {
+      "name": "http://127.0.0.1:59510/research-v3.css",
+      "bytes": 17148,
+      "duration": 8.800000011920929
+    },
+    {
+      "name": "http://127.0.0.1:59510/images/ntm-logo.webp",
+      "bytes": 34856,
+      "duration": 9.200000017881393
+    },
+    {
+      "name": "http://127.0.0.1:59510/ntm-product.js",
+      "bytes": 8759,
+      "duration": 10
+    },
+    {
+      "name": "http://127.0.0.1:59510/valuation-core.js",
+      "bytes": 2347,
+      "duration": 3.399999976158142
+    },
+    {
+      "name": "http://127.0.0.1:59510/script.js",
+      "bytes": 304297,
+      "duration": 3.100000023841858
+    },
+    {
+      "name": "http://127.0.0.1:59510/cloud-config.js",
+      "bytes": 426,
+      "duration": 1.9000000059604645
+    },
+    {
+      "name": "http://127.0.0.1:59510/vendor/supabase/supabase.js",
+      "bytes": 218618,
+      "duration": 3.0999999940395355
+    },
+    {
+      "name": "http://127.0.0.1:59510/cloud-adapter.js",
+      "bytes": 7288,
+      "duration": 2.9000000059604645
+    },
+    {
+      "name": "http://127.0.0.1:59510/social-core.js",
+      "bytes": 1924,
+      "duration": 2.7000000178813934
+    },
+    {
+      "name": "http://127.0.0.1:59510/social-ui.js",
+      "bytes": 21875,
+      "duration": 2.600000023841858
+    },
+    {
+      "name": "https://offline-fixture.supabase.co/rest/v1/rpc/ntm_social_read",
+      "bytes": 0,
+      "duration": 2.9000000059604645
+    },
+    {
+      "name": "http://127.0.0.1:59510/ntm-ui.js",
+      "bytes": 8944,
+      "duration": 3
+    }
+  ]
+}
