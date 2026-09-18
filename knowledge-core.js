@@ -1,10 +1,10 @@
 /* Shared public catalog projection/search. Editorial source files are never deployed. */
 (function(root){
  'use strict';
- const fields=['id','slug','question','shortAnswer','fullAnswer','example','caveats','category','concepts','aliases','relatedEntityIds','relatedLessonIds','sources','reviewedAt','publishedAt','status','difficulty','ruleId','featured'];
+ const fields=['id','slug','question','shortAnswer','fullAnswer','example','caveats','category','concepts','aliases','relatedEntityIds','relatedLessonIds','sources','reviewedAt','publishedAt','status','difficulty','ruleId','featured','contentVersion','reviewDue','practiceId'];
  const normalize=value=>String(value??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\bp\s*\/\s*e\b/g,'pe').replace(/[^a-z0-9]+/g,' ').trim();
  const visible=e=>['reviewed','published'].includes(e.status);
- function project(data){return {version:1,categories:data.categories.map(c=>({id:c.id,title:c.title})),entries:data.entries.filter(visible).map(e=>Object.fromEntries(fields.filter(k=>e[k]!==undefined).map(k=>[k,k==='sources'?e[k].map(s=>({title:s.title,url:s.url,reviewedAt:s.reviewedAt})):e[k]])))};}
+ function project(data){return {version:1,pilotConcepts:(data.pilotConcepts||[]).map(c=>({id:c.id,title:c.title,answerId:c.answerId,excerpt:c.excerpt})),categories:data.categories.map(c=>({id:c.id,title:c.title})),entries:data.entries.filter(visible).map(e=>Object.fromEntries(fields.filter(k=>e[k]!==undefined).map(k=>[k,k==='sources'?e[k].map(s=>({title:s.title,url:s.url,reviewedAt:s.reviewedAt})):e[k]])))};}
  function create(data){
   const catalog=project(data),entries=catalog.entries;
   const publicEntries=()=>entries.filter(visible);

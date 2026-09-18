@@ -8,6 +8,22 @@ let annualChartInstance = null;
 let quarterlyChartInstance = null;
 let currentStockData = null;
 
+// Only visible Base inputs; no journal, account, snapshot or calculated output.
+window.NTMWave1Research = function () {
+    const data = currentStockData, C = window.NTMWave1Context;
+    if (!data || data.manual || !C.tickers.includes(data.symbol)) throw Error('Överföring kräver ett bolag med Research-data. Använd annars den fristående kalkylatorn.');
+    const read = id => { const raw = document.getElementById(id)?.value.trim(); return raw ? Number(raw) : NaN; };
+    const metric = data.valuationBase?.ttmDilutedEps, manual = valuationState.isManualEps;
+    if (!manual && (metric?.qualityStatus !== 'available' || !Number.isFinite(metric.value) || metric.value <= 0)) throw Error('Användbar EPS saknas. Ange ett eget positivt EPS-antagande för att fortsätta.');
+    if (!manual && (metric.currency !== 'USD' || metric.unit !== 'USD/shares' || metric.periodType !== 'TTM')) throw Error('EPS-enhet eller period stämmer inte med denna överföring.');
+    if (manual && document.getElementById('val-eps-help')?.textContent.includes('Förifyllt')) throw Error('Ersätt förifylld exempel-EPS med ditt eget antagande först.');
+    return C.create({ticker:data.symbol,name:data.company.name,currency:data.company.currency},
+        {price:read('val-price'),eps:read('val-eps'),growth:read('sc-base-growth'),years:read('val-years'),multiple:read('sc-base-pe')},
+        {priceSource:valuationState.priceSource || 'manual',priceDate:null,epsSource:manual?'manual':'sec-derived',epsUnit:'USD/share',growthUnit:'percent/year',
+         period:manual?'Eget EPS-antagande':metric.period,periodEnd:manual?null:metric.periodEnd,filed:manual?null:metric.filed,
+         sourceMethod:manual?'manual':metric.methodVersion,shareBasis:manual?'manual':metric.shareBasisStatus === 'verified'?'verified':'unverified',sourceUrl:data.metadata.secCompanyFactsUrl});
+};
+
 const SUPPORTED_TICKERS = ['SOFI', 'NVDA', 'CRWD', 'MU', 'MRVL', 'VRT', 'COHR', 'RKLB', 'TTMI', 'SNDK', 'FLY', 'CRWV'];
 
 document.addEventListener('DOMContentLoaded', () => {

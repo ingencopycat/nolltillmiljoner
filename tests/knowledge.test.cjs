@@ -1,10 +1,10 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const raw=require('../docs/internal/knowledge/catalog.cjs'),Core=require('../knowledge-core.js'),K=require('../knowledge-catalog.js'),R=require('../ntm-relations.js'),A=require('../academy-catalog.js'),Q=require('../scripts/knowledge_quality.cjs'),Builder=require('../scripts/build_knowledge.cjs');
 const clone=x=>JSON.parse(JSON.stringify(x)),read=f=>fs.readFileSync(f,'utf8'),rules=JSON.parse(read('data/rule-registry.json'));
-test('26 original questions have unique stable IDs/slugs and valid editorial/source metadata',()=>{
- assert.equal(K.publicEntries().length,26);assert.equal(K.categories.length,7);assert.deepEqual(Q.validate(raw,rules),[]);
- assert.equal(new Set(raw.entries.map(e=>e.id)).size,26);assert.equal(new Set(raw.entries.map(e=>e.slug)).size,26);
- assert.ok(raw.entries.every(e=>e.sources.length&&e.reviewedAt==='2026-09-15'));
+test('26 original questions plus two bounded Wave 1 answers have unique stable IDs/slugs and valid editorial/source metadata',()=>{
+ assert.equal(K.publicEntries().length,28);assert.equal(K.categories.length,7);assert.deepEqual(Q.validate(raw,rules),[]);
+ assert.equal(new Set(raw.entries.map(e=>e.id)).size,28);assert.equal(new Set(raw.entries.map(e=>e.slug)).size,28);
+ assert.ok(raw.entries.every(e=>e.sources.length&&['2026-09-15','2026-09-18'].includes(e.reviewedAt)));
  assert.ok(raw.entries.every(e=>e.fullAnswer!==A.lessons.find(l=>l.id===e.relatedLessonIds[0])?.sections.deep));
 });
 test('draft and needs-update content is excluded from catalog, search and generated pages',()=>{
@@ -68,10 +68,10 @@ test('canonical relationships link every answer to Academy and tools and return 
  }
  assert.ok(read('academy-pe.html').includes('fragor-svar-pe-tal.html'));assert.ok(read('academy-currency.html').includes('fragor-svar-usd-sek-avkastning.html'));
 });
-test('each answer has unique metadata, indexable canonical, safe static text and sitemap entry',()=>{
+test('each answer has unique metadata, status-appropriate indexing and safe static text',()=>{
  const titles=new Set(),sitemap=read('sitemap.xml');for(const e of K.publicEntries()){
   const html=read(K.url(e.id)),title=html.match(/<title>(.*?)<\/title>/)[1];assert.ok(!titles.has(title));titles.add(title);
-  assert.ok(html.includes('name="robots" content="index, follow"'));assert.ok(html.includes('href="https://nolltillmiljoner.se/'+K.url(e.id)+'"'));assert.ok(sitemap.includes(K.url(e.id)));assert.ok(html.includes('data-knowledge-related'));assert.ok(html.includes(e.reviewedAt));
+  assert.ok(html.includes('name="robots" content="'+(e.status==='published'?'index, follow':'noindex, follow')+'"'));assert.ok(html.includes('href="https://nolltillmiljoner.se/'+K.url(e.id)+'"'));assert.equal(sitemap.includes(K.url(e.id)),e.status==='published');assert.ok(html.includes('data-knowledge-related'));assert.ok(html.includes(e.reviewedAt));
  }
  const data=clone(raw);data.entries[0].shortAnswer='<script>alert(1)</script> '+data.entries[0].shortAnswer;const generated=Builder.build(data);assert.ok(!generated.pages.get(K.url('pe')).includes('<script>alert(1)</script>'));assert.ok(generated.script.includes('\\u003cscript>'));
 });

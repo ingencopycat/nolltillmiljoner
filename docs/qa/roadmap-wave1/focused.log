@@ -1,0 +1,13 @@
+﻿Browser smoke: Chromium 153.0.4234.32; fresh contexts on http://127.0.0.1:61287
+python : .......
+At line:3 char:1
++ python -B scripts/wave1_browser.py > $env:TEMP/ntm-wave1-focused.log  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (.......:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+----------------------------------------------------------------------
+Ran 7 tests in 20.001s
+
+OK
+

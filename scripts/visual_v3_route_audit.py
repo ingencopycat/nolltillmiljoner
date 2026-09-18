@@ -1,8 +1,10 @@
 """Every production template: canonical activation, narrow reflow and visible action contrast."""
 import json
+import os
 from pathlib import Path
 from browser_smoke import BrowserSmoke
-ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'docs/qa/visual-v3/sitewide'
+ROOT=Path(__file__).resolve().parents[1];OUT=Path(os.getenv('NTM_V3_QA_DIR',str(ROOT/'docs/qa/visual-v3/sitewide')))
+OUT.mkdir(parents=True,exist_ok=True)
 BrowserSmoke.setUpClass();case=BrowserSmoke();case.setUp();p=case.page
 results=[]
 try:

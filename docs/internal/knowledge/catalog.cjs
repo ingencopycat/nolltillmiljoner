@@ -159,4 +159,43 @@ const entries=[
  'En sida visar 2 kr för senaste kvartalet och en annan 7 kr för de senaste tolv månaderna. Talen motsäger inte varandra: de besvarar olika frågor. Att bara multiplicera kvartalet med fyra kan missa säsongseffekter.',
  'Välj inte automatiskt den högsta EPS-siffran för att få ett lägre P/E. Om justeringar inte går att förklara är jämförelsen osäker. Redovisa skillnaden i stället för att dölja den.')
 ];
-module.exports={version:1,categories,entries};
+// Wave 1: two bounded gaps. No bulk expansion; owner editorial acceptance pending.
+entries.push(
+ entry('compounding','ranta-pa-ranta','Hur fungerar ränta på ränta?', 'saving',['compounding','cagr'],['tool-compound'],['sammansatt avkastning','compound interest'],['compound'],
+ 'Ränta på ränta innebär att även tidigare avkastning kan ge ny avkastning när den ligger kvar. Nästa periods förändring räknas på det då aktuella kapitalet.',
+ 'I ett förenklat exempel utan insättningar multipliceras startkapitalet med tillväxtfaktorn för varje period. Med jämn årsavkastning blir slutvärdet startkapital × (1 + årstakt) upphöjt till antal år. Månadssparande behöver också ta hänsyn till när varje insättning görs.',
+ '100 kr som växer 10 % per år blir 110 kr efter ett år och 121 kr efter två. Den andra ökningen är 11 kr. Exemplet saknar avgift, skatt, inflation och nya insättningar.',
+ 'En jämn takt är ett scenario, inte en prognos. Förluster minskar nästa periods kapitalbas. Kontrollera om resultatet är nominellt eller inflationsjusterat och om avgiften redan har dragits.'),
+ entry('annual-fees','arlig-avgift','Hur påverkar en årlig avgift mitt sparande?', 'saving',['fees','compounding'],['tool-fees','tool-compound'],['fondavgift','årlig avgift','löpande avgift'],['fees'],
+ 'En löpande avgift minskar kapitalet som kan växa vidare. Över tid påverkas därför både avgiftsbeloppet och den framtida avkastningen på pengarna som har dragits.',
+ 'Jämför samma startkapital, insättningar, period och avkastning före avgift. Skilj löpande procentavgift från courtage vid ett köp. I NTM:s förenklade årsmodell används faktorn (1 + avkastning) × (1 − avgift); avgiften räknas på värdet efter periodens avkastning.',
+ '100 kr, 7 % avkastning och 1 % avgift ger 100 × 1,07 × 0,99 = 105,93 kr i denna modell. Med noll avgift blir det 107 kr. Skillnaden är 1,07 kr efter ett år.',
+ 'Verkliga produkter kan ta avgifter vid andra tidpunkter och ha ytterligare kostnader. Dra inte samma avgift två gånger om din angivna avkastning redan är efter avgift. En låg avgift garanterar inte ett bra investeringsutfall.')
+);
+for(const id of ['compounding','annual-fees']) {
+ const e=entries.find(e=>e.id===id);e.status='reviewed';e.reviewedAt='2026-09-18';delete e.publishedAt;
+ e.sources=e.sources.map(s=>({...s,reviewedAt:'2026-09-18'}));
+ e.internalEditorialNotes='Wave 1 bounded addition; primary source checked and arithmetic independently recomputed by Codex; owner acceptance pending.';
+}
+entries.find(e=>e.id==='compounding').sources=[{title:'Investor.gov: Compound Interest Calculator',url:'https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator',reviewedAt:'2026-09-18'}];
+const pilotConcepts=[
+ ['pe','P/E','pe','check-pe-0'],
+ ['forward-basis','Forward och trailing','forward','check-forward-metrics-0'],
+ ['eps','EPS','eps','check-eps-0'],
+ ['dilution','Utspädning','dilution','share-count'],
+ ['fcf','Fritt kassaflöde','fcf','growth-cash'],
+ ['margins','Marginaler','margins','exercise-operating-margin'],
+ ['growth','Tillväxt och CAGR','cagr','check-cagr-0'],
+ ['inflation','Inflation','inflation','price-level'],
+ ['compounding','Ränta på ränta','compounding','cost-timing'],
+ ['annual-fees','Årlig avgift','annual-fees','cost-timing'],
+ ['valuation-assumptions','Värderingsantaganden','thesis','build-thesis'],
+ ['review-falsification','Pröva din tes','thesis','build-thesis']
+].map(([id,title,answerId,practiceId])=>{
+ const e=entries.find(e=>e.id===answerId);e.contentVersion=1;e.reviewDue='2027-03-18';e.practiceId=practiceId;
+ e.internalReview={owner:'NTM owner',acceptance:'pending',excerpt:'shortAnswer',
+  sourceClaims:[{section:'shortAnswer',sources:e.sources.map(s=>s.url)},{section:'fullAnswer',sources:e.sources.map(s=>s.url)},{section:'caveats',sources:e.sources.map(s=>s.url)}],
+  exampleCheck:'NTM synthetic arithmetic / owner rubric; no source endorsement of assumptions'};
+ return {id,title,answerId,excerpt:'shortAnswer'};
+});
+module.exports={version:1,categories,entries,pilotConcepts};

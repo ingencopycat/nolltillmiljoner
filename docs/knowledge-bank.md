@@ -2,6 +2,8 @@
 
 The public area is **Frågor & svar**, at `fragor-svar.html` under **Lär dig**. It gives a direct answer to one question; Academy remains the structured learning journey. The 26 initial entries are editorial seed questions, never represented as real user submissions.
 
+Wave 1 adds two bounded `reviewed` (not search-indexed) answers, `compounding` and `annual-fees`, bringing visible answers to 28. Twelve pilot concept IDs resolve to eleven answer records; valuation assumptions and falsification deliberately share `thesis`. The catalog remains canonical. Pilot records add `contentVersion`, `reviewDue` and an existing `practiceId`; internal reviewer acceptance and section/source mappings are excluded from the public projection. Owner editorial acceptance is pending, separate from engineering validation. See the [Wave 1 report](internal/roadmap-3-wave1-report.md) and [owner procedure](internal/roadmap-3-wave1-owner-test.md).
+
 ## Authoring contract
 
 `docs/internal/knowledge/catalog.cjs` is the canonical editorial source. Add one `entry(...)` call, following an existing entry, and reference shared sources by ID. It supplies stable `id`, `slug`, `question`, `shortAnswer`, `fullAnswer`, optional `example`, `caveats`, category, concepts, aliases, related entity/lesson IDs, sources, review/publication dates, difficulty and status. The helper's initial defaults apply to the reviewed seed batch; a new draft must explicitly override status and dates until it is reviewed. Keep `id` and `slug` stable after publication.

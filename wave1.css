@@ -1,0 +1,12 @@
+/* Use canonical V3 tokens; no alternate visual system. */
+.wave1-dialog{box-sizing:border-box;width:min(42rem,calc(100% - 2rem));max-height:85dvh;overflow:auto;padding:1.5rem;background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:4px;font:inherit;line-height:1.7}
+.wave1-dialog::backdrop{background:rgba(0,0,0,.65)}
+.wave1-dialog a{display:block;min-height:44px;overflow-wrap:anywhere}
+.wave1-dialog h2{margin-top:0;font-size:1.5rem}
+.wave1-dialog button,.wave1-context button,.wave1-actions button,[data-wave1-concept]{min-height:44px;white-space:normal;max-width:100%;margin:.3rem 0}
+.wave1-help,.wave1-context{margin:1rem 0;padding:1rem 0;border-block:1px solid var(--border);overflow-wrap:anywhere}
+.wave1-help summary{cursor:pointer;min-height:44px;padding:.5rem 0}
+.wave1-actions{display:flex;flex-wrap:wrap;gap:.5rem}
+.wave1-context label{display:flex;gap:.7rem;align-items:flex-start;min-height:44px;padding:.75rem 0}
+.wave1-context input[type=checkbox]{width:1.2rem;height:1.2rem;flex:none;margin-top:.3rem}
+.wave1-context button{margin-right:.7rem}
