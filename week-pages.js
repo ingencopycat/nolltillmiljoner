@@ -197,6 +197,7 @@ function renderMacroWeek(weekKey, macroWeeks) {
             ` : ''}
           </div>
           ${updateInfo ? `<div class="macro-update-status">${escapeText(updateInfo)}</div>` : ''}
+          <p class="note">Täckning: ett urval av främst amerikanska publiceringar från veckans angivna källor. Inte en fullständig global kalender. Tider visas i Europe/Stockholm; källans datum och tidszon finns under varje händelse. Saknad prognos betyder att underlag saknas.</p>
           ${meta.sources ? `<details><summary>Status per källa</summary>${Object.entries(meta.sources).map(([name, state]) => `<p>${escapeText(name)}: ${escapeText(({ current: 'Hämtad', failed: 'Hämtning misslyckades', cached: 'Tidigare kalender används; hämtning misslyckades', not_configured: 'Ej konfigurerad', unavailable: 'Ej tillgänglig' })[state] || 'Okänd status')}</p>`).join('')}</details>` : ''}
         </div>
         <div class="macro-days-list">
@@ -216,6 +217,7 @@ function renderMacroWeek(weekKey, macroWeeks) {
               ${dayEvents.map((event) => {
                 const hasDetails = true;
                 const isRevised = !!event.isRevised;
+                const context = window.NTMCalendarContext?.macro(event);
 
                 return `
                   <article class="macro-event-card" id="event-${escapeText(event.id || '')}">
@@ -245,6 +247,7 @@ function renderMacroWeek(weekKey, macroWeeks) {
                           <details class="macro-details">
                             <summary>Förklaring &amp; källa</summary>
                             <div class="macro-details-body">
+                              ${context ? `<p>${escapeText(context.state)}</p><p>${escapeText(context.time)}</p><p>${escapeText(context.revision)} ${escapeText(context.previous)}</p>${context.concept ? `<button type="button" class="ghost-btn" data-concept-help="${context.concept}">Förstå publiceringen med Knowledge</button>` : ''}` : ''}
                               ${[['actual', 'Utfall'], ['previous', 'Föregående'], ['forecast', 'Prognos']].map(([key, label]) => `<p>${label}: ${escapeText(fieldLabel(event, key))}${event.fieldProvenance?.[key]?.source ? ` · ${escapeText(event.fieldProvenance[key].source)}` : ''}${event.fieldProvenance?.[key]?.fetchedAt ? ` · hämtad ${escapeText(event.fieldProvenance[key].fetchedAt)}` : ''}</p>`).join('')}
                               ${event.description ? `<p class="macro-desc">${escapeText(event.description)}</p>` : ''}
                               ${event.source ? `
@@ -376,6 +379,7 @@ function renderEarningsWeek(weekKey, weeksData, currentWeekKey = getIsoWeekKeyFo
     text.replaceChildren();
     const heading = document.createElement('h3'); heading.textContent = `${item.title}: rapportkalender i text`; text.append(heading);
     const note = document.createElement('p'); note.textContent = 'Avskrift av Earnings Whispers-bilden. Tickers och tidpunkter återges som publicerade, inte som liveverifierad kalender. Före/efter avser USA-börsens öppning/stängning. Kontrollera bolagets IR-sida för ändringar.'; text.append(note);
+    if(window.NTMCalendarContext){const context=document.createElement('p');context.className='note';context.textContent=window.NTMCalendarContext.earnings(weekKey,getIsoWeekStartDate(weekKey));text.append(context);}
     for (const row of item.schedule) { const paragraph = document.createElement('p'); paragraph.textContent = row; text.append(paragraph); }
     visual.title = `Öppna bild för ${item.title}`;
     visual.onclick = () => openLightbox(item.image, item.title);

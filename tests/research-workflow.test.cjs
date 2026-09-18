@@ -204,7 +204,7 @@ test('equivalent numeric formatting and already-matching edits do not prompt', (
 function element() {
   const classes = new Set();
   return {
-    value: '', textContent: '', innerHTML: '', style: {}, children: [],
+    value: '', textContent: '', innerHTML: '', style: {}, children: [], dataset: {},
     classList: { add(name) { classes.add(name); }, remove(name) { classes.delete(name); }, contains(name) { return classes.has(name); } },
     appendChild(child) { this.children.push(child); },
     append(...children) { this.children.push(...children); }, after() {}, before() {}, scrollIntoView() {},

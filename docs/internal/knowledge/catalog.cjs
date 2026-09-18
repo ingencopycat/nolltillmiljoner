@@ -198,4 +198,25 @@ const pilotConcepts=[
   exampleCheck:'NTM synthetic arithmetic / owner rubric; no source endorsement of assumptions'};
  return {id,title,answerId,excerpt:'shortAnswer'};
 });
+// Wave 4: one bounded release-reading answer; definitions stay canonical here.
+entries.push({
+ id:'macro-releases',slug:'tolka-makroslapp',question:'Vad mäter CPI, PCE, payrolls och BNP?',category:'macro',
+ concepts:['inflation','interest-rates'],relatedLessonIds:['inflation','interest-rates'],relatedEntityIds:['macro-calendar'],
+ aliases:['cpi','pce','payrolls','nonfarm payrolls','gdp','bnp','makrosläpp'],
+ shortAnswer:'CPI och PCE:s prisindex mäter konsumentpriser med olika avgränsning. Payrolls mäter arbetstillfällen i en arbetsgivarundersökning. BNP mäter värdet av slutliga varor och tjänster som produceras inom landet. Kontrollera alltid mått, period och enhet.',
+ fullAnswer:'USA:s CPI följer prisförändringar för en varukorg för urbana konsumenter. PCE:s prisindex omfattar konsumtionsutgifter, även köp för konsumenters räkning. Payrolls räknar anställningar utanför jordbruket; en person med flera jobb kan räknas flera gånger. Arbetslöshetsgraden kommer från en annan undersökning av hushåll. Real BNP justerar för prisförändringar, medan nominell BNP även påverkas av priser. Investerare följer dessa publiceringar för att förstå efterfrågan, prisutveckling och ekonomisk aktivitet. I NTM är detta sammanhang att undersöka, inte en prognos för en enskild aktie.',
+ example:'Syntetiskt index: 100 till 103 är 3 % prisökning. Om nästa jämförbara år slutar på 105,06 är ökningen 2 %; prisnivån har ändå stigit. Ett payrollstal på +100 000 avser förändring i antal jobb, inte procent eller lika många unika personer. Amerikansk kvartals-BNP uttryckt i uppräknad årstakt ska inte läsas som faktisk tillväxt under ett helt år.',
+ caveats:'Skilj månadsförändring från årsförändring, index från procent och totalmått från kärnmått. Säsongsjustering och senare revisioner kan ändra bilden. Kontrollera om föregående värde är ursprungligt eller reviderat; NTM säger okänt när källan inte anger det. Saknad prognos är inte noll och ger ingen beräknad överraskning. Ett utfall ger ingen automatisk marknadsriktning.',
+ sources:[
+  ['BLS: CPI, frågor och svar','https://www.bls.gov/cpi/questions-and-answers.htm'],
+  ['BEA: PCE Price Index','https://www.bea.gov/data/personal-consumption-expenditures-price-index'],
+  ['BLS: Employment Situation, metoder','https://www.bls.gov/bls/empsitquickguide.htm'],
+  ['BEA: Gross Domestic Product','https://www.bea.gov/data/gdp/gross-domestic-product']
+ ].map(([title,url])=>({title,url,reviewedAt:'2026-09-18'})),
+ difficulty:'beginner',status:'reviewed',reviewedAt:'2026-09-18',contentVersion:1,reviewDue:'2027-03-18',practiceId:'price-level',
+ internalEditorialNotes:'Wave 4. Intent: identify the release, units and limitations while preserving calendar context. Duplicate check: inflation covers disinflation; interest-rates covers transmission; neither explains the release families. Primary definitions checked 2026-09-18; owner substantive approval pending.',
+ internalReview:{owner:'NTM owner',reviewer:'Codex source/arithmetic check; not independent editorial approval',reviewedAt:'2026-09-18',version:1,acceptance:'pending',excerpt:'shortAnswer',
+  sourceClaims:['shortAnswer','fullAnswer','caveats'].map(section=>({section,sources:['https://www.bls.gov/cpi/questions-and-answers.htm','https://www.bea.gov/data/personal-consumption-expenditures-price-index','https://www.bls.gov/bls/empsitquickguide.htm','https://www.bea.gov/data/gdp/gross-domestic-product']})),
+  claimMap:{CPI:0,PCE:1,payrolls:2,GDP:3,marketDirection:'NTM limitation, not a forecast'},exampleCheck:'100 × 1.03 = 103; 103 × 1.02 = 105.06. Synthetic index points, percentages and job counts explicitly distinguished.'}
+});
 module.exports={version:1,categories,entries,pilotConcepts};

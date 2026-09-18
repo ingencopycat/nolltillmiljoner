@@ -9,15 +9,18 @@
  const stable=v=>JSON.stringify(sort(v));
  function sort(v){return Array.isArray(v)?v.map(sort):object(v)?Object.fromEntries(Object.keys(v).sort().filter(k=>v[k]!==undefined).map(k=>[k,sort(v[k])])):v;}
  const canonicalRows=rows=>(rows||[]).map(sort).sort((a,b)=>stable(a).localeCompare(stable(b)));
- function evidence(report){return {metrics:canonicalRows(report?.metrics),margins:canonicalRows(report?.margins),filings:canonicalRows(report?.filings),periodChange:report?.periodChange||null,blocked:canonicalRows(report?.blocked)};}
+ function evidence(report){return {metrics:canonicalRows(report?.metrics),margins:canonicalRows(report?.margins),filings:canonicalRows(report?.filings),periodChange:report?.periodChange||null,blocked:canonicalRows(report?.blocked),...(report?.corrections?.length?{corrections:canonicalRows(report.corrections)}:{})};}
  function acknowledgements(thesis){try{const v=JSON.parse(thesis?.review?.changeKey);return v?.version===2&&Array.isArray(v.ack)&&v.ack.every(x=>typeof x==='string')?v.ack:[];}catch(_){return [];}}
- function reasons(thesis,report,today=day()){
+ function reasons(thesis,report,today=day(),research=false){
   if(!thesis||['close','abstain'].includes(thesis.review?.decision))return [];
   const rows=[],add=(type,category,label,basis,ids={})=>rows.push({type,category,label,key:stable({ruleVersion:1,type,basis}),basis,...ids});
   if(thesis.reviewDate&&thesis.reviewDate<=today)add('date','due','Ditt granskningsdatum har nåtts',{date:thesis.reviewDate});
   for(const [i,a] of (thesis.assumptionDetails||[]).entries())if(a.status!=='superseded'&&a.reviewBy&&a.reviewBy<=today&&(!a.reviewedAt||a.reviewBy>day(a.reviewedAt)))add('assumption','due',`Antagande ${i+1}: ditt granskningsdatum har nåtts`,{id:a.id,date:a.reviewBy,criterion:a.falsification,text:thesis.assumptions?.[i]},{assumptionId:a.id});
   for(const q of thesis.reportQuestions||[])if(q.status==='open')add('question','information','Öppen fråga – ingen tidsfrist',{id:q.id,text:q.text},{questionId:q.id});
   const e=evidence(report);
+  // No structured fact links exist in the current assumption schema. R12 stays
+  // in Research; never infer a link from private prose or notify every thesis.
+  if(research)for(const c of report?.corrections||[])add('correction','information',`Källunderlaget för ${c.metric} (${c.period}) har reviderats`,{fingerprint:c.fingerprint});
   for(const f of e.filings)add('filing','observation',`${f.form||'Rapport'} ${f.filingDate||''}${f.form?.endsWith('/A')?' – ändringsrapport':''}: finns efter ditt sparade underlag`,f);
   if(e.metrics.length||e.margins.length)add('metrics','observation','Jämförbara uppgifter har ändrats – granska underlaget',{metrics:e.metrics,margins:e.margins,period:e.periodChange});
   else if(e.periodChange)add('period','information','Rapportperioden har ändrats; jämförbar förändring är inte fastställd',e.periodChange);

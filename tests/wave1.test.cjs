@@ -27,7 +27,7 @@ test('pinned company identities match every current supported dataset',()=>{
 test('12 concepts resolve to 11 canonical answers, preserve overlap and route to existing practice',()=>{
  assert.equal(K.pilotConcepts.length,12);assert.equal(new Set(K.pilotConcepts.map(c=>c.answerId)).size,11);
  for(const c of K.pilotConcepts){const e=K.publicEntries().find(e=>e.id===c.answerId);assert.ok(e);assert.equal(e.contentVersion,1);assert.ok(fs.existsSync('academy-activity-'+e.practiceId+'.html'));assert.equal(c.excerpt,'shortAnswer');}
- assert.equal(K.publicEntries().length,28);assert.ok(!JSON.stringify(K).includes('internalReview'));
+ assert.equal(K.publicEntries().length,29);assert.ok(!JSON.stringify(K).includes('internalReview'));
  assert.ok(!JSON.stringify(K).includes('internalEditorialNotes'));
  const r=JSON.parse(fs.readFileSync('data/rule-registry.json'));assert.deepEqual(Q.validate(raw,r),[]);
  const bad=copy(raw);bad.entries.find(e=>e.id==='pe').practiceId='missing';assert.ok(Q.validate(bad,r).length);

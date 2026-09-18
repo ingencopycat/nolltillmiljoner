@@ -198,3 +198,9 @@ body.visual-v3 .research-card-block { border: 0; border-radius: 0; box-shadow: n
 #reviewReasons input[type=checkbox] { flex:0 0 auto; width:1.25rem; height:1.25rem; margin-top:.15rem; }
 #reviewReasons input[type=date] { max-width:100%; min-width:0; }
 #reviewReasons > a { display:block; margin-top:1rem; }
+/* Wave 4: two summaries first, inspectable evidence beneath existing V3 controls. */
+.fundamental-profile article { padding-block: 1rem; border-bottom: 1px solid var(--border); }
+.fundamental-profile details { margin-block: .8rem; }
+.fundamental-profile pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .8rem; }
+.fundamental-profile p { overflow-wrap: anywhere; }
+.fundamental-evidence { margin-block: .75rem; }

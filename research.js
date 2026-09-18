@@ -276,6 +276,7 @@ function renderStockDetail(data) {
     // 3. Render Growth & Margins
     renderGrowthAndMargins(data);
     window.NTMVisualV3?.revenue(data);
+    window.NTMFundamentalProfileUI?.render(data);
 
     // 4. Initialize & Render Valuation Section
     initValuationSection(data);
@@ -2212,7 +2213,7 @@ function initChangeDetection(data) {
     }
 
     // If no changes and snapshot not old, hide section
-    if (!report.hasChanges && !report.blocked?.length && thesis.id === latest.latestRevisionId && !window.NTMChangeDetection.isSnapshotStale(thesis.valuationSnapshot)) {
+    if (!report.hasChanges && !report.blocked?.length && !report.corrections?.length && thesis.id === latest.latestRevisionId && !window.NTMChangeDetection.isSnapshotStale(thesis.valuationSnapshot)) {
         changeSection.style.display = 'none';
         return;
     }
@@ -2228,6 +2229,11 @@ function initChangeDetection(data) {
 function renderChangeDetection(report, thesis, data) {
     const container = document.getElementById('changeDetectionContent');
     let html = '';
+    if (report.corrections?.length) {
+        html += '<div class="change-block"><h3>Källunderlaget för den sparade uppgiften har reviderats</h3><p>Den sparade analysen är bevarad. Kvittera den specifika rättelsen i granskningen när du har undersökt den.</p>';
+        for (const c of report.corrections) html += `<details><summary>${escapeHtml(c.metric)} · ${escapeHtml(c.period)}: gammalt och nytt underlag</summary><p>Berört underlag för profil eller TTM-beräkning: ${escapeHtml(c.metric)}</p><p>Gammalt: ${escapeHtml(JSON.stringify(c.old))}</p><p>Nytt: ${escapeHtml(JSON.stringify(c.current))}</p></details>`;
+        html += '</div>';
+    }
     if (report.blocked?.length) {
         html += '<div class="change-block"><p data-ntm-status="unsafe">Inte jämförbart · Vissa mått kan inte jämföras säkert.</p><details><summary>Visa orsaker</summary>'
             + report.blocked.map((item) => `<p>${escapeHtml(item.name)}: ${escapeHtml(item.reason)}</p>`).join('') + '</details></div>';

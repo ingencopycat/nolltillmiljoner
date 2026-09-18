@@ -16,18 +16,19 @@ document.addEventListener('DOMContentLoaded',()=>{
   else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus();}
  });
  function help(id,trigger){
-  const concept=K.pilotConcepts?.find(c=>c.id===id),entry=concept&&K.publicEntries().find(e=>e.id===concept.answerId);
+  const concept=K.pilotConcepts?.find(c=>c.id===id)||(['macro-releases','interest-rates'].includes(id)?{answerId:id,excerpt:'shortAnswer'}:null),entry=concept&&K.publicEntries().find(e=>e.id===concept.answerId);
   origin=trigger;dialog.replaceChildren();
   const h=node('h2',entry?.question||'Förklaringen är inte tillgänglig');h.id='wave1HelpTitle';dialog.append(h);
   if(entry){
    dialog.append(node('p',entry[concept.excerpt]),node('p',entry.caveats,'note'),node('p',`Innehållsversion ${entry.contentVersion} · källgranskat ${entry.reviewedAt}`,'note'));
-   const details=node('details'),summary=node('summary','Källor och exempel');details.append(summary,node('p',entry.example));
+   const details=node('details'),summary=node('summary','Förklaring, källor och exempel');details.append(summary,node('p',entry.fullAnswer),node('p',entry.example));
    for(const s of entry.sources)details.append(link(s.title+' (ny flik)',s.url));dialog.append(details);
    dialog.append(link('Läs hela svaret (ny flik)',K.url(entry.id)+'#task-help'),node('p','Ditt arbete ligger kvar i den ursprungliga fliken. Stäng läsfliken och återgå hit.','note'));
   }else dialog.append(link('Sök ett granskat svar (ny flik)','fragor-svar.html'));
   dialog.append(button('Tillbaka till mitt arbete',()=>dialog.close()));dialog.showModal();dialog.querySelector('button').focus();
  }
  function helpButton(id,label){const b=button(label||'Förklara',()=>help(id,b));b.dataset.wave1Concept=id;return b;}
+ document.addEventListener('click',event=>{const trigger=event.target.closest('[data-concept-help]');if(trigger){event.preventDefault();help(trigger.dataset.conceptHelp,trigger);}});
  function attach(container,ids){if(!container||container.querySelector('[data-wave1-help]'))return;const d=node('details',null,'wave1-help');d.dataset.wave1Help='';d.append(node('summary','Förstå begreppen utan att lämna arbetet'));const row=node('div',null,'wave1-actions');for(const id of ids){const c=K.pilotConcepts.find(c=>c.id===id);if(c)row.append(helpButton(id,c.title));}d.append(row);container.append(d);}
  attach($('valuationSection'),['pe','forward-basis','eps','growth','valuation-assumptions']);
  attach($('stock-calculator-heading')?.closest('section'),['pe','forward-basis','eps','growth','valuation-assumptions']);

@@ -9,7 +9,7 @@
     const snapshot = window.NTMResearchSnapshot.normalize(rawSnapshot);
     const current = window.NTMResearchSnapshot.fromStockData(currentData);
     const report = {
-      hasChanges: false, reason: null, metrics: [], margins: [], filings: [], periodChange: null, blocked: [],
+      hasChanges: false, reason: null, metrics: [], margins: [], filings: [], periodChange: null, blocked: [], corrections: [],
     };
     if (!snapshot || !currentData || (snapshot.ticker && currentData.symbol &&
         snapshot.ticker.toUpperCase() !== currentData.symbol.toUpperCase())) {
@@ -19,6 +19,7 @@
     report.snapshotDate = snapshot.capturedAt;
     report.snapshotPeriod = snapshot.asOfPeriod;
     report.currentPeriod = current.asOfPeriod;
+    report.corrections = window.NTMResearchSnapshot.corrections(snapshot,current);
     if (snapshot.asOfPeriod && current.asOfPeriod && snapshot.asOfPeriod !== current.asOfPeriod) {
       report.periodChange = { from: snapshot.asOfPeriod, to: current.asOfPeriod };
     }

@@ -15,7 +15,7 @@
  function state(){if(!stock)return null;const t=latest();return C.select({error:error||t.error||t.warning,restore,exact:!!exact,thesis:t.thesis,reasons:C.visible(rows,work?.value||C.empty()),draft:restored||!!work?.value.draft,editing:!!window.NTMReview?.draftState()});}
  function update(){window.NTMVisualV3?.workspace(stock);}
  function init(data){
-  stock=data;const t=latest();base=C.revisionStamp(t.thesis);work=C.read(stock.symbol);error=t.error||t.warning||work.error||'';restore=!!work.value.draft;restored=false;exact=null;rows=C.reasons(t.thesis,report(t.thesis));
+  stock=data;const t=latest();base=C.revisionStamp(t.thesis);work=C.read(stock.symbol);error=t.error||t.warning||work.error||'';restore=!!work.value.draft;restored=false;exact=null;rows=C.reasons(t.thesis,report(t.thesis),C.day(),true);
   if(new URLSearchParams(location.search).get('review')==='exact')try{const raw=sessionStorage.getItem(C.targetKey);exact=C.resolve(raw?JSON.parse(raw):null,stock.symbol,t.thesis,report(t.thesis));}catch(e){error=e.message;}
   openedFields=C.stable(fields());draw();update();
   if(error&&new URLSearchParams(location.search).get('review')==='exact'){$('reviewDataContext').textContent=error;$('reviewBelief').textContent='Den begärda granskningen kunde inte öppnas. Ingen annan version granskas i dess ställe.';$('reviewAssumptions').textContent='';$('reviewQuestions').textContent='';}

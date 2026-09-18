@@ -97,6 +97,8 @@
       ...(data?.$schema === 'ntm-stock-v1' ? { provenance: {
         version: 1, dataSchema: data.$schema, methodVersion: data.metadata?.methodVersion,
         generatedAt: data.metadata?.generatedAt, fetchedAt: data.metadata?.fetchedAt,
+        fundamental: { version: 1, statementMethod: 'ntm-fundamental/1', profile: data.metadata?.profile,
+          annual: JSON.parse(JSON.stringify((data.annual || []).slice(-3))) },
         metrics: Object.fromEntries(Object.entries({ revenue: 'revenue', netIncome: 'netIncome', eps: 'dilutedEps',
           dilutedShares: 'dilutedShares', fcf: 'freeCashFlow', fcfPerShare: 'fcfPerShare' })
           .map(([key, source]) => [key, JSON.parse(JSON.stringify(metrics[source] || {}))])),
@@ -158,5 +160,45 @@
     return { comparable: true, reason: null };
   }
 
-  window.NTMResearchSnapshot = { version: VERSION, normalize, fromStockData, comparable };
+  // R12 compares identities, not collection timestamps, URLs, labels or array order.
+  const stable = value => JSON.stringify(canonical(value));
+  function canonical(value) {
+    if (Array.isArray(value)) return value.map(canonical).sort((a,b)=>JSON.stringify(a).localeCompare(JSON.stringify(b)));
+    return isObject(value) ? Object.fromEntries(Object.keys(value).sort().filter(k=>value[k]!==undefined).map(k=>[k,canonical(value[k])])) : value;
+  }
+  function correctionFacts(snapshot) {
+    const facts=new Map();
+    const entries=Object.entries(snapshot?.provenance?.metrics||{});
+    if(snapshot?.provenance?.fundamental?.version===1)for(const row of snapshot.provenance.fundamental.annual||[])
+      for(const [metric,m] of Object.entries(row.metrics||{}))entries.push(['annual:'+metric,m]);
+    for(const [metric,m] of entries) {
+      if(!isObject(m)||!m.definition||!m.unit||!m.periodType)continue;
+      const rows=Array.isArray(m.inputs)&&m.inputs.length?m.inputs:[m];
+      for(const input of rows) {
+        const period=input.quarter||input.period||m.period;
+        if(!period||!Number.isFinite(input.value))continue;
+        const identity=stable({metric,period,periodType:input.quarter?'quarterly':m.periodType,unit:m.unit,currency:m.currency||null});
+        const basis={value:input.value,source:input.source||m.source||null,definition:m.definition,concept:input.concept||m.concept||null,
+          accession:input.accession||null,derivedFrom:input.derivedFrom||null,sourceFilings:(input.sourceFilings||[]).map(s=>({accession:s.accession||null})),
+          methodVersion:m.methodVersion||snapshot.provenance.methodVersion||null,derivationMethod:m.derivationMethod||null,
+          sourceVersion:input.sourceVersion||m.sourceVersion||null,correction:input.correction||m.correction||null,restated:!!(input.restated||m.restated)};
+        // Conflicting duplicate identities cannot establish a correction.
+        if(facts.has(identity)&&stable(facts.get(identity)?.basis)!==stable(basis))facts.set(identity,null);
+        else if(!facts.has(identity))facts.set(identity,{metric,period,identity,basis});
+      }
+    }
+    return facts;
+  }
+  function corrections(before,after) {
+    if(!before?.provenance||!after?.provenance)return [];
+    const old=correctionFacts(before),rows=[];
+    for(const [identity,current] of correctionFacts(after)) {
+      const prior=old.get(identity);
+      if(!prior||!current||stable(prior.basis)===stable(current.basis))continue;
+      const evidence={ruleVersion:'R12/1',identity,metric:current.metric,period:current.period,old:prior.basis,current:current.basis};
+      rows.push({...evidence,fingerprint:stable(evidence)});
+    }
+    return rows.sort((a,b)=>a.identity.localeCompare(b.identity));
+  }
+  window.NTMResearchSnapshot = { version: VERSION, normalize, fromStockData, comparable, corrections };
 })();
