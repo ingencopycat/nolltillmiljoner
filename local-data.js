@@ -117,28 +117,37 @@
     const incoming = validate(backup.data), current = capture();
     return {...current,next:mergeData(current.data,incoming),incoming:counts(incoming)};
   }
-  function commit(raw,next, names = Object.keys(keys)) {
-    const nextRaw = Object.fromEntries(names.map(name => [name,name === 'theme' ? next.theme : JSON.stringify(next[name])]));
+  function workKeys(ticker) {return Object.keys(window.localStorage).filter(k=>k.startsWith("ntm-research-work-v1:") && (!ticker || k === "ntm-research-work-v1:"+ticker));}
+  function clearReviewReference(ticker) {
+    const storage=window.sessionStorage;if(!storage)return;
+    const key='ntm-research-review-target-v1',raw=storage.getItem(key);if(!raw)return;
+    let target;try{target=JSON.parse(raw);}catch(_){target=null;}
+    if(!ticker||!target||target.ticker===ticker){storage.removeItem(key);if(storage.getItem(key)!==null)throw new Error('Den lokala granskningslänken kunde inte rensas. Ingen sparad data raderades.');}
+  }
+  function commit(raw,next, names = Object.keys(keys), removeKeys = []) {
+    const locations={...keys}; raw={...raw}; names=[...names];
+    for(const k of removeKeys){locations[k]=k;raw[k]=window.localStorage.getItem(k);names.push(k);}
+    const nextRaw = Object.fromEntries(names.map(name => [name,removeKeys.includes(name) ? null : name === 'theme' ? next.theme : JSON.stringify(next[name])]));
     const changed = names.filter(name => raw[name] !== nextRaw[name]);
     // Guard against changes since validation, then verify each write and rollback on failure.
-    for (const name of names) if (window.localStorage.getItem(keys[name]) !== raw[name]) throw new Error('Lagringen ändrades i en annan flik. Försök igen.');
+    for (const name of names) if (window.localStorage.getItem(locations[name]) !== raw[name]) throw new Error('Lagringen ändrades i en annan flik. Försök igen.');
     const attempted = [];
     try {
       for (const name of changed) {
         attempted.push(name);
-        if (nextRaw[name] === null) window.localStorage.removeItem(keys[name]);
-        else window.localStorage.setItem(keys[name],nextRaw[name]);
-        if (window.localStorage.getItem(keys[name]) !== nextRaw[name]) throw new Error('Kontrolläsning misslyckades.');
+        if (nextRaw[name] === null) window.localStorage.removeItem(locations[name]);
+        else window.localStorage.setItem(locations[name],nextRaw[name]);
+        if (window.localStorage.getItem(locations[name]) !== nextRaw[name]) throw new Error('Kontrolläsning misslyckades.');
       }
     } catch (error) {
       let restored = true;
       for (const name of attempted.reverse()) {
         try {
-          if (window.localStorage.getItem(keys[name]) !== raw[name]) {
-            if (raw[name] === null) window.localStorage.removeItem(keys[name]);
-            else window.localStorage.setItem(keys[name],raw[name]);
+          if (window.localStorage.getItem(locations[name]) !== raw[name]) {
+            if (raw[name] === null) window.localStorage.removeItem(locations[name]);
+            else window.localStorage.setItem(locations[name],raw[name]);
           }
-          if (window.localStorage.getItem(keys[name]) !== raw[name]) restored = false;
+          if (window.localStorage.getItem(locations[name]) !== raw[name]) restored = false;
         } catch (_) { restored = false; }
       }
       throw new Error(restored ? 'Skrivning misslyckades (full eller blockerad lagring). Tidigare data är bevarade.'
@@ -166,14 +175,15 @@
       if(removed.size)names.push('behavioral');
     }
     // Full ticker deletion deliberately excludes global calculators and theme preferences.
-    return commit(raw,next,names);
+    if(scope==='all')clearReviewReference(ticker);
+    return commit(raw,next,names,scope === 'all' ? workKeys(ticker) : []);
   }
   window.NTMLocalData = {exportJSON,importJSON,inspectImport:text => prepare(text).incoming,deleteTicker,counts:() => counts(capture().data),
     // Cloud uses the same validation, non-destructive merge and guarded commit as JSON restore.
     validateData: validate,
     previewData: incoming => counts(mergeData(capture().data,validate(incoming))),
-    clearAll: () => { const {raw} = capture(); return commit(raw,{theses:{version:2,theses:{}},
-      outcomes:{schemaVersion:1,checkpoints:[]},scenarios:{version:1,calculators:{}},theme:null,behavioral:window.NTMBehavioral.empty(),academy:window.NTMAcademyProgress.empty()}); }
+    clearAll: () => { const {raw} = capture(); clearReviewReference(); return commit(raw,{theses:{version:2,theses:{}},
+      outcomes:{schemaVersion:1,checkpoints:[]},scenarios:{version:1,calculators:{}},theme:null,behavioral:window.NTMBehavioral.empty(),academy:window.NTMAcademyProgress.empty()},Object.keys(keys),workKeys()); }
   };
 
   const exportButton = document.getElementById('localDataExport');

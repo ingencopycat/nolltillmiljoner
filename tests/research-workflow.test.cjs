@@ -207,7 +207,7 @@ function element() {
     value: '', textContent: '', innerHTML: '', style: {}, children: [],
     classList: { add(name) { classes.add(name); }, remove(name) { classes.delete(name); }, contains(name) { return classes.has(name); } },
     appendChild(child) { this.children.push(child); },
-    append(...children) { this.children.push(...children); }, after() {},
+    append(...children) { this.children.push(...children); }, after() {}, before() {}, scrollIntoView() {},
     replaceChildren() { this.children = []; }, focus() {}, remove() {}, click() {},
     addEventListener() {}, setAttribute() {},
   };
@@ -222,15 +222,15 @@ function app(saved = new Map()) {
     document: {
       body: element(), title: 'Research',
       getElementById(id) { return nodes.get(id) || null; },
-      createElement: (tag) => Object.assign(element(), { tagName: tag }), addEventListener() {},
+      createElement: (tag) => {const e=Object.assign(element(),{tagName:tag});Object.defineProperty(e,'id',{set(value){nodes.set(value,e);},get(){return '';}});return e;}, createTextNode: text => ({textContent:text}), addEventListener() {},
       querySelector() { return null; }, querySelectorAll() { return []; }, readyState: 'loading',
     },
     URLSearchParams, Blob, location: { pathname: '/research.html', search: '?ticker=NVDA' },
-    scrollY: 0, scrollTo() {}, print() {},
+    scrollY: 0, scrollTo() {}, print() {}, addEventListener() {}, sessionStorage:{getItem(){return null;},removeItem(){}},
     console: { error() {} }, setTimeout() {}, confirm() { return true; },
     localStorage: {
       getItem(name) { return saved.get(name) ?? null; },
-      setItem(name, value) { saved.set(name, value); },
+      setItem(name, value) { saved.set(name, value); }, removeItem(name){saved.delete(name);},
     },
   });
   context.window = context;
@@ -1041,6 +1041,8 @@ test('snapshot metadata survives updates; unrelated and unsupported records are 
   original.theses.NVDA.revisions[0].savedAt = '2025-01-01T00:00:00Z';
   original.theses.CRWD = { text: 'Future format', valuationSnapshot: { schemaVersion: 99 } };
   a.saved.set(key, JSON.stringify(original));
+  // Reopen the explicitly changed baseline before editing; Wave 2 rejects stale editors.
+  a.context.initThesisSection(stock());
   a.nodes.get('thesis-text').value = 'Revised notes';
   a.submit();
   const revised = a.context.NTMThesisStorage.get('NVDA').thesis;

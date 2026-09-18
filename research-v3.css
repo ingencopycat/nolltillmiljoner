@@ -190,3 +190,11 @@ body.visual-v3 .research-card-block { border: 0; border-radius: 0; box-shadow: n
   .visual-v3 #keyMetricsGrid .metric-box:nth-child(3) { padding-left: 16px; }
   .visual-v3 .metric-unit { display: block; margin: 6px 0 0; }
 }
+/* Wave 2 reuses the canonical workspace surfaces and controls. */
+#researchContinuity { display:flex; flex-wrap:wrap; gap:.75rem; overflow-wrap:anywhere; }
+#researchContinuity > p, #researchContinuity > strong { flex-basis:100%; }
+#reviewReasons { min-width:0; margin:1rem 0; border:1px solid var(--border-color); border-radius:12px; padding:1rem; }
+#reviewReasons > label { display:flex; align-items:flex-start; gap:.6rem; margin:.8rem 0; overflow-wrap:anywhere; }
+#reviewReasons input[type=checkbox] { flex:0 0 auto; width:1.25rem; height:1.25rem; margin-top:.15rem; }
+#reviewReasons input[type=date] { max-width:100%; min-width:0; }
+#reviewReasons > a { display:block; margin-top:1rem; }

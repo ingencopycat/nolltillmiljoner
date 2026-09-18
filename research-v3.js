@@ -11,17 +11,12 @@
   function workspace(data) {
     if (!$('thesisForm')) return;
     const { thesis } = window.NTMThesisStorage.get(data?.symbol);
-    const state = thesis ? window.NTMThesisStorage.reviewStatus(thesis) : 'new';
-    const inactive = ['closed', 'abstained'].includes(state);
-    const due = !inactive && (state === 'due' || thesis?.assumptionDetails?.some(a => window.NTMThesisStorage.assumptionStatus(a) === 'due'));
-    const changes = !inactive && !data?.manual && thesis?.valuationSnapshot && window.NTMChangeDetection.detect(thesis.valuationSnapshot, data).hasChanges;
     $('thesis-heading').textContent = thesis ? 'Din tes' : 'Formulera din tes';
     $('thesisForm').querySelector('[type=submit]').textContent = thesis ? 'Spara ny version' : 'Spara tes';
+    const C=window.NTMContinuity;
+    const lifecycle=window.NTMContinuityUI?.state() || C?.select({thesis,reasons:C.reasons(thesis,data?.manual?null:window.NTMChangeDetection.detect(thesis?.valuationSnapshot,data))});
     const primary = $('companyResearchAction');
-    if (primary) {
-      primary.textContent = due ? 'Granska antaganden' : changes ? 'Se vad som förändrats' : thesis ? 'Se din tes' : 'Formulera din tes';
-      primary.href = due ? '#thesisReview' : changes ? '#changeDetectionSection' : '#thesisSection';
-    }
+    if(primary && lifecycle){primary.textContent=lifecycle.label;primary.href=lifecycle.href;}
     let summary = $('workspaceState');
     if (!summary) {
       summary = node('div', undefined, 'workspace-state'); summary.id = 'workspaceState';
@@ -29,7 +24,7 @@
     }
     summary.replaceChildren(); summary.hidden = !thesis;
     if (!thesis) return;
-    summary.append(node('span', `${thesis.revisionCount || 1} sparade versioner · ${due ? 'Dags för din planerade granskning' : state === 'closed' ? 'Stängd tes' : state === 'abstained' ? 'Avstod' : thesis.reviewDate ? 'Nästa granskning ' + thesis.reviewDate : 'Inget granskningsdatum valt'}`));
+    summary.append(node('span', `${thesis.revisionCount || 1} sparade versioner · ${lifecycle?.label || ''}`));
     for (const [text, href] of [['Granska tesen', '#thesisReview'], ['Versioner', '#thesisHistorySection']]) {
       const a = node('a', text); a.href = href; summary.append(a);
     }

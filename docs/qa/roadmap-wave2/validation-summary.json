@@ -1,0 +1,32 @@
+{
+  "baseline": "448fca35b9d112376c9e9e12301ccfb3245a19c1",
+  "engineering": "pass",
+  "humanPilot": "pending",
+  "python": 166,
+  "javascript": 241,
+  "javascriptSkipped": 0,
+  "browserExisting": 38,
+  "browserWave1": 7,
+  "browserWave2": 9,
+  "accessibilityCspRoutes": 39,
+  "routeThemeChecks": 246,
+  "mobileWidths": [
+    360,
+    390,
+    430
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "cloudRls": "pass: local PostgreSQL",
+  "socialRls": "pass: local PostgreSQL",
+  "accountSession": "pass: staged SDK fixtures",
+  "publication": "pass: offline browser and real local PostgreSQL",
+  "workflow": "pass: actionlint 1.7.7",
+  "noHostedDeployment": true,
+  "notices": [
+    "Existing partial macro update",
+    "2027 authoritative schedules not yet published"
+  ]
+}

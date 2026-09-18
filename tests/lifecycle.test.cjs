@@ -9,7 +9,7 @@ function app() {
     localStorage:{getItem:k=>saved.has(k)?saved.get(k):null,setItem:(k,v)=>saved.set(k,v),removeItem:k=>saved.delete(k)},
     location:{pathname:'/',search:''},crypto:{randomUUID:()=>`test-${++id}`}});
   c.window=c;
-  for(const file of ['valuation-core.js','script.js','research-snapshot.js','thesis-storage.js','research-outcomes.js','research-export.js','change-detection.js','behavioral.js','academy-progress.js','local-data.js','min-review.js']) vm.runInContext(fs.readFileSync(file,'utf8'),c);
+  for(const file of ['valuation-core.js','script.js','research-snapshot.js','thesis-storage.js','research-outcomes.js','research-export.js','change-detection.js','behavioral.js','academy-progress.js','local-data.js','research-continuity.js','min-review.js']) vm.runInContext(fs.readFileSync(file,'utf8'),c);
   return {c,saved,store:c.NTMThesisStorage,backup:c.NTMLocalData};
 }
 const clone=x=>JSON.parse(JSON.stringify(x));
@@ -26,7 +26,7 @@ test('B55 shared Research reminders read latest storage, suppress inactive recor
   a.c.NTMMinReview.renderResearch({symbol:'ACME',manual:true});
   assert.equal(node.hidden,false);
   assert.match(node.textContent,/granskningsdatum/);
-  assert.match(node.textContent,/öppna frågor/);
+  assert.match(node.textContent,/Öppen fråga/);
   assert.match(node.textContent,/Inga bakgrundsnotiser/);
   assert.equal(a.saved.get(key),before);
   const empty=a.c.NTMMinReview.attention(null,null,'2030-01-01');

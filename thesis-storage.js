@@ -253,6 +253,14 @@ ${includeIds ? `ID: ${q.id} · ` : ''}Skapad: ${includeIds ? q.createdAt : q.cre
     } catch (error) { return writeFailure(error); }
   }
 
+  function writeDeletion(next,ticker) {
+    const session=window.sessionStorage,targetKey='ntm-research-review-target-v1';
+    if(session){const raw=session.getItem(targetKey);let target;try{target=JSON.parse(raw);}catch(_){target=null;}if(raw&&(!target||target.ticker===ticker)){session.removeItem(targetKey);if(session.getItem(targetKey)!==null)throw Error('Granskningslänken kunde inte rensas. Ingen historik raderades.');}}
+    const auxiliary="ntm-research-work-v1:"+ticker, prior=window.localStorage.getItem(KEY), work=window.localStorage.getItem(auxiliary);
+    try {write(next);window.localStorage.removeItem(auxiliary);if(window.localStorage.getItem(auxiliary)!==null)throw Error("Draft deletion failed");}
+    catch(error){try{if(prior===null)window.localStorage.removeItem(KEY);else window.localStorage.setItem(KEY,prior);if(work!==null)window.localStorage.setItem(auxiliary,work);if(window.localStorage.getItem(KEY)!==prior||window.localStorage.getItem(auxiliary)!==work)throw Error('Kontrolläsning misslyckades');}catch(_){throw Error('Radering och återgång misslyckades. Data kan vara delvis ändrade. Behåll backup och kontrollera lokal lagring.');}throw error;}
+  }
+
   function deleteRevision(ticker, revisionId) {
     ticker = tickerKey(ticker);
     const store = readThesesStore();
@@ -264,7 +272,7 @@ ${includeIds ? `ID: ${q.id} · ` : ''}Skapad: ${includeIds ? q.createdAt : q.cre
       const remaining = next.theses[storedKey].revisions.filter((r) => r.id !== revisionId);
       if (remaining.length) next.theses[storedKey] = { ...next.theses[storedKey], revisions: remaining };
       else delete next.theses[storedKey];
-      write(next);
+      if(remaining.length)write(next);else writeDeletion(next,ticker);
       return { success: true, error: null };
     } catch (error) { return writeFailure(error); }
   }
@@ -278,7 +286,7 @@ ${includeIds ? `ID: ${q.id} · ` : ''}Skapad: ${includeIds ? q.createdAt : q.cre
     try {
       const next = writableStore(store);
       for (const key of Object.keys(next.theses)) if (tickerKey(key) === ticker) delete next.theses[key];
-      write(next);
+      writeDeletion(next,ticker);
       return { success: true, error: null };
     } catch (error) { return writeFailure(error); }
   }

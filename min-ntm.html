@@ -150,7 +150,8 @@
         <details class="depth-panel" id="localDataDepth"><summary>Backup &amp; datahantering <small>Exportera, importera eller radera</small></summary><section class="card calculator-card min-ntm-card" aria-labelledby="localDataHeading">
             <h2 id="localDataHeading">Backup och lokal Research-data</h2>
             <p>JSON-backup innehåller thesis-versioner, snapshots, utfallskontroller med arkivkopior, kalkylatorscenarier, beslutspauser, grupphistorik, sparade mallval och tema. Markdown är en läsexport, inte en backup. Förvara JSON-filen privat. Version 2 kräver en aktuell NTM-version för återställning; äldre version 1-backuper stöds fortfarande.</p>
-            <button type="button" id="localDataExport" class="secondary-btn">Exportera all lokal data</button>
+            <p>Osparade Research-utkast och pausade granskningsorsaker stannar i den här webbläsaren och ingår inte i backup eller privat synk. Ladda ner ett utkast från Research om du vill behålla en separat läskopia. Import ersätter inte utkast; en ändrad tesversion kräver ett nytt återställningsval.</p>
+            <button type="button" id="localDataExport" class="secondary-btn">Exportera sparad lokal data</button>
             <p><label for="localDataFile">Välj JSON-backup</label> <input type="file" id="localDataFile" accept=".json,application/json" /></p>
             <button type="button" id="localDataImport" class="secondary-btn">Importera backup – slå samman</button>
             <p>Import behåller befintliga poster. Nya versioner läggs sist och kan bli senaste version. Identiska ID:n dupliceras inte; motstridiga ID:n stoppar hela importen. Befintligt tema behålls.</p>
@@ -166,6 +167,7 @@
     <footer class="trust-footer"><a href="om-metod.html">Om NTM, integritet, metod och rättelser</a></footer>
     <script src="research-snapshot.js"></script>
     <script src="thesis-storage.js"></script>
+    <script src="research-continuity.js"></script>
     <script src="change-detection.js"></script>
     <script src="ntm-product.js"></script>
     <script src="valuation-core.js"></script>

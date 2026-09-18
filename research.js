@@ -1587,6 +1587,7 @@ function initThesisSection(data) {
 }
 
 function saveThesis(data) {
+    if (window.NTMContinuityUI && !window.NTMContinuityUI.canSave()) return;
     const ticker = data.symbol || '';
     const companyName = data.manual ? document.getElementById('manualCompanyName').value.trim() || data.symbol : data.company?.name || '';
 
@@ -1639,6 +1640,7 @@ function saveThesis(data) {
         return;
     }
 
+    window.NTMContinuityUI?.saved();
     if (result.created) {
         if (!previousThesis) window.NTMEvents?.emit('thesis_first_saved');
         if (thesis.assumptions?.length && JSON.stringify(thesis.assumptions) !== JSON.stringify(previousThesis?.assumptions)) window.NTMEvents?.emit('assumptions_added');

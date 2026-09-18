@@ -57,8 +57,10 @@
     if (!snapshot?.capturedAt || !Number.isFinite(Date.parse(snapshot.capturedAt)) ||
         !Array.isArray(currentData?.filings)) return [];
     const snapshotDate = Date.parse(snapshot.capturedAt);
+    const accessions = new Set();
     return currentData.filings.filter((filing) => filing &&
-      ['10-K', '10-Q'].includes(filing.form) && Date.parse(filing.filingDate) > snapshotDate)
+      ['10-K', '10-Q', '10-K/A', '10-Q/A'].includes(filing.form) && Date.parse(filing.filingDate) > snapshotDate)
+      .filter(filing => { if (!filing.accessionNumber) return true; if (accessions.has(filing.accessionNumber)) return false; accessions.add(filing.accessionNumber); return true; })
       .map(({ form, filingDate, reportPeriod, accessionNumber, primaryDocUrl, secFilingUrl }) =>
         ({ form, filingDate, reportPeriod, accessionNumber, primaryDocUrl, secFilingUrl }))
       .sort((a, b) => Date.parse(b.filingDate) - Date.parse(a.filingDate)).slice(0, 3);

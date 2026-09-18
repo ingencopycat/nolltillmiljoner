@@ -66,7 +66,7 @@
         el(`assumption-status-${i}`).value='current';el(`assumption-assessment-${i}`).value='unreviewed';};
     }
     el('thesisReview').hidden = !thesis;
-    if (!thesis) return;
+    if (!thesis) {window.NTMContinuityUI?.init(stock);return;}
     el('reviewBelief').textContent = thesis.text;
     el('reviewAssumptions').textContent = window.NTMThesisStorage.assumptionText(thesis,window.NTMThesisStorage.todayLocal());
     if(stock.manual) el('reviewEvidenceLinks').innerHTML='<a href="#thesisRevisionSelect">Läs den frysta versionen</a>';
@@ -83,26 +83,29 @@
       : thesis.reviewDate ? `Nästa granskning: ${thesis.reviewDate}. Du kan granska tidigare om du vill.` : 'Inget granskningsdatum valt. Granska när det passar dig.'));
     el('reviewDataContext').textContent = stock.manual ? 'Manuell tes — automatisk bolagsdata saknas. Granska dina egna underlag. Beslut sparas i en ny version utan finansiell snapshot.' : `Du granskar senaste versionen från ${formatRevisionDate(thesis.updatedAt)}. Aktuell Research-data avser ${stock.ttm?.asOfPeriod || 'senast tillgängliga rapportperiod'}. Läs förändringarna och den frysta versionen innan du bestämmer dig. Behåll/Stäng sparar beslutet med samma historiska värderingssnapshot; ingen ny värdering görs.`;
     for (const decision of ['keep','revise','close','abstain']) el(`review-${decision}`).onclick = () => {
+      if (window.NTMContinuityUI && !window.NTMContinuityUI.canSave()) return;
       const current = window.NTMThesisStorage.get(stock.symbol);
       if (current.error || current.warning || current.thesis?.latestRevisionId !== thesis.latestRevisionId) {status('Historiken ändrades eller kunde inte läsas. Ladda om innan du granskar.');return;}
       if (decision === 'revise') {
         pending = {decision,sourceRevisionId:thesis.latestRevisionId,context:el('reviewContext').value.trim(),observedPeriod:stock.ttm?.asOfPeriod || null,
-          changeKey:stock.manual ? null : JSON.stringify(window.NTMChangeDetection.detect(thesis.valuationSnapshot,stock))};
+          changeKey:window.NTMContinuityUI ? window.NTMContinuityUI.key() : stock.manual ? null : JSON.stringify(window.NTMChangeDetection.detect(thesis.valuationSnapshot,stock))};
         el('thesis-review-date').value = el('reviewNextDate').value;
         currentThesisState.isDirty = true;
         status('Granskning pågår i arbetsformuläret. Redigera tes och antaganden; beräkna ändrad värdering och välj Spara ny version. Ingen historik har ändrats.');
-        el('thesis-text').focus(); return;
+        window.NTMContinuityUI?.capture(); el('thesis-text').focus(); return;
       }
       if (currentThesisState.isDirty) {status('Spara dina ändringar i arbetsformuläret först, eller ladda om för att avstå från dem.');return;}
       const result = window.NTMThesisStorage.completeReview(stock.symbol,decision,el('reviewContext').value.trim(),el('reviewNextDate').value || null,stock.ttm?.asOfPeriod || null,
-        stock.manual ? null : JSON.stringify(window.NTMChangeDetection.detect(thesis.valuationSnapshot,stock)), el('reviewProcess').value.trim());
+        window.NTMContinuityUI ? window.NTMContinuityUI.key() : stock.manual ? null : JSON.stringify(window.NTMChangeDetection.detect(thesis.valuationSnapshot,stock)), el('reviewProcess').value.trim());
       if (!result.success) {status(result.error);return;}
       window.NTMEvents?.emit('thesis_reviewed', { action: decision });
       if (el('reviewNextDate').value && el('reviewNextDate').value !== thesis.reviewDate) window.NTMEvents?.emit('review_date_set');
+      window.NTMContinuityUI?.saved();
       currentThesisState.selectedRevisionId = result.revisionId;
       initThesisSection(stock); initChangeDetection(stock);
       status(decision === 'abstain' ? 'Avstod är sparat i en ny version. Tesen är inaktiv; historiken finns kvar.' : decision === 'close' ? 'Tesen är stängd i en ny version. Tidigare versioner och utfallskontroller behålls.' : 'Behåll är sparat i en ny version. Tidigare antaganden och värderingssnapshot är oförändrade.');
     };
+    window.NTMContinuityUI?.init(stock);
   }
-  window.NTMReview = {init,fields};
+  window.NTMReview = {init,fields,draftState:()=>pending,restorePending:value=>{pending=value;}};
 })();

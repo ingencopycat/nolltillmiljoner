@@ -1,0 +1,27 @@
+Browser smoke: Chromium 153.0.4234.32; fresh contexts on http://127.0.0.1:64583
+python : test_actual_return_all_decisions_and_history (__main__.Wave2.test_actual_return_all_decisions_and_history) 
+... ok
+At line:3 char:1
++ python -B scripts/wave2_browser.py *> $env:TEMP\wave2-browser.txt
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_actual_ret...history) ... ok:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+test_draft_restore_discard_no_revision_or_network_leak 
+(__main__.Wave2.test_draft_restore_discard_no_revision_or_network_leak) ... ok
+test_exact_target_survives_evidence_navigation_reload_and_deletion 
+(__main__.Wave2.test_exact_target_survives_evidence_navigation_reload_and_deletion) ... ok
+test_expired_draft_and_corrupt_companion_preserve_original 
+(__main__.Wave2.test_expired_draft_and_corrupt_companion_preserve_original) ... ok
+test_manual_snooze_and_unknown_price_age (__main__.Wave2.test_manual_snooze_and_unknown_price_age) ... ok
+test_mobile_both_themes_keyboard (__main__.Wave2.test_mobile_both_themes_keyboard) ... ok
+test_revise_draft_reload_and_deliberate_reopen (__main__.Wave2.test_revise_draft_reload_and_deliberate_reopen) ... ok
+test_stale_target_and_concurrent_editor_fail_closed 
+(__main__.Wave2.test_stale_target_and_concurrent_editor_fail_closed) ... ok
+test_unavailable_stock_and_corrupt_journal_are_not_empty_success 
+(__main__.Wave2.test_unavailable_stock_and_corrupt_journal_are_not_empty_success) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 17.558s
+
+OK
