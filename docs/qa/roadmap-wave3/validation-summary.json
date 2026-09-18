@@ -1,0 +1,41 @@
+{
+  "date": "2026-09-18",
+  "baseline": "48e4d49ff0384df02fa92a38984a3f483a96a2fc",
+  "engineeringReleaseReady": true,
+  "python": 166,
+  "javascript": 253,
+  "javascriptSkipped": 0,
+  "existingBrowser": 38,
+  "wave1Browser": 7,
+  "wave2Browser": 9,
+  "wave3Browser": 7,
+  "accessibilityCspRoutes": 39,
+  "routeThemeChecks": 246,
+  "mobileWidths": [
+    360,
+    390,
+    430
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "cloudRls": "passed actual local PostgreSQL/PGlite",
+  "socialRls": "passed actual local PostgreSQL/PGlite",
+  "authSessionBrowser": "passed staged fixtures",
+  "publicationBrowser": "passed staged fixtures",
+  "actionlint": "1.7.7 passed",
+  "sitemapUrls": 85,
+  "diffCheck": "passed",
+  "ownerContentRubric": "pending",
+  "humanImmediateUsability": "pending",
+  "humanActualDelayedLearning": "pending",
+  "deployed": false,
+  "committed": false,
+  "pushed": false,
+  "notices": [
+    "Existing partial macro upstream update",
+    "2027 authoritative macro schedule not yet published"
+  ],
+  "finalBrowserScreenshotRerun": "7 passed, 13.413s, exit 0; reduced-motion final theme captures"
+}

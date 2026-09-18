@@ -3,6 +3,17 @@
   'use strict';
   const key='ntm-academy-progress-v1',empty=()=>({version:2,events:[],attempts:[]});
   const fail=()=>{throw new Error('Lärhistoriken kan inte läsas. Befintliga data är bevarade; återställ från en kontrollerad backup.');};
+  function validEvidence(v){
+    const keys=['schemaVersion','rubricVersion','competencyId','competencyVersion','taskVersion','variant','attemptId','order','phase','helpExposed','answerExposed','independent','context','anchorId','startedAt','clockValid'];
+    if(!v||typeof v!=='object'||Array.isArray(v)||Object.keys(v).some(k=>!keys.includes(k))||keys.filter(k=>k!=='taskVersion').some(k=>!Object.hasOwn(v,k)))return false;
+    return ['schemaVersion','rubricVersion','competencyVersion','order'].every(k=>Number.isSafeInteger(v[k])&&v[k]>0)
+      &&(v.taskVersion==null||Number.isSafeInteger(v.taskVersion)&&v.taskVersion>0)
+      &&['competencyId','variant','attemptId'].every(k=>typeof v[k]==='string'&&/^[a-zA-Z0-9-]{1,100}$/.test(v[k]))
+      &&['start','help','reveal','submit'].includes(v.phase)&&['practice','application','delayed'].includes(v.context)
+      &&['helpExposed','answerExposed','independent','clockValid'].every(k=>typeof v[k]==='boolean')
+      &&(v.anchorId===null||typeof v.anchorId==='string'&&/^[a-zA-Z0-9-]{1,100}$/.test(v.anchorId))
+      &&typeof v.startedAt==='string'&&Number.isFinite(Date.parse(v.startedAt));
+  }
   function validate(data){
     if(data?.version===1&&Object.keys(data).sort().join()==='events,version')data={...data,version:2,attempts:[]};
     if(!data || data.version!==2 || Object.keys(data).sort().join()!=='attempts,events,version' || !Array.isArray(data.events)||data.events.length>50000||!Array.isArray(data.attempts)||data.attempts.length>50000)fail();
@@ -14,7 +25,7 @@
       ids.add(e.id);
     }
     for(const e of data.attempts){
-      if(!e||Object.keys(e).sort().join()!=='at,correct,id,objectId,questionId'||typeof e.id!=='string'||!/^[a-zA-Z0-9-]{1,100}$/.test(e.id)||ids.has(e.id)||typeof e.correct!=='boolean'||!['objectId','questionId'].every(k=>typeof e[k]==='string'&&/^[a-z][a-z0-9-]{0,99}$/.test(e[k])&&!['constructor','prototype'].includes(e[k]))||typeof e.at!=='string'||!/^\d{4}-\d\d-\d\dT/.test(e.at)||!Number.isFinite(Date.parse(e.at)))fail();
+      if(!e||![ 'at,correct,id,objectId,questionId','at,correct,evidence,id,objectId,questionId'].includes(Object.keys(e).sort().join())||Object.hasOwn(e,'evidence')&&!validEvidence(e.evidence)||typeof e.id!=='string'||!/^[a-zA-Z0-9-]{1,100}$/.test(e.id)||ids.has(e.id)||typeof e.correct!=='boolean'||!['objectId','questionId'].every(k=>typeof e[k]==='string'&&/^[a-z][a-z0-9-]{0,99}$/.test(e[k])&&!['constructor','prototype'].includes(e[k]))||typeof e.at!=='string'||!/^\d{4}-\d\d-\d\dT/.test(e.at)||!Number.isFinite(Date.parse(e.at)))fail();
       ids.add(e.id);
     }
     return JSON.parse(JSON.stringify(data));
@@ -34,10 +45,10 @@
     catch(e){try{if(raw===null)root.localStorage.removeItem(key);else root.localStorage.setItem(key,raw);}catch(_){}throw new Error('Kunde inte spara lärhistoriken. Kontrollera webbläsarens lagring.');}
     return true;
   }
-  function attempt(objectId,questionId,correct){
+  function attempt(objectId,questionId,correct,evidence=null,now=Date.now()){
     const current=read();if(current.error)throw new Error(current.error);
     const data=current.data;
-    data.attempts.push({id:root.crypto.randomUUID(),objectId,questionId,correct,at:new Date(data.attempts.reduce((latest,e)=>Math.max(latest,Date.parse(e.at)+1),Date.now())).toISOString()});validate(data);
+    data.attempts.push({id:root.crypto.randomUUID(),objectId,questionId,correct,at:new Date(evidence?now:data.attempts.reduce((latest,e)=>Math.max(latest,Date.parse(e.at)+1),now)).toISOString(),...(evidence?{evidence}:{})});validate(data);
     if(root.localStorage.getItem(key)!==current.raw)throw new Error('Lärhistoriken ändrades i en annan flik. Försök igen.');
     const next=JSON.stringify(data);
     try{root.localStorage.setItem(key,next);if(root.localStorage.getItem(key)!==next)throw new Error('Kontrolläsning misslyckades.');}
