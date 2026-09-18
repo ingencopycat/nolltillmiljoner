@@ -1,0 +1,20 @@
+.public-report-v2 { max-width: 70rem; margin-inline: auto; }
+.visual-v3 .public-report-v2 .report-header h1 { font-size: clamp(2rem,5vw,3.5rem); line-height: 1.12; overflow-wrap: anywhere; }
+.public-report-v2 .social-text, .public-report-page .social-shell #publicAnalysis .public-report-v2 .report-section .social-text { font-size: 1rem; line-height: 1.75; }
+.public-report-v2 .claim-label { display: flex; flex-wrap: wrap; gap: .4rem 1rem; }
+.public-report-v2 [data-claim=reported] { color: var(--informational); }
+.public-report-v2 [data-claim=calculated] { color: var(--derived); }
+.public-report-v2 [data-claim=assumption] { color: var(--manual); }
+.public-report-v2 .report-section { max-width: 48rem; margin-block: 2rem; }
+.public-report-v2 p, .public-report-v2 a, .public-report-v2 th, .public-report-v2 td { overflow-wrap: anywhere; }
+.public-report-v2 .report-index { display: flex; flex-wrap: wrap; gap: .5rem 1rem; position: static; }
+.public-report-v2 table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: .875rem; }
+.public-report-v2 th, .public-report-v2 td { text-align: left; padding: .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.public-report-v2 caption { text-align: left; padding-block: .75rem; }
+.public-report-v2 details { margin-block: .75rem; }
+.public-revenue-chart { display: flex; align-items: flex-end; gap: .75rem; margin-block: 1rem; }
+.public-revenue-column { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: .5rem; font-size: .8rem; overflow-wrap: anywhere; }
+.public-revenue-bar { height: var(--report-height); background: var(--accent); border: 1px solid currentColor; }
+.report-diff { padding: 1rem; border: 1px solid var(--border); margin-block: 1rem; overflow-wrap: anywhere; }
+.report-diff pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .8rem; }
+@media(max-width:600px) { .public-report-v2 .report-header { padding: 0; } .public-report-v2 .report-section { margin-block: 1.5rem; } .public-report-v2 h1 { font-size: clamp(1.8rem,8vw,2.5rem); } }

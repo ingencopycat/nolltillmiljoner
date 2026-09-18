@@ -47,6 +47,7 @@
    for(const r of rows){const item=node('div',undefined,'social-item');
      if(kind==='profiles')item.append(link(r.displayName+' · @'+r.username,C.profileUrl(r.username)));
      else {const title=node('h3');title.append(link(r.content.company+' · '+r.content.ticker,C.analysisUrl(r.id)));item.append(title,node('p','Av @'+r.author.username+' · '+new Date(r.publishedAt).toLocaleDateString('sv-SE'),'social-note'),node('p',r.content.thesis.slice(0,180)+(r.content.thesis.length>180?'…':'')));}
+     if(kind!=='profiles'&&r.content.schemaVersion===2)item.append(node('p','Fryst rapport · version '+r.versionNumber+' · '+(r.content.financial?.length||0)+' finansiella avsnitt'+(r.content.chart?' · intäktsdiagram':''),'social-note'));
      parent.append(item);
    }
    if(rows.length===20){const more=button('Visa fler',async()=>{await list(parent,action,args,kind,offset+20);more.remove();});parent.append(more);}
@@ -64,13 +65,14 @@
    else if(await adapter.session())card.append(button('Rapportera profil',()=>report(p)));
    else card.append(link('Rapportera profil (logga in)','konto.html?u='+encodeURIComponent(username)+'&report=1'));
  }
- function report(p){const body=dialog('Rapportera @'+p.username),form=node('form'),label=node('label','Orsak');label.htmlFor='reportReason';
+ function report(p,analysis=null){const body=dialog('Rapportera @'+p.username),form=node('form'),label=node('label','Orsak');label.htmlFor='reportReason';
+   if(analysis)body.append(node('p','Rapporten gäller offentlig version '+(analysis.versionNumber||1)+'. Välj Annat för felaktiga källuppgifter, vilseledande slutsatser eller källrättigheter och beskriv problemet.'));
    const reason=node('select');reason.id='reportReason';for(const [value,text] of Object.entries({impersonation:'Identitetsintrång',abuse:'Kränkande användarnamn eller profil',spam:'Bedrägeri eller spam',threat:'Trakasserier eller hot',illegal:'Olagligt innehåll',other:'Annat'})){
      const opt=node('option',text);opt.value=value;reason.append(opt);}
    form.append(label,reason);const detail=field(form,'Detaljer (valfritt, högst 500 tecken)','reportDetail','','textarea',500);
    form.append(node('p','Rapporten visas bara för moderering. Din identitet och rapporten blir inte offentliga. Undvik känsliga personuppgifter.'));
    const send=node('button','Skicka rapport','secondary-btn');send.type='submit';form.append(send);form.onsubmit=e=>{e.preventDefault();run(async()=>{
-     await adapter.socialWrite('report',{username:p.username,reason:reason.value,detail:detail.value});emit('profile_report_submitted');close();status('Rapporten har skickats för granskning.');});};body.append(form);
+     await adapter.socialWrite(analysis?'reportAnalysis':'report',{...(analysis?{id:analysis.id,versionId:analysis.versionId||analysis.id}:{username:p.username}),reason:reason.value,detail:detail.value});emit('profile_report_submitted');close();status('Rapporten har skickats för granskning.');});};body.append(form);
  }
  async function account(){const version=++accountVersion;close();mine=null;const box=$('profileSettings');box.replaceChildren();$('publicationPanel').hidden=true;
    const logged=await adapter.session();if(!logged){box.append(node('p','Logga in ovan för att skapa eller hantera din valfria offentliga profil.'));$('profileExport').replaceChildren();return;}
@@ -134,17 +136,26 @@
  async function init(){try{status('Hämtar…');if(!adapter){if(!window.NTMCloudConfig?.enabled){status('Konton och offentliga profiler är inte aktiverade här ännu. Din lokala Research fungerar som vanligt.');return;}adapter=window.NTMCloudAdapter.create(window.NTMCloudConfig);}window.NTMSocialAdapter=adapter;
    if(page==='konto'){if(!accountListening){accountListening=true;window.addEventListener('ntm-account-change',()=>{accountVersion++;close();if(busy){refreshPending=true;return;}run(account);});}await account();}
    if(page==='profil'){const username=C.normalizeUsername(params.get('u'));await publicProfile(username,$('publicProfile'));await list($('publicAnalyses'),'analyses',{username});}
-   if(page==='analys'){const a=await adapter.socialRead('analysis',{id:params.get('id')});if(!a){status('');$('publicAnalysis').append(node('p','Analysen finns inte eller är inte offentlig.'));return;}
+   if(page==='analys'){const a=await adapter.socialRead('analysis',{id:params.get('id'),...(params.has('version')?{version:params.get('version')}:{})});if(!a){status('');$('publicAnalysis').append(node('p','Analysen finns inte eller är inte offentlig.'));return;}
+     if(a.content.schemaVersion===2){
+       document.querySelector('.page-intro h1').hidden=true;
+       const continuation=document.querySelector('.account-secondary');if(continuation)continuation.hidden=true;
+       window.NTMPublicReportUI.render($('publicAnalysis'),a.content,a);
+       $('publicAnalysis').append(button('Rapportera denna version',async()=>{
+         if(await adapter.session())report(a.author,a);
+         else {status('Logga in för att rapportera. Rapporten kan läsas utan konto.');$('socialStatus').append(link('Logga in','konto.html'));}
+       }));status('');return;
+     }
      document.querySelector('.page-intro h1').hidden=true;
-     const report=$('publicAnalysis'),header=node('header',undefined,'report-header');
+     const legacyReport=$('publicAnalysis'),header=node('header',undefined,'report-header');
      header.append(node('p',a.content.ticker+' · Investeringsanalys','section-kicker'),node('h1',a.content.company));
      const byline=node('div',undefined,'report-byline');byline.append(link('Av @'+a.author.username,C.profileUrl(a.author.username)));header.append(byline);
      const dates=node('div',undefined,'report-dates');
      dates.append(node('span','Publicerad '+new Date(a.publishedAt).toLocaleDateString('sv-SE')));
      if(a.content.analysisDate)dates.append(node('span','Analysdatum '+a.content.analysisDate));header.append(dates);
-     header.append(node('p','Publicerad av användaren. Resonemanget är användarens eget och innebär inget godkännande från NTM.','report-ownership'));report.append(header);
+     header.append(node('p','Publicerad av användaren. Resonemanget är användarens eget och innebär inget godkännande från NTM.','report-ownership'));legacyReport.append(header);
      const body=node('div',undefined,'report-body'),index=node('nav',undefined,'report-index'),copy=node('div',undefined,'report-copy');
-     index.setAttribute('aria-label','I analysen');body.append(index,copy);report.append(body);
+     index.setAttribute('aria-label','I analysen');body.append(index,copy);legacyReport.append(body);
      for(const [key,label] of Object.entries(C.fields)){
        if(['company','ticker','analysisDate'].includes(key)||!a.content[key])continue;
        const section=node('section',undefined,'report-section');section.id='report-'+key;

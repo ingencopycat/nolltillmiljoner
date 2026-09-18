@@ -97,7 +97,7 @@
       ...(data?.$schema === 'ntm-stock-v1' ? { provenance: {
         version: 1, dataSchema: data.$schema, methodVersion: data.metadata?.methodVersion,
         generatedAt: data.metadata?.generatedAt, fetchedAt: data.metadata?.fetchedAt,
-        fundamental: { version: 1, statementMethod: 'ntm-fundamental/1', profile: data.metadata?.profile,
+        fundamental: { version: 1, cik: string(data.company?.cik), statementMethod: 'ntm-fundamental/1', profile: data.metadata?.profile,
           annual: JSON.parse(JSON.stringify((data.annual || []).slice(-3))) },
         metrics: Object.fromEntries(Object.entries({ revenue: 'revenue', netIncome: 'netIncome', eps: 'dilutedEps',
           dilutedShares: 'dilutedShares', fcf: 'freeCashFlow', fcfPerShare: 'fcfPerShare' })

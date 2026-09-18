@@ -1,0 +1,46 @@
+{
+  "date": "2026-09-18",
+  "environment": "Local Windows / headless Chromium / PostgreSQL-PGlite; no hosted writes",
+  "release": {
+    "python": 166,
+    "javascript": 269,
+    "skips": 0,
+    "status": "PASS"
+  },
+  "browser": {
+    "general": 38,
+    "wave1": 7,
+    "wave2": 9,
+    "wave3": 7,
+    "wave4": 4,
+    "wave5": 4,
+    "status": "PASS"
+  },
+  "integration": {
+    "v2_postgres": "PASS",
+    "social_postgres": "PASS",
+    "cloud_postgres": "PASS",
+    "social_browser": "PASS",
+    "auth_persistence_browser": "PASS"
+  },
+  "quality": {
+    "routes": 41,
+    "accessibility_csp": "PASS",
+    "actionlint": "1.7.7 PASS",
+    "seo_staging": "PASS",
+    "diff_check": "PASS"
+  },
+  "pending": [
+    "Hosted migration/application",
+    "Hosted A/B/anonymous RLS/publication verification",
+    "Owner rights/retention/moderation decisions",
+    "Independent human/editorial review"
+  ],
+  "actions_not_taken": [
+    "commit",
+    "push",
+    "deploy",
+    "hosted migration",
+    "Wave 6"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "method": "Unminified module bytes; gzip estimates. JSON only; no RPC wrapper. Static CSS chart, no chart framework or live fetching.",
+  "assets": [
+    {
+      "path": "public-report.js",
+      "bytes": 11902,
+      "gzipBytes": 4295
+    },
+    {
+      "path": "public-report-ui.js",
+      "bytes": 7707,
+      "gzipBytes": 3059
+    },
+    {
+      "path": "public-report-origin.js",
+      "bytes": 1019,
+      "gzipBytes": 563
+    },
+    {
+      "path": "public-report.css",
+      "bytes": 2110,
+      "gzipBytes": 719
+    }
+  ],
+  "reports": {
+    "minimal": {
+      "bytes": 259,
+      "gzipBytes": 208
+    },
+    "financial": {
+      "bytes": 4338,
+      "gzipBytes": 854
+    },
+    "chart": {
+      "bytes": 2243,
+      "gzipBytes": 631
+    },
+    "rich": {
+      "bytes": 6322,
+      "gzipBytes": 933
+    }
+  }
+}

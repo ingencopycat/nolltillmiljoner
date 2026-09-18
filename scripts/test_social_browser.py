@@ -31,7 +31,7 @@ def main():
         # Match CI's pinned Playwright browser; opt into system Chrome explicitly.
         browser = pw.chromium.launch(channel=os.environ.get('BROWSER_CHANNEL') or None)
         base = f'http://127.0.0.1:{server.server_port}'
-        screenshots = ROOT / 'docs/qa/account-polish'
+        screenshots = ROOT / 'docs/qa/wave5/social'
         screenshots.mkdir(parents=True, exist_ok=True)
         profile = dict(username='reader_a', displayName='Lugn Research', bio='<img src=x onerror=alert(1)> Ingen HTML.', role='user',
                        memberSince='2026-09-16', level=None, xp=None, followers=1, following=0)
@@ -74,8 +74,8 @@ def main():
                     result = state['mine']
                 elif a == 'ownAnalyses':
                     result = state['own']
-                elif a == 'publish':
-                    state['own'] = [dict(public, content=args['snapshot'], sourceScope=args['scope'], sourceRevision=args['revision'], hidden=False, moderated=False)]
+                elif a == 'publishV2':
+                    state['own'] = [dict(public, versionId='22222222-2222-4222-8222-222222222222',versionNumber=1,content=args['snapshot'], sourceScope=args['scope'], sourceRevision=args['revision'], hidden=False, moderated=False)]
                     result = {'id': public['id']}
                 elif a == 'unpublish':
                     state['own'][0]['hidden'] = True
@@ -193,7 +193,7 @@ def main():
         page.locator('#researchPublishBtn').click()
         assert '/research.html' in page.url
         publication=page.locator('.research-publication dialog')
-        expect(publication).to_contain_text('osparade ändringar')
+        expect(publication).to_contain_text('Osparade ändringar')
         preview=page.get_by_role('button',name='Förhandsgranska publicering',exact=True)
         expect(preview).to_be_enabled()
         assert page.locator('#publish_thesis').input_value()==public['content']['thesis']
@@ -214,7 +214,7 @@ def main():
                 assert publication.evaluate('(e)=>e.scrollWidth<=e.clientWidth')
                 assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
         assert not page.evaluate('window.__publicationCsp||[]')
-        assert not any(d.get('action')=='publish' for _,d in calls)
+        assert not any(d.get('action')=='publishV2' for _,d in calls)
         page.keyboard.press('Escape')
         expect(page.locator('#researchPublishBtn')).to_be_focused()
         page.keyboard.press('Enter')
@@ -223,7 +223,7 @@ def main():
         page.get_by_role('button',name='Publicera',exact=True).click()
         expect(page.locator('#researchPublicationStatus')).to_contain_text('kunde inte bekräftas')
         page.get_by_role('button',name='Publicera',exact=True).click()
-        expect(page.locator('#researchPublicationStatus')).to_contain_text('Analysen är publicerad')
+        expect(page.locator('#researchPublicationStatus')).to_contain_text('Rapporten är publicerad')
         expect(page.locator('#researchPublishBtn')).to_be_hidden()
         expect(page.locator('#researchPublicState')).to_contain_text('Publicerad')
         expect(page.locator('#researchPublicState').get_by_role('link',name='Visa analys')).to_be_visible()
@@ -232,11 +232,11 @@ def main():
         page.evaluate("localStorage.removeItem('investment-research-theses-v1');NTMResearchPublication.refreshSource()")
         expect(page.get_by_role('button',name='Avpublicera',exact=True)).to_be_visible()
         page.evaluate("raw=>{localStorage.setItem('investment-research-theses-v1',raw);NTMResearchPublication.refreshSource()}",local_source)
-        payload=next(d['args']['snapshot'] for _,d in calls if d.get('action')=='publish')
-        assert set(payload)=={'company','ticker','thesis','analysisDate'}
+        payload=next(d['args']['snapshot'] for _,d in calls if d.get('action')=='publishV2')
+        assert set(payload)=={'schemaVersion','methodVersion','company','ticker','thesis','analysisDate','basisDate','financial'}
         assert 'PRIVATE-SENTINEL' not in json.dumps(calls)
         assert not any('ntm_put_records' in url for url,_ in calls),'Publication must not upload private source'
-        publish_calls=[d['args'] for _,d in calls if d.get('action')=='publish']
+        publish_calls=[d['args'] for _,d in calls if d.get('action')=='publishV2']
         assert publish_calls[-1]['requestId']==publish_calls[-2]['requestId']
         page.keyboard.press('Escape')
         page.evaluate("""() => {NTMThesisStorage.save('EX',{companyName:'Example',text:'En ny privat tes med ett förändrat antagande om marginalerna.'});renderRevisionHistory(currentStockData);}""")
@@ -245,10 +245,10 @@ def main():
         page.reload()
         page.get_by_role('button',name='Uppdatera publicerad analys').click()
         preview.click()
-        expect(publication).to_contain_text('ersätter din tidigare synliga analys')
+        expect(publication).to_contain_text('Ändringar mot nu publicerad version')
         page.get_by_role('button',name='Publicera',exact=True).click()
-        expect(page.locator('#researchPublicationStatus')).to_contain_text('Analysen är publicerad')
-        assert [d['args'] for _,d in calls if d.get('action')=='publish'][-1]['supersedes']==public['id']
+        expect(page.locator('#researchPublicationStatus')).to_contain_text('Rapporten är publicerad')
+        assert [d['args'] for _,d in calls if d.get('action')=='publishV2'][-1]['reportId']==public['id']
         page.keyboard.press('Escape')
         page.get_by_role('button',name='Avpublicera',exact=True).click()
         expect(publication).to_contain_text('Analysen tas bort från din profil och Upptäck Research och är inte längre offentligt tillgänglig. Din privata analys finns kvar.')
