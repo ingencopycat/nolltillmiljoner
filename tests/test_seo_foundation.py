@@ -59,6 +59,27 @@ class SeoFoundationTests(unittest.TestCase):
         result = subprocess.run([node, 'scripts/build_seo.cjs', '--check'], cwd=ROOT, capture_output=True, text=True, encoding='utf-8', timeout=60)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
+    def test_homepage_product_identity_is_evergreen(self):
+        home = self.pages['index.html']
+        self.assertEqual(home.canonicals, [BASE])
+        self.assertEqual(home.meta['og:type'], ['website'])
+        self.assertEqual(home.meta['twitter:title'], home.titles)
+        self.assertEqual(home.meta['twitter:description'], home.meta['description'])
+        site = home.jsonld[0]
+        self.assertEqual(site['@type'], 'WebSite')
+        self.assertEqual(site['alternateName'], 'NTM')
+        page = site['mainEntity']
+        self.assertEqual(page['@type'], 'WebPage')
+        self.assertEqual(page['isPartOf']['@id'], site['@id'])
+        self.assertEqual(page['name'], home.titles[0])
+        self.assertEqual(site['description'], home.meta['description'][0])
+        self.assertEqual(page['description'], site['description'])
+        serialized = json.dumps(home.jsonld)
+        for field in ['datePublished', 'dateModified', 'Article', 'BlogPosting']:
+            self.assertNotIn(field, serialized)
+        source = (ROOT / 'index.html').read_text(encoding='utf-8')
+        self.assertIn('Allt du behöver som investerare – på ett ställe.', source)
+
     def test_metadata_identity_and_jsonld_on_every_page(self):
         titles = []; descriptions = []
         for name, page in self.pages.items():

@@ -2213,6 +2213,11 @@ function injectInstagramPromo() {
   const promo = document.createElement('section');
   promo.id = 'site-instagram-promo';
   promo.className = 'instagram-footer';
+  // Keep the creator promotion visible, but not as the homepage's search excerpt.
+  if (document.getElementById('product-heading')) {
+    promo.setAttribute('data-nosnippet', '');
+    promo.setAttribute('aria-label', 'Följ NTM på Instagram');
+  }
   promo.innerHTML = `
     <div class="instagram-footer-inner">
       <div class="instagram-footer-copy">
@@ -3163,11 +3168,12 @@ function createImageLightbox(images, startIndex = 0, onChange = null) {
 
 window.NTMLightbox = { open: createImageLightbox };
 
-function renderPostPreview(post) {
+function renderPostPreview(post, options = {}) {
+  const date = `<time datetime="${post.date}">${formatPostDate(post.date)}</time>`;
   return `<article class="post-card resource-card" data-youtube-post>
     ${renderPostMedia(post, true)}
     <div class="post-card-body">
-      <div class="post-meta"><span>${escapePostText(post.category)}</span><time datetime="${post.date}">${formatPostDate(post.date)}</time></div>
+      <div class="post-meta"><span>${escapePostText(post.category)}</span>${options.homepageDate ? `<span data-nosnippet>Inläggets datum: ${date}</span>` : date}</div>
       <h3 class="resource-card-title"><a href="${getPostUrl(post.slug)}">${escapePostText(post.title)}</a></h3>
       <p class="post-excerpt">${escapePostText(post.excerpt)}</p>
       <div class="post-tags">${renderPostTags(post)}</div>
@@ -3274,7 +3280,7 @@ function initPostSystem() {
   if (typeof NTM_POSTS === 'undefined') return;
   const posts = [...NTM_POSTS].sort((a, b) => new Date(b.date) - new Date(a.date));
   const latestPosts = document.getElementById('latestPosts');
-  if (latestPosts) latestPosts.innerHTML = posts.slice(0, 3).map(renderPostPreview).join('');
+  if (latestPosts) latestPosts.innerHTML = posts.slice(0, 3).map(post => renderPostPreview(post, { homepageDate: true })).join('');
 
   const archive = document.getElementById('postArchive');
   if (archive) {

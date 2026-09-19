@@ -15,7 +15,7 @@ const overrides = {
   'profil.html': ['Offentlig NTM-profil | Noll till Miljoner', 'Visa en offentlig NTM-identitet, följrelationer och uttryckligen publicerad Research. Privata kontouppgifter visas aldrig här.'],
   'analys.html': ['Användarpublicerad analys | Noll till Miljoner', 'Läs en uttryckligen publicerad Research-analys och dess valda antaganden. Innehållet är användarens eget resonemang.'],
   'upptack.html': ['Upptäck Research | Noll till Miljoner', 'Sök offentliga NTM-användarnamn och läs nyligen publicerade analyser. En plats för resonemang och egen Research.'],
-  'index.html': ['Investeringar, aktieanalys och börsverktyg | Noll till Miljoner', 'Utforska kalkylatorer för sparande, ränta på ränta och investeringar. Följ makro, bolagsrapporter och aktieanalys med Noll till Miljoner.'],
+  'index.html': ['Noll till Miljoner – Verktyg, Research & kunskap för investerare', 'Analysera aktier, testa investeringsidéer, använd kalkylatorer och lär dig mer om investeringar – gratis på Noll till Miljoner.'],
   'verktyg.html': ['Börsverktyg och kalkylatorer för ditt sparande | Noll till Miljoner', 'Räkna på ränta på ränta, utdelningar, FIRE, sparmål och aktievärdering. Välj bland Noll till Miljoners kalkylatorer för investeringar och privatekonomi.'],
   'ranta-pa-ranta.html': ['Ränta-på-ränta-kalkylator – ränta på ränta och utdelningar | Noll till Miljoner', 'Beräkna ränta på ränta med startkapital och månadssparande. Använd utdelningsläget för att räkna på utdelningar och återinvestering över tid.'],
   'research.html': ['Aktieanalys med SEC-data och värderingsscenarier | Noll till Miljoner', 'Analysera NVIDIA, SoFi och CrowdStrike med normaliserad SEC-data. Räkna på värdering, jämför scenarier och spara din investeringstes lokalt.'],
@@ -74,7 +74,12 @@ for (const file of new Set([...fs.readdirSync(root).filter((name) => name.endsWi
   const html = knowledgePages.get(file) || academyPages.get(file) || read(file);
   const title = overrides[file]?.[0] || decode(html.match(/<title>(.*?)<\/title>/s)[1]);
   const description = overrides[file]?.[1] || decode(html.match(/<meta name="description" content="([^"]+)"/)[1]);
-  const schema = file === 'index.html' ? { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Noll till Miljoner', url: base, inLanguage: 'sv' } : null;
+  const schema = file === 'index.html' ? {
+    '@context': 'https://schema.org', '@type': 'WebSite', '@id': base + '#website',
+    name: 'Noll till Miljoner', alternateName: 'NTM', url: base, description, inLanguage: 'sv',
+    mainEntity: { '@type': 'WebPage', '@id': base + '#webpage', url: base, name: title,
+      description, inLanguage: 'sv', isPartOf: { '@id': base + '#website' } }
+  } : null;
   outputs.set(file, navigation(metadata(html, file, title, description, schema), file));
 }
 // Reuse the actual page renderer so article content and interactive structure cannot drift.

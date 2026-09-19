@@ -1,0 +1,57 @@
+[
+  {
+    "revision": "4932d435",
+    "file": "index.html",
+    "titles": [
+      "Noll till Miljoner"
+    ],
+    "headings": [
+      "Senaste videon",
+      "Think It’s Too Late to Buy Micron Stock? Watch This"
+    ],
+    "date_matches": [],
+    "creator_copy_present": false,
+    "homepage_jsonld_present": false
+  },
+  {
+    "revision": "4932d435",
+    "file": "script.js",
+    "titles": [],
+    "headings": [
+      "${scenario.returnRate}%",
+      "Följ min resa från <span class=\"brand-zero\">NOLL</span> <span class=\"brand-neutral\">TILL</span> <span class=\"brand-million\">MILJONER</span>."
+    ],
+    "date_matches": [],
+    "creator_copy_present": true,
+    "homepage_jsonld_present": null
+  },
+  {
+    "revision": "c908383c",
+    "file": "index.html",
+    "titles": [
+      "Noll till Miljoner"
+    ],
+    "headings": [
+      "God dag",
+      "Senaste inläggen"
+    ],
+    "date_matches": [],
+    "creator_copy_present": false,
+    "homepage_jsonld_present": false
+  },
+  {
+    "revision": "c908383c",
+    "file": "script.js",
+    "titles": [],
+    "headings": [
+      "${scenario.returnRate}%",
+      "Följ min resa från <span class=\"brand-zero\">NOLL</span> <span class=\"brand-neutral\">TILL</span> <span class=\"brand-million\">MILJONER</span>.",
+      "<a href=\"${getPostUrl(post.slug)}\">${escapePostText(post.title)}</a>",
+      "${escapePostText(post.title)}",
+      "Inlägget hittades inte"
+    ],
+    "date_matches": [],
+    "creator_copy_present": true,
+    "homepage_jsonld_present": null
+  }
+]
