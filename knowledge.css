@@ -45,3 +45,9 @@
 .knowledge-bottom {display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}
 .knowledge-related ul {padding-left:1.2rem}
 @media(max-width:600px){.knowledge-featured{grid-template-columns:1fr}.knowledge-controls button{width:100%}.knowledge-short,.knowledge-example{padding:1rem}.knowledge-answer{margin-top:0}}
+.knowledge-formula form{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:1rem;margin-block:1rem}
+.knowledge-formula label{display:grid;gap:.4rem}
+.knowledge-formula input,.knowledge-formula select{max-width:100%;min-width:0}
+#knowledgeAskResult button{display:block;white-space:normal;text-align:left;margin-block:.5rem;max-width:100%}
+.knowledge-shell table{width:100%;table-layout:fixed;border-collapse:collapse}
+.knowledge-shell th,.knowledge-shell td{padding:.5rem;border:1px solid var(--border);overflow-wrap:anywhere}

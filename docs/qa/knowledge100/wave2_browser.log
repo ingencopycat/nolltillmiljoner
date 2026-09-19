@@ -1,0 +1,15 @@
+Browser smoke: Chromium 151.0.7922.34; fresh contexts on http://127.0.0.1:60169
+test_actual_return_all_decisions_and_history (wave2_browser.Wave2.test_actual_return_all_decisions_and_history) ... ok
+test_draft_restore_discard_no_revision_or_network_leak (wave2_browser.Wave2.test_draft_restore_discard_no_revision_or_network_leak) ... ok
+test_exact_target_survives_evidence_navigation_reload_and_deletion (wave2_browser.Wave2.test_exact_target_survives_evidence_navigation_reload_and_deletion) ... ok
+test_expired_draft_and_corrupt_companion_preserve_original (wave2_browser.Wave2.test_expired_draft_and_corrupt_companion_preserve_original) ... ok
+test_manual_snooze_and_unknown_price_age (wave2_browser.Wave2.test_manual_snooze_and_unknown_price_age) ... ok
+test_mobile_both_themes_keyboard (wave2_browser.Wave2.test_mobile_both_themes_keyboard) ... ok
+test_revise_draft_reload_and_deliberate_reopen (wave2_browser.Wave2.test_revise_draft_reload_and_deliberate_reopen) ... ok
+test_stale_target_and_concurrent_editor_fail_closed (wave2_browser.Wave2.test_stale_target_and_concurrent_editor_fail_closed) ... ok
+test_unavailable_stock_and_corrupt_journal_are_not_empty_success (wave2_browser.Wave2.test_unavailable_stock_and_corrupt_journal_are_not_empty_success) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 15.561s
+
+OK

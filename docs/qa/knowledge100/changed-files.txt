@@ -1,0 +1,302 @@
+ M academy-competency-ui.js
+ M aktiekopskalkylator.html
+ M analys.html
+ M avgifter.html
+ M avkastningskalkylator.html
+ M docs/internal/knowledge/catalog.cjs
+ M docs/knowledge-bank.md
+ M fragor-svar-cagr-total-avkastning.html
+ M fragor-svar-eps.html
+ M fragor-svar-forward-trailing-pe.html
+ M fragor-svar-omsattning.html
+ M fragor-svar-pe-tal.html
+ M fragor-svar.html
+ M isk-skattkalkylator.html
+ M knowledge-catalog.js
+ M knowledge-core.js
+ M knowledge-ui.js
+ M knowledge.css
+ M public-report-ui.js
+ M ranta-pa-ranta.html
+ M research.html
+ M scripts/browser_smoke.py
+ M scripts/build_knowledge.cjs
+ M scripts/build_seo.cjs
+ M scripts/knowledge_quality.cjs
+ M scripts/test_social_browser.py
+ M scripts/validate_release.py
+ M scripts/wave5_browser.py
+ M tests/knowledge.test.cjs
+ M tests/wave1.test.cjs
+ M valutajusterad-avkastning.html
+ M wave1-ui.js
+?? data/knowledge/answers/annual-fees.json
+?? data/knowledge/answers/bond-yields.json
+?? data/knowledge/answers/cagr.json
+?? data/knowledge/answers/compounding.json
+?? data/knowledge/answers/debt.json
+?? data/knowledge/answers/dilution.json
+?? data/knowledge/answers/diversification.json
+?? data/knowledge/answers/dividends.json
+?? data/knowledge/answers/earnings.json
+?? data/knowledge/answers/eps-comparison.json
+?? data/knowledge/answers/eps.json
+?? data/knowledge/answers/estimates.json
+?? data/knowledge/answers/fcf.json
+?? data/knowledge/answers/fees.json
+?? data/knowledge/answers/forward.json
+?? data/knowledge/answers/fx.json
+?? data/knowledge/answers/gav.json
+?? data/knowledge/answers/guidance.json
+?? data/knowledge/answers/inflation.json
+?? data/knowledge/answers/interest-rates.json
+?? data/knowledge/answers/isk.json
+?? data/knowledge/answers/macro-releases.json
+?? data/knowledge/answers/margins.json
+?? data/knowledge/answers/market-cap.json
+?? data/knowledge/answers/pe.json
+?? data/knowledge/answers/peg.json
+?? data/knowledge/answers/revenue.json
+?? data/knowledge/answers/thesis.json
+?? data/knowledge/answers/ttm.json
+?? docs/internal/knowledge/examples/comparison.html
+?? docs/internal/knowledge/examples/comparison.json
+?? docs/internal/knowledge/examples/definition.html
+?? docs/internal/knowledge/examples/definition.json
+?? docs/internal/knowledge/examples/formula.html
+?? docs/internal/knowledge/examples/formula.json
+?? docs/internal/knowledge/examples/interpretation.html
+?? docs/internal/knowledge/examples/interpretation.json
+?? docs/internal/knowledge/examples/sensitive.html
+?? docs/internal/knowledge/examples/sensitive.json
+?? docs/internal/knowledge/history-baseline.json
+?? docs/internal/knowledge/merges.json
+?? docs/internal/knowledge/retrieval.json
+?? docs/internal/knowledge/scale.cjs
+?? docs/internal/knowledge100-owner-review.md
+?? docs/internal/knowledge100-report.md
+?? docs/qa/knowledge100-wave1_browser/goal-monthly-fee-dark-1440.png
+?? docs/qa/knowledge100-wave1_browser/goal-monthly-fee-dark-320.png
+?? docs/qa/knowledge100-wave1_browser/goal-monthly-fee-dark-390.png
+?? docs/qa/knowledge100-wave1_browser/goal-monthly-fee-light-1440.png
+?? docs/qa/knowledge100-wave1_browser/goal-monthly-fee-light-320.png
+?? docs/qa/knowledge100-wave1_browser/goal-monthly-fee-light-390.png
+?? docs/qa/knowledge100-wave1_browser/journeys.json
+?? docs/qa/knowledge100-wave1_browser/preview-dark-1440.png
+?? docs/qa/knowledge100-wave1_browser/preview-dark-320.png
+?? docs/qa/knowledge100-wave1_browser/preview-dark-390.png
+?? docs/qa/knowledge100-wave1_browser/preview-light-1440.png
+?? docs/qa/knowledge100-wave1_browser/preview-light-320.png
+?? docs/qa/knowledge100-wave1_browser/preview-light-390.png
+?? docs/qa/knowledge100-wave1_browser/stock-eps-dark-1440.png
+?? docs/qa/knowledge100-wave1_browser/stock-eps-dark-320.png
+?? docs/qa/knowledge100-wave1_browser/stock-eps-dark-390.png
+?? docs/qa/knowledge100-wave1_browser/stock-eps-light-1440.png
+?? docs/qa/knowledge100-wave1_browser/stock-eps-light-320.png
+?? docs/qa/knowledge100-wave1_browser/stock-eps-light-390.png
+?? docs/qa/knowledge100-wave1_browser/val-eps-dark-1440.png
+?? docs/qa/knowledge100-wave1_browser/val-eps-dark-320.png
+?? docs/qa/knowledge100-wave1_browser/val-eps-dark-390.png
+?? docs/qa/knowledge100-wave1_browser/val-eps-light-1440.png
+?? docs/qa/knowledge100-wave1_browser/val-eps-light-320.png
+?? docs/qa/knowledge100-wave1_browser/val-eps-light-390.png
+?? docs/qa/knowledge100-wave2_browser/review-360-dark.png
+?? docs/qa/knowledge100-wave2_browser/review-360-light.png
+?? docs/qa/knowledge100-wave2_browser/review-390-dark.png
+?? docs/qa/knowledge100-wave2_browser/review-390-light.png
+?? docs/qa/knowledge100-wave2_browser/review-430-dark.png
+?? docs/qa/knowledge100-wave2_browser/review-430-light.png
+?? docs/qa/knowledge100-wave2_browser/wave2-browser.json
+?? docs/qa/knowledge100-wave3_browser/learning-360-dark.png
+?? docs/qa/knowledge100-wave3_browser/learning-360-light.png
+?? docs/qa/knowledge100-wave3_browser/learning-390-dark.png
+?? docs/qa/knowledge100-wave3_browser/learning-390-light.png
+?? docs/qa/knowledge100-wave3_browser/learning-430-dark.png
+?? docs/qa/knowledge100-wave3_browser/learning-430-light.png
+?? docs/qa/knowledge100-wave3_browser/preview-360-dark.png
+?? docs/qa/knowledge100-wave3_browser/preview-360-light.png
+?? docs/qa/knowledge100-wave3_browser/preview-390-dark.png
+?? docs/qa/knowledge100-wave3_browser/preview-390-light.png
+?? docs/qa/knowledge100-wave3_browser/preview-430-dark.png
+?? docs/qa/knowledge100-wave3_browser/preview-430-light.png
+?? docs/qa/knowledge100-wave3_browser/wave3-browser.json
+?? docs/qa/knowledge100-wave4_browser/CRWD-1440-dark.png
+?? docs/qa/knowledge100-wave4_browser/CRWD-1440-light.png
+?? docs/qa/knowledge100-wave4_browser/CRWD-360-dark.png
+?? docs/qa/knowledge100-wave4_browser/CRWD-360-light.png
+?? docs/qa/knowledge100-wave4_browser/CRWD-390-dark.png
+?? docs/qa/knowledge100-wave4_browser/CRWD-390-light.png
+?? docs/qa/knowledge100-wave4_browser/CRWD-430-dark.png
+?? docs/qa/knowledge100-wave4_browser/CRWD-430-light.png
+?? docs/qa/knowledge100-wave4_browser/CRWV-1440-dark.png
+?? docs/qa/knowledge100-wave4_browser/CRWV-1440-light.png
+?? docs/qa/knowledge100-wave4_browser/CRWV-360-dark.png
+?? docs/qa/knowledge100-wave4_browser/CRWV-360-light.png
+?? docs/qa/knowledge100-wave4_browser/CRWV-390-dark.png
+?? docs/qa/knowledge100-wave4_browser/CRWV-390-light.png
+?? docs/qa/knowledge100-wave4_browser/CRWV-430-dark.png
+?? docs/qa/knowledge100-wave4_browser/CRWV-430-light.png
+?? docs/qa/knowledge100-wave4_browser/FLY-1440-dark.png
+?? docs/qa/knowledge100-wave4_browser/FLY-1440-light.png
+?? docs/qa/knowledge100-wave4_browser/FLY-360-dark.png
+?? docs/qa/knowledge100-wave4_browser/FLY-360-light.png
+?? docs/qa/knowledge100-wave4_browser/FLY-390-dark.png
+?? docs/qa/knowledge100-wave4_browser/FLY-390-light.png
+?? docs/qa/knowledge100-wave4_browser/FLY-430-dark.png
+?? docs/qa/knowledge100-wave4_browser/FLY-430-light.png
+?? docs/qa/knowledge100-wave4_browser/NVDA-1440-dark.png
+?? docs/qa/knowledge100-wave4_browser/NVDA-1440-light.png
+?? docs/qa/knowledge100-wave4_browser/NVDA-360-dark.png
+?? docs/qa/knowledge100-wave4_browser/NVDA-360-light.png
+?? docs/qa/knowledge100-wave4_browser/NVDA-390-dark.png
+?? docs/qa/knowledge100-wave4_browser/NVDA-390-light.png
+?? docs/qa/knowledge100-wave4_browser/NVDA-430-dark.png
+?? docs/qa/knowledge100-wave4_browser/NVDA-430-light.png
+?? docs/qa/knowledge100-wave4_browser/SOFI-1440-dark.png
+?? docs/qa/knowledge100-wave4_browser/SOFI-1440-light.png
+?? docs/qa/knowledge100-wave4_browser/SOFI-360-dark.png
+?? docs/qa/knowledge100-wave4_browser/SOFI-360-light.png
+?? docs/qa/knowledge100-wave4_browser/SOFI-390-dark.png
+?? docs/qa/knowledge100-wave4_browser/SOFI-390-light.png
+?? docs/qa/knowledge100-wave4_browser/SOFI-430-dark.png
+?? docs/qa/knowledge100-wave4_browser/SOFI-430-light.png
+?? docs/qa/knowledge100-wave4_browser/makro-1440-dark.png
+?? docs/qa/knowledge100-wave4_browser/makro-1440-light.png
+?? docs/qa/knowledge100-wave4_browser/makro-360-dark.png
+?? docs/qa/knowledge100-wave4_browser/makro-360-light.png
+?? docs/qa/knowledge100-wave4_browser/makro-390-dark.png
+?? docs/qa/knowledge100-wave4_browser/makro-390-light.png
+?? docs/qa/knowledge100-wave4_browser/makro-430-dark.png
+?? docs/qa/knowledge100-wave4_browser/makro-430-light.png
+?? docs/qa/knowledge100-wave4_browser/rapporter-1440-dark.png
+?? docs/qa/knowledge100-wave4_browser/rapporter-1440-light.png
+?? docs/qa/knowledge100-wave4_browser/rapporter-360-dark.png
+?? docs/qa/knowledge100-wave4_browser/rapporter-360-light.png
+?? docs/qa/knowledge100-wave4_browser/rapporter-390-dark.png
+?? docs/qa/knowledge100-wave4_browser/rapporter-390-light.png
+?? docs/qa/knowledge100-wave4_browser/rapporter-430-dark.png
+?? docs/qa/knowledge100-wave4_browser/rapporter-430-light.png
+?? docs/qa/knowledge100-wave4_browser/wave4-browser.json
+?? docs/qa/knowledge100/authoring-validation.json
+?? docs/qa/knowledge100/browser-scale.json
+?? docs/qa/knowledge100/browser-smoke.log
+?? docs/qa/knowledge100/changed-files.txt
+?? docs/qa/knowledge100/comparison-preview.html
+?? docs/qa/knowledge100/definition-preview.html
+?? docs/qa/knowledge100/editorial.json
+?? docs/qa/knowledge100/formula-preview.html
+?? docs/qa/knowledge100/fragor-svar-cagr-total-avkastning.png
+?? docs/qa/knowledge100/fragor-svar-forward-trailing-pe.png
+?? docs/qa/knowledge100/fragor-svar-isk-grunder.png
+?? docs/qa/knowledge100/fragor-svar-pe-tal.png
+?? docs/qa/knowledge100/initial-360-dark.png
+?? docs/qa/knowledge100/initial-360-light.png
+?? docs/qa/knowledge100/initial-390-dark.png
+?? docs/qa/knowledge100/initial-390-light.png
+?? docs/qa/knowledge100/initial-430-dark.png
+?? docs/qa/knowledge100/initial-430-light.png
+?? docs/qa/knowledge100/interpretation-preview.html
+?? docs/qa/knowledge100/knowledge-360-dark.png
+?? docs/qa/knowledge100/knowledge-360-light.png
+?? docs/qa/knowledge100/knowledge-390-dark.png
+?? docs/qa/knowledge100/knowledge-390-light.png
+?? docs/qa/knowledge100/knowledge-430-dark.png
+?? docs/qa/knowledge100/knowledge-430-light.png
+?? docs/qa/knowledge100/knowledge-browser.log
+?? docs/qa/knowledge100/payload-before-after.json
+?? docs/qa/knowledge100/quality.json
+?? docs/qa/knowledge100/quality.log
+?? docs/qa/knowledge100/regression.json
+?? docs/qa/knowledge100/release.log
+?? docs/qa/knowledge100/retrieval.json
+?? docs/qa/knowledge100/scale.json
+?? docs/qa/knowledge100/sensitive-preview.html
+?? docs/qa/knowledge100/social/account-390.png
+?? docs/qa/knowledge100/social/account-dark-1440.png
+?? docs/qa/knowledge100/social/account-dark-390.png
+?? docs/qa/knowledge100/social/account-light-1440.png
+?? docs/qa/knowledge100/social/account-light-390.png
+?? docs/qa/knowledge100/social/analys-dark-390.png
+?? docs/qa/knowledge100/social/analys-light-390.png
+?? docs/qa/knowledge100/social/deletion-dark-390.png
+?? docs/qa/knowledge100/social/deletion-light-390.png
+?? docs/qa/knowledge100/social/followers-dark-390.png
+?? docs/qa/knowledge100/social/followers-light-390.png
+?? docs/qa/knowledge100/social/login-dark-390.png
+?? docs/qa/knowledge100/social/login-light-390.png
+?? docs/qa/knowledge100/social/otp-dark-390.png
+?? docs/qa/knowledge100/social/otp-light-390.png
+?? docs/qa/knowledge100/social/profil-dark-390.png
+?? docs/qa/knowledge100/social/profil-light-390.png
+?? docs/qa/knowledge100/social/profile-dark-1440.png
+?? docs/qa/knowledge100/social/profile-dark-390.png
+?? docs/qa/knowledge100/social/profile-light-1440.png
+?? docs/qa/knowledge100/social/profile-light-390.png
+?? docs/qa/knowledge100/social/report-dark-390.png
+?? docs/qa/knowledge100/social/report-light-390.png
+?? docs/qa/knowledge100/social/role-dark-390.png
+?? docs/qa/knowledge100/social/role-light-390.png
+?? docs/qa/knowledge100/social/sync-error-dark-390.png
+?? docs/qa/knowledge100/social/sync-error-light-390.png
+?? docs/qa/knowledge100/social/upptack-dark-390.png
+?? docs/qa/knowledge100/social/upptack-light-390.png
+?? docs/qa/knowledge100/social/username-dark-390.png
+?? docs/qa/knowledge100/social/username-light-390.png
+?? docs/qa/knowledge100/sources.json
+?? docs/qa/knowledge100/test_auth_browser.log
+?? docs/qa/knowledge100/test_social_browser.log
+?? docs/qa/knowledge100/wave1_browser.log
+?? docs/qa/knowledge100/wave2_browser.log
+?? docs/qa/knowledge100/wave3_browser.log
+?? docs/qa/knowledge100/wave4_browser.log
+?? docs/qa/knowledge100/wave5/chart-only-dark-1440.png
+?? docs/qa/knowledge100/wave5/chart-only-dark-360.png
+?? docs/qa/knowledge100/wave5/chart-only-dark-390.png
+?? docs/qa/knowledge100/wave5/chart-only-dark-430.png
+?? docs/qa/knowledge100/wave5/chart-only-light-1440.png
+?? docs/qa/knowledge100/wave5/chart-only-light-360.png
+?? docs/qa/knowledge100/wave5/chart-only-light-390.png
+?? docs/qa/knowledge100/wave5/chart-only-light-430.png
+?? docs/qa/knowledge100/wave5/dense-dark-1440.png
+?? docs/qa/knowledge100/wave5/dense-dark-360.png
+?? docs/qa/knowledge100/wave5/dense-dark-390.png
+?? docs/qa/knowledge100/wave5/dense-dark-430.png
+?? docs/qa/knowledge100/wave5/dense-light-1440.png
+?? docs/qa/knowledge100/wave5/dense-light-360.png
+?? docs/qa/knowledge100/wave5/dense-light-390.png
+?? docs/qa/knowledge100/wave5/dense-light-430.png
+?? docs/qa/knowledge100/wave5/financial-only-dark-1440.png
+?? docs/qa/knowledge100/wave5/financial-only-dark-360.png
+?? docs/qa/knowledge100/wave5/financial-only-dark-390.png
+?? docs/qa/knowledge100/wave5/financial-only-dark-430.png
+?? docs/qa/knowledge100/wave5/financial-only-light-1440.png
+?? docs/qa/knowledge100/wave5/financial-only-light-360.png
+?? docs/qa/knowledge100/wave5/financial-only-light-390.png
+?? docs/qa/knowledge100/wave5/financial-only-light-430.png
+?? docs/qa/knowledge100/wave5/minimal-dark-1440.png
+?? docs/qa/knowledge100/wave5/minimal-dark-360.png
+?? docs/qa/knowledge100/wave5/minimal-dark-390.png
+?? docs/qa/knowledge100/wave5/minimal-dark-430.png
+?? docs/qa/knowledge100/wave5/minimal-light-1440.png
+?? docs/qa/knowledge100/wave5/minimal-light-360.png
+?? docs/qa/knowledge100/wave5/minimal-light-390.png
+?? docs/qa/knowledge100/wave5/minimal-light-430.png
+?? docs/qa/knowledge100/wave5_browser.log
+?? docs/qa/knowledge100/workflows.log
+?? fragor-svar-omrade-basics-1.html
+?? fragor-svar-omrade-macro-1.html
+?? fragor-svar-omrade-metrics-1.html
+?? fragor-svar-omrade-reports-1.html
+?? fragor-svar-omrade-risk-1.html
+?? fragor-svar-omrade-saving-1.html
+?? fragor-svar-omrade-valuation-1.html
+?? knowledge-help.js
+?? scripts/knowledge100_browser.py
+?? scripts/knowledge100_regression.py
+?? scripts/knowledge_benchmark.cjs
+?? scripts/knowledge_editorial.cjs
+?? scripts/knowledge_history.cjs
+?? scripts/knowledge_scale.cjs
+?? scripts/knowledge_scale_quality.cjs
+?? tests/fixtures/knowledge100-queries.cjs
+?? tests/knowledge100.test.cjs

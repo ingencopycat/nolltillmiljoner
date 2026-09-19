@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "environment": "v24.18.1",
+  "method": "Synthetic in-memory catalogs; 100 warmed samples; Node heap delta includes generated pages and is not isolated retained heap; no network/CPU throttling.",
+  "rows": [
+    {
+      "size": 100,
+      "fixtureMs": 3.0387000000000057,
+      "indexMs": 2.2017999999999986,
+      "engineMs": 3.3734000000000037,
+      "generationMs": 32.855799999999995,
+      "indexBytes": 93081,
+      "indexGzipBytes": 9688,
+      "fullPublicBytes": 213120,
+      "landingBytes": 8592,
+      "initialAnswerCards": 0,
+      "heapDeltaBytes": 5068760,
+      "search": {
+        "medianMs": 0.16310000000000002,
+        "p95Ms": 0.23739999999999384,
+        "maxMs": 0.5665000000000049
+      },
+      "ask": {
+        "medianMs": 0.005400000000008731,
+        "p95Ms": 0.013800000000003365,
+        "maxMs": 0.5435999999999979
+      },
+      "askNoCoverage": {
+        "medianMs": 0.1268000000000029,
+        "p95Ms": 0.3055999999999983,
+        "maxMs": 0.835000000000008
+      },
+      "askTypo": {
+        "medianMs": 0.11299999999999955,
+        "p95Ms": 0.2371000000000265,
+        "maxMs": 0.2961999999999989
+      },
+      "askClarification": {
+        "medianMs": 0.003899999999987358,
+        "p95Ms": 0.004899999999992133,
+        "maxMs": 0.12899999999999068
+      },
+      "category": {
+        "medianMs": 0.14390000000000214,
+        "p95Ms": 0.24650000000002592,
+        "maxMs": 0.3207000000000164
+      },
+      "relationships": {
+        "medianMs": 0.002899999999982583,
+        "p95Ms": 0.006000000000000227,
+        "maxMs": 0.11990000000000123
+      }
+    },
+    {
+      "size": 500,
+      "fixtureMs": 7.5549000000000035,
+      "indexMs": 5.301499999999976,
+      "engineMs": 12.96259999999998,
+      "generationMs": 82.24749999999997,
+      "indexBytes": 468427,
+      "indexGzipBytes": 26328,
+      "fullPublicBytes": 1073618,
+      "landingBytes": 8592,
+      "initialAnswerCards": 0,
+      "heapDeltaBytes": 16303336,
+      "search": {
+        "medianMs": 0.8224999999999909,
+        "p95Ms": 1.0409999999999968,
+        "maxMs": 1.233000000000004
+      },
+      "ask": {
+        "medianMs": 0.004700000000013915,
+        "p95Ms": 0.00909999999998945,
+        "maxMs": 0.043000000000006366
+      },
+      "askNoCoverage": {
+        "medianMs": 0.5111999999999739,
+        "p95Ms": 0.9659999999999513,
+        "maxMs": 1.439799999999991
+      },
+      "askTypo": {
+        "medianMs": 0.48619999999999663,
+        "p95Ms": 0.684599999999989,
+        "maxMs": 0.814200000000028
+      },
+      "askClarification": {
+        "medianMs": 0.00380000000001246,
+        "p95Ms": 0.007400000000018281,
+        "maxMs": 0.05819999999999936
+      },
+      "category": {
+        "medianMs": 0.6227999999999838,
+        "p95Ms": 0.7765000000000555,
+        "maxMs": 0.9018999999999551
+      },
+      "relationships": {
+        "medianMs": 0.006700000000023465,
+        "p95Ms": 0.008199999999987995,
+        "maxMs": 0.044499999999970896
+      }
+    },
+    {
+      "size": 1200,
+      "fixtureMs": 15.2029,
+      "indexMs": 12.921699999999987,
+      "engineMs": 36.58600000000001,
+      "generationMs": 193.10079999999994,
+      "indexBytes": 1127154,
+      "indexGzipBytes": 52407,
+      "fullPublicBytes": 2579497,
+      "landingBytes": 8593,
+      "initialAnswerCards": 0,
+      "heapDeltaBytes": 45249216,
+      "search": {
+        "medianMs": 2.048999999999978,
+        "p95Ms": 2.8467000000000553,
+        "maxMs": 6.736300000000028
+      },
+      "ask": {
+        "medianMs": 0.005499999999983629,
+        "p95Ms": 0.007800000000088403,
+        "maxMs": 0.07290000000011787
+      },
+      "askNoCoverage": {
+        "medianMs": 1.0907000000001972,
+        "p95Ms": 1.4794000000001688,
+        "maxMs": 1.6621000000000095
+      },
+      "askTypo": {
+        "medianMs": 1.0681999999999334,
+        "p95Ms": 1.3660999999999603,
+        "maxMs": 1.5847000000001117
+      },
+      "askClarification": {
+        "medianMs": 0.0036000000000058208,
+        "p95Ms": 0.004500000000007276,
+        "maxMs": 0.08759999999983847
+      },
+      "category": {
+        "medianMs": 1.4875999999999294,
+        "p95Ms": 1.759999999999991,
+        "maxMs": 1.91599999999994
+      },
+      "relationships": {
+        "medianMs": 0.018100000000004002,
+        "p95Ms": 0.01939999999990505,
+        "maxMs": 0.0339000000001306
+      }
+    }
+  ]
+}

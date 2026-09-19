@@ -1,11 +1,13 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const raw=require('../docs/internal/knowledge/catalog.cjs'),Core=require('../knowledge-core.js'),K=require('../knowledge-catalog.js'),R=require('../ntm-relations.js'),A=require('../academy-catalog.js'),Q=require('../scripts/knowledge_quality.cjs'),Builder=require('../scripts/build_knowledge.cjs');
 const clone=x=>JSON.parse(JSON.stringify(x)),read=f=>fs.readFileSync(f,'utf8'),rules=JSON.parse(read('data/rule-registry.json'));
+const seedIds=new Set(require('../docs/internal/knowledge/scale.cjs').baselineIds),seeds=rows=>rows.filter(e=>seedIds.has(e.id));
 test('26 original questions, two Wave 1 answers and one Wave 4 release answer have valid metadata',()=>{
- assert.equal(K.publicEntries().length,29);assert.equal(K.categories.length,7);assert.deepEqual(Q.validate(raw,rules),[]);
- assert.equal(new Set(raw.entries.map(e=>e.id)).size,29);assert.equal(new Set(raw.entries.map(e=>e.slug)).size,29);
- assert.ok(raw.entries.every(e=>e.sources.length&&['2026-09-15','2026-09-18'].includes(e.reviewedAt)));
- assert.ok(raw.entries.every(e=>e.fullAnswer!==A.lessons.find(l=>l.id===e.relatedLessonIds[0])?.sections.deep));
+ assert.equal(seeds(K.publicEntries()).length,29);for(const id of ['basics','metrics','valuation','reports','saving','macro','risk'])assert.ok(K.categories.some(c=>c.id===id));assert.deepEqual(Q.validate(raw,rules),[]);
+ assert.equal(new Set(raw.entries.map(e=>e.id)).size,raw.entries.length);assert.equal(new Set(raw.entries.map(e=>e.slug)).size,raw.entries.length);assert.equal(seeds(raw.entries).length,29);
+ assert.ok(raw.entries.filter(Core.visible).every(e=>e.sources.length&&/^\d{4}-\d{2}-\d{2}$/.test(e.reviewedAt)));
+ for(const e of seeds(raw.entries).filter(e=>e.editorial.approval==='inherited-not-independent'))assert.ok(['2026-09-15','2026-09-18'].includes(e.reviewedAt),'Inherited review dates are not silently refreshed');
+ assert.ok(raw.entries.filter(Core.visible).every(e=>e.fullAnswer!==A.lessons.find(l=>l.id===e.relatedLessonIds[0])?.sections.deep));
 });
 test('draft and needs-update content is excluded from catalog, search and generated pages',()=>{
  for(const status of ['draft','needs-update']){
@@ -24,7 +26,7 @@ test('public projection excludes editorial notes, unknown keys and private sourc
 test('search matches Swedish aliases, category, concepts and P/E punctuation',()=>{
  for(const [term,id] of [['vinst per aktie','eps'],['snittavkastning','cagr'],['mäklaravgift','fees'],['maklaravgift','fees'],['P/E','pe'],['price earnings growth','peg'],['USD SEK','fx']])assert.ok(K.search(term).some(e=>e.id===id),term);
  assert.equal(K.search('vinst per aktie')[0].id,'eps');assert.equal(K.search('nonexistent-secret').length,0);assert.equal(K.search('EPS','macro').length,0);
- assert.ok(K.search('','macro').every(e=>e.category==='macro'));assert.equal(K.search('Makro').length,4);assert.equal(K.search('<img onerror=alert(1)>').length,0);
+ assert.ok(K.search('','macro').every(e=>e.category==='macro'));assert.equal(seeds(K.search('Makro')).length,4);assert.equal(K.search('<img onerror=alert(1)>').length,0);
 });
 test('reviewed question matching is deterministic and abstains on unknown input',()=>{
  assert.equal(K.ask('Vad är PEG?')[0].id,'peg');

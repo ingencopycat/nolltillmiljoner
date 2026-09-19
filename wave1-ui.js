@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  const link=(text,url)=>{const a=node('a',text);a.href=url;a.target='_blank';a.rel='noopener noreferrer';return a;};
  let origin=null;
  const dialog=node('dialog',null,'wave1-dialog');dialog.id='wave1Help';dialog.setAttribute('aria-labelledby','wave1HelpTitle');document.body.append(dialog);
- dialog.addEventListener('close',()=>origin?.isConnected&&origin.focus());
+ dialog.addEventListener('close',()=>{helpRequest++;if(origin?.isConnected)origin.focus();});
  dialog.addEventListener('keydown',event=>{
   if(event.key!=='Tab')return;
   const items=[...dialog.querySelectorAll('a[href],button,summary')].filter(n=>n.getClientRects().length&&!n.disabled);
@@ -15,12 +15,17 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(event.shiftKey&&document.activeElement===first){event.preventDefault();last?.focus();}
   else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus();}
  });
- function help(id,trigger){
-  const concept=K.pilotConcepts?.find(c=>c.id===id)||(['macro-releases','interest-rates'].includes(id)?{answerId:id,excerpt:'shortAnswer'}:null),entry=concept&&K.publicEntries().find(e=>e.id===concept.answerId);
+ let helpRequest=0;
+ async function help(id,trigger){
+  const request=++helpRequest;origin=trigger;const loading=node('h2','Öppnar granskat svar …');loading.id='wave1HelpTitle';dialog.replaceChildren(loading,button('Tillbaka till mitt arbete',()=>dialog.close()));if(!dialog.open)dialog.showModal();dialog.querySelector('button').focus();
+  const context=location.pathname.endsWith('makro.html')?'macro':location.pathname.endsWith('research.html')?'research':'calculator';
+  let view=null;try{view=await K.explain(id,context,'full');}catch(_){}
+  if(request!==helpRequest||!trigger.isConnected||!dialog.open)return;
+  const entry=view&&{...view,shortAnswer:view.excerpt},concept={excerpt:'shortAnswer'};
   origin=trigger;dialog.replaceChildren();
   const h=node('h2',entry?.question||'Förklaringen är inte tillgänglig');h.id='wave1HelpTitle';dialog.append(h);
   if(entry){
-   dialog.append(node('p',entry[concept.excerpt]),node('p',entry.caveats,'note'),node('p',`Innehållsversion ${entry.contentVersion} · källgranskat ${entry.reviewedAt}`,'note'));
+   dialog.append(node('p',entry[concept.excerpt]),node('p',entry.caveats,'note'),node('p',`Innehållsversion ${entry.contentVersion} · källgranskat ${entry.reviewedAt}${entry.stale?' · ny granskning behövs':''}`,'note'));
    const details=node('details'),summary=node('summary','Förklaring, källor och exempel');details.append(summary,node('p',entry.fullAnswer),node('p',entry.example));
    for(const s of entry.sources)details.append(link(s.title+' (ny flik)',s.url));dialog.append(details);
    dialog.append(link('Läs hela svaret (ny flik)',K.url(entry.id)+'#task-help'),node('p','Ditt arbete ligger kvar i den ursprungliga fliken. Stäng läsfliken och återgå hit.','note'));

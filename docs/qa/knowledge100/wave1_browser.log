@@ -1,0 +1,13 @@
+Browser smoke: Chromium 151.0.7922.34; fresh contexts on http://127.0.0.1:63729
+test_expiry_malformed_unknown_company_units_and_cancel_leave_values_untouched (wave1_browser.Wave1.test_expiry_malformed_unknown_company_units_and_cancel_leave_values_untouched) ... ok
+test_help_mobile_themes_keyboard_contrast_and_screenshots (wave1_browser.Wave1.test_help_mobile_themes_keyboard_contrast_and_screenshots) ... ok
+test_help_preserves_private_work_focus_and_full_article_return (wave1_browser.Wave1.test_help_preserves_private_work_focus_and_full_article_return) ... ok
+test_negative_empty_eps_and_popup_failure (wave1_browser.Wave1.test_negative_empty_eps_and_popup_failure) ... ok
+test_preview_explicit_apply_provenance_and_calculation (wave1_browser.Wave1.test_preview_explicit_apply_provenance_and_calculation) ... ok
+test_preview_mobile_and_refresh_guard (wave1_browser.Wave1.test_preview_mobile_and_refresh_guard) ... ok
+test_unavailable_data_manual_company_and_storage_failure (wave1_browser.Wave1.test_unavailable_data_manual_company_and_storage_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 17.700s
+
+OK

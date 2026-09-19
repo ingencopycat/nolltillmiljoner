@@ -1,0 +1,88 @@
+{
+  "id": "example-formula",
+  "slug": "example-formula",
+  "question": "UTKAST: Vad betyder P/E?",
+  "category": "valuation",
+  "concepts": [
+    "pe",
+    "eps"
+  ],
+  "relatedLessonIds": [
+    "pe",
+    "eps"
+  ],
+  "relatedEntityIds": [
+    "tool-valuation",
+    "research-nvda"
+  ],
+  "aliases": [
+    "example-formula"
+  ],
+  "sources": [
+    {
+      "title": "FINRA: Evaluating Stocks",
+      "url": "https://www.finra.org/investors/investing/investment-products/stocks/evaluating-stocks",
+      "reviewedAt": "2026-09-15",
+      "type": "reference",
+      "authority": "unclassified",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "evidenceStatus": "inherited-mapping"
+    }
+  ],
+  "shortAnswer": "P/E är aktiekursen delad med vinsten per aktie, EPS. Talet visar vilket pris marknaden sätter på en krona av den angivna årsvinsten.",
+  "fullAnswer": "Kontrollera alltid vilken vinst som används: rapporterad historik eller en prognos. En hög multipel kan spegla höga förväntningar, men säger inte att de kommer att infrias. Börja med att göra nämnaren jämförbar mellan bolagen.",
+  "example": "En kurs på 150 kr och en års-EPS på 6 kr ger P/E 25. Om kursen står stilla och EPS blir 5 kr stiger P/E till 30 utan någon kursuppgång.",
+  "caveats": "P/E är ingen återbetalningsgaranti. Vinsten kan falla, och vid negativ EPS blir en vanlig P/E-jämförelse missvisande. Bransch, skulder och vinstens uthållighet spelar också roll.",
+  "difficulty": "beginner",
+  "status": "draft",
+  "reviewedAt": null,
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "conceptRefs": [
+    "pe"
+  ],
+  "intent": "definition",
+  "reviewPolicy": {
+    "risk": "stable",
+    "overdue": "label"
+  },
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "formula": {
+      "template": "pe/1",
+      "explanationField": "shortAnswer",
+      "limitationField": "caveats",
+      "example": {
+        "inputs": {
+          "price": 150,
+          "eps": 6,
+          "currency": "SEK",
+          "period": "annual"
+        },
+        "result": 25
+      }
+    }
+  },
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "pending",
+    "reviewer": null,
+    "reviewedAt": null,
+    "changeNote": "Draft template copied from pe; replace prose, aliases and evidence before approval."
+  }
+}

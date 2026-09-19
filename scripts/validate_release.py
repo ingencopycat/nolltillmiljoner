@@ -17,6 +17,8 @@ def main():
         [sys.executable, '-B', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_*.py'],
         [node, '--test', *[str(p.relative_to(ROOT)) for p in sorted((ROOT/'tests').glob('*.test.cjs'))]],
         [node, 'scripts/build_seo.cjs', '--check'],
+        [node, 'scripts/knowledge_history.cjs'],
+        [node, 'scripts/knowledge_editorial.cjs', 'validate'],
         [node, 'scripts/check_calendar_coverage.cjs'],
         [node, 'scripts/check_weekly_events.cjs'],
         [node, 'scripts/check_rules.cjs'],

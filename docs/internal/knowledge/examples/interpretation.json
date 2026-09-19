@@ -1,0 +1,81 @@
+{
+  "id": "example-interpretation",
+  "slug": "example-interpretation",
+  "question": "UTKAST: Vad säger skuld och nettoskuld om ett bolag?",
+  "category": "metrics",
+  "concepts": [
+    "debt",
+    "financial-statements"
+  ],
+  "relatedLessonIds": [
+    "debt",
+    "financial-statements"
+  ],
+  "relatedEntityIds": [
+    "research-crwv"
+  ],
+  "aliases": [
+    "example-interpretation"
+  ],
+  "sources": [
+    {
+      "title": "SEC: Beginners’ Guide to Financial Statements",
+      "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+      "reviewedAt": "2026-09-15",
+      "type": "reference",
+      "authority": "unclassified",
+      "supports": [],
+      "evidenceStatus": "legacy-unmapped"
+    },
+    {
+      "title": "FINRA: Bonds",
+      "url": "https://www.finra.org/investors/investing/investment-products/bonds",
+      "reviewedAt": "2026-09-15",
+      "type": "reference",
+      "authority": "unclassified",
+      "supports": [],
+      "evidenceStatus": "legacy-unmapped"
+    }
+  ],
+  "shortAnswer": "Skuld visar åtaganden som måste hanteras. Nettoskuld är vanligen räntebärande skulder minus kassa och likvida medel, men exakt avgränsning måste kontrolleras.",
+  "fullAnswer": "Bedöm också när skulderna förfaller, räntan, villkoren och vilken kassa som faktiskt är tillgänglig. Två bolag med samma nettoskuld kan ha helt olika risk om det ena behöver låna om snart.",
+  "example": "Skuld 300 och kassa 80 ger förenklad nettoskuld 220. Om 200 förfaller nästa år räcker talet 220 inte för att avgöra om betalningarna kan klaras.",
+  "caveats": "Leasing, spärrad kassa och andra åtaganden kan ändra bilden. Att nettoskuld/EBITDA är lågt garanterar inte betalningsförmåga: EBITDA är inte ett mått på fritt tillgängliga pengar.",
+  "difficulty": "beginner",
+  "status": "draft",
+  "reviewedAt": null,
+  "conceptRefs": [
+    "debt"
+  ],
+  "intent": "interpretation",
+  "contentVersion": 1,
+  "reviewPolicy": {
+    "risk": "stable",
+    "overdue": "label"
+  },
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "interpretation": {
+      "field": "fullAnswer",
+      "unsuitableField": "caveats"
+    }
+  },
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "pending",
+    "reviewer": null,
+    "reviewedAt": null,
+    "changeNote": "Draft template copied from debt; replace prose, aliases and evidence before approval."
+  },
+  "featured": false
+}

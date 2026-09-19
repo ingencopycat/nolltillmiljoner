@@ -31,7 +31,7 @@ def main():
         # Match CI's pinned Playwright browser; opt into system Chrome explicitly.
         browser = pw.chromium.launch(channel=os.environ.get('BROWSER_CHANNEL') or None)
         base = f'http://127.0.0.1:{server.server_port}'
-        screenshots = ROOT / 'docs/qa/wave5/social'
+        screenshots = Path(os.environ.get('NTM_SOCIAL_QA', str(ROOT / 'docs/qa/wave5/social')))
         screenshots.mkdir(parents=True, exist_ok=True)
         profile = dict(username='reader_a', displayName='Lugn Research', bio='<img src=x onerror=alert(1)> Ingen HTML.', role='user',
                        memberSince='2026-09-16', level=None, xp=None, followers=1, following=0)

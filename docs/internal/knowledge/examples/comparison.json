@@ -1,0 +1,86 @@
+{
+  "id": "example-comparison",
+  "slug": "example-comparison",
+  "question": "UTKAST: Vad skiljer forward P/E från trailing P/E?",
+  "category": "valuation",
+  "concepts": [
+    "forward-metrics",
+    "pe"
+  ],
+  "relatedLessonIds": [
+    "forward-metrics",
+    "pe"
+  ],
+  "relatedEntityIds": [
+    "tool-valuation"
+  ],
+  "aliases": [
+    "example-comparison"
+  ],
+  "sources": [
+    {
+      "title": "Fidelity: Research glossary, P/E och PEG",
+      "url": "https://www.fidelity.com/webcontent/ap010098-etf-content/19.02.0/help/research/learn_er_glossary_3.shtml",
+      "reviewedAt": "2026-09-15",
+      "type": "reference",
+      "authority": "unclassified",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "evidenceStatus": "inherited-mapping"
+    }
+  ],
+  "shortAnswer": "Trailing P/E använder historisk vinst. Forward P/E använder en prognos för framtida vinst. Samma aktiekurs kan därför ge två olika multiplar.",
+  "fullAnswer": "Forward kan avse nästa räkenskapsår eller nästa tolv månader. En lägre forward-multipel kan bara bero på att prognosen antar högre EPS. Kontrollera också om prognosen är rapporterad eller justerad i sin definition.",
+  "example": "Kurs 120 kr och historisk EPS 4 kr ger trailing P/E 30. Med prognostiserad EPS 6 kr blir forward P/E 20. Priset är oförändrat; skillnaden ligger i den förväntade vinsten.",
+  "caveats": "Prognosen kan vara fel och ändras efter nästa rapport. Blanda inte historisk EPS för ett bolag med justerad prognos-EPS för ett annat utan att tydligt förklara skillnaden.",
+  "difficulty": "beginner",
+  "status": "draft",
+  "reviewedAt": null,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "conceptRefs": [
+    "pe",
+    "outlook"
+  ],
+  "intent": "comparison",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "comparison": {
+      "leftLabel": "Trailing P/E",
+      "rightLabel": "Forward P/E",
+      "axes": [
+        {
+          "label": "Vinstunderlag",
+          "left": "Trailing P/E använder historisk vinst.",
+          "right": "Forward P/E använder en prognos för framtida vinst."
+        }
+      ],
+      "limitations": "Prognosen kan vara fel och ändras efter nästa rapport. Blanda inte historisk EPS för ett bolag med justerad prognos-EPS för ett annat utan att tydligt förklara skillnaden."
+    }
+  },
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "pending",
+    "reviewer": null,
+    "reviewedAt": null,
+    "changeNote": "Draft template copied from forward; replace prose, aliases and evidence before approval."
+  },
+  "featured": false
+}

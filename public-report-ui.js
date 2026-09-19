@@ -38,6 +38,10 @@
    article.append(n('p'),link('Börja din egen privata Research','research.html?ticker='+encodeURIComponent(s.ticker)+'&publicReport='+encodeURIComponent(meta.id)+'&publicVersion='+encodeURIComponent(meta.versionId)+'#publicResearchOrigin'));
    article.append(n('p','Öppnar ditt eget arbete för bolaget. Författarens antaganden och bedömning kopieras inte.','social-note'));
   }
+  // Generic terminology is separate from the frozen author's claims; only public IDs.
+  const terms=n('details',undefined,'report-terminology');terms.append(n('summary','Förstå begreppen i rapporten'));
+  for(const id of ['revenue','margins','thesis']){const K=window.NTMKnowledgeCatalog,e=K?.entries.find(e=>e.id===id);if(e){const a=link(e.question,K.url(id)+'#task-help');a.dataset.knowledgeHelp=id;a.dataset.knowledgeContext='public-report';a.target='_blank';a.rel='noopener noreferrer';const p=n('p');p.append(a);terms.append(p);}}
+  if(terms.children.length>1)article.append(terms);
   parent.append(article);return article;
  }
  window.NTMPublicReportUI={render};

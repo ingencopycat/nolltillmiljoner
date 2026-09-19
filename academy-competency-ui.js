@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  let active=null,selected=null,workspace,cards,status;
  function read(){const r=P.read();if(r.error)throw Error(r.error);return r.data;}
  function message(text){if(status)status.textContent=text;else document.getElementById('academyStatus').textContent=text;}
- const safe=fn=>()=>{try{fn();}catch(e){message(e.message);}};
+ const safe=fn=>()=>{try{Promise.resolve(fn()).catch(e=>message(e.message));}catch(e){message(e.message);}};
  function summary(){
   const data=read(),states=E.derive(data),next=E.next(data);
   if(mini){const a=mini.parentElement.querySelector('[data-next-activity]');if(next&&next.state!=='new'){a.href='academy.html#competency='+next.id;a.textContent='Fortsätt lära: '+next.title;}return;}
@@ -23,10 +23,12 @@ document.addEventListener('DOMContentLoaded',()=>{
  }
  function help(container){
   const details=node('div');details.id='competencyKnowledge';details.hidden=true;
-  container.append(button('Förklara med Knowledge',safe(()=>{
+  container.append(button('Förklara med Knowledge',safe(async()=>{
    if(active)E.record(active,'help');
-   details.replaceChildren();for(const id of selected.knowledge){const entry=K.publicEntries().find(e=>e.id===id);if(!entry){details.append(node('p','Förklaringen är inte tillgänglig.'));continue;}
-    details.append(node('h4',entry.question),node('p',entry.shortAnswer),node('p',entry.caveats,'note'));
+   const attempt=active,selection=selected;details.replaceChildren();for(const id of selection.knowledge){let entry;try{entry=await K.explain(id,'academy-reminder','reminder');}catch(_){}
+    if(active!==attempt||selected!==selection||!details.isConnected)return;
+    if(!entry){details.append(node('p','Förklaringen är inte tillgänglig.'));continue;}
+    details.append(node('h4',entry.question),node('p',entry.excerpt),node('p',entry.caveats,'note'));
     const a=link('Läs hela svaret (ny flik)',K.url(id)+'#task-help');a.target='_blank';a.rel='noopener noreferrer';details.append(a);
    }
    details.hidden=false;message(active?'Hjälp registrerad. Det här försöket räknas som övning.':'Läs före försöket om du vill. Inget bedömt försök pågår.');

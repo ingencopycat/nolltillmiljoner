@@ -173,11 +173,11 @@ entries.push(
  'Verkliga produkter kan ta avgifter vid andra tidpunkter och ha ytterligare kostnader. Dra inte samma avgift två gånger om din angivna avkastning redan är efter avgift. En låg avgift garanterar inte ett bra investeringsutfall.')
 );
 for(const id of ['compounding','annual-fees']) {
- const e=entries.find(e=>e.id===id);e.status='reviewed';e.reviewedAt='2026-09-18';delete e.publishedAt;
+ const e=entries.find(e=>e.id===id);if(e.editorial)continue;e.status='reviewed';e.reviewedAt='2026-09-18';delete e.publishedAt;
  e.sources=e.sources.map(s=>({...s,reviewedAt:'2026-09-18'}));
  e.internalEditorialNotes='Wave 1 bounded addition; primary source checked and arithmetic independently recomputed by Codex; owner acceptance pending.';
 }
-entries.find(e=>e.id==='compounding').sources=[{title:'Investor.gov: Compound Interest Calculator',url:'https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator',reviewedAt:'2026-09-18'}];
+if(!entries.find(e=>e.id==='compounding').editorial)entries.find(e=>e.id==='compounding').sources=[{title:'Investor.gov: Compound Interest Calculator',url:'https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator',reviewedAt:'2026-09-18'}];
 const pilotConcepts=[
  ['pe','P/E','pe','check-pe-0'],
  ['forward-basis','Forward och trailing','forward','check-forward-metrics-0'],
@@ -192,8 +192,8 @@ const pilotConcepts=[
  ['valuation-assumptions','Värderingsantaganden','thesis','build-thesis'],
  ['review-falsification','Pröva din tes','thesis','build-thesis']
 ].map(([id,title,answerId,practiceId])=>{
- const e=entries.find(e=>e.id===answerId);e.contentVersion=1;e.reviewDue='2027-03-18';e.practiceId=practiceId;
- e.internalReview={owner:'NTM owner',acceptance:'pending',excerpt:'shortAnswer',
+ const e=entries.find(e=>e.id===answerId);e.contentVersion??=1;e.reviewDue??='2027-03-18';e.practiceId??=practiceId;
+ e.internalReview??={owner:'NTM owner',acceptance:'pending',excerpt:'shortAnswer',
   sourceClaims:[{section:'shortAnswer',sources:e.sources.map(s=>s.url)},{section:'fullAnswer',sources:e.sources.map(s=>s.url)},{section:'caveats',sources:e.sources.map(s=>s.url)}],
   exampleCheck:'NTM synthetic arithmetic / owner rubric; no source endorsement of assumptions'};
  return {id,title,answerId,excerpt:'shortAnswer'};
@@ -219,4 +219,4 @@ entries.push({
   sourceClaims:['shortAnswer','fullAnswer','caveats'].map(section=>({section,sources:['https://www.bls.gov/cpi/questions-and-answers.htm','https://www.bea.gov/data/personal-consumption-expenditures-price-index','https://www.bls.gov/bls/empsitquickguide.htm','https://www.bea.gov/data/gdp/gross-domestic-product']})),
   claimMap:{CPI:0,PCE:1,payrolls:2,GDP:3,marketDirection:'NTM limitation, not a forecast'},exampleCheck:'100 × 1.03 = 103; 103 × 1.02 = 105.06. Synthetic index points, percentages and job counts explicitly distinguished.'}
 });
-module.exports={version:1,categories,entries,pilotConcepts};
+module.exports=require('./scale.cjs').extend({version:1,categories,entries,pilotConcepts});

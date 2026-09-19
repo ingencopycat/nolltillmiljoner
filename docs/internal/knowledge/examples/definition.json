@@ -1,0 +1,73 @@
+{
+  "id": "example-definition",
+  "slug": "example-definition",
+  "question": "UTKAST: Vad är EPS?",
+  "category": "metrics",
+  "concepts": [
+    "eps",
+    "dilution"
+  ],
+  "relatedLessonIds": [
+    "eps",
+    "dilution"
+  ],
+  "relatedEntityIds": [
+    "research-nvda"
+  ],
+  "aliases": [
+    "example-definition"
+  ],
+  "sources": [
+    {
+      "title": "IFRS Foundation: IAS 33 Earnings per Share",
+      "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/",
+      "reviewedAt": "2026-09-15",
+      "type": "reference",
+      "authority": "unclassified",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "evidenceStatus": "inherited-mapping"
+    }
+  ],
+  "shortAnswer": "EPS betyder vinst per aktie. Måttet fördelar periodens resultat som tillhör stamaktieägarna på ett vägt genomsnitt av aktierna under perioden.",
+  "fullAnswer": "Läs om siffran är grundläggande eller utspädd EPS. Utspädd EPS tar hänsyn till vissa möjliga nya aktier. Det är periodens aktiebas som behövs, inte automatiskt antalet aktier på rapportdagen.",
+  "example": "Ett förenklat årsresultat på 60 miljoner kr och 20 miljoner genomsnittliga aktier ger 3 kr i EPS. Med samma resultat och 24 miljoner aktier blir motsvarande tal 2,50 kr.",
+  "caveats": "Kvartals-EPS och års-EPS avser olika perioder. Justerad EPS kan dessutom ha andra resultatposter än rapporterad EPS. Läs definition och avstämning innan du jämför eller räknar P/E.",
+  "difficulty": "beginner",
+  "status": "draft",
+  "reviewedAt": null,
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "conceptRefs": [
+    "eps"
+  ],
+  "intent": "definition",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "pending",
+    "reviewer": null,
+    "reviewedAt": null,
+    "changeNote": "Draft template copied from eps; replace prose, aliases and evidence before approval."
+  }
+}

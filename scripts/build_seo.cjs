@@ -34,6 +34,8 @@ for(const o of require('../academy-activities.js').published())excluded.add(requ
 const redirects = { 'calculator.html': 'ranta-pa-ranta.html', 'investeringar.html': 'inlagg.html' };
 const outputs = new Map();
 const knowledgeBuild=require('./build_knowledge.cjs').build(),knowledgePages=knowledgeBuild.pages;
+for(const file of knowledgePages.keys())if(file.startsWith('fragor-svar-omrade-'))excluded.add(file);
+for(const m of require('../docs/internal/knowledge/catalog.cjs').merges||[]){const from='fragor-svar-'+m.fromSlug+'.html';redirects[from]=require('./knowledge_source.cjs').url(m.toId);excluded.add(from);}
 for(const e of require('./knowledge_source.cjs').publicEntries())if(e.status!=='published')excluded.add(require('./knowledge_source.cjs').url(e.id));
 for(const file of fs.readdirSync(root).filter(f=>/^fragor-svar-.+\.html$/.test(f)))if(!knowledgePages.has(file))throw new Error('Retire unpublished knowledge artifact explicitly: '+file);
 const academyPages = require('./build_academy.cjs').pages();
@@ -130,6 +132,9 @@ outputs.set('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmln
   + urls.map((url) => `  <url><loc>${escape(url)}</loc></url>`).join('\n') + '\n</urlset>\n');
 outputs.set('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${base}sitemap.xml\n`);
 outputs.set('knowledge-catalog.js',knowledgeBuild.script);
+for(const [file,content] of knowledgeBuild.payloads)outputs.set(file,content);
+const answerDirectory=path.join(root,'data/knowledge/answers');
+if(fs.existsSync(answerDirectory))for(const file of fs.readdirSync(answerDirectory))if(!knowledgeBuild.payloads.has('data/knowledge/answers/'+file))throw new Error('Retire unpublished Knowledge payload explicitly: '+file);
 const stale = [];
 for (const rule of JSON.parse(read('data/rule-registry.json')).rules) {
   let html = outputs.get(rule.page).replace(/\s*<!-- RULE START -->[\s\S]*?<!-- RULE END -->/g, '');
@@ -140,6 +145,18 @@ for (const rule of JSON.parse(read('data/rule-registry.json')).rules) {
 for (const [file, rawContent] of outputs) {
   let prepared = rawContent;
   if(file.endsWith('.html')) {
+    const knowledgeHooks={'avkastningskalkylator.html':['cagr'],'aktiekopskalkylator.html':['gav','fees'],'valutajusterad-avkastning.html':['fx'],'ranta-pa-ranta.html':['compounding','annual-fees'],'avgifter.html':['annual-fees'],'isk-skattkalkylator.html':['isk']};
+    if(knowledgeHooks[file]){
+      prepared=prepared.replace(/<!-- KNOWLEDGE HELP START -->[\s\S]*?<!-- KNOWLEDGE HELP END -->\s*/g,'');
+      const K=require('./knowledge_source.cjs'),block='<!-- KNOWLEDGE HELP START --><details class="knowledge-method"><summary>Förstå begreppen</summary>'+knowledgeHooks[file].map(id=>`<p><a href="${K.url(id)}#task-help" data-knowledge-help="${id}" data-knowledge-context="calculator">${escape(K.entries.find(e=>e.id===id).question)}</a></p>`).join('')+'</details><!-- KNOWLEDGE HELP END -->';
+      prepared=prepared.replace('</main>',block+'</main>');
+    }
+    if(knowledgeHooks[file]||['analys.html','research.html'].includes(file)){
+      if(!prepared.includes('src="knowledge-catalog.js"'))prepared=prepared.replace('</body>','<script src="knowledge-core.js"></script><script src="knowledge-catalog.js"></script></body>');
+      if(!prepared.includes('src="knowledge-help.js"'))prepared=prepared.replace('</body>','<script src="knowledge-help.js"></script></body>');
+      if(!prepared.includes('href="wave1.css"'))prepared=prepared.replace('<link rel="stylesheet" href="style.css" />','<link rel="stylesheet" href="style.css" /><link rel="stylesheet" href="wave1.css" />');
+    }
+    if(file==='analys.html'&&!prepared.includes('src="knowledge-catalog.js"'))prepared=prepared.replace('<script src="public-report-ui.js">','<script src="knowledge-core.js"></script><script src="knowledge-catalog.js"></script><script src="public-report-ui.js">');
     if(file==='post-ai-portfolj.html'&&!prepared.includes('data-concept-help="thesis"'))prepared=prepared.replace('</article>','<p class="note"><a data-concept-help="thesis">Investeringstes</a></p></article>');
     prepared=prepared.replace(/(?:<script src="academy-catalog.js"><\/script>\s*)?(?:<script src="academy-activities.js"><\/script>\s*)?(?:<script src="knowledge-core.js"><\/script>\s*)?(?:<script src="knowledge-catalog.js"><\/script>\s*)?(<script src="ntm-relations.js">)/g,'<script src="academy-catalog.js"></script>\n<script src="academy-activities.js"></script>\n<script src="knowledge-core.js"></script>\n<script src="knowledge-catalog.js"></script>\n$1');
     prepared=prepared.replace(/<a\b([^>]*data-concept-help="([a-z-]+)"[^>]*)>[\s\S]*?<\/a>/g,(all,attrs,id)=>{
@@ -152,7 +169,7 @@ for (const [file, rawContent] of outputs) {
   const normalized = content.replace(/\r\n/g, '\n');
   if (previous !== normalized) {
     stale.push(file);
-    if (!process.argv.includes('--check')) fs.writeFileSync(path.join(root, file), normalized, 'utf8');
+    if (!process.argv.includes('--check')) {fs.mkdirSync(path.dirname(path.join(root,file)),{recursive:true});fs.writeFileSync(path.join(root, file), normalized, 'utf8');}
   }
 }
 if (process.argv.includes('--check') && stale.length) { console.error('Run node scripts/build_seo.cjs: ' + stale.join(', ')); process.exitCode = 1; }

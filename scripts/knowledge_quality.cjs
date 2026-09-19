@@ -13,9 +13,10 @@ function validate(data,registry){
  for(const e of data.entries){
   if(!e||typeof e!=='object'){errors.push('Invalid knowledge entry');continue;}
   for(const [key,set] of [['id',ids],['slug',slugs]]){if(typeof e[key]!=='string'||!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(e[key])||set.has(e[key]))errors.push('Invalid/duplicate knowledge '+key);set.add(e[key]);}
-  if(Object.keys(e).some(k=>![...Core.fields,'internalEditorialNotes','internalReview'].includes(k))||!['draft','reviewed','published','needs-update'].includes(e.status)||!categories.has(e.category)||!['beginner','intermediate','advanced'].includes(e.difficulty))errors.push('Invalid editorial metadata '+e.id);
-  if(e.contentVersion!==undefined && (!Number.isInteger(e.contentVersion)||e.contentVersion<1||!date(e.reviewDue)||e.reviewDue<=e.reviewedAt||!Activities.published().some(a=>a.id===e.practiceId)))errors.push('Invalid Wave 1 metadata '+e.id);
-  if(e.contentVersion!==undefined && (!e.internalReview?.owner||e.internalReview.excerpt!=='shortAnswer'||!['pending','accepted'].includes(e.internalReview.acceptance)||!Array.isArray(e.internalReview.sourceClaims)||e.internalReview.sourceClaims.length!==3||e.internalReview.sourceClaims.some(c=>!['shortAnswer','fullAnswer','caveats'].includes(c.section)||!Array.isArray(c.sources)||!c.sources.length||c.sources.some(url=>!e.sources?.some(s=>s.url===url)))))errors.push('Incomplete pilot source/reviewer mapping '+e.id);
+  if(Object.keys(e).some(k=>![...Core.fields,'internalEditorialNotes','internalReview','editorial','history'].includes(k))||!['draft','reviewed','published','needs-update'].includes(e.status)||!categories.has(e.category)||!['beginner','intermediate','advanced'].includes(e.difficulty))errors.push('Invalid editorial metadata '+e.id);
+  if(e.contentVersion!==undefined && (!Number.isInteger(e.contentVersion)||e.contentVersion<1))errors.push('Invalid content version '+e.id);
+  if(e.practiceId!==undefined && (!date(e.reviewDue)||e.reviewDue<=e.reviewedAt||!Activities.published().some(a=>a.id===e.practiceId)))errors.push('Invalid Wave 1 metadata '+e.id);
+  if(e.practiceId!==undefined && (!e.internalReview?.owner||e.internalReview.excerpt!=='shortAnswer'||!['pending','accepted'].includes(e.internalReview.acceptance)||!Array.isArray(e.internalReview.sourceClaims)||e.internalReview.sourceClaims.length!==3||e.internalReview.sourceClaims.some(c=>!['shortAnswer','fullAnswer','caveats'].includes(c.section)||!Array.isArray(c.sources)||!c.sources.length||c.sources.some(url=>!e.sources?.some(s=>s.url===url)))))errors.push('Incomplete pilot source/reviewer mapping '+e.id);
   if(!Core.visible(e))continue;
   if(!date(e.reviewedAt)||e.reviewedAt>new Date().toISOString().slice(0,10)||e.status==='published'&&(!date(e.publishedAt)||e.publishedAt>e.reviewedAt))errors.push('Invalid review/publication date '+e.id);
   if((typeof e.question!=='string'||e.question.length<8)||!['shortAnswer','fullAnswer','caveats'].every(k=>typeof e[k]==='string'&&e[k].trim().length>=25))errors.push('Incomplete answer '+e.id);
@@ -27,6 +28,7 @@ function validate(data,registry){
   if(!Array.isArray(e.sources)||!e.sources.length||e.sources.some(s=>!s?.title||typeof s.url!=='string'||!/^https:\/\/[^\s<>]+$/.test(s.url)||!date(s.reviewedAt)||s.reviewedAt>e.reviewedAt))errors.push('Invalid source metadata '+e.id);
   if(e.ruleId){const r=registry?.rules?.find(r=>r.id===e.ruleId);if(!r||r.status!=='verified'||!date(r.lastVerified)||!date(r.nextReview)||r.nextReview<=new Date().toISOString().slice(0,10))errors.push('Unavailable or stale rule '+e.id);}
  }
+ if(data.engineVersion===2)errors.push(...require('./knowledge_scale_quality.cjs').validate(data,registry));
  return errors;
 }
 module.exports={validate};

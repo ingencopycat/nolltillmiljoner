@@ -1,0 +1,7 @@
+'use strict';
+const K=require('./knowledge_source.cjs'),fixture=require('../tests/fixtures/knowledge100-queries.cjs');
+function run(engine=K){const results=fixture.cases.map(c=>{const actual=engine.respond(c.query),ok=actual.kind===c.expected.kind&&actual.answerId===c.expected.answerId&&(!c.expected.choices||JSON.stringify([...actual.choices].sort())===JSON.stringify([...c.expected.choices].sort()));return {...c,actual,ok};});
+ const count=fn=>results.filter(fn).length;
+ return {benchmarkVersion:fixture.version,retrievalVersion:K.retrieval.version,total:results.length,exactAnswerSuccess:count(r=>r.ok&&r.expected.kind==='ANSWER'),acceptableClarificationSuccess:count(r=>r.ok&&r.expected.kind==='CLARIFY'),correctAbstention:count(r=>r.ok&&r.expected.kind.startsWith('ABSTAIN')),correctInvalidInput:count(r=>r.ok&&r.expected.kind==='INVALID_INPUT'),wrongConfidentMatch:count(r=>!r.ok&&r.actual.kind==='ANSWER'),topAnswerMismatch:count(r=>r.expected.kind==='ANSWER'&&r.actual.answerId!==r.expected.answerId),aliasCollision:count(r=>r.actual.reason==='reviewed-alias'&&r.actual.kind==='CLARIFY'),typoAmbiguity:count(r=>r.actual.reason==='bounded-typo'&&r.actual.kind==='CLARIFY'),byGroup:Object.fromEntries([...new Set(results.map(r=>r.group))].map(group=>[group,{total:count(r=>r.group===group),passed:count(r=>r.group===group&&r.ok)}])),failures:results.filter(r=>!r.ok),results};}
+if(require.main===module){const result=run();process.stdout.write(JSON.stringify(result,null,2)+'\n');if(result.failures.length)process.exitCode=1;}
+module.exports={run};

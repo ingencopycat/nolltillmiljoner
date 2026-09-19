@@ -33,7 +33,7 @@ class Wave5(unittest.TestCase):
         cls.browser = cls.pw.chromium.launch(headless=True)
         source = """const R=require('./public-report.js');global.NTMFundamentalProfile=require('./fundamental-profile.js');const d=require('./data/stocks/CRWD.json');const c=R.candidates({valuationSnapshot:{ticker:d.symbol,provenance:{methodVersion:d.metadata.methodVersion,fundamental:{version:1,cik:d.company.cik,statementMethod:'ntm-fundamental/1',profile:d.metadata.profile,annual:d.annual.slice(-3)}}}},d.symbol,d.company.cik);console.log(JSON.stringify(R.project({company:d.company.name,ticker:d.symbol,thesis:'A selected investment thesis with enough reasoning to inspect.',analysisDate:'2026-09-18',basisDate:'2026-09-17',financial:c.statements,chart:c.chart})));"""
         cls.rich = json.loads(subprocess.check_output([os.environ.get('NODE_BINARY', 'node'), '-e', source], cwd=ROOT))
-        cls.out = ROOT / 'docs/qa/wave5'
+        cls.out = Path(os.environ.get('NTM_WAVE5_QA',str(ROOT / 'docs/qa/wave5')))
         cls.out.mkdir(parents=True, exist_ok=True)
 
     @classmethod

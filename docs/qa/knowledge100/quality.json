@@ -1,0 +1,4585 @@
+{
+  "version": 1,
+  "measuredAt": "2026-09-19T06:24:12.427603+00:00",
+  "method": "Headless Chromium; cold context per page; localhost without compression or CPU/network throttling; third parties and browser-scheduled favicon requests excluded; no timing pass/fail thresholds.",
+  "pages": [
+    {
+      "page": "makro.html",
+      "requestCount": 18,
+      "transferBytes": 1049516,
+      "decodedBytes": 1044116,
+      "domContentLoadedMs": 252.80000001192093,
+      "loadMs": 258.10000002384186,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/data/weekly-events.js",
+          "bytes": 433406,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/calendar-context.js",
+          "bytes": 2378,
+          "kind": "script"
+        },
+        {
+          "path": "/week-pages.js",
+          "bytes": 22790,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 13745,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11316,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 842826,
+      "cssBytes": 157495,
+      "imageBytes": 34556,
+      "excludedExternalRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js"
+      ]
+    },
+    {
+      "page": "fragor-svar-tolka-makroslapp.html",
+      "requestCount": 17,
+      "transferBytes": 605357,
+      "decodedBytes": 600257,
+      "domContentLoadedMs": 119.10000002384186,
+      "loadMs": 127,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/knowledge.css",
+          "bytes": 4693,
+          "kind": "link"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 13745,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-ui.js",
+          "bytes": 8824,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11316,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 393076,
+      "cssBytes": 162188,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "aktievarderingskalkylator.html",
+      "requestCount": 17,
+      "transferBytes": 822779,
+      "decodedBytes": 817679,
+      "domContentLoadedMs": 180,
+      "loadMs": 187.9000000357628,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 13745,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11316,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-scenario-ui.js",
+          "bytes": 5206,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 597980,
+      "cssBytes": 157495,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "fragor-svar-ranta-pa-ranta.html",
+      "requestCount": 17,
+      "transferBytes": 603915,
+      "decodedBytes": 598815,
+      "domContentLoadedMs": 112.59999996423721,
+      "loadMs": 117.30000001192093,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/knowledge.css",
+          "bytes": 4693,
+          "kind": "link"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 13745,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-ui.js",
+          "bytes": 8824,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11316,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 393076,
+      "cssBytes": 162188,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "fragor-svar-arlig-avgift.html",
+      "requestCount": 17,
+      "transferBytes": 604154,
+      "decodedBytes": 599054,
+      "domContentLoadedMs": 115.10000002384186,
+      "loadMs": 120.10000002384186,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/knowledge.css",
+          "bytes": 4693,
+          "kind": "link"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 13745,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-ui.js",
+          "bytes": 8824,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11316,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 393076,
+      "cssBytes": 162188,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "konto.html",
+      "requestCount": 26,
+      "transferBytes": 982996,
+      "decodedBytes": 975196,
+      "domContentLoadedMs": 163.89999997615814,
+      "loadMs": 164,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/social.css",
+          "bytes": 5563,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/research-snapshot.js",
+          "bytes": 12600,
+          "kind": "script"
+        },
+        {
+          "path": "/thesis-storage.js",
+          "bytes": 20256,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcomes.js",
+          "bytes": 10556,
+          "kind": "script"
+        },
+        {
+          "path": "/behavioral.js",
+          "bytes": 11001,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progress.js",
+          "bytes": 5830,
+          "kind": "script"
+        },
+        {
+          "path": "/local-data.js",
+          "bytes": 15577,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-sync.js",
+          "bytes": 13753,
+          "kind": "script"
+        },
+        {
+          "path": "/vendor/supabase/supabase.js",
+          "bytes": 218318,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-adapter.js",
+          "bytes": 6988,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-ui.js",
+          "bytes": 10896,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-catalog.js",
+          "bytes": 69264,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-activities.js",
+          "bytes": 17444,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progression.js",
+          "bytes": 5182,
+          "kind": "script"
+        },
+        {
+          "path": "/social-core.js",
+          "bytes": 1624,
+          "kind": "script"
+        },
+        {
+          "path": "/social-ui.js",
+          "bytes": 22867,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 765897,
+      "cssBytes": 161966,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "profil.html?u=reader_a",
+      "requestCount": 15,
+      "transferBytes": 781229,
+      "decodedBytes": 776729,
+      "domContentLoadedMs": 104.10000002384186,
+      "loadMs": 104.30000001192093,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/social.css",
+          "bytes": 5563,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        },
+        {
+          "path": "/vendor/supabase/supabase.js",
+          "bytes": 218318,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-adapter.js",
+          "bytes": 6988,
+          "kind": "script"
+        },
+        {
+          "path": "/social-core.js",
+          "bytes": 1624,
+          "kind": "script"
+        },
+        {
+          "path": "/social-ui.js",
+          "bytes": 22867,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 573538,
+      "cssBytes": 161966,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "analys.html?id=11111111-1111-4111-8111-111111111111",
+      "requestCount": 23,
+      "transferBytes": 869013,
+      "decodedBytes": 862113,
+      "domContentLoadedMs": 135.19999998807907,
+      "loadMs": 135.39999997615814,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/social.css",
+          "bytes": 5563,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/research-v3.css",
+          "bytes": 17969,
+          "kind": "link"
+        },
+        {
+          "path": "/public-report.css",
+          "bytes": 2110,
+          "kind": "link"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        },
+        {
+          "path": "/vendor/supabase/supabase.js",
+          "bytes": 218318,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-adapter.js",
+          "bytes": 6988,
+          "kind": "script"
+        },
+        {
+          "path": "/social-core.js",
+          "bytes": 1624,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report.js",
+          "bytes": 11902,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 13745,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-ui.js",
+          "bytes": 8297,
+          "kind": "script"
+        },
+        {
+          "path": "/social-ui.js",
+          "bytes": 22867,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-help.js",
+          "bytes": 2296,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 637279,
+      "cssBytes": 183137,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "upptack.html",
+      "requestCount": 15,
+      "transferBytes": 781863,
+      "decodedBytes": 777363,
+      "domContentLoadedMs": 115.19999998807907,
+      "loadMs": 115.40000003576279,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/social.css",
+          "bytes": 5563,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        },
+        {
+          "path": "/vendor/supabase/supabase.js",
+          "bytes": 218318,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-adapter.js",
+          "bytes": 6988,
+          "kind": "script"
+        },
+        {
+          "path": "/social-core.js",
+          "bytes": 1624,
+          "kind": "script"
+        },
+        {
+          "path": "/social-ui.js",
+          "bytes": 22867,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 573538,
+      "cssBytes": 161966,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "index.html",
+      "requestCount": 14,
+      "transferBytes": 1174264,
+      "decodedBytes": 1170064,
+      "domContentLoadedMs": 232.29999995231628,
+      "loadMs": 279.89999997615814,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/data/market-calendar.js",
+          "bytes": 2385,
+          "kind": "script"
+        },
+        {
+          "path": "/data/weekly-events.js",
+          "bytes": 433406,
+          "kind": "script"
+        },
+        {
+          "path": "/posts.js",
+          "bytes": 56212,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        },
+        {
+          "path": "/images/posts/nebius-2026-09-08/01.png",
+          "bytes": 147150,
+          "kind": "img"
+        }
+      ],
+      "jsBytes": 815744,
+      "cssBytes": 156403,
+      "imageBytes": 181706,
+      "excludedExternalRequests": [
+        "https://img.youtube.com/vi/Uzc3tBB9pLg/maxresdefault.jpg",
+        "https://img.youtube.com/vi/VPuzUZlvk0U/maxresdefault.jpg",
+        "https://static.cloudflareinsights.com/beacon.min.js",
+        "https://widgets.tradingview-widget.com/w/en/tv-single-ticker.js"
+      ]
+    },
+    {
+      "page": "ranta-pa-ranta.html",
+      "requestCount": 15,
+      "transferBytes": 798993,
+      "decodedBytes": 794493,
+      "domContentLoadedMs": 186.69999998807907,
+      "loadMs": 192.30000001192093,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 13745,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-help.js",
+          "bytes": 2296,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 575805,
+      "cssBytes": 157495,
+      "imageBytes": 34556,
+      "excludedExternalRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js"
+      ]
+    },
+    {
+      "page": "havstang.html",
+      "requestCount": 11,
+      "transferBytes": 763946,
+      "decodedBytes": 760646,
+      "domContentLoadedMs": 153.19999998807907,
+      "loadMs": 162.79999995231628,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 532263,
+      "cssBytes": 156403,
+      "imageBytes": 34556,
+      "excludedExternalRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js"
+      ]
+    },
+    {
+      "page": "isk-skattkalkylator.html",
+      "requestCount": 14,
+      "transferBytes": 581556,
+      "decodedBytes": 577356,
+      "domContentLoadedMs": 159.30000001192093,
+      "loadMs": 164.80000001192093,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 13745,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-help.js",
+          "bytes": 2296,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 367283,
+      "cssBytes": 157495,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "bolanekalkylator.html",
+      "requestCount": 11,
+      "transferBytes": 752101,
+      "decodedBytes": 748801,
+      "domContentLoadedMs": 155.29999995231628,
+      "loadMs": 161.5,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 532263,
+      "cssBytes": 156403,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "research.html?ticker=NVDA",
+      "requestCount": 45,
+      "transferBytes": 1703610,
+      "decodedBytes": 1690110,
+      "domContentLoadedMs": 278.39999997615814,
+      "loadMs": 279.39999997615814,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/social.css",
+          "bytes": 5563,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/research-v3.css",
+          "bytes": 17969,
+          "kind": "link"
+        },
+        {
+          "path": "/public-report.css",
+          "bytes": 2110,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/research-snapshot.js",
+          "bytes": 12600,
+          "kind": "script"
+        },
+        {
+          "path": "/thesis-storage.js",
+          "bytes": 20256,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity.js",
+          "bytes": 11253,
+          "kind": "script"
+        },
+        {
+          "path": "/change-detection.js",
+          "bytes": 4860,
+          "kind": "script"
+        },
+        {
+          "path": "/research-export.js",
+          "bytes": 10111,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcomes.js",
+          "bytes": 10556,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcome-ui.js",
+          "bytes": 13798,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai.js",
+          "bytes": 8671,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai-ui.js",
+          "bytes": 4244,
+          "kind": "script"
+        },
+        {
+          "path": "/research-v3.js",
+          "bytes": 7760,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile.js",
+          "bytes": 12460,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile-ui.js",
+          "bytes": 3636,
+          "kind": "script"
+        },
+        {
+          "path": "/research.js",
+          "bytes": 113405,
+          "kind": "script"
+        },
+        {
+          "path": "/min-review.js",
+          "bytes": 7157,
+          "kind": "script"
+        },
+        {
+          "path": "/research-review.js",
+          "bytes": 9377,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity-ui.js",
+          "bytes": 11380,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        },
+        {
+          "path": "/vendor/supabase/supabase.js",
+          "bytes": 218318,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-adapter.js",
+          "bytes": 6988,
+          "kind": "script"
+        },
+        {
+          "path": "/social-core.js",
+          "bytes": 1624,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report.js",
+          "bytes": 11902,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-ui.js",
+          "bytes": 8297,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-origin.js",
+          "bytes": 1019,
+          "kind": "script"
+        },
+        {
+          "path": "/research-publication.js",
+          "bytes": 12997,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-relations-ui.js",
+          "bytes": 365,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 13745,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11316,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-help.js",
+          "bytes": 2296,
+          "kind": "script"
+        },
+        {
+          "path": "/data/stocks/NVDA.json",
+          "bytes": 265090,
+          "kind": "fetch"
+        }
+      ],
+      "jsBytes": 1118104,
+      "cssBytes": 183137,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "min-ntm.html",
+      "requestCount": 28,
+      "transferBytes": 779820,
+      "decodedBytes": 771420,
+      "domContentLoadedMs": 224.0999999642372,
+      "loadMs": 231.89999997615814,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/research-snapshot.js",
+          "bytes": 12600,
+          "kind": "script"
+        },
+        {
+          "path": "/thesis-storage.js",
+          "bytes": 20256,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity.js",
+          "bytes": 11253,
+          "kind": "script"
+        },
+        {
+          "path": "/change-detection.js",
+          "bytes": 4860,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcomes.js",
+          "bytes": 10556,
+          "kind": "script"
+        },
+        {
+          "path": "/behavioral.js",
+          "bytes": 11001,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progress.js",
+          "bytes": 5830,
+          "kind": "script"
+        },
+        {
+          "path": "/local-data.js",
+          "bytes": 15577,
+          "kind": "script"
+        },
+        {
+          "path": "/behavioral-ui.js",
+          "bytes": 10552,
+          "kind": "script"
+        },
+        {
+          "path": "/min-review.js",
+          "bytes": 7157,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-catalog.js",
+          "bytes": 69264,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-activities.js",
+          "bytes": 17444,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progression.js",
+          "bytes": 5182,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-ui.js",
+          "bytes": 8749,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-v3-ui.js",
+          "bytes": 5883,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-competencies.js",
+          "bytes": 5865,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-evidence.js",
+          "bytes": 6447,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-competency-ui.js",
+          "bytes": 9987,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 562204,
+      "cssBytes": 156403,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "post-jordi-visser-linjart-exponentiellt-ai-trading.html",
+      "requestCount": 16,
+      "transferBytes": 751243,
+      "decodedBytes": 746443,
+      "domContentLoadedMs": 163.20000004768372,
+      "loadMs": 170.5,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/posts.js",
+          "bytes": 56212,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-catalog.js",
+          "bytes": 69264,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-activities.js",
+          "bytes": 17444,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 13745,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-relations.js",
+          "bytes": 21473,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 529380,
+      "cssBytes": 156403,
+      "imageBytes": 34556,
+      "excludedExternalRequests": [
+        "https://img.youtube.com/vi/VPuzUZlvk0U/maxresdefault.jpg",
+        "https://static.cloudflareinsights.com/beacon.min.js"
+      ]
+    },
+    {
+      "page": "fire-kalkylator.html",
+      "requestCount": 11,
+      "transferBytes": 762787,
+      "decodedBytes": 759487,
+      "domContentLoadedMs": 151.10000002384186,
+      "loadMs": 161.69999998807907,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 532263,
+      "cssBytes": 156403,
+      "imageBytes": 34556,
+      "excludedExternalRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js"
+      ]
+    },
+    {
+      "page": "sparmalskalkylator.html",
+      "requestCount": 17,
+      "transferBytes": 823691,
+      "decodedBytes": 818591,
+      "domContentLoadedMs": 190.60000002384186,
+      "loadMs": 198.5,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 13745,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11316,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-scenario-ui.js",
+          "bytes": 5206,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 597980,
+      "cssBytes": 157495,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "aktiekopskalkylator.html",
+      "requestCount": 15,
+      "transferBytes": 799043,
+      "decodedBytes": 794543,
+      "domContentLoadedMs": 183.60000002384186,
+      "loadMs": 188.60000002384186,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 13745,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-help.js",
+          "bytes": 2296,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 575805,
+      "cssBytes": 157495,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "valutajusterad-avkastning.html",
+      "requestCount": 16,
+      "transferBytes": 599881,
+      "decodedBytes": 595081,
+      "domContentLoadedMs": 154.0999999642372,
+      "loadMs": 158.89999997615814,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-scenario-ui.js",
+          "bytes": 5206,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 13745,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-help.js",
+          "bytes": 2296,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 380438,
+      "cssBytes": 157495,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "rapporter.html",
+      "requestCount": 13,
+      "transferBytes": 708895,
+      "decodedBytes": 704995,
+      "domContentLoadedMs": 117.10000002384186,
+      "loadMs": 122.20000004768372,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/calendar-context.js",
+          "bytes": 2378,
+          "kind": "script"
+        },
+        {
+          "path": "/week-pages.js",
+          "bytes": 22790,
+          "kind": "script"
+        },
+        {
+          "path": "/images/rapporter/week-38-1920.webp",
+          "bytes": 157524,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 348909,
+      "cssBytes": 156403,
+      "imageBytes": 192080,
+      "excludedExternalRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js"
+      ]
+    },
+    {
+      "page": "research.html?ticker=TTMI",
+      "requestCount": 45,
+      "transferBytes": 1709799,
+      "decodedBytes": 1696299,
+      "domContentLoadedMs": 265.60000002384186,
+      "loadMs": 266.60000002384186,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/social.css",
+          "bytes": 5563,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/research-v3.css",
+          "bytes": 17969,
+          "kind": "link"
+        },
+        {
+          "path": "/public-report.css",
+          "bytes": 2110,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/research-snapshot.js",
+          "bytes": 12600,
+          "kind": "script"
+        },
+        {
+          "path": "/thesis-storage.js",
+          "bytes": 20256,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity.js",
+          "bytes": 11253,
+          "kind": "script"
+        },
+        {
+          "path": "/change-detection.js",
+          "bytes": 4860,
+          "kind": "script"
+        },
+        {
+          "path": "/research-export.js",
+          "bytes": 10111,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcomes.js",
+          "bytes": 10556,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcome-ui.js",
+          "bytes": 13798,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai.js",
+          "bytes": 8671,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai-ui.js",
+          "bytes": 4244,
+          "kind": "script"
+        },
+        {
+          "path": "/research-v3.js",
+          "bytes": 7760,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile.js",
+          "bytes": 12460,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile-ui.js",
+          "bytes": 3636,
+          "kind": "script"
+        },
+        {
+          "path": "/research.js",
+          "bytes": 113405,
+          "kind": "script"
+        },
+        {
+          "path": "/min-review.js",
+          "bytes": 7157,
+          "kind": "script"
+        },
+        {
+          "path": "/research-review.js",
+          "bytes": 9377,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity-ui.js",
+          "bytes": 11380,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        },
+        {
+          "path": "/vendor/supabase/supabase.js",
+          "bytes": 218318,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-adapter.js",
+          "bytes": 6988,
+          "kind": "script"
+        },
+        {
+          "path": "/social-core.js",
+          "bytes": 1624,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report.js",
+          "bytes": 11902,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-ui.js",
+          "bytes": 8297,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-origin.js",
+          "bytes": 1019,
+          "kind": "script"
+        },
+        {
+          "path": "/research-publication.js",
+          "bytes": 12997,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-relations-ui.js",
+          "bytes": 365,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 13745,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11316,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-help.js",
+          "bytes": 2296,
+          "kind": "script"
+        },
+        {
+          "path": "/data/stocks/TTMI.json",
+          "bytes": 271279,
+          "kind": "fetch"
+        }
+      ],
+      "jsBytes": 1118104,
+      "cssBytes": 183137,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "research.html?ticker=SNDK",
+      "requestCount": 45,
+      "transferBytes": 1580179,
+      "decodedBytes": 1566679,
+      "domContentLoadedMs": 308.10000002384186,
+      "loadMs": 309.19999998807907,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/social.css",
+          "bytes": 5563,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/research-v3.css",
+          "bytes": 17969,
+          "kind": "link"
+        },
+        {
+          "path": "/public-report.css",
+          "bytes": 2110,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/research-snapshot.js",
+          "bytes": 12600,
+          "kind": "script"
+        },
+        {
+          "path": "/thesis-storage.js",
+          "bytes": 20256,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity.js",
+          "bytes": 11253,
+          "kind": "script"
+        },
+        {
+          "path": "/change-detection.js",
+          "bytes": 4860,
+          "kind": "script"
+        },
+        {
+          "path": "/research-export.js",
+          "bytes": 10111,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcomes.js",
+          "bytes": 10556,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcome-ui.js",
+          "bytes": 13798,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai.js",
+          "bytes": 8671,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai-ui.js",
+          "bytes": 4244,
+          "kind": "script"
+        },
+        {
+          "path": "/research-v3.js",
+          "bytes": 7760,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile.js",
+          "bytes": 12460,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile-ui.js",
+          "bytes": 3636,
+          "kind": "script"
+        },
+        {
+          "path": "/research.js",
+          "bytes": 113405,
+          "kind": "script"
+        },
+        {
+          "path": "/min-review.js",
+          "bytes": 7157,
+          "kind": "script"
+        },
+        {
+          "path": "/research-review.js",
+          "bytes": 9377,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity-ui.js",
+          "bytes": 11380,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        },
+        {
+          "path": "/vendor/supabase/supabase.js",
+          "bytes": 218318,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-adapter.js",
+          "bytes": 6988,
+          "kind": "script"
+        },
+        {
+          "path": "/social-core.js",
+          "bytes": 1624,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report.js",
+          "bytes": 11902,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-ui.js",
+          "bytes": 8297,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-origin.js",
+          "bytes": 1019,
+          "kind": "script"
+        },
+        {
+          "path": "/research-publication.js",
+          "bytes": 12997,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-relations-ui.js",
+          "bytes": 365,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 13745,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11316,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-help.js",
+          "bytes": 2296,
+          "kind": "script"
+        },
+        {
+          "path": "/data/stocks/SNDK.json",
+          "bytes": 141659,
+          "kind": "fetch"
+        }
+      ],
+      "jsBytes": 1118104,
+      "cssBytes": 183137,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "research.html?ticker=FLY",
+      "requestCount": 45,
+      "transferBytes": 1593938,
+      "decodedBytes": 1580438,
+      "domContentLoadedMs": 282.2999999523163,
+      "loadMs": 283.2999999523163,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/social.css",
+          "bytes": 5563,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/research-v3.css",
+          "bytes": 17969,
+          "kind": "link"
+        },
+        {
+          "path": "/public-report.css",
+          "bytes": 2110,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/research-snapshot.js",
+          "bytes": 12600,
+          "kind": "script"
+        },
+        {
+          "path": "/thesis-storage.js",
+          "bytes": 20256,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity.js",
+          "bytes": 11253,
+          "kind": "script"
+        },
+        {
+          "path": "/change-detection.js",
+          "bytes": 4860,
+          "kind": "script"
+        },
+        {
+          "path": "/research-export.js",
+          "bytes": 10111,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcomes.js",
+          "bytes": 10556,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcome-ui.js",
+          "bytes": 13798,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai.js",
+          "bytes": 8671,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai-ui.js",
+          "bytes": 4244,
+          "kind": "script"
+        },
+        {
+          "path": "/research-v3.js",
+          "bytes": 7760,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile.js",
+          "bytes": 12460,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile-ui.js",
+          "bytes": 3636,
+          "kind": "script"
+        },
+        {
+          "path": "/research.js",
+          "bytes": 113405,
+          "kind": "script"
+        },
+        {
+          "path": "/min-review.js",
+          "bytes": 7157,
+          "kind": "script"
+        },
+        {
+          "path": "/research-review.js",
+          "bytes": 9377,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity-ui.js",
+          "bytes": 11380,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        },
+        {
+          "path": "/vendor/supabase/supabase.js",
+          "bytes": 218318,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-adapter.js",
+          "bytes": 6988,
+          "kind": "script"
+        },
+        {
+          "path": "/social-core.js",
+          "bytes": 1624,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report.js",
+          "bytes": 11902,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-ui.js",
+          "bytes": 8297,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-origin.js",
+          "bytes": 1019,
+          "kind": "script"
+        },
+        {
+          "path": "/research-publication.js",
+          "bytes": 12997,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-relations-ui.js",
+          "bytes": 365,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 13745,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11316,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-help.js",
+          "bytes": 2296,
+          "kind": "script"
+        },
+        {
+          "path": "/data/stocks/FLY.json",
+          "bytes": 155418,
+          "kind": "fetch"
+        }
+      ],
+      "jsBytes": 1118104,
+      "cssBytes": 183137,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "research.html?ticker=CRWV",
+      "requestCount": 45,
+      "transferBytes": 1585878,
+      "decodedBytes": 1572378,
+      "domContentLoadedMs": 305.5999999642372,
+      "loadMs": 306.69999998807907,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/social.css",
+          "bytes": 5563,
+          "kind": "link"
+        },
+        {
+          "path": "/research-v3.css",
+          "bytes": 17969,
+          "kind": "link"
+        },
+        {
+          "path": "/public-report.css",
+          "bytes": 2110,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/research-snapshot.js",
+          "bytes": 12600,
+          "kind": "script"
+        },
+        {
+          "path": "/thesis-storage.js",
+          "bytes": 20256,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity.js",
+          "bytes": 11253,
+          "kind": "script"
+        },
+        {
+          "path": "/change-detection.js",
+          "bytes": 4860,
+          "kind": "script"
+        },
+        {
+          "path": "/research-export.js",
+          "bytes": 10111,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcomes.js",
+          "bytes": 10556,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcome-ui.js",
+          "bytes": 13798,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai.js",
+          "bytes": 8671,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai-ui.js",
+          "bytes": 4244,
+          "kind": "script"
+        },
+        {
+          "path": "/research-v3.js",
+          "bytes": 7760,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile.js",
+          "bytes": 12460,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile-ui.js",
+          "bytes": 3636,
+          "kind": "script"
+        },
+        {
+          "path": "/research.js",
+          "bytes": 113405,
+          "kind": "script"
+        },
+        {
+          "path": "/min-review.js",
+          "bytes": 7157,
+          "kind": "script"
+        },
+        {
+          "path": "/research-review.js",
+          "bytes": 9377,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity-ui.js",
+          "bytes": 11380,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        },
+        {
+          "path": "/vendor/supabase/supabase.js",
+          "bytes": 218318,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-adapter.js",
+          "bytes": 6988,
+          "kind": "script"
+        },
+        {
+          "path": "/social-core.js",
+          "bytes": 1624,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report.js",
+          "bytes": 11902,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-ui.js",
+          "bytes": 8297,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-origin.js",
+          "bytes": 1019,
+          "kind": "script"
+        },
+        {
+          "path": "/research-publication.js",
+          "bytes": 12997,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-relations-ui.js",
+          "bytes": 365,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 13745,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11316,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-help.js",
+          "bytes": 2296,
+          "kind": "script"
+        },
+        {
+          "path": "/data/stocks/CRWV.json",
+          "bytes": 147358,
+          "kind": "fetch"
+        }
+      ],
+      "jsBytes": 1118104,
+      "cssBytes": 183137,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "academy.html",
+      "requestCount": 23,
+      "transferBytes": 761221,
+      "decodedBytes": 754321,
+      "domContentLoadedMs": 196.30000001192093,
+      "loadMs": 205.39999997615814,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/academy.css",
+          "bytes": 6391,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/academy-catalog.js",
+          "bytes": 69264,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-activities.js",
+          "bytes": 17444,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progress.js",
+          "bytes": 5830,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progression.js",
+          "bytes": 5182,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-ui.js",
+          "bytes": 8749,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-v3-ui.js",
+          "bytes": 5883,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 13745,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-competencies.js",
+          "bytes": 5865,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-evidence.js",
+          "bytes": 6447,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-competency-ui.js",
+          "bytes": 9987,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 507587,
+      "cssBytes": 162794,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "academy-cagr.html",
+      "requestCount": 17,
+      "transferBytes": 651085,
+      "decodedBytes": 645985,
+      "domContentLoadedMs": 145,
+      "loadMs": 158.39999997615814,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/academy.css",
+          "bytes": 6391,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/academy-catalog.js",
+          "bytes": 69264,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-activities.js",
+          "bytes": 17444,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progress.js",
+          "bytes": 5830,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progression.js",
+          "bytes": 5182,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-ui.js",
+          "bytes": 8749,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-v3-ui.js",
+          "bytes": 5883,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 436093,
+      "cssBytes": 162794,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "academy-isk.html",
+      "requestCount": 17,
+      "transferBytes": 650645,
+      "decodedBytes": 645545,
+      "domContentLoadedMs": 145.29999995231628,
+      "loadMs": 159.19999998807907,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/academy.css",
+          "bytes": 6391,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/academy-catalog.js",
+          "bytes": 69264,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-activities.js",
+          "bytes": 17444,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progress.js",
+          "bytes": 5830,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progression.js",
+          "bytes": 5182,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-ui.js",
+          "bytes": 8749,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-v3-ui.js",
+          "bytes": 5883,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 436093,
+      "cssBytes": 162794,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "academy.html?category=statements",
+      "requestCount": 23,
+      "transferBytes": 761221,
+      "decodedBytes": 754321,
+      "domContentLoadedMs": 196.89999997615814,
+      "loadMs": 205.5,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/academy.css",
+          "bytes": 6391,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/academy-catalog.js",
+          "bytes": 69264,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-activities.js",
+          "bytes": 17444,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progress.js",
+          "bytes": 5830,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progression.js",
+          "bytes": 5182,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-ui.js",
+          "bytes": 8749,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-v3-ui.js",
+          "bytes": 5883,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 13745,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-competencies.js",
+          "bytes": 5865,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-evidence.js",
+          "bytes": 6447,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-competency-ui.js",
+          "bytes": 9987,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 507587,
+      "cssBytes": 162794,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "academy-financial-statements.html",
+      "requestCount": 17,
+      "transferBytes": 651873,
+      "decodedBytes": 646773,
+      "domContentLoadedMs": 150,
+      "loadMs": 161.19999998807907,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/academy.css",
+          "bytes": 6391,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/academy-catalog.js",
+          "bytes": 69264,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-activities.js",
+          "bytes": 17444,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progress.js",
+          "bytes": 5830,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progression.js",
+          "bytes": 5182,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-ui.js",
+          "bytes": 8749,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-v3-ui.js",
+          "bytes": 5883,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 436093,
+      "cssBytes": 162794,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "academy-enterprise-value.html",
+      "requestCount": 17,
+      "transferBytes": 651525,
+      "decodedBytes": 646425,
+      "domContentLoadedMs": 145.5,
+      "loadMs": 150.80000001192093,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/academy.css",
+          "bytes": 6391,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/academy-catalog.js",
+          "bytes": 69264,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-activities.js",
+          "bytes": 17444,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progress.js",
+          "bytes": 5830,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progression.js",
+          "bytes": 5182,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-ui.js",
+          "bytes": 8749,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-v3-ui.js",
+          "bytes": 5883,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 436093,
+      "cssBytes": 162794,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "academy-forward-metrics.html",
+      "requestCount": 17,
+      "transferBytes": 651666,
+      "decodedBytes": 646566,
+      "domContentLoadedMs": 149.29999995231628,
+      "loadMs": 163.89999997615814,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/academy.css",
+          "bytes": 6391,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/academy-catalog.js",
+          "bytes": 69264,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-activities.js",
+          "bytes": 17444,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progress.js",
+          "bytes": 5830,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progression.js",
+          "bytes": 5182,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-ui.js",
+          "bytes": 8749,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-v3-ui.js",
+          "bytes": 5883,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 436093,
+      "cssBytes": 162794,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "academy-position-sizing.html",
+      "requestCount": 17,
+      "transferBytes": 651250,
+      "decodedBytes": 646150,
+      "domContentLoadedMs": 147.69999998807907,
+      "loadMs": 163.69999998807907,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/academy.css",
+          "bytes": 6391,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/academy-catalog.js",
+          "bytes": 69264,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-activities.js",
+          "bytes": 17444,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progress.js",
+          "bytes": 5830,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progression.js",
+          "bytes": 5182,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-ui.js",
+          "bytes": 8749,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-v3-ui.js",
+          "bytes": 5883,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 436093,
+      "cssBytes": 162794,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "academy-activity-recovery.html",
+      "requestCount": 17,
+      "transferBytes": 648171,
+      "decodedBytes": 643071,
+      "domContentLoadedMs": 134.69999998807907,
+      "loadMs": 143.89999997615814,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/academy.css",
+          "bytes": 6391,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/academy-catalog.js",
+          "bytes": 69264,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-activities.js",
+          "bytes": 17444,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progress.js",
+          "bytes": 5830,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progression.js",
+          "bytes": 5182,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-ui.js",
+          "bytes": 8749,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-v3-ui.js",
+          "bytes": 5883,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 436093,
+      "cssBytes": 162794,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "academy-activity-analyse-company.html",
+      "requestCount": 17,
+      "transferBytes": 650563,
+      "decodedBytes": 645463,
+      "domContentLoadedMs": 158,
+      "loadMs": 172.80000001192093,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/academy.css",
+          "bytes": 6391,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/academy-catalog.js",
+          "bytes": 69264,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-activities.js",
+          "bytes": 17444,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progress.js",
+          "bytes": 5830,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progression.js",
+          "bytes": 5182,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-ui.js",
+          "bytes": 8749,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-v3-ui.js",
+          "bytes": 5883,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 436093,
+      "cssBytes": 162794,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "academy-activity-cycle-study.html",
+      "requestCount": 17,
+      "transferBytes": 650865,
+      "decodedBytes": 645765,
+      "domContentLoadedMs": 147.5,
+      "loadMs": 159.5,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/academy.css",
+          "bytes": 6391,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/academy-catalog.js",
+          "bytes": 69264,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-activities.js",
+          "bytes": 17444,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progress.js",
+          "bytes": 5830,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-progression.js",
+          "bytes": 5182,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-ui.js",
+          "bytes": 8749,
+          "kind": "script"
+        },
+        {
+          "path": "/academy-v3-ui.js",
+          "bytes": 5883,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 436093,
+      "cssBytes": 162794,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "fragor-svar.html",
+      "requestCount": 17,
+      "transferBytes": 605874,
+      "decodedBytes": 600774,
+      "domContentLoadedMs": 119.69999998807907,
+      "loadMs": 147.9000000357628,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/knowledge.css",
+          "bytes": 4693,
+          "kind": "link"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 14145,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-ui.js",
+          "bytes": 8824,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11316,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 393476,
+      "cssBytes": 162188,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "fragor-svar-pe-tal.html",
+      "requestCount": 17,
+      "transferBytes": 604345,
+      "decodedBytes": 599245,
+      "domContentLoadedMs": 122.5,
+      "loadMs": 128.29999995231628,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/knowledge.css",
+          "bytes": 4693,
+          "kind": "link"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 14145,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-ui.js",
+          "bytes": 8824,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11316,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 393476,
+      "cssBytes": 162188,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "fragor-svar-usd-sek-avkastning.html",
+      "requestCount": 17,
+      "transferBytes": 604051,
+      "decodedBytes": 598951,
+      "domContentLoadedMs": 114.5,
+      "loadMs": 119.80000001192093,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/knowledge.css",
+          "bytes": 4693,
+          "kind": "link"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 14145,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-ui.js",
+          "bytes": 8824,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11316,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 393476,
+      "cssBytes": 162188,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "fragor-svar-isk-grunder.html",
+      "requestCount": 17,
+      "transferBytes": 604409,
+      "decodedBytes": 599309,
+      "domContentLoadedMs": 124.39999997615814,
+      "loadMs": 129.89999997615814,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/knowledge.css",
+          "bytes": 4693,
+          "kind": "link"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 14145,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 27501,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8459,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-ui.js",
+          "bytes": 8824,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11316,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 393476,
+      "cssBytes": 162188,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    }
+  ],
+  "browser": "151.0.7922.34"
+}

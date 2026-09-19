@@ -1,0 +1,84 @@
+{
+  "browser": "151.0.7922.34",
+  "method": "Localhost Chromium; synthetic index route only; no synthetic files staged; CSS viewport 390; 100 warmed retrieval samples.",
+  "rows": [
+    {
+      "size": 100,
+      "loadMs": 111.92180000944063,
+      "payloadBytes": 93179,
+      "search": {
+        "p95Ms": 0.20000004768371582,
+        "medianMs": 0.10000002384185791
+      },
+      "ask": {
+        "p95Ms": 0.10000002384185791,
+        "medianMs": 0
+      },
+      "askNoCoverage": {
+        "p95Ms": 0.20000004768371582,
+        "medianMs": 0.10000002384185791
+      },
+      "askTypo": {
+        "p95Ms": 0.20000004768371582,
+        "medianMs": 0.10000002384185791
+      },
+      "category": {
+        "p95Ms": 0.20000004768371582,
+        "medianMs": 0.10000002384185791
+      },
+      "memory": 10000000
+    },
+    {
+      "size": 500,
+      "loadMs": 85.01529996283352,
+      "payloadBytes": 468525,
+      "search": {
+        "p95Ms": 0.800000011920929,
+        "medianMs": 0.699999988079071
+      },
+      "ask": {
+        "p95Ms": 0.09999996423721313,
+        "medianMs": 0
+      },
+      "askNoCoverage": {
+        "p95Ms": 0.6000000238418579,
+        "medianMs": 0.40000003576278687
+      },
+      "askTypo": {
+        "p95Ms": 0.6000000238418579,
+        "medianMs": 0.40000003576278687
+      },
+      "category": {
+        "p95Ms": 0.6000000238418579,
+        "medianMs": 0.5
+      },
+      "memory": 10000000
+    },
+    {
+      "size": 1200,
+      "loadMs": 125.13569998554885,
+      "payloadBytes": 1127252,
+      "search": {
+        "p95Ms": 1.600000023841858,
+        "medianMs": 1.5
+      },
+      "ask": {
+        "p95Ms": 0.09999996423721313,
+        "medianMs": 0
+      },
+      "askNoCoverage": {
+        "p95Ms": 1.399999976158142,
+        "medianMs": 1
+      },
+      "askTypo": {
+        "p95Ms": 1.2000000476837158,
+        "medianMs": 1
+      },
+      "category": {
+        "p95Ms": 1.5999999642372131,
+        "medianMs": 1.2999999523162842
+      },
+      "memory": 10000000
+    }
+  ]
+}
