@@ -1,0 +1,56 @@
+{
+  "date": "2026-09-19",
+  "batch": "3a",
+  "decisions": {
+    "cpi-pce": {
+      "distinctIntent": "Approved Macro comparison/process/limitation; existing bundled release overview remains unchanged.",
+      "sourceCheck": "Formula, weight, scope och other effects, särskilt spending by and on behalf of personal sector. Inflationsmålets PCE-basis; ingen numerisk målnivå behöver hårdkodas i svaret.",
+      "narrowing": "US series scope, no current figures; units, vintage and causal uncertainty explicit."
+    },
+    "headline-core": {
+      "distinctIntent": "Approved Macro comparison/process/limitation; existing bundled release overview remains unchanged.",
+      "sourceCheck": "Overview: CPI-U, all items respektive less food and energy, 1- och 12-månadersförändring samt skilda indexbasis. Definition inklusive specifik food-kategori; food services and accommodations undantas inte som food.",
+      "narrowing": "US series scope, no current figures; units, vintage and causal uncertainty explicit."
+    },
+    "mom-yoy": {
+      "distinctIntent": "Approved Macro comparison/process/limitation; existing bundled release overview remains unchanged.",
+      "sourceCheck": "Overview: CPI-U, all items respektive less food and energy, 1- och 12-månadersförändring samt skilda indexbasis. Kvoter för två angivna jämförelseperioder oberoende Decimal-kontrolleras.",
+      "narrowing": "US series scope, no current figures; units, vintage and causal uncertainty explicit."
+    },
+    "seasonal-adjustment": {
+      "distinctIntent": "Approved Macro comparison/process/limitation; existing bundled release overview remains unchanged.",
+      "sourceCheck": "How to Use och Revision of Seasonally Adjusted Indexes: återkommande säsongsmönster och årlig omräkning.",
+      "narrowing": "US series scope, no current figures; units, vintage and causal uncertainty explicit."
+    },
+    "macro-revisions": {
+      "distinctIntent": "Approved Macro comparison/process/limitation; existing bundled release overview remains unchanged.",
+      "sourceCheck": "Jämförelser av aktuell och föregående uppskattning samt advance/second-vintages. How to Use och Revision of Seasonally Adjusted Indexes: återkommande säsongsmönster och årlig omräkning.",
+      "narrowing": "US series scope, no current figures; units, vintage and causal uncertainty explicit."
+    },
+    "jobs-unemployment": {
+      "distinctIntent": "Approved Macro comparison/process/limitation; existing bundled release overview remains unchanged.",
+      "sourceCheck": "Why two measures och comparison table: jobs/people, egenföretagare, referensperiod och survey scope.",
+      "narrowing": "US series scope, no current figures; units, vintage and causal uncertainty explicit."
+    },
+    "real-nominal-gdp": {
+      "distinctIntent": "Approved Macro comparison/process/limitation; existing bundled release overview remains unchanged.",
+      "sourceCheck": "More to know: current-dollar, real/chained, seasonal adjustment och annual rates.",
+      "narrowing": "US series scope, no current figures; units, vintage and causal uncertainty explicit."
+    },
+    "macro-no-forecast": {
+      "distinctIntent": "Approved Macro comparison/process/limitation; existing bundled release overview remains unchanged.",
+      "sourceCheck": "Why Does Monetary Policy Affect Stock Prices: förväntade utdelningar/kassaflöden, realräntor och riskpremier är separata kanaler. Historiska koefficienter återges inte.",
+      "narrowing": "US series scope, no current figures; units, vintage and causal uncertainty explicit."
+    }
+  },
+  "ids": [
+    "cpi-pce",
+    "headline-core",
+    "mom-yoy",
+    "seasonal-adjustment",
+    "macro-revisions",
+    "jobs-unemployment",
+    "real-nominal-gdp",
+    "macro-no-forecast"
+  ]
+}

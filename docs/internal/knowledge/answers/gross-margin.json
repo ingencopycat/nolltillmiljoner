@@ -1,0 +1,97 @@
+{
+  "id": "gross-margin",
+  "question": "Hur räknar jag bruttomarginal på jämförbara intäkter och kostnader?",
+  "intent": "calculation",
+  "conceptRefs": [
+    "margins",
+    "revenue"
+  ],
+  "aliases": [
+    "Hur räknar jag bruttomarginal?",
+    "bruttomarginal i procent"
+  ],
+  "shortAnswer": "Bruttomarginal är bruttoresultat delat med intäkter på samma period- och redovisningsbasis. Bruttoresultatet är intäkter minus de kostnader som klassificeras som kostnad för sålda varor eller tjänster. Ange vilken kostnadsdefinition källan använder.",
+  "fullAnswer": "Kontrollera period, valuta och hur kostnader klassificeras innan du jämför bolag. En förändring i marginalprocent bör skiljas från förändring i procentenheter. Bruttomarginal lämnar kostnader längre ned i resultaträkningen utanför och ersätter inte rörelsemarginal eller kassaflöde.",
+  "example": "Syntetiskt: intäkter 1 000 minus kostnad för sålda varor/tjänster 600 ger bruttoresultat 400 och marginal 400 / 1 000 = 40 procent. En ökning från 40 till 44 procent är 4 procentenheter, eller 10 procents relativ ökning av själva marginaltalet.",
+  "caveats": "Nollintäkter ger ingen definierad kvot; negativa eller omklassificerade intäkter kräver särskild tolkning. Olika kostnadsklassificering kan göra jämförelser missvisande. Högre marginal betyder inte automatiskt bättre investering.",
+  "relatedAnswers": [
+    {
+      "id": "margins",
+      "type": "prerequisite"
+    },
+    {
+      "id": "income-statement",
+      "type": "prerequisite"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Microsoft Annual Report 2025",
+      "url": "https://www.microsoft.com/investor/reports/ar25/",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Resultattabeller: Revenue, Cost of revenue och vidare rörelsekostnader skiljs åt; syntetisk bruttovinst härleds separat.",
+      "limitations": "Inga Microsoft-belopp eller sektornormer används.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "metrics",
+  "concepts": [
+    "marginal",
+    "revenue"
+  ],
+  "relatedLessonIds": [
+    "financial-statements"
+  ],
+  "slug": "gross-margin",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

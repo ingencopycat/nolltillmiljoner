@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "method": "Independent Python Decimal; explicit units/timing in prose, no runtime executor added",
+  "checks": [
+    {
+      "expression": "2.20 - 2.00",
+      "result": "0.20",
+      "expected": "0.20"
+    },
+    {
+      "expression": "(2.20 - 2.00) / abs(2.00) * 100",
+      "result": "10.0",
+      "expected": "10"
+    },
+    {
+      "expression": "20 + 25 + 30 + 35",
+      "result": "110",
+      "expected": "110"
+    },
+    {
+      "expression": "invalid overlapping sum: 20 + 45 + 75 + 110",
+      "result": "250",
+      "expected": "250"
+    },
+    {
+      "expression": "45 - 20",
+      "result": "25",
+      "expected": "25"
+    },
+    {
+      "expression": "75 - 45",
+      "result": "30",
+      "expected": "30"
+    },
+    {
+      "expression": "110 + 55 - 45",
+      "result": "120",
+      "expected": "120"
+    }
+  ]
+}

@@ -1,0 +1,400 @@
+[
+  {
+    "id": "active-passive",
+    "from": [
+      "fund",
+      "index"
+    ],
+    "to": [
+      "diversifiering"
+    ]
+  },
+  {
+    "id": "arithmetic-geometric",
+    "from": [
+      "cagr",
+      "return"
+    ],
+    "to": [
+      "cagr",
+      "avkastning"
+    ]
+  },
+  {
+    "id": "asset-ownership",
+    "from": [
+      "shares"
+    ],
+    "to": [
+      "dilution"
+    ]
+  },
+  {
+    "id": "cashflow-return",
+    "from": [
+      "return",
+      "cagr"
+    ],
+    "to": [
+      "avkastning",
+      "cagr"
+    ]
+  },
+  {
+    "id": "concentration",
+    "from": [
+      "diversification"
+    ],
+    "to": [
+      "diversifiering"
+    ]
+  },
+  {
+    "id": "cpi-pce",
+    "from": [
+      "macro",
+      "inflation"
+    ],
+    "to": [
+      "inflation"
+    ]
+  },
+  {
+    "id": "discounting",
+    "from": [
+      "discounting"
+    ],
+    "to": [
+      "valuation"
+    ]
+  },
+  {
+    "id": "drawdown",
+    "from": [
+      "drawdown"
+    ],
+    "to": [
+      "risk"
+    ]
+  },
+  {
+    "id": "ebit-ebitda",
+    "from": [
+      "ebitda"
+    ],
+    "to": [
+      "financial-statements"
+    ]
+  },
+  {
+    "id": "enterprise-value",
+    "from": [
+      "enterprise-value"
+    ],
+    "to": [
+      "valuation"
+    ]
+  },
+  {
+    "id": "estimate-dispersion",
+    "from": [
+      "outlook"
+    ],
+    "to": [
+      "analysts"
+    ]
+  },
+  {
+    "id": "etf",
+    "from": [
+      "etf",
+      "fund"
+    ],
+    "to": [
+      "diversifiering"
+    ]
+  },
+  {
+    "id": "ev-ebitda-limits",
+    "from": [
+      "enterprise-value",
+      "ebitda"
+    ],
+    "to": [
+      "valuation",
+      "financial-statements"
+    ]
+  },
+  {
+    "id": "ev-market-cap",
+    "from": [
+      "enterprise-value",
+      "market-cap"
+    ],
+    "to": [
+      "valuation"
+    ]
+  },
+  {
+    "id": "fiscal-calendar",
+    "from": [
+      "ttm"
+    ],
+    "to": [
+      "forward-metrics"
+    ]
+  },
+  {
+    "id": "fund-etf",
+    "from": [
+      "etf",
+      "fund"
+    ],
+    "to": [
+      "diversifiering"
+    ]
+  },
+  {
+    "id": "fund-overlap",
+    "from": [
+      "diversification",
+      "fund"
+    ],
+    "to": [
+      "diversifiering"
+    ]
+  },
+  {
+    "id": "fund",
+    "from": [
+      "fund"
+    ],
+    "to": [
+      "diversifiering"
+    ]
+  },
+  {
+    "id": "guidance-revision",
+    "from": [
+      "outlook"
+    ],
+    "to": [
+      "analysts"
+    ]
+  },
+  {
+    "id": "headline-core",
+    "from": [
+      "inflation",
+      "macro"
+    ],
+    "to": [
+      "inflation"
+    ]
+  },
+  {
+    "id": "index-weighting",
+    "from": [
+      "index",
+      "market-cap"
+    ],
+    "to": [
+      "diversifiering",
+      "valuation"
+    ]
+  },
+  {
+    "id": "index",
+    "from": [
+      "index"
+    ],
+    "to": [
+      "diversifiering"
+    ]
+  },
+  {
+    "id": "jobs-unemployment",
+    "from": [
+      "macro"
+    ],
+    "to": [
+      "inflation"
+    ]
+  },
+  {
+    "id": "leverage-downside",
+    "from": [
+      "leverage"
+    ],
+    "to": [
+      "risk"
+    ]
+  },
+  {
+    "id": "liquidity",
+    "from": [
+      "liquidity"
+    ],
+    "to": [
+      "risk"
+    ]
+  },
+  {
+    "id": "loss-recovery",
+    "from": [
+      "drawdown",
+      "compounding"
+    ],
+    "to": [
+      "risk",
+      "compounding"
+    ]
+  },
+  {
+    "id": "macro-no-forecast",
+    "from": [
+      "macro"
+    ],
+    "to": [
+      "inflation"
+    ]
+  },
+  {
+    "id": "macro-revisions",
+    "from": [
+      "macro"
+    ],
+    "to": [
+      "inflation"
+    ]
+  },
+  {
+    "id": "mom-yoy",
+    "from": [
+      "macro"
+    ],
+    "to": [
+      "inflation"
+    ]
+  },
+  {
+    "id": "nominal-real",
+    "from": [
+      "return",
+      "inflation"
+    ],
+    "to": [
+      "avkastning",
+      "inflation"
+    ]
+  },
+  {
+    "id": "order-spread",
+    "from": [
+      "spread"
+    ],
+    "to": [
+      "fees"
+    ]
+  },
+  {
+    "id": "peg-limitations",
+    "from": [
+      "peg",
+      "pe"
+    ],
+    "to": [
+      "valuation",
+      "pe"
+    ]
+  },
+  {
+    "id": "price-value",
+    "from": [
+      "market-cap",
+      "pe"
+    ],
+    "to": [
+      "valuation",
+      "pe"
+    ]
+  },
+  {
+    "id": "real-nominal-gdp",
+    "from": [
+      "macro"
+    ],
+    "to": [
+      "inflation"
+    ]
+  },
+  {
+    "id": "revenue-growth",
+    "from": [
+      "revenue",
+      "fx"
+    ],
+    "to": [
+      "revenue",
+      "currency"
+    ]
+  },
+  {
+    "id": "risk-horizon",
+    "from": [
+      "time-horizon"
+    ],
+    "to": [
+      "risk"
+    ]
+  },
+  {
+    "id": "seasonal-adjustment",
+    "from": [
+      "macro"
+    ],
+    "to": [
+      "inflation"
+    ]
+  },
+  {
+    "id": "sequence-risk",
+    "from": [
+      "return"
+    ],
+    "to": [
+      "avkastning"
+    ]
+  },
+  {
+    "id": "split-dilution",
+    "from": [
+      "shares"
+    ],
+    "to": [
+      "dilution"
+    ]
+  },
+  {
+    "id": "ttm-construction",
+    "from": [
+      "ttm",
+      "statements"
+    ],
+    "to": [
+      "forward-metrics",
+      "statements"
+    ]
+  },
+  {
+    "id": "volatility-risk",
+    "from": [
+      "volatility",
+      "diversification"
+    ],
+    "to": [
+      "risk",
+      "diversifiering"
+    ]
+  }
+]

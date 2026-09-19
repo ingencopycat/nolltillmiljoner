@@ -1,0 +1,102 @@
+{
+  "id": "loss-recovery",
+  "question": "Hur stor uppgång krävs för att återhämta en procentuell förlust?",
+  "intent": "calculation",
+  "category": "risk",
+  "conceptRefs": [
+    "drawdown",
+    "compounding"
+  ],
+  "aliases": [
+    "Hur mycket måste det stiga efter 50 procents fall?",
+    "50 procent förlust kräver 100 procent uppgång"
+  ],
+  "shortAnswer": "Efter en förlust beräknas nästa uppgång på ett mindre kapital. Om förlustandelen är L, från 0 till mindre än 1, krävs uppgången 1 / (1 − L) − 1 för att nå samma nominella startvärde utan nya insättningar. En förlust på 50 procent kräver därför 100 procents uppgång.",
+  "fullAnswer": "Formeln löser sambandet startvärde × (1 − L) × (1 + uppgång) = startvärde. Förlust och återhämtning har olika baser; samma procenttal tar inte ut varandra. Detta är aritmetik för ett givet värdeförlopp, inte en bedömning av om återhämtningen kommer att ske eller hur länge den tar.",
+  "example": "Syntetiskt: 100 faller till 50. En uppgång på 50 procent ger då 75, inte 100. För att nå 100 behöver 50 fördubblas. På samma sätt kräver 10 procents förlust cirka 11,11 procents uppgång, 20 procents förlust 25 procent och 80 procents förlust 400 procent.",
+  "caveats": "Vid 100 procents förlust finns inget kvar som kan växa tillbaka genom en procentuell uppgång; formelns nämnare är noll. Nya insättningar, avgifter, uttag och inflation ändrar frågeställningen. Att känna till återhämtningskravet är inte ett skäl att behålla eller köpa en viss investering.",
+  "relatedAnswers": [
+    {
+      "id": "drawdown",
+      "type": "prerequisite"
+    },
+    {
+      "id": "arithmetic-geometric",
+      "type": "common-confusion"
+    },
+    {
+      "id": "leverage-downside",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "NTM: angiven beräkningsmetod och syntetisk algebra",
+      "url": "https://nolltillmiljoner.se/avkastningskalkylator.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats",
+        "example"
+      ],
+      "checked": "Återhämtningsidentiteten löst för uppgång och kontrollerad vid L 0,1; 0,2; 0,5; 0,8 samt uteslutet L=1.",
+      "limitations": "Lokalt metodkontrakt läst och separat Decimal-kontroll krävs före acceptans. Ingen ny exekverbar formel i Fråga NTM.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "concepts": [
+    "risk",
+    "compounding"
+  ],
+  "relatedLessonIds": [
+    "risk"
+  ],
+  "slug": "loss-recovery",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

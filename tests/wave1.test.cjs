@@ -35,8 +35,9 @@ test('12 concepts resolve to 11 canonical answers, preserve overlap and route to
 });
 test('30 labelled retrieval cases preserve exact definitions, reviewed typo aliases and abstention',()=>{
  for(const [query,id] of require('./fixtures/wave1-queries.json'))assert.equal(K.ask(query)[0]?.id||null,id,query);
- // Unsupported expensive/cheap judgment abstains; no numeric interpretation added.
- assert.deepEqual(K.ask('Ar P/E 40 dyrt?'),[]);
+ // Batch 1B adds a contextual interpretation, never a numeric verdict or buy advice.
+ assert.equal(K.ask('Ar P/E 40 dyrt?')[0]?.id,'pe-interpretation');
+ assert.deepEqual(K.ask('Ska jag köpa aktien med P/E 40?'),[]);
 });
 test('new examples match independent arithmetic; reviewed additions stay out of sitemap',()=>{
  assert.ok(Math.abs(100*1.1*1.1-121)<1e-10);assert.ok(Math.abs(100*1.07*.99-105.93)<1e-10);

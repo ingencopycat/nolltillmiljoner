@@ -1,0 +1,80 @@
+<!doctype html><html lang="sv"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="robots" content="noindex,nofollow"><title>Lokalt utkast</title><main><h1>UTKAST – inte publicerat eller godkänt</h1><h2>Varför kan vinst och kassaflöde skilja sig?</h2><h3>shortAnswer</h3><p>Vinst bygger på redovisade intäkter och kostnader, medan kassaflöde följer betalningar. Därför kan beloppen skilja sig utan att skillnaden automatiskt är en negativ signal. I Research behöver du undersöka vad som orsakar avvikelsen.</p><h3>fullAnswer</h3><p>Avskrivningar fördelar en tillgångs kostnad över tid och är inte en ny betalning just när kostnaden redovisas. En kreditförsäljning kan ge intäkt och kundfordran innan kunden betalar. Ett kontant köp av en långlivad tillgång kan ge ett investeringsutflöde medan kostnaden påverkar resultatet över flera perioder. Jämför därför både period och vilken del av kassaflödet du läser.</p><h3>example</h3><p>Tre förenklade fall: en avskrivning minskar resultatet utan en samtidig utbetalning; en kundfordran kan uppstå före inbetalningen; ett kontant maskinköp påverkar investeringarnas kassaflöde utan att hela köpet genast blir en kostnad. Fallen visar tidpunkt och klassificering, inte att alla skillnader har samma förklaring.</p><h3>caveats</h3><p>Skilj kassaflöde från löpande verksamhet från periodens totala förändring av likvida medel. Skillnaden mot resultatet är en fråga att utreda, inte ett automatiskt gott eller dåligt tecken. Läs avstämning och noter innan du drar slutsatser om ett visst bolag eller en aktie.</p><h3>Strukturerade delar</h3><pre>{
+  &quot;inline&quot;: {
+    &quot;field&quot;: &quot;shortAnswer&quot;,
+    &quot;contexts&quot;: [
+      &quot;knowledge&quot;,
+      &quot;research&quot;,
+      &quot;public-report&quot;,
+      &quot;academy-reminder&quot;
+    ]
+  },
+  &quot;comparison&quot;: {
+    &quot;leftLabel&quot;: &quot;Redovisad vinst&quot;,
+    &quot;rightLabel&quot;: &quot;Kassaflöde&quot;,
+    &quot;axes&quot;: [
+      {
+        &quot;label&quot;: &quot;Utgångspunkt&quot;,
+        &quot;left&quot;: &quot;Periodens redovisade intäkter och kostnader.&quot;,
+        &quot;right&quot;: &quot;Periodens in- och utbetalningar, uppdelade på verksamheter.&quot;
+      },
+      {
+        &quot;label&quot;: &quot;Avskrivning&quot;,
+        &quot;left&quot;: &quot;En kostnad när tillgången används över tid.&quot;,
+        &quot;right&quot;: &quot;Ingen ny betalning enbart för att avskrivningen redovisas.&quot;
+      },
+      {
+        &quot;label&quot;: &quot;Kreditförsäljning&quot;,
+        &quot;left&quot;: &quot;Intäkt kan redovisas innan kunden betalar.&quot;,
+        &quot;right&quot;: &quot;Kundens inbetalning kan komma senare.&quot;
+      }
+    ],
+    &quot;limitations&quot;: &quot;Jämför samma period och rätt kassaflödesmått. En avvikelse kräver en förklaring, inte en automatisk kvalitetsdom.&quot;
+  }
+}</pre><h3>Källunderlag</h3><pre>[
+  {
+    &quot;title&quot;: &quot;SEC: Beginners’ Guide to Financial Statements&quot;,
+    &quot;url&quot;: &quot;https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide&quot;,
+    &quot;reviewedAt&quot;: &quot;2026-09-19&quot;,
+    &quot;type&quot;: &quot;methodology&quot;,
+    &quot;authority&quot;: &quot;primary&quot;,
+    &quot;supports&quot;: [
+      &quot;shortAnswer&quot;,
+      &quot;fullAnswer&quot;,
+      &quot;caveats&quot;,
+      &quot;comparison&quot;
+    ],
+    &quot;evidenceStatus&quot;: &quot;checked&quot;,
+    &quot;checked&quot;: &quot;Income Statements (avskrivningar), Operating Activities (icke-kontanta poster) och Investing Activities (maskinköp): separata resultat- och betalningsmått. Bringing It All Together stöder läsning av rapporterna tillsammans.&quot;,
+    &quot;limitations&quot;: &quot;Ingen kausal diagnos av ett enskilt bolag. Den neutrala Research-frågan är NTM:s godkända pedagogiska tillämpning.&quot;
+  },
+  {
+    &quot;title&quot;: &quot;IFRS Foundation: IAS 7, översikt och standardhistorik&quot;,
+    &quot;url&quot;: &quot;https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/&quot;,
+    &quot;reviewedAt&quot;: &quot;2026-09-19&quot;,
+    &quot;type&quot;: &quot;methodology&quot;,
+    &quot;authority&quot;: &quot;primary&quot;,
+    &quot;supports&quot;: [
+      &quot;fullAnswer&quot;,
+      &quot;example&quot;,
+      &quot;caveats&quot;,
+      &quot;comparison&quot;
+    ],
+    &quot;evidenceStatus&quot;: &quot;checked&quot;,
+    &quot;checked&quot;: &quot;About: indirekt justering för icke-kontanta poster och periodiseringar; investeringarnas betalningar skiljs från löpande verksamhet.&quot;,
+    &quot;limitations&quot;: &quot;De tre fallen är syntetiska mekanismer, inte nya bolagsfakta.&quot;
+  },
+  {
+    &quot;title&quot;: &quot;IFRS Foundation: IAS 16 Property, Plant and Equipment&quot;,
+    &quot;url&quot;: &quot;https://www.ifrs.org/issued-standards/list-of-standards/ias-16-property-plant-and-equipment/&quot;,
+    &quot;reviewedAt&quot;: &quot;2026-09-19&quot;,
+    &quot;type&quot;: &quot;methodology&quot;,
+    &quot;authority&quot;: &quot;primary&quot;,
+    &quot;supports&quot;: [
+      &quot;fullAnswer&quot;,
+      &quot;example&quot;
+    ],
+    &quot;evidenceStatus&quot;: &quot;checked&quot;,
+    &quot;checked&quot;: &quot;About: redovisning av materiella långlivade tillgångar och avskrivningskostnader.&quot;,
+    &quot;limitations&quot;: &quot;Avser redovisningsprincipen; inga påståenden om en specifik avskrivningstid.&quot;
+  }
+]</pre></main></html>

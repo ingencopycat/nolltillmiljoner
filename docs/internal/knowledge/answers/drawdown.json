@@ -1,0 +1,115 @@
+{
+  "id": "drawdown",
+  "question": "Vad betyder drawdown?",
+  "intent": "definition",
+  "category": "risk",
+  "conceptRefs": [
+    "drawdown"
+  ],
+  "aliases": [
+    "Vad är drawdown?",
+    "nedgång från tidigare topp"
+  ],
+  "shortAnswer": "Drawdown är en nedgång från en tidigare topp i en värdeserie. Med positivt toppvärde kan den procentuella nedgången skrivas som aktuellt värde / tidigare topp − 1. Maximal drawdown är den största observerade nedgången från topp till senare botten under den valda perioden.",
+  "fullAnswer": "Följ den högsta nivån som hittills nåtts och jämför senare värden med den. Välj först serie och period: en prisserie och en totalavkastningsserie kan visa olika förlopp. Maximal drawdown sammanfattar en historisk förluststräcka, medan tiden under tidigare topp säger något annat om förloppet. Måttet är ett komplement till avkastning och andra riskbeskrivningar.",
+  "example": "Syntetiskt: serien når 100 och sjunker sedan till 70 innan en ny topp nås. Drawdown vid 70 är 70 / 100 − 1 = −30 procent. Om detta är periodens största nedgång är maximal drawdown 30 procent i förluststorlek; ange om du visar storlek eller negativt tecken.",
+  "caveats": "Resultatet beror på mätperiod och observationsfrekvens. Månadsvärden kan missa en djupare nedgång mellan mättillfällena. En historisk maximal nedgång är ingen gräns för framtida förlust och fångar inte ensam likviditet, kreditrisk eller permanent förlust.",
+  "relatedAnswers": [
+    {
+      "id": "cagr",
+      "type": "prerequisite"
+    },
+    {
+      "id": "loss-recovery",
+      "type": "next-question"
+    },
+    {
+      "id": "volatility-risk",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Goldberg och Mahmoud: Drawdown: From Practice to Theory and Back Again",
+      "url": "https://arxiv.org/abs/1404.7493",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Författarnas abstract definierar maximum drawdown som största kumulativa förlust från topp till botten och skiljer drawdown från volatilitet.",
+      "limitations": "Endast abstract läst; inga CED-resultat, optimeringspåståenden eller empiriska prognoser återges.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "NTM: angiven beräkningsmetod och syntetisk algebra",
+      "url": "https://nolltillmiljoner.se/avkastningskalkylator.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats",
+        "example"
+      ],
+      "checked": "Procentuell topp/botten-kvot och observationsbegränsning härledda för uttryckligen vald positiv serie.",
+      "limitations": "Lokalt metodkontrakt läst och separat Decimal-kontroll krävs före acceptans. Ingen ny exekverbar formel i Fråga NTM.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "concepts": [
+    "risk"
+  ],
+  "relatedLessonIds": [
+    "risk"
+  ],
+  "slug": "drawdown",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-09-19",
+  "reviewPolicy": {
+    "risk": "stable",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

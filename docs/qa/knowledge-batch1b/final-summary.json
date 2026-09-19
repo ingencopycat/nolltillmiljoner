@@ -1,0 +1,101 @@
+{
+  "date": "2026-09-19",
+  "batch": "Knowledge Content Batch 1B",
+  "releaseReady": true,
+  "releaseState": "reviewed/noindex local implementation; not deployed",
+  "catalogBefore": 35,
+  "catalogAfter": 41,
+  "priorObjectsUnchanged": 35,
+  "newReviewedObjects": 6,
+  "conceptsBefore": 30,
+  "conceptsAfter": 31,
+  "nodeTests": 293,
+  "pythonTests": 167,
+  "nodeSkipped": 0,
+  "retrievalCases": 101,
+  "retrievalFailures": 0,
+  "wrongConfidentMatches": 0,
+  "browserTests": {
+    "browser-smoke": 38,
+    "wave1_browser": 7,
+    "wave3_browser": 7,
+    "wave4_browser": 4,
+    "wave5_browser": 4,
+    "knowledge100_browser": 6,
+    "knowledge_batch1a_browser": 3,
+    "knowledge_batch1b_browser": 3
+  },
+  "totalBrowserTests": 72,
+  "accessibilityCspPages": 53,
+  "gateGroups": [
+    {
+      "name": "release",
+      "exitCode": 0,
+      "seconds": 42.41555829998106
+    },
+    {
+      "name": "browser-smoke",
+      "exitCode": 0,
+      "seconds": 93.95466320001287
+    },
+    {
+      "name": "wave1_browser",
+      "exitCode": 0,
+      "seconds": 18.30615570000373
+    },
+    {
+      "name": "wave3_browser",
+      "exitCode": 0,
+      "seconds": 11.127118100004736
+    },
+    {
+      "name": "wave4_browser",
+      "exitCode": 0,
+      "seconds": 27.4386520999833
+    },
+    {
+      "name": "wave5_browser",
+      "exitCode": 0,
+      "seconds": 9.920560600003228
+    },
+    {
+      "name": "knowledge100_browser",
+      "exitCode": 0,
+      "seconds": 9.673417600046378
+    },
+    {
+      "name": "knowledge_batch1a_browser",
+      "exitCode": 0,
+      "seconds": 5.797194899991155
+    },
+    {
+      "name": "knowledge_batch1b_browser",
+      "exitCode": 0,
+      "seconds": 5.7486327000078745
+    },
+    {
+      "name": "quality",
+      "exitCode": 0,
+      "seconds": 48.1018171000178
+    }
+  ],
+  "arithmetic": "Node assertions plus independent Python Decimal checks",
+  "history": "Existing 35 preserved; pe-losses correction explicitly versioned 1 to 2",
+  "seo": "Generation/check passed; 85 sitemap URLs, six new noindex/follow pages excluded",
+  "diffCheck": "passed",
+  "visualInspection": [
+    "pe-versus-ps-390-light.png",
+    "reported-adjusted-text-zoom.png"
+  ],
+  "knownUnresolvedProductDefects": [],
+  "limitations": [
+    "17 inherited mapping gaps and 16 unscheduled reviews remain open",
+    "Independent human editorial/comprehension/assistive-technology validation not claimed",
+    "Public source passages only; no complete standards or issuer-specific compliance audit",
+    "No hosted verification implied"
+  ],
+  "commit": false,
+  "push": false,
+  "deploy": false,
+  "nextMicroBatchStarted": false
+}

@@ -1,0 +1,100 @@
+{
+  "id": "fund-overlap",
+  "question": "Hur upptäcker jag överlapp mellan fondinnehav?",
+  "intent": "process",
+  "conceptRefs": [
+    "diversification",
+    "fund"
+  ],
+  "aliases": [
+    "överlapp mellan fonder",
+    "samma aktie i flera fonder"
+  ],
+  "reviewDue": "2026-12-31",
+  "shortAnswer": "Jämför daterade innehavslistor och identifiera samma underliggande exponering. Vikta sedan fondens innehav med fondens andel av din portfölj. Två fondnamn betyder inte automatiskt två oberoende exponeringar.",
+  "fullAnswer": "Spara innehavsdatum, fondandel i portföljen och täckning för listan. Matcha tydliga bolags- eller värdepappersidentiteter, inte bara liknande namn. Visa separat vad som är känt och vad som saknas, exempelvis vid ofullständiga listor eller indirekt exponering. Metoden är en genomlysning, inte en automatisk riskpoäng.",
+  "example": "Syntetiskt: halva portföljen ligger i fond A och halva i fond B. A har 10 procent i bolag X, B har 8 procent. Den kända exponeringen mot X är 0,5 × 10 + 0,5 × 8 = 9 procent av portföljen, inte 18 procent.",
+  "caveats": "Innehav ändras och listor kan ha olika datum eller sakna derivat och andra exponeringar. Okänt är inte noll. Samma bransch kan också ge gemensam risk utan identiska innehav. Ingen viss överlappsnivå förklaras automatiskt lämplig eller olämplig.",
+  "relatedAnswers": [
+    {
+      "id": "concentration",
+      "type": "prerequisite"
+    },
+    {
+      "id": "fund",
+      "type": "prerequisite"
+    },
+    {
+      "id": "source-provenance",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "FINRA: Concentration Risk",
+      "url": "https://www.finra.org/investors/insights/concentration-risk",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Fondgenomlysning och gemensamma innehav/korrelerade exponeringar; kompletterat med uttrycklig viktad syntetisk algebra.",
+      "limitations": "Inga verkliga innehavslistor samlas in och ingen automatisk portföljanalys införs.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "risk",
+  "concepts": [
+    "diversifiering"
+  ],
+  "relatedLessonIds": [
+    "diversifiering"
+  ],
+  "slug": "fund-overlap",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

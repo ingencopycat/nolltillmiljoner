@@ -1,0 +1,117 @@
+{
+  "id": "ev-market-cap",
+  "question": "Vad skiljer enterprise value från börsvärde?",
+  "intent": "comparison",
+  "conceptRefs": [
+    "enterprise-value",
+    "market-cap"
+  ],
+  "aliases": [
+    "EV vs börsvärde",
+    "enterprise value vs market cap"
+  ],
+  "shortAnswer": "Börsvärde avser marknadsvärdet på aktierna. EV justerar detta för finansierings- och kassaposter enligt vald metod. Skillnaden är viktig när du väljer vilket resultatmått värdet ska jämföras med.",
+  "fullAnswer": "Aktiepris eller börsvärde hör ihop med mått för aktieägarna. EV används med verksamhetsmått på en förenlig basis. Skriv ut bryggan i stället för att anta att EV alltid är större. En nettokassa kan i den enkla modellen göra EV lägre än börsvärdet.",
+  "example": "Syntetiskt: börsvärde 1 000 + skuld 300 − kassa 100 ger EV 1 200. I ett separat exempel med skuld 100 och kassa 300 blir EV 800. Övriga justeringar antas saknas i båda fallen.",
+  "caveats": "Jämförelsen förutsätter samma datum och tydliga skuld-/kassadefinitioner. Preferensaktier, minoriteter och andra poster kan ändra bryggan. Ett lägre EV är inte automatiskt ett billigare eller bättre bolag.",
+  "relatedAnswers": [
+    {
+      "id": "enterprise-value",
+      "type": "prerequisite"
+    },
+    {
+      "id": "market-cap",
+      "type": "prerequisite"
+    },
+    {
+      "id": "ev-ebitda-limits",
+      "type": "next-question"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Aswath Damodaran: Relative Valuation",
+      "url": "https://pages.stern.nyu.edu/~adamodar/pdfiles/country/relvalAIMR.pdf",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Sidor 12–13 och 39–41: EV-brygga, täljare/nämnare och återinvesteringsbehov; sifferdata och historiska värderingar används inte.",
+      "limitations": "Avgränsad förenklad metod, inte full företagsvärdering; andra anspråk kan kräva justeringar.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "valuation",
+  "concepts": [
+    "valuation"
+  ],
+  "relatedLessonIds": [
+    "enterprise-value"
+  ],
+  "slug": "ev-market-cap",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "comparison": {
+      "leftLabel": "Börsvärde",
+      "rightLabel": "EV",
+      "axes": [
+        {
+          "label": "Avser",
+          "left": "Aktiernas marknadsvärde",
+          "right": "Verksamhetsvärde enligt vald brygga"
+        },
+        {
+          "label": "Exempel",
+          "left": "1 000",
+          "right": "1 200 eller 800 beroende på skuld/kassa"
+        }
+      ],
+      "limitations": "Förenklad brygga; andra anspråk kan tillkomma."
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

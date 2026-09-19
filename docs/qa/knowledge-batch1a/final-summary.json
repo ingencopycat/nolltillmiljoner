@@ -1,0 +1,43 @@
+{
+  "releaseReady": true,
+  "scope": "Local reviewed/noindex catalog and bounded integrations; not deployed",
+  "canonicalObjects": 35,
+  "newReviewedObjects": 6,
+  "original29Unchanged": true,
+  "concepts": 30,
+  "retrievalCases": 74,
+  "retrievalFailures": 0,
+  "wrongConfidentMatches": 0,
+  "nodeTestsPassed": 289,
+  "pythonTestsPassed": 167,
+  "skippedDatabaseTests": 0,
+  "browserTests": {
+    "smoke": 38,
+    "wave1": 7,
+    "wave3": 7,
+    "wave4": 4,
+    "wave5": 4,
+    "knowledge100": 6,
+    "batch1a": 3
+  },
+  "accessibilityCspPages": 47,
+  "requiredGatesPassed": 9,
+  "generatedOutdatedFiles": 0,
+  "sourceSectionMappingAudit": "passed; exact primary mappings in source-mappings.json",
+  "duplicateReview": "5 pre-existing candidates, no new candidate; no alias collisions",
+  "gitDiffCheck": "passed",
+  "resolvedIssues": [
+    "QA runner output-depth fixture path",
+    "New browser harness helper/expectation corrections",
+    "3px table header overflow at 360px and 200% text zoom: scoped white-space normal fix"
+  ],
+  "remainingSourceLimits": [
+    "Direct full IAS 7 PDF unavailable; official overview and identified official staff-paper passages used",
+    "Independent human source review not claimed",
+    "Legacy Batch 0 tasks remain open"
+  ],
+  "liveProductionModified": false,
+  "committed": false,
+  "pushed": false,
+  "deployed": false
+}

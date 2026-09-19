@@ -1,0 +1,102 @@
+{
+  "id": "valuation-sensitivity",
+  "question": "Hur undersöker jag vilket antagande som driver min värdering?",
+  "intent": "application",
+  "conceptRefs": [
+    "thesis",
+    "pe"
+  ],
+  "aliases": [
+    "känslighet i värdering",
+    "vilket antagande driver scenariot"
+  ],
+  "shortAnswer": "Ändra ett antagande i taget och håll övriga jämförbara. Då ser du hur just den modellens resultat reagerar. Känslighet visar beroenden i beräkningen, inte sannolikheten att antagandet eller priset blir verklighet.",
+  "fullAnswer": "Välj först mått, tidpunkt och vilka indata som hålls stilla. I ett enkelt EPS × P/E-fall kan du jämföra olika multiplar vid samma EPS och sedan olika EPS vid samma multipel. Dokumentera att det är en mekanisk jämförelse. En gemensam förändring av flera antaganden är ett annat scenario, inte samma isolerade test.",
+  "example": "Syntetiskt: EPS 10 och P/E 25 ger 250. Med EPS 10 och P/E 20, 25 och 30 blir priserna 200, 250 och 300. Med P/E 25 och EPS 8, 10 och 12 blir de också 200, 250 och 300. Om EPS avser framtiden är detta framtida scenariopriser, inte diskonterade nuvärden.",
+  "caveats": "Indata kan samvariera, så en-at-gången-testet är inte hela riskbilden. Valda intervall är antaganden. Resultatet visar varken ett säkert rimligt pris eller vilken aktie du bör köpa.",
+  "relatedAnswers": [
+    {
+      "id": "pe",
+      "type": "prerequisite"
+    },
+    {
+      "id": "scenario-design",
+      "type": "prerequisite"
+    },
+    {
+      "id": "pe-interpretation",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "NTM: befintligt metodkontrakt",
+      "url": "https://nolltillmiljoner.se/aktievarderingskalkylator.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats",
+        "example"
+      ],
+      "checked": "valuation-core.js scenario och EPS × P/E; oberoende produkter för samma framtidsbasis.",
+      "limitations": "Verifierat mot lokal implementation, inte en ny hosted-kontroll. Syntetiska exempel och NTM-metod, inte externa rekommendationer.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "risk",
+  "concepts": [
+    "thesis",
+    "pe"
+  ],
+  "relatedLessonIds": [
+    "scenarios"
+  ],
+  "reviewDue": "2026-12-31",
+  "slug": "valuation-sensitivity",
+  "relatedEntityIds": [
+    "tool-scenarios"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

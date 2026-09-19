@@ -1,0 +1,1106 @@
+[
+  {
+    "ids": [
+      "pe",
+      "peg"
+    ],
+    "intents": [
+      "definition",
+      "definition"
+    ],
+    "samePrimaryConcept": false,
+    "sharedConcepts": [
+      "pe"
+    ],
+    "similarity": 0.5,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad betyder P/E?",
+      "Vad betyder PEG?"
+    ],
+    "rationale": "The canonical questions address different quantities or tasks despite shared concepts. Retain their stated scope; do not duplicate the neighboring answer.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "eps",
+      "dilution"
+    ],
+    "intents": [
+      "definition",
+      "definition"
+    ],
+    "samePrimaryConcept": false,
+    "sharedConcepts": [
+      "eps"
+    ],
+    "similarity": 0.14285714285714285,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad är EPS?",
+      "Vad betyder dilution eller utspädning?"
+    ],
+    "rationale": "The canonical questions address different quantities or tasks despite shared concepts. Retain their stated scope; do not duplicate the neighboring answer.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "cagr",
+      "arithmetic-geometric"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "cagr",
+      "return"
+    ],
+    "similarity": 0.3333333333333333,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad skiljer CAGR från total avkastning?",
+      "Varför skiljer sig medelavkastning från CAGR?"
+    ],
+    "rationale": "The canonical questions address different quantities or tasks despite shared concepts. Retain their stated scope; do not duplicate the neighboring answer.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "cagr",
+      "nominal-real"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": false,
+    "sharedConcepts": [
+      "return"
+    ],
+    "similarity": 0.5,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad skiljer CAGR från total avkastning?",
+      "Vad skiljer nominell från real avkastning?"
+    ],
+    "rationale": "The canonical questions address different quantities or tasks despite shared concepts. Retain their stated scope; do not duplicate the neighboring answer.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "dilution",
+      "asset-ownership"
+    ],
+    "intents": [
+      "definition",
+      "definition"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "shares"
+    ],
+    "similarity": 0.09090909090909091,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad betyder dilution eller utspädning?",
+      "Vad innebär det att äga en aktie?"
+    ],
+    "rationale": "The canonical questions address different quantities or tasks despite shared concepts. Retain their stated scope; do not duplicate the neighboring answer.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "market-cap",
+      "index-weighting"
+    ],
+    "intents": [
+      "definition",
+      "definition"
+    ],
+    "samePrimaryConcept": false,
+    "sharedConcepts": [
+      "market-cap"
+    ],
+    "similarity": 0.2222222222222222,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad är börsvärde?",
+      "Vad betyder det att ett index är börsvärdesviktat?"
+    ],
+    "rationale": "The canonical questions address different quantities or tasks despite shared concepts. Retain their stated scope; do not duplicate the neighboring answer.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "guidance",
+      "estimates"
+    ],
+    "intents": [
+      "definition",
+      "definition"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "outlook"
+    ],
+    "similarity": 0.1,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad betyder guidance i en rapport?",
+      "Vad är analytikerestimat och konsensus?"
+    ],
+    "rationale": "Issuer outlook versus analyst estimates: different producers and provenance.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "debt",
+      "debt-maturity"
+    ],
+    "intents": [
+      "interpretation",
+      "interpretation"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "debt"
+    ],
+    "similarity": 0,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad säger skuld och nettoskuld om ett bolag?",
+      "Varför kan skuldförfall vara viktigare än nettoskuldens storlek?"
+    ],
+    "rationale": "Debt interpretation overview versus due-date/liquidity schedule inspection.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "fees",
+      "annual-fees"
+    ],
+    "intents": [
+      "application",
+      "application"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "fees"
+    ],
+    "similarity": 0.14285714285714285,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad är courtage och hur påverkar det små köp?",
+      "Hur påverkar en årlig avgift mitt sparande?"
+    ],
+    "rationale": "Commission and small purchases versus compounding annual fee drag.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "forward",
+      "guidance-consensus"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": false,
+    "sharedConcepts": [
+      "outlook"
+    ],
+    "similarity": 0.3333333333333333,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad skiljer forward P/E från trailing P/E?",
+      "Vad skiljer bolagets guidance från analytikerkonsensus?"
+    ],
+    "rationale": "The canonical questions address different quantities or tasks despite shared concepts. Retain their stated scope; do not duplicate the neighboring answer.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "forward",
+      "pe-versus-ps"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "pe"
+    ],
+    "similarity": 0.5,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad skiljer forward P/E från trailing P/E?",
+      "Vad skiljer P/E från P/S?"
+    ],
+    "rationale": "Trailing/forward denominator period versus earnings/sales numerator-denominator basis.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "interest-rates",
+      "bond-yields"
+    ],
+    "intents": [
+      "application",
+      "application"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "rates"
+    ],
+    "similarity": 0,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Hur kan styrräntan påverka investeringar?",
+      "Varför spelar obligationsräntor roll för aktier?"
+    ],
+    "rationale": "Distinct measure, survey, price basis or time-unit comparison; shared Macro vocabulary does not make these interchangeable.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "thesis",
+      "fact-assumption"
+    ],
+    "intents": [
+      "process",
+      "process"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "thesis"
+    ],
+    "similarity": 0.15384615384615385,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad ska en enkel investeringstes innehålla?",
+      "Hur skiljer jag fakta från antaganden i en investeringstes?"
+    ],
+    "rationale": "Distinct Research task: identify evidence, construct assumptions, record provenance, test or update a thesis. Preserve field-level scope rather than repeating the overview.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "thesis",
+      "scenario-design"
+    ],
+    "intents": [
+      "process",
+      "process"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "thesis"
+    ],
+    "similarity": 0,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad ska en enkel investeringstes innehålla?",
+      "Hur bygger jag jämförbara bear-, base- och bull-scenarier?"
+    ],
+    "rationale": "Distinct Research task: identify evidence, construct assumptions, record provenance, test or update a thesis. Preserve field-level scope rather than repeating the overview.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "thesis",
+      "source-provenance"
+    ],
+    "intents": [
+      "process",
+      "process"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "thesis"
+    ],
+    "similarity": 0,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad ska en enkel investeringstes innehålla?",
+      "Vilka källuppgifter behöver jag spara för ett analysantagande?"
+    ],
+    "rationale": "Distinct Research task: identify evidence, construct assumptions, record provenance, test or update a thesis. Preserve field-level scope rather than repeating the overview.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "thesis",
+      "update-thesis"
+    ],
+    "intents": [
+      "process",
+      "process"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "thesis"
+    ],
+    "similarity": 0.0625,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad ska en enkel investeringstes innehålla?",
+      "Hur uppdaterar jag en tes utan att skriva om dess historik?"
+    ],
+    "rationale": "Distinct Research task: identify evidence, construct assumptions, record provenance, test or update a thesis. Preserve field-level scope rather than repeating the overview.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "eps-comparison",
+      "reported-adjusted"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "eps"
+    ],
+    "similarity": 0.08333333333333333,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Varför skiljer sig EPS mellan olika sajter?",
+      "Vad skiljer rapporterad från justerad vinst?"
+    ],
+    "rationale": "Cross-site date/currency/period comparability versus a specific reported/non-GAAP reconciliation basis.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "compounding",
+      "loss-recovery"
+    ],
+    "intents": [
+      "calculation",
+      "calculation"
+    ],
+    "samePrimaryConcept": false,
+    "sharedConcepts": [
+      "compounding"
+    ],
+    "similarity": 0.07692307692307693,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Hur fungerar ränta på ränta?",
+      "Hur stor uppgång krävs för att återhämta en procentuell förlust?"
+    ],
+    "rationale": "Wealth accumulation versus the asymmetric recovery rate after a loss.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "annual-fees",
+      "contribution-timing"
+    ],
+    "intents": [
+      "application",
+      "application"
+    ],
+    "samePrimaryConcept": false,
+    "sharedConcepts": [
+      "compounding"
+    ],
+    "similarity": 0.07142857142857142,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Hur påverkar en årlig avgift mitt sparande?",
+      "Varför spelar insättningarnas tidpunkt roll i en sparkalkyl?"
+    ],
+    "rationale": "Fee drag versus beginning/end-of-period deposits.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "macro-releases",
+      "seasonal-adjustment"
+    ],
+    "intents": [
+      "definition",
+      "definition"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "macro"
+    ],
+    "similarity": 0.08333333333333333,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad mäter CPI, PCE, payrolls och BNP?",
+      "Vad betyder säsongsjusterat i ett makrosläpp?"
+    ],
+    "rationale": "Distinct measure, survey, price basis or time-unit comparison; shared Macro vocabulary does not make these interchangeable.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "active-passive",
+      "fund-etf"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": false,
+    "sharedConcepts": [
+      "fund"
+    ],
+    "similarity": 0.25,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad skiljer aktiv från passiv fondförvaltning?",
+      "Vad skiljer handel i en ETF från handel i en traditionell fond?"
+    ],
+    "rationale": "Management mandate versus trading/dealing mechanics.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "arithmetic-geometric",
+      "nominal-real"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": false,
+    "sharedConcepts": [
+      "return"
+    ],
+    "similarity": 0.2,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Varför skiljer sig medelavkastning från CAGR?",
+      "Vad skiljer nominell från real avkastning?"
+    ],
+    "rationale": "Average compounding convention versus inflation-adjusted purchasing power.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "cpi-pce",
+      "headline-core"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": false,
+    "sharedConcepts": [
+      "macro",
+      "inflation"
+    ],
+    "similarity": 0.3,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad skiljer CPI från PCE:s prisindex?",
+      "Vad skiljer total inflation från kärninflation?"
+    ],
+    "rationale": "Distinct measure, survey, price basis or time-unit comparison; shared Macro vocabulary does not make these interchangeable.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "cpi-pce",
+      "jobs-unemployment"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "macro"
+    ],
+    "similarity": 0,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad skiljer CPI från PCE:s prisindex?",
+      "Varför kan payrolls och arbetslöshet ge olika bilder?"
+    ],
+    "rationale": "Distinct measure, survey, price basis or time-unit comparison; shared Macro vocabulary does not make these interchangeable.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "cpi-pce",
+      "mom-yoy"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "macro"
+    ],
+    "similarity": 0.3333333333333333,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad skiljer CPI från PCE:s prisindex?",
+      "Vad skiljer månadsförändring från årsförändring?"
+    ],
+    "rationale": "Distinct measure, survey, price basis or time-unit comparison; shared Macro vocabulary does not make these interchangeable.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "cpi-pce",
+      "nominal-real"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": false,
+    "sharedConcepts": [
+      "inflation"
+    ],
+    "similarity": 0.3,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad skiljer CPI från PCE:s prisindex?",
+      "Vad skiljer nominell från real avkastning?"
+    ],
+    "rationale": "The canonical questions address different quantities or tasks despite shared concepts. Retain their stated scope; do not duplicate the neighboring answer.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "cpi-pce",
+      "real-nominal-gdp"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "macro"
+    ],
+    "similarity": 0.3,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad skiljer CPI från PCE:s prisindex?",
+      "Vad skiljer real från nominell BNP?"
+    ],
+    "rationale": "Distinct measure, survey, price basis or time-unit comparison; shared Macro vocabulary does not make these interchangeable.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "estimate-age",
+      "guidance-revision"
+    ],
+    "intents": [
+      "process",
+      "process"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "outlook"
+    ],
+    "similarity": 0.11764705882352941,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Hur bedömer jag om ett estimat är för gammalt för min jämförelse?",
+      "Hur jämför jag två versioner av bolagets guidance?"
+    ],
+    "rationale": "Whether an estimate is stale versus comparing two issuer outlook versions.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "etf",
+      "fund"
+    ],
+    "intents": [
+      "definition",
+      "definition"
+    ],
+    "samePrimaryConcept": false,
+    "sharedConcepts": [
+      "fund"
+    ],
+    "similarity": 0.6,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad är en ETF?",
+      "Vad är en fond?"
+    ],
+    "rationale": "Fund pooling definition versus the ETF exchange-traded structure; neither substitutes for the trading comparison.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "fact-assumption",
+      "scenario-design"
+    ],
+    "intents": [
+      "process",
+      "process"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "thesis"
+    ],
+    "similarity": 0.125,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Hur skiljer jag fakta från antaganden i en investeringstes?",
+      "Hur bygger jag jämförbara bear-, base- och bull-scenarier?"
+    ],
+    "rationale": "Distinct Research task: identify evidence, construct assumptions, record provenance, test or update a thesis. Preserve field-level scope rather than repeating the overview.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "fact-assumption",
+      "source-provenance"
+    ],
+    "intents": [
+      "process",
+      "process"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "thesis"
+    ],
+    "similarity": 0.0625,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Hur skiljer jag fakta från antaganden i en investeringstes?",
+      "Vilka källuppgifter behöver jag spara för ett analysantagande?"
+    ],
+    "rationale": "Distinct Research task: identify evidence, construct assumptions, record provenance, test or update a thesis. Preserve field-level scope rather than repeating the overview.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "fact-assumption",
+      "update-thesis"
+    ],
+    "intents": [
+      "process",
+      "process"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "thesis"
+    ],
+    "similarity": 0.17647058823529413,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Hur skiljer jag fakta från antaganden i en investeringstes?",
+      "Hur uppdaterar jag en tes utan att skriva om dess historik?"
+    ],
+    "rationale": "Distinct Research task: identify evidence, construct assumptions, record provenance, test or update a thesis. Preserve field-level scope rather than repeating the overview.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "falsification",
+      "report-snapshot"
+    ],
+    "intents": [
+      "application",
+      "application"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "thesis"
+    ],
+    "similarity": 0.047619047619047616,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Hur formulerar jag ett motbevis som går att följa upp?",
+      "Vad betyder datum och version när jag läser en publicerad NTM-analys?"
+    ],
+    "rationale": "Authoring a testable countercondition versus interpreting reader snapshot metadata.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "falsification",
+      "valuation-sensitivity"
+    ],
+    "intents": [
+      "application",
+      "application"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "thesis"
+    ],
+    "similarity": 0.1875,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Hur formulerar jag ett motbevis som går att följa upp?",
+      "Hur undersöker jag vilket antagande som driver min värdering?"
+    ],
+    "rationale": "Distinct Research task: identify evidence, construct assumptions, record provenance, test or update a thesis. Preserve field-level scope rather than repeating the overview.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "headline-core",
+      "jobs-unemployment"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": false,
+    "sharedConcepts": [
+      "macro"
+    ],
+    "similarity": 0,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad skiljer total inflation från kärninflation?",
+      "Varför kan payrolls och arbetslöshet ge olika bilder?"
+    ],
+    "rationale": "Distinct measure, survey, price basis or time-unit comparison; shared Macro vocabulary does not make these interchangeable.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "headline-core",
+      "mom-yoy"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": false,
+    "sharedConcepts": [
+      "macro"
+    ],
+    "similarity": 0.375,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad skiljer total inflation från kärninflation?",
+      "Vad skiljer månadsförändring från årsförändring?"
+    ],
+    "rationale": "Distinct measure, survey, price basis or time-unit comparison; shared Macro vocabulary does not make these interchangeable.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "headline-core",
+      "nominal-real"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": false,
+    "sharedConcepts": [
+      "inflation"
+    ],
+    "similarity": 0.3333333333333333,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad skiljer total inflation från kärninflation?",
+      "Vad skiljer nominell från real avkastning?"
+    ],
+    "rationale": "The canonical questions address different quantities or tasks despite shared concepts. Retain their stated scope; do not duplicate the neighboring answer.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "headline-core",
+      "real-nominal-gdp"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": false,
+    "sharedConcepts": [
+      "macro"
+    ],
+    "similarity": 0.3333333333333333,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad skiljer total inflation från kärninflation?",
+      "Vad skiljer real från nominell BNP?"
+    ],
+    "rationale": "Distinct measure, survey, price basis or time-unit comparison; shared Macro vocabulary does not make these interchangeable.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "index-weighting",
+      "index"
+    ],
+    "intents": [
+      "definition",
+      "definition"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "index"
+    ],
+    "similarity": 0.3333333333333333,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad betyder det att ett index är börsvärdesviktat?",
+      "Vad är ett aktieindex?"
+    ],
+    "rationale": "Index definition versus a worked market-cap weighting mechanism.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "jobs-unemployment",
+      "mom-yoy"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "macro"
+    ],
+    "similarity": 0,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Varför kan payrolls och arbetslöshet ge olika bilder?",
+      "Vad skiljer månadsförändring från årsförändring?"
+    ],
+    "rationale": "Distinct measure, survey, price basis or time-unit comparison; shared Macro vocabulary does not make these interchangeable.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "jobs-unemployment",
+      "real-nominal-gdp"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "macro"
+    ],
+    "similarity": 0,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Varför kan payrolls och arbetslöshet ge olika bilder?",
+      "Vad skiljer real från nominell BNP?"
+    ],
+    "rationale": "Distinct measure, survey, price basis or time-unit comparison; shared Macro vocabulary does not make these interchangeable.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "mom-yoy",
+      "real-nominal-gdp"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "macro"
+    ],
+    "similarity": 0.375,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad skiljer månadsförändring från årsförändring?",
+      "Vad skiljer real från nominell BNP?"
+    ],
+    "rationale": "Distinct measure, survey, price basis or time-unit comparison; shared Macro vocabulary does not make these interchangeable.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "nominal-real",
+      "real-nominal-gdp"
+    ],
+    "intents": [
+      "comparison",
+      "comparison"
+    ],
+    "samePrimaryConcept": false,
+    "sharedConcepts": [],
+    "similarity": 0.7142857142857143,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad skiljer nominell från real avkastning?",
+      "Vad skiljer real från nominell BNP?"
+    ],
+    "rationale": "The canonical questions address different quantities or tasks despite shared concepts. Retain their stated scope; do not duplicate the neighboring answer.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "pe-losses",
+      "peg-limitations"
+    ],
+    "intents": [
+      "limitation",
+      "limitation"
+    ],
+    "samePrimaryConcept": false,
+    "sharedConcepts": [
+      "pe"
+    ],
+    "similarity": 0,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Varför är P/E svårt att använda vid negativ eller nära noll vinst?",
+      "När blir PEG missvisande?"
+    ],
+    "rationale": "Earnings denominator unsuitability versus growth-denominator/risk/horizon limits.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "report-snapshot",
+      "valuation-sensitivity"
+    ],
+    "intents": [
+      "application",
+      "application"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "thesis"
+    ],
+    "similarity": 0.05,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vad betyder datum och version när jag läser en publicerad NTM-analys?",
+      "Hur undersöker jag vilket antagande som driver min värdering?"
+    ],
+    "rationale": "Reader provenance/version scope versus changing one valuation input.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "scenario-design",
+      "source-provenance"
+    ],
+    "intents": [
+      "process",
+      "process"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "thesis"
+    ],
+    "similarity": 0.0625,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Hur bygger jag jämförbara bear-, base- och bull-scenarier?",
+      "Vilka källuppgifter behöver jag spara för ett analysantagande?"
+    ],
+    "rationale": "Distinct Research task: identify evidence, construct assumptions, record provenance, test or update a thesis. Preserve field-level scope rather than repeating the overview.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "scenario-design",
+      "update-thesis"
+    ],
+    "intents": [
+      "process",
+      "process"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "thesis"
+    ],
+    "similarity": 0.1111111111111111,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Hur bygger jag jämförbara bear-, base- och bull-scenarier?",
+      "Hur uppdaterar jag en tes utan att skriva om dess historik?"
+    ],
+    "rationale": "Distinct Research task: identify evidence, construct assumptions, record provenance, test or update a thesis. Preserve field-level scope rather than repeating the overview.",
+    "independentHumanReview": "not claimed"
+  },
+  {
+    "ids": [
+      "source-provenance",
+      "update-thesis"
+    ],
+    "intents": [
+      "process",
+      "process"
+    ],
+    "samePrimaryConcept": true,
+    "sharedConcepts": [
+      "thesis"
+    ],
+    "similarity": 0.05555555555555555,
+    "action": "editorial-review-only",
+    "disposition": "retain distinct bounded questions",
+    "questions": [
+      "Vilka källuppgifter behöver jag spara för ett analysantagande?",
+      "Hur uppdaterar jag en tes utan att skriva om dess historik?"
+    ],
+    "rationale": "Distinct Research task: identify evidence, construct assumptions, record provenance, test or update a thesis. Preserve field-level scope rather than repeating the overview.",
+    "independentHumanReview": "not claimed"
+  }
+]

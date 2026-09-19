@@ -1,0 +1,114 @@
+{
+  "id": "macro-revisions",
+  "question": "Hur läser jag reviderade makrovärden utan att blanda versioner?",
+  "intent": "process",
+  "conceptRefs": [
+    "macro"
+  ],
+  "aliases": [
+    "reviderade makrovärden",
+    "makrodata och vintage"
+  ],
+  "shortAnswer": "Håll isär vilken period siffran gäller och när just den versionen publicerades. Ett första utfall och ett senare reviderat värde kan båda vara korrekt återgivna, men de beskriver olika informationstillstånd.",
+  "fullAnswer": "Spara ursprungligt utfall, senare värde, källa och publiceringstid var för sig. För att studera vad marknaden kunde veta vid ett släpp behöver du dåtidens version. För en senare historisk sammanställning kan den reviderade serien vara lämpligare, tydligt märkt. Skriv inte över den första uppgiften så att den ser ut att ha varit känd från början.",
+  "example": "Syntetiskt: ett första tillväxtutfall anges som 2,0 procent och revideras senare till 2,3. Revisionen är +0,3 procentenheter. Jämför inte marknadsreaktionen på första beskedet som om 2,3 redan var känt.",
+  "caveats": "Revisionsrutiner varierar mellan serier. Nya underlag, säsongsfaktorer och metodändringar är olika typer av förändringar. En senare serie är inte automatiskt rätt för varje historisk fråga; dokumentera vilken version analysen använder.",
+  "relatedAnswers": [
+    {
+      "id": "source-provenance",
+      "type": "prerequisite"
+    },
+    {
+      "id": "seasonal-adjustment",
+      "type": "common-confusion"
+    },
+    {
+      "id": "estimate-age",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "BEA: GDP Revision Information",
+      "url": "https://bea.gov/gdp-revision-information",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Jämförelser av aktuell och föregående uppskattning samt advance/second-vintages.",
+      "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "BLS: Using seasonally adjusted and unadjusted data",
+      "url": "https://www.bls.gov/cpi/seasonal-adjustment/using-seasonally-adjusted-data.htm",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "How to Use och Revision of Seasonally Adjusted Indexes: återkommande säsongsmönster och årlig omräkning.",
+      "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "macro",
+  "concepts": [
+    "inflation"
+  ],
+  "relatedLessonIds": [
+    "inflation"
+  ],
+  "jurisdiction": "US",
+  "reviewDue": "2026-12-31",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "slug": "macro-revisions",
+  "relatedEntityIds": [
+    "macro-calendar"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "period": "timeless",
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "date": "2026-09-19",
+  "batch": "later-a",
+  "decisions": {
+    "ebit-ebitda": {
+      "distinctIntent": "Approved narrow definition/comparison/limitation; no full valuation course or duplicate basic P/E.",
+      "sourceCheck": "103.01–103.02: EBIT/EBITDA utgår från net income och andra justeringar måste särskiljas; 102.07 behandlar FCF-begränsning.",
+      "narrowing": "Simplified EV bridge and EBITDA assumptions explicit; no universal threshold or new executor."
+    },
+    "gross-margin": {
+      "distinctIntent": "Approved narrow definition/comparison/limitation; no full valuation course or duplicate basic P/E.",
+      "sourceCheck": "Resultattabeller: Revenue, Cost of revenue och vidare rörelsekostnader skiljs åt; syntetisk bruttovinst härleds separat.",
+      "narrowing": "Simplified EV bridge and EBITDA assumptions explicit; no universal threshold or new executor."
+    },
+    "debt-maturity": {
+      "distinctIntent": "Approved narrow definition/comparison/limitation; no full valuation course or duplicate basic P/E.",
+      "sourceCheck": "Note 10: short/long-term debt, betalningsvillkor och separat förfallotabell per år; Note 13 skiljer leasingskulder.",
+      "narrowing": "Simplified EV bridge and EBITDA assumptions explicit; no universal threshold or new executor."
+    },
+    "enterprise-value": {
+      "distinctIntent": "Approved narrow definition/comparison/limitation; no full valuation course or duplicate basic P/E.",
+      "sourceCheck": "Sidor 12–13 och 39–41: EV-brygga, täljare/nämnare och återinvesteringsbehov; sifferdata och historiska värderingar används inte.",
+      "narrowing": "Simplified EV bridge and EBITDA assumptions explicit; no universal threshold or new executor."
+    },
+    "ev-market-cap": {
+      "distinctIntent": "Approved narrow definition/comparison/limitation; no full valuation course or duplicate basic P/E.",
+      "sourceCheck": "Sidor 12–13 och 39–41: EV-brygga, täljare/nämnare och återinvesteringsbehov; sifferdata och historiska värderingar används inte.",
+      "narrowing": "Simplified EV bridge and EBITDA assumptions explicit; no universal threshold or new executor."
+    },
+    "ev-ebitda-limits": {
+      "distinctIntent": "Approved narrow definition/comparison/limitation; no full valuation course or duplicate basic P/E.",
+      "sourceCheck": "Sidor 12–13 och 39–41: EV-brygga, täljare/nämnare och återinvesteringsbehov; sifferdata och historiska värderingar används inte. 103.01–103.02: EBIT/EBITDA utgår från net income och andra justeringar måste särskiljas; 102.07 behandlar FCF-begränsning.",
+      "narrowing": "Simplified EV bridge and EBITDA assumptions explicit; no universal threshold or new executor."
+    },
+    "peg-limitations": {
+      "distinctIntent": "Approved narrow definition/comparison/limitation; no full valuation course or duplicate basic P/E.",
+      "sourceCheck": "Offentlig introduction/summary: multiplar behöver fundamenta, tillväxt och lämplighetskontroll; inga låsta kapitel påstås lästa. Befintlig canonical peg och dess procentkonvention lästa; nytt svar avgränsas till begränsningen.",
+      "narrowing": "Simplified EV bridge and EBITDA assumptions explicit; no universal threshold or new executor."
+    }
+  },
+  "ids": [
+    "ebit-ebitda",
+    "gross-margin",
+    "debt-maturity",
+    "enterprise-value",
+    "ev-market-cap",
+    "ev-ebitda-limits",
+    "peg-limitations"
+  ]
+}

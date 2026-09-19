@@ -1,0 +1,99 @@
+{
+  "id": "fund",
+  "question": "Vad är en fond?",
+  "intent": "definition",
+  "conceptRefs": [
+    "fund"
+  ],
+  "aliases": [
+    "Vad betyder fond?",
+    "fondandel"
+  ],
+  "shortAnswer": "En fond samlar kapital från flera investerare och placerar det enligt ett bestämt uppdrag. Som sparare äger du fondandelar och får ekonomisk exponering mot fondens tillgångar. Fondens namn berättar inte ensamt vad den äger eller vilken risk den har.",
+  "fullAnswer": "Läs placeringsinriktning, risker, kostnader och handelsvillkor i fondens egna dokument. En fond kan ha bred eller smal inriktning och olika förvaltningsmetoder. Andelsägande är inte samma sak som att själv stå som direkt aktieägare i varje underliggande bolag.",
+  "example": "Syntetiskt: två fonder kan båda kallas aktiefonder medan den ena har bred inriktning och den andra bara följer en viss bransch. Att äga en fondandel säger därför mindre om exponeringen än fondens mandat och faktiska innehav.",
+  "caveats": "Alla fonder är inte brett diversifierade, aktivt förvaltade eller möjliga att lösa in varje dag. Villkor och rättslig form varierar. Fondens tidigare utveckling lovar inget om framtiden; kostnader och risk behöver läsas för den aktuella produkten.",
+  "relatedAnswers": [
+    {
+      "id": "diversification",
+      "type": "prerequisite"
+    },
+    {
+      "id": "etf",
+      "type": "next-question"
+    },
+    {
+      "id": "active-passive",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Investor.gov: Mutual Funds",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-funds-etfs/mutual-funds",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Definition av gemensam portfölj/fondandelar, risk och behov att läsa prospekt; amerikanska daily-redemption-regler generaliseras inte till alla fonder.",
+      "limitations": "Amerikansk investerarutbildning används för avgränsade begrepp. Inga skattefördelar, svenska rättsregler eller villkor för en viss fond härleds.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "basics",
+  "concepts": [
+    "diversifiering"
+  ],
+  "relatedLessonIds": [
+    "fonder"
+  ],
+  "slug": "fund",
+  "relatedEntityIds": [
+    "tool-fees"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-09-19",
+  "reviewPolicy": {
+    "risk": "stable",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

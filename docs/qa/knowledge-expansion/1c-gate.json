@@ -1,0 +1,286 @@
+{
+  "date": "2026-09-19",
+  "ids": [
+    "fact-assumption",
+    "scenario-design",
+    "falsification",
+    "source-provenance"
+  ],
+  "schema": true,
+  "math": {
+    "passed": true,
+    "method": "Synthetic values checked as assumptions only: 10bn/25pct fact-assumption, 10/20/30 growth,20/25/30 margin,20/25/30 multiple. No arithmetic result or EPS bridge is claimed."
+  },
+  "retrieval": [
+    {
+      "query": "Hur skiljer jag fakta från antaganden i en investeringstes?",
+      "kind": "ANSWER",
+      "answerId": "fact-assumption",
+      "passed": true
+    },
+    {
+      "query": "fakta eller antagande",
+      "kind": "ANSWER",
+      "answerId": "fact-assumption",
+      "passed": true
+    },
+    {
+      "query": "Hur bygger jag jämförbara bear-, base- och bull-scenarier?",
+      "kind": "ANSWER",
+      "answerId": "scenario-design",
+      "passed": true
+    },
+    {
+      "query": "Hur bygger jag jämförbara scenarier?",
+      "kind": "ANSWER",
+      "answerId": "scenario-design",
+      "passed": true
+    },
+    {
+      "query": "Hur formulerar jag ett motbevis som går att följa upp?",
+      "kind": "ANSWER",
+      "answerId": "falsification",
+      "passed": true
+    },
+    {
+      "query": "Hur motbevisar jag min tes?",
+      "kind": "ANSWER",
+      "answerId": "falsification",
+      "passed": true
+    },
+    {
+      "query": "Vilka källuppgifter behöver jag spara för ett analysantagande?",
+      "kind": "ANSWER",
+      "answerId": "source-provenance",
+      "passed": true
+    },
+    {
+      "query": "Hur dokumenterar jag källor i Research?",
+      "kind": "ANSWER",
+      "answerId": "source-provenance",
+      "passed": true
+    },
+    {
+      "query": "Ska jag sälja när mitt motbevis utlöses?",
+      "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+      "answerId": null,
+      "passed": true
+    },
+    {
+      "query": "Vilken av mina teser ska jag köpa?",
+      "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+      "answerId": null,
+      "passed": true
+    }
+  ],
+  "duplicates": [
+    {
+      "ids": [
+        "pe",
+        "peg"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "pe"
+      ],
+      "similarity": 0.5,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "eps",
+        "dilution"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "eps"
+      ],
+      "similarity": 0.14285714285714285,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "guidance",
+        "estimates"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "outlook"
+      ],
+      "similarity": 0.1,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fees",
+        "annual-fees"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "fees"
+      ],
+      "similarity": 0.14285714285714285,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "forward",
+        "pe-versus-ps"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "pe"
+      ],
+      "similarity": 0.5,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "interest-rates",
+        "bond-yields"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "rates"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "fact-assumption"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.15384615384615385,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "scenario-design"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "source-provenance"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "eps-comparison",
+        "reported-adjusted"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "eps"
+      ],
+      "similarity": 0.08333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fact-assumption",
+        "scenario-design"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.125,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fact-assumption",
+        "source-provenance"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.0625,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "scenario-design",
+        "source-provenance"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.0625,
+      "action": "editorial-review-only"
+    }
+  ]
+}

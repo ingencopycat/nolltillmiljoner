@@ -1,0 +1,533 @@
+{
+  "date": "2026-09-19",
+  "ids": [
+    "nominal-real",
+    "arithmetic-geometric",
+    "drawdown",
+    "loss-recovery",
+    "volatility-risk",
+    "concentration",
+    "leverage-downside",
+    "contribution-timing",
+    "fee-double-count",
+    "savings-target"
+  ],
+  "schema": true,
+  "math": {
+    "passed": true,
+    "method": "Independent Python Decimal; explicit units/timing in prose, no runtime executor added",
+    "checks": [
+      {
+        "expression": "real 10/4 rounded percent",
+        "result": "5.77",
+        "expected": "5.77"
+      },
+      {
+        "expression": "real 8/3 rounded percent",
+        "result": "4.85",
+        "expected": "4.85"
+      },
+      {
+        "expression": "100 * 1.5 * .5",
+        "result": "75.00",
+        "expected": "75"
+      },
+      {
+        "expression": "sqrt(.75)-1 percent rounded",
+        "result": "-13.40",
+        "expected": "-13.40"
+      },
+      {
+        "expression": "drawdown 70/100-1",
+        "result": "-0.3",
+        "expected": "-.30"
+      },
+      {
+        "expression": "recovery percent for loss .1",
+        "result": "11.11",
+        "expected": "11.11"
+      },
+      {
+        "expression": "recovery percent for loss .2",
+        "result": "25.00",
+        "expected": "25.00"
+      },
+      {
+        "expression": "recovery percent for loss .5",
+        "result": "100.00",
+        "expected": "100.00"
+      },
+      {
+        "expression": "recovery percent for loss .8",
+        "result": "400.00",
+        "expected": "400.00"
+      },
+      {
+        "expression": "50 after +50 percent",
+        "result": "75.0",
+        "expected": "75"
+      },
+      {
+        "expression": "leveraged up equity",
+        "result": "115.0",
+        "expected": "115"
+      },
+      {
+        "expression": "leveraged down equity",
+        "result": "85.0",
+        "expected": "85"
+      },
+      {
+        "expression": "beginning contribution",
+        "result": "1010.00",
+        "expected": "1010"
+      },
+      {
+        "expression": "NTM net fee return percent",
+        "result": "6.9200",
+        "expected": "6.92"
+      }
+    ]
+  },
+  "retrieval": [
+    {
+      "query": "Vad skiljer nominell från real avkastning?",
+      "kind": "ANSWER",
+      "answerId": "nominal-real",
+      "passed": true
+    },
+    {
+      "query": "nominell vs real avkastning",
+      "kind": "ANSWER",
+      "answerId": "nominal-real",
+      "passed": true
+    },
+    {
+      "query": "Varför skiljer sig medelavkastning från CAGR?",
+      "kind": "ANSWER",
+      "answerId": "arithmetic-geometric",
+      "passed": true
+    },
+    {
+      "query": "aritmetisk vs geometrisk avkastning",
+      "kind": "ANSWER",
+      "answerId": "arithmetic-geometric",
+      "passed": true
+    },
+    {
+      "query": "Vad betyder drawdown?",
+      "kind": "ANSWER",
+      "answerId": "drawdown",
+      "passed": true
+    },
+    {
+      "query": "Vad är drawdown?",
+      "kind": "ANSWER",
+      "answerId": "drawdown",
+      "passed": true
+    },
+    {
+      "query": "Hur stor uppgång krävs för att återhämta en procentuell förlust?",
+      "kind": "ANSWER",
+      "answerId": "loss-recovery",
+      "passed": true
+    },
+    {
+      "query": "Hur mycket måste det stiga efter 50 procents fall?",
+      "kind": "ANSWER",
+      "answerId": "loss-recovery",
+      "passed": true
+    },
+    {
+      "query": "Är volatilitet samma sak som risken att förlora pengar permanent?",
+      "kind": "ANSWER",
+      "answerId": "volatility-risk",
+      "passed": true
+    },
+    {
+      "query": "Är låg volatilitet säkert?",
+      "kind": "ANSWER",
+      "answerId": "volatility-risk",
+      "passed": true
+    },
+    {
+      "query": "Hur bedömer jag koncentration utöver antalet innehav?",
+      "kind": "ANSWER",
+      "answerId": "concentration",
+      "passed": true
+    },
+    {
+      "query": "koncentration utöver antal aktier",
+      "kind": "ANSWER",
+      "answerId": "concentration",
+      "passed": true
+    },
+    {
+      "query": "Hur förstärker hävstång både vinst och förlust?",
+      "kind": "ANSWER",
+      "answerId": "leverage-downside",
+      "passed": true
+    },
+    {
+      "query": "belåning förstärker förlust",
+      "kind": "ANSWER",
+      "answerId": "leverage-downside",
+      "passed": true
+    },
+    {
+      "query": "Varför spelar insättningarnas tidpunkt roll i en sparkalkyl?",
+      "kind": "ANSWER",
+      "answerId": "contribution-timing",
+      "passed": true
+    },
+    {
+      "query": "insättning början eller slutet av månaden",
+      "kind": "ANSWER",
+      "answerId": "contribution-timing",
+      "passed": true
+    },
+    {
+      "query": "Hur undviker jag att dra av samma avgift två gånger?",
+      "kind": "ANSWER",
+      "answerId": "fee-double-count",
+      "passed": true
+    },
+    {
+      "query": "avgift redan avdragen",
+      "kind": "ANSWER",
+      "answerId": "fee-double-count",
+      "passed": true
+    },
+    {
+      "query": "Hur tolkar jag tiden till ett sparmål när avkastningen är ett antagande?",
+      "kind": "ANSWER",
+      "answerId": "savings-target",
+      "passed": true
+    },
+    {
+      "query": "Är spartiden en garanti?",
+      "kind": "ANSWER",
+      "answerId": "savings-target",
+      "passed": true
+    },
+    {
+      "query": "Ska jag köpa efter 50 procents nedgång?",
+      "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+      "answerId": null,
+      "passed": true
+    },
+    {
+      "query": "Vilken hävstång ska jag köpa?",
+      "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+      "answerId": null,
+      "passed": true
+    }
+  ],
+  "duplicates": [
+    {
+      "ids": [
+        "pe",
+        "peg"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "pe"
+      ],
+      "similarity": 0.5,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "eps",
+        "dilution"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "eps"
+      ],
+      "similarity": 0.14285714285714285,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "cagr",
+        "arithmetic-geometric"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "cagr",
+        "return"
+      ],
+      "similarity": 0.3333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "cagr",
+        "nominal-real"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "return"
+      ],
+      "similarity": 0.5,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "guidance",
+        "estimates"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "outlook"
+      ],
+      "similarity": 0.1,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fees",
+        "annual-fees"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "fees"
+      ],
+      "similarity": 0.14285714285714285,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "forward",
+        "guidance-consensus"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "outlook"
+      ],
+      "similarity": 0.3333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "forward",
+        "pe-versus-ps"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "pe"
+      ],
+      "similarity": 0.5,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "interest-rates",
+        "bond-yields"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "rates"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "fact-assumption"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.15384615384615385,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "scenario-design"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "source-provenance"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "eps-comparison",
+        "reported-adjusted"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "eps"
+      ],
+      "similarity": 0.08333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "compounding",
+        "loss-recovery"
+      ],
+      "intents": [
+        "calculation",
+        "calculation"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "compounding"
+      ],
+      "similarity": 0.07692307692307693,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "annual-fees",
+        "contribution-timing"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "compounding"
+      ],
+      "similarity": 0.07142857142857142,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "arithmetic-geometric",
+        "nominal-real"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "return"
+      ],
+      "similarity": 0.2,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fact-assumption",
+        "scenario-design"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.125,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fact-assumption",
+        "source-provenance"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.0625,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "scenario-design",
+        "source-provenance"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.0625,
+      "action": "editorial-review-only"
+    }
+  ]
+}

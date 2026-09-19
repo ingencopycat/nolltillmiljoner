@@ -1,0 +1,125 @@
+{
+  "id": "fcf-limitations",
+  "question": "När blir en jämförelse av fritt kassaflöde missvisande?",
+  "intent": "limitation",
+  "category": "metrics",
+  "conceptRefs": [
+    "fcf"
+  ],
+  "concepts": [
+    "fcf"
+  ],
+  "relatedLessonIds": [
+    "fcf",
+    "financial-statements"
+  ],
+  "aliases": [
+    "Är högt FCF alltid bra?",
+    "begränsningar med FCF",
+    "jämföra fritt kassaflöde"
+  ],
+  "shortAnswer": "En FCF-jämförelse blir missvisande om samma etikett döljer olika beräkningar. FCF har ingen universell definition. Löpande kassaflöde, OCF, minus CapEx är vanligt, men kontrollera bolagens avgränsningar innan du jämför belopp. Högt FCF är inte automatiskt bra.",
+  "fullAnswer": "Utgå från kassaflödesanalysen och följ vägen från OCF till det angivna FCF-måttet. Kontrollera vad CapEx omfattar och hur leasingbetalningar, förvärv och andra utflöden behandlas eller hamnar utanför beräkningen. Läs också rörelsekapitalets bidrag: betalningstidpunkter kan påverka periodens OCF. Jämför samma periodlängd, valuta och definition, och skilj helår från TTM eller prognos. Att ett utflöde ligger utanför ett visst FCF-mått gör det inte ekonomiskt oviktigt.",
+  "example": "I ett syntetiskt exempel definieras FCF som OCF minus kontant CapEx. OCF 1 000 minus CapEx 400 ger FCF 600 i samma period och enhet. Beräkningen säger inget om ytterligare betalningar som inte dragits av. För att jämföra 600 med ett annat bolag måste du först kontrollera att dess mått omfattar samma saker.",
+  "caveats": "FCF är inte automatiskt pengar som kan delas ut fritt. Skuldbetalningar och andra åtaganden kan återstå. Leasing och förvärv ska kontrolleras mot bolagets definition och redovisningsbasis; här anges ingen universell klassificering eller obligatorisk FCF-justering. Ett tillfälligt kassaflödeslyft är inte i sig ett bevis på uthållig lönsamhet.",
+  "relatedAnswers": [
+    {
+      "id": "fcf",
+      "type": "prerequisite"
+    },
+    {
+      "id": "cash-flow-statement",
+      "type": "prerequisite"
+    },
+    {
+      "id": "capex",
+      "type": "prerequisite"
+    },
+    {
+      "id": "working-capital",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "SEC: Non-GAAP Financial Measures, C&DIs",
+      "url": "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures",
+      "reviewedAt": "2026-09-19",
+      "type": "methodology",
+      "authority": "primary",
+      "supports": [
+        "shortAnswer",
+        "example",
+        "caveats"
+      ],
+      "evidenceStatus": "checked",
+      "checked": "102.07: vanlig CFO-minus-CapEx-definition, ingen enhetlig definition och begränsningen om disponibla pengar.",
+      "limitations": "Amerikansk vägledning. 1 000 − 400 = 600 är en oberoende kontrollerad syntetisk subtraktion, inte källans bolagsexempel."
+    },
+    {
+      "title": "IFRS Foundation: IAS 7, offentlig översikt",
+      "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+      "reviewedAt": "2026-09-19",
+      "type": "methodology",
+      "authority": "primary",
+      "supports": [
+        "fullAnswer",
+        "caveats"
+      ],
+      "evidenceStatus": "checked",
+      "checked": "About: periodens kassaflöden, indirekt metod med periodiseringar, förvärv som investeringsflöden, separata finansieringsflöden och icke-kontanta transaktioner.",
+      "limitations": "Offentlig översikt, inte full standard. Leasing anges som kontrollfråga; ingen enskild klassificering generaliseras. Prognos/TTM-jämförbarhet är NTM:s uttryckliga basiskontroll."
+    },
+    {
+      "title": "IFRS Foundation: CMAC november 2024, kassaflödesmått",
+      "url": "https://www.ifrs.org/content/dam/ifrs/meetings/2024/november/cmac/ap5-scfrm.pdf",
+      "reviewedAt": "2026-09-19",
+      "type": "methodology",
+      "authority": "primary",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "example"
+      ],
+      "evidenceStatus": "checked",
+      "checked": "Bild 8: diskussion om transparenta definitioner och avstämning OCF–FCF.",
+      "limitations": "Staff paper 2024-11-08, inte normbeslut. Motiverar kontroll av definition; föreskriver ingen ny FCF-formel."
+    }
+  ],
+  "slug": "fcf-limitations",
+  "relatedEntityIds": [
+    "research-nvda",
+    "tool-valuation"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2026-12-31",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Owner supplied substantive Batch 1B approval. Primary evidence read 2026-09-19; synthetic examples independently recalculated. Narrowed tax, share, period and jurisdiction assumptions preserve approved meaning. No independent human source review claimed. Methodology review in 180 days, advanced to 2026-12-31 for the two accounting-sensitive objects; earlier source or method changes trigger review."
+  }
+}

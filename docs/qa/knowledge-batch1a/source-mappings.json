@@ -1,0 +1,648 @@
+{
+  "reviewDate": "2026-09-19",
+  "method": "Primary material read through web research; no claim that HEAD success verifies content. Synthetic arithmetic checked separately.",
+  "humanReview": "Owner substantive approval supplied in the task; no independent human source review claimed.",
+  "objects": [
+    {
+      "id": "balance-sheet",
+      "question": "Vad visar en balansräkning?",
+      "sources": [
+        {
+          "title": "SEC: Beginners’ Guide to Financial Statements",
+          "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "example",
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "Avsnitten Balance Sheets, Cash Flow Statements och Bringing It All Together: balansidentitet, datum kontra period och rapporternas samband. NTM:s 1 000 = 600 + 400 har räknats separat.",
+          "limitations": "Grundläggande investerarvägledning från 2007, inte fullständig redovisningsstandard. Kassans storlek ges ingen universell kvalitetsbedömning; exemplet är syntetiskt."
+        }
+      ],
+      "sections": [
+        {
+          "section": "shortAnswer",
+          "sources": [
+            {
+              "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+              "checked": "Avsnitten Balance Sheets, Cash Flow Statements och Bringing It All Together: balansidentitet, datum kontra period och rapporternas samband. NTM:s 1 000 = 600 + 400 har räknats separat.",
+              "limitations": "Grundläggande investerarvägledning från 2007, inte fullständig redovisningsstandard. Kassans storlek ges ingen universell kvalitetsbedömning; exemplet är syntetiskt."
+            }
+          ]
+        },
+        {
+          "section": "fullAnswer",
+          "sources": [
+            {
+              "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+              "checked": "Avsnitten Balance Sheets, Cash Flow Statements och Bringing It All Together: balansidentitet, datum kontra period och rapporternas samband. NTM:s 1 000 = 600 + 400 har räknats separat.",
+              "limitations": "Grundläggande investerarvägledning från 2007, inte fullständig redovisningsstandard. Kassans storlek ges ingen universell kvalitetsbedömning; exemplet är syntetiskt."
+            }
+          ]
+        },
+        {
+          "section": "example",
+          "sources": [
+            {
+              "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+              "checked": "Avsnitten Balance Sheets, Cash Flow Statements och Bringing It All Together: balansidentitet, datum kontra period och rapporternas samband. NTM:s 1 000 = 600 + 400 har räknats separat.",
+              "limitations": "Grundläggande investerarvägledning från 2007, inte fullständig redovisningsstandard. Kassans storlek ges ingen universell kvalitetsbedömning; exemplet är syntetiskt."
+            }
+          ]
+        },
+        {
+          "section": "caveats",
+          "sources": [
+            {
+              "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+              "checked": "Avsnitten Balance Sheets, Cash Flow Statements och Bringing It All Together: balansidentitet, datum kontra period och rapporternas samband. NTM:s 1 000 = 600 + 400 har räknats separat.",
+              "limitations": "Grundläggande investerarvägledning från 2007, inte fullständig redovisningsstandard. Kassans storlek ges ingen universell kvalitetsbedömning; exemplet är syntetiskt."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "income-statement",
+      "question": "Vad visar en resultaträkning?",
+      "sources": [
+        {
+          "title": "SEC: Beginners’ Guide to Financial Statements",
+          "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "example"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "Income Statements och Cash Flow Statements: intäkter, kostnader, delresultat samt skillnaden mellan resultat och betalningar. Det syntetiska 1 000 − 800 = 200 har kontrollerats separat.",
+          "limitations": "SEC:s förenklade EPS-beskrivning används inte som exakt aktiebas; IAS 33 stöder den preciseringen."
+        },
+        {
+          "title": "IFRS Foundation: IAS 33 Earnings per Share",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "About: EPS-resultat hänförligt till stamaktieägare, grundläggande/utspädd EPS och periodens vägda aktiebas.",
+          "limitations": "Översikt, inte en komplett EPS-beräkning eller en ny exekverbar formel."
+        },
+        {
+          "title": "IFRS Foundation: IFRS 18, tillämpning och presentation",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ifrs-18-presentation-and-disclosure-in-financial-statements/",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "About: IFRS 18 ändrar presentation och definierade delsummeringar; tillämpning från perioder som börjar 2027-01-01, tidigare tillämpning tillåten.",
+          "limitations": "Stöder behovet att kontrollera regelverk och tillämpning, inte att US GAAP och IFRS är identiska."
+        }
+      ],
+      "sections": [
+        {
+          "section": "shortAnswer",
+          "sources": [
+            {
+              "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+              "checked": "Income Statements och Cash Flow Statements: intäkter, kostnader, delresultat samt skillnaden mellan resultat och betalningar. Det syntetiska 1 000 − 800 = 200 har kontrollerats separat.",
+              "limitations": "SEC:s förenklade EPS-beskrivning används inte som exakt aktiebas; IAS 33 stöder den preciseringen."
+            },
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/",
+              "checked": "About: EPS-resultat hänförligt till stamaktieägare, grundläggande/utspädd EPS och periodens vägda aktiebas.",
+              "limitations": "Översikt, inte en komplett EPS-beräkning eller en ny exekverbar formel."
+            }
+          ]
+        },
+        {
+          "section": "fullAnswer",
+          "sources": [
+            {
+              "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+              "checked": "Income Statements och Cash Flow Statements: intäkter, kostnader, delresultat samt skillnaden mellan resultat och betalningar. Det syntetiska 1 000 − 800 = 200 har kontrollerats separat.",
+              "limitations": "SEC:s förenklade EPS-beskrivning används inte som exakt aktiebas; IAS 33 stöder den preciseringen."
+            },
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/",
+              "checked": "About: EPS-resultat hänförligt till stamaktieägare, grundläggande/utspädd EPS och periodens vägda aktiebas.",
+              "limitations": "Översikt, inte en komplett EPS-beräkning eller en ny exekverbar formel."
+            }
+          ]
+        },
+        {
+          "section": "example",
+          "sources": [
+            {
+              "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+              "checked": "Income Statements och Cash Flow Statements: intäkter, kostnader, delresultat samt skillnaden mellan resultat och betalningar. Det syntetiska 1 000 − 800 = 200 har kontrollerats separat.",
+              "limitations": "SEC:s förenklade EPS-beskrivning används inte som exakt aktiebas; IAS 33 stöder den preciseringen."
+            }
+          ]
+        },
+        {
+          "section": "caveats",
+          "sources": [
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/",
+              "checked": "About: EPS-resultat hänförligt till stamaktieägare, grundläggande/utspädd EPS och periodens vägda aktiebas.",
+              "limitations": "Översikt, inte en komplett EPS-beräkning eller en ny exekverbar formel."
+            },
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ifrs-18-presentation-and-disclosure-in-financial-statements/",
+              "checked": "About: IFRS 18 ändrar presentation och definierade delsummeringar; tillämpning från perioder som börjar 2027-01-01, tidigare tillämpning tillåten.",
+              "limitations": "Stöder behovet att kontrollera regelverk och tillämpning, inte att US GAAP och IFRS är identiska."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cash-flow-statement",
+      "question": "Vad visar en kassaflödesanalys?",
+      "sources": [
+        {
+          "title": "IFRS Foundation: IAS 7, översikt och standardhistorik",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "example",
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "About: kassa/likvida medel, tre verksamhetskategorier, indirekt metod, transaktioner utan betalning och avstämning mot finansiell ställning. Standard history beskriver ändrad startpunkt och klassificering genom IFRS 18.",
+          "limitations": "Översikten ersätter inte fullständig IAS 7 eller US GAAP. +70 är NTM:s separat kontrollerade illustration under uttryckliga antaganden."
+        },
+        {
+          "title": "SEC: Beginners’ Guide to Financial Statements",
+          "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "Cash Flow Statements, Operating/Investing/Financing Activities: grundmekanismer och en amerikansk introduktion med nettoresultatavstämning.",
+          "limitations": "Inte grund för att likställa all klassificering mellan regelverk eller att bedöma en aktie."
+        },
+        {
+          "title": "IFRS Foundation: IFRS 18, tillämpning och presentation",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ifrs-18-presentation-and-disclosure-in-financial-statements/",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "About: tillämpningsdatum och tidigare tillämpning; läs tillsammans med IAS 7:s standardhistorik.",
+          "limitations": "Ingen aktuell rapport antas ha valt en viss version utan kontroll."
+        }
+      ],
+      "sections": [
+        {
+          "section": "shortAnswer",
+          "sources": [
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+              "checked": "About: kassa/likvida medel, tre verksamhetskategorier, indirekt metod, transaktioner utan betalning och avstämning mot finansiell ställning. Standard history beskriver ändrad startpunkt och klassificering genom IFRS 18.",
+              "limitations": "Översikten ersätter inte fullständig IAS 7 eller US GAAP. +70 är NTM:s separat kontrollerade illustration under uttryckliga antaganden."
+            }
+          ]
+        },
+        {
+          "section": "fullAnswer",
+          "sources": [
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+              "checked": "About: kassa/likvida medel, tre verksamhetskategorier, indirekt metod, transaktioner utan betalning och avstämning mot finansiell ställning. Standard history beskriver ändrad startpunkt och klassificering genom IFRS 18.",
+              "limitations": "Översikten ersätter inte fullständig IAS 7 eller US GAAP. +70 är NTM:s separat kontrollerade illustration under uttryckliga antaganden."
+            },
+            {
+              "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+              "checked": "Cash Flow Statements, Operating/Investing/Financing Activities: grundmekanismer och en amerikansk introduktion med nettoresultatavstämning.",
+              "limitations": "Inte grund för att likställa all klassificering mellan regelverk eller att bedöma en aktie."
+            }
+          ]
+        },
+        {
+          "section": "example",
+          "sources": [
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+              "checked": "About: kassa/likvida medel, tre verksamhetskategorier, indirekt metod, transaktioner utan betalning och avstämning mot finansiell ställning. Standard history beskriver ändrad startpunkt och klassificering genom IFRS 18.",
+              "limitations": "Översikten ersätter inte fullständig IAS 7 eller US GAAP. +70 är NTM:s separat kontrollerade illustration under uttryckliga antaganden."
+            }
+          ]
+        },
+        {
+          "section": "caveats",
+          "sources": [
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+              "checked": "About: kassa/likvida medel, tre verksamhetskategorier, indirekt metod, transaktioner utan betalning och avstämning mot finansiell ställning. Standard history beskriver ändrad startpunkt och klassificering genom IFRS 18.",
+              "limitations": "Översikten ersätter inte fullständig IAS 7 eller US GAAP. +70 är NTM:s separat kontrollerade illustration under uttryckliga antaganden."
+            },
+            {
+              "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+              "checked": "Cash Flow Statements, Operating/Investing/Financing Activities: grundmekanismer och en amerikansk introduktion med nettoresultatavstämning.",
+              "limitations": "Inte grund för att likställa all klassificering mellan regelverk eller att bedöma en aktie."
+            },
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ifrs-18-presentation-and-disclosure-in-financial-statements/",
+              "checked": "About: tillämpningsdatum och tidigare tillämpning; läs tillsammans med IAS 7:s standardhistorik.",
+              "limitations": "Ingen aktuell rapport antas ha valt en viss version utan kontroll."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "profit-versus-cash",
+      "question": "Varför kan vinst och kassaflöde skilja sig?",
+      "sources": [
+        {
+          "title": "SEC: Beginners’ Guide to Financial Statements",
+          "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "comparison"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "Income Statements (avskrivningar), Operating Activities (icke-kontanta poster) och Investing Activities (maskinköp): separata resultat- och betalningsmått. Bringing It All Together stöder läsning av rapporterna tillsammans.",
+          "limitations": "Ingen kausal diagnos av ett enskilt bolag. Den neutrala Research-frågan är NTM:s godkända pedagogiska tillämpning."
+        },
+        {
+          "title": "IFRS Foundation: IAS 7, översikt och standardhistorik",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "fullAnswer",
+            "example",
+            "caveats",
+            "comparison"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "About: indirekt justering för icke-kontanta poster och periodiseringar; investeringarnas betalningar skiljs från löpande verksamhet.",
+          "limitations": "De tre fallen är syntetiska mekanismer, inte nya bolagsfakta."
+        },
+        {
+          "title": "IFRS Foundation: IAS 16 Property, Plant and Equipment",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-16-property-plant-and-equipment/",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "fullAnswer",
+            "example"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "About: redovisning av materiella långlivade tillgångar och avskrivningskostnader.",
+          "limitations": "Avser redovisningsprincipen; inga påståenden om en specifik avskrivningstid."
+        }
+      ],
+      "sections": [
+        {
+          "section": "shortAnswer",
+          "sources": [
+            {
+              "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+              "checked": "Income Statements (avskrivningar), Operating Activities (icke-kontanta poster) och Investing Activities (maskinköp): separata resultat- och betalningsmått. Bringing It All Together stöder läsning av rapporterna tillsammans.",
+              "limitations": "Ingen kausal diagnos av ett enskilt bolag. Den neutrala Research-frågan är NTM:s godkända pedagogiska tillämpning."
+            }
+          ]
+        },
+        {
+          "section": "fullAnswer",
+          "sources": [
+            {
+              "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+              "checked": "Income Statements (avskrivningar), Operating Activities (icke-kontanta poster) och Investing Activities (maskinköp): separata resultat- och betalningsmått. Bringing It All Together stöder läsning av rapporterna tillsammans.",
+              "limitations": "Ingen kausal diagnos av ett enskilt bolag. Den neutrala Research-frågan är NTM:s godkända pedagogiska tillämpning."
+            },
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+              "checked": "About: indirekt justering för icke-kontanta poster och periodiseringar; investeringarnas betalningar skiljs från löpande verksamhet.",
+              "limitations": "De tre fallen är syntetiska mekanismer, inte nya bolagsfakta."
+            },
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-16-property-plant-and-equipment/",
+              "checked": "About: redovisning av materiella långlivade tillgångar och avskrivningskostnader.",
+              "limitations": "Avser redovisningsprincipen; inga påståenden om en specifik avskrivningstid."
+            }
+          ]
+        },
+        {
+          "section": "example",
+          "sources": [
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+              "checked": "About: indirekt justering för icke-kontanta poster och periodiseringar; investeringarnas betalningar skiljs från löpande verksamhet.",
+              "limitations": "De tre fallen är syntetiska mekanismer, inte nya bolagsfakta."
+            },
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-16-property-plant-and-equipment/",
+              "checked": "About: redovisning av materiella långlivade tillgångar och avskrivningskostnader.",
+              "limitations": "Avser redovisningsprincipen; inga påståenden om en specifik avskrivningstid."
+            }
+          ]
+        },
+        {
+          "section": "caveats",
+          "sources": [
+            {
+              "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+              "checked": "Income Statements (avskrivningar), Operating Activities (icke-kontanta poster) och Investing Activities (maskinköp): separata resultat- och betalningsmått. Bringing It All Together stöder läsning av rapporterna tillsammans.",
+              "limitations": "Ingen kausal diagnos av ett enskilt bolag. Den neutrala Research-frågan är NTM:s godkända pedagogiska tillämpning."
+            },
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+              "checked": "About: indirekt justering för icke-kontanta poster och periodiseringar; investeringarnas betalningar skiljs från löpande verksamhet.",
+              "limitations": "De tre fallen är syntetiska mekanismer, inte nya bolagsfakta."
+            }
+          ]
+        },
+        {
+          "section": "comparison",
+          "sources": [
+            {
+              "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+              "checked": "Income Statements (avskrivningar), Operating Activities (icke-kontanta poster) och Investing Activities (maskinköp): separata resultat- och betalningsmått. Bringing It All Together stöder läsning av rapporterna tillsammans.",
+              "limitations": "Ingen kausal diagnos av ett enskilt bolag. Den neutrala Research-frågan är NTM:s godkända pedagogiska tillämpning."
+            },
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+              "checked": "About: indirekt justering för icke-kontanta poster och periodiseringar; investeringarnas betalningar skiljs från löpande verksamhet.",
+              "limitations": "De tre fallen är syntetiska mekanismer, inte nya bolagsfakta."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "capex",
+      "question": "Vad betyder CapEx?",
+      "sources": [
+        {
+          "title": "IFRS Foundation: IAS 16 Property, Plant and Equipment",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-16-property-plant-and-equipment/",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "About: PP&E är materiella tillgångar som används i verksamheten under mer än en period; redovisat värde och avskrivning behandlas separat.",
+          "limitations": "Ingen universell bolagsspecifik CapEx-avgränsning härleds ur rubriken PP&E."
+        },
+        {
+          "title": "IFRS Foundation: IAS 7, översikt och standardhistorik",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "fullAnswer",
+            "example",
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "About: förvärv av långlivade tillgångar som investeringar; affärer utan betalning skiljs från kassaflöden.",
+          "limitations": "180 är ett syntetiskt kontantköp; PP&E-förändring antas inte vara samma mått."
+        },
+        {
+          "title": "IFRS Foundation: CMAC november 2024, återgivna IAS 7 punkter 50–51",
+          "url": "https://www.ifrs.org/content/dam/ifrs/meetings/2024/november/cmac/ap5-scfrm.pdf",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "example"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "CMAC 2024-11-08, bild 7 samt appendix bild 15: uppdelning tillväxt/underhåll och återgivna IAS 7 punkter 50–51 om ökad respektive bibehållen kapacitet.",
+          "limitations": "Ett offentligt staff paper, inte ett nytt normbeslut. Endast återgivna krav och försiktigt beskriven analytisk uppdelning används; hög/låg CapEx ges inget generellt betyg."
+        },
+        {
+          "title": "SEC: Non-GAAP Financial Measures, fråga 102.07",
+          "url": "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "Fråga 102.07: vanlig CFO-minus-CapEx-beräkning, avsaknad av enhetlig definition, behov av förklaring/avstämning och begränsning om disponibla pengar.",
+          "limitations": "Amerikansk SEC-vägledning; inte en universell FCF-standard eller utdelningsregel."
+        }
+      ],
+      "sections": [
+        {
+          "section": "shortAnswer",
+          "sources": [
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-16-property-plant-and-equipment/",
+              "checked": "About: PP&E är materiella tillgångar som används i verksamheten under mer än en period; redovisat värde och avskrivning behandlas separat.",
+              "limitations": "Ingen universell bolagsspecifik CapEx-avgränsning härleds ur rubriken PP&E."
+            },
+            {
+              "url": "https://www.ifrs.org/content/dam/ifrs/meetings/2024/november/cmac/ap5-scfrm.pdf",
+              "checked": "CMAC 2024-11-08, bild 7 samt appendix bild 15: uppdelning tillväxt/underhåll och återgivna IAS 7 punkter 50–51 om ökad respektive bibehållen kapacitet.",
+              "limitations": "Ett offentligt staff paper, inte ett nytt normbeslut. Endast återgivna krav och försiktigt beskriven analytisk uppdelning används; hög/låg CapEx ges inget generellt betyg."
+            }
+          ]
+        },
+        {
+          "section": "fullAnswer",
+          "sources": [
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-16-property-plant-and-equipment/",
+              "checked": "About: PP&E är materiella tillgångar som används i verksamheten under mer än en period; redovisat värde och avskrivning behandlas separat.",
+              "limitations": "Ingen universell bolagsspecifik CapEx-avgränsning härleds ur rubriken PP&E."
+            },
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+              "checked": "About: förvärv av långlivade tillgångar som investeringar; affärer utan betalning skiljs från kassaflöden.",
+              "limitations": "180 är ett syntetiskt kontantköp; PP&E-förändring antas inte vara samma mått."
+            },
+            {
+              "url": "https://www.ifrs.org/content/dam/ifrs/meetings/2024/november/cmac/ap5-scfrm.pdf",
+              "checked": "CMAC 2024-11-08, bild 7 samt appendix bild 15: uppdelning tillväxt/underhåll och återgivna IAS 7 punkter 50–51 om ökad respektive bibehållen kapacitet.",
+              "limitations": "Ett offentligt staff paper, inte ett nytt normbeslut. Endast återgivna krav och försiktigt beskriven analytisk uppdelning används; hög/låg CapEx ges inget generellt betyg."
+            }
+          ]
+        },
+        {
+          "section": "example",
+          "sources": [
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+              "checked": "About: förvärv av långlivade tillgångar som investeringar; affärer utan betalning skiljs från kassaflöden.",
+              "limitations": "180 är ett syntetiskt kontantköp; PP&E-förändring antas inte vara samma mått."
+            },
+            {
+              "url": "https://www.ifrs.org/content/dam/ifrs/meetings/2024/november/cmac/ap5-scfrm.pdf",
+              "checked": "CMAC 2024-11-08, bild 7 samt appendix bild 15: uppdelning tillväxt/underhåll och återgivna IAS 7 punkter 50–51 om ökad respektive bibehållen kapacitet.",
+              "limitations": "Ett offentligt staff paper, inte ett nytt normbeslut. Endast återgivna krav och försiktigt beskriven analytisk uppdelning används; hög/låg CapEx ges inget generellt betyg."
+            }
+          ]
+        },
+        {
+          "section": "caveats",
+          "sources": [
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+              "checked": "About: förvärv av långlivade tillgångar som investeringar; affärer utan betalning skiljs från kassaflöden.",
+              "limitations": "180 är ett syntetiskt kontantköp; PP&E-förändring antas inte vara samma mått."
+            },
+            {
+              "url": "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures",
+              "checked": "Fråga 102.07: vanlig CFO-minus-CapEx-beräkning, avsaknad av enhetlig definition, behov av förklaring/avstämning och begränsning om disponibla pengar.",
+              "limitations": "Amerikansk SEC-vägledning; inte en universell FCF-standard eller utdelningsregel."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "working-capital",
+      "question": "Hur kan rörelsekapital påverka kassaflödet?",
+      "sources": [
+        {
+          "title": "IFRS Foundation: IAS 7, översikt och standardhistorik",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "example"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "About: indirekt metod justerar resultat för periodiseringar av operativa betalningar och icke-kontanta poster. Tecknen i den förenklade betalningsavstämningen och 65 har kontrollerats separat.",
+          "limitations": "Inte en allmän formel från nettoresultat till OCF i alla regelverk; bara de tre angivna posterna ingår i exemplet."
+        },
+        {
+          "title": "IFRS Foundation: IASB september 2025, rörelsekapital och avstämning",
+          "url": "https://www.ifrs.org/content/dam/ifrs/meetings/2025/september/iasb/ap20a-approach-to-disaggregation.pdf",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "IASB staff paper september 2025, punkter 26–30: typiska operativa fordringar, lager och skulder; kopplingen till balansräkningens poster kan vara oklar. Punkt 30 hänvisar till IAS 7.20.",
+          "limitations": "Staff analysis, inte ett nytt standardkrav. Stöder försiktighet om avgränsning/avstämning, inte en universell positiv eller negativ tolkning."
+        },
+        {
+          "title": "SEC: Beginners’ Guide to Financial Statements",
+          "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "shortAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "Operating Activities och Bringing It All Together: operativa tillgångar/skulder justerar resultat; rapporterna behöver läsas tillsammans.",
+          "limitations": "Den neutrala tolkningen är den godkända pedagogiska begränsningen, inte en prognos eller bolagsbedömning."
+        }
+      ],
+      "sections": [
+        {
+          "section": "shortAnswer",
+          "sources": [
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+              "checked": "About: indirekt metod justerar resultat för periodiseringar av operativa betalningar och icke-kontanta poster. Tecknen i den förenklade betalningsavstämningen och 65 har kontrollerats separat.",
+              "limitations": "Inte en allmän formel från nettoresultat till OCF i alla regelverk; bara de tre angivna posterna ingår i exemplet."
+            },
+            {
+              "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+              "checked": "Operating Activities och Bringing It All Together: operativa tillgångar/skulder justerar resultat; rapporterna behöver läsas tillsammans.",
+              "limitations": "Den neutrala tolkningen är den godkända pedagogiska begränsningen, inte en prognos eller bolagsbedömning."
+            }
+          ]
+        },
+        {
+          "section": "fullAnswer",
+          "sources": [
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+              "checked": "About: indirekt metod justerar resultat för periodiseringar av operativa betalningar och icke-kontanta poster. Tecknen i den förenklade betalningsavstämningen och 65 har kontrollerats separat.",
+              "limitations": "Inte en allmän formel från nettoresultat till OCF i alla regelverk; bara de tre angivna posterna ingår i exemplet."
+            },
+            {
+              "url": "https://www.ifrs.org/content/dam/ifrs/meetings/2025/september/iasb/ap20a-approach-to-disaggregation.pdf",
+              "checked": "IASB staff paper september 2025, punkter 26–30: typiska operativa fordringar, lager och skulder; kopplingen till balansräkningens poster kan vara oklar. Punkt 30 hänvisar till IAS 7.20.",
+              "limitations": "Staff analysis, inte ett nytt standardkrav. Stöder försiktighet om avgränsning/avstämning, inte en universell positiv eller negativ tolkning."
+            }
+          ]
+        },
+        {
+          "section": "example",
+          "sources": [
+            {
+              "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+              "checked": "About: indirekt metod justerar resultat för periodiseringar av operativa betalningar och icke-kontanta poster. Tecknen i den förenklade betalningsavstämningen och 65 har kontrollerats separat.",
+              "limitations": "Inte en allmän formel från nettoresultat till OCF i alla regelverk; bara de tre angivna posterna ingår i exemplet."
+            }
+          ]
+        },
+        {
+          "section": "caveats",
+          "sources": [
+            {
+              "url": "https://www.ifrs.org/content/dam/ifrs/meetings/2025/september/iasb/ap20a-approach-to-disaggregation.pdf",
+              "checked": "IASB staff paper september 2025, punkter 26–30: typiska operativa fordringar, lager och skulder; kopplingen till balansräkningens poster kan vara oklar. Punkt 30 hänvisar till IAS 7.20.",
+              "limitations": "Staff analysis, inte ett nytt standardkrav. Stöder försiktighet om avgränsning/avstämning, inte en universell positiv eller negativ tolkning."
+            },
+            {
+              "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+              "checked": "Operating Activities och Bringing It All Together: operativa tillgångar/skulder justerar resultat; rapporterna behöver läsas tillsammans.",
+              "limitations": "Den neutrala tolkningen är den godkända pedagogiska begränsningen, inte en prognos eller bolagsbedömning."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

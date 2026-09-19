@@ -1,0 +1,96 @@
+{
+  "id": "scenario-probability",
+  "question": "Är ett bear-, base- eller bull-scenario en sannolikhetsprognos?",
+  "intent": "misconception",
+  "conceptRefs": [
+    "thesis"
+  ],
+  "aliases": [
+    "bear base bull sannolikheter",
+    "Är base case mest sannolikt?"
+  ],
+  "shortAnswer": "Scenariots namn tilldelar ingen sannolikhet. Bear, base och bull är här olika uppsättningar antaganden. En sannolikhetsvägd prognos kräver separat angivna sannolikheter och en tydlig modell; den uppstår inte av tre etiketter.",
+  "fullAnswer": "Visa först vad som skiljer fallen åt och att mått, valuta och tidshorisont är jämförbara. Om någon senare anger vikter behöver deras grund och vad scenarierna täcker förklaras. Att vikter summerar till 100 procent gör dem inte objektivt riktiga och löser inte överlapp eller saknade utfall.",
+  "example": "Syntetiskt: tre EPS-/P/E-fall kan ge tre olika framtida priser. Inget i namnen bear, base eller bull betyder automatiskt 20, 60 och 20 procents sannolikhet. NTM:s scenariokalkyl tilldelar inte sådana sannolikheter.",
+  "caveats": "Base är inte en garanti eller automatiskt det statistiskt mest sannolika utfallet. Ett viktat medelvärde kräver explicit modell och är fortfarande beroende av antaganden. Här införs ingen sannolikhetsmotor eller handelsrekommendation.",
+  "relatedAnswers": [
+    {
+      "id": "scenario-design",
+      "type": "prerequisite"
+    },
+    {
+      "id": "fact-assumption",
+      "type": "common-confusion"
+    }
+  ],
+  "sources": [
+    {
+      "title": "NTM: befintligt metodkontrakt",
+      "url": "https://nolltillmiljoner.se/research.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats",
+        "example"
+      ],
+      "checked": "valuation-core.js scenario tar EPS, tillväxt, år och P/E, inga sannolikhetsvikter; thesis-metoden skiljer antaganden från utfall.",
+      "limitations": "Verifierat mot lokal implementation, inte en ny hosted-kontroll. Syntetiska exempel och NTM-metod, inte externa rekommendationer.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "risk",
+  "concepts": [
+    "thesis"
+  ],
+  "relatedLessonIds": [
+    "thesis"
+  ],
+  "reviewDue": "2026-12-31",
+  "slug": "scenario-probability",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 NTM's public knowledge product is **Frågor & svar** (`fragor-svar.html`). It retrieves reviewed editorial explanations; it does not generate answers. Academy remains the structured learning and assessment product. This foundation implements Master Roadmap 3.0 §5.7 and §9 without starting another wave.
 
-There are still **29 visible answers**: 26 original published seeds, two Wave 1 reviewed answers and one Wave 4 reviewed answer. Their substantive prose, canonical slugs and review dates are preserved. “Reviewed” here retains the existing implementation/source-review status; it is **not independent human approval**. No new substantive answer was published to reach a target count.
+There are **41 visible answers** in the local canonical catalog: 26 original published seeds, three earlier reviewed answers, six Batch 1A reviewed answers and six Batch 1B reviewed answers. Batch 1B preserves all preceding 35 objects, including fingerprints and review/history metadata. Both batches have explicit owner approval of substantive scope, with primary-source mapping and arithmetic verification by Codex; this does not claim independent human source review. The additions are visible but noindex, with no publication date. See [Batch 1A](internal/knowledge-batch1a-report.md) and [Batch 1B](internal/knowledge-batch1b-report.md). They have not been deployed by these tasks.
 
 ## Sources of truth and delivery
 

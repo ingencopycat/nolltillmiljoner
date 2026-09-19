@@ -1,0 +1,116 @@
+{
+  "id": "index-weighting",
+  "question": "Vad betyder det att ett index är börsvärdesviktat?",
+  "intent": "definition",
+  "conceptRefs": [
+    "index",
+    "market-cap"
+  ],
+  "aliases": [
+    "börsvärdesviktat index",
+    "market cap viktning"
+  ],
+  "shortAnswer": "I ett börsvärdesviktat index får större kvalificerande börsvärden större vikt enligt indexets regler. Det är inte nödvändigtvis hela bolagets börsvärde: fri omsättning, begränsningar och andra metodval kan påverka vilken kapitalbas som räknas.",
+  "fullAnswer": "Läs administratörens urval, viktning och uppdateringsregler. Free float avser här den andel som metoden bedömer tillgänglig för marknaden; MSCI:s metod tar också hänsyn till vissa ägarbegränsningar. Ett sådant metodexempel är inte en regel för alla index. Vikter förändras med priser och metodhändelser.",
+  "example": "Syntetiskt utan tak eller andra justeringar: kvalificerande börsvärden 60, 30 och 10 summerar till 100 och ger vikterna 60, 30 och 10 procent. Det första innehavet driver därför en större del av indexrörelsen än det sista.",
+  "caveats": "Alla index använder inte denna viktning, och olika kapitaljusteringar kan ge olika resultat. Ett index kan vara koncentrerat trots många namn. Kontrollera även pris- eller totalavkastningsserie; stor vikt är ingen rekommendation.",
+  "relatedAnswers": [
+    {
+      "id": "index",
+      "type": "prerequisite"
+    },
+    {
+      "id": "market-cap",
+      "type": "prerequisite"
+    },
+    {
+      "id": "concentration",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "MSCI Global Investable Market Indexes Methodology Summary, July 2026",
+      "url": "https://www-cdn.msci.com/documents/10199/6a862628-db59-5e41-a49e-12a1ceddc878",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Avsnitt Free Float och Foreign Inclusion Factor: tillgängligt aktieantal och ägarbegränsning; inga trösklar kopieras.",
+      "limitations": "En indexfamiljs metod, inte ett löfte om alla index. Syntetisk viktning har inga FIF-justeringar.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "Investor.gov: Index Funds",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-4",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Börsvärdesviktning skiljs från prisviktning; en fond kan avvika från index.",
+      "limitations": "Inga aktuella indexvikter används.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "basics",
+  "concepts": [
+    "diversifiering",
+    "valuation"
+  ],
+  "relatedLessonIds": [
+    "diversifiering"
+  ],
+  "slug": "index-weighting",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-09-19",
+  "reviewPolicy": {
+    "risk": "stable",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

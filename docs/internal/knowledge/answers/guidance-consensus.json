@@ -1,0 +1,155 @@
+{
+  "id": "guidance-consensus",
+  "question": "Vad skiljer bolagets guidance från analytikerkonsensus?",
+  "intent": "comparison",
+  "category": "reports",
+  "conceptRefs": [
+    "outlook"
+  ],
+  "concepts": [
+    "forward-metrics"
+  ],
+  "relatedLessonIds": [
+    "forward-metrics"
+  ],
+  "aliases": [
+    "guidance vs konsensus",
+    "bolagsprognos eller analytikerkonsensus"
+  ],
+  "reviewDue": "2026-12-31",
+  "shortAnswer": "Guidance är bolagsledningens kommunicerade utsikter. Konsensus är en leverantörs sammanställning av analytikernas estimat. De har olika avsändare och är båda framåtblickande; inget av dem är det framtida rapporterade utfallet.",
+  "fullAnswer": "Kontrollera mått, räkenskapsperiod, valuta, enhet, datum och rapporterad eller justerad basis innan du jämför. Ett intervall är inte samma sak som ett punktestimat. Alla bolag lämnar inte formaliserad guidance, och leverantörer kan ha olika urval och sammanställningsmetoder för konsensus. Spara vem som gav uppgiften och när den var känd. En jämförelse behöver dessa uppgifter även när siffrorna ser nästan likadana ut.",
+  "example": "Syntetiskt, samma kommande kvartal och omsättningsbasis: bolagets guidance är 10,0–10,5 miljarder dollar. Ett daterat analytikerkonsensus är 10,3 miljarder. Senare rapporteras 10,6 miljarder. Det är tre olika informationstillstånd: ledningens utsikt, sammanställda estimat och senare utfall. Exemplet är inte hämtat från NVIDIA eller någon leverantörs data.",
+  "caveats": "Ett utfall över konsensus är bara över just den valda jämförelsebasen. Det bevisar inte att rapporten är bra eller att aktiekursen ska stiga. Ändrad definition, täckning eller målperiod kan göra en skenbar skillnad missvisande. Läs källans metod i stället för att anta att alla konsensusmått är identiska.",
+  "relatedAnswers": [
+    {
+      "id": "guidance",
+      "type": "prerequisite"
+    },
+    {
+      "id": "estimates",
+      "type": "prerequisite"
+    },
+    {
+      "id": "earnings-surprise",
+      "type": "next-question"
+    },
+    {
+      "id": "estimate-age",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "NVIDIA: Q4/FY2026, daterad outlook och avstämning",
+      "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2026/",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "example",
+        "comparison"
+      ],
+      "checked": "Outlook för Q1 FY2027, rapporterade perioder, GAAP/non-GAAP och framåtblickande osäkerhet lästa; används som exempel på typ av primärdokument.",
+      "limitations": "Inga verkliga NVIDIA-värden används i exemplen. En enskild issuer visar inte att alla bolag ger guidance eller använder samma definitioner.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "LSEG: I/B/E/S Broker Estimates, databeskrivning",
+      "url": "https://www.lseg.com/en/data-catalogue/company-data/ibes-estimates/broker-estimates",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats",
+        "comparison"
+      ],
+      "checked": "Description: analytikerbidrag, konsensus, estimate sources, announcement dates, fiscal periods, currencies och normalization attributes.",
+      "limitations": "Leverantörens offentliga beskrivning, inte licensierad metodhandbok eller dataanslutning. Ingen universell medelvärdesregel eller åldersgräns antas.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "CFA Institute: Standard V(B), prognoser och fakta",
+      "url": "https://www.cfainstitute.org/standards/professionals/code-ethics-standards/standards-of-practice-v-b",
+      "supports": [
+        "caveats"
+      ],
+      "checked": "Distinction Between Facts and Opinions: prognosuppgifter beror på framtida förhållanden.",
+      "limitations": "Ingen regel om marknadsreaktion härleds; värdeomdöme och utfallsjämförelse hålls isär.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "slug": "guidance-consensus",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "comparison": {
+      "leftLabel": "Guidance",
+      "rightLabel": "Konsensus",
+      "axes": [
+        {
+          "label": "Avsändare",
+          "left": "Bolagsledningen",
+          "right": "Analytiker, sammanställda av leverantören"
+        },
+        {
+          "label": "Syntetiskt exempel",
+          "left": "10,0–10,5 miljarder",
+          "right": "10,3 miljarder"
+        },
+        {
+          "label": "Kontroll",
+          "left": "Utgivningsdatum, period och definition",
+          "right": "Observationstid, period, urval och metod"
+        }
+      ],
+      "limitations": "Inget av måtten är framtida utfall; jämför samma basis."
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

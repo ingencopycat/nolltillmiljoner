@@ -1,0 +1,117 @@
+{
+  "id": "peg-limitations",
+  "question": "När blir PEG missvisande?",
+  "intent": "limitation",
+  "conceptRefs": [
+    "peg",
+    "pe"
+  ],
+  "aliases": [
+    "begränsningar med PEG",
+    "PEG under ett är inte automatiskt billigt"
+  ],
+  "shortAnswer": "PEG kopplar P/E till en vald vinsttillväxt, men resultatet beror starkt på tillväxtens definition, tidshorisont och osäkerhet. En låg kvot bevisar inte att aktien är billig. Noll, negativ eller mycket liten tillväxt gör den vanliga tolkningen särskilt svår.",
+  "fullAnswer": "Kontrollera om tillväxten är historisk eller prognostiserad och om vinstbasis är jämförbar med P/E. Skriv ut procentkonventionen. Den vanliga PEG-konventionen använder tillväxttalet i procentenheter som numeriskt tal, inte dess decimalandel. Skillnader i risk och uthållighet försvinner inte för att två PEG-tal är lika.",
+  "example": "Syntetiskt: P/E 30 och angiven årlig vinsttillväxt 30 procent ger PEG 30 / 30 = 1 enligt denna konvention. Division med 0,30 ger 100 och är en annan skala. PEG 1 säger inte att priset är rätt.",
+  "caveats": "En återhämtning från svag vinst kan ge en tillfälligt stor tillväxtprocent. Negativ eller nära noll vinst/tillväxt kräver särskild analys. Prognosen kan slå fel; PEG ger ingen automatisk rekommendation.",
+  "relatedAnswers": [
+    {
+      "id": "peg",
+      "type": "prerequisite"
+    },
+    {
+      "id": "pe-losses",
+      "type": "common-confusion"
+    },
+    {
+      "id": "estimate-age",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "CFA Institute: Market-Based Valuation",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/market-based-valuation-price-enterprise-value-multiples",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Offentlig introduction/summary: multiplar behöver fundamenta, tillväxt och lämplighetskontroll; inga låsta kapitel påstås lästa.",
+      "limitations": "Den explicita PEG-konventionen kontrolleras mot befintligt NTM-svar och oberoende aritmetik.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "NTM: befintlig PEG-definition",
+      "url": "https://nolltillmiljoner.se/fragor-svar-peg.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "example",
+        "caveats"
+      ],
+      "checked": "Befintlig canonical peg och dess procentkonvention lästa; nytt svar avgränsas till begränsningen.",
+      "limitations": "Ingen ändring av den äldre definitionens godkännandestatus eller källa.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "valuation",
+  "concepts": [
+    "valuation",
+    "pe"
+  ],
+  "relatedLessonIds": [
+    "pe"
+  ],
+  "slug": "peg-limitations",
+  "relatedEntityIds": [
+    "tool-valuation"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

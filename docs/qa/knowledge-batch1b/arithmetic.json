@@ -1,0 +1,81 @@
+{
+  "date": "2026-09-19",
+  "method": "Python Decimal independent of JavaScript engine and prose",
+  "checks": [
+    {
+      "expression": "800 + 100",
+      "result": "900",
+      "expected": "900",
+      "passed": true
+    },
+    {
+      "expression": "1000 - 400",
+      "result": "600",
+      "expected": "600",
+      "passed": true
+    },
+    {
+      "expression": "150 / 5",
+      "result": "30",
+      "expected": "30",
+      "passed": true
+    },
+    {
+      "expression": "150 / 7.5",
+      "result": "2E+1",
+      "expected": "20",
+      "passed": true
+    },
+    {
+      "expression": "100 / -2",
+      "result": "-50",
+      "expected": "-50",
+      "passed": true
+    },
+    {
+      "expression": "100 / 1",
+      "result": "100",
+      "expected": "100",
+      "passed": true
+    },
+    {
+      "expression": "100 / 0.5",
+      "result": "2.0E+2",
+      "expected": "200",
+      "passed": true
+    },
+    {
+      "expression": "100 / 0.1",
+      "result": "1.00E+3",
+      "expected": "1000",
+      "passed": true
+    },
+    {
+      "expression": "20 / 10",
+      "result": "2",
+      "expected": "2",
+      "passed": true
+    },
+    {
+      "expression": "5000 / 1000",
+      "result": "5",
+      "expected": "5",
+      "passed": true
+    },
+    {
+      "expression": "5000 / 200",
+      "result": "25",
+      "expected": "25",
+      "passed": true
+    },
+    {
+      "expression": "5000 / 20",
+      "result": "250",
+      "expected": "250",
+      "passed": true
+    }
+  ],
+  "sameShareBasisEquivalenceChecks": 3,
+  "zeroDenominator": "undefined; no numerical result asserted",
+  "negativeRatio": "mathematical only; not a positive-multiple valuation interpretation"
+}

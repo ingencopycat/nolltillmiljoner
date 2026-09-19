@@ -1,0 +1,62 @@
+{
+  "date": "2026-09-19",
+  "batch": "2bc",
+  "decisions": {
+    "asset-ownership": {
+      "distinctIntent": "Approved distinct foundation, strategy, execution or look-through objective; ETF definition does not replace trading comparison.",
+      "sourceCheck": "What are stocks, common/preferred stock och risk för förlust; breda historiska avkastnings- och value-stock-påståenden återges inte.",
+      "narrowing": "No product recommendation, universal redemption rights or US tax rules transferred to Sweden; synthetic arithmetic only."
+    },
+    "risk-horizon": {
+      "distinctIntent": "Approved distinct foundation, strategy, execution or look-through objective; ETF definition does not replace trading comparison.",
+      "sourceCheck": "Investing Timeframe or Time Horizon samt Risk Tolerance: målperiod, förmåga och vilja att bära förlust.",
+      "narrowing": "No product recommendation, universal redemption rights or US tax rules transferred to Sweden; synthetic arithmetic only."
+    },
+    "liquidity": {
+      "distinctIntent": "Approved distinct foundation, strategy, execution or look-through objective; ETF definition does not replace trading comparison.",
+      "sourceCheck": "Definitionen skiljer snabb försäljning, prispåverkan och risken att marknad saknas.",
+      "narrowing": "No product recommendation, universal redemption rights or US tax rules transferred to Sweden; synthetic arithmetic only."
+    },
+    "fund": {
+      "distinctIntent": "Approved distinct foundation, strategy, execution or look-through objective; ETF definition does not replace trading comparison.",
+      "sourceCheck": "Definition av gemensam portfölj/fondandelar, risk och behov att läsa prospekt; amerikanska daily-redemption-regler generaliseras inte till alla fonder.",
+      "narrowing": "No product recommendation, universal redemption rights or US tax rules transferred to Sweden; synthetic arithmetic only."
+    },
+    "etf": {
+      "distinctIntent": "Approved distinct foundation, strategy, execution or look-through objective; ETF definition does not replace trading comparison.",
+      "sourceCheck": "Definition, aktiv/indexstrategi, marknadspris kontra NAV, produkttyp och koncentrationsrisk.",
+      "narrowing": "No product recommendation, universal redemption rights or US tax rules transferred to Sweden; synthetic arithmetic only."
+    },
+    "index": {
+      "distinctIntent": "Approved distinct foundation, strategy, execution or look-through objective; ETF definition does not replace trading comparison.",
+      "sourceCheck": "Indexkorg, indirekt investering, olika viktning och tracking error; gamla fondrapporteringsformulär används inte. Administratörens metodbibliotek skiljer indexkonstruktion och metodfamiljer; används för krav att läsa rätt indexmetod.",
+      "narrowing": "No product recommendation, universal redemption rights or US tax rules transferred to Sweden; synthetic arithmetic only."
+    },
+    "active-passive": {
+      "distinctIntent": "Approved distinct foundation, strategy, execution or look-through objective; ETF definition does not replace trading comparison.",
+      "sourceCheck": "Bulletin 29 april 2025: separata rubriker om strategi, prissättning och handel; inga skatteavsnitt används. Kostnader är inte alltid lägre; tracking error och underperformance skiljs från strategietikett.",
+      "narrowing": "No product recommendation, universal redemption rights or US tax rules transferred to Sweden; synthetic arithmetic only."
+    },
+    "fund-etf": {
+      "distinctIntent": "Approved distinct foundation, strategy, execution or look-through objective; ETF definition does not replace trading comparison.",
+      "sourceCheck": "Bulletin 29 april 2025: separata rubriker om strategi, prissättning och handel; inga skatteavsnitt används.",
+      "narrowing": "No product recommendation, universal redemption rights or US tax rules transferred to Sweden; synthetic arithmetic only."
+    },
+    "fund-overlap": {
+      "distinctIntent": "Approved distinct foundation, strategy, execution or look-through objective; ETF definition does not replace trading comparison.",
+      "sourceCheck": "Fondgenomlysning och gemensamma innehav/korrelerade exponeringar; kompletterat med uttrycklig viktad syntetisk algebra.",
+      "narrowing": "No product recommendation, universal redemption rights or US tax rules transferred to Sweden; synthetic arithmetic only."
+    }
+  },
+  "ids": [
+    "asset-ownership",
+    "risk-horizon",
+    "liquidity",
+    "fund",
+    "etf",
+    "index",
+    "active-passive",
+    "fund-etf",
+    "fund-overlap"
+  ]
+}

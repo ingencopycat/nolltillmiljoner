@@ -1,0 +1,131 @@
+{
+  "id": "cash-flow-statement",
+  "question": "Vad visar en kassaflödesanalys?",
+  "intent": "definition",
+  "category": "reports",
+  "conceptRefs": [
+    "cash-flow-statement"
+  ],
+  "concepts": [
+    "financial-statements",
+    "fcf"
+  ],
+  "relatedLessonIds": [
+    "financial-statements",
+    "fcf"
+  ],
+  "aliases": [
+    "kassaflödesanalys",
+    "cash flow statement",
+    "Vad är en kassaflödesanalys?"
+  ],
+  "shortAnswer": "Kassaflödesanalysen visar in- och utbetalningar under en period och hjälper dig att följa förändringen i kassa och likvida medel. Flödena delas in i löpande verksamhet, investeringsverksamhet och finansieringsverksamhet.",
+  "fullAnswer": "Löpande verksamhet handlar om verksamhetens betalningar. Investeringar kan omfatta kontanta köp av långlivade tillgångar, medan finansiering kan omfatta lån och återbetalningar. Med indirekt metod stäms ett resultatmått av genom justeringar för bland annat poster utan betalning, rörelsekapital och poster vars betalningar hör till andra delar. Läs vilket resultatmått rapporten utgår från.",
+  "example": "Löpande verksamhet +300, investeringar −180 och finansiering −50 ger 300 − 180 − 50 = +70. Om inga valutakurseffekter eller andra avstämningsposter finns i detta förenklade exempel ökar kassa och likvida medel med 70 under perioden.",
+  "caveats": "Klassificering och startpunkt i avstämningen kan skilja sig mellan regelverk och tillämpade versioner. Anta inte att US GAAP och IFRS alltid placerar varje betalning lika. Affärer utan betalning är inte kassaflöden. Läs även avstämningen mot balansräkningen; positivt kassaflöde är inget omdöme om aktiens pris.",
+  "relatedAnswers": [
+    {
+      "id": "balance-sheet",
+      "type": "prerequisite"
+    },
+    {
+      "id": "income-statement",
+      "type": "prerequisite"
+    },
+    {
+      "id": "profit-versus-cash",
+      "type": "common-confusion"
+    },
+    {
+      "id": "working-capital",
+      "type": "deeper"
+    },
+    {
+      "id": "capex",
+      "type": "related-metric"
+    },
+    {
+      "id": "fcf",
+      "type": "related-metric"
+    }
+  ],
+  "sources": [
+    {
+      "title": "IFRS Foundation: IAS 7, översikt och standardhistorik",
+      "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+      "reviewedAt": "2026-09-19",
+      "type": "methodology",
+      "authority": "primary",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "example",
+        "caveats"
+      ],
+      "evidenceStatus": "checked",
+      "checked": "About: kassa/likvida medel, tre verksamhetskategorier, indirekt metod, transaktioner utan betalning och avstämning mot finansiell ställning. Standard history beskriver ändrad startpunkt och klassificering genom IFRS 18.",
+      "limitations": "Översikten ersätter inte fullständig IAS 7 eller US GAAP. +70 är NTM:s separat kontrollerade illustration under uttryckliga antaganden."
+    },
+    {
+      "title": "SEC: Beginners’ Guide to Financial Statements",
+      "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+      "reviewedAt": "2026-09-19",
+      "type": "methodology",
+      "authority": "primary",
+      "supports": [
+        "fullAnswer",
+        "caveats"
+      ],
+      "evidenceStatus": "checked",
+      "checked": "Cash Flow Statements, Operating/Investing/Financing Activities: grundmekanismer och en amerikansk introduktion med nettoresultatavstämning.",
+      "limitations": "Inte grund för att likställa all klassificering mellan regelverk eller att bedöma en aktie."
+    },
+    {
+      "title": "IFRS Foundation: IFRS 18, tillämpning och presentation",
+      "url": "https://www.ifrs.org/issued-standards/list-of-standards/ifrs-18-presentation-and-disclosure-in-financial-statements/",
+      "reviewedAt": "2026-09-19",
+      "type": "methodology",
+      "authority": "primary",
+      "supports": [
+        "caveats"
+      ],
+      "evidenceStatus": "checked",
+      "checked": "About: tillämpningsdatum och tidigare tillämpning; läs tillsammans med IAS 7:s standardhistorik.",
+      "limitations": "Ingen aktuell rapport antas ha valt en viss version utan kontroll."
+    }
+  ],
+  "slug": "cash-flow-statement",
+  "relatedEntityIds": [
+    "research-nvda"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2026-12-31",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Owner-approved Batch 1A scope supplied 2026-09-19; primary evidence and synthetic arithmetic checked by Codex on the same date. Assumptions narrowed explicitly; no independent human source review claimed. Methodology cadence 180 days, advanced to 2026-12-31 before the IFRS 18 transition."
+  }
+}

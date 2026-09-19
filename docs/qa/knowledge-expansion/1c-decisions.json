@@ -1,0 +1,32 @@
+{
+  "date": "2026-09-19",
+  "batch": "1c",
+  "decisions": {
+    "fact-assumption": {
+      "distinctIntent": "Field-level process beyond the existing thesis overview; no duplicate answer created.",
+      "sourceCheck": "Explicit mapped public passages and local product contract read.",
+      "narrowing": "NTM workflow clearly distinguished from universal investment practice."
+    },
+    "scenario-design": {
+      "distinctIntent": "Field-level process beyond the existing thesis overview; no duplicate answer created.",
+      "sourceCheck": "Explicit mapped public passages and local product contract read.",
+      "narrowing": "Revenue/margin example is not described as current calculator fields or a complete EPS bridge."
+    },
+    "falsification": {
+      "distinctIntent": "Field-level application beyond the existing thesis overview; no duplicate answer created.",
+      "sourceCheck": "Explicit mapped public passages and local product contract read.",
+      "narrowing": "Documentation visibility, not proven elimination or reduction of user bias."
+    },
+    "source-provenance": {
+      "distinctIntent": "Field-level process beyond the existing thesis overview; no duplicate answer created.",
+      "sourceCheck": "Explicit mapped public passages and local product contract read.",
+      "narrowing": "NTM workflow clearly distinguished from universal investment practice."
+    }
+  },
+  "ids": [
+    "fact-assumption",
+    "scenario-design",
+    "falsification",
+    "source-provenance"
+  ]
+}

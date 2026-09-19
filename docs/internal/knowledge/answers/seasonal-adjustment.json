@@ -1,0 +1,95 @@
+{
+  "id": "seasonal-adjustment",
+  "question": "Vad betyder säsongsjusterat i ett makrosläpp?",
+  "intent": "definition",
+  "conceptRefs": [
+    "macro"
+  ],
+  "aliases": [
+    "Vad är säsongsjustering?",
+    "seasonally adjusted"
+  ],
+  "shortAnswer": "Säsongsjustering försöker ta bort återkommande säsongs- och kalendermönster så att andra förändringar blir lättare att jämföra. Det är inte samma sak som inflationsjustering och innebär inte att alla tillfälliga händelser har försvunnit.",
+  "fullAnswer": "En serie kan påverkas regelbundet av exempelvis helger eller produktionscykler. En statistisk metod uppskattar dessa mönster och justerar observationerna. Läs därför både serieetikett och metod. För amerikanska CPI anger BLS att säsongsjusterade serier kan revideras när nya säsongsfaktorer beräknas.",
+  "example": "Syntetiskt: en återkommande uppgång samma tid varje år kan delvis vara säsong. En justerad serie försöker skilja detta regelbundna mönster från övrig förändring. Exemplet anger ingen exakt justeringsfaktor.",
+  "caveats": "Justering är en skattning, inte en direkt observerad sanning. Ojusterat kan vara rätt för en annan fråga, exempelvis en viss indexklausul enligt dess villkor. Blanda inte justerad och ojusterad basis eller olika publiceringsversioner.",
+  "relatedAnswers": [
+    {
+      "id": "mom-yoy",
+      "type": "prerequisite"
+    },
+    {
+      "id": "macro-revisions",
+      "type": "next-question"
+    }
+  ],
+  "sources": [
+    {
+      "title": "BLS: Using seasonally adjusted and unadjusted data",
+      "url": "https://www.bls.gov/cpi/seasonal-adjustment/using-seasonally-adjusted-data.htm",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "How to Use och Revision of Seasonally Adjusted Indexes: återkommande säsongsmönster och årlig omräkning.",
+      "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "macro",
+  "concepts": [
+    "inflation"
+  ],
+  "relatedLessonIds": [
+    "inflation"
+  ],
+  "jurisdiction": "US",
+  "reviewDue": "2026-12-31",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "slug": "seasonal-adjustment",
+  "relatedEntityIds": [
+    "macro-calendar"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "period": "timeless",
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

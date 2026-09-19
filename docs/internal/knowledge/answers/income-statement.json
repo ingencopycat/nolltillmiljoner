@@ -1,0 +1,133 @@
+{
+  "id": "income-statement",
+  "question": "Vad visar en resultaträkning?",
+  "intent": "definition",
+  "category": "reports",
+  "conceptRefs": [
+    "income-statement"
+  ],
+  "concepts": [
+    "financial-statements",
+    "revenue",
+    "eps"
+  ],
+  "relatedLessonIds": [
+    "financial-statements",
+    "revenue",
+    "eps"
+  ],
+  "aliases": [
+    "resultaträkning",
+    "income statement",
+    "Vad är en resultaträkning?"
+  ],
+  "shortAnswer": "En resultaträkning visar intäkter, kostnader och resultat under en period. Omsättning är inte samma sak som rörelseresultat eller nettoresultat, och EPS uttrycker ett resultat per aktie. Vinst är inte samma sak som ökad kassa.",
+  "fullAnswer": "I en förenklad läsning börjar du med omsättningen och följer kostnaderna ned till rörelseresultatet. Finansnetto och skatt påverkar sedan nettoresultatet. EPS använder ett resultat hänförligt till stamaktieägarna och en aktiebas för perioden; kontrollera grundläggande eller utspädd EPS. Resultatet behöver jämföras med kassaflödesanalysen eftersom redovisning och betalning inte alltid sker samtidigt.",
+  "example": "Anta omsättning 1 000 och sammanlagda kostnader 800, inklusive alla kostnader och skatt, utan andra intäkter. Nettoresultatet blir 1 000 − 800 = 200. Det betyder inte att kassan ökade med 200; exemplet säger inget om betalningarnas tidpunkt eller investeringar.",
+  "caveats": "Ordning, benämningar och delsummeringar kan bero på redovisningsregelverk och verksamhet. Den förenklade kedjan är ingen universell rapportmall. Läs definitionerna och använd samma period. För EPS behövs rätt resultat- och aktiebas, inte bara nettoresultatet delat med aktierna på balansdagen.",
+  "relatedAnswers": [
+    {
+      "id": "balance-sheet",
+      "type": "prerequisite"
+    },
+    {
+      "id": "cash-flow-statement",
+      "type": "next-question"
+    },
+    {
+      "id": "profit-versus-cash",
+      "type": "common-confusion"
+    },
+    {
+      "id": "revenue",
+      "type": "related-metric"
+    },
+    {
+      "id": "eps",
+      "type": "related-metric"
+    },
+    {
+      "id": "margins",
+      "type": "related-metric"
+    }
+  ],
+  "sources": [
+    {
+      "title": "SEC: Beginners’ Guide to Financial Statements",
+      "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+      "reviewedAt": "2026-09-19",
+      "type": "methodology",
+      "authority": "primary",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "example"
+      ],
+      "evidenceStatus": "checked",
+      "checked": "Income Statements och Cash Flow Statements: intäkter, kostnader, delresultat samt skillnaden mellan resultat och betalningar. Det syntetiska 1 000 − 800 = 200 har kontrollerats separat.",
+      "limitations": "SEC:s förenklade EPS-beskrivning används inte som exakt aktiebas; IAS 33 stöder den preciseringen."
+    },
+    {
+      "title": "IFRS Foundation: IAS 33 Earnings per Share",
+      "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/",
+      "reviewedAt": "2026-09-19",
+      "type": "methodology",
+      "authority": "primary",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "evidenceStatus": "checked",
+      "checked": "About: EPS-resultat hänförligt till stamaktieägare, grundläggande/utspädd EPS och periodens vägda aktiebas.",
+      "limitations": "Översikt, inte en komplett EPS-beräkning eller en ny exekverbar formel."
+    },
+    {
+      "title": "IFRS Foundation: IFRS 18, tillämpning och presentation",
+      "url": "https://www.ifrs.org/issued-standards/list-of-standards/ifrs-18-presentation-and-disclosure-in-financial-statements/",
+      "reviewedAt": "2026-09-19",
+      "type": "methodology",
+      "authority": "primary",
+      "supports": [
+        "caveats"
+      ],
+      "evidenceStatus": "checked",
+      "checked": "About: IFRS 18 ändrar presentation och definierade delsummeringar; tillämpning från perioder som börjar 2027-01-01, tidigare tillämpning tillåten.",
+      "limitations": "Stöder behovet att kontrollera regelverk och tillämpning, inte att US GAAP och IFRS är identiska."
+    }
+  ],
+  "slug": "income-statement",
+  "relatedEntityIds": [
+    "research-nvda"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2026-12-31",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Owner-approved Batch 1A scope supplied 2026-09-19; primary evidence and synthetic arithmetic checked by Codex on the same date. Assumptions narrowed explicitly; no independent human source review claimed. Methodology cadence 180 days, advanced to 2026-12-31 before the IFRS 18 transition."
+  }
+}

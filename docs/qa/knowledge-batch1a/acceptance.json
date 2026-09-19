@@ -1,0 +1,124 @@
+{
+  "date": "2026-09-19",
+  "ownerAuthorization": "Batch 1A task explicitly approves the six substantive scopes, examples, limitations and relationships; permits factual narrowing; requires source verification.",
+  "created": [
+    {
+      "id": "balance-sheet",
+      "status": "reviewed",
+      "contentVersion": 1,
+      "reviewedAt": "2026-09-19",
+      "reviewDue": "2026-12-31",
+      "reviewPolicy": {
+        "risk": "methodology",
+        "overdue": "label"
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "accepted",
+        "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+        "reviewedAt": "2026-09-19",
+        "changeNote": "Owner-approved Batch 1A scope supplied 2026-09-19; primary evidence and synthetic arithmetic checked by Codex on the same date. Assumptions narrowed explicitly; no independent human source review claimed. Methodology cadence 180 days, advanced to 2026-12-31 before the IFRS 18 transition."
+      },
+      "fingerprint": "6da9cbf34887cdef4bd91aee95dff119d2324fdb0c75736262385cbe5f927965"
+    },
+    {
+      "id": "income-statement",
+      "status": "reviewed",
+      "contentVersion": 1,
+      "reviewedAt": "2026-09-19",
+      "reviewDue": "2026-12-31",
+      "reviewPolicy": {
+        "risk": "methodology",
+        "overdue": "label"
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "accepted",
+        "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+        "reviewedAt": "2026-09-19",
+        "changeNote": "Owner-approved Batch 1A scope supplied 2026-09-19; primary evidence and synthetic arithmetic checked by Codex on the same date. Assumptions narrowed explicitly; no independent human source review claimed. Methodology cadence 180 days, advanced to 2026-12-31 before the IFRS 18 transition."
+      },
+      "fingerprint": "50615eb986f2ce782a35736c81c70f6b8531fd7c71a21ee6b0d4d456cfe08e9a"
+    },
+    {
+      "id": "cash-flow-statement",
+      "status": "reviewed",
+      "contentVersion": 1,
+      "reviewedAt": "2026-09-19",
+      "reviewDue": "2026-12-31",
+      "reviewPolicy": {
+        "risk": "methodology",
+        "overdue": "label"
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "accepted",
+        "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+        "reviewedAt": "2026-09-19",
+        "changeNote": "Owner-approved Batch 1A scope supplied 2026-09-19; primary evidence and synthetic arithmetic checked by Codex on the same date. Assumptions narrowed explicitly; no independent human source review claimed. Methodology cadence 180 days, advanced to 2026-12-31 before the IFRS 18 transition."
+      },
+      "fingerprint": "4247bbda3aba354cf2ef93318c026adcc58ef3a5a1ff95f8e607e6991e6ce085"
+    },
+    {
+      "id": "profit-versus-cash",
+      "status": "reviewed",
+      "contentVersion": 1,
+      "reviewedAt": "2026-09-19",
+      "reviewDue": "2026-12-31",
+      "reviewPolicy": {
+        "risk": "methodology",
+        "overdue": "label"
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "accepted",
+        "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+        "reviewedAt": "2026-09-19",
+        "changeNote": "Owner-approved Batch 1A scope supplied 2026-09-19; primary evidence and synthetic arithmetic checked by Codex on the same date. Assumptions narrowed explicitly; no independent human source review claimed. Methodology cadence 180 days, advanced to 2026-12-31 before the IFRS 18 transition."
+      },
+      "fingerprint": "ae3b30e2887f86b47e60a98b8a20ab2ff5bf312a387a9ef6bde242d3ba824f4a"
+    },
+    {
+      "id": "capex",
+      "status": "reviewed",
+      "contentVersion": 1,
+      "reviewedAt": "2026-09-19",
+      "reviewDue": "2026-12-31",
+      "reviewPolicy": {
+        "risk": "methodology",
+        "overdue": "label"
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "accepted",
+        "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+        "reviewedAt": "2026-09-19",
+        "changeNote": "Owner-approved Batch 1A scope supplied 2026-09-19; primary evidence and synthetic arithmetic checked by Codex on the same date. Assumptions narrowed explicitly; no independent human source review claimed. Methodology cadence 180 days, advanced to 2026-12-31 before the IFRS 18 transition."
+      },
+      "fingerprint": "7cd4729c332252cfdd8ee20db9a12cba2161c87fd31c905879cfdccbfb4dde1a"
+    },
+    {
+      "id": "working-capital",
+      "status": "reviewed",
+      "contentVersion": 1,
+      "reviewedAt": "2026-09-19",
+      "reviewDue": "2026-12-31",
+      "reviewPolicy": {
+        "risk": "methodology",
+        "overdue": "label"
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "accepted",
+        "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+        "reviewedAt": "2026-09-19",
+        "changeNote": "Owner-approved Batch 1A scope supplied 2026-09-19; primary evidence and synthetic arithmetic checked by Codex on the same date. Assumptions narrowed explicitly; no independent human source review claimed. Methodology cadence 180 days, advanced to 2026-12-31 before the IFRS 18 transition."
+      },
+      "fingerprint": "c1eace1a7cc62d022156f9d7980ee4a93ab69a1482d647de5a3c344387758dd9"
+    }
+  ],
+  "old29FingerprintsReviewsAndSchedulesUnchanged": true,
+  "localCanonicalCount": 35,
+  "registeredConceptCount": 30,
+  "liveProductionChanged": false
+}

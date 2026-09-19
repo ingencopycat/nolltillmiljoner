@@ -1,0 +1,946 @@
+{
+  "date": "2026-09-19",
+  "ids": [
+    "discounting",
+    "cashflow-return",
+    "sequence-risk",
+    "price-value",
+    "order-spread",
+    "split-dilution",
+    "index-weighting"
+  ],
+  "schema": true,
+  "math": {
+    "passed": true,
+    "method": "Independent Python Decimal; explicit units/timing in prose, no runtime executor added",
+    "checks": [
+      {
+        "expression": "100 discounted five years at 5 percent",
+        "result": "78.35",
+        "expected": "78.35"
+      },
+      {
+        "expression": "100 discounted five years at 10 percent",
+        "result": "62.09",
+        "expected": "62.09"
+      },
+      {
+        "expression": "withdraw after returns down then up",
+        "result": "77.500",
+        "expected": "77.5"
+      },
+      {
+        "expression": "withdraw after returns up then down",
+        "result": "82.000",
+        "expected": "82"
+      },
+      {
+        "expression": "no withdrawals",
+        "result": "100.000",
+        "expected": "100"
+      },
+      {
+        "expression": "market cap low price",
+        "result": "10000",
+        "expected": "10000"
+      },
+      {
+        "expression": "market cap higher price",
+        "result": "5000",
+        "expected": "5000"
+      },
+      {
+        "expression": "spread",
+        "result": "2",
+        "expected": "2"
+      },
+      {
+        "expression": "spread midpoint percent",
+        "result": "2.00",
+        "expected": "2"
+      },
+      {
+        "expression": "split before value",
+        "result": "10000",
+        "expected": "10000"
+      },
+      {
+        "expression": "split after value",
+        "result": "10000",
+        "expected": "10000"
+      },
+      {
+        "expression": "diluted ownership percent",
+        "result": "8.00",
+        "expected": "8"
+      },
+      {
+        "expression": "eligible cap weights total",
+        "result": "100",
+        "expected": "100"
+      }
+    ]
+  },
+  "retrieval": [
+    {
+      "query": "Varför påverkar avkastningskravet ett framtida belopps nuvärde?",
+      "kind": "ANSWER",
+      "answerId": "discounting",
+      "passed": true
+    },
+    {
+      "query": "diskontering och avkastningskrav",
+      "kind": "ANSWER",
+      "answerId": "discounting",
+      "passed": true
+    },
+    {
+      "query": "Varför räcker inte CAGR när jag sätter in eller tar ut pengar?",
+      "kind": "ANSWER",
+      "answerId": "cashflow-return",
+      "passed": true
+    },
+    {
+      "query": "CAGR med insättningar",
+      "kind": "ANSWER",
+      "answerId": "cashflow-return",
+      "passed": true
+    },
+    {
+      "query": "Varför spelar avkastningens ordning roll när jag gör uttag?",
+      "kind": "ANSWER",
+      "answerId": "sequence-risk",
+      "passed": true
+    },
+    {
+      "query": "sekvensrisk vid uttag",
+      "kind": "ANSWER",
+      "answerId": "sequence-risk",
+      "passed": true
+    },
+    {
+      "query": "Är en aktie med låg kurs automatiskt billig?",
+      "kind": "ANSWER",
+      "answerId": "price-value",
+      "passed": true
+    },
+    {
+      "query": "låg aktiekurs betyder inte billig",
+      "kind": "ANSWER",
+      "answerId": "price-value",
+      "passed": true
+    },
+    {
+      "query": "Vad är köp- och säljspread?",
+      "kind": "ANSWER",
+      "answerId": "order-spread",
+      "passed": true
+    },
+    {
+      "query": "Vad är bid ask spread?",
+      "kind": "ANSWER",
+      "answerId": "order-spread",
+      "passed": true
+    },
+    {
+      "query": "Vad skiljer en aktiesplit från utspädning?",
+      "kind": "ANSWER",
+      "answerId": "split-dilution",
+      "passed": true
+    },
+    {
+      "query": "split vs utspädning",
+      "kind": "ANSWER",
+      "answerId": "split-dilution",
+      "passed": true
+    },
+    {
+      "query": "Vad betyder det att ett index är börsvärdesviktat?",
+      "kind": "ANSWER",
+      "answerId": "index-weighting",
+      "passed": true
+    },
+    {
+      "query": "börsvärdesviktat index",
+      "kind": "ANSWER",
+      "answerId": "index-weighting",
+      "passed": true
+    },
+    {
+      "query": "Ska jag köpa en aktie med låg kurs?",
+      "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+      "answerId": null,
+      "passed": true
+    }
+  ],
+  "duplicates": [
+    {
+      "ids": [
+        "pe",
+        "peg"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "pe"
+      ],
+      "similarity": 0.5,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "eps",
+        "dilution"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "eps"
+      ],
+      "similarity": 0.14285714285714285,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "cagr",
+        "arithmetic-geometric"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "cagr",
+        "return"
+      ],
+      "similarity": 0.3333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "cagr",
+        "nominal-real"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "return"
+      ],
+      "similarity": 0.5,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "dilution",
+        "asset-ownership"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "shares"
+      ],
+      "similarity": 0.09090909090909091,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "market-cap",
+        "index-weighting"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "market-cap"
+      ],
+      "similarity": 0.2222222222222222,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "guidance",
+        "estimates"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "outlook"
+      ],
+      "similarity": 0.1,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "debt",
+        "debt-maturity"
+      ],
+      "intents": [
+        "interpretation",
+        "interpretation"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "debt"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fees",
+        "annual-fees"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "fees"
+      ],
+      "similarity": 0.14285714285714285,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "forward",
+        "guidance-consensus"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "outlook"
+      ],
+      "similarity": 0.3333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "forward",
+        "pe-versus-ps"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "pe"
+      ],
+      "similarity": 0.5,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "interest-rates",
+        "bond-yields"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "rates"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "fact-assumption"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.15384615384615385,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "scenario-design"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "source-provenance"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "update-thesis"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.0625,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "eps-comparison",
+        "reported-adjusted"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "eps"
+      ],
+      "similarity": 0.08333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "compounding",
+        "loss-recovery"
+      ],
+      "intents": [
+        "calculation",
+        "calculation"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "compounding"
+      ],
+      "similarity": 0.07692307692307693,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "annual-fees",
+        "contribution-timing"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "compounding"
+      ],
+      "similarity": 0.07142857142857142,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "macro-releases",
+        "seasonal-adjustment"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0.08333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "active-passive",
+        "fund-etf"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "fund"
+      ],
+      "similarity": 0.25,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "arithmetic-geometric",
+        "nominal-real"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "return"
+      ],
+      "similarity": 0.2,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "cpi-pce",
+        "headline-core"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "macro",
+        "inflation"
+      ],
+      "similarity": 0.3,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "cpi-pce",
+        "jobs-unemployment"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "cpi-pce",
+        "mom-yoy"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0.3333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "cpi-pce",
+        "nominal-real"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "inflation"
+      ],
+      "similarity": 0.3,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "cpi-pce",
+        "real-nominal-gdp"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0.3,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "estimate-age",
+        "guidance-revision"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "outlook"
+      ],
+      "similarity": 0.11764705882352941,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "etf",
+        "fund"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "fund"
+      ],
+      "similarity": 0.6,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fact-assumption",
+        "scenario-design"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.125,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fact-assumption",
+        "source-provenance"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.0625,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fact-assumption",
+        "update-thesis"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.17647058823529413,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "falsification",
+        "report-snapshot"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.047619047619047616,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "falsification",
+        "valuation-sensitivity"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.1875,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "headline-core",
+        "jobs-unemployment"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "headline-core",
+        "mom-yoy"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0.375,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "headline-core",
+        "nominal-real"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "inflation"
+      ],
+      "similarity": 0.3333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "headline-core",
+        "real-nominal-gdp"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0.3333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "index-weighting",
+        "index"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "index"
+      ],
+      "similarity": 0.3333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "jobs-unemployment",
+        "mom-yoy"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "jobs-unemployment",
+        "real-nominal-gdp"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "mom-yoy",
+        "real-nominal-gdp"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0.375,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "nominal-real",
+        "real-nominal-gdp"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [],
+      "similarity": 0.7142857142857143,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "pe-losses",
+        "peg-limitations"
+      ],
+      "intents": [
+        "limitation",
+        "limitation"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "pe"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "report-snapshot",
+        "valuation-sensitivity"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.05,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "scenario-design",
+        "source-provenance"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.0625,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "scenario-design",
+        "update-thesis"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.1111111111111111,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "source-provenance",
+        "update-thesis"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.05555555555555555,
+      "action": "editorial-review-only"
+    }
+  ]
+}

@@ -1,0 +1,901 @@
+{
+  "date": "2026-09-19",
+  "scope": "Only new 59 navigation fields; content/history preserved",
+  "changes": [
+    {
+      "id": "fact-assumption",
+      "previousLessons": [
+        "thesis"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "thesis"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "falsification",
+      "previousLessons": [
+        "thesis"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "thesis"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "source-provenance",
+      "previousLessons": [
+        "thesis"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "thesis"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "update-thesis",
+      "previousLessons": [
+        "report"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "thesis"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "scenario-probability",
+      "previousLessons": [
+        "report"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "thesis"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "report-snapshot",
+      "previousLessons": [
+        "report"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "thesis"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "scenario-design",
+      "previousLessons": [
+        "thesis",
+        "pe"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "scenarios"
+      ],
+      "entities": [
+        "tool-scenarios"
+      ]
+    },
+    {
+      "id": "valuation-sensitivity",
+      "previousLessons": [
+        "report"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "scenarios"
+      ],
+      "entities": [
+        "tool-scenarios"
+      ]
+    },
+    {
+      "id": "guidance-consensus",
+      "previousLessons": [
+        "forward-metrics",
+        "report"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "forward-metrics"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "earnings-surprise",
+      "previousLessons": [
+        "report",
+        "eps"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "forward-metrics"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "estimate-age",
+      "previousLessons": [
+        "forward-metrics",
+        "report"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "forward-metrics"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "estimate-dispersion",
+      "previousLessons": [
+        "report"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "forward-metrics"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "guidance-revision",
+      "previousLessons": [
+        "report"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "forward-metrics"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "fiscal-calendar",
+      "previousLessons": [
+        "report"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "forward-metrics"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "ttm-construction",
+      "previousLessons": [
+        "forward-metrics",
+        "financial-statements"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "forward-metrics"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "nominal-real",
+      "previousLessons": [
+        "inflation",
+        "avkastning"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "avkastning"
+      ],
+      "entities": [
+        "tool-return"
+      ]
+    },
+    {
+      "id": "arithmetic-geometric",
+      "previousLessons": [
+        "compounding",
+        "cagr"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "avkastning"
+      ],
+      "entities": [
+        "tool-return"
+      ]
+    },
+    {
+      "id": "cashflow-return",
+      "previousLessons": [
+        "avkastning"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "avkastning"
+      ],
+      "entities": [
+        "tool-return"
+      ]
+    },
+    {
+      "id": "drawdown",
+      "previousLessons": [
+        "diversifiering"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "risk"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "loss-recovery",
+      "previousLessons": [
+        "diversifiering"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "risk"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "volatility-risk",
+      "previousLessons": [
+        "diversifiering"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "risk"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "concentration",
+      "previousLessons": [
+        "diversifiering"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "risk"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "leverage-downside",
+      "previousLessons": [
+        "diversifiering"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "risk"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "risk-horizon",
+      "previousLessons": [
+        "diversifiering"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "risk"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "liquidity",
+      "previousLessons": [
+        "diversifiering"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "risk"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "contribution-timing",
+      "previousLessons": [
+        "compounding",
+        "cagr"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "compounding"
+      ],
+      "entities": [
+        "tool-compound"
+      ]
+    },
+    {
+      "id": "fee-double-count",
+      "previousLessons": [
+        "compounding",
+        "cagr"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "fees"
+      ],
+      "entities": [
+        "tool-fees"
+      ]
+    },
+    {
+      "id": "savings-target",
+      "previousLessons": [
+        "compounding",
+        "cagr"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "compounding"
+      ],
+      "entities": [
+        "workflow-goal-followup"
+      ]
+    },
+    {
+      "id": "asset-ownership",
+      "previousLessons": [
+        "diversifiering"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "aktier"
+      ],
+      "entities": [
+        "tool-purchase"
+      ]
+    },
+    {
+      "id": "price-value",
+      "previousLessons": [
+        "avkastning"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "aktier"
+      ],
+      "entities": [
+        "tool-purchase"
+      ]
+    },
+    {
+      "id": "fund",
+      "previousLessons": [
+        "diversifiering"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "fonder"
+      ],
+      "entities": [
+        "tool-fees"
+      ]
+    },
+    {
+      "id": "active-passive",
+      "previousLessons": [
+        "diversifiering"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "fonder"
+      ],
+      "entities": [
+        "tool-fees"
+      ]
+    },
+    {
+      "id": "etf",
+      "previousLessons": [
+        "diversifiering"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "etf"
+      ],
+      "entities": [
+        "tool-fees"
+      ]
+    },
+    {
+      "id": "fund-etf",
+      "previousLessons": [
+        "diversifiering"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "etf"
+      ],
+      "entities": [
+        "tool-fees"
+      ]
+    },
+    {
+      "id": "index",
+      "previousLessons": [
+        "diversifiering"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "diversifiering"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "index-weighting",
+      "previousLessons": [
+        "avkastning"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "diversifiering"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "fund-overlap",
+      "previousLessons": [
+        "diversifiering"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "diversifiering"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "cpi-pce",
+      "previousLessons": [
+        "inflation"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "inflation"
+      ],
+      "entities": [
+        "macro-calendar"
+      ]
+    },
+    {
+      "id": "headline-core",
+      "previousLessons": [
+        "inflation"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "inflation"
+      ],
+      "entities": [
+        "macro-calendar"
+      ]
+    },
+    {
+      "id": "mom-yoy",
+      "previousLessons": [
+        "inflation"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "inflation"
+      ],
+      "entities": [
+        "macro-calendar"
+      ]
+    },
+    {
+      "id": "seasonal-adjustment",
+      "previousLessons": [
+        "inflation"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "inflation"
+      ],
+      "entities": [
+        "macro-calendar"
+      ]
+    },
+    {
+      "id": "macro-revisions",
+      "previousLessons": [
+        "inflation"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "inflation"
+      ],
+      "entities": [
+        "macro-calendar"
+      ]
+    },
+    {
+      "id": "jobs-unemployment",
+      "previousLessons": [
+        "inflation"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "inflation"
+      ],
+      "entities": [
+        "macro-calendar"
+      ]
+    },
+    {
+      "id": "real-nominal-gdp",
+      "previousLessons": [
+        "inflation"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "inflation"
+      ],
+      "entities": [
+        "macro-calendar"
+      ]
+    },
+    {
+      "id": "macro-no-forecast",
+      "previousLessons": [
+        "inflation"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "inflation"
+      ],
+      "entities": [
+        "macro-calendar"
+      ]
+    },
+    {
+      "id": "revenue-growth",
+      "previousLessons": [
+        "report"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "revenue"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "ebit-ebitda",
+      "previousLessons": [
+        "financial-statements"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "financial-statements"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "gross-margin",
+      "previousLessons": [
+        "financial-statements"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "financial-statements"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "debt-maturity",
+      "previousLessons": [
+        "financial-statements"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "financial-statements"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "enterprise-value",
+      "previousLessons": [
+        "financial-statements"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "enterprise-value"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "ev-market-cap",
+      "previousLessons": [
+        "financial-statements"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "enterprise-value"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "ev-ebitda-limits",
+      "previousLessons": [
+        "financial-statements"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "enterprise-value"
+      ],
+      "entities": [
+        "workflow-manual-thesis"
+      ]
+    },
+    {
+      "id": "peg-limitations",
+      "previousLessons": [
+        "financial-statements"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "pe"
+      ],
+      "entities": [
+        "tool-valuation"
+      ]
+    },
+    {
+      "id": "discounting",
+      "previousLessons": [
+        "avkastning"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "scenarios"
+      ],
+      "entities": [
+        "tool-valuation"
+      ]
+    },
+    {
+      "id": "sequence-risk",
+      "previousLessons": [
+        "avkastning"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "avkastning"
+      ],
+      "entities": [
+        "tool-return"
+      ]
+    },
+    {
+      "id": "order-spread",
+      "previousLessons": [
+        "avkastning"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "fees"
+      ],
+      "entities": [
+        "tool-purchase"
+      ]
+    },
+    {
+      "id": "split-dilution",
+      "previousLessons": [
+        "avkastning"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "dilution"
+      ],
+      "entities": [
+        "tool-purchase"
+      ]
+    },
+    {
+      "id": "isk-inputs",
+      "previousLessons": [
+        "isk"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "isk"
+      ],
+      "entities": [
+        "tool-tax"
+      ]
+    },
+    {
+      "id": "isk-year-scope",
+      "previousLessons": [
+        "isk"
+      ],
+      "previousEntities": [
+        "research-nvda"
+      ],
+      "lessons": [
+        "isk"
+      ],
+      "entities": [
+        "tool-tax"
+      ]
+    }
+  ]
+}

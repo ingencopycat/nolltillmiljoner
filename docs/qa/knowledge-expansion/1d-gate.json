@@ -1,0 +1,339 @@
+{
+  "date": "2026-09-19",
+  "ids": [
+    "guidance-consensus",
+    "earnings-surprise",
+    "ttm-construction",
+    "estimate-age"
+  ],
+  "schema": true,
+  "math": {
+    "passed": true,
+    "method": "Independent Python Decimal; explicit units/timing in prose, no runtime executor added",
+    "checks": [
+      {
+        "expression": "2.20 - 2.00",
+        "result": "0.20",
+        "expected": "0.20"
+      },
+      {
+        "expression": "(2.20 - 2.00) / abs(2.00) * 100",
+        "result": "10.0",
+        "expected": "10"
+      },
+      {
+        "expression": "20 + 25 + 30 + 35",
+        "result": "110",
+        "expected": "110"
+      },
+      {
+        "expression": "invalid overlapping sum: 20 + 45 + 75 + 110",
+        "result": "250",
+        "expected": "250"
+      },
+      {
+        "expression": "45 - 20",
+        "result": "25",
+        "expected": "25"
+      },
+      {
+        "expression": "75 - 45",
+        "result": "30",
+        "expected": "30"
+      },
+      {
+        "expression": "110 + 55 - 45",
+        "result": "120",
+        "expected": "120"
+      }
+    ]
+  },
+  "retrieval": [
+    {
+      "query": "Vad skiljer bolagets guidance från analytikerkonsensus?",
+      "kind": "ANSWER",
+      "answerId": "guidance-consensus",
+      "passed": true
+    },
+    {
+      "query": "guidance vs konsensus",
+      "kind": "ANSWER",
+      "answerId": "guidance-consensus",
+      "passed": true
+    },
+    {
+      "query": "Hur jämför jag rapporterat utfall med ett daterat estimat?",
+      "kind": "ANSWER",
+      "answerId": "earnings-surprise",
+      "passed": true
+    },
+    {
+      "query": "Hur räknar jag rapportöverraskning?",
+      "kind": "ANSWER",
+      "answerId": "earnings-surprise",
+      "passed": true
+    },
+    {
+      "query": "Hur bygger jag TTM utan att dubbelräkna ackumulerade kvartal?",
+      "kind": "ANSWER",
+      "answerId": "ttm-construction",
+      "passed": true
+    },
+    {
+      "query": "Hur räknar jag TTM från YTD?",
+      "kind": "ANSWER",
+      "answerId": "ttm-construction",
+      "passed": true
+    },
+    {
+      "query": "Hur bedömer jag om ett estimat är för gammalt för min jämförelse?",
+      "kind": "ANSWER",
+      "answerId": "estimate-age",
+      "passed": true
+    },
+    {
+      "query": "Hur gammalt får ett estimat vara?",
+      "kind": "ANSWER",
+      "answerId": "estimate-age",
+      "passed": true
+    },
+    {
+      "query": "Ska jag köpa när bolaget slår estimaten?",
+      "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+      "answerId": null,
+      "passed": true
+    },
+    {
+      "query": "Vad är TTM?",
+      "kind": "ANSWER",
+      "answerId": "ttm",
+      "passed": true
+    }
+  ],
+  "duplicates": [
+    {
+      "ids": [
+        "pe",
+        "peg"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "pe"
+      ],
+      "similarity": 0.5,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "eps",
+        "dilution"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "eps"
+      ],
+      "similarity": 0.14285714285714285,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "guidance",
+        "estimates"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "outlook"
+      ],
+      "similarity": 0.1,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fees",
+        "annual-fees"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "fees"
+      ],
+      "similarity": 0.14285714285714285,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "forward",
+        "guidance-consensus"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "outlook"
+      ],
+      "similarity": 0.3333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "forward",
+        "pe-versus-ps"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "pe"
+      ],
+      "similarity": 0.5,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "interest-rates",
+        "bond-yields"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "rates"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "fact-assumption"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.15384615384615385,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "scenario-design"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "source-provenance"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "eps-comparison",
+        "reported-adjusted"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "eps"
+      ],
+      "similarity": 0.08333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fact-assumption",
+        "scenario-design"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.125,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fact-assumption",
+        "source-provenance"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.0625,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "scenario-design",
+        "source-provenance"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.0625,
+      "action": "editorial-review-only"
+    }
+  ]
+}

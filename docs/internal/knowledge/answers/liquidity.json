@@ -1,0 +1,95 @@
+{
+  "id": "liquidity",
+  "question": "Vad betyder likviditet för en investering?",
+  "intent": "definition",
+  "conceptRefs": [
+    "liquidity"
+  ],
+  "aliases": [
+    "Vad är marknadslikviditet?",
+    "likviditet i en aktie"
+  ],
+  "shortAnswer": "Här betyder likviditet hur lätt en investering kan köpas eller säljas, i önskad storlek och utan stor prispåverkan. Det är en annan fråga än bolagets likvida medel eller betalningsförmåga i balansräkningen.",
+  "fullAnswer": "Kontrollera hur handeln fungerar och vilka begränsningar som finns för försäljning eller inlösen. En liten affär kan vara lättare att genomföra än en stor i samma värdepapper. Tid till pengar och priset du faktiskt kan få behöver hållas isär från den senast visade kursen.",
+  "example": "Syntetiskt: en liten post kan säljas nära den synliga köpkursen, medan en mycket större post saknar tillräckligt många köpare där. Senaste kurs visar då inte automatiskt vilket pris hela posten kan säljas till.",
+  "caveats": "Historisk handelsvolym är ingen garanti för framtida likviditet. Under stress kan köpare försvinna eller villkor begränsa uttag. Likvid betyder inte riskfri, och en lättsåld investering kan fortfarande falla kraftigt i värde.",
+  "relatedAnswers": [
+    {
+      "id": "risk-horizon",
+      "type": "prerequisite"
+    },
+    {
+      "id": "volatility-risk",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Investor.gov: Liquidity (or Marketability)",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/liquidity-or-marketability",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Definitionen skiljer snabb försäljning, prispåverkan och risken att marknad saknas.",
+      "limitations": "Amerikansk investerarutbildning används för avgränsade begrepp. Inga skattefördelar, svenska rättsregler eller villkor för en viss fond härleds.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "risk",
+  "concepts": [
+    "risk"
+  ],
+  "relatedLessonIds": [
+    "risk"
+  ],
+  "slug": "liquidity",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-09-19",
+  "reviewPolicy": {
+    "risk": "stable",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

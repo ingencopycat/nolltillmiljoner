@@ -1,0 +1,102 @@
+{
+  "id": "price-value",
+  "question": "Är en aktie med låg kurs automatiskt billig?",
+  "intent": "misconception",
+  "conceptRefs": [
+    "market-cap",
+    "pe"
+  ],
+  "aliases": [
+    "låg aktiekurs betyder inte billig",
+    "billig kurs och börsvärde"
+  ],
+  "shortAnswer": "Nej. Kursen är priset för en aktie, inte värdet på alla aktier eller en bedömning av vad bolaget är värt. Antalet aktier och de ekonomiska förutsättningarna behövs för att tolka priset.",
+  "fullAnswer": "Börsvärdet fås av pris gånger utestående aktier på jämförbar basis. Det hjälper att skilja pris per del från hela aktiekapitalets marknadsvärde. Därefter återstår exempelvis vinst, kassaflöde, risk och antaganden. Inte heller lågt börsvärde bevisar att en investering är billig i förhållande till sitt värde.",
+  "example": "Syntetiskt: bolag A har kurs 10 och 1 000 aktier, börsvärde 10 000. Bolag B har kurs 100 och 50 aktier, börsvärde 5 000. A:s lägre kurs innebär alltså ett högre börsvärde i exemplet, utan att säga vilket bolag som är mer attraktivt.",
+  "caveats": "Aktieslag, split och förändrat antal aktier behöver kontrolleras. Ett pris eller en multipel ger ingen universell köpgräns. Exemplet jämför räkneenheter och är ingen värdering av verkliga bolag.",
+  "relatedAnswers": [
+    {
+      "id": "market-cap",
+      "type": "prerequisite"
+    },
+    {
+      "id": "pe-interpretation",
+      "type": "deeper"
+    },
+    {
+      "id": "split-dilution",
+      "type": "common-confusion"
+    }
+  ],
+  "sources": [
+    {
+      "title": "NTM: avgränsad beräkningsmetod",
+      "url": "https://nolltillmiljoner.se/aktiekopskalkylator.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats",
+        "example"
+      ],
+      "checked": "Befintlig market-cap-definition och oberoende pris × antal-exempel; inga verkliga kurser.",
+      "limitations": "Oberoende syntetisk algebra; ingen ny formelutvärderare, marknadsprognos eller individuell rekommendation.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "basics",
+  "concepts": [
+    "valuation",
+    "pe"
+  ],
+  "relatedLessonIds": [
+    "aktier"
+  ],
+  "slug": "price-value",
+  "relatedEntityIds": [
+    "tool-purchase"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

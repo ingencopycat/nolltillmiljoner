@@ -1,0 +1,119 @@
+{
+  "id": "estimate-dispersion",
+  "question": "Vad säger spridningen mellan analytikerestimat?",
+  "intent": "interpretation",
+  "conceptRefs": [
+    "outlook"
+  ],
+  "aliases": [
+    "spridning i konsensus",
+    "analytikerestimatens spridning"
+  ],
+  "shortAnswer": "Spridningen visar hur olika de inkluderade estimaten är på angiven basis och tidpunkt. Ett medelvärde eller en median kan dölja stora skillnader. Analytikernas estimat är däremot inte automatiskt en sannolikhetsfördelning för framtida utfall.",
+  "fullAnswer": "Kontrollera antal bidrag, målperiod, valuta, mått och uppdateringsdatum innan du tolkar skillnaderna. Redovisa vilken sammanfattning du använder, exempelvis min/max eller medelvärde. Olika definitioner eller gamla bidrag kan skapa skenbar spridning. En sammanställning beskriver det observerade urvalet, inte alla möjliga framtider.",
+  "example": "Syntetiskt: estimaten 8, 10 och 12 har samma medelvärde, 10, som 9, 10 och 11. Den första listan har större min–max-spann. Detta säger inget om sannolikheten att utfallet blir 10 eller om vilken lista som är mer träffsäker.",
+  "caveats": "Få bidrag, avrundning och leverantörens urval kan påverka bilden. Liten spridning är inte säkerhet och stor spridning bevisar inte fel. Metoden ger ingen aktuell konsensus, prognosintervall eller automatisk aktiesignal.",
+  "relatedAnswers": [
+    {
+      "id": "estimates",
+      "type": "prerequisite"
+    },
+    {
+      "id": "estimate-age",
+      "type": "prerequisite"
+    },
+    {
+      "id": "guidance-consensus",
+      "type": "common-confusion"
+    }
+  ],
+  "sources": [
+    {
+      "title": "LSEG: I/B/E/S Broker Estimates",
+      "url": "https://www.lseg.com/en/data-catalogue/company-data/ibes-estimates/broker-estimates",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Databeskrivningens bidrag, källor, datum, fiscal period och normaliseringsattribut; inga licensierade värden hämtas.",
+      "limitations": "Offentlig metadata räcker inte för att återskapa leverantörens fulla konsensusmetod.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "NTM: befintligt metodkontrakt",
+      "url": "https://nolltillmiljoner.se/research.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats",
+        "example"
+      ],
+      "checked": "Explicit syntetisk medelvärdes-/spannalgebra; inga sannolikheter tilldelas estimatlistan.",
+      "limitations": "Verifierat mot lokal implementation, inte en ny hosted-kontroll. Syntetiska exempel och NTM-metod, inte externa rekommendationer.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "reports",
+  "concepts": [
+    "forward-metrics"
+  ],
+  "relatedLessonIds": [
+    "forward-metrics"
+  ],
+  "reviewDue": "2026-12-31",
+  "slug": "estimate-dispersion",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "interpretation": {
+      "field": "fullAnswer",
+      "unsuitableField": "caveats"
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

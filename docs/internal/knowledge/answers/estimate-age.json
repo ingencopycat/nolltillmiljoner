@@ -1,0 +1,133 @@
+{
+  "id": "estimate-age",
+  "question": "Hur bedömer jag om ett estimat är för gammalt för min jämförelse?",
+  "intent": "process",
+  "category": "reports",
+  "conceptRefs": [
+    "outlook"
+  ],
+  "concepts": [
+    "forward-metrics"
+  ],
+  "relatedLessonIds": [
+    "forward-metrics"
+  ],
+  "aliases": [
+    "Hur gammalt får ett estimat vara?",
+    "estimatets observationsdatum"
+  ],
+  "reviewDue": "2026-12-31",
+  "shortAnswer": "Det finns ingen allmän daggräns som gör alla estimat inaktuella. Kontrollera när estimatet observerades, vilken period det avser och om viktig information kommit sedan dess. Visa datumet i stället för att tyst behandla ett gammalt estimat som dagens förväntan.",
+  "fullAnswer": "Spara leverantör, observationstid, mått, målperiod och basis. Undersök sedan om en ny rapport, ny guidance eller annan väsentlig bolagsinformation har kommit. Kontrollera om leverantören reviderat estimaten, bytt täckning/metod eller rullat målperioden framåt. Ett före-rapport-estimat kan vara rätt för att studera den historiska överraskningen, men fel valt om frågan gäller förväntningarna efter rapporten.",
+  "example": "Syntetisk tidslinje: estimatet observeras 1 mars, bolaget lämnar ny guidance 15 mars och analysen görs 20 mars. Uppgiften från 1 mars kan då behöva uppdateras för den aktuella analysen. Den kan samtidigt behöva behållas, tydligt daterad, för att rekonstruera vad som var känt före beskedet.",
+  "caveats": "Nyare betyder inte automatiskt mer träffsäkert. Ålder, relevant ny information och jämförbar basis är olika frågor. En leverantör kan ha egna regler för vilka estimat som ingår, men dessa får inte göras till en universell 30-dagarsregel. Ingen aktuell konsensusnivå eller datatjänst ingår här.",
+  "relatedAnswers": [
+    {
+      "id": "estimates",
+      "type": "prerequisite"
+    },
+    {
+      "id": "guidance-consensus",
+      "type": "common-confusion"
+    },
+    {
+      "id": "source-provenance",
+      "type": "deeper"
+    },
+    {
+      "id": "earnings-surprise",
+      "type": "next-question"
+    }
+  ],
+  "sources": [
+    {
+      "title": "LSEG: I/B/E/S Broker Estimates, databeskrivning",
+      "url": "https://www.lseg.com/en/data-catalogue/company-data/ibes-estimates/broker-estimates",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Databeskrivningens datum, fiscal periods, sources och normalization attributes kräver identifierad observationsbasis.",
+      "limitations": "Leverantörens offentliga beskrivning, inte licensierad metodhandbok eller dataanslutning. Ingen universell medelvärdesregel eller åldersgräns antas.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "NVIDIA: Q4/FY2026, daterad outlook och avstämning",
+      "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2026/",
+      "supports": [
+        "fullAnswer",
+        "example"
+      ],
+      "checked": "Outlook för Q1 FY2027, rapporterade perioder, GAAP/non-GAAP och framåtblickande osäkerhet lästa; används som exempel på typ av primärdokument.",
+      "limitations": "Inga verkliga NVIDIA-värden används i exemplen. En enskild issuer visar inte att alla bolag ger guidance eller använder samma definitioner.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "CFA Institute: Standard V(A), forskningens aktualitet",
+      "url": "https://www.cfainstitute.org/standards/professionals/code-ethics-standards/standards-of-practice-v-a",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "example",
+        "caveats"
+      ],
+      "checked": "Using Secondary or Third-Party Research: antaganden och date/timeliness ingår i bedömningen.",
+      "limitations": "Tidslinjen är syntetisk. Ingen exakt stale-gräns eller prognossäkerhet härleds från standarden.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "slug": "estimate-age",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

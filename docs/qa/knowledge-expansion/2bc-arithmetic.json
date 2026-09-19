@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "method": "Independent Python Decimal; explicit units/timing in prose, no runtime executor added",
+  "checks": [
+    {
+      "expression": "ownership 10/100 percent",
+      "result": "10.0",
+      "expected": "10"
+    },
+    {
+      "expression": "ownership after 25 new shares percent",
+      "result": "8.00",
+      "expected": "8"
+    },
+    {
+      "expression": "portfolio-weighted overlap percent",
+      "result": "9.0",
+      "expected": "9"
+    }
+  ]
+}

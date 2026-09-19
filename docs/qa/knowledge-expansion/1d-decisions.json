@@ -1,0 +1,32 @@
+{
+  "date": "2026-09-19",
+  "batch": "1d",
+  "decisions": {
+    "guidance-consensus": {
+      "distinctIntent": "Separate comparison beyond existing guidance/estimates/TTM definitions; task explicitly authorizes this objective.",
+      "sourceCheck": "Issuer outlook, LSEG public metadata, IAS34/SEC period evidence and local method read.",
+      "narrowing": "Provider-specific details not generalized; no current estimates supplied."
+    },
+    "earnings-surprise": {
+      "distinctIntent": "Separate calculation beyond existing guidance/estimates/TTM definitions; task explicitly authorizes this objective.",
+      "sourceCheck": "Issuer outlook, LSEG public metadata, IAS34/SEC period evidence and local method read.",
+      "narrowing": "Explicit illustrative percentage convention; absolute differences for zero/negative/near-zero context, not a provider formula."
+    },
+    "ttm-construction": {
+      "distinctIntent": "Separate calculation beyond existing guidance/estimates/TTM definitions; task explicitly authorizes this objective.",
+      "sourceCheck": "Issuer outlook, LSEG public metadata, IAS34/SEC period evidence and local method read.",
+      "narrowing": "Restricted to additive flows, not automatic summation of EPS/ratios/balance items."
+    },
+    "estimate-age": {
+      "distinctIntent": "Separate process beyond existing guidance/estimates/TTM definitions; task explicitly authorizes this objective.",
+      "sourceCheck": "Issuer outlook, LSEG public metadata, IAS34/SEC period evidence and local method read.",
+      "narrowing": "Provider-specific details not generalized; no current estimates supplied."
+    }
+  },
+  "ids": [
+    "guidance-consensus",
+    "earnings-surprise",
+    "ttm-construction",
+    "estimate-age"
+  ]
+}

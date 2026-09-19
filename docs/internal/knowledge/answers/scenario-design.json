@@ -1,0 +1,119 @@
+{
+  "id": "scenario-design",
+  "question": "Hur bygger jag jämförbara bear-, base- och bull-scenarier?",
+  "intent": "process",
+  "category": "risk",
+  "conceptRefs": [
+    "thesis"
+  ],
+  "concepts": [
+    "thesis",
+    "pe"
+  ],
+  "relatedLessonIds": [
+    "scenarios"
+  ],
+  "aliases": [
+    "bygga bear base bull",
+    "Hur bygger jag jämförbara scenarier?"
+  ],
+  "shortAnswer": "Använd samma modell och centrala drivare och ändra ett avgränsat antal tydliga antaganden. Frågan är hur resultatet ändras om antagandena utvecklas olika. Base är ett scenario, inte ett löfte om utfallet eller en automatisk sannolikhetsprognos.",
+  "fullAnswer": "Skriv vilka antaganden som är gemensamma och vilka som skiljer fallen. Håll period, enheter och beräkningsmetod jämförbara. NTM:s värderingsmodell har EPS, tillväxt, tid och framtida P/E som indata; en separat omsättnings- och marginalmodell kräver att du förklarar vägen till EPS. Att ändra många drivare samtidigt kan visa ett sammanhängande scenario men gör det svårare att avgöra en enskild drivers effekt. En känslighetsanalys ändrar i stället en vald faktor eller en tydligt avgränsad matris.",
+  "example": "Syntetiska scenarieantaganden: bear/base/bull har omsättningstillväxt 10/20/30 procent, rörelsemarginal 20/25/30 procent och framtida P/E 20/25/30 gånger. Detta är tre antagandeset, inte lämpliga nivåer för ett verkligt bolag. Rörelsemarginal är inte nettomarginal eller EPS; utan skatt, finansiering och aktiebas härleds ingen aktiekurs från dessa rader.",
+  "caveats": "Etiketterna ger inga sannolikheter. Sådana vikter kräver en separat uttrycklig metod och motivering. Scenarier kan missa viktiga samband och extrema utfall. Ingen av de syntetiska nivåerna är en rekommendation eller en garanti; kontrollera vilken modell du faktiskt använder.",
+  "relatedAnswers": [
+    {
+      "id": "thesis",
+      "type": "prerequisite"
+    },
+    {
+      "id": "fact-assumption",
+      "type": "prerequisite"
+    },
+    {
+      "id": "forward",
+      "type": "common-confusion"
+    },
+    {
+      "id": "pe-interpretation",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "NTM: Research, lokal produkt- och metodkontroll",
+      "url": "https://nolltillmiljoner.se/research.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "example",
+        "caveats"
+      ],
+      "checked": "valuation-core.js scenario(price,eps,growth,years,pe) och research.js scenarioflöde: EPS-modell. Omsättning/marginal-exemplet är en separat pedagogisk struktur, inte påhittade kalkylatorfält.",
+      "limitations": "Kontrollerat mot aktuell lokal implementation, inte en ny hosted granskning. Arbetsmetoden är NTM:s pedagogiska förslag, inte en universell investeringsregel.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "CFA Institute: Standard V(A), modellantaganden",
+      "url": "https://www.cfainstitute.org/standards/professionals/code-ethics-standards/standards-of-practice-v-a",
+      "supports": [
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Quantitative Research and Techniques: förstå modellbegränsningar, negativa utfall och relevanta antaganden.",
+      "limitations": "Inga numeriska scenariogränser eller sannolikheter stöds av källan. Exemplet anger indata, ingen modellberäkning.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "slug": "scenario-design",
+  "relatedEntityIds": [
+    "tool-scenarios"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

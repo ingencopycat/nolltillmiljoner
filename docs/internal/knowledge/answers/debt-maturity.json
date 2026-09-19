@@ -1,0 +1,103 @@
+{
+  "id": "debt-maturity",
+  "question": "Varför kan skuldförfall vara viktigare än nettoskuldens storlek?",
+  "intent": "interpretation",
+  "conceptRefs": [
+    "debt"
+  ],
+  "aliases": [
+    "skuldförfall och nettoskuld",
+    "när skulderna förfaller"
+  ],
+  "reviewDue": "2026-12-31",
+  "shortAnswer": "Nettoskuld beskriver ett belopp enligt vald definition, men inte när betalningar måste göras. Nära förfall kan skapa finansieringsbehov även när nettoskulden liknar ett annat bolags. Läs därför förfallotabellen tillsammans med tillgängliga medel och villkor.",
+  "fullAnswer": "Kontrollera vilka skulder som ingår, valuta, ränta, säkerheter och eventuella villkor. Jämför förfallen med kassa, kassaflödesförutsättningar och finansieringens tillgänglighet. Ett antagande om refinansiering behöver dokumenteras som just ett antagande, inte som redan ordnade pengar.",
+  "example": "Syntetiskt: två bolag har samma nettoskuld. Det ena behöver omsätta en stor del nästa år, det andra först om åtta år. De har olika tidsprofil på finansieringsbehovet, men exemplet avgör inte vilket bolag som totalt sett har lägst risk.",
+  "caveats": "Senare förfall är inte alltid viktigare än belopp, kassaflöde eller lånevillkor. Kreditutrymmen och kassa kan ha begränsningar. En not är daterad information och en skuldkvot eller förfallotabell är ingen automatisk köp- eller säljsignal.",
+  "relatedAnswers": [
+    {
+      "id": "debt",
+      "type": "prerequisite"
+    },
+    {
+      "id": "balance-sheet",
+      "type": "prerequisite"
+    },
+    {
+      "id": "liquidity",
+      "type": "common-confusion"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Microsoft Annual Report 2025, Note 10 Debt",
+      "url": "https://www.microsoft.com/investor/reports/ar25/",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Note 10: short/long-term debt, betalningsvillkor och separat förfallotabell per år; Note 13 skiljer leasingskulder.",
+      "limitations": "Illustration av nödvändig primärnot, ingen bedömning av Microsofts kreditrisk eller användning av verkliga belopp.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "metrics",
+  "concepts": [
+    "debt"
+  ],
+  "relatedLessonIds": [
+    "financial-statements"
+  ],
+  "slug": "debt-maturity",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "interpretation": {
+      "field": "fullAnswer",
+      "unsuitableField": "caveats"
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

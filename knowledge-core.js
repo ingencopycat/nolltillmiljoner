@@ -66,7 +66,11 @@
   function respond(input){
    if(typeof input!=='string'||input.length>240||!input.trim()||/[<>\u0000-\u001f]/.test(input))return outcome('INVALID_INPUT','invalid-question');
    const q=normalize(input),d=definition(input);
-   if(/\b(kopa|salja|kop|salj|buy|sell|borde jag|ska jag|min portfolj|mina pengar)\b/.test(q))return outcome('ABSTAIN_UNSUPPORTED_JUDGMENT','personal-investment-decision');
+   // Two complete educational questions contain "köp"; neither requests a trade.
+   // Require their actual visible canonical object, never exempt a longer request.
+   const educationalId=q==='vad ar kop och saljspread'?'order-spread':q==='vad ar courtage och hur paverkar det sma kop'?'fees':null;
+   const educationalExact=educationalId&&exact.get(q)?.length===1&&exact.get(q)[0]===educationalId;
+   if(!educationalExact&&/\b(kopa|salja|kop|salj|buy|sell|borde jag|ska jag|min portfolj|mina pengar)\b/.test(q))return outcome('ABSTAIN_UNSUPPORTED_JUDGMENT','personal-investment-decision');
    if(exact.has(q)||exact.has(d))return resolve(exact.get(q)||exact.get(d),'exact-question');
    const clarification=catalog.retrieval.clarifications?.find(c=>normalize(c.query)===d);if(clarification){const choices=clarification.answerIds.filter(id=>byId.has(id)&&!(stale(byId.get(id))&&byId.get(id).reviewPolicy?.overdue==='suppress'));return choices.length?outcome('CLARIFY','reviewed-ambiguity',choices):outcome('ABSTAIN_NO_COVERAGE','no-reviewed-answer');}
    if(aliases.has(d))return resolve(aliases.get(d),'reviewed-alias');

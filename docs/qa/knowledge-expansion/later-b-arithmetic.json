@@ -1,0 +1,71 @@
+{
+  "passed": true,
+  "method": "Independent Python Decimal; explicit units/timing in prose, no runtime executor added",
+  "checks": [
+    {
+      "expression": "100 discounted five years at 5 percent",
+      "result": "78.35",
+      "expected": "78.35"
+    },
+    {
+      "expression": "100 discounted five years at 10 percent",
+      "result": "62.09",
+      "expected": "62.09"
+    },
+    {
+      "expression": "withdraw after returns down then up",
+      "result": "77.500",
+      "expected": "77.5"
+    },
+    {
+      "expression": "withdraw after returns up then down",
+      "result": "82.000",
+      "expected": "82"
+    },
+    {
+      "expression": "no withdrawals",
+      "result": "100.000",
+      "expected": "100"
+    },
+    {
+      "expression": "market cap low price",
+      "result": "10000",
+      "expected": "10000"
+    },
+    {
+      "expression": "market cap higher price",
+      "result": "5000",
+      "expected": "5000"
+    },
+    {
+      "expression": "spread",
+      "result": "2",
+      "expected": "2"
+    },
+    {
+      "expression": "spread midpoint percent",
+      "result": "2.00",
+      "expected": "2"
+    },
+    {
+      "expression": "split before value",
+      "result": "10000",
+      "expected": "10000"
+    },
+    {
+      "expression": "split after value",
+      "result": "10000",
+      "expected": "10000"
+    },
+    {
+      "expression": "diluted ownership percent",
+      "result": "8.00",
+      "expected": "8"
+    },
+    {
+      "expression": "eligible cap weights total",
+      "result": "100",
+      "expected": "100"
+    }
+  ]
+}

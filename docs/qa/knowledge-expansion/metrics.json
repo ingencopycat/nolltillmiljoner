@@ -1,0 +1,45 @@
+{
+  "starting": 41,
+  "added": 59,
+  "total": 100,
+  "concepts": 43,
+  "status": {
+    "published": 26,
+    "reviewed": 74
+  },
+  "categories": {
+    "valuation": 12,
+    "metrics": 13,
+    "saving": 16,
+    "basics": 13,
+    "reports": 16,
+    "macro": 12,
+    "risk": 18
+  },
+  "intents": {
+    "definition": 27,
+    "comparison": 22,
+    "calculation": 8,
+    "interpretation": 10,
+    "misconception": 5,
+    "process": 10,
+    "application": 11,
+    "limitation": 7
+  },
+  "newSourceUrls": 55,
+  "newAliasCount": 118,
+  "arithmeticChecks": 65,
+  "arithmeticPassed": true,
+  "benchmarkCases": 234,
+  "benchmarkFailures": 0,
+  "wrongConfident": 0,
+  "unmapped": 17,
+  "unscheduled": 16,
+  "inherited": 29,
+  "duplicateCandidates": 48,
+  "orphanConcepts": [],
+  "unintegrated": [],
+  "compactIndexBytes": 102500,
+  "knowledgeHtmlBytes": 10555,
+  "answerBodyBytes": 280634
+}

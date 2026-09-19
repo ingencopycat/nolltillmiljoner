@@ -1,0 +1,128 @@
+{
+  "id": "volatility-risk",
+  "question": "Är volatilitet samma sak som risken att förlora pengar permanent?",
+  "intent": "comparison",
+  "category": "risk",
+  "conceptRefs": [
+    "volatility",
+    "diversification"
+  ],
+  "aliases": [
+    "volatilitet vs permanent förlust",
+    "Är låg volatilitet säkert?"
+  ],
+  "shortAnswer": "Nej. Volatilitet beskriver hur avkastningen varierar enligt en vald mätmetod. Permanent kapitalförlust handlar om att värde inte återvinns. Variation är relevant riskinformation, men den mäter inte ensam exempelvis insolvens, svårigheter att sälja eller ett bestående försämrat värde.",
+  "fullAnswer": "Fråga vad måttet faktiskt observerar: vilken serie, period och frekvens används? Jämför sedan med investeringens finansiering, likviditet och verksamhetsrisk. En jämn historisk värdeserie kan ändå bära risker som ännu inte slagit igenom i observerade priser. En tillfällig prisrörelse och en bestående ekonomisk skada är olika frågor, även om den ena inte säkert kan skiljas från den andra i förväg.",
+  "example": "Syntetiskt: två innehav har lika liten uppmätt variation under ett lugnt år. Det ena är svårt att sälja och det andra har stora låneförfall nära i tiden. Samma historiska variation gör inte dessa risker lika. Exemplet tilldelar inget riskbetyg.",
+  "caveats": "Hög volatilitet är inte ofarlig: den kan vara särskilt problematisk vid belåning eller när pengar behövs snart. Låg volatilitet är inte en säkerhetsgaranti. Att kalla en nedgång tillfällig utan evidens kan dölja en verklig förlust; ingen av beskrivningarna är en köp- eller säljsignal.",
+  "relatedAnswers": [
+    {
+      "id": "diversification",
+      "type": "prerequisite"
+    },
+    {
+      "id": "drawdown",
+      "type": "common-confusion"
+    }
+  ],
+  "sources": [
+    {
+      "title": "FINRA: Risk",
+      "url": "https://www.finra.org/investors/investing/investing-basics/risk",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Avsnitt om olika risker: kredit, likviditet och koncentration; risk omfattar mer än prisrörelser.",
+      "limitations": "Allmän riskutbildning med amerikansk marknadskontext; inga universella riskgränser eller individuella råd.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "Goldberg och Mahmoud: drawdown och volatilitet",
+      "url": "https://arxiv.org/abs/1404.7493",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer"
+      ],
+      "checked": "Abstract skiljer riskmått och deras egenskaper.",
+      "limitations": "Ingen empirisk rangordning eller prognos återges.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "concepts": [
+    "risk",
+    "diversifiering"
+  ],
+  "relatedLessonIds": [
+    "risk"
+  ],
+  "slug": "volatility-risk",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "comparison": {
+      "leftLabel": "Volatilitet",
+      "rightLabel": "Permanent förlust",
+      "axes": [
+        {
+          "label": "Fråga",
+          "left": "Hur varierade avkastningen?",
+          "right": "Kan det ekonomiska värdet återvinnas?"
+        },
+        {
+          "label": "Begränsning",
+          "left": "Beror på serie och period",
+          "right": "Kan inte säkert fastställas i förväg"
+        }
+      ],
+      "limitations": "Båda behöver kontext; ingen universell riskpoäng."
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

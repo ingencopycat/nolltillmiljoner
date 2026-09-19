@@ -1,0 +1,115 @@
+{
+  "id": "ps",
+  "question": "Vad betyder P/S?",
+  "intent": "definition",
+  "category": "valuation",
+  "conceptRefs": [
+    "ps"
+  ],
+  "concepts": [
+    "revenue"
+  ],
+  "relatedLessonIds": [
+    "revenue"
+  ],
+  "aliases": [
+    "P/S",
+    "PS",
+    "Vad är P/S?",
+    "price to sales",
+    "pris omsättning"
+  ],
+  "shortAnswer": "P/S, price-to-sales, är börsvärdet delat med omsättningen. Det kan också skrivas aktiekurs delat med omsättning per aktie när samma aktieantal ligger bakom båda leden. Måttet relaterar aktievärde till försäljning, inte till vinst.",
+  "fullAnswer": "Ange om omsättningen avser TTM, ett räkenskapsår eller en framåtblickande prognos och datera kursen eller börsvärdet. P/S kan räknas även när vinsten är negativ, förutsatt att omsättningsunderlaget är positivt och relevant. Det gör inte ett förlustbolag billigt. Lönsamhet, kostnadsstruktur, kassagenerering, skulder och kapitalbehov behöver granskas separat. Läs också hur intäkterna redovisas och vad de består av.",
+  "example": "Syntetiskt: börsvärde 20 miljarder och omsättning 10 miljarder i samma valuta ger P/S 20 / 10 = 2. Algebraiskt är (kurs × antal aktier) / omsättning samma som kurs / (omsättning / antal aktier), om exakt samma aktieantal används. Blanda därför inte olika aktiebaser i de två konstruktionerna.",
+  "caveats": "Omsättning är inte vinst eller kassaflöde. P/S visar inte hur mycket av försäljningen som återstår efter kostnader. Noll omsättning ger ingen definierad kvot, och olika perioder, prognoser eller intäktsdefinitioner kan göra jämförelsen missvisande. Samma P/S är inget bevis på likvärdig ekonomi eller ett generellt köpläge.",
+  "relatedAnswers": [
+    {
+      "id": "revenue",
+      "type": "prerequisite"
+    },
+    {
+      "id": "market-cap",
+      "type": "prerequisite"
+    },
+    {
+      "id": "pe-versus-ps",
+      "type": "next-question"
+    },
+    {
+      "id": "margins",
+      "type": "related-metric"
+    },
+    {
+      "id": "debt",
+      "type": "related-metric"
+    }
+  ],
+  "sources": [
+    {
+      "title": "FINRA: Evaluating Stocks",
+      "url": "https://www.finra.org/investors/investing/investment-products/stocks/evaluating-stocks",
+      "reviewedAt": "2026-09-19",
+      "type": "methodology",
+      "authority": "primary",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "example"
+      ],
+      "evidenceStatus": "checked",
+      "checked": "Key Valuation Ratios: P/S = börsvärde/omsättning och måttet inkluderar inte vinst.",
+      "limitations": "Per-aktie-ekvivalensen och 20/10-exemplet är separat kontrollerad algebra med konsekvent aktiebas. FINRA:s förenklade EPS-beskrivning används inte."
+    },
+    {
+      "title": "CFA Institute: Market-Based Valuation, offentlig sammanfattning 2026",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/market-based-valuation-price-enterprise-value-multiples",
+      "reviewedAt": "2026-09-19",
+      "type": "methodology",
+      "authority": "primary",
+      "supports": [
+        "fullAnswer",
+        "caveats"
+      ],
+      "evidenceStatus": "checked",
+      "checked": "Summary: P/S utelämnar kostnadsstruktur och påverkas av lönsamhet och intäktsredovisning.",
+      "limitations": "Kontrollfrågorna innebär ingen norm för bra P/S. Period- och datumbasis är uttryckliga antaganden i NTM:s jämförelse, inte en leverantörsintegration."
+    }
+  ],
+  "slug": "ps",
+  "relatedEntityIds": [
+    "research-nvda",
+    "tool-valuation"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Owner supplied substantive Batch 1B approval. Primary evidence read 2026-09-19; synthetic examples independently recalculated. Narrowed tax, share, period and jurisdiction assumptions preserve approved meaning. No independent human source review claimed. Methodology review in 180 days, advanced to 2026-12-31 for the two accounting-sensitive objects; earlier source or method changes trigger review."
+  }
+}

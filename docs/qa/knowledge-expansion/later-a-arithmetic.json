@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "method": "Independent Python Decimal; explicit units/timing in prose, no runtime executor added",
+  "checks": [
+    {
+      "expression": "EBITDA 1000-700",
+      "result": "300",
+      "expected": "300"
+    },
+    {
+      "expression": "EBIT 1000-700-100",
+      "result": "200",
+      "expected": "200"
+    },
+    {
+      "expression": "gross margin percent",
+      "result": "40.0",
+      "expected": "40"
+    },
+    {
+      "expression": "margin percentage points",
+      "result": "4",
+      "expected": "4"
+    },
+    {
+      "expression": "margin relative growth percent",
+      "result": "10.0",
+      "expected": "10"
+    },
+    {
+      "expression": "EV debt example",
+      "result": "1200",
+      "expected": "1200"
+    },
+    {
+      "expression": "EV net cash example",
+      "result": "800",
+      "expected": "800"
+    },
+    {
+      "expression": "PEG percent-number convention",
+      "result": "1",
+      "expected": "1"
+    },
+    {
+      "expression": "PEG wrong decimal scale",
+      "result": "1E+2",
+      "expected": "100"
+    }
+  ]
+}

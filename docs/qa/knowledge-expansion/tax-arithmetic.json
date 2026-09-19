@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "method": "Independent Python Decimal; explicit units/timing in prose, no runtime executor added",
+  "checks": [
+    {
+      "expression": "quarter values plus qualifying deposits",
+      "result": "500000",
+      "expected": "500000"
+    },
+    {
+      "expression": "capital basis",
+      "result": "125000",
+      "expected": "125000"
+    },
+    {
+      "expression": "2026 registry rate verified",
+      "result": "0.010650",
+      "expected": "0.01065"
+    }
+  ]
+}

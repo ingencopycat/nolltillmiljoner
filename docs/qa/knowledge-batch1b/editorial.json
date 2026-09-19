@@ -1,0 +1,2290 @@
+{
+  "version": 1,
+  "asOf": "2026-09-19",
+  "answers": 41,
+  "publicAnswers": 41,
+  "concepts": 31,
+  "byIntent": {
+    "definition": 17,
+    "calculation": 3,
+    "comparison": 7,
+    "interpretation": 4,
+    "limitation": 2,
+    "misconception": 2,
+    "process": 2,
+    "application": 4
+  },
+  "coverage": [
+    {
+      "id": "ps",
+      "answers": [
+        {
+          "id": "pe-versus-ps",
+          "intent": "comparison",
+          "status": "reviewed"
+        },
+        {
+          "id": "ps",
+          "intent": "definition",
+          "status": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "pe",
+      "answers": [
+        {
+          "id": "pe",
+          "intent": "definition",
+          "status": "published"
+        },
+        {
+          "id": "peg",
+          "intent": "definition",
+          "status": "published"
+        },
+        {
+          "id": "forward",
+          "intent": "comparison",
+          "status": "published"
+        },
+        {
+          "id": "pe-interpretation",
+          "intent": "interpretation",
+          "status": "reviewed"
+        },
+        {
+          "id": "pe-losses",
+          "intent": "limitation",
+          "status": "reviewed"
+        },
+        {
+          "id": "pe-versus-ps",
+          "intent": "comparison",
+          "status": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "eps",
+      "answers": [
+        {
+          "id": "eps",
+          "intent": "definition",
+          "status": "published"
+        },
+        {
+          "id": "dilution",
+          "intent": "definition",
+          "status": "published"
+        },
+        {
+          "id": "eps-comparison",
+          "intent": "comparison",
+          "status": "published"
+        },
+        {
+          "id": "reported-adjusted",
+          "intent": "comparison",
+          "status": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "return",
+      "answers": [
+        {
+          "id": "cagr",
+          "intent": "comparison",
+          "status": "published"
+        },
+        {
+          "id": "dividends",
+          "intent": "misconception",
+          "status": "published"
+        },
+        {
+          "id": "fx",
+          "intent": "calculation",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "cagr",
+      "answers": [
+        {
+          "id": "cagr",
+          "intent": "comparison",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "gav",
+      "answers": [
+        {
+          "id": "gav",
+          "intent": "calculation",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "fcf",
+      "answers": [
+        {
+          "id": "fcf",
+          "intent": "definition",
+          "status": "published"
+        },
+        {
+          "id": "fcf-limitations",
+          "intent": "limitation",
+          "status": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "peg",
+      "answers": [
+        {
+          "id": "peg",
+          "intent": "definition",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "shares",
+      "answers": [
+        {
+          "id": "dilution",
+          "intent": "definition",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "market-cap",
+      "answers": [
+        {
+          "id": "market-cap",
+          "intent": "definition",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "outlook",
+      "answers": [
+        {
+          "id": "guidance",
+          "intent": "definition",
+          "status": "published"
+        },
+        {
+          "id": "forward",
+          "intent": "comparison",
+          "status": "published"
+        },
+        {
+          "id": "estimates",
+          "intent": "definition",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "revenue",
+      "answers": [
+        {
+          "id": "revenue",
+          "intent": "definition",
+          "status": "published"
+        },
+        {
+          "id": "margins",
+          "intent": "comparison",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "margins",
+      "answers": [
+        {
+          "id": "margins",
+          "intent": "comparison",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "debt",
+      "answers": [
+        {
+          "id": "debt",
+          "intent": "interpretation",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "dividends",
+      "answers": [
+        {
+          "id": "dividends",
+          "intent": "misconception",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "fx",
+      "answers": [
+        {
+          "id": "fx",
+          "intent": "calculation",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "isk",
+      "answers": [
+        {
+          "id": "isk",
+          "intent": "process",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "fees",
+      "answers": [
+        {
+          "id": "fees",
+          "intent": "application",
+          "status": "published"
+        },
+        {
+          "id": "annual-fees",
+          "intent": "application",
+          "status": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "ttm",
+      "answers": [
+        {
+          "id": "ttm",
+          "intent": "definition",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "inflation",
+      "answers": [
+        {
+          "id": "inflation",
+          "intent": "misconception",
+          "status": "published"
+        },
+        {
+          "id": "macro-releases",
+          "intent": "definition",
+          "status": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "rates",
+      "answers": [
+        {
+          "id": "interest-rates",
+          "intent": "application",
+          "status": "published"
+        },
+        {
+          "id": "bond-yields",
+          "intent": "application",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "earnings",
+      "answers": [
+        {
+          "id": "earnings",
+          "intent": "interpretation",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "thesis",
+      "answers": [
+        {
+          "id": "thesis",
+          "intent": "process",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "diversification",
+      "answers": [
+        {
+          "id": "diversification",
+          "intent": "definition",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "id": "compounding",
+      "answers": [
+        {
+          "id": "compounding",
+          "intent": "calculation",
+          "status": "reviewed"
+        },
+        {
+          "id": "annual-fees",
+          "intent": "application",
+          "status": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "macro",
+      "answers": [
+        {
+          "id": "macro-releases",
+          "intent": "definition",
+          "status": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "balance-sheet",
+      "answers": [
+        {
+          "id": "balance-sheet",
+          "intent": "definition",
+          "status": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "income-statement",
+      "answers": [
+        {
+          "id": "income-statement",
+          "intent": "definition",
+          "status": "reviewed"
+        },
+        {
+          "id": "profit-versus-cash",
+          "intent": "comparison",
+          "status": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "cash-flow-statement",
+      "answers": [
+        {
+          "id": "cash-flow-statement",
+          "intent": "definition",
+          "status": "reviewed"
+        },
+        {
+          "id": "profit-versus-cash",
+          "intent": "comparison",
+          "status": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "capex",
+      "answers": [
+        {
+          "id": "capex",
+          "intent": "definition",
+          "status": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "working-capital",
+      "answers": [
+        {
+          "id": "working-capital",
+          "intent": "interpretation",
+          "status": "reviewed"
+        }
+      ]
+    }
+  ],
+  "possibleDuplicates": [
+    {
+      "ids": [
+        "pe",
+        "peg"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "pe"
+      ],
+      "similarity": 0.5,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "eps",
+        "dilution"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "eps"
+      ],
+      "similarity": 0.14285714285714285,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "guidance",
+        "estimates"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "outlook"
+      ],
+      "similarity": 0.1,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fees",
+        "annual-fees"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "fees"
+      ],
+      "similarity": 0.14285714285714285,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "forward",
+        "pe-versus-ps"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "pe"
+      ],
+      "similarity": 0.5,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "interest-rates",
+        "bond-yields"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "rates"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "eps-comparison",
+        "reported-adjusted"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "eps"
+      ],
+      "similarity": 0.08333333333333333,
+      "action": "editorial-review-only"
+    }
+  ],
+  "overdue": [],
+  "missingReviewSchedule": [
+    "gav",
+    "peg",
+    "market-cap",
+    "guidance",
+    "revenue",
+    "debt",
+    "dividends",
+    "fx",
+    "fees",
+    "ttm",
+    "interest-rates",
+    "bond-yields",
+    "earnings",
+    "estimates",
+    "diversification",
+    "eps-comparison"
+  ],
+  "needsUpdate": [],
+  "unmappedClaims": [
+    "gav",
+    "peg",
+    "market-cap",
+    "guidance",
+    "revenue",
+    "debt",
+    "dividends",
+    "fx",
+    "isk",
+    "fees",
+    "ttm",
+    "interest-rates",
+    "bond-yields",
+    "earnings",
+    "estimates",
+    "diversification",
+    "eps-comparison"
+  ],
+  "inheritedNotIndependent": [
+    "pe",
+    "eps",
+    "cagr",
+    "gav",
+    "fcf",
+    "peg",
+    "dilution",
+    "market-cap",
+    "guidance",
+    "revenue",
+    "margins",
+    "debt",
+    "dividends",
+    "fx",
+    "isk",
+    "fees",
+    "ttm",
+    "forward",
+    "inflation",
+    "interest-rates",
+    "bond-yields",
+    "earnings",
+    "estimates",
+    "thesis",
+    "diversification",
+    "eps-comparison",
+    "compounding",
+    "annual-fees",
+    "macro-releases"
+  ],
+  "orphanConcepts": [],
+  "unintegrated": [],
+  "formulaRevalidation": [
+    {
+      "id": "pe",
+      "template": "pe/1",
+      "example": {
+        "inputs": {
+          "price": 150,
+          "eps": 6,
+          "currency": "SEK",
+          "period": "annual"
+        },
+        "result": 25
+      },
+      "independentHumanCheck": "pending"
+    }
+  ],
+  "ruleVersions": [
+    {
+      "id": "isk",
+      "rule": {
+        "id": "isk",
+        "topic": "ISK schablonskatt och gemensam grundnivå",
+        "page": "isk-skattkalkylator.html",
+        "effectiveFrom": "2026-01-01",
+        "effectiveYear": 2026,
+        "source": "https://www.skatteverket.se/privat/skatter/beloppochprocent/2026.4.1522bf3f19aea8075ba21.html",
+        "lastVerified": "2026-09-14",
+        "nextReview": "2026-12-01",
+        "status": "verified",
+        "parameters": {
+          "taxFreeAllowance": 300000,
+          "governmentBorrowingRate": 0.0255,
+          "rateAddition": 0.01,
+          "minimumSchablonRate": 0.0125,
+          "capitalTaxRate": 0.3
+        },
+        "manualReview": "Ägaren verifierar nästa års räntesats och grundnivå. Grundnivån delas med KF och PEPP; individuell deklaration kan avvika."
+      }
+    }
+  ],
+  "sourceChecks": "Run sources command; HTTP success is not claim verification.",
+  "answerMaintenance": [
+    {
+      "id": "pe",
+      "intent": "definition",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": "2027-03-18",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": "pe/1",
+      "workedExample": true,
+      "integrations": [
+        "tool-valuation",
+        "research-nvda",
+        "pe",
+        "eps"
+      ]
+    },
+    {
+      "id": "eps",
+      "intent": "definition",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": "2027-03-18",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "eps",
+        "dilution"
+      ]
+    },
+    {
+      "id": "cagr",
+      "intent": "comparison",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": "2027-03-18",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "tool-return",
+        "cagr",
+        "avkastning"
+      ]
+    },
+    {
+      "id": "gav",
+      "intent": "calculation",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": null,
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": false,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "tool-purchase",
+        "gav",
+        "fees"
+      ]
+    },
+    {
+      "id": "fcf",
+      "intent": "definition",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": "2027-03-18",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "fcf",
+        "financial-statements"
+      ]
+    },
+    {
+      "id": "peg",
+      "intent": "definition",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": null,
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": false,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "tool-valuation",
+        "pe",
+        "cagr"
+      ]
+    },
+    {
+      "id": "dilution",
+      "intent": "definition",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": "2027-03-18",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-crwv",
+        "dilution",
+        "eps"
+      ]
+    },
+    {
+      "id": "market-cap",
+      "intent": "definition",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": null,
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": false,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "aktier",
+        "enterprise-value"
+      ]
+    },
+    {
+      "id": "guidance",
+      "intent": "definition",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": null,
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": false,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "report",
+        "forward-metrics"
+      ]
+    },
+    {
+      "id": "revenue",
+      "intent": "definition",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": null,
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": false,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "revenue",
+        "marginal"
+      ]
+    },
+    {
+      "id": "margins",
+      "intent": "comparison",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": "2027-03-18",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "marginal",
+        "revenue"
+      ]
+    },
+    {
+      "id": "debt",
+      "intent": "interpretation",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": null,
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": false,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-crwv",
+        "debt",
+        "financial-statements"
+      ]
+    },
+    {
+      "id": "dividends",
+      "intent": "misconception",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": null,
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": false,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "tool-compound",
+        "avkastning",
+        "fcf"
+      ]
+    },
+    {
+      "id": "fx",
+      "intent": "calculation",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": null,
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": false,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "tool-fx",
+        "currency",
+        "avkastning"
+      ]
+    },
+    {
+      "id": "isk",
+      "intent": "process",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": "2026-12-01",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": false,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "tool-tax",
+        "isk"
+      ]
+    },
+    {
+      "id": "fees",
+      "intent": "application",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": null,
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": false,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "tool-fees",
+        "tool-purchase",
+        "fees",
+        "gav"
+      ]
+    },
+    {
+      "id": "ttm",
+      "intent": "definition",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": null,
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": false,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "forward-metrics",
+        "financial-statements"
+      ]
+    },
+    {
+      "id": "forward",
+      "intent": "comparison",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": "2027-03-18",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "tool-valuation",
+        "forward-metrics",
+        "pe"
+      ]
+    },
+    {
+      "id": "inflation",
+      "intent": "misconception",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": "2027-03-18",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "macro-calendar",
+        "inflation"
+      ]
+    },
+    {
+      "id": "interest-rates",
+      "intent": "application",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": null,
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": false,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "macro-calendar",
+        "interest-rates",
+        "inflation"
+      ]
+    },
+    {
+      "id": "bond-yields",
+      "intent": "application",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": null,
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": false,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "tool-valuation",
+        "interest-rates",
+        "pe"
+      ]
+    },
+    {
+      "id": "earnings",
+      "intent": "interpretation",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": null,
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": false,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "report",
+        "thesis"
+      ]
+    },
+    {
+      "id": "estimates",
+      "intent": "definition",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": null,
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": false,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "forward-metrics",
+        "report"
+      ]
+    },
+    {
+      "id": "thesis",
+      "intent": "process",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": "2027-03-18",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "workflow-manual-thesis",
+        "thesis",
+        "scenarios"
+      ]
+    },
+    {
+      "id": "diversification",
+      "intent": "definition",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": null,
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": false,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "tool-purchase",
+        "diversifiering",
+        "position-sizing"
+      ]
+    },
+    {
+      "id": "eps-comparison",
+      "intent": "comparison",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "reviewAgeDays": 4,
+      "reviewDue": null,
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": false,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": false,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "eps",
+        "forward-metrics"
+      ]
+    },
+    {
+      "id": "compounding",
+      "intent": "calculation",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-18",
+      "reviewAgeDays": 1,
+      "reviewDue": "2027-03-18",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "tool-compound",
+        "compounding",
+        "cagr"
+      ]
+    },
+    {
+      "id": "annual-fees",
+      "intent": "application",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-18",
+      "reviewAgeDays": 1,
+      "reviewDue": "2027-03-18",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "tool-fees",
+        "tool-compound",
+        "fees",
+        "compounding"
+      ]
+    },
+    {
+      "id": "macro-releases",
+      "intent": "definition",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-18",
+      "reviewAgeDays": 1,
+      "reviewDue": "2027-03-18",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": false
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": false
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "macro-calendar",
+        "inflation",
+        "interest-rates"
+      ]
+    },
+    {
+      "id": "balance-sheet",
+      "intent": "definition",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-19",
+      "reviewAgeDays": 0,
+      "reviewDue": "2026-12-31",
+      "contexts": [
+        "knowledge",
+        "research",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": true
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "financial-statements",
+        "debt"
+      ]
+    },
+    {
+      "id": "capex",
+      "intent": "definition",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-19",
+      "reviewAgeDays": 0,
+      "reviewDue": "2026-12-31",
+      "contexts": [
+        "knowledge",
+        "research",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": true
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "fcf",
+        "financial-statements"
+      ]
+    },
+    {
+      "id": "cash-flow-statement",
+      "intent": "definition",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-19",
+      "reviewAgeDays": 0,
+      "reviewDue": "2026-12-31",
+      "contexts": [
+        "knowledge",
+        "research",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": true
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "financial-statements",
+        "fcf"
+      ]
+    },
+    {
+      "id": "fcf-limitations",
+      "intent": "limitation",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-19",
+      "reviewAgeDays": 0,
+      "reviewDue": "2026-12-31",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": true
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "tool-valuation",
+        "fcf",
+        "financial-statements"
+      ]
+    },
+    {
+      "id": "income-statement",
+      "intent": "definition",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-19",
+      "reviewAgeDays": 0,
+      "reviewDue": "2026-12-31",
+      "contexts": [
+        "knowledge",
+        "research",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": true
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "financial-statements",
+        "revenue",
+        "eps"
+      ]
+    },
+    {
+      "id": "pe-interpretation",
+      "intent": "interpretation",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-19",
+      "reviewAgeDays": 0,
+      "reviewDue": "2027-03-18",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": true
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "tool-valuation",
+        "pe"
+      ]
+    },
+    {
+      "id": "pe-losses",
+      "intent": "limitation",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-19",
+      "reviewAgeDays": 0,
+      "reviewDue": "2027-03-18",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": true
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "tool-valuation",
+        "pe",
+        "eps"
+      ]
+    },
+    {
+      "id": "pe-versus-ps",
+      "intent": "comparison",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-19",
+      "reviewAgeDays": 0,
+      "reviewDue": "2027-03-18",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": true
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "tool-valuation",
+        "pe",
+        "revenue"
+      ]
+    },
+    {
+      "id": "profit-versus-cash",
+      "intent": "comparison",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-19",
+      "reviewAgeDays": 0,
+      "reviewDue": "2026-12-31",
+      "contexts": [
+        "knowledge",
+        "research",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": true
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "financial-statements",
+        "fcf"
+      ]
+    },
+    {
+      "id": "ps",
+      "intent": "definition",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-19",
+      "reviewAgeDays": 0,
+      "reviewDue": "2027-03-18",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": true
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "tool-valuation",
+        "revenue"
+      ]
+    },
+    {
+      "id": "reported-adjusted",
+      "intent": "comparison",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-19",
+      "reviewAgeDays": 0,
+      "reviewDue": "2026-12-31",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": true
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "tool-valuation",
+        "eps"
+      ]
+    },
+    {
+      "id": "working-capital",
+      "intent": "interpretation",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-19",
+      "reviewAgeDays": 0,
+      "reviewDue": "2026-12-31",
+      "contexts": [
+        "knowledge",
+        "research",
+        "public-report",
+        "academy-reminder"
+      ],
+      "sourceClaims": [
+        {
+          "section": "shortAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "fullAnswer",
+          "mapped": true,
+          "independentlyChecked": true
+        },
+        {
+          "section": "caveats",
+          "mapped": true,
+          "independentlyChecked": true
+        }
+      ],
+      "formula": null,
+      "workedExample": true,
+      "integrations": [
+        "research-nvda",
+        "financial-statements",
+        "fcf"
+      ]
+    }
+  ]
+}

@@ -34,12 +34,12 @@ document.addEventListener('DOMContentLoaded',()=>{
  }
  function helpButton(id,label){const b=button(label||'Förklara',()=>help(id,b));b.dataset.wave1Concept=id;return b;}
  document.addEventListener('click',event=>{const trigger=event.target.closest('[data-concept-help]');if(trigger){event.preventDefault();help(trigger.dataset.conceptHelp,trigger);}});
- function attach(container,ids){if(!container||container.querySelector('[data-wave1-help]'))return;const d=node('details',null,'wave1-help');d.dataset.wave1Help='';d.append(node('summary','Förstå begreppen utan att lämna arbetet'));const row=node('div',null,'wave1-actions');for(const id of ids){const c=K.pilotConcepts.find(c=>c.id===id);if(c)row.append(helpButton(id,c.title));}d.append(row);container.append(d);}
- attach($('valuationSection'),['pe','forward-basis','eps','growth','valuation-assumptions']);
- attach($('stock-calculator-heading')?.closest('section'),['pe','forward-basis','eps','growth','valuation-assumptions']);
+ function attach(container,ids){if(!container||container.querySelector('[data-wave1-help]'))return;const d=node('details',null,'wave1-help');d.dataset.wave1Help='';d.append(node('summary','Förstå begreppen utan att lämna arbetet'));const row=node('div',null,'wave1-actions');for(const id of ids){const c=K.pilotConcepts.find(c=>c.id===id),e=K.entries.find(e=>e.id===id);if(c||e)row.append(helpButton(id,c?.title||e.question));}d.append(row);container.append(d);}
+ attach($('valuationSection'),['pe','forward-basis','eps','growth','valuation-assumptions','pe-interpretation']);
+ attach($('stock-calculator-heading')?.closest('section'),['pe','forward-basis','eps','growth','valuation-assumptions','pe-interpretation']);
  attach(document.querySelector('.savings-goal-card')||document.querySelector('body:has(#goal-monthly-target) .calculator-card'),['compounding','annual-fees','inflation']);
- attach($('keyMetricsGrid')?.parentElement,['eps','dilution','fcf','margins','growth']);
- attach($('thesisSection'),['review-falsification']);
+ attach($('keyMetricsGrid')?.parentElement,['eps','dilution','fcf','margins','growth','cash-flow-statement','fcf-limitations']);
+ attach($('thesisSection'),['review-falsification','fact-assumption','falsification','source-provenance']);
  // Place help next to the editable field as well as in the bounded concept disclosure.
  for(const [field,id] of [['val-eps','eps'],['val-exit-pe','pe'],['stock-eps','eps'],['stock-future-pe','pe'],['goal-monthly-fee','annual-fees'],['goal-monthly-inflation','inflation']]){
   const input=$(field);if(input)input.parentElement.append(helpButton(id,'Förklara '+K.pilotConcepts.find(c=>c.id===id).title));

@@ -11,7 +11,7 @@ const rows=[
  ['ranta pa rnata','ANSWER','compounding','typo','Curated phrase typo.'],
  ['EP','ABSTAIN_NO_COVERAGE',null,'typo','Do not fuzz short acronyms.'],
  ['PCE','ANSWER','macro-releases','abbreviation','Existing reviewed alias to the release overview; preserve Wave 4 coverage.'],
- ['PS','ABSTAIN_NO_COVERAGE',null,'coverage','No P/S answer; not P/E.'],
+ ['PS','ANSWER','ps','coverage','Batch 1B reviewed P/S definition; not P/E.'],
  ['CPI','ANSWER','macro-releases','abbreviation','Existing reviewed alias to the release overview.'],
  ['avkastning','CLARIFY',null,'ambiguity','Multiple real return questions.',['cagr','fx','compounding']],
  ['avgift','CLARIFY',null,'ambiguity','Trading fee differs from annual fee.',['fees','annual-fees']],
@@ -20,14 +20,14 @@ const rows=[
  ['Vad är forward P/E?','ANSWER','forward','comparison','Preserved reviewed alias.'],
  ['Vad skiljer CAGR från total avkastning?','ANSWER','cagr','comparison','Reviewed exact comparison.'],
  ['Varför skiljer sig EPS mellan olika sajter?','ANSWER','eps-comparison','comparison','Do not return the EPS definition.'],
- ['P/E vs P/S','ABSTAIN_NO_COVERAGE',null,'comparison','No reviewed comparison exists.'],
- ['CPI vs PCE','ABSTAIN_NO_COVERAGE',null,'comparison','An overview is not a comparison.'],
+ ['P/E vs P/S','ANSWER','pe-versus-ps','comparison','Batch 1B approved comparison.'],
+ ['CPI vs PCE','ANSWER','cpi-pce','comparison','Delegated expansion adds a sourced, explicitly US comparison.'],
  ['Vilket är bäst EPS eller FCF?','ABSTAIN_UNSUPPORTED_JUDGMENT',null,'judgment','No universal winning metric.'],
- ['Är P/E 40 dyrt?','ABSTAIN_UNSUPPORTED_JUDGMENT',null,'interpretation','Missing reviewed interpretation, never definition fallback.'],
- ['Är P/E dyrt?','ABSTAIN_UNSUPPORTED_JUDGMENT',null,'interpretation','Same intent without a number.'],
+ ['Är P/E 40 dyrt?','ANSWER','pe-interpretation','interpretation','Batch 1B contextual interpretation; no verdict.'],
+ ['Är P/E dyrt?','ANSWER','pe-interpretation','interpretation','Same intent without a number.'],
  ['Ska jag köpa NVIDIA?','ABSTAIN_UNSUPPORTED_JUDGMENT',null,'judgment','Personal buy decision.'],
  ['Borde jag sälja min fond?','ABSTAIN_UNSUPPORTED_JUDGMENT',null,'judgment','Personal sell decision.'],
- ['Hur påverkar skuld mitt bolag?','CLARIFY',null,'interpretation','Confirm the actual reviewed debt question.',['debt']],
+ ['Hur påverkar skuld mitt bolag?','CLARIFY',null,'interpretation','Clarify between existing debt interpretation and reviewed maturity interpretation.',['debt','debt-maturity']],
  ['Betyder lägre inflation att priserna sjunker?','ANSWER','inflation','misconception','Keep specific misconception intent.'],
  ['Är utdelning gratis avkastning?','ANSWER','dividends','misconception','Exact misconception outranks word overlap.'],
  ['Hur räknar jag GAV?','ANSWER','gav','calculation','Exact calculation explanation.'],
@@ -50,4 +50,5 @@ const rows=[
  ['FCF','ANSWER','fcf','abbreviation','Reviewed definition.'],
  ['Vad säger skuld och nettoskuld om ett bolag?','ANSWER','debt','limitation','Existing interpretation with limitations.'],
 ];
-module.exports={version:1,review:'Engineering expectations; not financial content approval',cases:rows.map(([query,kind,answerId,group,reason,choices],i)=>({id:'ke100-'+String(i+1).padStart(3,'0'),query,expected:{kind,answerId,choices},group,reason,forbidden:kind!=='ANSWER'?['pe','eps','peg'].filter(id=>!choices?.includes(id)):[],benchmarkVersion:1}))};
+const expansion=Object.entries(require('./knowledge-expansion-queries.cjs')).flatMap(([batch,items])=>items.map(([q,k,id])=>[q,k,id,'expansion-'+batch,'Explicit reviewed intent or retained personal-advice abstention.']));
+module.exports={version:4,review:'Engineering expectations; not financial content approval',cases:[...rows,...require('./knowledge-batch1a-queries.cjs'),...require('./knowledge-batch1b-queries.cjs'),...expansion].map(([query,kind,answerId,group,reason,choices],i)=>({id:'ke100-'+String(i+1).padStart(3,'0'),query,expected:{kind,answerId,choices},group,reason,forbidden:kind!=='ANSWER'?['pe','eps','peg','balance-sheet','income-statement','cash-flow-statement','profit-versus-cash','capex','working-capital'].filter(id=>!choices?.includes(id)):[],benchmarkVersion:4}))};

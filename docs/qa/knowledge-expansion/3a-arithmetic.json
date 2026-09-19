@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "method": "Independent Python Decimal; explicit units/timing in prose, no runtime executor added",
+  "checks": [
+    {
+      "expression": "YoY 104/100-1 percent",
+      "result": "4.00",
+      "expected": "4"
+    },
+    {
+      "expression": "MoM 104/103-1 percent rounded",
+      "result": "0.97",
+      "expected": "0.97"
+    },
+    {
+      "expression": "4 to 3 percentage points",
+      "result": "-1",
+      "expected": "-1"
+    },
+    {
+      "expression": "revision percentage points",
+      "result": "0.3",
+      "expected": ".3"
+    }
+  ]
+}

@@ -1,0 +1,513 @@
+{
+  "date": "2026-09-19",
+  "ids": [
+    "asset-ownership",
+    "risk-horizon",
+    "liquidity",
+    "fund",
+    "etf",
+    "index",
+    "active-passive",
+    "fund-etf",
+    "fund-overlap"
+  ],
+  "schema": true,
+  "math": {
+    "passed": true,
+    "method": "Independent Python Decimal; explicit units/timing in prose, no runtime executor added",
+    "checks": [
+      {
+        "expression": "ownership 10/100 percent",
+        "result": "10.0",
+        "expected": "10"
+      },
+      {
+        "expression": "ownership after 25 new shares percent",
+        "result": "8.00",
+        "expected": "8"
+      },
+      {
+        "expression": "portfolio-weighted overlap percent",
+        "result": "9.0",
+        "expected": "9"
+      }
+    ]
+  },
+  "retrieval": [
+    {
+      "query": "Vad innebär det att äga en aktie?",
+      "kind": "ANSWER",
+      "answerId": "asset-ownership",
+      "passed": true
+    },
+    {
+      "query": "Vad är en aktie?",
+      "kind": "ANSWER",
+      "answerId": "asset-ownership",
+      "passed": true
+    },
+    {
+      "query": "Varför behöver tidshorisonten vara tydlig innan jag väljer risk?",
+      "kind": "ANSWER",
+      "answerId": "risk-horizon",
+      "passed": true
+    },
+    {
+      "query": "tidshorisont och risk",
+      "kind": "ANSWER",
+      "answerId": "risk-horizon",
+      "passed": true
+    },
+    {
+      "query": "Vad betyder likviditet för en investering?",
+      "kind": "ANSWER",
+      "answerId": "liquidity",
+      "passed": true
+    },
+    {
+      "query": "Vad är marknadslikviditet?",
+      "kind": "ANSWER",
+      "answerId": "liquidity",
+      "passed": true
+    },
+    {
+      "query": "Vad är en fond?",
+      "kind": "ANSWER",
+      "answerId": "fund",
+      "passed": true
+    },
+    {
+      "query": "fondandel",
+      "kind": "ANSWER",
+      "answerId": "fund",
+      "passed": true
+    },
+    {
+      "query": "Vad är en ETF?",
+      "kind": "ANSWER",
+      "answerId": "etf",
+      "passed": true
+    },
+    {
+      "query": "börshandlad fond",
+      "kind": "ANSWER",
+      "answerId": "etf",
+      "passed": true
+    },
+    {
+      "query": "Vad är ett aktieindex?",
+      "kind": "ANSWER",
+      "answerId": "index",
+      "passed": true
+    },
+    {
+      "query": "Vad är ett marknadsindex?",
+      "kind": "ANSWER",
+      "answerId": "index",
+      "passed": true
+    },
+    {
+      "query": "Vad skiljer aktiv från passiv fondförvaltning?",
+      "kind": "ANSWER",
+      "answerId": "active-passive",
+      "passed": true
+    },
+    {
+      "query": "aktiv vs passiv fond",
+      "kind": "ANSWER",
+      "answerId": "active-passive",
+      "passed": true
+    },
+    {
+      "query": "Vad skiljer handel i en ETF från handel i en traditionell fond?",
+      "kind": "ANSWER",
+      "answerId": "fund-etf",
+      "passed": true
+    },
+    {
+      "query": "ETF vs traditionell fondhandel",
+      "kind": "ANSWER",
+      "answerId": "fund-etf",
+      "passed": true
+    },
+    {
+      "query": "Hur upptäcker jag överlapp mellan fondinnehav?",
+      "kind": "ANSWER",
+      "answerId": "fund-overlap",
+      "passed": true
+    },
+    {
+      "query": "överlapp mellan fonder",
+      "kind": "ANSWER",
+      "answerId": "fund-overlap",
+      "passed": true
+    },
+    {
+      "query": "Vilken ETF ska jag köpa?",
+      "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+      "answerId": null,
+      "passed": true
+    },
+    {
+      "query": "Ska jag köpa en aktiv fond?",
+      "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+      "answerId": null,
+      "passed": true
+    }
+  ],
+  "duplicates": [
+    {
+      "ids": [
+        "pe",
+        "peg"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "pe"
+      ],
+      "similarity": 0.5,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "eps",
+        "dilution"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "eps"
+      ],
+      "similarity": 0.14285714285714285,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "cagr",
+        "arithmetic-geometric"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "cagr",
+        "return"
+      ],
+      "similarity": 0.3333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "cagr",
+        "nominal-real"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "return"
+      ],
+      "similarity": 0.5,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "dilution",
+        "asset-ownership"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "shares"
+      ],
+      "similarity": 0.09090909090909091,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "guidance",
+        "estimates"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "outlook"
+      ],
+      "similarity": 0.1,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fees",
+        "annual-fees"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "fees"
+      ],
+      "similarity": 0.14285714285714285,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "forward",
+        "guidance-consensus"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "outlook"
+      ],
+      "similarity": 0.3333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "forward",
+        "pe-versus-ps"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "pe"
+      ],
+      "similarity": 0.5,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "interest-rates",
+        "bond-yields"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "rates"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "fact-assumption"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.15384615384615385,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "scenario-design"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "source-provenance"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "eps-comparison",
+        "reported-adjusted"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "eps"
+      ],
+      "similarity": 0.08333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "compounding",
+        "loss-recovery"
+      ],
+      "intents": [
+        "calculation",
+        "calculation"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "compounding"
+      ],
+      "similarity": 0.07692307692307693,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "annual-fees",
+        "contribution-timing"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "compounding"
+      ],
+      "similarity": 0.07142857142857142,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "active-passive",
+        "fund-etf"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "fund"
+      ],
+      "similarity": 0.25,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "arithmetic-geometric",
+        "nominal-real"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "return"
+      ],
+      "similarity": 0.2,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "etf",
+        "fund"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "fund"
+      ],
+      "similarity": 0.6,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fact-assumption",
+        "scenario-design"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.125,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fact-assumption",
+        "source-provenance"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.0625,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "scenario-design",
+        "source-provenance"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.0625,
+      "action": "editorial-review-only"
+    }
+  ]
+}

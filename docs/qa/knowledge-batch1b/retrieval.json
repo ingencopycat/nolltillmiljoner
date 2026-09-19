@@ -1,0 +1,2574 @@
+{
+  "benchmarkVersion": 3,
+  "retrievalVersion": 3,
+  "total": 101,
+  "exactAnswerSuccess": 66,
+  "acceptableClarificationSuccess": 4,
+  "correctAbstention": 25,
+  "correctInvalidInput": 6,
+  "wrongConfidentMatch": 0,
+  "topAnswerMismatch": 0,
+  "aliasCollision": 0,
+  "typoAmbiguity": 0,
+  "byGroup": {
+    "exact": {
+      "total": 13,
+      "passed": 13
+    },
+    "definition": {
+      "total": 2,
+      "passed": 2
+    },
+    "alias": {
+      "total": 13,
+      "passed": 13
+    },
+    "typo": {
+      "total": 6,
+      "passed": 6
+    },
+    "abbreviation": {
+      "total": 4,
+      "passed": 4
+    },
+    "coverage": {
+      "total": 6,
+      "passed": 6
+    },
+    "ambiguity": {
+      "total": 3,
+      "passed": 3
+    },
+    "comparison": {
+      "total": 10,
+      "passed": 10
+    },
+    "judgment": {
+      "total": 11,
+      "passed": 11
+    },
+    "interpretation": {
+      "total": 5,
+      "passed": 5
+    },
+    "misconception": {
+      "total": 2,
+      "passed": 2
+    },
+    "calculation": {
+      "total": 1,
+      "passed": 1
+    },
+    "numbers": {
+      "total": 5,
+      "passed": 5
+    },
+    "unrelated": {
+      "total": 1,
+      "passed": 1
+    },
+    "adversarial": {
+      "total": 5,
+      "passed": 5
+    },
+    "security": {
+      "total": 3,
+      "passed": 3
+    },
+    "limitation": {
+      "total": 7,
+      "passed": 7
+    },
+    "preservation": {
+      "total": 4,
+      "passed": 4
+    }
+  },
+  "failures": [],
+  "results": [
+    {
+      "id": "ke100-001",
+      "query": "Vad betyder P/E?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "pe"
+      },
+      "group": "exact",
+      "reason": "The canonical definition wins.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "pe",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-002",
+      "query": "VAD ÄR P / E!!!",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "pe"
+      },
+      "group": "definition",
+      "reason": "Punctuation/definition equivalent.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "pe",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-003",
+      "query": "Vad påverkar P/E?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "pe"
+      },
+      "group": "alias",
+      "reason": "Preserve the explicitly reviewed driver alias.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "pe",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-004",
+      "query": "Vad är EPS?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "eps"
+      },
+      "group": "exact",
+      "reason": "EPS must not select PE.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "eps",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-005",
+      "query": "Vad är guidning?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "guidance"
+      },
+      "group": "typo",
+      "reason": "Existing curated variant.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "guidance",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-006",
+      "query": "LTTM",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "ttm"
+      },
+      "group": "typo",
+      "reason": "Existing curated exception, not general acronym fuzz.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "ttm",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-007",
+      "query": "diversifering",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "diversification"
+      },
+      "group": "typo",
+      "reason": "Curated spelling.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "curated-typo",
+        "answerId": "diversification",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-008",
+      "query": "diversifierinh",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "diversification"
+      },
+      "group": "typo",
+      "reason": "One edit in long unambiguous alias.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "bounded-typo",
+        "answerId": "diversification",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-009",
+      "query": "ranta pa rnata",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "compounding"
+      },
+      "group": "typo",
+      "reason": "Curated phrase typo.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "curated-typo",
+        "answerId": "compounding",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-010",
+      "query": "EP",
+      "expected": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "answerId": null
+      },
+      "group": "typo",
+      "reason": "Do not fuzz short acronyms.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "reason": "no-reviewed-answer",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-011",
+      "query": "PCE",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "macro-releases"
+      },
+      "group": "abbreviation",
+      "reason": "Existing reviewed alias to the release overview; preserve Wave 4 coverage.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "macro-releases",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-012",
+      "query": "PS",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "ps"
+      },
+      "group": "coverage",
+      "reason": "Batch 1B reviewed P/S definition; not P/E.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "ps",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-013",
+      "query": "CPI",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "macro-releases"
+      },
+      "group": "abbreviation",
+      "reason": "Existing reviewed alias to the release overview.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "macro-releases",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-014",
+      "query": "avkastning",
+      "expected": {
+        "kind": "CLARIFY",
+        "answerId": null,
+        "choices": [
+          "cagr",
+          "fx",
+          "compounding"
+        ]
+      },
+      "group": "ambiguity",
+      "reason": "Multiple real return questions.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "CLARIFY",
+        "reason": "reviewed-ambiguity",
+        "answerId": null,
+        "choices": [
+          "cagr",
+          "fx",
+          "compounding"
+        ],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-015",
+      "query": "avgift",
+      "expected": {
+        "kind": "CLARIFY",
+        "answerId": null,
+        "choices": [
+          "fees",
+          "annual-fees"
+        ]
+      },
+      "group": "ambiguity",
+      "reason": "Trading fee differs from annual fee.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "CLARIFY",
+        "reason": "reviewed-ambiguity",
+        "answerId": null,
+        "choices": [
+          "fees",
+          "annual-fees"
+        ],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-016",
+      "query": "marginal",
+      "expected": {
+        "kind": "CLARIFY",
+        "answerId": null,
+        "choices": [
+          "margins"
+        ]
+      },
+      "group": "ambiguity",
+      "reason": "Offer the real combined margin comparison; do not invent separate definitions.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "CLARIFY",
+        "reason": "reviewed-ambiguity",
+        "answerId": null,
+        "choices": [
+          "margins"
+        ],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-017",
+      "query": "Vad skiljer forward P/E från trailing P/E?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "forward"
+      },
+      "group": "comparison",
+      "reason": "Reviewed comparison.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "forward",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-018",
+      "query": "Vad är forward P/E?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "forward"
+      },
+      "group": "comparison",
+      "reason": "Preserved reviewed alias.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "forward",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-019",
+      "query": "Vad skiljer CAGR från total avkastning?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "cagr"
+      },
+      "group": "comparison",
+      "reason": "Reviewed exact comparison.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "cagr",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-020",
+      "query": "Varför skiljer sig EPS mellan olika sajter?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "eps-comparison"
+      },
+      "group": "comparison",
+      "reason": "Do not return the EPS definition.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "eps-comparison",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-021",
+      "query": "P/E vs P/S",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "pe-versus-ps"
+      },
+      "group": "comparison",
+      "reason": "Batch 1B approved comparison.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "pe-versus-ps",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-022",
+      "query": "CPI vs PCE",
+      "expected": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "answerId": null
+      },
+      "group": "comparison",
+      "reason": "An overview is not a comparison.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "reason": "comparison-not-reviewed",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-023",
+      "query": "Vilket är bäst EPS eller FCF?",
+      "expected": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "answerId": null
+      },
+      "group": "judgment",
+      "reason": "No universal winning metric.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "reason": "unreviewed-judgment",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-024",
+      "query": "Är P/E 40 dyrt?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "pe-interpretation"
+      },
+      "group": "interpretation",
+      "reason": "Batch 1B contextual interpretation; no verdict.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "pe-interpretation",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-025",
+      "query": "Är P/E dyrt?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "pe-interpretation"
+      },
+      "group": "interpretation",
+      "reason": "Same intent without a number.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "pe-interpretation",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-026",
+      "query": "Ska jag köpa NVIDIA?",
+      "expected": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "answerId": null
+      },
+      "group": "judgment",
+      "reason": "Personal buy decision.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "reason": "personal-investment-decision",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-027",
+      "query": "Borde jag sälja min fond?",
+      "expected": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "answerId": null
+      },
+      "group": "judgment",
+      "reason": "Personal sell decision.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "reason": "personal-investment-decision",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-028",
+      "query": "Hur påverkar skuld mitt bolag?",
+      "expected": {
+        "kind": "CLARIFY",
+        "answerId": null,
+        "choices": [
+          "debt"
+        ]
+      },
+      "group": "interpretation",
+      "reason": "Confirm the actual reviewed debt question.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "CLARIFY",
+        "reason": "confirm-interpretation",
+        "answerId": null,
+        "choices": [
+          "debt"
+        ],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-029",
+      "query": "Betyder lägre inflation att priserna sjunker?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "inflation"
+      },
+      "group": "misconception",
+      "reason": "Keep specific misconception intent.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "inflation",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-030",
+      "query": "Är utdelning gratis avkastning?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "dividends"
+      },
+      "group": "misconception",
+      "reason": "Exact misconception outranks word overlap.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "dividends",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-031",
+      "query": "Hur räknar jag GAV?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "gav"
+      },
+      "group": "calculation",
+      "reason": "Exact calculation explanation.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "gav",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-032",
+      "query": "Vad blir P/E vid pris 150 och EPS 6?",
+      "expected": {
+        "kind": "INVALID_INPUT",
+        "answerId": null
+      },
+      "group": "numbers",
+      "reason": "Currency, annual period and common basis require explicit inputs.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "INVALID_INPUT",
+        "reason": "use-formula-inputs",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-033",
+      "query": "Aktien kostar 100 SEK och årlig EPS är 5 SEK, vad är P/E?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "pe"
+      },
+      "group": "numbers",
+      "reason": "Approved ratio with explicit common currency and annual period.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "approved-formula",
+        "answerId": "pe",
+        "choices": [],
+        "retrievalVersion": 3,
+        "calculation": {
+          "template": "pe/1",
+          "value": 20,
+          "unit": "gånger",
+          "inputs": {
+            "price": 100,
+            "eps": 5,
+            "currency": "SEK",
+            "period": "annual"
+          },
+          "expression": "pris per aktie / vinst per aktie"
+        }
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-034",
+      "query": "Pris 123,45 USD och TTM EPS 2,5 USD",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "pe"
+      },
+      "group": "numbers",
+      "reason": "Decimal comma and explicit trailing period.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "approved-formula",
+        "answerId": "pe",
+        "choices": [],
+        "retrievalVersion": 3,
+        "calculation": {
+          "template": "pe/1",
+          "value": 49.38,
+          "unit": "gånger",
+          "inputs": {
+            "price": 123.45,
+            "eps": 2.5,
+            "currency": "USD",
+            "period": "ttm"
+          },
+          "expression": "pris per aktie / vinst per aktie"
+        }
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-035",
+      "query": "Pris 100 SEK och årlig EPS 5 USD",
+      "expected": {
+        "kind": "INVALID_INPUT",
+        "answerId": null
+      },
+      "group": "numbers",
+      "reason": "Do not divide different currencies.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "INVALID_INPUT",
+        "reason": "currency-mismatch",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-036",
+      "query": "Vad är kvantgravitation?",
+      "expected": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "answerId": null
+      },
+      "group": "coverage",
+      "reason": "Outside catalog.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "reason": "no-reviewed-answer",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-037",
+      "query": "Hur bakar jag pannkakor?",
+      "expected": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "answerId": null
+      },
+      "group": "unrelated",
+      "reason": "Unrelated question.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "reason": "no-reviewed-answer",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-038",
+      "query": "Vad är pepparkakor?",
+      "expected": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "answerId": null
+      },
+      "group": "adversarial",
+      "reason": "Substring pe is not PE.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "reason": "no-reviewed-answer",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-039",
+      "query": "P/E recept till middag",
+      "expected": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "answerId": null
+      },
+      "group": "adversarial",
+      "reason": "Concept mention does not establish intent.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "reason": "unrecognized-intent",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-040",
+      "query": "EPS EPS EPS moon lottery",
+      "expected": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "answerId": null
+      },
+      "group": "adversarial",
+      "reason": "Repeated overlap does not increase confidence.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "reason": "unrecognized-intent",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-041",
+      "query": "<img src=x onerror=alert(1)>",
+      "expected": {
+        "kind": "INVALID_INPUT",
+        "answerId": null
+      },
+      "group": "security",
+      "reason": "Markup input is not a valid question.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "INVALID_INPUT",
+        "reason": "invalid-question",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-042",
+      "query": "",
+      "expected": {
+        "kind": "INVALID_INPUT",
+        "answerId": null
+      },
+      "group": "security",
+      "reason": "Empty input.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "INVALID_INPUT",
+        "reason": "invalid-question",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-043",
+      "query": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "expected": {
+        "kind": "INVALID_INPUT",
+        "answerId": null
+      },
+      "group": "security",
+      "reason": "Bounded input.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "INVALID_INPUT",
+        "reason": "invalid-question",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-044",
+      "query": "Hur påverkar USD/SEK min avkastning?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "fx"
+      },
+      "group": "exact",
+      "reason": "Preserve specific direct question.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "fx",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-045",
+      "query": "vinst per aktie",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "eps"
+      },
+      "group": "alias",
+      "reason": "Reviewed alias.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "eps",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-046",
+      "query": "mäklaravgift",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "fees"
+      },
+      "group": "alias",
+      "reason": "Reviewed alias.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "fees",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-047",
+      "query": "PEG",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "peg"
+      },
+      "group": "abbreviation",
+      "reason": "Do not confuse PEG and PE.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "peg",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-048",
+      "query": "FCF",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "fcf"
+      },
+      "group": "abbreviation",
+      "reason": "Reviewed definition.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "concept-intent",
+        "answerId": "fcf",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-049",
+      "query": "Vad säger skuld och nettoskuld om ett bolag?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "debt"
+      },
+      "group": "limitation",
+      "reason": "Existing interpretation with limitations.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "debt",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-050",
+      "query": "Vad visar en balansräkning?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "balance-sheet"
+      },
+      "group": "exact",
+      "reason": "Approved snapshot definition.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "balance-sheet",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-051",
+      "query": "Vad visar en resultaträkning?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "income-statement"
+      },
+      "group": "exact",
+      "reason": "Approved period/result definition.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "income-statement",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-052",
+      "query": "Vad visar en kassaflödesanalys?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "cash-flow-statement"
+      },
+      "group": "exact",
+      "reason": "Approved three-activity definition.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "cash-flow-statement",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-053",
+      "query": "Varför kan vinst och kassaflöde skilja sig?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "profit-versus-cash"
+      },
+      "group": "comparison",
+      "reason": "Distinct reviewed comparison.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "profit-versus-cash",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-054",
+      "query": "Vad betyder CapEx?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "capex"
+      },
+      "group": "exact",
+      "reason": "Long-lived asset investment with scope.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "capex",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-055",
+      "query": "Hur kan rörelsekapital påverka kassaflödet?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "working-capital"
+      },
+      "group": "interpretation",
+      "reason": "Reviewed interpretation, not investment verdict.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "working-capital",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-056",
+      "query": "balance sheet",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "balance-sheet"
+      },
+      "group": "alias",
+      "reason": "English discovery alias.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "balance-sheet",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-057",
+      "query": "income statement",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "income-statement"
+      },
+      "group": "alias",
+      "reason": "English discovery alias.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "income-statement",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-058",
+      "query": "cash flow statement",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "cash-flow-statement"
+      },
+      "group": "alias",
+      "reason": "English discovery alias.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "cash-flow-statement",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-059",
+      "query": "resultat jämfört med kassaflöde",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "profit-versus-cash"
+      },
+      "group": "alias",
+      "reason": "Keep comparison intent.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "profit-versus-cash",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-060",
+      "query": "capital expenditures",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "capex"
+      },
+      "group": "alias",
+      "reason": "Expanded acronym.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "capex",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-061",
+      "query": "Hur påverkar kundfordringar kassaflödet?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "working-capital"
+      },
+      "group": "alias",
+      "reason": "Only scoped mechanism.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "working-capital",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-062",
+      "query": "Är hög CapEx dåligt?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "capex"
+      },
+      "group": "limitation",
+      "reason": "Short answer explicitly rejects automatic negative judgment.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "capex",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-063",
+      "query": "Är ökande lager dåligt?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "working-capital"
+      },
+      "group": "limitation",
+      "reason": "Short answer explicitly requires cause/context.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "working-capital",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-064",
+      "query": "Är ökande kundfordringar dåligt?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "working-capital"
+      },
+      "group": "limitation",
+      "reason": "Not automatically bad.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "working-capital",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-065",
+      "query": "Är ökande leverantörsskulder bra?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "working-capital"
+      },
+      "group": "limitation",
+      "reason": "Not automatically good.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "working-capital",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-066",
+      "query": "Är mycket cash alltid bra?",
+      "expected": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "answerId": null
+      },
+      "group": "judgment",
+      "reason": "No universal liquidity verdict.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "reason": "unreviewed-judgment",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-067",
+      "query": "Är positivt kassaflöde en bra aktie?",
+      "expected": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "answerId": null
+      },
+      "group": "judgment",
+      "reason": "No investment-quality verdict from cash.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "reason": "unreviewed-judgment",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-068",
+      "query": "Ska jag köpa en aktie med hög CapEx?",
+      "expected": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "answerId": null
+      },
+      "group": "judgment",
+      "reason": "Personal decision stays outside aliases.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "reason": "personal-investment-decision",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-069",
+      "query": "Borde jag sälja när lagret ökar?",
+      "expected": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "answerId": null
+      },
+      "group": "judgment",
+      "reason": "Personal sell recommendation remains unsupported.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "reason": "personal-investment-decision",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-070",
+      "query": "CapEx recept till middag",
+      "expected": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "answerId": null
+      },
+      "group": "adversarial",
+      "reason": "Mention alone is not a definition.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "reason": "unrecognized-intent",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-071",
+      "query": "balansräkning vs P/E",
+      "expected": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "answerId": null
+      },
+      "group": "comparison",
+      "reason": "No invented comparison.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "reason": "comparison-not-reviewed",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-072",
+      "query": "Vad är avskrivningar?",
+      "expected": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "answerId": null
+      },
+      "group": "coverage",
+      "reason": "Backlog recommendation, not a seventh answer.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "reason": "no-reviewed-answer",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-073",
+      "query": "Vad är PP&E?",
+      "expected": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "answerId": null
+      },
+      "group": "coverage",
+      "reason": "Backlog recommendation, not an eighth answer.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "reason": "no-reviewed-answer",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-074",
+      "query": "Räkna kassaflöde från vinst 100 och lager 20",
+      "expected": {
+        "kind": "INVALID_INPUT",
+        "answerId": null
+      },
+      "group": "numbers",
+      "reason": "No new executable template or missing-assumption inference.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "INVALID_INPUT",
+        "reason": "use-formula-inputs",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-075",
+      "query": "Vad skiljer rapporterad från justerad vinst?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "reported-adjusted"
+      },
+      "group": "exact",
+      "reason": "Accounting basis comparison.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "reported-adjusted",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-076",
+      "query": "När blir en jämförelse av fritt kassaflöde missvisande?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "fcf-limitations"
+      },
+      "group": "exact",
+      "reason": "Definition compatibility, not basic FCF.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "fcf-limitations",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-077",
+      "query": "Vad behöver jag kontrollera innan jag tolkar ett P/E-tal?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "pe-interpretation"
+      },
+      "group": "exact",
+      "reason": "Context, not basic PE.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "pe-interpretation",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-078",
+      "query": "Varför är P/E svårt att använda vid negativ eller nära noll vinst?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "pe-losses"
+      },
+      "group": "exact",
+      "reason": "Denominator limitation.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "pe-losses",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-079",
+      "query": "Vad betyder P/S?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "ps"
+      },
+      "group": "exact",
+      "reason": "Sales denominator.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "ps",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-080",
+      "query": "Vad skiljer P/E från P/S?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "pe-versus-ps"
+      },
+      "group": "exact",
+      "reason": "Comparison, not two definitions guessed.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "pe-versus-ps",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-081",
+      "query": "Är högt P/E dåligt?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "pe-interpretation"
+      },
+      "group": "interpretation",
+      "reason": "No universal valuation verdict.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "pe-interpretation",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-082",
+      "query": "Negativt P/E betyder billig aktie?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "pe-losses"
+      },
+      "group": "limitation",
+      "reason": "Reject the misconception.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "pe-losses",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-083",
+      "query": "Vad är P/S?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "ps"
+      },
+      "group": "definition",
+      "reason": "Direct reviewed alias.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "ps",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-084",
+      "query": "P/E eller P/S, vilken är bäst?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "pe-versus-ps"
+      },
+      "group": "comparison",
+      "reason": "No universal winner.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "pe-versus-ps",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-085",
+      "query": "Adjusted earnings är väl den riktiga vinsten?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "reported-adjusted"
+      },
+      "group": "comparison",
+      "reason": "Adjusted is not inherently correct.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "reported-adjusted",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-086",
+      "query": "Är högt FCF alltid bra?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "fcf-limitations"
+      },
+      "group": "limitation",
+      "reason": "Do not endorse high cash flow.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "fcf-limitations",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-087",
+      "query": "GAAP vs non-GAAP",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "reported-adjusted"
+      },
+      "group": "alias",
+      "reason": "Scoped distinction.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "reported-adjusted",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-088",
+      "query": "negativt P/E",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "pe-losses"
+      },
+      "group": "alias",
+      "reason": "Do not return PE definition.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "pe-losses",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-089",
+      "query": "price to sales",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "ps"
+      },
+      "group": "alias",
+      "reason": "Reviewed English alias.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "ps",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-090",
+      "query": "PE vs PS",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "pe-versus-ps"
+      },
+      "group": "alias",
+      "reason": "Reviewed abbreviation comparison.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "pe-versus-ps",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-091",
+      "query": "Vad är P/E?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "pe"
+      },
+      "group": "preservation",
+      "reason": "Original definition unchanged.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "pe",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-092",
+      "query": "Vad är forward P/E?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "forward"
+      },
+      "group": "preservation",
+      "reason": "Original basis comparison unchanged.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "reviewed-alias",
+        "answerId": "forward",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-093",
+      "query": "FCF",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "fcf"
+      },
+      "group": "preservation",
+      "reason": "Original definition unchanged.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "concept-intent",
+        "answerId": "fcf",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-094",
+      "query": "Varför skiljer sig EPS mellan olika sajter?",
+      "expected": {
+        "kind": "ANSWER",
+        "answerId": "eps-comparison"
+      },
+      "group": "preservation",
+      "reason": "Broader source/basis answer retained.",
+      "forbidden": [],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ANSWER",
+        "reason": "exact-question",
+        "answerId": "eps-comparison",
+        "choices": [],
+        "retrievalVersion": 3,
+        "stale": false
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-095",
+      "query": "Ska jag köpa aktien med P/E 40?",
+      "expected": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "answerId": null
+      },
+      "group": "judgment",
+      "reason": "Personal decision remains blocked.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "reason": "personal-investment-decision",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-096",
+      "query": "Borde jag sälja mitt bolag med negativt P/E?",
+      "expected": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "answerId": null
+      },
+      "group": "judgment",
+      "reason": "No personal sell advice.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "reason": "personal-investment-decision",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-097",
+      "query": "Ska jag köpa P/S?",
+      "expected": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "answerId": null
+      },
+      "group": "judgment",
+      "reason": "Personal guard before alias.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "reason": "personal-investment-decision",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-098",
+      "query": "Är P/S 2 ett säkert köp?",
+      "expected": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "answerId": null
+      },
+      "group": "judgment",
+      "reason": "No numeric threshold.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+        "reason": "personal-investment-decision",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-099",
+      "query": "P/S vs EV/EBITDA",
+      "expected": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "answerId": null
+      },
+      "group": "coverage",
+      "reason": "No unapproved comparison.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "reason": "comparison-not-reviewed",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-100",
+      "query": "Vad är justerad EBITDA?",
+      "expected": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "answerId": null
+      },
+      "group": "coverage",
+      "reason": "Do not substitute earnings definition.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "reason": "no-reviewed-answer",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    },
+    {
+      "id": "ke100-101",
+      "query": "P/S recept till middag",
+      "expected": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "answerId": null
+      },
+      "group": "adversarial",
+      "reason": "Mention is not intent.",
+      "forbidden": [
+        "pe",
+        "eps",
+        "peg",
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement",
+        "profit-versus-cash",
+        "capex",
+        "working-capital"
+      ],
+      "benchmarkVersion": 3,
+      "actual": {
+        "kind": "ABSTAIN_NO_COVERAGE",
+        "reason": "unrecognized-intent",
+        "answerId": null,
+        "choices": [],
+        "retrievalVersion": 3
+      },
+      "ok": true
+    }
+  ]
+}

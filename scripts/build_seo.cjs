@@ -145,10 +145,10 @@ for (const rule of JSON.parse(read('data/rule-registry.json')).rules) {
 for (const [file, rawContent] of outputs) {
   let prepared = rawContent;
   if(file.endsWith('.html')) {
-    const knowledgeHooks={'avkastningskalkylator.html':['cagr'],'aktiekopskalkylator.html':['gav','fees'],'valutajusterad-avkastning.html':['fx'],'ranta-pa-ranta.html':['compounding','annual-fees'],'avgifter.html':['annual-fees'],'isk-skattkalkylator.html':['isk']};
+    const knowledgeHooks={'avkastningskalkylator.html':['cagr','arithmetic-geometric','cashflow-return'],'aktiekopskalkylator.html':['gav','fees','order-spread'],'valutajusterad-avkastning.html':['fx'],'ranta-pa-ranta.html':['compounding','annual-fees','contribution-timing'],'avgifter.html':['annual-fees','fee-double-count'],'isk-skattkalkylator.html':['isk','isk-inputs','isk-year-scope'],'havstang.html':['leverage-downside','loss-recovery'],'fire-kalkylator.html':['sequence-risk'],'makro.html':['cpi-pce','mom-yoy','macro-no-forecast']};
     if(knowledgeHooks[file]){
       prepared=prepared.replace(/<!-- KNOWLEDGE HELP START -->[\s\S]*?<!-- KNOWLEDGE HELP END -->\s*/g,'');
-      const K=require('./knowledge_source.cjs'),block='<!-- KNOWLEDGE HELP START --><details class="knowledge-method"><summary>Förstå begreppen</summary>'+knowledgeHooks[file].map(id=>`<p><a href="${K.url(id)}#task-help" data-knowledge-help="${id}" data-knowledge-context="calculator">${escape(K.entries.find(e=>e.id===id).question)}</a></p>`).join('')+'</details><!-- KNOWLEDGE HELP END -->';
+      const K=require('./knowledge_source.cjs'),block='<!-- KNOWLEDGE HELP START --><details class="knowledge-method"><summary>Förstå begreppen</summary>'+knowledgeHooks[file].map(id=>`<p><a href="${K.url(id)}#task-help" data-knowledge-help="${id}" data-knowledge-context="${file==='makro.html'?'macro':'calculator'}">${escape(K.entries.find(e=>e.id===id).question)}</a></p>`).join('')+'</details><!-- KNOWLEDGE HELP END -->';
       prepared=prepared.replace('</main>',block+'</main>');
     }
     if(knowledgeHooks[file]||['analys.html','research.html'].includes(file)){

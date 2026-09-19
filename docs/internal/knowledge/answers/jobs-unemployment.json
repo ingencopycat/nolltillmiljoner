@@ -1,0 +1,112 @@
+{
+  "id": "jobs-unemployment",
+  "question": "Varför kan payrolls och arbetslöshet ge olika bilder?",
+  "intent": "comparison",
+  "conceptRefs": [
+    "macro"
+  ],
+  "aliases": [
+    "payrolls vs arbetslöshet",
+    "CES och CPS"
+  ],
+  "shortAnswer": "USA:s payrolls och arbetslöshet kommer från olika undersökningar. CES mäter lönejobb utanför jordbruket, medan CPS undersöker personers arbetsmarknadsstatus och ligger bakom arbetslöshetstalet. Jobb och personer är inte samma räkneenhet.",
+  "fullAnswer": "En person med flera lönejobb kan räknas flera gånger i CES men en gång som sysselsatt person i CPS. CPS omfattar även grupper som egenföretagare enligt sin definition. Urval, referensperioder och skattningsmetoder skiljer sig. Arbetslöshetsandelen beror dessutom på arbetskraften, inte bara antalet jobb.",
+  "example": "Syntetiskt: en redan sysselsatt person får ett andra lönejobb. Det kan öka antalet jobb utan att skapa ytterligare en sysselsatt person. Exemplet visar varför måtten inte kan ersätta varandra.",
+  "caveats": "En enskild månads skillnad bevisar inte att en serie är fel. Urvalsosäkerhet och revisioner behöver också beaktas. Definitionerna här gäller USA:s BLS-undersökningar och ska inte direkt överföras till svenska arbetsmarknadsmått.",
+  "relatedAnswers": [
+    {
+      "id": "macro-releases",
+      "type": "prerequisite"
+    },
+    {
+      "id": "macro-revisions",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "BLS: Comparing household and payroll surveys",
+      "url": "https://www.bls.gov/web/empsit/ces_cps_trends.htm",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Why two measures och comparison table: jobs/people, egenföretagare, referensperiod och survey scope.",
+      "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "macro",
+  "concepts": [
+    "inflation"
+  ],
+  "relatedLessonIds": [
+    "inflation"
+  ],
+  "jurisdiction": "US",
+  "reviewDue": "2026-12-31",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "comparison": {
+      "leftLabel": "CES/payrolls",
+      "rightLabel": "CPS",
+      "axes": [
+        {
+          "label": "Enhet",
+          "left": "Lönejobb utanför jordbruket",
+          "right": "Personers arbetsmarknadsstatus"
+        },
+        {
+          "label": "Flera jobb",
+          "left": "Kan räknas flera gånger",
+          "right": "En sysselsatt person"
+        }
+      ],
+      "limitations": "Skilda urval och definitioner; inget säkert börsbesked."
+    }
+  },
+  "slug": "jobs-unemployment",
+  "relatedEntityIds": [
+    "macro-calendar"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "period": "timeless",
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

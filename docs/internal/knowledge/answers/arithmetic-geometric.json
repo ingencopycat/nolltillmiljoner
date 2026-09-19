@@ -1,0 +1,119 @@
+{
+  "id": "arithmetic-geometric",
+  "question": "Varför skiljer sig medelavkastning från CAGR?",
+  "intent": "comparison",
+  "category": "saving",
+  "conceptRefs": [
+    "cagr",
+    "return"
+  ],
+  "aliases": [
+    "aritmetisk vs geometrisk avkastning",
+    "medelavkastning och CAGR"
+  ],
+  "shortAnswer": "Aritmetisk medelavkastning är summan av periodernas avkastning delad med antalet perioder. CAGR är den jämna årliga förändring som ger samma start- och slutvärde. Avkastningsfaktorer multipliceras, så ett vanligt medelvärde beskriver inte alltid kapitalets tillväxt.",
+  "fullAnswer": "Varje procentuell förändring verkar på det kapital som finns just då. En förlust efter en uppgång beräknas därför på ett annat belopp än den första uppgången. För lika långa årsperioder utan externa insättningar eller uttag jämförs medelvärdet med den geometriska faktorn. CAGR sammanfattar ändpunkterna men visar inte vägen, den största nedgången eller osäkerheten.",
+  "example": "Syntetiskt: 100 växer med 50 procent till 150 och faller sedan 50 procent till 75. Aritmetiskt medel är (50 − 50) / 2 = 0 procent. Total förändring är −25 procent. CAGR över två år är √(75 / 100) − 1 ≈ −13,40 procent per år. Noll i medel betyder alltså inte oförändrat kapital.",
+  "caveats": "Exemplet saknar externa kassaflöden, skatt och avgifter. Start- och slutvärde måste vara positiva för den vanliga CAGR-tolkningen. Olika periodlängder eller insättningar kräver en annan avstämning. Ett historiskt genomsnitt är ingen garanterad framtida avkastning.",
+  "relatedAnswers": [
+    {
+      "id": "cagr",
+      "type": "prerequisite"
+    },
+    {
+      "id": "compounding",
+      "type": "prerequisite"
+    },
+    {
+      "id": "drawdown",
+      "type": "next-question"
+    }
+  ],
+  "sources": [
+    {
+      "title": "NTM: angiven beräkningsmetod och syntetisk algebra",
+      "url": "https://nolltillmiljoner.se/avkastningskalkylator.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats",
+        "example"
+      ],
+      "checked": "valuation-core.js CAGR-kontrakt och script.js calculateProjection årsserie; oberoende faktorprodukt och kvadratrot.",
+      "limitations": "Lokalt metodkontrakt läst och separat Decimal-kontroll krävs före acceptans. Ingen ny exekverbar formel i Fråga NTM.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "concepts": [
+    "cagr",
+    "avkastning"
+  ],
+  "relatedLessonIds": [
+    "avkastning"
+  ],
+  "slug": "arithmetic-geometric",
+  "relatedEntityIds": [
+    "tool-return"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "comparison": {
+      "leftLabel": "Aritmetiskt medel",
+      "rightLabel": "CAGR",
+      "axes": [
+        {
+          "label": "Två syntetiska år",
+          "left": "0 procent",
+          "right": "Cirka −13,40 procent per år"
+        },
+        {
+          "label": "Svarar på",
+          "left": "Medel av årsprocent",
+          "right": "Jämn faktor mellan ändpunkterna"
+        }
+      ],
+      "limitations": "Inga externa kassaflöden; CAGR visar inte risken längs vägen."
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

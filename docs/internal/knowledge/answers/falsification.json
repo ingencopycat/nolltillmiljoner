@@ -1,0 +1,113 @@
+{
+  "id": "falsification",
+  "question": "Hur formulerar jag ett motbevis som går att följa upp?",
+  "intent": "application",
+  "category": "risk",
+  "conceptRefs": [
+    "thesis"
+  ],
+  "concepts": [
+    "thesis"
+  ],
+  "relatedLessonIds": [
+    "thesis"
+  ],
+  "aliases": [
+    "Hur motbevisar jag min tes?",
+    "Hur följer jag upp ett motbevis?"
+  ],
+  "shortAnswer": "Utgå från ett viktigt antagande och ange vad som mäts, vilken förändring som spelar roll, under vilken period och vilken granskning som följer. Ett utlöst motbevis ska leda till att du granskar antagandet, inte automatiskt till att du säljer.",
+  "fullAnswer": "I NTM kan antaganden ha motbevis, granskningsdatum och bedömning. Skriv kriteriet innan utfallet är känt så att en senare ändring går att upptäcka. Det är ett arbetssätt för att söka även information som talar emot tesen. Bekräftelsebias innebär att bekräftande underlag får större uppmärksamhet än motsägande. Förhandsformulering kan göra flyttade målstolpar synliga, men innebär inte att bias försvinner.",
+  "example": "Otydligt: ”Om bolaget börjar prestera dåligt.” Mer uppföljningsbart: ”Om rörelsemarginalen når det i tesen angivna villkoret under den valda rapportperioden, granska antagandet om uthållig lönsamhet.” Ange ditt mått, villkor och period uttryckligen. Inget universellt procenttal eller automatiskt säljbeslut följer av exemplet.",
+  "caveats": "Ett enskilt utfall kan behöva förstås mot säsong, engångsposter, redovisning, investeringar, förvärv eller förändrad verksamhetsmix. Förklara relevanta orsaker innan du omvärderar antagandet. Att kriteriet utlöses är en anledning att granska, inte ett bevis för en viss investeringsåtgärd.",
+  "relatedAnswers": [
+    {
+      "id": "thesis",
+      "type": "prerequisite"
+    },
+    {
+      "id": "fact-assumption",
+      "type": "prerequisite"
+    },
+    {
+      "id": "source-provenance",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "NTM: Research, lokal produkt- och metodkontroll",
+      "url": "https://nolltillmiljoner.se/research.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "example",
+        "caveats"
+      ],
+      "checked": "research-review.js fields/init och thesis-storage.js validLifecycle/assumptionStatus: motbevis, datum, bedömning och sparade revisioner. Tolkningslistan är NTM:s kontrollfrågor, inte en orsak bestämd för ett bolag.",
+      "limitations": "Kontrollerat mot aktuell lokal implementation, inte en ny hosted granskning. Arbetsmetoden är NTM:s pedagogiska förslag, inte en universell investeringsregel.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "CFA Institute Research Foundation: Risk Profiling Through a Behavioral Finance Lens",
+      "url": "https://www.cfainstitute.org/sites/default/files/-/media/documents/book/rf-publication/2018/risk_compilation_2018.pdf",
+      "supports": [
+        "fullAnswer"
+      ],
+      "checked": "Sida 44 i PDF: Confirmation Bias, sökande efter bekräftelse och förbiseende av motsägande information.",
+      "limitations": "Beteendefinansiell utbildning, inte bevis att NTM-funktionen minskar bias i ett användartest. Effekten begränsas till synlig dokumentation.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "slug": "falsification",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

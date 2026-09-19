@@ -1,0 +1,133 @@
+{
+  "id": "earnings-surprise",
+  "question": "Hur jämför jag rapporterat utfall med ett daterat estimat?",
+  "intent": "calculation",
+  "category": "reports",
+  "conceptRefs": [
+    "earnings"
+  ],
+  "concepts": [
+    "forward-metrics",
+    "eps"
+  ],
+  "relatedLessonIds": [
+    "forward-metrics"
+  ],
+  "aliases": [
+    "Hur räknar jag rapportöverraskning?",
+    "utfall mot daterat estimat"
+  ],
+  "shortAnswer": "Jämför samma mått, period, valuta och redovisningsbasis med ett estimat som var känt före utfallet. Skillnaden i måttets enhet är utfall minus estimat. En procentuell överraskning kräver dessutom en tydlig metod och en användbar nämnare.",
+  "fullAnswer": "I detta exempel används procentkonventionen (utfall − estimat) / |estimat| × 100. Det är en angiven jämförelsemetod, inte en universell leverantörsregel. Kontrollera särskilt rapporterad kontra justerad EPS och samma aktiebas. Om guidance är ett intervall ska du jämföra med intervallet eller uttryckligen beskriva en separat mittpunktsberäkning. Byt inte tyst ut intervallet mot en punkt.",
+  "example": "Syntetiskt: före rapporten observeras EPS-estimatet 2,00 dollar för det valda kvartalet. Senare rapporteras jämförbar EPS 2,20 dollar. Skillnaden är 0,20 dollar per aktie och 0,20 / 2,00 × 100 = 10 procent. Estimatets observationstid, källa och kvartal sparas separat från rapportdatumet.",
+  "caveats": "Vid noll är procentkvoten odefinierad; nära noll blir den instabil. Negativa estimat kan ge svårtolkade procenttal även med absolutbelopp i nämnaren. Visa då hellre skillnaden i ursprunglig enhet och förklara basis. ”Beat” eller ”miss” säger inget säkert om bolagskvalitet, guidance eller kursreaktion.",
+  "relatedAnswers": [
+    {
+      "id": "earnings",
+      "type": "prerequisite"
+    },
+    {
+      "id": "guidance-consensus",
+      "type": "prerequisite"
+    },
+    {
+      "id": "reported-adjusted",
+      "type": "common-confusion"
+    },
+    {
+      "id": "estimate-age",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "LSEG: I/B/E/S Broker Estimates, databeskrivning",
+      "url": "https://www.lseg.com/en/data-catalogue/company-data/ibes-estimates/broker-estimates",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "example"
+      ],
+      "checked": "Description: estimatvärden, källor, datum, målperioder, valutor och normalisering skiljs åt.",
+      "limitations": "Leverantörens offentliga beskrivning, inte licensierad metodhandbok eller dataanslutning. Ingen universell medelvärdesregel eller åldersgräns antas.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "NVIDIA: Q4/FY2026, daterad outlook och avstämning",
+      "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2026/",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer"
+      ],
+      "checked": "Outlook för Q1 FY2027, rapporterade perioder, GAAP/non-GAAP och framåtblickande osäkerhet lästa; används som exempel på typ av primärdokument.",
+      "limitations": "Inga verkliga NVIDIA-värden används i exemplen. En enskild issuer visar inte att alla bolag ger guidance eller använder samma definitioner.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "NTM: jämförbara EPS-underlag",
+      "url": "https://nolltillmiljoner.se/research.html",
+      "supports": [
+        "fullAnswer",
+        "example",
+        "caveats"
+      ],
+      "checked": "research-snapshot.js comparable och EPS-basis; den uttryckliga surprise-konventionen är pedagogisk algebra med oberoende Decimal-kontroll.",
+      "limitations": "Ingen exekverbar surprise-kalkylator eller leverantörsanslutning införs. Noll/negativ/nära noll behandlas som begränsningar, inte investeringssignaler.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "slug": "earnings-surprise",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

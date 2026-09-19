@@ -1,0 +1,20 @@
+{
+  "date": "2026-09-19",
+  "batch": "tax",
+  "decisions": {
+    "isk-inputs": {
+      "distinctIntent": "Approved input/year-scope objective; original ISK process preserved.",
+      "sourceCheck": "Avsnitt Schablonintäkt på investeringssparkonto: 2026, gemensam grundnivå och daterad beräkningsmetod lästa 2026-09-19. Registry-parametrar avstämda utan ändring. Kapitalunderlag och undantag för annat eget ISK samt separat avsnitt för inkomstår 2026/deklaration 2027. script.js calculateIskTax: detailed quarterly values/deposits/transfers, simple capital basis, allowance-used; data/rule-registry.json isk.",
+      "narrowing": "SE income year 2026 only; no timeless allowance/rate prose, no personal advice; registry deadline retained."
+    },
+    "isk-year-scope": {
+      "distinctIntent": "Approved input/year-scope objective; original ISK process preserved.",
+      "sourceCheck": "Avsnitt Schablonintäkt på investeringssparkonto: 2026, gemensam grundnivå och daterad beräkningsmetod lästa 2026-09-19. Registry-parametrar avstämda utan ändring. Separata rubriker deklarationen 2026 respektive deklarationen 2027, med uttryckliga inkomstår.",
+      "narrowing": "SE income year 2026 only; no timeless allowance/rate prose, no personal advice; registry deadline retained."
+    }
+  },
+  "ids": [
+    "isk-inputs",
+    "isk-year-scope"
+  ]
+}

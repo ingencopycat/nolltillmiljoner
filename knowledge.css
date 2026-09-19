@@ -50,4 +50,4 @@
 .knowledge-formula input,.knowledge-formula select{max-width:100%;min-width:0}
 #knowledgeAskResult button{display:block;white-space:normal;text-align:left;margin-block:.5rem;max-width:100%}
 .knowledge-shell table{width:100%;table-layout:fixed;border-collapse:collapse}
-.knowledge-shell th,.knowledge-shell td{padding:.5rem;border:1px solid var(--border);overflow-wrap:anywhere}
+.knowledge-shell th,.knowledge-shell td{padding:.5rem;border:1px solid var(--border);white-space:normal;overflow-wrap:anywhere}

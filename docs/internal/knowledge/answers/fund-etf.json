@@ -1,0 +1,117 @@
+{
+  "id": "fund-etf",
+  "question": "Vad skiljer handel i en ETF från handel i en traditionell fond?",
+  "intent": "comparison",
+  "conceptRefs": [
+    "etf",
+    "fund"
+  ],
+  "aliases": [
+    "ETF vs traditionell fondhandel",
+    "fondhandel mot NAV eller börspris"
+  ],
+  "shortAnswer": "Här jämförs en börshandlad ETF med en traditionell öppen fond som handlas enligt fondens NAV-baserade ordervillkor. ETF-andelar handlas till marknadspris. I den öppna fonden bestäms affärens pris enligt fondens värderings- och bryttidsregler.",
+  "fullAnswer": "Kontrollera ordertid, när priset fastställs och när pengar eller andelar blir tillgängliga. För ETF tillkommer frågan om spread och skillnad mot NAV; för den traditionella fonden behöver du känna till inlösen- och värderingsvillkoren. Jämförelsen gäller handel, inte vilken förvaltning som är bättre.",
+  "example": "Syntetiskt: en ETF-order möter ett tillgängligt börspris under handelsdagen. En order i den jämförda öppna fonden får i stället pris vid den NAV-beräkning som fondens villkor anger. Exemplen förutsätter inte att båda affärerna avslutas samtidigt.",
+  "caveats": "Alla fonder har inte daglig handel och handel eller inlösen kan begränsas. Ett synligt ETF-pris garanterar inte genomförande för hela din order. Jämför totala kostnader och villkor; ingen generell svensk skattefördel påstås.",
+  "relatedAnswers": [
+    {
+      "id": "etf",
+      "type": "prerequisite"
+    },
+    {
+      "id": "fund",
+      "type": "prerequisite"
+    },
+    {
+      "id": "liquidity",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Investor.gov: Characteristics of Mutual Funds and ETFs",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/characteristics-mutual-funds-exchange-traded-funds",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Bulletin 29 april 2025: separata rubriker om strategi, prissättning och handel; inga skatteavsnitt används.",
+      "limitations": "Amerikansk investerarutbildning används för avgränsade begrepp. Inga skattefördelar, svenska rättsregler eller villkor för en viss fond härleds.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "basics",
+  "concepts": [
+    "diversifiering"
+  ],
+  "relatedLessonIds": [
+    "etf"
+  ],
+  "slug": "fund-etf",
+  "relatedEntityIds": [
+    "tool-fees"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "comparison": {
+      "leftLabel": "ETF",
+      "rightLabel": "Här: öppen NAV-handlad fond",
+      "axes": [
+        {
+          "label": "Pris",
+          "left": "Tillgängligt marknadspris",
+          "right": "NAV enligt fondens ordervillkor"
+        },
+        {
+          "label": "Kontroll",
+          "left": "Spread, order och NAV-avvikelse",
+          "right": "Bryttid, värdering och inlösen"
+        }
+      ],
+      "limitations": "Inte en regel för alla fondtyper eller marknader."
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

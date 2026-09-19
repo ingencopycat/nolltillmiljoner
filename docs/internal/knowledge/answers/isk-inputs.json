@@ -1,0 +1,127 @@
+{
+  "id": "isk-inputs",
+  "question": "Vilka värden och insättningar behöver jag för ISK-kalkylatorn?",
+  "intent": "application",
+  "aliases": [
+    "indata till ISK-kalkylatorn",
+    "kvartalsvärden för ISK"
+  ],
+  "shortAnswer": "I NTM:s detaljerade ISK-läge behöver du värden vid ingången av årets fyra kvartal samt de insättningar och överföringar som ska räknas med. Det enkla läget tar ett redan beräknat kapitalunderlag. Ett aktuellt kontosaldo är inte automatiskt årets kapitalunderlag.",
+  "fullAnswer": "Kontrollera bankens underlag för 1 januari, 1 april, 1 juli och 1 oktober. Summera med de kvalificerande insättningarna och överföringarna och dela med fyra enligt reglerna. Överföring från ett annat eget ISK ska inte räknas som ny insättning. NTM har också ett fält för redan utnyttjad del av den gemensamma grundnivån; den delas med annat relevant ISK-, KF- och PEPP-sparande.",
+  "example": "Syntetiskt för inkomstår 2026: kvartalsvärden 100 000, 110 000, 120 000 och 130 000 kronor samt 40 000 kronor kvalificerande insättningar ger kapitalunderlag 500 000 / 4 = 125 000 kronor. Detta är underlaget, inte ett skattebelopp eller en full deklarationsberäkning.",
+  "caveats": "Kalkylatorn är en förenklad uppskattning för 2026. Kontrollera vilka överföringar som ska ingå och undvik dubbelräkning. Uttag dras inte bara av som negativa insättningar i denna formel. Bankens kontrolluppgifter och den individuella deklarationen kan innehålla omständigheter som verktyget inte modellerar.",
+  "relatedAnswers": [
+    {
+      "id": "isk",
+      "type": "prerequisite"
+    },
+    {
+      "id": "isk-year-scope",
+      "type": "common-confusion"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Skatteverket: Belopp och procent inkomstår 2026",
+      "url": "https://www.skatteverket.se/privat/skatter/beloppochprocent/2026.4.1522bf3f19aea8075ba21.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Avsnitt Schablonintäkt på investeringssparkonto: 2026, gemensam grundnivå och daterad beräkningsmetod lästa 2026-09-19. Registry-parametrar avstämda utan ändring.",
+      "limitations": "Sverige, inkomstår 2026. Ingen framtida regel, personlig deklaration eller kontooptimering verifieras.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "Skatteverket: Skatt på investeringssparkonto",
+      "url": "https://www.skatteverket.se/privat/skatter/vardepapper/investeringssparkontoisk.4.5fc8c94513259a4ba1d800037851.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Kapitalunderlag och undantag för annat eget ISK samt separat avsnitt för inkomstår 2026/deklaration 2027.",
+      "limitations": "Sidans äldre deklarationsexempel används inte för 2026. Det syntetiska exemplet avser bara kapitalunderlag.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "NTM: ISK-kalkylatorns indatakontrakt",
+      "url": "https://nolltillmiljoner.se/isk-skattkalkylator.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "example",
+        "caveats"
+      ],
+      "checked": "script.js calculateIskTax: detailed quarterly values/deposits/transfers, simple capital basis, allowance-used; data/rule-registry.json isk.",
+      "limitations": "Lokalt granskat; ingen personlig skatteberäkning och ingen ändring av kalkylator eller registry.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "saving",
+  "conceptRefs": [
+    "isk"
+  ],
+  "concepts": [
+    "isk"
+  ],
+  "relatedLessonIds": [
+    "isk"
+  ],
+  "ruleId": "isk",
+  "jurisdiction": "SE",
+  "period": "2026",
+  "reviewDue": "2026-12-01",
+  "reviewPolicy": {
+    "risk": "rule",
+    "overdue": "suppress"
+  },
+  "slug": "isk-inputs",
+  "relatedEntityIds": [
+    "tool-tax"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

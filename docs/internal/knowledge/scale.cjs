@@ -2,6 +2,19 @@
 // New content belongs in answers/*.json; drafts are validated but never projected.
 const fs=require('node:fs'),path=require('node:path');
 const concepts=[
+ ['ebitda','EBIT och EBITDA','metrics',['earnings before interest taxes depreciation amortization'],['EBITDA'],null],
+ ['enterprise-value','Enterprise value','valuation',['företagsvärde enligt EV-konvention'],['EV'],null],
+ ['discounting','Diskontering','valuation',['nuvärde'],[],null],
+ ['spread','Köp- och säljspread','basics',['bid ask'],[],null],
+ ['time-horizon','Tidshorisont','risk',['när pengarna behövs'],[],null],
+ ['liquidity','Likviditet','risk',['marketability'],[],null],
+ ['fund','Fond','basics',['mutual fund'],[],null],
+ ['etf','ETF','basics',['börshandlad fond'],['ETF'],null],
+ ['index','Index','basics',['marknadsindex'],[],null],
+ ['drawdown','Drawdown','risk',['nedgång från tidigare topp'],[],null],
+ ['volatility','Volatilitet','risk',['avkastningens variation'],[],null],
+ ['leverage','Hävstång','risk',['belånad exponering'],[],null],
+ ['ps','P/S','valuation',['price to sales','pris omsättning'],['PS'],null],
  ['pe','P/E','valuation',['pris vinst','price earnings'],['PE'],'pe'],
  ['eps','EPS','metrics',['vinst per aktie'],['EPS'],'eps'],
  ['return','Avkastning','saving',['total avkastning'],[],null],
@@ -26,7 +39,12 @@ const concepts=[
  ['thesis','Investeringstes','risk',['antaganden','motbevis'],[],null],
  ['diversification','Diversifiering','risk',['riskspridning'],[],null],
  ['compounding','Ränta på ränta','saving',['compound interest'],[],null],
- ['macro','Makrosläpp','macro',['payrolls','arbetslöshet','gdp','bnp'],['CPI','PCE'],null]
+ ['macro','Makrosläpp','macro',['payrolls','arbetslöshet','gdp','bnp'],['CPI','PCE'],null],
+ ['balance-sheet','Balansräkning','reports',['balance sheet'],[],null],
+ ['income-statement','Resultaträkning','reports',['income statement'],[],null],
+ ['cash-flow-statement','Kassaflödesanalys','reports',['cash flow statement'],[],null],
+ ['capex','CapEx','metrics',['capital expenditures','kapitalinvesteringar'],['CapEx'],null],
+ ['working-capital','Rörelsekapital','metrics',['working capital'],[],null]
 ].map(([id,term,category,synonyms,abbreviations,metric])=>({id,term,category,synonyms,abbreviations,related:[],...(metric?{metric}: {})}));
 const mapping={pe:['pe','definition'],eps:['eps','definition'],cagr:['cagr','comparison','return'],gav:['gav','calculation'],fcf:['fcf','definition'],peg:['peg','definition','pe'],dilution:['shares','definition','eps'],'market-cap':['market-cap','definition'],guidance:['outlook','definition'],revenue:['revenue','definition'],margins:['margins','comparison','revenue'],debt:['debt','interpretation'],dividends:['dividends','misconception','return'],fx:['fx','calculation','return'],isk:['isk','process'],fees:['fees','application'],ttm:['ttm','definition'],forward:['pe','comparison','outlook'],inflation:['inflation','misconception'],'interest-rates':['rates','application'],'bond-yields':['rates','application'],earnings:['earnings','interpretation'],estimates:['outlook','definition'],thesis:['thesis','process'],diversification:['diversification','definition'],'eps-comparison':['eps','comparison'],compounding:['compounding','calculation'],'annual-fees':['fees','application','compounding'],'macro-releases':['macro','definition','inflation']};
 const contexts=['knowledge','research','calculator','macro','public-report','academy-reminder'];

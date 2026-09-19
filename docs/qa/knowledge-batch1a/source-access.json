@@ -1,0 +1,76 @@
+{
+  "sources": [
+    {
+      "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+      "title": "SEC: Beginners’ Guide to Financial Statements",
+      "readOn": "2026-09-19",
+      "result": "primary-content-read",
+      "method": "web research text extraction",
+      "httpStatus": null
+    },
+    {
+      "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/",
+      "title": "IFRS Foundation: IAS 33 Earnings per Share",
+      "readOn": "2026-09-19",
+      "result": "primary-content-read",
+      "method": "web research text extraction",
+      "httpStatus": null
+    },
+    {
+      "url": "https://www.ifrs.org/issued-standards/list-of-standards/ifrs-18-presentation-and-disclosure-in-financial-statements/",
+      "title": "IFRS Foundation: IFRS 18, tillämpning och presentation",
+      "readOn": "2026-09-19",
+      "result": "primary-content-read",
+      "method": "web research text extraction",
+      "httpStatus": null
+    },
+    {
+      "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+      "title": "IFRS Foundation: IAS 7, översikt och standardhistorik",
+      "readOn": "2026-09-19",
+      "result": "primary-content-read",
+      "method": "web research text extraction",
+      "httpStatus": null
+    },
+    {
+      "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-16-property-plant-and-equipment/",
+      "title": "IFRS Foundation: IAS 16 Property, Plant and Equipment",
+      "readOn": "2026-09-19",
+      "result": "primary-content-read",
+      "method": "web research text extraction",
+      "httpStatus": null
+    },
+    {
+      "url": "https://www.ifrs.org/content/dam/ifrs/meetings/2024/november/cmac/ap5-scfrm.pdf",
+      "title": "IFRS Foundation: CMAC november 2024, återgivna IAS 7 punkter 50–51",
+      "readOn": "2026-09-19",
+      "result": "primary-content-read",
+      "method": "web research text extraction",
+      "httpStatus": null
+    },
+    {
+      "url": "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures",
+      "title": "SEC: Non-GAAP Financial Measures, fråga 102.07",
+      "readOn": "2026-09-19",
+      "result": "primary-content-read",
+      "method": "web research text extraction",
+      "httpStatus": null
+    },
+    {
+      "url": "https://www.ifrs.org/content/dam/ifrs/meetings/2025/september/iasb/ap20a-approach-to-disaggregation.pdf",
+      "title": "IFRS Foundation: IASB september 2025, rörelsekapital och avstämning",
+      "readOn": "2026-09-19",
+      "result": "primary-content-read",
+      "method": "web research text extraction",
+      "httpStatus": null
+    }
+  ],
+  "limitations": [
+    {
+      "url": "https://www.ifrs.org/content/dam/ifrs/publications/pdf-standards/english/2024/issued/part-a/ias-7-statement-of-cash-flows.pdf",
+      "result": "direct-full-standard-fetch-unavailable",
+      "resolution": "Used accessible official IAS 7 overview and official staff papers reproducing/referencing selected requirements. No claim of a full-standard compliance audit."
+    }
+  ],
+  "legacy": "SEC guide and SEC non-GAAP content were readable in this batch despite prior HEAD restrictions. Original Batch 0 eight-URL evidence is historical and was not rewritten; inherited object mappings remain open."
+}

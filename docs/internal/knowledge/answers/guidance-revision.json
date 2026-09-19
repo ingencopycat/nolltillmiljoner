@@ -1,0 +1,115 @@
+{
+  "id": "guidance-revision",
+  "question": "Hur jämför jag två versioner av bolagets guidance?",
+  "intent": "process",
+  "conceptRefs": [
+    "outlook"
+  ],
+  "aliases": [
+    "jämföra guidanceversioner",
+    "ändrad bolagsguidance"
+  ],
+  "shortAnswer": "Spara båda daterade beskeden och jämför samma mått, målperiod, valuta och definition. Kontrollera både intervallets gränser och vad bolaget har ändrat i sina antaganden. En ny formulering är inte alltid en jämförbar höjning eller sänkning.",
+  "fullAnswer": "Läs originaldokumenten och markera om omfattning eller redovisningsbasis ändrats. Skilj nytt belopp från flyttad period eller ändrat urval. Om du använder en mittpunkt ska det stå att den är din härledning; bolagets intervall får inte tyst ersättas av ett punktestimat. Bevara vad som var känt vid varje tillfälle.",
+  "example": "Syntetiskt på samma basis: intervallet 10–11 blir 11–12. Båda gränserna har ökat med 1 och bredden är fortfarande 1. Om en uttrycklig mittpunktsjämförelse behövs är den 10,5 mot 11,5, men ingetdera är ett utlovat utfall.",
+  "caveats": "Valuta, förvärv, avyttringar och nya justeringar kan bryta jämförbarheten. Uppdaterad guidance är fortsatt framåtblickande. En höjd utsikt säger inte ensam hur aktiekursen bör reagera.",
+  "relatedAnswers": [
+    {
+      "id": "guidance-consensus",
+      "type": "prerequisite"
+    },
+    {
+      "id": "source-provenance",
+      "type": "prerequisite"
+    },
+    {
+      "id": "estimate-age",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "NVIDIA: Q4/FY2026 outlook",
+      "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2026/",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Outlook anger målperiod, basis och framåtblickande begränsningar.",
+      "limitations": "Ingen verklig tvåversionshöjning påstås; intervalljämförelsen är helt syntetisk.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "NTM: befintligt metodkontrakt",
+      "url": "https://nolltillmiljoner.se/research.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats",
+        "example"
+      ],
+      "checked": "research-snapshot.js comparable och tidsstämplad revisionsprincip; gräns-/mittpunktsalgebra separat kontrollerad.",
+      "limitations": "Verifierat mot lokal implementation, inte en ny hosted-kontroll. Syntetiska exempel och NTM-metod, inte externa rekommendationer.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "reports",
+  "concepts": [
+    "forward-metrics"
+  ],
+  "relatedLessonIds": [
+    "forward-metrics"
+  ],
+  "reviewDue": "2026-12-31",
+  "slug": "guidance-revision",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

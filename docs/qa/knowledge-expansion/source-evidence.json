@@ -1,0 +1,1464 @@
+{
+  "scope": "New 59 only; passage-level checks recorded in each object, not whole-document certification or independent human review",
+  "sources": [
+    {
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/characteristics-mutual-funds-exchange-traded-funds",
+      "title": "Investor.gov: Characteristics of Mutual Funds and ETFs",
+      "objects": [
+        {
+          "id": "active-passive",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Bulletin 29 april 2025: separata rubriker om strategi, prissättning och handel; inga skatteavsnitt används.",
+          "limitations": "Amerikansk investerarutbildning används för avgränsade begrepp. Inga skattefördelar, svenska rättsregler eller villkor för en viss fond härleds.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "fund-etf",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Bulletin 29 april 2025: separata rubriker om strategi, prissättning och handel; inga skatteavsnitt används.",
+          "limitations": "Amerikansk investerarutbildning används för avgränsade begrepp. Inga skattefördelar, svenska rättsregler eller villkor för en viss fond härleds.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-4",
+      "title": "Investor.gov: Index Funds",
+      "objects": [
+        {
+          "id": "active-passive",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Kostnader är inte alltid lägre; tracking error och underperformance skiljs från strategietikett.",
+          "limitations": "Amerikansk investerarutbildning används för avgränsade begrepp. Inga skattefördelar, svenska rättsregler eller villkor för en viss fond härleds.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "index-weighting",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Börsvärdesviktning skiljs från prisviktning; en fond kan avvika från index.",
+          "limitations": "Inga aktuella indexvikter används.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "index",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Indexkorg, indirekt investering, olika viktning och tracking error; gamla fondrapporteringsformulär används inte.",
+          "limitations": "Amerikansk investerarutbildning används för avgränsade begrepp. Inga skattefördelar, svenska rättsregler eller villkor för en viss fond härleds.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://nolltillmiljoner.se/avkastningskalkylator.html",
+      "title": "NTM: angiven beräkningsmetod och syntetisk algebra",
+      "objects": [
+        {
+          "id": "arithmetic-geometric",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "example"
+          ],
+          "checked": "valuation-core.js CAGR-kontrakt och script.js calculateProjection årsserie; oberoende faktorprodukt och kvadratrot.",
+          "limitations": "Lokalt metodkontrakt läst och separat Decimal-kontroll krävs före acceptans. Ingen ny exekverbar formel i Fråga NTM.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "drawdown",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "example"
+          ],
+          "checked": "Procentuell topp/botten-kvot och observationsbegränsning härledda för uttryckligen vald positiv serie.",
+          "limitations": "Lokalt metodkontrakt läst och separat Decimal-kontroll krävs före acceptans. Ingen ny exekverbar formel i Fråga NTM.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "loss-recovery",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "example"
+          ],
+          "checked": "Återhämtningsidentiteten löst för uppgång och kontrollerad vid L 0,1; 0,2; 0,5; 0,8 samt uteslutet L=1.",
+          "limitations": "Lokalt metodkontrakt läst och separat Decimal-kontroll krävs före acceptans. Ingen ny exekverbar formel i Fråga NTM.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "nominal-real",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "example"
+          ],
+          "checked": "Exakt köpkraftskvot härledd från slutbelopp/prisindex; oberoende kontroll av 10/4 och 8/3.",
+          "limitations": "Lokalt metodkontrakt läst och separat Decimal-kontroll krävs före acceptans. Ingen ny exekverbar formel i Fråga NTM.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
+      "title": "Investor.gov: Stocks – FAQs",
+      "objects": [
+        {
+          "id": "asset-ownership",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "What are stocks, common/preferred stock och risk för förlust; breda historiska avkastnings- och value-stock-påståenden återges inte.",
+          "limitations": "Amerikansk investerarutbildning används för avgränsade begrepp. Inga skattefördelar, svenska rättsregler eller villkor för en viss fond härleds.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.gipsstandards.org/standards/gips-standards-for-firms/gips-standards-handbook-for-firms/",
+      "title": "GIPS Standards Handbook for Firms",
+      "objects": [
+        {
+          "id": "cashflow-return",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Calculation methodology: externa flöden, värderade delperioder/geometrisk länkning och separat money-weighted presentation.",
+          "limitations": "Endast avgränsade metodavsnitt lästa; ingen GIPS-kompatibilitet eller komplett IRR-instruktion påstås.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.finra.org/investors/insights/concentration-risk",
+      "title": "FINRA: Concentration Risk",
+      "objects": [
+        {
+          "id": "concentration",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Avsnitt om korrelerade exponeringar, sektor/geografi och att granska fonders underliggande innehav.",
+          "limitations": "Ingen maxvikt anges; syntetisk portfölj är ingen individuell rekommendation.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "fund-overlap",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Fondgenomlysning och gemensamma innehav/korrelerade exponeringar; kompletterat med uttrycklig viktad syntetisk algebra.",
+          "limitations": "Inga verkliga innehavslistor samlas in och ingen automatisk portföljanalys införs.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://nolltillmiljoner.se/ranta-pa-ranta.html",
+      "title": "NTM: angiven beräkningsmetod och syntetisk algebra",
+      "objects": [
+        {
+          "id": "contribution-timing",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "example"
+          ],
+          "checked": "script.js calculateProjection: value=value*monthlyFactor+monthlySavings; jämn modell använder annuitet för slutet av månaden.",
+          "limitations": "Lokalt metodkontrakt läst och separat Decimal-kontroll krävs före acceptans. Ingen ny exekverbar formel i Fråga NTM.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://bea.gov/help/faq/555",
+      "title": "BEA: CPI–PCE differences",
+      "objects": [
+        {
+          "id": "cpi-pce",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Formula, weight, scope och other effects, särskilt spending by and on behalf of personal sector.",
+          "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.federalreserve.gov/economy-at-a-glance-inflation-pce.htm",
+      "title": "Federal Reserve: Inflation (PCE)",
+      "objects": [
+        {
+          "id": "cpi-pce",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Inflationsmålets PCE-basis; ingen numerisk målnivå behöver hårdkodas i svaret.",
+          "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.microsoft.com/investor/reports/ar25/",
+      "title": "Microsoft Annual Report 2025, Note 10 Debt",
+      "objects": [
+        {
+          "id": "debt-maturity",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Note 10: short/long-term debt, betalningsvillkor och separat förfallotabell per år; Note 13 skiljer leasingskulder.",
+          "limitations": "Illustration av nödvändig primärnot, ingen bedömning av Microsofts kreditrisk eller användning av verkliga belopp.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "fiscal-calendar",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Resultattabellerna anger Year Ended June 30; jämförelsen begränsas till kalendern.",
+          "limitations": "En issuer är ett exempel, inte en regel för andra företag.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "gross-margin",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Resultattabeller: Revenue, Cost of revenue och vidare rörelsekostnader skiljs åt; syntetisk bruttovinst härleds separat.",
+          "limitations": "Inga Microsoft-belopp eller sektornormer används.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/background/valintro.htm",
+      "title": "Aswath Damodaran: An Introduction to Valuation",
+      "objects": [
+        {
+          "id": "discounting",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Inputs to DCF: kassaflöde, tidpunkt, riskanpassad ränta och skillnad mellan equity/firm cash flows.",
+          "limitations": "Ingen full DCF eller uppskattning av ett bolags kapitalkostnad byggs.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://nolltillmiljoner.se/aktievarderingskalkylator.html",
+      "title": "NTM: avgränsad beräkningsmetod",
+      "objects": [
+        {
+          "id": "discounting",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "example"
+          ],
+          "checked": "Oberoende femårig faktorpotens med fasta positiva syntetiska belopp.",
+          "limitations": "Oberoende syntetisk algebra; ingen ny formelutvärderare, marknadsprognos eller individuell rekommendation.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "valuation-sensitivity",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "example"
+          ],
+          "checked": "valuation-core.js scenario och EPS × P/E; oberoende produkter för samma framtidsbasis.",
+          "limitations": "Verifierat mot lokal implementation, inte en ny hosted-kontroll. Syntetiska exempel och NTM-metod, inte externa rekommendationer.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1404.7493",
+      "title": "Goldberg och Mahmoud: Drawdown: From Practice to Theory and Back Again",
+      "objects": [
+        {
+          "id": "drawdown",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Författarnas abstract definierar maximum drawdown som största kumulativa förlust från topp till botten och skiljer drawdown från volatilitet.",
+          "limitations": "Endast abstract läst; inga CED-resultat, optimeringspåståenden eller empiriska prognoser återges.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "volatility-risk",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer"
+          ],
+          "checked": "Abstract skiljer riskmått och deras egenskaper.",
+          "limitations": "Ingen empirisk rangordning eller prognos återges.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.lseg.com/en/data-catalogue/company-data/ibes-estimates/broker-estimates",
+      "title": "LSEG: I/B/E/S Broker Estimates, databeskrivning",
+      "objects": [
+        {
+          "id": "earnings-surprise",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "example"
+          ],
+          "checked": "Description: estimatvärden, källor, datum, målperioder, valutor och normalisering skiljs åt.",
+          "limitations": "Leverantörens offentliga beskrivning, inte licensierad metodhandbok eller dataanslutning. Ingen universell medelvärdesregel eller åldersgräns antas.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "estimate-age",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Databeskrivningens datum, fiscal periods, sources och normalization attributes kräver identifierad observationsbasis.",
+          "limitations": "Leverantörens offentliga beskrivning, inte licensierad metodhandbok eller dataanslutning. Ingen universell medelvärdesregel eller åldersgräns antas.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "estimate-dispersion",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Databeskrivningens bidrag, källor, datum, fiscal period och normaliseringsattribut; inga licensierade värden hämtas.",
+          "limitations": "Offentlig metadata räcker inte för att återskapa leverantörens fulla konsensusmetod.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "guidance-consensus",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "comparison"
+          ],
+          "checked": "Description: analytikerbidrag, konsensus, estimate sources, announcement dates, fiscal periods, currencies och normalization attributes.",
+          "limitations": "Leverantörens offentliga beskrivning, inte licensierad metodhandbok eller dataanslutning. Ingen universell medelvärdesregel eller åldersgräns antas.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2026/",
+      "title": "NVIDIA: Q4/FY2026, daterad outlook och avstämning",
+      "objects": [
+        {
+          "id": "earnings-surprise",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer"
+          ],
+          "checked": "Outlook för Q1 FY2027, rapporterade perioder, GAAP/non-GAAP och framåtblickande osäkerhet lästa; används som exempel på typ av primärdokument.",
+          "limitations": "Inga verkliga NVIDIA-värden används i exemplen. En enskild issuer visar inte att alla bolag ger guidance eller använder samma definitioner.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "estimate-age",
+          "supports": [
+            "fullAnswer",
+            "example"
+          ],
+          "checked": "Outlook för Q1 FY2027, rapporterade perioder, GAAP/non-GAAP och framåtblickande osäkerhet lästa; används som exempel på typ av primärdokument.",
+          "limitations": "Inga verkliga NVIDIA-värden används i exemplen. En enskild issuer visar inte att alla bolag ger guidance eller använder samma definitioner.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "guidance-consensus",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "example",
+            "comparison"
+          ],
+          "checked": "Outlook för Q1 FY2027, rapporterade perioder, GAAP/non-GAAP och framåtblickande osäkerhet lästa; används som exempel på typ av primärdokument.",
+          "limitations": "Inga verkliga NVIDIA-värden används i exemplen. En enskild issuer visar inte att alla bolag ger guidance eller använder samma definitioner.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "guidance-revision",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Outlook anger målperiod, basis och framåtblickande begränsningar.",
+          "limitations": "Ingen verklig tvåversionshöjning påstås; intervalljämförelsen är helt syntetisk.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://nolltillmiljoner.se/research.html",
+      "title": "NTM: jämförbara EPS-underlag",
+      "objects": [
+        {
+          "id": "earnings-surprise",
+          "supports": [
+            "fullAnswer",
+            "example",
+            "caveats"
+          ],
+          "checked": "research-snapshot.js comparable och EPS-basis; den uttryckliga surprise-konventionen är pedagogisk algebra med oberoende Decimal-kontroll.",
+          "limitations": "Ingen exekverbar surprise-kalkylator eller leverantörsanslutning införs. Noll/negativ/nära noll behandlas som begränsningar, inte investeringssignaler.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "estimate-dispersion",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "example"
+          ],
+          "checked": "Explicit syntetisk medelvärdes-/spannalgebra; inga sannolikheter tilldelas estimatlistan.",
+          "limitations": "Verifierat mot lokal implementation, inte en ny hosted-kontroll. Syntetiska exempel och NTM-metod, inte externa rekommendationer.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "fact-assumption",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "example",
+            "caveats"
+          ],
+          "checked": "research-review.js fields och thesis-storage.js normalizeRevision: separata antaganden/granskning; kedjan är tydligt märkt NTM-metodik, inte nya fält.",
+          "limitations": "Kontrollerat mot aktuell lokal implementation, inte en ny hosted granskning. Arbetsmetoden är NTM:s pedagogiska förslag, inte en universell investeringsregel.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "falsification",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "example",
+            "caveats"
+          ],
+          "checked": "research-review.js fields/init och thesis-storage.js validLifecycle/assumptionStatus: motbevis, datum, bedömning och sparade revisioner. Tolkningslistan är NTM:s kontrollfrågor, inte en orsak bestämd för ett bolag.",
+          "limitations": "Kontrollerat mot aktuell lokal implementation, inte en ny hosted granskning. Arbetsmetoden är NTM:s pedagogiska förslag, inte en universell investeringsregel.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "guidance-revision",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "example"
+          ],
+          "checked": "research-snapshot.js comparable och tidsstämplad revisionsprincip; gräns-/mittpunktsalgebra separat kontrollerad.",
+          "limitations": "Verifierat mot lokal implementation, inte en ny hosted-kontroll. Syntetiska exempel och NTM-metod, inte externa rekommendationer.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "scenario-design",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "example",
+            "caveats"
+          ],
+          "checked": "valuation-core.js scenario(price,eps,growth,years,pe) och research.js scenarioflöde: EPS-modell. Omsättning/marginal-exemplet är en separat pedagogisk struktur, inte påhittade kalkylatorfält.",
+          "limitations": "Kontrollerat mot aktuell lokal implementation, inte en ny hosted granskning. Arbetsmetoden är NTM:s pedagogiska förslag, inte en universell investeringsregel.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "scenario-probability",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "example"
+          ],
+          "checked": "valuation-core.js scenario tar EPS, tillväxt, år och P/E, inga sannolikhetsvikter; thesis-metoden skiljer antaganden från utfall.",
+          "limitations": "Verifierat mot lokal implementation, inte en ny hosted-kontroll. Syntetiska exempel och NTM-metod, inte externa rekommendationer.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "source-provenance",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "example",
+            "caveats"
+          ],
+          "checked": "research-snapshot.js normalize/fromStockData/correctionFacts och public-report.js projectFact/validateFact: period, enhet, accession, filed, definition och frysta val. Texten är dokumentationsmetod, inte ett löfte om nya formulärfält.",
+          "limitations": "Kontrollerat mot aktuell lokal implementation, inte en ny hosted granskning. Arbetsmetoden är NTM:s pedagogiska förslag, inte en universell investeringsregel.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "ttm-construction",
+          "supports": [
+            "fullAnswer",
+            "example",
+            "caveats"
+          ],
+          "checked": "scripts/stock_normalizer.py: fristående kvartal härleds bara när kompatibla; TTM kräver fyra verifierade kvartal. Oberoende syntetiska summeringar/brygga kontrollerade.",
+          "limitations": "Summerbar omsättning, inte en universell EPS/kvot/balanspostformel. Inga finansiella källdata ändras.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "update-thesis",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "example"
+          ],
+          "checked": "thesis-storage.js append-only revisions och review.decision keep/revise/close/abstain; research-publication.js skiljer ny privat version från uttrycklig publicering.",
+          "limitations": "Verifierat mot lokal implementation, inte en ny hosted-kontroll. Syntetiska exempel och NTM-metod, inte externa rekommendationer.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures",
+      "title": "SEC: Non-GAAP Financial Measures",
+      "objects": [
+        {
+          "id": "ebit-ebitda",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "103.01–103.02: EBIT/EBITDA utgår från net income och andra justeringar måste särskiljas; 102.07 behandlar FCF-begränsning.",
+          "limitations": "US GAAP/SEC-kontext, inte en universell definition av varje bolags justerade mått.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "ev-ebitda-limits",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "103.01–103.02: EBIT/EBITDA utgår från net income och andra justeringar måste särskiljas; 102.07 behandlar FCF-begränsning.",
+          "limitations": "US GAAP/SEC-kontext, inte en universell definition av varje bolags justerade mått.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://pages.stern.nyu.edu/~adamodar/pdfiles/country/relvalAIMR.pdf",
+      "title": "Aswath Damodaran: Relative Valuation",
+      "objects": [
+        {
+          "id": "enterprise-value",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Sidor 12–13 och 39–41: EV-brygga, täljare/nämnare och återinvesteringsbehov; sifferdata och historiska värderingar används inte.",
+          "limitations": "Avgränsad förenklad metod, inte full företagsvärdering; andra anspråk kan kräva justeringar.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "ev-ebitda-limits",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Sidor 12–13 och 39–41: EV-brygga, täljare/nämnare och återinvesteringsbehov; sifferdata och historiska värderingar används inte.",
+          "limitations": "Avgränsad förenklad metod, inte full företagsvärdering; andra anspråk kan kräva justeringar.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "ev-market-cap",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Sidor 12–13 och 39–41: EV-brygga, täljare/nämnare och återinvesteringsbehov; sifferdata och historiska värderingar används inte.",
+          "limitations": "Avgränsad förenklad metod, inte full företagsvärdering; andra anspråk kan kräva justeringar.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.cfainstitute.org/standards/professionals/code-ethics-standards/standards-of-practice-v-a",
+      "title": "CFA Institute: Standard V(A), forskningens aktualitet",
+      "objects": [
+        {
+          "id": "estimate-age",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "example",
+            "caveats"
+          ],
+          "checked": "Using Secondary or Third-Party Research: antaganden och date/timeliness ingår i bedömningen.",
+          "limitations": "Tidslinjen är syntetisk. Ingen exakt stale-gräns eller prognossäkerhet härleds från standarden.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "scenario-design",
+          "supports": [
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Quantitative Research and Techniques: förstå modellbegränsningar, negativa utfall och relevanta antaganden.",
+          "limitations": "Inga numeriska scenariogränser eller sannolikheter stöds av källan. Exemplet anger indata, ingen modellberäkning.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2",
+      "title": "Investor.gov: Exchange-Traded Funds",
+      "objects": [
+        {
+          "id": "etf",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Definition, aktiv/indexstrategi, marknadspris kontra NAV, produkttyp och koncentrationsrisk.",
+          "limitations": "Amerikansk investerarutbildning används för avgränsade begrepp. Inga skattefördelar, svenska rättsregler eller villkor för en viss fond härleds.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.cfainstitute.org/standards/professionals/code-ethics-standards/standards-of-practice-v-b",
+      "title": "CFA Institute: Standard V(B), fakta och åsikter",
+      "objects": [
+        {
+          "id": "fact-assumption",
+          "supports": [
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Distinction Between Facts and Opinions: estimat och framtida förhållanden ska inte presenteras som fakta.",
+          "limitations": "Professionell standard för dess tillämpningskrets; inget påstående om att NTM-användare lyder under standarden. Siffrorna är syntetiska.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "guidance-consensus",
+          "supports": [
+            "caveats"
+          ],
+          "checked": "Distinction Between Facts and Opinions: prognosuppgifter beror på framtida förhållanden.",
+          "limitations": "Ingen regel om marknadsreaktion härleds; värdeomdöme och utfallsjämförelse hålls isär.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "source-provenance",
+          "supports": [
+            "caveats"
+          ],
+          "checked": "Fakta/åsikter och Recommended Procedures: behåll underlag för analysens faktorer.",
+          "limitations": "Professionell standard används för skillnaden källa/tolkning. Den specifika NTM-mallen kontrolleras mot lokal produktkod.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.cfainstitute.org/sites/default/files/-/media/documents/book/rf-publication/2018/risk_compilation_2018.pdf",
+      "title": "CFA Institute Research Foundation: Risk Profiling Through a Behavioral Finance Lens",
+      "objects": [
+        {
+          "id": "falsification",
+          "supports": [
+            "fullAnswer"
+          ],
+          "checked": "Sida 44 i PDF: Confirmation Bias, sökande efter bekräftelse och förbiseende av motsägande information.",
+          "limitations": "Beteendefinansiell utbildning, inte bevis att NTM-funktionen minskar bias i ett användartest. Effekten begränsas till synlig dokumentation.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.sec.gov/oiea/Article/ib_fees_expenses.pdf",
+      "title": "SEC: How Fees and Expenses Affect Your Investment Portfolio",
+      "objects": [
+        {
+          "id": "fee-double-count",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Skillnad mellan löpande kostnader och transaktionskostnader samt avgifters effekt på kapital över tid.",
+          "limitations": "Allmän kostnadsutbildning; exakt NTM-faktor hämtas från verktygets kod.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://nolltillmiljoner.se/avgifter.html",
+      "title": "NTM: angiven beräkningsmetod och syntetisk algebra",
+      "objects": [
+        {
+          "id": "fee-double-count",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "example"
+          ],
+          "checked": "script.js calculateFeeComparisonProjection och calculateProjection använder (1+r)*(1-f)-1; oberoende 6,92-kontroll.",
+          "limitations": "Lokalt metodkontrakt läst och separat Decimal-kontroll krävs före acceptans. Ingen ny exekverbar formel i Fråga NTM.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces",
+      "title": "SEC: EDGAR API",
+      "objects": [
+        {
+          "id": "fiscal-calendar",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Frames-varning om olika start/slut och kalenderanpassning av företagsperioder.",
+          "limitations": "Ingen automatisk periodmatchning utlovas.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "ttm-construction",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Companyconcept och frames: enheter, duration och varierande start/slut mellan bolagens kalenderperioder.",
+          "limitations": "En SEC-frame garanterar inte identiska räkenskapsperioder.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-funds-etfs/mutual-funds",
+      "title": "Investor.gov: Mutual Funds",
+      "objects": [
+        {
+          "id": "fund",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Definition av gemensam portfölj/fondandelar, risk och behov att läsa prospekt; amerikanska daily-redemption-regler generaliseras inte till alla fonder.",
+          "limitations": "Amerikansk investerarutbildning används för avgränsade begrepp. Inga skattefördelar, svenska rättsregler eller villkor för en viss fond härleds.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+      "title": "BLS: CPI Frequently Asked Questions",
+      "objects": [
+        {
+          "id": "headline-core",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Overview: CPI-U, all items respektive less food and energy, 1- och 12-månadersförändring samt skilda indexbasis.",
+          "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "mom-yoy",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Overview: CPI-U, all items respektive less food and energy, 1- och 12-månadersförändring samt skilda indexbasis.",
+          "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.bea.gov/help/faq/518",
+      "title": "BEA: Core PCE price index",
+      "objects": [
+        {
+          "id": "headline-core",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Definition inklusive specifik food-kategori; food services and accommodations undantas inte som food.",
+          "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www-cdn.msci.com/documents/10199/6a862628-db59-5e41-a49e-12a1ceddc878",
+      "title": "MSCI Global Investable Market Indexes Methodology Summary, July 2026",
+      "objects": [
+        {
+          "id": "index-weighting",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Avsnitt Free Float och Foreign Inclusion Factor: tillgängligt aktieantal och ägarbegränsning; inga trösklar kopieras.",
+          "limitations": "En indexfamiljs metod, inte ett löfte om alla index. Syntetisk viktning har inga FIF-justeringar.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.msci.com/indexes/index-resources/index-methodology",
+      "title": "MSCI: Index Methodology",
+      "objects": [
+        {
+          "id": "index",
+          "supports": [
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Administratörens metodbibliotek skiljer indexkonstruktion och metodfamiljer; används för krav att läsa rätt indexmetod.",
+          "limitations": "Ingen enskild indexsammansättning eller avkastning verifieras här.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.skatteverket.se/privat/skatter/beloppochprocent/2026.4.1522bf3f19aea8075ba21.html",
+      "title": "Skatteverket: Belopp och procent inkomstår 2026",
+      "objects": [
+        {
+          "id": "isk-inputs",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Avsnitt Schablonintäkt på investeringssparkonto: 2026, gemensam grundnivå och daterad beräkningsmetod lästa 2026-09-19. Registry-parametrar avstämda utan ändring.",
+          "limitations": "Sverige, inkomstår 2026. Ingen framtida regel, personlig deklaration eller kontooptimering verifieras.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "isk-year-scope",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Avsnitt Schablonintäkt på investeringssparkonto: 2026, gemensam grundnivå och daterad beräkningsmetod lästa 2026-09-19. Registry-parametrar avstämda utan ändring.",
+          "limitations": "Sverige, inkomstår 2026. Ingen framtida regel, personlig deklaration eller kontooptimering verifieras.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.skatteverket.se/privat/skatter/vardepapper/investeringssparkontoisk.4.5fc8c94513259a4ba1d800037851.html",
+      "title": "Skatteverket: Skatt på investeringssparkonto",
+      "objects": [
+        {
+          "id": "isk-inputs",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Kapitalunderlag och undantag för annat eget ISK samt separat avsnitt för inkomstår 2026/deklaration 2027.",
+          "limitations": "Sidans äldre deklarationsexempel används inte för 2026. Det syntetiska exemplet avser bara kapitalunderlag.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "isk-year-scope",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Separata rubriker deklarationen 2026 respektive deklarationen 2027, med uttryckliga inkomstår.",
+          "limitations": "Inga personliga undantag eller framtida parametrar härleds.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://nolltillmiljoner.se/isk-skattkalkylator.html",
+      "title": "NTM: ISK-kalkylatorns indatakontrakt",
+      "objects": [
+        {
+          "id": "isk-inputs",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "example",
+            "caveats"
+          ],
+          "checked": "script.js calculateIskTax: detailed quarterly values/deposits/transfers, simple capital basis, allowance-used; data/rule-registry.json isk.",
+          "limitations": "Lokalt granskat; ingen personlig skatteberäkning och ingen ändring av kalkylator eller registry.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.bls.gov/web/empsit/ces_cps_trends.htm",
+      "title": "BLS: Comparing household and payroll surveys",
+      "objects": [
+        {
+          "id": "jobs-unemployment",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Why two measures och comparison table: jobs/people, egenföretagare, referensperiod och survey scope.",
+          "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-29",
+      "title": "Investor.gov: Understanding Margin Accounts",
+      "objects": [
+        {
+          "id": "leverage-downside",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Riskavsnitt om förstärkta förluster, extra säkerhet, försäljning och förlust över insatt kapital.",
+          "limitations": "Amerikansk margin-utbildning; inga svenska belåningskrav eller generella derivatvillkor påstås.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://nolltillmiljoner.se/havstang.html",
+      "title": "NTM: angiven beräkningsmetod och syntetisk algebra",
+      "objects": [
+        {
+          "id": "leverage-downside",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "example"
+          ],
+          "checked": "Tillgångar minus konstant skuld, ±10 procent av 150 och förändring relativt eget kapital 100.",
+          "limitations": "Lokalt metodkontrakt läst och separat Decimal-kontroll krävs före acceptans. Ingen ny exekverbar formel i Fråga NTM.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/liquidity-or-marketability",
+      "title": "Investor.gov: Liquidity (or Marketability)",
+      "objects": [
+        {
+          "id": "liquidity",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Definitionen skiljer snabb försäljning, prispåverkan och risken att marknad saknas.",
+          "limitations": "Amerikansk investerarutbildning används för avgränsade begrepp. Inga skattefördelar, svenska rättsregler eller villkor för en viss fond härleds.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.federalreserve.gov/boarddocs/speeches/2003/20031002/default.htm",
+      "title": "Federal Reserve: Monetary policy and the stock market, 2003",
+      "objects": [
+        {
+          "id": "macro-no-forecast",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Why Does Monetary Policy Affect Stock Prices: förväntade utdelningar/kassaflöden, realräntor och riskpremier är separata kanaler. Historiska koefficienter återges inte.",
+          "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://bea.gov/gdp-revision-information",
+      "title": "BEA: GDP Revision Information",
+      "objects": [
+        {
+          "id": "macro-revisions",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Jämförelser av aktuell och föregående uppskattning samt advance/second-vintages.",
+          "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.bls.gov/cpi/seasonal-adjustment/using-seasonally-adjusted-data.htm",
+      "title": "BLS: Using seasonally adjusted and unadjusted data",
+      "objects": [
+        {
+          "id": "macro-revisions",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "How to Use och Revision of Seasonally Adjusted Indexes: återkommande säsongsmönster och årlig omräkning.",
+          "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        },
+        {
+          "id": "seasonal-adjustment",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "How to Use och Revision of Seasonally Adjusted Indexes: återkommande säsongsmönster och årlig omräkning.",
+          "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://nolltillmiljoner.se/makro.html",
+      "title": "NTM: uttrycklig förändringsalgebra",
+      "objects": [
+        {
+          "id": "mom-yoy",
+          "supports": [
+            "fullAnswer",
+            "example",
+            "caveats"
+          ],
+          "checked": "Kvoter för två angivna jämförelseperioder oberoende Decimal-kontrolleras.",
+          "limitations": "Syntetisk serie, ingen ny makroberäkning eller aktuell datapunkt.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.ecb.europa.eu/ecb-and-you/explainers/tell-me/html/nominal_and_real_interest_rates.en.html",
+      "title": "ECB: nominella och reala räntor",
+      "objects": [
+        {
+          "id": "nominal-real",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer"
+          ],
+          "checked": "Avsnitten Nominal interest rate och Real interest rate: pengar kontra köpkraft.",
+          "limitations": "ECB:s subtraktionsförklaring används för begreppet, inte som bevis för exakt faktorformel.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/ask-price",
+      "title": "Investor.gov: Bid Price/Ask Price",
+      "objects": [
+        {
+          "id": "order-spread",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Definition av bid/ask för specificerat antal aktier och spreadskillnad.",
+          "limitations": "Syntetisk procent använder uttryckligen midpoint; tomma bid-ask-spread-glossarysidan används inte som evidens.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/market-based-valuation-price-enterprise-value-multiples",
+      "title": "CFA Institute: Market-Based Valuation",
+      "objects": [
+        {
+          "id": "peg-limitations",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Offentlig introduction/summary: multiplar behöver fundamenta, tillväxt och lämplighetskontroll; inga låsta kapitel påstås lästa.",
+          "limitations": "Den explicita PEG-konventionen kontrolleras mot befintligt NTM-svar och oberoende aritmetik.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://nolltillmiljoner.se/fragor-svar-peg.html",
+      "title": "NTM: befintlig PEG-definition",
+      "objects": [
+        {
+          "id": "peg-limitations",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "example",
+            "caveats"
+          ],
+          "checked": "Befintlig canonical peg och dess procentkonvention lästa; nytt svar avgränsas till begränsningen.",
+          "limitations": "Ingen ändring av den äldre definitionens godkännandestatus eller källa.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://nolltillmiljoner.se/aktiekopskalkylator.html",
+      "title": "NTM: avgränsad beräkningsmetod",
+      "objects": [
+        {
+          "id": "price-value",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "example"
+          ],
+          "checked": "Befintlig market-cap-definition och oberoende pris × antal-exempel; inga verkliga kurser.",
+          "limitations": "Oberoende syntetisk algebra; ingen ny formelutvärderare, marknadsprognos eller individuell rekommendation.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.bea.gov/resources/learning-center/what-to-know-gdp",
+      "title": "BEA: Gross Domestic Product",
+      "objects": [
+        {
+          "id": "real-nominal-gdp",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "More to know: current-dollar, real/chained, seasonal adjustment och annual rates.",
+          "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://nolltillmiljoner.se/analys.html",
+      "title": "NTM: befintligt metodkontrakt",
+      "objects": [
+        {
+          "id": "report-snapshot",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "example"
+          ],
+          "checked": "public-report.js fryst explicit V2-urval; public-report-ui.js visar analysisDate/basisDate/versionNumber/publishedAt; research-publication.js kräver nytt uttryckligt publiceringssteg.",
+          "limitations": "Verifierat mot lokal implementation, inte en ny hosted-kontroll. Syntetiska exempel och NTM-metod, inte externa rekommendationer.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.nestle.com/media/pressreleases/allpressreleases/full-year-results-2025",
+      "title": "Nestlé: Full-year results 2025",
+      "objects": [
+        {
+          "id": "revenue-growth",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Financial review Sales och resultatöversikt skiljer organic growth, RIG/pricing, FX och net acquisitions.",
+          "limitations": "Issuer-exempel på separat tillväxtredovisning; inga Nestlé-belopp generaliseras eller används i syntetisk brygga.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+      "title": "Investor.gov: Asset Allocation and Diversification",
+      "objects": [
+        {
+          "id": "risk-horizon",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Investing Timeframe or Time Horizon samt Risk Tolerance: målperiod, förmåga och vilja att bära förlust.",
+          "limitations": "Amerikansk investerarutbildning används för avgränsade begrepp. Inga skattefördelar, svenska rättsregler eller villkor för en viss fond härleds.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://nolltillmiljoner.se/sparmalskalkylator.html",
+      "title": "NTM: angiven beräkningsmetod och syntetisk algebra",
+      "objects": [
+        {
+          "id": "savings-target",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "example"
+          ],
+          "checked": "script.js getGoalAssumptions/projectGoalValue och sparmålets antagandemodell: indata ger villkorat förlopp, ingen sannolikhetsmodell.",
+          "limitations": "Lokalt metodkontrakt läst och separat Decimal-kontroll krävs före acceptans. Ingen ny exekverbar formel i Fråga NTM.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://nolltillmiljoner.se/fire-kalkylator.html",
+      "title": "NTM: avgränsad beräkningsmetod",
+      "objects": [
+        {
+          "id": "sequence-risk",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "example"
+          ],
+          "checked": "Två explicita faktor-/uttagsrekursioner, separat från FIRE:s modell; oberoende Decimal kontrollerar ordning och jämförelse utan uttag.",
+          "limitations": "Oberoende syntetisk algebra; ingen ny formelutvärderare, marknadsprognos eller individuell rekommendation.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/stock-split",
+      "title": "Investor.gov: Stock Split",
+      "objects": [
+        {
+          "id": "split-dilution",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Proportionell split ökar aktieantal utan att ändra ägarnas kapital/andel; 2:1-mekanik.",
+          "limitations": "Övriga marknadsrörelser och emissionsvillkor måste bedömas separat.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-34-interim-financial-reporting/",
+      "title": "IFRS Foundation: IAS 34, offentlig översikt",
+      "objects": [
+        {
+          "id": "ttm-construction",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "About: delårsperiod, jämförelseperiod, YTD-basis och konsekventa redovisningsprinciper.",
+          "limitations": "Offentlig översikt, inte full standard; TTM-bryggan är separat härledd periodalgebra.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "url": "https://www.finra.org/investors/investing/investing-basics/risk",
+      "title": "FINRA: Risk",
+      "objects": [
+        {
+          "id": "volatility-risk",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "checked": "Avsnitt om olika risker: kredit, likviditet och koncentration; risk omfattar mer än prisrörelser.",
+          "limitations": "Allmän riskutbildning med amerikansk marknadskontext; inga universella riskgränser eller individuella råd.",
+          "evidenceStatus": "checked",
+          "checkedAt": "2026-09-19"
+        }
+      ]
+    }
+  ],
+  "supplementalCorroboration": [
+    {
+      "url": "https://bea.gov/help/glossary/chained-dollar-estimate",
+      "object": "real-nominal-gdp",
+      "checked": "Nonadditivity of chained-dollar components outside reference-year conditions; corroborates existing caveat."
+    },
+    {
+      "url": "https://pages.stern.nyu.edu/~adamodar/pdfiles/country/relvalAIMR.pdf",
+      "object": "peg-limitations",
+      "checked": "PEG discussion pp. 50 and 56: growth, risk and cash-flow assumptions remain relevant."
+    }
+  ]
+}

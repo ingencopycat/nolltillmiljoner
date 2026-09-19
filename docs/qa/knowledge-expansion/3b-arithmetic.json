@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "method": "Independent Python Decimal; explicit units/timing in prose, no runtime executor added",
+  "checks": [
+    {
+      "expression": "mean 8 10 12",
+      "result": "10",
+      "expected": "10"
+    },
+    {
+      "expression": "mean 9 10 11",
+      "result": "10",
+      "expected": "10"
+    },
+    {
+      "expression": "old interval width",
+      "result": "1",
+      "expected": "1"
+    },
+    {
+      "expression": "new interval width",
+      "result": "1",
+      "expected": "1"
+    },
+    {
+      "expression": "old midpoint",
+      "result": "10.5",
+      "expected": "10.5"
+    },
+    {
+      "expression": "new midpoint",
+      "result": "11.5",
+      "expected": "11.5"
+    },
+    {
+      "expression": "EPS 10 * PE 20",
+      "result": "200",
+      "expected": "200"
+    },
+    {
+      "expression": "EPS 10 * PE 25",
+      "result": "250",
+      "expected": "250"
+    },
+    {
+      "expression": "EPS 10 * PE 30",
+      "result": "300",
+      "expected": "300"
+    },
+    {
+      "expression": "EPS 8 * PE 25",
+      "result": "200",
+      "expected": "200"
+    },
+    {
+      "expression": "EPS 12 * PE 25",
+      "result": "300",
+      "expected": "300"
+    },
+    {
+      "expression": "synthetic additive bridge residual",
+      "result": "10",
+      "expected": "10"
+    }
+  ]
+}

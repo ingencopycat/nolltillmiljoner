@@ -1,0 +1,115 @@
+{
+  "id": "discounting",
+  "question": "Varför påverkar avkastningskravet ett framtida belopps nuvärde?",
+  "intent": "interpretation",
+  "conceptRefs": [
+    "discounting"
+  ],
+  "aliases": [
+    "diskontering och avkastningskrav",
+    "nuvärde av framtida belopp"
+  ],
+  "shortAnswer": "Diskontering räknar om ett framtida belopp till ett värde i dag enligt ett valt avkastningskrav. För ett positivt belopp om n år och en årlig ränta r är nuvärdet belopp / (1 + r)^n. Med samma framtida belopp ger högre krav lägre nuvärde.",
+  "fullAnswer": "Skriv ut tidpunkt, valuta och om beloppet är nominellt eller realt. Avkastningskravet måste använda en förenlig basis och periodlängd. En modell för en osäker betalning behöver dessutom ett genomtänkt sätt att hantera risk. Formeln förklarar ett samband; den väljer inte rätt ränta åt dig.",
+  "example": "Syntetiskt: 100 om fem år har nuvärdet 100 / 1,05^5 ≈ 78,35 vid 5 procent och 100 / 1,10^5 ≈ 62,09 vid 10 procent. Det framtida beloppet är oförändrat. Ingen av räntorna är ett rekommenderat avkastningskrav.",
+  "caveats": "Räntan måste ge en användbar positiv faktor i denna modell. Osäkra belopp, inflation, risk och finansieringsbasis får inte blandas. En obligationsränta är inte automatiskt rätt diskonteringsränta för alla aktiekassaflöden. Ett framtida EPS × P/E-pris är inte redan ett nuvärde.",
+  "relatedAnswers": [
+    {
+      "id": "valuation-sensitivity",
+      "type": "prerequisite"
+    },
+    {
+      "id": "nominal-real",
+      "type": "common-confusion"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Aswath Damodaran: An Introduction to Valuation",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/background/valintro.htm",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Inputs to DCF: kassaflöde, tidpunkt, riskanpassad ränta och skillnad mellan equity/firm cash flows.",
+      "limitations": "Ingen full DCF eller uppskattning av ett bolags kapitalkostnad byggs.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "NTM: avgränsad beräkningsmetod",
+      "url": "https://nolltillmiljoner.se/aktievarderingskalkylator.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats",
+        "example"
+      ],
+      "checked": "Oberoende femårig faktorpotens med fasta positiva syntetiska belopp.",
+      "limitations": "Oberoende syntetisk algebra; ingen ny formelutvärderare, marknadsprognos eller individuell rekommendation.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "valuation",
+  "concepts": [
+    "valuation"
+  ],
+  "relatedLessonIds": [
+    "scenarios"
+  ],
+  "slug": "discounting",
+  "relatedEntityIds": [
+    "tool-valuation"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "interpretation": {
+      "field": "fullAnswer",
+      "unsuitableField": "caveats"
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

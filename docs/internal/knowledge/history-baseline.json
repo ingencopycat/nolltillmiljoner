@@ -117,6 +117,290 @@
     "macro-releases": {
       "contentVersion": 1,
       "fingerprint": "53df0dc3a994c8ceaa3d85ec8f9db0cd78ec3f2242a49b996d2e55c84b2706e8"
+    },
+    "balance-sheet": {
+      "contentVersion": 1,
+      "fingerprint": "6da9cbf34887cdef4bd91aee95dff119d2324fdb0c75736262385cbe5f927965"
+    },
+    "capex": {
+      "contentVersion": 1,
+      "fingerprint": "7cd4729c332252cfdd8ee20db9a12cba2161c87fd31c905879cfdccbfb4dde1a"
+    },
+    "cash-flow-statement": {
+      "contentVersion": 1,
+      "fingerprint": "4247bbda3aba354cf2ef93318c026adcc58ef3a5a1ff95f8e607e6991e6ce085"
+    },
+    "income-statement": {
+      "contentVersion": 1,
+      "fingerprint": "50615eb986f2ce782a35736c81c70f6b8531fd7c71a21ee6b0d4d456cfe08e9a"
+    },
+    "profit-versus-cash": {
+      "contentVersion": 1,
+      "fingerprint": "ae3b30e2887f86b47e60a98b8a20ab2ff5bf312a387a9ef6bde242d3ba824f4a"
+    },
+    "working-capital": {
+      "contentVersion": 1,
+      "fingerprint": "c1eace1a7cc62d022156f9d7980ee4a93ab69a1482d647de5a3c344387758dd9"
+    },
+    "fcf-limitations": {
+      "contentVersion": 1,
+      "fingerprint": "3ab1ffb97f916c393fc23bbdd351732dae75cdea0298eae2b4b97dbbcf57a450"
+    },
+    "pe-interpretation": {
+      "contentVersion": 1,
+      "fingerprint": "0b68b6da1adc124af14d6fe6af5c81ab00f6c7f835cd355fa1e027c47ffb3c56"
+    },
+    "pe-losses": {
+      "contentVersion": 1,
+      "fingerprint": "f373b0895910a0462abe72d0a0c8fa1f6e8951b43aa00088008dbb9bbc9b3721"
+    },
+    "pe-versus-ps": {
+      "contentVersion": 1,
+      "fingerprint": "74816f7f1f380064b2392ce541146d44f480f8adc0419d49747f89b7e57db5ef"
+    },
+    "ps": {
+      "contentVersion": 1,
+      "fingerprint": "df5a3c00acc65aaa9ddcd80108c04d3fcedba167c5daebe1375655312ac48121"
+    },
+    "reported-adjusted": {
+      "contentVersion": 1,
+      "fingerprint": "2a78a5f5840913135ff5992365532312f996f6bf869992b6b156b11c3cf2e553"
+    },
+    "fact-assumption": {
+      "contentVersion": 1,
+      "fingerprint": "0c732e81bd14f6aaaf9caebafca81f7a882b1a40899ebc75f3b8e45b7bce71dd"
+    },
+    "falsification": {
+      "contentVersion": 1,
+      "fingerprint": "ac2bd32ba93151d4d7c0a0320c1c708a87be673538b3c70e5c07142db92b1e18"
+    },
+    "scenario-design": {
+      "contentVersion": 1,
+      "fingerprint": "746cd37730b94cc3099262934b6acf25885967315cce69e7ba68dcc7850a3ee6"
+    },
+    "source-provenance": {
+      "contentVersion": 1,
+      "fingerprint": "588e0764859943197576841af923e708e78602fd4ef52afad4587ab8a6b981da"
+    },
+    "earnings-surprise": {
+      "contentVersion": 1,
+      "fingerprint": "15bc596145eeb1919d62495f35100a651d7fc2bf41ecae0bfe60d852d09a243f"
+    },
+    "estimate-age": {
+      "contentVersion": 1,
+      "fingerprint": "bc2823ae3d102b9ba5470e68a5b582aad0964f28ffb449fe14d1499b1b01908f"
+    },
+    "guidance-consensus": {
+      "contentVersion": 1,
+      "fingerprint": "a2dcb244d24b9b41eb0269c6c0cd9e9a8e8405f31553add22599e9b48c655df8"
+    },
+    "ttm-construction": {
+      "contentVersion": 1,
+      "fingerprint": "05605980dc8eae4ea4812bb6cc98590f29de93167180a5ae52ac8e7bc28072bf"
+    },
+    "arithmetic-geometric": {
+      "contentVersion": 1,
+      "fingerprint": "583d10e2b281c84deda9696ce122d440b008e4f663bd73ed82bd66fdb4fb55ea"
+    },
+    "concentration": {
+      "contentVersion": 1,
+      "fingerprint": "5e9f3efcd47ee4a80b2ef7a2c6d8d9f2fc6e51fb9258d378f525832dd90032fb"
+    },
+    "contribution-timing": {
+      "contentVersion": 1,
+      "fingerprint": "9e82c7a1b4d287f1b909db03d7b833c5203e647b70014936780430a1ff0aa696"
+    },
+    "drawdown": {
+      "contentVersion": 1,
+      "fingerprint": "663003f87ea4ad40ae9f33665f8e06460728d6fb782cd342306424516efa8214"
+    },
+    "fee-double-count": {
+      "contentVersion": 1,
+      "fingerprint": "09c7bc1dff4248a99f5cc5d7cbabc68292c2d07efaf0caaa7e7043877b706160"
+    },
+    "leverage-downside": {
+      "contentVersion": 1,
+      "fingerprint": "56e212d90e1727218add0bed7de34ff5a5881a76861974142ece944003eac102"
+    },
+    "loss-recovery": {
+      "contentVersion": 1,
+      "fingerprint": "74ca9365a0466b95865aa49fea38613836ba9945e9583e3b9a76e8e070c5d4f7"
+    },
+    "nominal-real": {
+      "contentVersion": 1,
+      "fingerprint": "5959f60c6caf9d8b36b1c9f07442d49f8e1d587bfe6913241a17ed853fe93902"
+    },
+    "savings-target": {
+      "contentVersion": 1,
+      "fingerprint": "df95fc907b560f08ae50f6533e58878d90d83c8e90cd87b921be29b8ac897f05"
+    },
+    "volatility-risk": {
+      "contentVersion": 1,
+      "fingerprint": "745c078b33522f2b07dea0608611c70ad834cfb7a7a517236cccf8f35f9a846e"
+    },
+    "active-passive": {
+      "contentVersion": 1,
+      "fingerprint": "911ce80a53d650ae3db318eb3e85d80a675b748dfd2675e4f45f10fc8e11cbc9"
+    },
+    "asset-ownership": {
+      "contentVersion": 1,
+      "fingerprint": "4df08ccc043dd94c8d3a9ec138ede51fac3334f12eae58cbb91a335aacd64122"
+    },
+    "etf": {
+      "contentVersion": 1,
+      "fingerprint": "83930fa3d55e431a7c741855dbddd728732e99d6269ba8e351b1fd135b2ee1fc"
+    },
+    "fund-etf": {
+      "contentVersion": 1,
+      "fingerprint": "e9ad6e785fc6203da056f2e9e7adc32da24cf564ca92c4ea6c07864d468fcc0a"
+    },
+    "fund-overlap": {
+      "contentVersion": 1,
+      "fingerprint": "c932e1b4275f4851a9f3919afb9c9a0f96cec2fd15fb5a692916baf56d1a6ba3"
+    },
+    "fund": {
+      "contentVersion": 1,
+      "fingerprint": "afe3b99899ac3df10fc06dad6c7348b680ab7adf488be688675f0bc13a19541b"
+    },
+    "index": {
+      "contentVersion": 1,
+      "fingerprint": "938f36db44a25fd1827fc23d48fe4d5c73215d87c5108d61f87b3d0c4e4a5c59"
+    },
+    "liquidity": {
+      "contentVersion": 1,
+      "fingerprint": "fd15e751d9c847b3e6eee80229d9b6c0b4d8964c9a0cb3a70a1846acb33dbcb6"
+    },
+    "risk-horizon": {
+      "contentVersion": 1,
+      "fingerprint": "0924131cc1e8f24139e15222fe748922198d897310e27907092de59b8c261125"
+    },
+    "cpi-pce": {
+      "contentVersion": 1,
+      "fingerprint": "9069dd77803f65c630376cebe6552b1e45aea6c69ea83223d237faac992a96e9"
+    },
+    "headline-core": {
+      "contentVersion": 1,
+      "fingerprint": "cb6435a38b3fccd896329cc08ef5f06c1ffd189b1b43166952f189411d695423"
+    },
+    "jobs-unemployment": {
+      "contentVersion": 1,
+      "fingerprint": "f58c4a41413e775aa2e5d1ba143b66c2e138b7b818678ea0cde84e2edf3a47d4"
+    },
+    "macro-no-forecast": {
+      "contentVersion": 1,
+      "fingerprint": "4328b0f28170f10601fc370a2313f033ccbd1ec867ec8cfa2f71a4481dbd7b29"
+    },
+    "macro-revisions": {
+      "contentVersion": 1,
+      "fingerprint": "cce857174ed501a2af2ab06a08633ee5cef919c9b7888dc5cbf1a2b44c7cbeda"
+    },
+    "mom-yoy": {
+      "contentVersion": 1,
+      "fingerprint": "d52240152c2a198224c5945b61b345c17793c116b0318011cc55eb6b017a9958"
+    },
+    "real-nominal-gdp": {
+      "contentVersion": 1,
+      "fingerprint": "8a5074ffa5a11c026b25a29d0bf9f7e34b33da168f512d434756359a492b9f74"
+    },
+    "seasonal-adjustment": {
+      "contentVersion": 1,
+      "fingerprint": "517a81e5941178edc99015649843885e79a94061b87920b6ef5326912cdaa0a4"
+    },
+    "estimate-dispersion": {
+      "contentVersion": 1,
+      "fingerprint": "07267ae9dac714671e96355c254f4f3a6865a33d568cc5e996cb82ac5f53ce58"
+    },
+    "fiscal-calendar": {
+      "contentVersion": 1,
+      "fingerprint": "0c9fdbfd4449bf56a2876c3d4d5cc3b0d9724e91579f9eb65abd57cd23597ec9"
+    },
+    "guidance-revision": {
+      "contentVersion": 1,
+      "fingerprint": "9d7b0637a8086a180e5ecf4e6d3687a73add17b54da2b3c7a72360ec10ac8d4f"
+    },
+    "report-snapshot": {
+      "contentVersion": 1,
+      "fingerprint": "954ce0b85ead52ed244570c0fd2dd993879ac3eb0cd79c1edc17ae457aa6de06"
+    },
+    "revenue-growth": {
+      "contentVersion": 1,
+      "fingerprint": "3fa40aad3dea49a54164df3990d5ba93f57c17431d573b7511618b9a06cffbac"
+    },
+    "scenario-probability": {
+      "contentVersion": 1,
+      "fingerprint": "ff97e82aed953adf6a59d74c4e7a3ee1b52f11779df8af096a720ca4ff46f537"
+    },
+    "update-thesis": {
+      "contentVersion": 1,
+      "fingerprint": "5c1b01bbc0c76764f3669da50b3fe9e124cfe27eea4b953d09c21b0d86b824a2"
+    },
+    "valuation-sensitivity": {
+      "contentVersion": 1,
+      "fingerprint": "dea31f413f45693d5f247501d7b04937a8b8ef0af9c9d0ff429d705482c9cf59"
+    },
+    "debt-maturity": {
+      "contentVersion": 1,
+      "fingerprint": "79edf4104d6328c46ec0abdfa700214bba392356f3178d9c9171debc2fab0dfa"
+    },
+    "ebit-ebitda": {
+      "contentVersion": 1,
+      "fingerprint": "a9e45c564a466ae1c60611aec4f947d94fa72652eff68dedbbf04cab51e1f6b3"
+    },
+    "enterprise-value": {
+      "contentVersion": 1,
+      "fingerprint": "b294256702bf63d1326391769b80924acfa1fba9678cc87ca35f2d3c426fc0a2"
+    },
+    "ev-ebitda-limits": {
+      "contentVersion": 1,
+      "fingerprint": "ac091a4d75b7aee82b2ce0868e8ffe4124f51e2cbabed3840f9050610f96e71c"
+    },
+    "ev-market-cap": {
+      "contentVersion": 1,
+      "fingerprint": "2bcd18d8ee48d2cf0dd698a14ccd876b19f42039e202712e4f98ce53771c50d3"
+    },
+    "gross-margin": {
+      "contentVersion": 1,
+      "fingerprint": "701fa82038570aa84354940f1e2f9377701fd3114373279d489af225a135d708"
+    },
+    "peg-limitations": {
+      "contentVersion": 1,
+      "fingerprint": "b230d14a795fe93e0968807592ef2fdd267f6184413e402ce86745a0c0ef51c5"
+    },
+    "cashflow-return": {
+      "contentVersion": 1,
+      "fingerprint": "86e546b5a772171e427bc8125c61c4b2cb966990247196b9f24e096282be45ed"
+    },
+    "discounting": {
+      "contentVersion": 1,
+      "fingerprint": "156c1be0e0b194c0ef15e4b9eb53dc92ae7b8cb112699299ec2da27c9f764e3f"
+    },
+    "index-weighting": {
+      "contentVersion": 1,
+      "fingerprint": "2b3ac7e1c4defe396408ff87689ee0cc0a5a3f127e80d9623d7a0e1df711f1e5"
+    },
+    "isk-inputs": {
+      "contentVersion": 1,
+      "fingerprint": "4c4527cc3bf23418e3862a77fec7d7e9e91abb3c5e9fa4da3e580778019015ed"
+    },
+    "isk-year-scope": {
+      "contentVersion": 1,
+      "fingerprint": "3fb41a08904e357d6fe10be55feb216a7358e2cedf25470b284fcd8d49aceb1b"
+    },
+    "order-spread": {
+      "contentVersion": 1,
+      "fingerprint": "22e064fecaac2b056021080f59c8c26bb9050a29cddae7c9b18a545cc8575530"
+    },
+    "price-value": {
+      "contentVersion": 1,
+      "fingerprint": "0f69493f5ff86269724ef20dc593a9193bc54b846131f8188658e15d19f2113e"
+    },
+    "sequence-risk": {
+      "contentVersion": 1,
+      "fingerprint": "9e0919cdf1138e3fdab0f033070e61f5b61b7aced98763e4d3a3a55e1d23d046"
+    },
+    "split-dilution": {
+      "contentVersion": 1,
+      "fingerprint": "b0eca54897e8d52e7ce2364db4d16e634f534b5b3cee1b54fb8969ac42af8f13"
     }
   }
 }

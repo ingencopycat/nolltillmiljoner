@@ -1,0 +1,100 @@
+[
+  {
+    "id": "fcf-limitations",
+    "status": "reviewed",
+    "reviewedAt": "2026-09-19",
+    "contentVersion": 1,
+    "history": [],
+    "reviewDue": "2026-12-31",
+    "editorial": {
+      "owner": "NTM owner",
+      "approval": "accepted",
+      "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+      "reviewedAt": "2026-09-19",
+      "changeNote": "Owner supplied substantive Batch 1B approval. Primary evidence read 2026-09-19; synthetic examples independently recalculated. Narrowed tax, share, period and jurisdiction assumptions preserve approved meaning. No independent human source review claimed. Methodology review in 180 days, advanced to 2026-12-31 for the two accounting-sensitive objects; earlier source or method changes trigger review."
+    }
+  },
+  {
+    "id": "pe-interpretation",
+    "status": "reviewed",
+    "reviewedAt": "2026-09-19",
+    "contentVersion": 1,
+    "history": [],
+    "reviewDue": "2027-03-18",
+    "editorial": {
+      "owner": "NTM owner",
+      "approval": "accepted",
+      "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+      "reviewedAt": "2026-09-19",
+      "changeNote": "Owner supplied substantive Batch 1B approval. Primary evidence read 2026-09-19; synthetic examples independently recalculated. Narrowed tax, share, period and jurisdiction assumptions preserve approved meaning. No independent human source review claimed. Methodology review in 180 days, advanced to 2026-12-31 for the two accounting-sensitive objects; earlier source or method changes trigger review."
+    }
+  },
+  {
+    "id": "pe-losses",
+    "status": "reviewed",
+    "reviewedAt": "2026-09-19",
+    "contentVersion": 2,
+    "history": [
+      {
+        "from": 1,
+        "to": 2,
+        "reason": "Verification correction: existing pe/1 returns a limitation with null numeric value for negative EPS, and invalid input for zero. No calculator behavior changed.",
+        "reviewer": "Codex (product-contract verification within owner-approved scope)",
+        "date": "2026-09-19"
+      }
+    ],
+    "reviewDue": "2027-03-18",
+    "editorial": {
+      "owner": "NTM owner",
+      "approval": "accepted",
+      "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+      "reviewedAt": "2026-09-19",
+      "changeNote": "Owner supplied substantive Batch 1B approval. Primary evidence read 2026-09-19; synthetic examples independently recalculated. Narrowed tax, share, period and jurisdiction assumptions preserve approved meaning. No independent human source review claimed. Methodology review in 180 days, advanced to 2026-12-31 for the two accounting-sensitive objects; earlier source or method changes trigger review."
+    }
+  },
+  {
+    "id": "pe-versus-ps",
+    "status": "reviewed",
+    "reviewedAt": "2026-09-19",
+    "contentVersion": 1,
+    "history": [],
+    "reviewDue": "2027-03-18",
+    "editorial": {
+      "owner": "NTM owner",
+      "approval": "accepted",
+      "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+      "reviewedAt": "2026-09-19",
+      "changeNote": "Owner supplied substantive Batch 1B approval. Primary evidence read 2026-09-19; synthetic examples independently recalculated. Narrowed tax, share, period and jurisdiction assumptions preserve approved meaning. No independent human source review claimed. Methodology review in 180 days, advanced to 2026-12-31 for the two accounting-sensitive objects; earlier source or method changes trigger review."
+    }
+  },
+  {
+    "id": "ps",
+    "status": "reviewed",
+    "reviewedAt": "2026-09-19",
+    "contentVersion": 1,
+    "history": [],
+    "reviewDue": "2027-03-18",
+    "editorial": {
+      "owner": "NTM owner",
+      "approval": "accepted",
+      "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+      "reviewedAt": "2026-09-19",
+      "changeNote": "Owner supplied substantive Batch 1B approval. Primary evidence read 2026-09-19; synthetic examples independently recalculated. Narrowed tax, share, period and jurisdiction assumptions preserve approved meaning. No independent human source review claimed. Methodology review in 180 days, advanced to 2026-12-31 for the two accounting-sensitive objects; earlier source or method changes trigger review."
+    }
+  },
+  {
+    "id": "reported-adjusted",
+    "status": "reviewed",
+    "reviewedAt": "2026-09-19",
+    "contentVersion": 1,
+    "history": [],
+    "reviewDue": "2026-12-31",
+    "editorial": {
+      "owner": "NTM owner",
+      "approval": "accepted",
+      "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+      "reviewedAt": "2026-09-19",
+      "changeNote": "Owner supplied substantive Batch 1B approval. Primary evidence read 2026-09-19; synthetic examples independently recalculated. Narrowed tax, share, period and jurisdiction assumptions preserve approved meaning. No independent human source review claimed. Methodology review in 180 days, advanced to 2026-12-31 for the two accounting-sensitive objects; earlier source or method changes trigger review."
+    }
+  }
+]

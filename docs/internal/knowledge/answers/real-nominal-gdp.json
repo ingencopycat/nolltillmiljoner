@@ -1,0 +1,107 @@
+{
+  "id": "real-nominal-gdp",
+  "question": "Vad skiljer real från nominell BNP?",
+  "intent": "comparison",
+  "conceptRefs": [
+    "macro"
+  ],
+  "aliases": [
+    "real vs nominell BNP",
+    "nominell BNP och real BNP"
+  ],
+  "shortAnswer": "Nominell BNP värderar produktionen till periodens priser. Real BNP justerar för prisförändringar för att beskriva volymutvecklingen. BNP:s prisjustering är inte samma sak som att dra konsumentinflationen från nominell BNP-tillväxt.",
+  "fullAnswer": "Kontrollera om talet är nivå eller förändring och vilken period det avser. BEA:s amerikanska kvartalstal anges ofta i annualiserad takt, vilket inte är samma sak som förändringen mot samma kvartal året före. Säsongsjustering och prisjustering löser olika jämförelseproblem.",
+  "example": "Syntetiskt läsfall: högre nominellt produktionsvärde kan bero på både förändrade priser och förändrad producerad volym. Därför räcker ett nominellt belopp inte för att säga hur mycket mer som producerats. Exemplet är ingen beräkning av BEA:s kedjeindex.",
+  "caveats": "Reala kedjemått har metodregler och komponenter behöver inte kunna summeras som vanliga belopp. Använd den officiella serien i stället för en egen CPI-subtraktion. BNP är ett produktionsmått, inte direkt ett mått på börsavkastning eller en persons välfärd.",
+  "relatedAnswers": [
+    {
+      "id": "nominal-real",
+      "type": "common-confusion"
+    },
+    {
+      "id": "macro-revisions",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "BEA: Gross Domestic Product",
+      "url": "https://www.bea.gov/resources/learning-center/what-to-know-gdp",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "More to know: current-dollar, real/chained, seasonal adjustment och annual rates.",
+      "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "macro",
+  "concepts": [
+    "inflation"
+  ],
+  "relatedLessonIds": [
+    "inflation"
+  ],
+  "jurisdiction": "US",
+  "reviewDue": "2026-12-31",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "comparison": {
+      "leftLabel": "Nominell BNP",
+      "rightLabel": "Real BNP",
+      "axes": [
+        {
+          "label": "Prisbas",
+          "left": "Periodens priser",
+          "right": "Justerad för prisförändringar"
+        }
+      ],
+      "limitations": "Ange nivå/takt, annualisering, säsong och vintage."
+    }
+  },
+  "slug": "real-nominal-gdp",
+  "relatedEntityIds": [
+    "macro-calendar"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "period": "timeless",
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

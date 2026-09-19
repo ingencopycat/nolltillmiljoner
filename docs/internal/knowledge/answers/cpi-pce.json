@@ -1,0 +1,132 @@
+{
+  "id": "cpi-pce",
+  "question": "Vad skiljer CPI från PCE:s prisindex?",
+  "intent": "comparison",
+  "conceptRefs": [
+    "macro",
+    "inflation"
+  ],
+  "aliases": [
+    "CPI vs PCE",
+    "Vad är skillnaden mellan CPI och PCE?"
+  ],
+  "shortAnswer": "USA:s CPI och PCE-prisindex mäter konsumentrelaterade prisförändringar men har olika omfattning, vikter och beräkningsmetoder. CPI tas fram av BLS och PCE-prisindex av BEA. De är inte utbytbara etiketter för samma serie.",
+  "fullAnswer": "PCE omfattar konsumtion av och för hushåll, inklusive vissa utgifter som andra betalar åt dem. CPI avser en annan konsumentomfattning. Skillnader i utgiftsvikter och indexformler bidrar också till olika utveckling. Fed anger PCE-prisindex i sitt långsiktiga inflationsmål; det gör inte varje enskilt PCE-utfall till en ränteprognos.",
+  "example": "Syntetiskt läsfall: ett makrokort visar CPI YoY och ett annat PCE MoM. Förutom olika index jämför de olika tidsförändringar. Börja med att välja samma periodtyp och kontrollera total eller kärna innan du tolkar skillnaden.",
+  "caveats": "Det ena måttet är inte alltid högre eller mer relevant för varje fråga. Kärnindex, totalindex, säsongsjustering och publiceringsversion måste identifieras. PCE är ett konsumtionsprisindex, inte ett allmänt mått på företagens inköpspriser.",
+  "relatedAnswers": [
+    {
+      "id": "macro-releases",
+      "type": "prerequisite"
+    },
+    {
+      "id": "headline-core",
+      "type": "next-question"
+    },
+    {
+      "id": "mom-yoy",
+      "type": "common-confusion"
+    }
+  ],
+  "sources": [
+    {
+      "title": "BEA: CPI–PCE differences",
+      "url": "https://bea.gov/help/faq/555",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Formula, weight, scope och other effects, särskilt spending by and on behalf of personal sector.",
+      "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "Federal Reserve: Inflation (PCE)",
+      "url": "https://www.federalreserve.gov/economy-at-a-glance-inflation-pce.htm",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Inflationsmålets PCE-basis; ingen numerisk målnivå behöver hårdkodas i svaret.",
+      "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "macro",
+  "concepts": [
+    "inflation"
+  ],
+  "relatedLessonIds": [
+    "inflation"
+  ],
+  "jurisdiction": "US",
+  "reviewDue": "2026-12-31",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "comparison": {
+      "leftLabel": "CPI",
+      "rightLabel": "PCE-prisindex",
+      "axes": [
+        {
+          "label": "Producent",
+          "left": "BLS",
+          "right": "BEA"
+        },
+        {
+          "label": "Omfattning",
+          "left": "Angiven konsumentpopulation",
+          "right": "Konsumtion av och för personsektorn"
+        }
+      ],
+      "limitations": "Även vikter och formel skiljer sig; jämför samma tidsbasis."
+    }
+  },
+  "slug": "cpi-pce",
+  "relatedEntityIds": [
+    "macro-calendar"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "period": "timeless",
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

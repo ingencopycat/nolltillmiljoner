@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "method": "Independent Python Decimal; explicit units/timing in prose, no runtime executor added",
+  "checks": [
+    {
+      "expression": "real 10/4 rounded percent",
+      "result": "5.77",
+      "expected": "5.77"
+    },
+    {
+      "expression": "real 8/3 rounded percent",
+      "result": "4.85",
+      "expected": "4.85"
+    },
+    {
+      "expression": "100 * 1.5 * .5",
+      "result": "75.00",
+      "expected": "75"
+    },
+    {
+      "expression": "sqrt(.75)-1 percent rounded",
+      "result": "-13.40",
+      "expected": "-13.40"
+    },
+    {
+      "expression": "drawdown 70/100-1",
+      "result": "-0.3",
+      "expected": "-.30"
+    },
+    {
+      "expression": "recovery percent for loss .1",
+      "result": "11.11",
+      "expected": "11.11"
+    },
+    {
+      "expression": "recovery percent for loss .2",
+      "result": "25.00",
+      "expected": "25.00"
+    },
+    {
+      "expression": "recovery percent for loss .5",
+      "result": "100.00",
+      "expected": "100.00"
+    },
+    {
+      "expression": "recovery percent for loss .8",
+      "result": "400.00",
+      "expected": "400.00"
+    },
+    {
+      "expression": "50 after +50 percent",
+      "result": "75.0",
+      "expected": "75"
+    },
+    {
+      "expression": "leveraged up equity",
+      "result": "115.0",
+      "expected": "115"
+    },
+    {
+      "expression": "leveraged down equity",
+      "result": "85.0",
+      "expected": "85"
+    },
+    {
+      "expression": "beginning contribution",
+      "result": "1010.00",
+      "expected": "1010"
+    },
+    {
+      "expression": "NTM net fee return percent",
+      "result": "6.9200",
+      "expected": "6.92"
+    }
+  ]
+}

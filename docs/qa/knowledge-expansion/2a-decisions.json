@@ -1,0 +1,68 @@
+{
+  "date": "2026-09-19",
+  "batch": "2a",
+  "decisions": {
+    "nominal-real": {
+      "distinctIntent": "Approved Batch 2 objective; separate bounded task from existing seed definition/application.",
+      "sourceCheck": "Avsnitten Nominal interest rate och Real interest rate: pengar kontra köpkraft. Exakt köpkraftskvot härledd från slutbelopp/prisindex; oberoende kontroll av 10/4 och 8/3.",
+      "narrowing": "Synthetic examples and stated scope; no risk threshold, prediction or personal advice."
+    },
+    "arithmetic-geometric": {
+      "distinctIntent": "Approved Batch 2 objective; separate bounded task from existing seed definition/application.",
+      "sourceCheck": "valuation-core.js CAGR-kontrakt och script.js calculateProjection årsserie; oberoende faktorprodukt och kvadratrot.",
+      "narrowing": "Synthetic examples and stated scope; no risk threshold, prediction or personal advice."
+    },
+    "drawdown": {
+      "distinctIntent": "Approved Batch 2 objective; separate bounded task from existing seed definition/application.",
+      "sourceCheck": "Författarnas abstract definierar maximum drawdown som största kumulativa förlust från topp till botten och skiljer drawdown från volatilitet. Procentuell topp/botten-kvot och observationsbegränsning härledda för uttryckligen vald positiv serie.",
+      "narrowing": "Synthetic examples and stated scope; no risk threshold, prediction or personal advice."
+    },
+    "loss-recovery": {
+      "distinctIntent": "Approved Batch 2 objective; separate bounded task from existing seed definition/application.",
+      "sourceCheck": "Återhämtningsidentiteten löst för uppgång och kontrollerad vid L 0,1; 0,2; 0,5; 0,8 samt uteslutet L=1.",
+      "narrowing": "Synthetic examples and stated scope; no risk threshold, prediction or personal advice."
+    },
+    "volatility-risk": {
+      "distinctIntent": "Approved Batch 2 objective; separate bounded task from existing seed definition/application.",
+      "sourceCheck": "Avsnitt om olika risker: kredit, likviditet och koncentration; risk omfattar mer än prisrörelser. Abstract skiljer riskmått och deras egenskaper.",
+      "narrowing": "Synthetic examples and stated scope; no risk threshold, prediction or personal advice."
+    },
+    "concentration": {
+      "distinctIntent": "Approved Batch 2 objective; separate bounded task from existing seed definition/application.",
+      "sourceCheck": "Avsnitt om korrelerade exponeringar, sektor/geografi och att granska fonders underliggande innehav.",
+      "narrowing": "Synthetic examples and stated scope; no risk threshold, prediction or personal advice."
+    },
+    "leverage-downside": {
+      "distinctIntent": "Approved Batch 2 objective; separate bounded task from existing seed definition/application.",
+      "sourceCheck": "Riskavsnitt om förstärkta förluster, extra säkerhet, försäljning och förlust över insatt kapital. Tillgångar minus konstant skuld, ±10 procent av 150 och förändring relativt eget kapital 100.",
+      "narrowing": "Synthetic examples and stated scope; no risk threshold, prediction or personal advice."
+    },
+    "contribution-timing": {
+      "distinctIntent": "Approved Batch 2 objective; separate bounded task from existing seed definition/application.",
+      "sourceCheck": "script.js calculateProjection: value=value*monthlyFactor+monthlySavings; jämn modell använder annuitet för slutet av månaden.",
+      "narrowing": "Synthetic examples and stated scope; no risk threshold, prediction or personal advice."
+    },
+    "fee-double-count": {
+      "distinctIntent": "Approved Batch 2 objective; separate bounded task from existing seed definition/application.",
+      "sourceCheck": "Skillnad mellan löpande kostnader och transaktionskostnader samt avgifters effekt på kapital över tid. script.js calculateFeeComparisonProjection och calculateProjection använder (1+r)*(1-f)-1; oberoende 6,92-kontroll.",
+      "narrowing": "Actual NTM multiplicative fee convention, not exact subtraction."
+    },
+    "savings-target": {
+      "distinctIntent": "Approved Batch 2 objective; separate bounded task from existing seed definition/application.",
+      "sourceCheck": "script.js getGoalAssumptions/projectGoalValue och sparmålets antagandemodell: indata ger villkorat förlopp, ingen sannolikhetsmodell.",
+      "narrowing": "12 years is explicitly an interpretation example, not invented calculator output."
+    }
+  },
+  "ids": [
+    "nominal-real",
+    "arithmetic-geometric",
+    "drawdown",
+    "loss-recovery",
+    "volatility-risk",
+    "concentration",
+    "leverage-downside",
+    "contribution-timing",
+    "fee-double-count",
+    "savings-target"
+  ]
+}

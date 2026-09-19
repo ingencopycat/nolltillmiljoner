@@ -1,0 +1,132 @@
+{
+  "id": "active-passive",
+  "question": "Vad skiljer aktiv från passiv fondförvaltning?",
+  "intent": "comparison",
+  "conceptRefs": [
+    "fund",
+    "index"
+  ],
+  "aliases": [
+    "aktiv vs passiv fond",
+    "aktiv förvaltning eller index"
+  ],
+  "shortAnswer": "Passiv förvaltning försöker följa en angiven indexmetod. Aktiv förvaltning gör placeringsval inom fondens mandat för att uppnå sitt mål. Aktiv eller passiv beskriver strategin, medan ETF beskriver en handelsform.",
+  "fullAnswer": "Läs målet och jämförelseindexet innan du jämför resultat. En indexföljare behöver genomföra sin metod och kan ändå avvika från index. En aktiv fond ska bedömas mot sitt uttryckliga uppdrag, inte ett mål som du antar att den har. Kostnader behöver jämföras för de faktiska produkterna.",
+  "example": "Syntetiskt: fond A försöker följa ett index och fond B väljer innehav inom ett eget mandat. Båda kan handlas som ETF:er. Ingen av etiketteringen säger vilken som kommer ge bäst framtida resultat.",
+  "caveats": "Passiv betyder inte riskfri eller utan metodval. Aktiv innebär inte garanterad överavkastning. Avgifter varierar och varje passiv fond är inte billigare än varje aktiv fond. Detta är en strategijämförelse, inte en ranking.",
+  "relatedAnswers": [
+    {
+      "id": "fund",
+      "type": "prerequisite"
+    },
+    {
+      "id": "index",
+      "type": "prerequisite"
+    },
+    {
+      "id": "annual-fees",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Investor.gov: Characteristics of Mutual Funds and ETFs",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/characteristics-mutual-funds-exchange-traded-funds",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Bulletin 29 april 2025: separata rubriker om strategi, prissättning och handel; inga skatteavsnitt används.",
+      "limitations": "Amerikansk investerarutbildning används för avgränsade begrepp. Inga skattefördelar, svenska rättsregler eller villkor för en viss fond härleds.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "Investor.gov: Index Funds",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-4",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Kostnader är inte alltid lägre; tracking error och underperformance skiljs från strategietikett.",
+      "limitations": "Amerikansk investerarutbildning används för avgränsade begrepp. Inga skattefördelar, svenska rättsregler eller villkor för en viss fond härleds.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "basics",
+  "concepts": [
+    "diversifiering"
+  ],
+  "relatedLessonIds": [
+    "fonder"
+  ],
+  "slug": "active-passive",
+  "relatedEntityIds": [
+    "tool-fees"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "comparison": {
+      "leftLabel": "Passiv",
+      "rightLabel": "Aktiv",
+      "axes": [
+        {
+          "label": "Utgångspunkt",
+          "left": "Följa angivet index",
+          "right": "Placeringsval inom mandat"
+        },
+        {
+          "label": "Handelsform",
+          "left": "Kan vara ETF",
+          "right": "Kan vara ETF"
+        }
+      ],
+      "limitations": "Strategi och handelsform är skilda dimensioner."
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

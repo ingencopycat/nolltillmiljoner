@@ -1,0 +1,10 @@
+Browser smoke: Chromium 151.0.7922.34; fresh contexts on http://127.0.0.1:57958
+test_annual_source_correction_acknowledges_once_preserves_original_and_stays_out_of_queue (wave4_browser.Wave4.test_annual_source_correction_acknowledges_once_preserves_original_and_stays_out_of_queue) ... ok
+test_calendar_context_mobile_and_help_preserves_week (wave4_browser.Wave4.test_calendar_context_mobile_and_help_preserves_week) ... ok
+test_macro_revision_partial_retention_and_date_crossover (wave4_browser.Wave4.test_macro_revision_partial_retention_and_date_crossover) ... ok
+test_profiles_mobile_themes_evidence_and_keyboard_help (wave4_browser.Wave4.test_profiles_mobile_themes_evidence_and_keyboard_help) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 26.236s
+
+OK

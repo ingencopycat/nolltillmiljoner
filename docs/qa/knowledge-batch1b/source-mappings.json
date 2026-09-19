@@ -1,0 +1,293 @@
+[
+  {
+    "id": "fcf-limitations",
+    "sources": [
+      {
+        "title": "SEC: Non-GAAP Financial Measures, C&DIs",
+        "url": "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures",
+        "reviewedAt": "2026-09-19",
+        "type": "methodology",
+        "authority": "primary",
+        "supports": [
+          "shortAnswer",
+          "example",
+          "caveats"
+        ],
+        "evidenceStatus": "checked",
+        "checked": "102.07: vanlig CFO-minus-CapEx-definition, ingen enhetlig definition och begränsningen om disponibla pengar.",
+        "limitations": "Amerikansk vägledning. 1 000 − 400 = 600 är en oberoende kontrollerad syntetisk subtraktion, inte källans bolagsexempel."
+      },
+      {
+        "title": "IFRS Foundation: IAS 7, offentlig översikt",
+        "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+        "reviewedAt": "2026-09-19",
+        "type": "methodology",
+        "authority": "primary",
+        "supports": [
+          "fullAnswer",
+          "caveats"
+        ],
+        "evidenceStatus": "checked",
+        "checked": "About: periodens kassaflöden, indirekt metod med periodiseringar, förvärv som investeringsflöden, separata finansieringsflöden och icke-kontanta transaktioner.",
+        "limitations": "Offentlig översikt, inte full standard. Leasing anges som kontrollfråga; ingen enskild klassificering generaliseras. Prognos/TTM-jämförbarhet är NTM:s uttryckliga basiskontroll."
+      },
+      {
+        "title": "IFRS Foundation: CMAC november 2024, kassaflödesmått",
+        "url": "https://www.ifrs.org/content/dam/ifrs/meetings/2024/november/cmac/ap5-scfrm.pdf",
+        "reviewedAt": "2026-09-19",
+        "type": "methodology",
+        "authority": "primary",
+        "supports": [
+          "shortAnswer",
+          "fullAnswer",
+          "example"
+        ],
+        "evidenceStatus": "checked",
+        "checked": "Bild 8: diskussion om transparenta definitioner och avstämning OCF–FCF.",
+        "limitations": "Staff paper 2024-11-08, inte normbeslut. Motiverar kontroll av definition; föreskriver ingen ny FCF-formel."
+      }
+    ]
+  },
+  {
+    "id": "pe-interpretation",
+    "sources": [
+      {
+        "title": "Nasdaq: P/E ratio",
+        "url": "https://www.nasdaq.com/glossary/p/p-e-ratio",
+        "reviewedAt": "2026-09-19",
+        "type": "methodology",
+        "authority": "primary",
+        "supports": [
+          "shortAnswer",
+          "example"
+        ],
+        "evidenceStatus": "checked",
+        "checked": "Definition: aktuell kurs delat med historisk årlig eller förväntad årlig EPS.",
+        "limitations": "150/5 och 150/7,5 räknas separat; ingen prognos eller rimlig multipelnivå hämtas från källan."
+      },
+      {
+        "title": "FINRA: Evaluating Stocks",
+        "url": "https://www.finra.org/investors/investing/investment-products/stocks/evaluating-stocks",
+        "reviewedAt": "2026-09-19",
+        "type": "methodology",
+        "authority": "primary",
+        "supports": [
+          "shortAnswer",
+          "fullAnswer",
+          "caveats"
+        ],
+        "evidenceStatus": "checked",
+        "checked": "Answering Key Questions och Key Valuation Ratios: tillväxt, lönsamhet, skuld, risk och branschjämförelse.",
+        "limitations": "Kontextfrågor, inga universella gränser. NTM drar den begränsade slutsatsen att ett tal ensamt inte avgör värdering."
+      },
+      {
+        "title": "CFA Institute: Market-Based Valuation, offentlig sammanfattning 2026",
+        "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/market-based-valuation-price-enterprise-value-multiples",
+        "reviewedAt": "2026-09-19",
+        "type": "methodology",
+        "authority": "primary",
+        "supports": [
+          "fullAnswer",
+          "caveats"
+        ],
+        "evidenceStatus": "checked",
+        "checked": "Offentlig Summary: EPS kan vara förvrängd, volatil eller negativ; fundamentala skillnader påverkar jämförelsen.",
+        "limitations": "Ingen full kursbok eller modell implementeras; ingen motiverad multipel räknas fram."
+      },
+      {
+        "title": "Fidelity: Research Glossary, Enterprise Value",
+        "url": "https://www.fidelity.com/quick-content/etf/help/research/learn_er_glossary_1.shtml",
+        "reviewedAt": "2026-09-19",
+        "type": "methodology",
+        "authority": "primary",
+        "supports": [
+          "fullAnswer"
+        ],
+        "evidenceStatus": "checked",
+        "checked": "Enterprise Value: aktievärde kompletteras med bland annat skuld och reduceras med kassa.",
+        "limitations": "Fidelitys dokumenterade definition används endast för skillnaden mot P/E:s täljare. Ingen universell EV-formel eller ny EV-artikel skapas."
+      },
+      {
+        "title": "IFRS Foundation: IAS 33, offentlig översikt",
+        "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/",
+        "reviewedAt": "2026-09-19",
+        "type": "methodology",
+        "authority": "primary",
+        "supports": [
+          "caveats"
+        ],
+        "evidenceStatus": "checked",
+        "checked": "About: basic och diluted EPS skiljs åt.",
+        "limitations": "Offentlig IFRS-översikt; inga leverantörsvärden verifierade."
+      }
+    ]
+  },
+  {
+    "id": "pe-losses",
+    "sources": [
+      {
+        "title": "Nasdaq: P/E ratio",
+        "url": "https://www.nasdaq.com/glossary/p/p-e-ratio",
+        "reviewedAt": "2026-09-19",
+        "type": "methodology",
+        "authority": "primary",
+        "supports": [
+          "shortAnswer",
+          "fullAnswer",
+          "example"
+        ],
+        "evidenceStatus": "checked",
+        "checked": "Definitionen kurs/EPS; nämnarens tecken, nollpunkt och känslighet härleds algebraiskt och testas separat.",
+        "limitations": "Källan innehåller inte de syntetiska värdena. Dessa är matematiska illustrationer, inte värderingsråd."
+      },
+      {
+        "title": "CFA Institute: Market-Based Valuation, offentlig sammanfattning 2026",
+        "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/market-based-valuation-price-enterprise-value-multiples",
+        "reviewedAt": "2026-09-19",
+        "type": "methodology",
+        "authority": "primary",
+        "supports": [
+          "shortAnswer",
+          "fullAnswer",
+          "caveats"
+        ],
+        "evidenceStatus": "checked",
+        "checked": "Summary: problem med negativ/volatil EPS och att rangordning efter P/E inte är meningsfull vid noll eller negativ EPS.",
+        "limitations": "Inget alternativt mått införs som automatisk ersättare. Uppgiften om NTM-kalkylatorn kontrolleras mot befintlig pe/1-kod och regression, inte mot CFA."
+      }
+    ]
+  },
+  {
+    "id": "pe-versus-ps",
+    "sources": [
+      {
+        "title": "FINRA: Evaluating Stocks",
+        "url": "https://www.finra.org/investors/investing/investment-products/stocks/evaluating-stocks",
+        "reviewedAt": "2026-09-19",
+        "type": "methodology",
+        "authority": "primary",
+        "supports": [
+          "shortAnswer",
+          "fullAnswer",
+          "example",
+          "comparison"
+        ],
+        "evidenceStatus": "checked",
+        "checked": "Key Valuation Ratios: P/E använder EPS och P/S omsättning.",
+        "limitations": "A/B är ägarens syntetiska exempel, inte observerade bolag. Alla fyra kvoter räknas oberoende."
+      },
+      {
+        "title": "CFA Institute: Market-Based Valuation, offentlig sammanfattning 2026",
+        "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/market-based-valuation-price-enterprise-value-multiples",
+        "reviewedAt": "2026-09-19",
+        "type": "methodology",
+        "authority": "primary",
+        "supports": [
+          "shortAnswer",
+          "fullAnswer",
+          "caveats",
+          "comparison"
+        ],
+        "evidenceStatus": "checked",
+        "checked": "Summary: problem med negativ EPS, kostnadsstruktur som P/S utelämnar och fundamentala skillnader mellan jämförelsebolag.",
+        "limitations": "Den avslutande kontrollfrågan är NTM:s avgränsade pedagogiska slutsats, ingen universell rangordning."
+      },
+      {
+        "title": "IFRS Foundation: IAS 33, offentlig översikt",
+        "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/",
+        "reviewedAt": "2026-09-19",
+        "type": "methodology",
+        "authority": "primary",
+        "supports": [
+          "fullAnswer",
+          "example"
+        ],
+        "evidenceStatus": "checked",
+        "checked": "About: EPS avser resultat hänförligt till ordinarie aktieägare.",
+        "limitations": "Exemplet antar oförändrat aktieantal och samma ägarkrets för vinst och börsvärde; inte en generell likställning av total nettovinst med EPS-numerator."
+      }
+    ]
+  },
+  {
+    "id": "ps",
+    "sources": [
+      {
+        "title": "FINRA: Evaluating Stocks",
+        "url": "https://www.finra.org/investors/investing/investment-products/stocks/evaluating-stocks",
+        "reviewedAt": "2026-09-19",
+        "type": "methodology",
+        "authority": "primary",
+        "supports": [
+          "shortAnswer",
+          "fullAnswer",
+          "example"
+        ],
+        "evidenceStatus": "checked",
+        "checked": "Key Valuation Ratios: P/S = börsvärde/omsättning och måttet inkluderar inte vinst.",
+        "limitations": "Per-aktie-ekvivalensen och 20/10-exemplet är separat kontrollerad algebra med konsekvent aktiebas. FINRA:s förenklade EPS-beskrivning används inte."
+      },
+      {
+        "title": "CFA Institute: Market-Based Valuation, offentlig sammanfattning 2026",
+        "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/market-based-valuation-price-enterprise-value-multiples",
+        "reviewedAt": "2026-09-19",
+        "type": "methodology",
+        "authority": "primary",
+        "supports": [
+          "fullAnswer",
+          "caveats"
+        ],
+        "evidenceStatus": "checked",
+        "checked": "Summary: P/S utelämnar kostnadsstruktur och påverkas av lönsamhet och intäktsredovisning.",
+        "limitations": "Kontrollfrågorna innebär ingen norm för bra P/S. Period- och datumbasis är uttryckliga antaganden i NTM:s jämförelse, inte en leverantörsintegration."
+      }
+    ]
+  },
+  {
+    "id": "reported-adjusted",
+    "sources": [
+      {
+        "title": "SEC: Non-GAAP Financial Measures, C&DIs",
+        "url": "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures",
+        "reviewedAt": "2026-09-19",
+        "type": "methodology",
+        "authority": "primary",
+        "supports": [
+          "shortAnswer",
+          "fullAnswer",
+          "caveats",
+          "example",
+          "comparison"
+        ],
+        "evidenceStatus": "checked",
+        "checked": "C&DIs 100.01–100.04: återkommande poster och konsekvens; 102.10–102.12: presentation, avstämning och skatteeffekter.",
+        "limitations": "SEC:s tillämpningsområde, inte universella IFRS-regler. 800/100/900 är ägarens syntetiska exempel, med noll skatteeffekt och separat kontrollerad aritmetik; ingen faktisk bolagsjustering verifieras."
+      },
+      {
+        "title": "IFRS Foundation: IAS 33, offentlig översikt",
+        "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/",
+        "reviewedAt": "2026-09-19",
+        "type": "methodology",
+        "authority": "primary",
+        "supports": [
+          "fullAnswer"
+        ],
+        "evidenceStatus": "checked",
+        "checked": "About: EPS hänförs till moderbolagets ordinarie aktieägare; basic och diluted skiljs åt.",
+        "limitations": "Endast offentlig översikt läst. Samma EPS-basis måste identifieras; ingen bolagsspecifik EPS verifieras."
+      },
+      {
+        "title": "Nasdaq: P/E ratio",
+        "url": "https://www.nasdaq.com/glossary/p/p-e-ratio",
+        "reviewedAt": "2026-09-19",
+        "type": "methodology",
+        "authority": "primary",
+        "supports": [
+          "fullAnswer"
+        ],
+        "evidenceStatus": "checked",
+        "checked": "P/E-definitionen använder aktiekurs och EPS; byte av EPS ändrar därför kvoten.",
+        "limitations": "Kopplingen är en algebraisk slutsats från definitionen, inte ett värdeomdöme."
+      }
+    ]
+  }
+]

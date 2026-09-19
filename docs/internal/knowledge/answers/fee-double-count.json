@@ -1,0 +1,113 @@
+{
+  "id": "fee-double-count",
+  "question": "Hur undviker jag att dra av samma avgift två gånger?",
+  "intent": "misconception",
+  "category": "saving",
+  "conceptRefs": [
+    "fees",
+    "compounding"
+  ],
+  "aliases": [
+    "avgift redan avdragen",
+    "dubbelräkna fondavgiften"
+  ],
+  "shortAnswer": "Kontrollera om avkastningen är före eller efter den avgift du vill lägga in. Om samma avgift redan ingår i avkastningsuppgiften ska den inte dras av igen. Håll isär löpande avgift, transaktionskostnad och andra kostnader i källans definition.",
+  "fullAnswer": "NTM:s avgiftsprojektion tar en avkastning före vald årlig avgift och använder nettofaktorn (1 + avkastning) × (1 − avgift). Det är verktygets angivna modell, inte alla fonders bokföringsmetod. Läs vad en historisk avkastningsserie redan inkluderar. En uppgift efter fondavgift behöver inte vara efter skatt, plattformsavgift eller courtage.",
+  "example": "Syntetiskt med NTM:s modell: 8 procents avkastning före avgift och 1 procents avgift ger 1,08 × 0,99 − 1 = 6,92 procent. Om en annan källa uttryckligen anger 7 procent efter samma avgift ska den avgiften inte läggas på igen. Att kalla 8 − 1 exakt netto blandar dessutom subtraktion med den valda faktormodellen.",
+  "caveats": "Olika produkter redovisar kostnader och avkastning på olika sätt. Okänd avgiftsbasis bör märkas som okänd, inte gissas. Exemplet säger inte att en viss fond eller avgiftsnivå är bra; det förklarar hur jämförbara indata undviker ett beräkningsfel.",
+  "relatedAnswers": [
+    {
+      "id": "fees",
+      "type": "prerequisite"
+    },
+    {
+      "id": "annual-fees",
+      "type": "prerequisite"
+    }
+  ],
+  "sources": [
+    {
+      "title": "SEC: How Fees and Expenses Affect Your Investment Portfolio",
+      "url": "https://www.sec.gov/oiea/Article/ib_fees_expenses.pdf",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Skillnad mellan löpande kostnader och transaktionskostnader samt avgifters effekt på kapital över tid.",
+      "limitations": "Allmän kostnadsutbildning; exakt NTM-faktor hämtas från verktygets kod.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "NTM: angiven beräkningsmetod och syntetisk algebra",
+      "url": "https://nolltillmiljoner.se/avgifter.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats",
+        "example"
+      ],
+      "checked": "script.js calculateFeeComparisonProjection och calculateProjection använder (1+r)*(1-f)-1; oberoende 6,92-kontroll.",
+      "limitations": "Lokalt metodkontrakt läst och separat Decimal-kontroll krävs före acceptans. Ingen ny exekverbar formel i Fråga NTM.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "concepts": [
+    "fees",
+    "compounding"
+  ],
+  "relatedLessonIds": [
+    "fees"
+  ],
+  "slug": "fee-double-count",
+  "relatedEntityIds": [
+    "tool-fees"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

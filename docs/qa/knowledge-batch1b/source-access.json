@@ -1,0 +1,73 @@
+{
+  "date": "2026-09-19",
+  "method": "Web research: actual rendered primary source text, not HEAD status",
+  "sources": [
+    {
+      "url": "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures",
+      "result": "content-read",
+      "objects": [
+        "fcf-limitations",
+        "reported-adjusted"
+      ]
+    },
+    {
+      "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+      "result": "content-read",
+      "objects": [
+        "fcf-limitations"
+      ]
+    },
+    {
+      "url": "https://www.ifrs.org/content/dam/ifrs/meetings/2024/november/cmac/ap5-scfrm.pdf",
+      "result": "content-read",
+      "objects": [
+        "fcf-limitations"
+      ]
+    },
+    {
+      "url": "https://www.nasdaq.com/glossary/p/p-e-ratio",
+      "result": "content-read",
+      "objects": [
+        "pe-interpretation",
+        "pe-losses",
+        "reported-adjusted"
+      ]
+    },
+    {
+      "url": "https://www.finra.org/investors/investing/investment-products/stocks/evaluating-stocks",
+      "result": "content-read",
+      "objects": [
+        "pe-interpretation",
+        "pe-versus-ps",
+        "ps"
+      ]
+    },
+    {
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/market-based-valuation-price-enterprise-value-multiples",
+      "result": "content-read",
+      "objects": [
+        "pe-interpretation",
+        "pe-losses",
+        "pe-versus-ps",
+        "ps"
+      ]
+    },
+    {
+      "url": "https://www.fidelity.com/quick-content/etf/help/research/learn_er_glossary_1.shtml",
+      "result": "content-read",
+      "objects": [
+        "pe-interpretation"
+      ]
+    },
+    {
+      "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/",
+      "result": "content-read",
+      "objects": [
+        "pe-interpretation",
+        "pe-versus-ps",
+        "reported-adjusted"
+      ]
+    }
+  ],
+  "limitations": "Only named public passages, standard overviews, staff paper and public summary read. No full subscription material or issuer-specific reconciliation claimed."
+}

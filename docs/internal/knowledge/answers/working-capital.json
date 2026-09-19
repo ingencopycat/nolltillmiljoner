@@ -1,0 +1,129 @@
+{
+  "id": "working-capital",
+  "question": "Hur kan rörelsekapital påverka kassaflödet?",
+  "intent": "interpretation",
+  "category": "metrics",
+  "conceptRefs": [
+    "working-capital"
+  ],
+  "concepts": [
+    "financial-statements",
+    "fcf"
+  ],
+  "relatedLessonIds": [
+    "financial-statements",
+    "fcf"
+  ],
+  "aliases": [
+    "rörelsekapital och kassaflöde",
+    "Hur påverkar kundfordringar kassaflödet?",
+    "Är ökande lager dåligt?",
+    "Är ökande kundfordringar dåligt?",
+    "Är ökande leverantörsskulder bra?"
+  ],
+  "shortAnswer": "Kundfordringar, lager och leverantörsskulder kan påverka kassaflödet från löpande verksamhet. Ökade kundfordringar eller lager är inte automatiskt dåligt, och ökade leverantörsskulder är inte automatiskt bra. Orsaken till förändringen behöver undersökas.",
+  "fullAnswer": "I en förenklad avstämning binder ökade kundfordringar och lager pengar jämfört med resultatet, medan ökade leverantörsskulder skjuter betalningar framför bolaget. Kontrollera om förändringarna hör till den löpande verksamheten och hur de redovisas i avstämningen. Här behandlas dessa rörelsekapitalposter, inte en universell definition som omfattar varje post i balansräkningen.",
+  "example": "Anta nettoresultat 100, kundfordringar +30, lager +20 och leverantörsskulder +15, i samma enhet och period. Utan andra justeringar blir förenklat kassaflöde från löpande verksamhet 100 − 30 − 20 + 15 = 65. Avskrivningar och andra icke-kontanta poster är uttryckligen utelämnade ur detta exempel.",
+  "caveats": "Exemplet är inte en komplett kassaflödesanalys. Balansförändringar kan behöva justeras innan de motsvarar periodens operativa kassaflöden. Läs noter och fråga varför fordringar, lager eller betalningstid förändrats. Ingen av de tre rörelserna ger ensam en kvalitetsdom eller ett köp- eller säljbeslut.",
+  "relatedAnswers": [
+    {
+      "id": "balance-sheet",
+      "type": "prerequisite"
+    },
+    {
+      "id": "cash-flow-statement",
+      "type": "prerequisite"
+    },
+    {
+      "id": "profit-versus-cash",
+      "type": "common-confusion"
+    },
+    {
+      "id": "fcf",
+      "type": "related-metric"
+    }
+  ],
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "interpretation": {
+      "field": "fullAnswer",
+      "unsuitableField": "caveats"
+    }
+  },
+  "sources": [
+    {
+      "title": "IFRS Foundation: IAS 7, översikt och standardhistorik",
+      "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+      "reviewedAt": "2026-09-19",
+      "type": "methodology",
+      "authority": "primary",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "example"
+      ],
+      "evidenceStatus": "checked",
+      "checked": "About: indirekt metod justerar resultat för periodiseringar av operativa betalningar och icke-kontanta poster. Tecknen i den förenklade betalningsavstämningen och 65 har kontrollerats separat.",
+      "limitations": "Inte en allmän formel från nettoresultat till OCF i alla regelverk; bara de tre angivna posterna ingår i exemplet."
+    },
+    {
+      "title": "IFRS Foundation: IASB september 2025, rörelsekapital och avstämning",
+      "url": "https://www.ifrs.org/content/dam/ifrs/meetings/2025/september/iasb/ap20a-approach-to-disaggregation.pdf",
+      "reviewedAt": "2026-09-19",
+      "type": "methodology",
+      "authority": "primary",
+      "supports": [
+        "fullAnswer",
+        "caveats"
+      ],
+      "evidenceStatus": "checked",
+      "checked": "IASB staff paper september 2025, punkter 26–30: typiska operativa fordringar, lager och skulder; kopplingen till balansräkningens poster kan vara oklar. Punkt 30 hänvisar till IAS 7.20.",
+      "limitations": "Staff analysis, inte ett nytt standardkrav. Stöder försiktighet om avgränsning/avstämning, inte en universell positiv eller negativ tolkning."
+    },
+    {
+      "title": "SEC: Beginners’ Guide to Financial Statements",
+      "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+      "reviewedAt": "2026-09-19",
+      "type": "methodology",
+      "authority": "primary",
+      "supports": [
+        "shortAnswer",
+        "caveats"
+      ],
+      "evidenceStatus": "checked",
+      "checked": "Operating Activities och Bringing It All Together: operativa tillgångar/skulder justerar resultat; rapporterna behöver läsas tillsammans.",
+      "limitations": "Den neutrala tolkningen är den godkända pedagogiska begränsningen, inte en prognos eller bolagsbedömning."
+    }
+  ],
+  "slug": "working-capital",
+  "relatedEntityIds": [
+    "research-nvda"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2026-12-31",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Owner-approved Batch 1A scope supplied 2026-09-19; primary evidence and synthetic arithmetic checked by Codex on the same date. Assumptions narrowed explicitly; no independent human source review claimed. Methodology cadence 180 days, advanced to 2026-12-31 before the IFRS 18 transition."
+  }
+}

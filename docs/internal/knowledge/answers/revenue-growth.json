@@ -1,0 +1,105 @@
+{
+  "id": "revenue-growth",
+  "question": "Hur skiljer jag organisk tillväxt från förvärv och valuta?",
+  "intent": "interpretation",
+  "conceptRefs": [
+    "revenue",
+    "fx"
+  ],
+  "aliases": [
+    "organisk tillväxt och valuta",
+    "omsättningstillväxt från förvärv"
+  ],
+  "shortAnswer": "Börja med rapporterad omsättningsförändring och läs bolagets avstämning av valuta, förvärv och avyttringar. Organisk tillväxt är ett bolagsdefinierat mått vars omfattning behöver kontrolleras. Valutajusterad tillväxt är inte automatiskt samma sak som organisk.",
+  "fullAnswer": "Kontrollera period, bas och vilka verksamheter som ingår. Leta efter definition och brygga mellan rapporterat och justerat mått. Ett bolag kan särskilja pris, volym eller andra effekter på sitt eget sätt. Använd inte en restpost som ”organisk” om källan inte stöder den etiketten.",
+  "example": "Syntetiskt: omsättning går från 100 till 120. Om en uttryckligt additiv brygga anger 8 från förvärv och 2 från valuta återstår 10. Resten får inte automatiskt kallas organisk tillväxt utan definition och kontroll av övriga effekter. Beloppen är inte Nestlés siffror.",
+  "caveats": "Bolagens definitioner och avrundningar kan skilja sig. Procentbidrag är inte alltid vanliga additiva belopp, och ändrad perimeter kan bryta jämförbarheten. En hög tillväxtsiffra säger inte ensam något säkert om lönsamhet eller aktiens värde.",
+  "relatedAnswers": [
+    {
+      "id": "revenue",
+      "type": "prerequisite"
+    },
+    {
+      "id": "fx",
+      "type": "prerequisite"
+    },
+    {
+      "id": "reported-adjusted",
+      "type": "common-confusion"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Nestlé: Full-year results 2025",
+      "url": "https://www.nestle.com/media/pressreleases/allpressreleases/full-year-results-2025",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Financial review Sales och resultatöversikt skiljer organic growth, RIG/pricing, FX och net acquisitions.",
+      "limitations": "Issuer-exempel på separat tillväxtredovisning; inga Nestlé-belopp generaliseras eller används i syntetisk brygga.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "metrics",
+  "concepts": [
+    "revenue",
+    "currency"
+  ],
+  "relatedLessonIds": [
+    "revenue"
+  ],
+  "reviewDue": "2026-12-31",
+  "slug": "revenue-growth",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "interpretation": {
+      "field": "fullAnswer",
+      "unsuitableField": "caveats"
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

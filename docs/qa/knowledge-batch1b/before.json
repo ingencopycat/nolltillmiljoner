@@ -1,0 +1,3891 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "id": "basics",
+      "title": "Grunder & aktier"
+    },
+    {
+      "id": "metrics",
+      "title": "Nyckeltal"
+    },
+    {
+      "id": "valuation",
+      "title": "Värdering"
+    },
+    {
+      "id": "reports",
+      "title": "Rapporter"
+    },
+    {
+      "id": "saving",
+      "title": "Sparande & skatt"
+    },
+    {
+      "id": "macro",
+      "title": "Makro"
+    },
+    {
+      "id": "risk",
+      "title": "Risk & portfölj"
+    }
+  ],
+  "entries": [
+    {
+      "id": "pe",
+      "slug": "pe-tal",
+      "question": "Vad betyder P/E?",
+      "category": "valuation",
+      "concepts": [
+        "pe",
+        "eps"
+      ],
+      "relatedLessonIds": [
+        "pe",
+        "eps"
+      ],
+      "relatedEntityIds": [
+        "tool-valuation",
+        "research-nvda"
+      ],
+      "aliases": [
+        "pris vinst",
+        "p/e tal",
+        "price earnings",
+        "vad påverkar p/e"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "inherited-mapping",
+          "title": "FINRA: Evaluating Stocks",
+          "url": "https://www.finra.org/investors/investing/investment-products/stocks/evaluating-stocks",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "P/E är aktiekursen delad med vinsten per aktie, EPS. Talet visar vilket pris marknaden sätter på en krona av den angivna årsvinsten.",
+      "fullAnswer": "Kontrollera alltid vilken vinst som används: rapporterad historik eller en prognos. En hög multipel kan spegla höga förväntningar, men säger inte att de kommer att infrias. Börja med att göra nämnaren jämförbar mellan bolagen.",
+      "example": "En kurs på 150 kr och en års-EPS på 6 kr ger P/E 25. Om kursen står stilla och EPS blir 5 kr stiger P/E till 30 utan någon kursuppgång.",
+      "caveats": "P/E är ingen återbetalningsgaranti. Vinsten kan falla, och vid negativ EPS blir en vanlig P/E-jämförelse missvisande. Bransch, skulder och vinstens uthållighet spelar också roll.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "featured": true,
+      "contentVersion": 1,
+      "reviewDue": "2027-03-18",
+      "practiceId": "check-pe-0",
+      "internalReview": {
+        "owner": "NTM owner",
+        "acceptance": "pending",
+        "excerpt": "shortAnswer",
+        "sourceClaims": [
+          {
+            "section": "shortAnswer",
+            "sources": [
+              "https://www.finra.org/investors/investing/investment-products/stocks/evaluating-stocks"
+            ]
+          },
+          {
+            "section": "fullAnswer",
+            "sources": [
+              "https://www.finra.org/investors/investing/investment-products/stocks/evaluating-stocks"
+            ]
+          },
+          {
+            "section": "caveats",
+            "sources": [
+              "https://www.finra.org/investors/investing/investment-products/stocks/evaluating-stocks"
+            ]
+          }
+        ],
+        "exampleCheck": "NTM synthetic arithmetic / owner rubric; no source endorsement of assumptions"
+      },
+      "conceptRefs": [
+        "pe"
+      ],
+      "intent": "definition",
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        },
+        "formula": {
+          "template": "pe/1",
+          "explanationField": "shortAnswer",
+          "limitationField": "caveats",
+          "example": {
+            "inputs": {
+              "price": 150,
+              "eps": 6,
+              "currency": "SEK",
+              "period": "annual"
+            },
+            "result": 25
+          }
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      },
+      "relatedAnswers": [
+        {
+          "id": "eps",
+          "type": "prerequisite"
+        },
+        {
+          "id": "forward",
+          "type": "common-confusion"
+        },
+        {
+          "id": "peg",
+          "type": "related-metric"
+        }
+      ]
+    },
+    {
+      "id": "eps",
+      "slug": "eps",
+      "question": "Vad är EPS?",
+      "category": "metrics",
+      "concepts": [
+        "eps",
+        "dilution"
+      ],
+      "relatedLessonIds": [
+        "eps",
+        "dilution"
+      ],
+      "relatedEntityIds": [
+        "research-nvda"
+      ],
+      "aliases": [
+        "vinst per aktie",
+        "earnings per share"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "inherited-mapping",
+          "title": "IFRS Foundation: IAS 33 Earnings per Share",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "EPS betyder vinst per aktie. Måttet fördelar periodens resultat som tillhör stamaktieägarna på ett vägt genomsnitt av aktierna under perioden.",
+      "fullAnswer": "Läs om siffran är grundläggande eller utspädd EPS. Utspädd EPS tar hänsyn till vissa möjliga nya aktier. Det är periodens aktiebas som behövs, inte automatiskt antalet aktier på rapportdagen.",
+      "example": "Ett förenklat årsresultat på 60 miljoner kr och 20 miljoner genomsnittliga aktier ger 3 kr i EPS. Med samma resultat och 24 miljoner aktier blir motsvarande tal 2,50 kr.",
+      "caveats": "Kvartals-EPS och års-EPS avser olika perioder. Justerad EPS kan dessutom ha andra resultatposter än rapporterad EPS. Läs definition och avstämning innan du jämför eller räknar P/E.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "featured": true,
+      "contentVersion": 1,
+      "reviewDue": "2027-03-18",
+      "practiceId": "check-eps-0",
+      "internalReview": {
+        "owner": "NTM owner",
+        "acceptance": "pending",
+        "excerpt": "shortAnswer",
+        "sourceClaims": [
+          {
+            "section": "shortAnswer",
+            "sources": [
+              "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/"
+            ]
+          },
+          {
+            "section": "fullAnswer",
+            "sources": [
+              "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/"
+            ]
+          },
+          {
+            "section": "caveats",
+            "sources": [
+              "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/"
+            ]
+          }
+        ],
+        "exampleCheck": "NTM synthetic arithmetic / owner rubric; no source endorsement of assumptions"
+      },
+      "conceptRefs": [
+        "eps"
+      ],
+      "intent": "definition",
+      "reviewPolicy": {
+        "risk": "methodology",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      },
+      "relatedAnswers": [
+        {
+          "id": "eps-comparison",
+          "type": "deeper"
+        }
+      ]
+    },
+    {
+      "id": "cagr",
+      "slug": "cagr-total-avkastning",
+      "question": "Vad skiljer CAGR från total avkastning?",
+      "category": "saving",
+      "concepts": [
+        "cagr",
+        "avkastning"
+      ],
+      "relatedLessonIds": [
+        "cagr",
+        "avkastning"
+      ],
+      "relatedEntityIds": [
+        "tool-return"
+      ],
+      "aliases": [
+        "snittavkastning",
+        "årlig avkastning",
+        "compound annual growth rate"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "inherited-mapping",
+          "title": "Investor.gov: Introduction to Investing, compound growth",
+          "url": "https://www.investor.gov/introduction-investing",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "Total avkastning beskriver förändringen över hela perioden. CAGR uttrycker samma start- och slutvärde som en jämn årlig tillväxttakt med ränta på ränta.",
+      "fullAnswer": "CAGR är en omräkning av två ändpunkter, inte en beskrivning av hur varje år faktiskt gick. Utan mellanliggande insättningar eller uttag beräknas den som (slutvärde / startvärde) upphöjt till 1 / antal år, minus 1.",
+      "example": "10 000 kr som blir 12 100 kr på två år har stigit 21 % totalt. CAGR är 10 % eftersom 10 000 × 1,10 × 1,10 = 12 100.",
+      "caveats": "Insättningar kan få kontot att växa utan att investeringarna avkastat lika mycket. Då behövs en metod som hanterar kassaflöden. Ange också om utdelningar, avgifter och skatt ingår.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "featured": true,
+      "contentVersion": 1,
+      "reviewDue": "2027-03-18",
+      "practiceId": "check-cagr-0",
+      "internalReview": {
+        "owner": "NTM owner",
+        "acceptance": "pending",
+        "excerpt": "shortAnswer",
+        "sourceClaims": [
+          {
+            "section": "shortAnswer",
+            "sources": [
+              "https://www.investor.gov/introduction-investing"
+            ]
+          },
+          {
+            "section": "fullAnswer",
+            "sources": [
+              "https://www.investor.gov/introduction-investing"
+            ]
+          },
+          {
+            "section": "caveats",
+            "sources": [
+              "https://www.investor.gov/introduction-investing"
+            ]
+          }
+        ],
+        "exampleCheck": "NTM synthetic arithmetic / owner rubric; no source endorsement of assumptions"
+      },
+      "conceptRefs": [
+        "cagr",
+        "return"
+      ],
+      "intent": "comparison",
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        },
+        "comparison": {
+          "leftLabel": "Total avkastning",
+          "rightLabel": "CAGR",
+          "axes": [
+            {
+              "label": "Period",
+              "left": "Total avkastning beskriver förändringen över hela perioden.",
+              "right": "CAGR uttrycker samma start- och slutvärde som en jämn årlig tillväxttakt med ränta på ränta."
+            }
+          ],
+          "limitations": "Insättningar kan få kontot att växa utan att investeringarna avkastat lika mycket. Då behövs en metod som hanterar kassaflöden. Ange också om utdelningar, avgifter och skatt ingår."
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      },
+      "relatedAnswers": [
+        {
+          "id": "compounding",
+          "type": "prerequisite"
+        }
+      ]
+    },
+    {
+      "id": "gav",
+      "slug": "gav",
+      "question": "Hur räknar jag GAV?",
+      "category": "saving",
+      "concepts": [
+        "gav",
+        "fees"
+      ],
+      "relatedLessonIds": [
+        "gav",
+        "fees"
+      ],
+      "relatedEntityIds": [
+        "tool-purchase"
+      ],
+      "aliases": [
+        "genomsnittligt anskaffningsvärde",
+        "snittpris",
+        "anskaffningspris"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "Investor.gov: How Fees and Expenses Affect Your Investment Portfolio",
+          "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "GAV är ditt genomsnittliga anskaffningsvärde per aktie. För enkla köp summerar du kostnaderna och delar med det sammanlagda antalet aktier.",
+      "fullAnswer": "Antalet aktier väger varje inköpspris. Ett vanligt medelvärde av två kurser fungerar därför bara när du köpt lika många till båda priserna. Bestäm om courtage ska ingå och använd samma avgränsning hela vägen.",
+      "example": "Du köper 10 aktier för 100 kr och 30 för 80 kr. Utan avgifter är GAV (1 000 + 2 400) / 40 = 85 kr, inte 90 kr.",
+      "caveats": "Ett lägre GAV visar vad du betalat, inte att nästa köp är attraktivt. Split, försäljningar och andra bolagshändelser kan kräva justeringar. NTM:s inköpskalkyl ersätter inte en skatteberäkning.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "conceptRefs": [
+        "gav"
+      ],
+      "intent": "calculation",
+      "contentVersion": 1,
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "fcf",
+      "slug": "fritt-kassaflode",
+      "question": "Vad är FCF, fritt kassaflöde?",
+      "category": "metrics",
+      "concepts": [
+        "fcf",
+        "financial-statements"
+      ],
+      "relatedLessonIds": [
+        "fcf",
+        "financial-statements"
+      ],
+      "relatedEntityIds": [
+        "research-nvda"
+      ],
+      "aliases": [
+        "free cash flow",
+        "kassaflöde",
+        "cfo capex"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "inherited-mapping",
+          "title": "SEC: Non-GAAP Financial Measures, inklusive FCF",
+          "url": "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "FCF är ett mått på kassaflöde efter vissa investeringar. I en vanlig förenkling räknas det som kassaflöde från den löpande verksamheten minus kontanta investeringar, CapEx.",
+      "fullAnswer": "Resultat och betalningar inträffar inte alltid samtidigt. Därför kan ett lönsamt bolag ha svagt kassaflöde, exempelvis när mer pengar binds i kundfordringar. Läs vilken FCF-definition bolaget eller datatjänsten använder.",
+      "example": "CFO på 90 och kontant CapEx på 35 ger FCF 55 enligt denna metod. Det är ett kassaflödesmått; det säger inte att hela beloppet kan delas ut.",
+      "caveats": "Skuldförfall, leasing och andra åtaganden kan behöva finansieras. En tillfällig minskning av investeringarna kan höja FCF utan att affären blivit starkare. Jämför flera perioder och läs avstämningen.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "contentVersion": 1,
+      "reviewDue": "2027-03-18",
+      "practiceId": "growth-cash",
+      "internalReview": {
+        "owner": "NTM owner",
+        "acceptance": "pending",
+        "excerpt": "shortAnswer",
+        "sourceClaims": [
+          {
+            "section": "shortAnswer",
+            "sources": [
+              "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures"
+            ]
+          },
+          {
+            "section": "fullAnswer",
+            "sources": [
+              "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures"
+            ]
+          },
+          {
+            "section": "caveats",
+            "sources": [
+              "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures"
+            ]
+          }
+        ],
+        "exampleCheck": "NTM synthetic arithmetic / owner rubric; no source endorsement of assumptions"
+      },
+      "conceptRefs": [
+        "fcf"
+      ],
+      "intent": "definition",
+      "reviewPolicy": {
+        "risk": "methodology",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "peg",
+      "slug": "peg-tal",
+      "question": "Vad betyder PEG?",
+      "category": "valuation",
+      "concepts": [
+        "pe",
+        "cagr"
+      ],
+      "relatedLessonIds": [
+        "pe",
+        "cagr"
+      ],
+      "relatedEntityIds": [
+        "tool-valuation"
+      ],
+      "aliases": [
+        "price earnings growth",
+        "pe tillväxt"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "Fidelity: Research glossary, P/E och PEG",
+          "url": "https://www.fidelity.com/webcontent/ap010098-etf-content/19.02.0/help/research/learn_er_glossary_3.shtml",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "PEG ställer P/E i relation till en årlig vinsttillväxt uttryckt i procenttal. Det är en förenklad jämförelse mellan priset på vinst och den tillväxt du antar.",
+      "fullAnswer": "Vanligen divideras P/E med den förväntade EPS-tillväxten, men både vinstbas och prognosperiod varierar mellan tjänster. Kontrollera om P/E är historiskt eller framåtblickande och hur många års tillväxt prognosen avser.",
+      "example": "P/E 30 och antagen årlig EPS-tillväxt på 15 % ger PEG 2: 30 / 15. Här används talet 15, inte decimalen 0,15.",
+      "caveats": "PEG under 1 är ingen allmän köpregel. Måttet saknar bland annat explicit risk, skuld och tillväxtens varaktighet. Vid noll eller negativ tillväxt blir den vanliga tolkningen olämplig.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "conceptRefs": [
+        "peg",
+        "pe"
+      ],
+      "intent": "definition",
+      "contentVersion": 1,
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "dilution",
+      "slug": "utspadning",
+      "question": "Vad betyder dilution eller utspädning?",
+      "category": "basics",
+      "concepts": [
+        "dilution",
+        "eps"
+      ],
+      "relatedLessonIds": [
+        "dilution",
+        "eps"
+      ],
+      "relatedEntityIds": [
+        "research-crwv"
+      ],
+      "aliases": [
+        "fler aktier",
+        "diluted",
+        "nyemission"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "inherited-mapping",
+          "title": "IFRS Foundation: IAS 33 Earnings per Share",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/",
+          "reviewedAt": "2026-09-15"
+        },
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "inherited-mapping",
+          "title": "Investor.gov: Stocks",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "Utspädning innebär att fler aktier kan minska din andel av bolaget om du inte deltar proportionellt. Även vinsten per aktie kan påverkas.",
+      "fullAnswer": "Nya aktier kan ges ut för att finansiera verksamheten, genom personalprogram eller när instrument omvandlas till aktier. Skilj ägarandelens utspädning från vad transaktionen gör med bolagets totala värde och framtida resultat.",
+      "example": "Du äger 10 av 100 aktier, alltså 10 %. Om 25 nya aktier ges ut och du inte köper fler äger du 10 av 125, vilket är 8 %.",
+      "caveats": "En emission kan tillföra användbart kapital; fler aktier är inte automatiskt värdeförstörande. En ren aktiesplit ändrar däremot normalt inte din procentuella ägarandel. Läs emissionsvillkor och aktienoter.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "contentVersion": 1,
+      "reviewDue": "2027-03-18",
+      "practiceId": "share-count",
+      "internalReview": {
+        "owner": "NTM owner",
+        "acceptance": "pending",
+        "excerpt": "shortAnswer",
+        "sourceClaims": [
+          {
+            "section": "shortAnswer",
+            "sources": [
+              "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/",
+              "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+            ]
+          },
+          {
+            "section": "fullAnswer",
+            "sources": [
+              "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/",
+              "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+            ]
+          },
+          {
+            "section": "caveats",
+            "sources": [
+              "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/",
+              "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+            ]
+          }
+        ],
+        "exampleCheck": "NTM synthetic arithmetic / owner rubric; no source endorsement of assumptions"
+      },
+      "conceptRefs": [
+        "shares",
+        "eps"
+      ],
+      "intent": "definition",
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "market-cap",
+      "slug": "borsvarde",
+      "question": "Vad är börsvärde?",
+      "category": "basics",
+      "concepts": [
+        "aktier",
+        "enterprise-value"
+      ],
+      "relatedLessonIds": [
+        "aktier",
+        "enterprise-value"
+      ],
+      "relatedEntityIds": [
+        "research-nvda"
+      ],
+      "aliases": [
+        "market cap",
+        "market capitalization",
+        "bolagsvärde"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "FINRA: Market Cap Explained",
+          "url": "https://www.finra.org/investors/insights/market-cap",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "Börsvärdet är marknadsvärdet på bolagets aktier: aktiekursen multiplicerad med antalet utestående aktier. Det är inte samma sak som värdet på hela verksamheten.",
+      "fullAnswer": "En låg kurs per aktie betyder därför inte ett litet eller billigt bolag. För bolag med flera aktieslag måste beräkningen hantera respektive antal och pris. Börsvärdet förändras när pris eller aktieantal ändras.",
+      "example": "20 miljoner aktier med kursen 50 kr ger ett börsvärde på 1 miljard kr. Ett bolag med kursen 5 kr och 400 miljoner aktier har i stället börsvärdet 2 miljarder.",
+      "caveats": "Börsvärdet inkluderar inte en separat skuldjustering. Enterprise value, EV, börjar förenklat med börsvärdet och lägger till skuld samt drar av kassa. Metoden kan kräva fler justeringar.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "conceptRefs": [
+        "market-cap"
+      ],
+      "intent": "definition",
+      "contentVersion": 1,
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "guidance",
+      "slug": "guidance",
+      "question": "Vad betyder guidance i en rapport?",
+      "category": "reports",
+      "concepts": [
+        "report",
+        "forward-metrics"
+      ],
+      "relatedLessonIds": [
+        "report",
+        "forward-metrics"
+      ],
+      "relatedEntityIds": [
+        "research-nvda"
+      ],
+      "aliases": [
+        "utsikter",
+        "prognos",
+        "outlook",
+        "guidning"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "NVIDIA: Exempel på bolagets egen outlook och definitioner",
+          "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2026/",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "Guidance är bolagsledningens kommunicerade utsikter för en kommande period. Det kan vara ett intervall för exempelvis omsättning, marginal eller vinst.",
+      "fullAnswer": "Skilj ledningens utsikter från analytikernas prognoser och från redan rapporterade resultat. Spara datum, period, mått och förutsättningar. Ett nytt intervall kan vara mer relevant än att den senaste historiska siffran var stark.",
+      "example": "Ett fiktivt bolag guidar för nästa kvartals omsättning på 100–110 miljoner. Mittpunkten är 105, men ledningen har inte därmed garanterat ett utfall på exakt 105.",
+      "caveats": "Guidance kan ändras eller dras tillbaka. Kontrollera valuta, förvärv och om måtten är justerade. Ett intervall för omsättningen är inte automatiskt en prognos för EPS eller kassaflöde.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "conceptRefs": [
+        "outlook"
+      ],
+      "intent": "definition",
+      "contentVersion": 1,
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "revenue",
+      "slug": "omsattning",
+      "question": "Vad är revenue eller omsättning?",
+      "category": "metrics",
+      "concepts": [
+        "revenue",
+        "marginal"
+      ],
+      "relatedLessonIds": [
+        "revenue",
+        "marginal"
+      ],
+      "relatedEntityIds": [
+        "research-nvda"
+      ],
+      "aliases": [
+        "intäkter",
+        "försäljning",
+        "sales"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "IFRS Foundation: IFRS 15 Revenue",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ifrs-15-revenue-from-contracts-with-customers/",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "Revenue betyder intäkter; för ett vanligt rörelsedrivande bolag talar man ofta om omsättning. Det är försäljningen som redovisats under perioden, innan många av verksamhetens kostnader dragits av.",
+      "fullAnswer": "När en intäkt redovisas beror på vad bolaget har levererat och de redovisningsregler som gäller. Inbetalningen kan komma vid en annan tidpunkt. Omsättning är därför varken samma sak som vinst eller som pengar på kontot.",
+      "example": "Omsättningen ökar från 200 till 230 miljoner. Tillväxten är (230 / 200 − 1) × 100 = 15 %. Det säger ännu inget om hur kostnaderna utvecklats.",
+      "caveats": "Tillväxt kan komma från fler sålda enheter, högre priser, förvärv eller valuta. Leta efter en uppdelning innan du kallar hela ökningen organisk tillväxt.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "conceptRefs": [
+        "revenue"
+      ],
+      "intent": "definition",
+      "contentVersion": 1,
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      },
+      "relatedAnswers": [
+        {
+          "id": "margins",
+          "type": "related-metric"
+        }
+      ]
+    },
+    {
+      "id": "margins",
+      "slug": "marginaler",
+      "question": "Vad är skillnaden mellan brutto-, rörelse- och nettomarginal?",
+      "category": "metrics",
+      "concepts": [
+        "marginal",
+        "revenue"
+      ],
+      "relatedLessonIds": [
+        "marginal",
+        "revenue"
+      ],
+      "relatedEntityIds": [
+        "research-nvda"
+      ],
+      "aliases": [
+        "bruttomarginal",
+        "rörelsemarginal",
+        "nettomarginal",
+        "lönsamhet"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "inherited-mapping",
+          "title": "SEC: Beginners’ Guide to Financial Statements",
+          "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "Marginal är ett resultatmått delat med omsättningen. Brutto-, rörelse- och nettomarginal använder olika resultatnivåer och visar därför olika delar av lönsamheten.",
+      "fullAnswer": "Bruttomarginalen utgår från bruttoresultatet. Rörelsemarginalen tar även hänsyn till övriga rörelsekostnader. Nettomarginalen använder resultatet efter bland annat finansiering och skatt. Jämför samma nivå och samma period.",
+      "example": "Med omsättning 100, bruttoresultat 40, rörelseresultat 15 och nettoresultat 10 blir marginalerna 40 %, 15 % respektive 10 %. Det är tre beskrivningar av samma förenklade resultaträkning.",
+      "caveats": "Justerade marginaler kan utesluta kostnader som andra bolag inkluderar. Bransch och redovisningssätt påverkar jämförbarheten. En stigande marginal säger heller inte ensam att kassaflödet förbättras.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "contentVersion": 1,
+      "reviewDue": "2027-03-18",
+      "practiceId": "exercise-operating-margin",
+      "internalReview": {
+        "owner": "NTM owner",
+        "acceptance": "pending",
+        "excerpt": "shortAnswer",
+        "sourceClaims": [
+          {
+            "section": "shortAnswer",
+            "sources": [
+              "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
+            ]
+          },
+          {
+            "section": "fullAnswer",
+            "sources": [
+              "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
+            ]
+          },
+          {
+            "section": "caveats",
+            "sources": [
+              "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide"
+            ]
+          }
+        ],
+        "exampleCheck": "NTM synthetic arithmetic / owner rubric; no source endorsement of assumptions"
+      },
+      "conceptRefs": [
+        "margins",
+        "revenue"
+      ],
+      "intent": "comparison",
+      "reviewPolicy": {
+        "risk": "methodology",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "debt",
+      "slug": "skuld-nettoskuld",
+      "question": "Vad säger skuld och nettoskuld om ett bolag?",
+      "category": "metrics",
+      "concepts": [
+        "debt",
+        "financial-statements"
+      ],
+      "relatedLessonIds": [
+        "debt",
+        "financial-statements"
+      ],
+      "relatedEntityIds": [
+        "research-crwv"
+      ],
+      "aliases": [
+        "net debt",
+        "belåning",
+        "refinansiering"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "SEC: Beginners’ Guide to Financial Statements",
+          "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+          "reviewedAt": "2026-09-15"
+        },
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "FINRA: Bonds",
+          "url": "https://www.finra.org/investors/investing/investment-products/bonds",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "Skuld visar åtaganden som måste hanteras. Nettoskuld är vanligen räntebärande skulder minus kassa och likvida medel, men exakt avgränsning måste kontrolleras.",
+      "fullAnswer": "Bedöm också när skulderna förfaller, räntan, villkoren och vilken kassa som faktiskt är tillgänglig. Två bolag med samma nettoskuld kan ha helt olika risk om det ena behöver låna om snart.",
+      "example": "Skuld 300 och kassa 80 ger förenklad nettoskuld 220. Om 200 förfaller nästa år räcker talet 220 inte för att avgöra om betalningarna kan klaras.",
+      "caveats": "Leasing, spärrad kassa och andra åtaganden kan ändra bilden. Att nettoskuld/EBITDA är lågt garanterar inte betalningsförmåga: EBITDA är inte ett mått på fritt tillgängliga pengar.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "conceptRefs": [
+        "debt"
+      ],
+      "intent": "interpretation",
+      "contentVersion": 1,
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        },
+        "interpretation": {
+          "field": "fullAnswer",
+          "unsuitableField": "caveats"
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "dividends",
+      "slug": "utdelning",
+      "question": "Är utdelning gratis avkastning?",
+      "category": "basics",
+      "concepts": [
+        "avkastning",
+        "fcf"
+      ],
+      "relatedLessonIds": [
+        "avkastning",
+        "fcf"
+      ],
+      "relatedEntityIds": [
+        "tool-compound"
+      ],
+      "aliases": [
+        "direktavkastning",
+        "dividend",
+        "utdelningar"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "Investor.gov: Stocks",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "Nej. En utdelning för över värde från bolaget till aktieägarna. Bedöm avkastningen som kursförändring och utdelning tillsammans, med hänsyn till kostnader och skatt.",
+      "fullAnswer": "När rätten till utdelningen skiljs av är bolaget, allt annat lika, värt mindre med det utdelade beloppet. Det betyder inte att börskursen måste falla exakt så mycket just den dagen; annan information kan samtidigt påverka.",
+      "example": "En aktie kostar 100 kr och delar ut 4 kr. Om kursen därefter är 96 kr har du 96 i aktievärde och 4 kontant före skatt: totalt fortfarande 100.",
+      "caveats": "En hög direktavkastning kan bero på en fallande kurs och risk för sänkt utdelning. Historiska utbetalningar är inget löfte om framtida utdelningar. Granska finansieringen bakom dem.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "conceptRefs": [
+        "dividends",
+        "return"
+      ],
+      "intent": "misconception",
+      "contentVersion": 1,
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "fx",
+      "slug": "usd-sek-avkastning",
+      "question": "Hur påverkar USD/SEK min avkastning?",
+      "category": "saving",
+      "concepts": [
+        "currency",
+        "avkastning"
+      ],
+      "relatedLessonIds": [
+        "currency",
+        "avkastning"
+      ],
+      "relatedEntityIds": [
+        "tool-fx"
+      ],
+      "aliases": [
+        "valuta",
+        "dollar",
+        "valutajusterad avkastning",
+        "sek usd"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "Investor.gov: International Investing",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/international-investing",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "För en investering i USD påverkas värdet i SEK både av investeringens avkastning och av hur många kronor en dollar kostar. Effekterna multipliceras.",
+      "fullAnswer": "Utan mellanliggande kassaflöden blir SEK-avkastningen (1 + avkastning i USD) × (1 + förändring i USD/SEK) − 1. Här betyder högre USD/SEK att dollarn stärkts mot kronan.",
+      "example": "Aktien stiger 10 % i USD och USD/SEK faller 8 %. Då blir avkastningen 1,10 × 0,92 − 1 = 1,2 % i SEK, före avgifter och skatt.",
+      "caveats": "Addera inte bara procenttalen. Utdelningar, växlingsavgifter och olika köpdatum kräver mer underlag. En valutasäkrad produkt kan bete sig annorlunda, och handelsvalutan avslöjar inte hela den ekonomiska valutaexponeringen.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "featured": true,
+      "conceptRefs": [
+        "fx",
+        "return"
+      ],
+      "intent": "calculation",
+      "contentVersion": 1,
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "isk",
+      "slug": "isk-grunder",
+      "question": "Hur fungerar skatt på ISK i grunden?",
+      "category": "saving",
+      "concepts": [
+        "isk"
+      ],
+      "relatedLessonIds": [
+        "isk"
+      ],
+      "relatedEntityIds": [
+        "tool-tax"
+      ],
+      "aliases": [
+        "investeringssparkonto",
+        "schablonskatt",
+        "skattefri grundnivå"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "Skatteverket: Skatt på investeringssparkonto",
+          "url": "https://www.skatteverket.se/privat/skatter/vardepapper/investeringssparkontoisk.4.5fc8c94513259a4ba1d800037851.html",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "ISK beskattas genom en årlig schablonberäkning i stället för separat skatt på varje vinstaffär. Kontots värden och insättningar påverkar underlaget.",
+      "fullAnswer": "Du behöver normalt inte redovisa varje försäljning inne i kontot. Skatt kan uppstå även ett år då placeringarna faller i värde. Årsparametrar och den gemensamma grundnivån hämtas här från NTM:s daterade regelregister, inte från en fast siffra i svaret.",
+      "example": "Två sparare med samma värde den 31 december kan få olika kapitalunderlag eftersom tidigare kvartalsvärden och insättningar skiljer sig. Slutvärdet ensamt räcker alltså inte för en korrekt kalkyl.",
+      "caveats": "Förluster inne i ISK är inte avdragsgilla. Utländsk källskatt och särskilda kontovillkor kan kräva egen kontroll. Välj rätt inkomstår i kalkylatorn och läs Skatteverkets regler för din situation.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "ruleId": "isk",
+      "conceptRefs": [
+        "isk"
+      ],
+      "intent": "process",
+      "contentVersion": 1,
+      "reviewPolicy": {
+        "risk": "rule",
+        "overdue": "suppress"
+      },
+      "reviewDue": "2026-12-01",
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "fees",
+      "slug": "courtage",
+      "question": "Vad är courtage och hur påverkar det små köp?",
+      "category": "saving",
+      "concepts": [
+        "fees",
+        "gav"
+      ],
+      "relatedLessonIds": [
+        "fees",
+        "gav"
+      ],
+      "relatedEntityIds": [
+        "tool-fees",
+        "tool-purchase"
+      ],
+      "aliases": [
+        "mäklaravgift",
+        "handelsavgift",
+        "kommission"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "Investor.gov: How Fees and Expenses Affect Your Investment Portfolio",
+          "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "Courtage är en avgift för en värdepappersaffär. Den kan exempelvis vara procentuell med ett minimibelopp, vilket gör små affärer relativt dyra.",
+      "fullAnswer": "Läs prislistan för ditt konto, din marknad och din orderstorlek. Courtage är bara en kostnad: spread, valutaväxling och produktavgifter kan tillkomma. Räkna på både köp och en eventuell framtida försäljning.",
+      "example": "Med ett fiktivt minimicourtage på 9 kr kostar ett köp på 300 kr 3 % i courtage. Ett köp på 3 000 kr med samma avgift kostar 0,3 %. Det är ingen faktisk mäklarprislista.",
+      "caveats": "Avgiftsfritt courtage betyder inte att all handel är gratis. Fler affärer kan ge högre sammanlagd kostnad. Jämför hela kostnadsbilden och gör inte större köp enbart för att sänka avgiftsprocenten.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "conceptRefs": [
+        "fees"
+      ],
+      "intent": "application",
+      "contentVersion": 1,
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "ttm",
+      "slug": "ttm",
+      "question": "Vad betyder TTM?",
+      "category": "reports",
+      "concepts": [
+        "forward-metrics",
+        "financial-statements"
+      ],
+      "relatedLessonIds": [
+        "forward-metrics",
+        "financial-statements"
+      ],
+      "relatedEntityIds": [
+        "research-nvda"
+      ],
+      "aliases": [
+        "trailing twelve months",
+        "rullande tolv månader",
+        "lttm"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "Fidelity: Research glossary, trailing twelve months",
+          "url": "https://www.fidelity.com/webcontent/ap010098-etf-content/19.07.0/help/research/learn_er_glossary_2.shtml",
+          "reviewedAt": "2026-09-15"
+        },
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "SEC: Beginners’ Guide to Financial Statements",
+          "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "TTM betyder trailing twelve months: de senaste tolv månaderna. För ett flödesmått används ofta de fyra senast rapporterade kvartalen.",
+      "fullAnswer": "TTM är ett rullande historiskt fönster, inte en prognos. Det kan sluta mitt i ett kalenderår. Kontrollera slutdatumet och använd fristående kvartal så att en ackumulerad halvårs- eller niomånaderssiffra inte dubbelräknas.",
+      "example": "Fristående kvartalsintäkter på 20, 25, 30 och 35 ger TTM-intäkter 110. När nästa kvartal på 40 kommer ersätter det det äldsta: 25 + 30 + 35 + 40 = 130.",
+      "caveats": "Balansräkningsposter som kassa och skuld är ögonblicksbilder och ska inte summeras till TTM. EPS kräver dessutom hänsyn till aktiebas och definition. Datum är en del av måttet.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "conceptRefs": [
+        "ttm"
+      ],
+      "intent": "definition",
+      "contentVersion": 1,
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "forward",
+      "slug": "forward-trailing-pe",
+      "question": "Vad skiljer forward P/E från trailing P/E?",
+      "category": "valuation",
+      "concepts": [
+        "forward-metrics",
+        "pe"
+      ],
+      "relatedLessonIds": [
+        "forward-metrics",
+        "pe"
+      ],
+      "relatedEntityIds": [
+        "tool-valuation"
+      ],
+      "aliases": [
+        "historiskt pe",
+        "framtida pe",
+        "prognostiserad vinst",
+        "ntm pe"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "inherited-mapping",
+          "title": "Fidelity: Research glossary, P/E och PEG",
+          "url": "https://www.fidelity.com/webcontent/ap010098-etf-content/19.02.0/help/research/learn_er_glossary_3.shtml",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "Trailing P/E använder historisk vinst. Forward P/E använder en prognos för framtida vinst. Samma aktiekurs kan därför ge två olika multiplar.",
+      "fullAnswer": "Forward kan avse nästa räkenskapsår eller nästa tolv månader. En lägre forward-multipel kan bara bero på att prognosen antar högre EPS. Kontrollera också om prognosen är rapporterad eller justerad i sin definition.",
+      "example": "Kurs 120 kr och historisk EPS 4 kr ger trailing P/E 30. Med prognostiserad EPS 6 kr blir forward P/E 20. Priset är oförändrat; skillnaden ligger i den förväntade vinsten.",
+      "caveats": "Prognosen kan vara fel och ändras efter nästa rapport. Blanda inte historisk EPS för ett bolag med justerad prognos-EPS för ett annat utan att tydligt förklara skillnaden.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "contentVersion": 1,
+      "reviewDue": "2027-03-18",
+      "practiceId": "check-forward-metrics-0",
+      "internalReview": {
+        "owner": "NTM owner",
+        "acceptance": "pending",
+        "excerpt": "shortAnswer",
+        "sourceClaims": [
+          {
+            "section": "shortAnswer",
+            "sources": [
+              "https://www.fidelity.com/webcontent/ap010098-etf-content/19.02.0/help/research/learn_er_glossary_3.shtml"
+            ]
+          },
+          {
+            "section": "fullAnswer",
+            "sources": [
+              "https://www.fidelity.com/webcontent/ap010098-etf-content/19.02.0/help/research/learn_er_glossary_3.shtml"
+            ]
+          },
+          {
+            "section": "caveats",
+            "sources": [
+              "https://www.fidelity.com/webcontent/ap010098-etf-content/19.02.0/help/research/learn_er_glossary_3.shtml"
+            ]
+          }
+        ],
+        "exampleCheck": "NTM synthetic arithmetic / owner rubric; no source endorsement of assumptions"
+      },
+      "conceptRefs": [
+        "pe",
+        "outlook"
+      ],
+      "intent": "comparison",
+      "reviewPolicy": {
+        "risk": "methodology",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        },
+        "comparison": {
+          "leftLabel": "Trailing P/E",
+          "rightLabel": "Forward P/E",
+          "axes": [
+            {
+              "label": "Vinstunderlag",
+              "left": "Trailing P/E använder historisk vinst.",
+              "right": "Forward P/E använder en prognos för framtida vinst."
+            }
+          ],
+          "limitations": "Prognosen kan vara fel och ändras efter nästa rapport. Blanda inte historisk EPS för ett bolag med justerad prognos-EPS för ett annat utan att tydligt förklara skillnaden."
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "inflation",
+      "slug": "inflation-prisniva",
+      "question": "Betyder lägre inflation att priserna sjunker?",
+      "category": "macro",
+      "concepts": [
+        "inflation"
+      ],
+      "relatedLessonIds": [
+        "inflation"
+      ],
+      "relatedEntityIds": [
+        "macro-calendar"
+      ],
+      "aliases": [
+        "disinflation",
+        "deflation",
+        "prisnivå",
+        "köpkraft"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "inherited-mapping",
+          "title": "Riksbanken: Vad är inflation?",
+          "url": "https://www.riksbank.se/sv/penningpolitik/inflationsmalet/vad-ar-inflation/",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "Nej. Lägre positiv inflation betyder att den allmänna prisnivån stiger långsammare. En fallande allmän prisnivå kallas deflation.",
+      "fullAnswer": "Inflation mäter förändringstakten, inte hur höga priserna redan är. Att takten går tillbaka efter en snabb uppgång återställer alltså inte tidigare köpkraft. Enskilda varor kan samtidigt bli billigare eller dyrare än genomsnittet.",
+      "example": "En varukorg kostar 100 kr, stiger 10 % till 110 kr och därefter 2 % till 112,20 kr. Inflationstakten har fallit men korgen är fortfarande dyrare än före båda ökningarna.",
+      "caveats": "Olika inflationsmått har olika avgränsning. Din egen konsumtion kan skilja sig från indexets varukorg. För sparande behöver nominell avkastning bedömas tillsammans med köpkraftens förändring.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "contentVersion": 1,
+      "reviewDue": "2027-03-18",
+      "practiceId": "price-level",
+      "internalReview": {
+        "owner": "NTM owner",
+        "acceptance": "pending",
+        "excerpt": "shortAnswer",
+        "sourceClaims": [
+          {
+            "section": "shortAnswer",
+            "sources": [
+              "https://www.riksbank.se/sv/penningpolitik/inflationsmalet/vad-ar-inflation/"
+            ]
+          },
+          {
+            "section": "fullAnswer",
+            "sources": [
+              "https://www.riksbank.se/sv/penningpolitik/inflationsmalet/vad-ar-inflation/"
+            ]
+          },
+          {
+            "section": "caveats",
+            "sources": [
+              "https://www.riksbank.se/sv/penningpolitik/inflationsmalet/vad-ar-inflation/"
+            ]
+          }
+        ],
+        "exampleCheck": "NTM synthetic arithmetic / owner rubric; no source endorsement of assumptions"
+      },
+      "conceptRefs": [
+        "inflation"
+      ],
+      "intent": "misconception",
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "interest-rates",
+      "slug": "styrranta",
+      "question": "Hur kan styrräntan påverka investeringar?",
+      "category": "macro",
+      "concepts": [
+        "interest-rates",
+        "inflation"
+      ],
+      "relatedLessonIds": [
+        "interest-rates",
+        "inflation"
+      ],
+      "relatedEntityIds": [
+        "macro-calendar"
+      ],
+      "aliases": [
+        "ränta",
+        "räntehöjning",
+        "räntekanalen",
+        "penningpolitik"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "Riksbanken: Så påverkar penningpolitiken inflationen",
+          "url": "https://www.riksbank.se/sv/penningpolitik/vad-ar-penningpolitik/sa-paverkar-penningpolitiken-inflationen/",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "Styrräntan påverkar andra räntor och därmed finansieringskostnader, sparande och efterfrågan. Effekten på en viss investering beror på verksamheten och vad marknaden redan väntat sig.",
+      "fullAnswer": "Högre lånekostnader kan minska utrymmet för konsumtion eller företagsinvesteringar. Samtidigt kan vissa verksamheter gynnas av ett annat ränteläge. Det är därför inte en automatisk regel att varje räntehöjning sänker alla aktier.",
+      "example": "Ett förenklat lån på 1 miljon kr med rörlig ränta får 10 000 kr högre årlig räntekostnad om räntan ökar en procentenhet, före skatteffekter och andra villkor.",
+      "caveats": "Styrränta och långa marknadsräntor är olika saker. Förändringar verkar med fördröjning, och bundna lån påverkas på andra tider. Skilj ett väntat beslut från en överraskning.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "conceptRefs": [
+        "rates"
+      ],
+      "intent": "application",
+      "contentVersion": 1,
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "bond-yields",
+      "slug": "obligationsrantor-aktier",
+      "question": "Varför spelar obligationsräntor roll för aktier?",
+      "category": "macro",
+      "concepts": [
+        "interest-rates",
+        "pe"
+      ],
+      "relatedLessonIds": [
+        "interest-rates",
+        "pe"
+      ],
+      "relatedEntityIds": [
+        "tool-valuation"
+      ],
+      "aliases": [
+        "bond yield",
+        "statsobligation",
+        "diskonteringsränta",
+        "avkastningskrav"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "FINRA: Bonds",
+          "url": "https://www.finra.org/investors/investing/investment-products/bonds",
+          "reviewedAt": "2026-09-15"
+        },
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "FINRA: Stocks and investment risks",
+          "url": "https://www.finra.org/investors/investing/investment-products/stocks",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "Obligationsräntor påverkar avkastningsalternativ och finansieringsvillkor. Högre avkastningskrav kan också sänka nuvärdet av framtida vinster, om allt annat hålls lika.",
+      "fullAnswer": "För en obligation med fasta betalningar rör sig pris och marknadens avkastningskrav normalt åt motsatta håll. För aktier tillkommer förändringar i tillväxt, risk och vinst. Orsaken till ränterörelsen är därför viktig.",
+      "example": "100 kr som betalas om ett år har nuvärdet cirka 95,24 kr vid 5 % krav och 90,91 kr vid 10 %. Det illustrerar diskontering, inte en prognos för en aktiekurs.",
+      "caveats": "Kupongränta, löpande avkastning och avkastning till förfall är olika mått. En stigande obligationsränta kan spegla inflation, kreditrisk eller starkare ekonomi. Ingen enkel procentsats översätter rörelsen till aktiemarknaden.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "conceptRefs": [
+        "rates"
+      ],
+      "intent": "application",
+      "contentVersion": 1,
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "earnings",
+      "slug": "bra-rapport-fallande-aktie",
+      "question": "Varför kan en aktie falla trots en bra rapport?",
+      "category": "reports",
+      "concepts": [
+        "report",
+        "thesis"
+      ],
+      "relatedLessonIds": [
+        "report",
+        "thesis"
+      ],
+      "relatedEntityIds": [
+        "research-nvda"
+      ],
+      "aliases": [
+        "rapportreaktion",
+        "förväntningar",
+        "kvartalsrapport"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "FINRA: Stocks and investment risks",
+          "url": "https://www.finra.org/investors/investing/investment-products/stocks",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "En rapport kan vara stark jämfört med förra året men svagare än marknadens förväntningar. Kursen påverkas också av utsikter, risk och det pris investerarna redan betalat.",
+      "fullAnswer": "Skilj historisk förbättring från en positiv överraskning. Läs mer än rubrikens omsättning och EPS: kassaflöde, marginaler, orderingång och framtida utsikter kan ge en annan bild. Orsaken till en dags kursrörelse går inte alltid att fastställa.",
+      "example": "Ett fiktivt bolags vinst växer 20 %. Om investerare räknat med 30 % och ledningen sänker utsikterna kan rapporten ändå leda till lägre värdering. Exemplet visar förväntningsskillnaden.",
+      "caveats": "En kursreaktion bevisar inte att din långsiktiga tes är rätt eller fel. Jämför rapporten med daterade, mätbara antaganden och var tydlig med vilka förklaringar som bara är hypoteser.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "conceptRefs": [
+        "earnings"
+      ],
+      "intent": "interpretation",
+      "contentVersion": 1,
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        },
+        "interpretation": {
+          "field": "fullAnswer",
+          "unsuitableField": "caveats"
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "estimates",
+      "slug": "analytikerestimat",
+      "question": "Vad är analytikerestimat och konsensus?",
+      "category": "reports",
+      "concepts": [
+        "forward-metrics",
+        "report"
+      ],
+      "relatedLessonIds": [
+        "forward-metrics",
+        "report"
+      ],
+      "relatedEntityIds": [
+        "research-nvda"
+      ],
+      "aliases": [
+        "analyst estimates",
+        "konsensusprognos",
+        "förväntad eps"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "SEC: Analyzing Analyst Recommendations",
+          "url": "https://www.sec.gov/about/reports-publications/investorpubsanalystshtm",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "Analytikerestimat är prognoser för exempelvis vinst eller omsättning. Konsensus sammanfattar ett urval av sådana prognoser, ofta med ett genomsnitt eller en median.",
+      "fullAnswer": "Konsensus är inte ett rapporterat bolagsresultat och inte nödvändigtvis alla marknadsaktörers förväntan. Tjänster kan använda olika analytiker, uppdateringsdatum, perioder och definitioner. Därför kan två konsensussiffror skilja sig utan att någon är ett enkelt räknefel.",
+      "example": "Tre jämförbara EPS-prognoser på 4, 5 och 6 kr har genomsnittet 5 kr. Om en av prognoserna är gammal eller justerad på ett annat sätt blir sammanfattningen svårare att tolka.",
+      "caveats": "Visa prognosens datum och källa. Skillnaden mellan högsta och lägsta estimat kan vara viktig. En träff mot konsensus visar inte i sig att aktiens pris är rimligt.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "conceptRefs": [
+        "outlook"
+      ],
+      "intent": "definition",
+      "contentVersion": 1,
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "thesis",
+      "slug": "investeringstes",
+      "question": "Vad ska en enkel investeringstes innehålla?",
+      "category": "risk",
+      "concepts": [
+        "thesis",
+        "scenarios"
+      ],
+      "relatedLessonIds": [
+        "thesis",
+        "scenarios"
+      ],
+      "relatedEntityIds": [
+        "workflow-manual-thesis"
+      ],
+      "aliases": [
+        "investment thesis",
+        "tes",
+        "motbevis",
+        "antaganden"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "inherited-mapping",
+          "title": "Investor.gov: Researching Investments",
+          "url": "https://www.investor.gov/introduction-investing/getting-started/researching-investments",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "En investeringstes beskriver varför en investering kan fungera, vad som måste bli sant och vad som skulle få dig att ompröva slutsatsen. Den bör gå att följa upp.",
+      "fullAnswer": "NTM:s arbetsmetod är att skilja observerade fakta från egna antaganden, koppla antagandena till priset och skriva risker samt kontrollpunkter. Det gör nästa granskning mer konkret än en allmän berättelse om ett bra bolag.",
+      "example": "En övningstes kan anta att rörelsemarginalen når 15 % inom fyra kvartal. Du anger vilken rapport som ska kontrolleras och att uthålligt högre kundbortfall skulle tala emot antagandet.",
+      "caveats": "En välskriven tes garanterar inte avkastning. Uppföljningsgränser är egna analysval, inte universella köp- eller säljregler. Skriv även vad du inte vet och undvik att ändra gamla antaganden i efterhand.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "featured": true,
+      "contentVersion": 1,
+      "reviewDue": "2027-03-18",
+      "practiceId": "build-thesis",
+      "internalReview": {
+        "owner": "NTM owner",
+        "acceptance": "pending",
+        "excerpt": "shortAnswer",
+        "sourceClaims": [
+          {
+            "section": "shortAnswer",
+            "sources": [
+              "https://www.investor.gov/introduction-investing/getting-started/researching-investments"
+            ]
+          },
+          {
+            "section": "fullAnswer",
+            "sources": [
+              "https://www.investor.gov/introduction-investing/getting-started/researching-investments"
+            ]
+          },
+          {
+            "section": "caveats",
+            "sources": [
+              "https://www.investor.gov/introduction-investing/getting-started/researching-investments"
+            ]
+          }
+        ],
+        "exampleCheck": "NTM synthetic arithmetic / owner rubric; no source endorsement of assumptions"
+      },
+      "conceptRefs": [
+        "thesis"
+      ],
+      "intent": "process",
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "diversification",
+      "slug": "diversifiering",
+      "question": "Vad innebär diversifiering?",
+      "category": "risk",
+      "concepts": [
+        "diversifiering",
+        "position-sizing"
+      ],
+      "relatedLessonIds": [
+        "diversifiering",
+        "position-sizing"
+      ],
+      "relatedEntityIds": [
+        "tool-purchase"
+      ],
+      "aliases": [
+        "riskspridning",
+        "portfölj",
+        "sprida risk"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "Investor.gov: Asset Allocation and Diversification",
+          "url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "Diversifiering innebär att sprida exponeringen så att ett enskilt innehav eller en gemensam risk inte dominerar hela portföljen. Antalet innehav är bara en del av bilden.",
+      "fullAnswer": "Titta på vad innehaven påverkas av: bransch, kunder, geografi, valuta och finansiering. Flera fonder kan äga samma stora bolag. Även många olika aktier kan samtidigt vara känsliga för samma ekonomiska förändring.",
+      "example": "Om ett innehav väger 20 % och halveras medan resten står stilla faller portföljen 10 %. Vid en vikt på 5 % blir bidraget till förlusten 2,5 % under samma antagande.",
+      "caveats": "Riskspridning tar inte bort marknadsrisk och lovar ingen vinst. Samband mellan tillgångar kan förändras i stress. Anpassa riskbedömningen till tidshorisont, likviditetsbehov och hur stora förluster du kan bära.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "conceptRefs": [
+        "diversification"
+      ],
+      "intent": "definition",
+      "contentVersion": 1,
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "eps-comparison",
+      "slug": "olika-eps-siffror",
+      "question": "Varför skiljer sig EPS mellan olika sajter?",
+      "category": "reports",
+      "concepts": [
+        "eps",
+        "forward-metrics"
+      ],
+      "relatedLessonIds": [
+        "eps",
+        "forward-metrics"
+      ],
+      "relatedEntityIds": [
+        "research-nvda"
+      ],
+      "aliases": [
+        "olika vinst per aktie",
+        "adjusted eps",
+        "non gaap",
+        "gaap",
+        "diluted eps"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "IFRS Foundation: IAS 33 Earnings per Share",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/",
+          "reviewedAt": "2026-09-15"
+        },
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [],
+          "evidenceStatus": "legacy-unmapped",
+          "title": "SEC: Non-GAAP Financial Measures, inklusive FCF",
+          "url": "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures",
+          "reviewedAt": "2026-09-15"
+        }
+      ],
+      "shortAnswer": "Ofta jämför sajterna olika EPS-mått: period, rapporterad eller justerad vinst, grundläggande eller utspädd aktiebas, eller historik mot prognos.",
+      "fullAnswer": "Börja vid bolagets egen rapport och anteckna periodens slutdatum, valuta och definition. Följ sedan varje tjänsts metodbeskrivning. En leverantör kan ha uppdaterat den senaste rapporten medan en annan fortfarande använder äldre data.",
+      "example": "En sida visar 2 kr för senaste kvartalet och en annan 7 kr för de senaste tolv månaderna. Talen motsäger inte varandra: de besvarar olika frågor. Att bara multiplicera kvartalet med fyra kan missa säsongseffekter.",
+      "caveats": "Välj inte automatiskt den högsta EPS-siffran för att få ett lägre P/E. Om justeringar inte går att förklara är jämförelsen osäker. Redovisa skillnaden i stället för att dölja den.",
+      "difficulty": "beginner",
+      "status": "published",
+      "reviewedAt": "2026-09-15",
+      "publishedAt": "2026-09-15",
+      "internalEditorialNotes": "Editorial seed; source definitions and independent arithmetic checked by Codex. Not a real user submission.",
+      "conceptRefs": [
+        "eps"
+      ],
+      "intent": "comparison",
+      "contentVersion": 1,
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "compounding",
+      "slug": "ranta-pa-ranta",
+      "question": "Hur fungerar ränta på ränta?",
+      "category": "saving",
+      "concepts": [
+        "compounding",
+        "cagr"
+      ],
+      "relatedLessonIds": [
+        "compounding",
+        "cagr"
+      ],
+      "relatedEntityIds": [
+        "tool-compound"
+      ],
+      "aliases": [
+        "sammansatt avkastning",
+        "compound interest"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "inherited-mapping",
+          "title": "Investor.gov: Compound Interest Calculator",
+          "url": "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator",
+          "reviewedAt": "2026-09-18"
+        }
+      ],
+      "shortAnswer": "Ränta på ränta innebär att även tidigare avkastning kan ge ny avkastning när den ligger kvar. Nästa periods förändring räknas på det då aktuella kapitalet.",
+      "fullAnswer": "I ett förenklat exempel utan insättningar multipliceras startkapitalet med tillväxtfaktorn för varje period. Med jämn årsavkastning blir slutvärdet startkapital × (1 + årstakt) upphöjt till antal år. Månadssparande behöver också ta hänsyn till när varje insättning görs.",
+      "example": "100 kr som växer 10 % per år blir 110 kr efter ett år och 121 kr efter två. Den andra ökningen är 11 kr. Exemplet saknar avgift, skatt, inflation och nya insättningar.",
+      "caveats": "En jämn takt är ett scenario, inte en prognos. Förluster minskar nästa periods kapitalbas. Kontrollera om resultatet är nominellt eller inflationsjusterat och om avgiften redan har dragits.",
+      "difficulty": "beginner",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-18",
+      "internalEditorialNotes": "Wave 1 bounded addition; primary source checked and arithmetic independently recomputed by Codex; owner acceptance pending.",
+      "contentVersion": 1,
+      "reviewDue": "2027-03-18",
+      "practiceId": "cost-timing",
+      "internalReview": {
+        "owner": "NTM owner",
+        "acceptance": "pending",
+        "excerpt": "shortAnswer",
+        "sourceClaims": [
+          {
+            "section": "shortAnswer",
+            "sources": [
+              "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator"
+            ]
+          },
+          {
+            "section": "fullAnswer",
+            "sources": [
+              "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator"
+            ]
+          },
+          {
+            "section": "caveats",
+            "sources": [
+              "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator"
+            ]
+          }
+        ],
+        "exampleCheck": "NTM synthetic arithmetic / owner rubric; no source endorsement of assumptions"
+      },
+      "conceptRefs": [
+        "compounding"
+      ],
+      "intent": "calculation",
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "annual-fees",
+      "slug": "arlig-avgift",
+      "question": "Hur påverkar en årlig avgift mitt sparande?",
+      "category": "saving",
+      "concepts": [
+        "fees",
+        "compounding"
+      ],
+      "relatedLessonIds": [
+        "fees",
+        "compounding"
+      ],
+      "relatedEntityIds": [
+        "tool-fees",
+        "tool-compound"
+      ],
+      "aliases": [
+        "fondavgift",
+        "årlig avgift",
+        "löpande avgift"
+      ],
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "inherited-mapping",
+          "title": "Investor.gov: How Fees and Expenses Affect Your Investment Portfolio",
+          "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated",
+          "reviewedAt": "2026-09-18"
+        }
+      ],
+      "shortAnswer": "En löpande avgift minskar kapitalet som kan växa vidare. Över tid påverkas därför både avgiftsbeloppet och den framtida avkastningen på pengarna som har dragits.",
+      "fullAnswer": "Jämför samma startkapital, insättningar, period och avkastning före avgift. Skilj löpande procentavgift från courtage vid ett köp. I NTM:s förenklade årsmodell används faktorn (1 + avkastning) × (1 − avgift); avgiften räknas på värdet efter periodens avkastning.",
+      "example": "100 kr, 7 % avkastning och 1 % avgift ger 100 × 1,07 × 0,99 = 105,93 kr i denna modell. Med noll avgift blir det 107 kr. Skillnaden är 1,07 kr efter ett år.",
+      "caveats": "Verkliga produkter kan ta avgifter vid andra tidpunkter och ha ytterligare kostnader. Dra inte samma avgift två gånger om din angivna avkastning redan är efter avgift. En låg avgift garanterar inte ett bra investeringsutfall.",
+      "difficulty": "beginner",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-18",
+      "internalEditorialNotes": "Wave 1 bounded addition; primary source checked and arithmetic independently recomputed by Codex; owner acceptance pending.",
+      "contentVersion": 1,
+      "reviewDue": "2027-03-18",
+      "practiceId": "cost-timing",
+      "internalReview": {
+        "owner": "NTM owner",
+        "acceptance": "pending",
+        "excerpt": "shortAnswer",
+        "sourceClaims": [
+          {
+            "section": "shortAnswer",
+            "sources": [
+              "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated"
+            ]
+          },
+          {
+            "section": "fullAnswer",
+            "sources": [
+              "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated"
+            ]
+          },
+          {
+            "section": "caveats",
+            "sources": [
+              "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated"
+            ]
+          }
+        ],
+        "exampleCheck": "NTM synthetic arithmetic / owner rubric; no source endorsement of assumptions"
+      },
+      "conceptRefs": [
+        "fees",
+        "compounding"
+      ],
+      "intent": "application",
+      "reviewPolicy": {
+        "risk": "stable",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "macro-releases",
+      "slug": "tolka-makroslapp",
+      "question": "Vad mäter CPI, PCE, payrolls och BNP?",
+      "category": "macro",
+      "concepts": [
+        "inflation",
+        "interest-rates"
+      ],
+      "relatedLessonIds": [
+        "inflation",
+        "interest-rates"
+      ],
+      "relatedEntityIds": [
+        "macro-calendar"
+      ],
+      "aliases": [
+        "cpi",
+        "pce",
+        "payrolls",
+        "nonfarm payrolls",
+        "gdp",
+        "bnp",
+        "makrosläpp"
+      ],
+      "shortAnswer": "CPI och PCE:s prisindex mäter konsumentpriser med olika avgränsning. Payrolls mäter arbetstillfällen i en arbetsgivarundersökning. BNP mäter värdet av slutliga varor och tjänster som produceras inom landet. Kontrollera alltid mått, period och enhet.",
+      "fullAnswer": "USA:s CPI följer prisförändringar för en varukorg för urbana konsumenter. PCE:s prisindex omfattar konsumtionsutgifter, även köp för konsumenters räkning. Payrolls räknar anställningar utanför jordbruket; en person med flera jobb kan räknas flera gånger. Arbetslöshetsgraden kommer från en annan undersökning av hushåll. Real BNP justerar för prisförändringar, medan nominell BNP även påverkas av priser. Investerare följer dessa publiceringar för att förstå efterfrågan, prisutveckling och ekonomisk aktivitet. I NTM är detta sammanhang att undersöka, inte en prognos för en enskild aktie.",
+      "example": "Syntetiskt index: 100 till 103 är 3 % prisökning. Om nästa jämförbara år slutar på 105,06 är ökningen 2 %; prisnivån har ändå stigit. Ett payrollstal på +100 000 avser förändring i antal jobb, inte procent eller lika många unika personer. Amerikansk kvartals-BNP uttryckt i uppräknad årstakt ska inte läsas som faktisk tillväxt under ett helt år.",
+      "caveats": "Skilj månadsförändring från årsförändring, index från procent och totalmått från kärnmått. Säsongsjustering och senare revisioner kan ändra bilden. Kontrollera om föregående värde är ursprungligt eller reviderat; NTM säger okänt när källan inte anger det. Saknad prognos är inte noll och ger ingen beräknad överraskning. Ett utfall ger ingen automatisk marknadsriktning.",
+      "sources": [
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "inherited-mapping",
+          "title": "BLS: CPI, frågor och svar",
+          "url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+          "reviewedAt": "2026-09-18"
+        },
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "inherited-mapping",
+          "title": "BEA: PCE Price Index",
+          "url": "https://www.bea.gov/data/personal-consumption-expenditures-price-index",
+          "reviewedAt": "2026-09-18"
+        },
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "inherited-mapping",
+          "title": "BLS: Employment Situation, metoder",
+          "url": "https://www.bls.gov/bls/empsitquickguide.htm",
+          "reviewedAt": "2026-09-18"
+        },
+        {
+          "type": "reference",
+          "authority": "unclassified",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "inherited-mapping",
+          "title": "BEA: Gross Domestic Product",
+          "url": "https://www.bea.gov/data/gdp/gross-domestic-product",
+          "reviewedAt": "2026-09-18"
+        }
+      ],
+      "difficulty": "beginner",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-18",
+      "contentVersion": 1,
+      "reviewDue": "2027-03-18",
+      "practiceId": "price-level",
+      "internalEditorialNotes": "Wave 4. Intent: identify the release, units and limitations while preserving calendar context. Duplicate check: inflation covers disinflation; interest-rates covers transmission; neither explains the release families. Primary definitions checked 2026-09-18; owner substantive approval pending.",
+      "internalReview": {
+        "owner": "NTM owner",
+        "reviewer": "Codex source/arithmetic check; not independent editorial approval",
+        "reviewedAt": "2026-09-18",
+        "version": 1,
+        "acceptance": "pending",
+        "excerpt": "shortAnswer",
+        "sourceClaims": [
+          {
+            "section": "shortAnswer",
+            "sources": [
+              "https://www.bls.gov/cpi/questions-and-answers.htm",
+              "https://www.bea.gov/data/personal-consumption-expenditures-price-index",
+              "https://www.bls.gov/bls/empsitquickguide.htm",
+              "https://www.bea.gov/data/gdp/gross-domestic-product"
+            ]
+          },
+          {
+            "section": "fullAnswer",
+            "sources": [
+              "https://www.bls.gov/cpi/questions-and-answers.htm",
+              "https://www.bea.gov/data/personal-consumption-expenditures-price-index",
+              "https://www.bls.gov/bls/empsitquickguide.htm",
+              "https://www.bea.gov/data/gdp/gross-domestic-product"
+            ]
+          },
+          {
+            "section": "caveats",
+            "sources": [
+              "https://www.bls.gov/cpi/questions-and-answers.htm",
+              "https://www.bea.gov/data/personal-consumption-expenditures-price-index",
+              "https://www.bls.gov/bls/empsitquickguide.htm",
+              "https://www.bea.gov/data/gdp/gross-domestic-product"
+            ]
+          }
+        ],
+        "claimMap": {
+          "CPI": 0,
+          "PCE": 1,
+          "payrolls": 2,
+          "GDP": 3,
+          "marketDirection": "NTM limitation, not a forecast"
+        },
+        "exampleCheck": "100 × 1.03 = 103; 103 × 1.02 = 105.06. Synthetic index points, percentages and job counts explicitly distinguished."
+      },
+      "conceptRefs": [
+        "macro",
+        "inflation"
+      ],
+      "intent": "definition",
+      "reviewPolicy": {
+        "risk": "methodology",
+        "overdue": "label"
+      },
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "calculator",
+            "macro",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "inherited-not-independent",
+        "changeNote": "Structural Knowledge Engine migration; no prose or review-date change."
+      }
+    },
+    {
+      "id": "balance-sheet",
+      "question": "Vad visar en balansräkning?",
+      "intent": "definition",
+      "category": "reports",
+      "conceptRefs": [
+        "balance-sheet"
+      ],
+      "concepts": [
+        "financial-statements",
+        "debt"
+      ],
+      "relatedLessonIds": [
+        "financial-statements",
+        "debt"
+      ],
+      "aliases": [
+        "balansräkning",
+        "balance sheet",
+        "Vad är en balansräkning?"
+      ],
+      "shortAnswer": "En balansräkning visar bolagets finansiella ställning vid ett bestämt datum: tillgångar, skulder och eget kapital. Det är en ögonblicksbild, inte periodens intäkter eller betalningar. Kassa ensam visar inte hur stark ekonomin är.",
+      "fullAnswer": "Tillgångarna redovisas tillsammans med finansieringen genom skulder och eget kapital. Sambandet är tillgångar = skulder + eget kapital. Jämför balansdagen med perioden i resultaträkningen och kassaflödesanalysen: de två senare beskriver förändringar och flöden över tid. För att förstå kassan behöver du också se skulder och hur rörelsekapitalet har förändrats.",
+      "example": "Ett förenklat bolag redovisar tillgångar på 1 000, skulder på 600 och eget kapital på 400, i samma enhet och vid samma datum. Balansen stämmer: 1 000 = 600 + 400. Det är redovisade belopp, inte en värdering av aktien.",
+      "caveats": "En stor kassa är inte automatiskt ett styrkebesked. Läs den tillsammans med åtaganden, kassaflöden och noter. En balansräkning visar inte ensam varför beloppen har ändrats eller vad framtida betalningar blir. Jämför därför de tre rapporterna i stället för att dra en slutsats från en enda post.",
+      "relatedAnswers": [
+        {
+          "id": "income-statement",
+          "type": "next-question"
+        },
+        {
+          "id": "cash-flow-statement",
+          "type": "next-question"
+        },
+        {
+          "id": "debt",
+          "type": "related-metric"
+        },
+        {
+          "id": "working-capital",
+          "type": "deeper"
+        }
+      ],
+      "sources": [
+        {
+          "title": "SEC: Beginners’ Guide to Financial Statements",
+          "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "example",
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "Avsnitten Balance Sheets, Cash Flow Statements och Bringing It All Together: balansidentitet, datum kontra period och rapporternas samband. NTM:s 1 000 = 600 + 400 har räknats separat.",
+          "limitations": "Grundläggande investerarvägledning från 2007, inte fullständig redovisningsstandard. Kassans storlek ges ingen universell kvalitetsbedömning; exemplet är syntetiskt."
+        }
+      ],
+      "slug": "balance-sheet",
+      "relatedEntityIds": [
+        "research-nvda"
+      ],
+      "difficulty": "beginner",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-19",
+      "featured": false,
+      "contentVersion": 1,
+      "reviewDue": "2026-12-31",
+      "reviewPolicy": {
+        "risk": "methodology",
+        "overdue": "label"
+      },
+      "jurisdiction": "global",
+      "period": "timeless",
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "accepted",
+        "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+        "reviewedAt": "2026-09-19",
+        "changeNote": "Owner-approved Batch 1A scope supplied 2026-09-19; primary evidence and synthetic arithmetic checked by Codex on the same date. Assumptions narrowed explicitly; no independent human source review claimed. Methodology cadence 180 days, advanced to 2026-12-31 before the IFRS 18 transition."
+      }
+    },
+    {
+      "id": "capex",
+      "question": "Vad betyder CapEx?",
+      "intent": "definition",
+      "category": "metrics",
+      "conceptRefs": [
+        "capex"
+      ],
+      "concepts": [
+        "fcf",
+        "financial-statements"
+      ],
+      "relatedLessonIds": [
+        "fcf",
+        "financial-statements"
+      ],
+      "aliases": [
+        "CapEx",
+        "capital expenditures",
+        "kapitalinvesteringar",
+        "Är hög CapEx dåligt?"
+      ],
+      "shortAnswer": "CapEx står för capital expenditures: investeringar i långlivade tillgångar, till exempel maskiner och byggnader. Hög CapEx är inte automatiskt dåligt. Syftet, betalningarna och vad bolaget räknar in behöver förstås innan beloppet tolkas.",
+      "fullAnswer": "Materiella anläggningstillgångar kallas ofta PP&E i engelska rapporter. Kontanta köp av sådana tillgångar hör till investeringarnas kassaflöden. I analys kan underhålls-CapEx beskriva investeringar för att behålla kapacitet och tillväxt-CapEx investeringar för att öka den. Behandla uppdelningen som en analys som behöver förklaras, inte som två självklara och jämförbara rapportrader hos alla bolag.",
+      "example": "Ett förenklat kontant maskinköp på 180 är ett investeringsutflöde på 180. Om köpet främst ersätter kapacitet eller bygger ut den kan inte avgöras av beloppet ensamt; du behöver läsa syfte och underlag. Ingen framtida avkastning följer automatiskt av investeringen.",
+      "caveats": "Läs bolagets avgränsning och skilj kontanta investeringar från förändringen i redovisad PP&E. I en vanlig FCF-beräkning dras kontant CapEx från löpande kassaflöde, men FCF har ingen universell definition. Kontrollera beräkning och avstämning; beloppet är inte automatiskt fritt att dela ut.",
+      "relatedAnswers": [
+        {
+          "id": "cash-flow-statement",
+          "type": "prerequisite"
+        },
+        {
+          "id": "fcf",
+          "type": "related-metric"
+        },
+        {
+          "id": "profit-versus-cash",
+          "type": "common-confusion"
+        }
+      ],
+      "sources": [
+        {
+          "title": "IFRS Foundation: IAS 16 Property, Plant and Equipment",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-16-property-plant-and-equipment/",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "About: PP&E är materiella tillgångar som används i verksamheten under mer än en period; redovisat värde och avskrivning behandlas separat.",
+          "limitations": "Ingen universell bolagsspecifik CapEx-avgränsning härleds ur rubriken PP&E."
+        },
+        {
+          "title": "IFRS Foundation: IAS 7, översikt och standardhistorik",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "fullAnswer",
+            "example",
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "About: förvärv av långlivade tillgångar som investeringar; affärer utan betalning skiljs från kassaflöden.",
+          "limitations": "180 är ett syntetiskt kontantköp; PP&E-förändring antas inte vara samma mått."
+        },
+        {
+          "title": "IFRS Foundation: CMAC november 2024, återgivna IAS 7 punkter 50–51",
+          "url": "https://www.ifrs.org/content/dam/ifrs/meetings/2024/november/cmac/ap5-scfrm.pdf",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "example"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "CMAC 2024-11-08, bild 7 samt appendix bild 15: uppdelning tillväxt/underhåll och återgivna IAS 7 punkter 50–51 om ökad respektive bibehållen kapacitet.",
+          "limitations": "Ett offentligt staff paper, inte ett nytt normbeslut. Endast återgivna krav och försiktigt beskriven analytisk uppdelning används; hög/låg CapEx ges inget generellt betyg."
+        },
+        {
+          "title": "SEC: Non-GAAP Financial Measures, fråga 102.07",
+          "url": "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "Fråga 102.07: vanlig CFO-minus-CapEx-beräkning, avsaknad av enhetlig definition, behov av förklaring/avstämning och begränsning om disponibla pengar.",
+          "limitations": "Amerikansk SEC-vägledning; inte en universell FCF-standard eller utdelningsregel."
+        }
+      ],
+      "slug": "capex",
+      "relatedEntityIds": [
+        "research-nvda"
+      ],
+      "difficulty": "beginner",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-19",
+      "featured": false,
+      "contentVersion": 1,
+      "reviewDue": "2026-12-31",
+      "reviewPolicy": {
+        "risk": "methodology",
+        "overdue": "label"
+      },
+      "jurisdiction": "global",
+      "period": "timeless",
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "accepted",
+        "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+        "reviewedAt": "2026-09-19",
+        "changeNote": "Owner-approved Batch 1A scope supplied 2026-09-19; primary evidence and synthetic arithmetic checked by Codex on the same date. Assumptions narrowed explicitly; no independent human source review claimed. Methodology cadence 180 days, advanced to 2026-12-31 before the IFRS 18 transition."
+      }
+    },
+    {
+      "id": "cash-flow-statement",
+      "question": "Vad visar en kassaflödesanalys?",
+      "intent": "definition",
+      "category": "reports",
+      "conceptRefs": [
+        "cash-flow-statement"
+      ],
+      "concepts": [
+        "financial-statements",
+        "fcf"
+      ],
+      "relatedLessonIds": [
+        "financial-statements",
+        "fcf"
+      ],
+      "aliases": [
+        "kassaflödesanalys",
+        "cash flow statement",
+        "Vad är en kassaflödesanalys?"
+      ],
+      "shortAnswer": "Kassaflödesanalysen visar in- och utbetalningar under en period och hjälper dig att följa förändringen i kassa och likvida medel. Flödena delas in i löpande verksamhet, investeringsverksamhet och finansieringsverksamhet.",
+      "fullAnswer": "Löpande verksamhet handlar om verksamhetens betalningar. Investeringar kan omfatta kontanta köp av långlivade tillgångar, medan finansiering kan omfatta lån och återbetalningar. Med indirekt metod stäms ett resultatmått av genom justeringar för bland annat poster utan betalning, rörelsekapital och poster vars betalningar hör till andra delar. Läs vilket resultatmått rapporten utgår från.",
+      "example": "Löpande verksamhet +300, investeringar −180 och finansiering −50 ger 300 − 180 − 50 = +70. Om inga valutakurseffekter eller andra avstämningsposter finns i detta förenklade exempel ökar kassa och likvida medel med 70 under perioden.",
+      "caveats": "Klassificering och startpunkt i avstämningen kan skilja sig mellan regelverk och tillämpade versioner. Anta inte att US GAAP och IFRS alltid placerar varje betalning lika. Affärer utan betalning är inte kassaflöden. Läs även avstämningen mot balansräkningen; positivt kassaflöde är inget omdöme om aktiens pris.",
+      "relatedAnswers": [
+        {
+          "id": "balance-sheet",
+          "type": "prerequisite"
+        },
+        {
+          "id": "income-statement",
+          "type": "prerequisite"
+        },
+        {
+          "id": "profit-versus-cash",
+          "type": "common-confusion"
+        },
+        {
+          "id": "working-capital",
+          "type": "deeper"
+        },
+        {
+          "id": "capex",
+          "type": "related-metric"
+        },
+        {
+          "id": "fcf",
+          "type": "related-metric"
+        }
+      ],
+      "sources": [
+        {
+          "title": "IFRS Foundation: IAS 7, översikt och standardhistorik",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "example",
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "About: kassa/likvida medel, tre verksamhetskategorier, indirekt metod, transaktioner utan betalning och avstämning mot finansiell ställning. Standard history beskriver ändrad startpunkt och klassificering genom IFRS 18.",
+          "limitations": "Översikten ersätter inte fullständig IAS 7 eller US GAAP. +70 är NTM:s separat kontrollerade illustration under uttryckliga antaganden."
+        },
+        {
+          "title": "SEC: Beginners’ Guide to Financial Statements",
+          "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "Cash Flow Statements, Operating/Investing/Financing Activities: grundmekanismer och en amerikansk introduktion med nettoresultatavstämning.",
+          "limitations": "Inte grund för att likställa all klassificering mellan regelverk eller att bedöma en aktie."
+        },
+        {
+          "title": "IFRS Foundation: IFRS 18, tillämpning och presentation",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ifrs-18-presentation-and-disclosure-in-financial-statements/",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "About: tillämpningsdatum och tidigare tillämpning; läs tillsammans med IAS 7:s standardhistorik.",
+          "limitations": "Ingen aktuell rapport antas ha valt en viss version utan kontroll."
+        }
+      ],
+      "slug": "cash-flow-statement",
+      "relatedEntityIds": [
+        "research-nvda"
+      ],
+      "difficulty": "beginner",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-19",
+      "featured": false,
+      "contentVersion": 1,
+      "reviewDue": "2026-12-31",
+      "reviewPolicy": {
+        "risk": "methodology",
+        "overdue": "label"
+      },
+      "jurisdiction": "global",
+      "period": "timeless",
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "accepted",
+        "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+        "reviewedAt": "2026-09-19",
+        "changeNote": "Owner-approved Batch 1A scope supplied 2026-09-19; primary evidence and synthetic arithmetic checked by Codex on the same date. Assumptions narrowed explicitly; no independent human source review claimed. Methodology cadence 180 days, advanced to 2026-12-31 before the IFRS 18 transition."
+      }
+    },
+    {
+      "id": "income-statement",
+      "question": "Vad visar en resultaträkning?",
+      "intent": "definition",
+      "category": "reports",
+      "conceptRefs": [
+        "income-statement"
+      ],
+      "concepts": [
+        "financial-statements",
+        "revenue",
+        "eps"
+      ],
+      "relatedLessonIds": [
+        "financial-statements",
+        "revenue",
+        "eps"
+      ],
+      "aliases": [
+        "resultaträkning",
+        "income statement",
+        "Vad är en resultaträkning?"
+      ],
+      "shortAnswer": "En resultaträkning visar intäkter, kostnader och resultat under en period. Omsättning är inte samma sak som rörelseresultat eller nettoresultat, och EPS uttrycker ett resultat per aktie. Vinst är inte samma sak som ökad kassa.",
+      "fullAnswer": "I en förenklad läsning börjar du med omsättningen och följer kostnaderna ned till rörelseresultatet. Finansnetto och skatt påverkar sedan nettoresultatet. EPS använder ett resultat hänförligt till stamaktieägarna och en aktiebas för perioden; kontrollera grundläggande eller utspädd EPS. Resultatet behöver jämföras med kassaflödesanalysen eftersom redovisning och betalning inte alltid sker samtidigt.",
+      "example": "Anta omsättning 1 000 och sammanlagda kostnader 800, inklusive alla kostnader och skatt, utan andra intäkter. Nettoresultatet blir 1 000 − 800 = 200. Det betyder inte att kassan ökade med 200; exemplet säger inget om betalningarnas tidpunkt eller investeringar.",
+      "caveats": "Ordning, benämningar och delsummeringar kan bero på redovisningsregelverk och verksamhet. Den förenklade kedjan är ingen universell rapportmall. Läs definitionerna och använd samma period. För EPS behövs rätt resultat- och aktiebas, inte bara nettoresultatet delat med aktierna på balansdagen.",
+      "relatedAnswers": [
+        {
+          "id": "balance-sheet",
+          "type": "prerequisite"
+        },
+        {
+          "id": "cash-flow-statement",
+          "type": "next-question"
+        },
+        {
+          "id": "profit-versus-cash",
+          "type": "common-confusion"
+        },
+        {
+          "id": "revenue",
+          "type": "related-metric"
+        },
+        {
+          "id": "eps",
+          "type": "related-metric"
+        },
+        {
+          "id": "margins",
+          "type": "related-metric"
+        }
+      ],
+      "sources": [
+        {
+          "title": "SEC: Beginners’ Guide to Financial Statements",
+          "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "example"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "Income Statements och Cash Flow Statements: intäkter, kostnader, delresultat samt skillnaden mellan resultat och betalningar. Det syntetiska 1 000 − 800 = 200 har kontrollerats separat.",
+          "limitations": "SEC:s förenklade EPS-beskrivning används inte som exakt aktiebas; IAS 33 stöder den preciseringen."
+        },
+        {
+          "title": "IFRS Foundation: IAS 33 Earnings per Share",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-33-earnings-per-share/",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "About: EPS-resultat hänförligt till stamaktieägare, grundläggande/utspädd EPS och periodens vägda aktiebas.",
+          "limitations": "Översikt, inte en komplett EPS-beräkning eller en ny exekverbar formel."
+        },
+        {
+          "title": "IFRS Foundation: IFRS 18, tillämpning och presentation",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ifrs-18-presentation-and-disclosure-in-financial-statements/",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "About: IFRS 18 ändrar presentation och definierade delsummeringar; tillämpning från perioder som börjar 2027-01-01, tidigare tillämpning tillåten.",
+          "limitations": "Stöder behovet att kontrollera regelverk och tillämpning, inte att US GAAP och IFRS är identiska."
+        }
+      ],
+      "slug": "income-statement",
+      "relatedEntityIds": [
+        "research-nvda"
+      ],
+      "difficulty": "beginner",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-19",
+      "featured": false,
+      "contentVersion": 1,
+      "reviewDue": "2026-12-31",
+      "reviewPolicy": {
+        "risk": "methodology",
+        "overdue": "label"
+      },
+      "jurisdiction": "global",
+      "period": "timeless",
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "public-report",
+            "academy-reminder"
+          ]
+        }
+      },
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "accepted",
+        "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+        "reviewedAt": "2026-09-19",
+        "changeNote": "Owner-approved Batch 1A scope supplied 2026-09-19; primary evidence and synthetic arithmetic checked by Codex on the same date. Assumptions narrowed explicitly; no independent human source review claimed. Methodology cadence 180 days, advanced to 2026-12-31 before the IFRS 18 transition."
+      }
+    },
+    {
+      "id": "profit-versus-cash",
+      "question": "Varför kan vinst och kassaflöde skilja sig?",
+      "intent": "comparison",
+      "category": "reports",
+      "conceptRefs": [
+        "income-statement",
+        "cash-flow-statement"
+      ],
+      "concepts": [
+        "financial-statements",
+        "fcf",
+        "revenue"
+      ],
+      "relatedLessonIds": [
+        "financial-statements",
+        "fcf"
+      ],
+      "aliases": [
+        "vinst och kassaflöde",
+        "resultat jämfört med kassaflöde",
+        "Varför är vinst inte samma sak som kassaflöde?"
+      ],
+      "shortAnswer": "Vinst bygger på redovisade intäkter och kostnader, medan kassaflöde följer betalningar. Därför kan beloppen skilja sig utan att skillnaden automatiskt är en negativ signal. I Research behöver du undersöka vad som orsakar avvikelsen.",
+      "fullAnswer": "Avskrivningar fördelar en tillgångs kostnad över tid och är inte en ny betalning just när kostnaden redovisas. En kreditförsäljning kan ge intäkt och kundfordran innan kunden betalar. Ett kontant köp av en långlivad tillgång kan ge ett investeringsutflöde medan kostnaden påverkar resultatet över flera perioder. Jämför därför både period och vilken del av kassaflödet du läser.",
+      "example": "Tre förenklade fall: en avskrivning minskar resultatet utan en samtidig utbetalning; en kundfordran kan uppstå före inbetalningen; ett kontant maskinköp påverkar investeringarnas kassaflöde utan att hela köpet genast blir en kostnad. Fallen visar tidpunkt och klassificering, inte att alla skillnader har samma förklaring.",
+      "caveats": "Skilj kassaflöde från löpande verksamhet från periodens totala förändring av likvida medel. Skillnaden mot resultatet är en fråga att utreda, inte ett automatiskt gott eller dåligt tecken. Läs avstämning och noter innan du drar slutsatser om ett visst bolag eller en aktie.",
+      "relatedAnswers": [
+        {
+          "id": "income-statement",
+          "type": "prerequisite"
+        },
+        {
+          "id": "cash-flow-statement",
+          "type": "prerequisite"
+        },
+        {
+          "id": "working-capital",
+          "type": "deeper"
+        },
+        {
+          "id": "capex",
+          "type": "deeper"
+        },
+        {
+          "id": "fcf",
+          "type": "related-metric"
+        }
+      ],
+      "sources": [
+        {
+          "title": "SEC: Beginners’ Guide to Financial Statements",
+          "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "caveats",
+            "comparison"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "Income Statements (avskrivningar), Operating Activities (icke-kontanta poster) och Investing Activities (maskinköp): separata resultat- och betalningsmått. Bringing It All Together stöder läsning av rapporterna tillsammans.",
+          "limitations": "Ingen kausal diagnos av ett enskilt bolag. Den neutrala Research-frågan är NTM:s godkända pedagogiska tillämpning."
+        },
+        {
+          "title": "IFRS Foundation: IAS 7, översikt och standardhistorik",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "fullAnswer",
+            "example",
+            "caveats",
+            "comparison"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "About: indirekt justering för icke-kontanta poster och periodiseringar; investeringarnas betalningar skiljs från löpande verksamhet.",
+          "limitations": "De tre fallen är syntetiska mekanismer, inte nya bolagsfakta."
+        },
+        {
+          "title": "IFRS Foundation: IAS 16 Property, Plant and Equipment",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-16-property-plant-and-equipment/",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "fullAnswer",
+            "example"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "About: redovisning av materiella långlivade tillgångar och avskrivningskostnader.",
+          "limitations": "Avser redovisningsprincipen; inga påståenden om en specifik avskrivningstid."
+        }
+      ],
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "public-report",
+            "academy-reminder"
+          ]
+        },
+        "comparison": {
+          "leftLabel": "Redovisad vinst",
+          "rightLabel": "Kassaflöde",
+          "axes": [
+            {
+              "label": "Utgångspunkt",
+              "left": "Periodens redovisade intäkter och kostnader.",
+              "right": "Periodens in- och utbetalningar, uppdelade på verksamheter."
+            },
+            {
+              "label": "Avskrivning",
+              "left": "En kostnad när tillgången används över tid.",
+              "right": "Ingen ny betalning enbart för att avskrivningen redovisas."
+            },
+            {
+              "label": "Kreditförsäljning",
+              "left": "Intäkt kan redovisas innan kunden betalar.",
+              "right": "Kundens inbetalning kan komma senare."
+            }
+          ],
+          "limitations": "Jämför samma period och rätt kassaflödesmått. En avvikelse kräver en förklaring, inte en automatisk kvalitetsdom."
+        }
+      },
+      "slug": "profit-versus-cash",
+      "relatedEntityIds": [
+        "research-nvda"
+      ],
+      "difficulty": "beginner",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-19",
+      "featured": false,
+      "contentVersion": 1,
+      "reviewDue": "2026-12-31",
+      "reviewPolicy": {
+        "risk": "methodology",
+        "overdue": "label"
+      },
+      "jurisdiction": "global",
+      "period": "timeless",
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "accepted",
+        "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+        "reviewedAt": "2026-09-19",
+        "changeNote": "Owner-approved Batch 1A scope supplied 2026-09-19; primary evidence and synthetic arithmetic checked by Codex on the same date. Assumptions narrowed explicitly; no independent human source review claimed. Methodology cadence 180 days, advanced to 2026-12-31 before the IFRS 18 transition."
+      }
+    },
+    {
+      "id": "working-capital",
+      "question": "Hur kan rörelsekapital påverka kassaflödet?",
+      "intent": "interpretation",
+      "category": "metrics",
+      "conceptRefs": [
+        "working-capital"
+      ],
+      "concepts": [
+        "financial-statements",
+        "fcf"
+      ],
+      "relatedLessonIds": [
+        "financial-statements",
+        "fcf"
+      ],
+      "aliases": [
+        "rörelsekapital och kassaflöde",
+        "Hur påverkar kundfordringar kassaflödet?",
+        "Är ökande lager dåligt?",
+        "Är ökande kundfordringar dåligt?",
+        "Är ökande leverantörsskulder bra?"
+      ],
+      "shortAnswer": "Kundfordringar, lager och leverantörsskulder kan påverka kassaflödet från löpande verksamhet. Ökade kundfordringar eller lager är inte automatiskt dåligt, och ökade leverantörsskulder är inte automatiskt bra. Orsaken till förändringen behöver undersökas.",
+      "fullAnswer": "I en förenklad avstämning binder ökade kundfordringar och lager pengar jämfört med resultatet, medan ökade leverantörsskulder skjuter betalningar framför bolaget. Kontrollera om förändringarna hör till den löpande verksamheten och hur de redovisas i avstämningen. Här behandlas dessa rörelsekapitalposter, inte en universell definition som omfattar varje post i balansräkningen.",
+      "example": "Anta nettoresultat 100, kundfordringar +30, lager +20 och leverantörsskulder +15, i samma enhet och period. Utan andra justeringar blir förenklat kassaflöde från löpande verksamhet 100 − 30 − 20 + 15 = 65. Avskrivningar och andra icke-kontanta poster är uttryckligen utelämnade ur detta exempel.",
+      "caveats": "Exemplet är inte en komplett kassaflödesanalys. Balansförändringar kan behöva justeras innan de motsvarar periodens operativa kassaflöden. Läs noter och fråga varför fordringar, lager eller betalningstid förändrats. Ingen av de tre rörelserna ger ensam en kvalitetsdom eller ett köp- eller säljbeslut.",
+      "relatedAnswers": [
+        {
+          "id": "balance-sheet",
+          "type": "prerequisite"
+        },
+        {
+          "id": "cash-flow-statement",
+          "type": "prerequisite"
+        },
+        {
+          "id": "profit-versus-cash",
+          "type": "common-confusion"
+        },
+        {
+          "id": "fcf",
+          "type": "related-metric"
+        }
+      ],
+      "sections": {
+        "inline": {
+          "field": "shortAnswer",
+          "contexts": [
+            "knowledge",
+            "research",
+            "public-report",
+            "academy-reminder"
+          ]
+        },
+        "interpretation": {
+          "field": "fullAnswer",
+          "unsuitableField": "caveats"
+        }
+      },
+      "sources": [
+        {
+          "title": "IFRS Foundation: IAS 7, översikt och standardhistorik",
+          "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "shortAnswer",
+            "fullAnswer",
+            "example"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "About: indirekt metod justerar resultat för periodiseringar av operativa betalningar och icke-kontanta poster. Tecknen i den förenklade betalningsavstämningen och 65 har kontrollerats separat.",
+          "limitations": "Inte en allmän formel från nettoresultat till OCF i alla regelverk; bara de tre angivna posterna ingår i exemplet."
+        },
+        {
+          "title": "IFRS Foundation: IASB september 2025, rörelsekapital och avstämning",
+          "url": "https://www.ifrs.org/content/dam/ifrs/meetings/2025/september/iasb/ap20a-approach-to-disaggregation.pdf",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "fullAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "IASB staff paper september 2025, punkter 26–30: typiska operativa fordringar, lager och skulder; kopplingen till balansräkningens poster kan vara oklar. Punkt 30 hänvisar till IAS 7.20.",
+          "limitations": "Staff analysis, inte ett nytt standardkrav. Stöder försiktighet om avgränsning/avstämning, inte en universell positiv eller negativ tolkning."
+        },
+        {
+          "title": "SEC: Beginners’ Guide to Financial Statements",
+          "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+          "reviewedAt": "2026-09-19",
+          "type": "methodology",
+          "authority": "primary",
+          "supports": [
+            "shortAnswer",
+            "caveats"
+          ],
+          "evidenceStatus": "checked",
+          "checked": "Operating Activities och Bringing It All Together: operativa tillgångar/skulder justerar resultat; rapporterna behöver läsas tillsammans.",
+          "limitations": "Den neutrala tolkningen är den godkända pedagogiska begränsningen, inte en prognos eller bolagsbedömning."
+        }
+      ],
+      "slug": "working-capital",
+      "relatedEntityIds": [
+        "research-nvda"
+      ],
+      "difficulty": "beginner",
+      "status": "reviewed",
+      "reviewedAt": "2026-09-19",
+      "featured": false,
+      "contentVersion": 1,
+      "reviewDue": "2026-12-31",
+      "reviewPolicy": {
+        "risk": "methodology",
+        "overdue": "label"
+      },
+      "jurisdiction": "global",
+      "period": "timeless",
+      "editorial": {
+        "owner": "NTM owner",
+        "approval": "accepted",
+        "reviewer": "NTM owner (substantive approval); Codex (source verification and arithmetic)",
+        "reviewedAt": "2026-09-19",
+        "changeNote": "Owner-approved Batch 1A scope supplied 2026-09-19; primary evidence and synthetic arithmetic checked by Codex on the same date. Assumptions narrowed explicitly; no independent human source review claimed. Methodology cadence 180 days, advanced to 2026-12-31 before the IFRS 18 transition."
+      }
+    }
+  ],
+  "pilotConcepts": [
+    {
+      "id": "pe",
+      "title": "P/E",
+      "answerId": "pe",
+      "excerpt": "shortAnswer"
+    },
+    {
+      "id": "forward-basis",
+      "title": "Forward och trailing",
+      "answerId": "forward",
+      "excerpt": "shortAnswer"
+    },
+    {
+      "id": "eps",
+      "title": "EPS",
+      "answerId": "eps",
+      "excerpt": "shortAnswer"
+    },
+    {
+      "id": "dilution",
+      "title": "Utspädning",
+      "answerId": "dilution",
+      "excerpt": "shortAnswer"
+    },
+    {
+      "id": "fcf",
+      "title": "Fritt kassaflöde",
+      "answerId": "fcf",
+      "excerpt": "shortAnswer"
+    },
+    {
+      "id": "margins",
+      "title": "Marginaler",
+      "answerId": "margins",
+      "excerpt": "shortAnswer"
+    },
+    {
+      "id": "growth",
+      "title": "Tillväxt och CAGR",
+      "answerId": "cagr",
+      "excerpt": "shortAnswer"
+    },
+    {
+      "id": "inflation",
+      "title": "Inflation",
+      "answerId": "inflation",
+      "excerpt": "shortAnswer"
+    },
+    {
+      "id": "compounding",
+      "title": "Ränta på ränta",
+      "answerId": "compounding",
+      "excerpt": "shortAnswer"
+    },
+    {
+      "id": "annual-fees",
+      "title": "Årlig avgift",
+      "answerId": "annual-fees",
+      "excerpt": "shortAnswer"
+    },
+    {
+      "id": "valuation-assumptions",
+      "title": "Värderingsantaganden",
+      "answerId": "thesis",
+      "excerpt": "shortAnswer"
+    },
+    {
+      "id": "review-falsification",
+      "title": "Pröva din tes",
+      "answerId": "thesis",
+      "excerpt": "shortAnswer"
+    }
+  ],
+  "engineVersion": 2,
+  "knowledgeConcepts": [
+    {
+      "id": "pe",
+      "term": "P/E",
+      "category": "valuation",
+      "synonyms": [
+        "pris vinst",
+        "price earnings"
+      ],
+      "abbreviations": [
+        "PE"
+      ],
+      "related": [],
+      "metric": "pe"
+    },
+    {
+      "id": "eps",
+      "term": "EPS",
+      "category": "metrics",
+      "synonyms": [
+        "vinst per aktie"
+      ],
+      "abbreviations": [
+        "EPS"
+      ],
+      "related": [],
+      "metric": "eps"
+    },
+    {
+      "id": "return",
+      "term": "Avkastning",
+      "category": "saving",
+      "synonyms": [
+        "total avkastning"
+      ],
+      "abbreviations": [],
+      "related": []
+    },
+    {
+      "id": "cagr",
+      "term": "CAGR",
+      "category": "saving",
+      "synonyms": [
+        "årlig sammansatt tillväxt"
+      ],
+      "abbreviations": [
+        "CAGR"
+      ],
+      "related": [],
+      "metric": "cagr"
+    },
+    {
+      "id": "gav",
+      "term": "GAV",
+      "category": "saving",
+      "synonyms": [
+        "genomsnittligt anskaffningsvärde"
+      ],
+      "abbreviations": [
+        "GAV"
+      ],
+      "related": []
+    },
+    {
+      "id": "fcf",
+      "term": "Fritt kassaflöde",
+      "category": "metrics",
+      "synonyms": [
+        "free cash flow"
+      ],
+      "abbreviations": [
+        "FCF"
+      ],
+      "related": [],
+      "metric": "fcf"
+    },
+    {
+      "id": "peg",
+      "term": "PEG",
+      "category": "valuation",
+      "synonyms": [
+        "price earnings growth"
+      ],
+      "abbreviations": [
+        "PEG"
+      ],
+      "related": [],
+      "metric": "peg"
+    },
+    {
+      "id": "shares",
+      "term": "Aktier och utspädning",
+      "category": "basics",
+      "synonyms": [
+        "utspädning"
+      ],
+      "abbreviations": [],
+      "related": []
+    },
+    {
+      "id": "market-cap",
+      "term": "Börsvärde",
+      "category": "basics",
+      "synonyms": [
+        "market cap"
+      ],
+      "abbreviations": [],
+      "related": []
+    },
+    {
+      "id": "outlook",
+      "term": "Guidance och prognoser",
+      "category": "reports",
+      "synonyms": [
+        "guidance",
+        "estimat",
+        "konsensus"
+      ],
+      "abbreviations": [],
+      "related": []
+    },
+    {
+      "id": "revenue",
+      "term": "Omsättning",
+      "category": "metrics",
+      "synonyms": [
+        "revenue",
+        "intäkter"
+      ],
+      "abbreviations": [],
+      "related": [],
+      "metric": "revenue"
+    },
+    {
+      "id": "margins",
+      "term": "Marginaler",
+      "category": "metrics",
+      "synonyms": [
+        "marginal",
+        "bruttomarginal",
+        "rörelsemarginal",
+        "nettomarginal"
+      ],
+      "abbreviations": [],
+      "related": []
+    },
+    {
+      "id": "debt",
+      "term": "Skuld",
+      "category": "metrics",
+      "synonyms": [
+        "nettoskuld"
+      ],
+      "abbreviations": [],
+      "related": []
+    },
+    {
+      "id": "dividends",
+      "term": "Utdelning",
+      "category": "basics",
+      "synonyms": [
+        "dividend"
+      ],
+      "abbreviations": [],
+      "related": []
+    },
+    {
+      "id": "fx",
+      "term": "Valuta",
+      "category": "saving",
+      "synonyms": [
+        "usd sek",
+        "valutakurs"
+      ],
+      "abbreviations": [
+        "FX"
+      ],
+      "related": []
+    },
+    {
+      "id": "isk",
+      "term": "ISK",
+      "category": "saving",
+      "synonyms": [
+        "investeringssparkonto"
+      ],
+      "abbreviations": [
+        "ISK"
+      ],
+      "related": []
+    },
+    {
+      "id": "fees",
+      "term": "Avgifter",
+      "category": "saving",
+      "synonyms": [
+        "courtage",
+        "fondavgift"
+      ],
+      "abbreviations": [],
+      "related": []
+    },
+    {
+      "id": "ttm",
+      "term": "TTM",
+      "category": "reports",
+      "synonyms": [
+        "rullande tolv månader"
+      ],
+      "abbreviations": [
+        "TTM"
+      ],
+      "related": []
+    },
+    {
+      "id": "inflation",
+      "term": "Inflation",
+      "category": "macro",
+      "synonyms": [
+        "prisnivå",
+        "disinflation"
+      ],
+      "abbreviations": [],
+      "related": []
+    },
+    {
+      "id": "rates",
+      "term": "Räntor",
+      "category": "macro",
+      "synonyms": [
+        "styrränta",
+        "obligationsränta"
+      ],
+      "abbreviations": [],
+      "related": []
+    },
+    {
+      "id": "earnings",
+      "term": "Rapportreaktion",
+      "category": "reports",
+      "synonyms": [
+        "bolagsrapport"
+      ],
+      "abbreviations": [],
+      "related": []
+    },
+    {
+      "id": "thesis",
+      "term": "Investeringstes",
+      "category": "risk",
+      "synonyms": [
+        "antaganden",
+        "motbevis"
+      ],
+      "abbreviations": [],
+      "related": []
+    },
+    {
+      "id": "diversification",
+      "term": "Diversifiering",
+      "category": "risk",
+      "synonyms": [
+        "riskspridning"
+      ],
+      "abbreviations": [],
+      "related": []
+    },
+    {
+      "id": "compounding",
+      "term": "Ränta på ränta",
+      "category": "saving",
+      "synonyms": [
+        "compound interest"
+      ],
+      "abbreviations": [],
+      "related": []
+    },
+    {
+      "id": "macro",
+      "term": "Makrosläpp",
+      "category": "macro",
+      "synonyms": [
+        "payrolls",
+        "arbetslöshet",
+        "gdp",
+        "bnp"
+      ],
+      "abbreviations": [
+        "CPI",
+        "PCE"
+      ],
+      "related": []
+    },
+    {
+      "id": "balance-sheet",
+      "term": "Balansräkning",
+      "category": "reports",
+      "synonyms": [
+        "balance sheet"
+      ],
+      "abbreviations": [],
+      "related": []
+    },
+    {
+      "id": "income-statement",
+      "term": "Resultaträkning",
+      "category": "reports",
+      "synonyms": [
+        "income statement"
+      ],
+      "abbreviations": [],
+      "related": []
+    },
+    {
+      "id": "cash-flow-statement",
+      "term": "Kassaflödesanalys",
+      "category": "reports",
+      "synonyms": [
+        "cash flow statement"
+      ],
+      "abbreviations": [],
+      "related": []
+    },
+    {
+      "id": "capex",
+      "term": "CapEx",
+      "category": "metrics",
+      "synonyms": [
+        "capital expenditures",
+        "kapitalinvesteringar"
+      ],
+      "abbreviations": [
+        "CapEx"
+      ],
+      "related": []
+    },
+    {
+      "id": "working-capital",
+      "term": "Rörelsekapital",
+      "category": "metrics",
+      "synonyms": [
+        "working capital"
+      ],
+      "abbreviations": [],
+      "related": []
+    }
+  ],
+  "retrieval": {
+    "version": 2,
+    "typos": [
+      {
+        "query": "diversifering",
+        "answerId": "diversification"
+      },
+      {
+        "query": "ranta pa rnata",
+        "answerId": "compounding"
+      }
+    ],
+    "clarifications": [
+      {
+        "query": "avkastning",
+        "answerIds": [
+          "cagr",
+          "fx",
+          "compounding"
+        ]
+      },
+      {
+        "query": "avgift",
+        "answerIds": [
+          "fees",
+          "annual-fees"
+        ]
+      },
+      {
+        "query": "marginal",
+        "answerIds": [
+          "margins"
+        ]
+      }
+    ],
+    "aliases": [
+      {
+        "query": "forward pe",
+        "answerId": "forward"
+      },
+      {
+        "query": "trailing pe",
+        "answerId": "forward"
+      }
+    ],
+    "protectedAcronyms": [
+      "EPS",
+      "PE",
+      "PEG",
+      "PS",
+      "FCF",
+      "CPI",
+      "PCE",
+      "CAGR",
+      "TTM",
+      "EV",
+      "EBITDA"
+    ]
+  },
+  "merges": []
+}

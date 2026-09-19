@@ -1,0 +1,123 @@
+{
+  "id": "headline-core",
+  "question": "Vad skiljer total inflation från kärninflation?",
+  "intent": "comparison",
+  "conceptRefs": [
+    "inflation",
+    "macro"
+  ],
+  "aliases": [
+    "headline vs core",
+    "totalinflation och kärninflation"
+  ],
+  "shortAnswer": "Totalindex omfattar hela den definierade varu- och tjänstekorgen. Ett kärnindex utesluter utvalda delar enligt sin metod. För USA:s vanliga CPI- och PCE-kärnserier handlar det om angivna mat- och energikategorier, men definitionen måste alltid kontrolleras.",
+  "fullAnswer": "Kärnserien kan användas för att undersöka prisrörelser utan vissa svängiga kategorier. Den säger inte att mat och energi saknar betydelse för hushållen. BEA:s avgränsning av mat i PCE är dessutom specifik; man ska inte tolka etiketten som att varje restaurangtjänst automatiskt exkluderas. Jämför samma indexfamilj och tidsbasis.",
+  "example": "Syntetiskt: energipriser stiger kraftigt medan andra priser rör sig mindre. Total- och kärnserien kan då ge olika bild av förändringen. Exemplet förklarar urvalet, inte en aktuell inflationsnivå.",
+  "caveats": "Kärninflation är inte den enda ”riktiga” inflationen. Andra länder och alternativa kärnmått kan använda andra avgränsningar. Inget av måtten bestämmer ensamt hur räntan eller börsen kommer att röra sig.",
+  "relatedAnswers": [
+    {
+      "id": "inflation",
+      "type": "prerequisite"
+    },
+    {
+      "id": "cpi-pce",
+      "type": "common-confusion"
+    }
+  ],
+  "sources": [
+    {
+      "title": "BLS: CPI Frequently Asked Questions",
+      "url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Overview: CPI-U, all items respektive less food and energy, 1- och 12-månadersförändring samt skilda indexbasis.",
+      "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "BEA: Core PCE price index",
+      "url": "https://www.bea.gov/help/faq/518",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Definition inklusive specifik food-kategori; food services and accommodations undantas inte som food.",
+      "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "macro",
+  "concepts": [
+    "inflation"
+  ],
+  "relatedLessonIds": [
+    "inflation"
+  ],
+  "jurisdiction": "US",
+  "reviewDue": "2026-12-31",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "comparison": {
+      "leftLabel": "Totalindex",
+      "rightLabel": "Kärnindex",
+      "axes": [
+        {
+          "label": "Korg",
+          "left": "Alla delar i indexets definition",
+          "right": "Vissa delar uteslutna enligt metod"
+        }
+      ],
+      "limitations": "Identifiera index, land, period och exakt uteslutning."
+    }
+  },
+  "slug": "headline-core",
+  "relatedEntityIds": [
+    "macro-calendar"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "period": "timeless",
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

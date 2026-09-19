@@ -40,7 +40,7 @@
   }
   // Generic terminology is separate from the frozen author's claims; only public IDs.
   const terms=n('details',undefined,'report-terminology');terms.append(n('summary','Förstå begreppen i rapporten'));
-  for(const id of ['revenue','margins','thesis']){const K=window.NTMKnowledgeCatalog,e=K?.entries.find(e=>e.id===id);if(e){const a=link(e.question,K.url(id)+'#task-help');a.dataset.knowledgeHelp=id;a.dataset.knowledgeContext='public-report';a.target='_blank';a.rel='noopener noreferrer';const p=n('p');p.append(a);terms.append(p);}}
+  for(const id of ['revenue','margins','thesis','profit-versus-cash','reported-adjusted','report-snapshot']){const K=window.NTMKnowledgeCatalog,e=K?.entries.find(e=>e.id===id);if(e){const a=link(e.question,K.url(id)+'#task-help');a.dataset.knowledgeHelp=id;a.dataset.knowledgeContext='public-report';a.target='_blank';a.rel='noopener noreferrer';const p=n('p');p.append(a);terms.append(p);}}
   if(terms.children.length>1)article.append(terms);
   parent.append(article);return article;
  }

@@ -1,0 +1,101 @@
+{
+  "id": "cashflow-return",
+  "question": "Varför räcker inte CAGR när jag sätter in eller tar ut pengar?",
+  "intent": "limitation",
+  "conceptRefs": [
+    "return",
+    "cagr"
+  ],
+  "aliases": [
+    "CAGR med insättningar",
+    "avkastning med externa kassaflöden"
+  ],
+  "shortAnswer": "CAGR mellan två kontosaldon skiljer inte avkastning från pengar du själv satt in eller tagit ut. Med externa kassaflöden behövs belopp och tidpunkter samt en metod som svarar på rätt fråga. Annars kan en insättning se ut som investeringsvinst.",
+  "fullAnswer": "Tidsvägd avkastning försöker skilja placeringsutvecklingen från externa flöden genom delperioder. Kapitalvägd avkastning påverkas av hur mycket kapital som varit investerat när. Dessa är olika perspektiv, inte två namn på vanlig CAGR. NTM:s enkla CAGR-förklaring ska inte behandlas som en full portföljavkastningsmotor.",
+  "example": "Syntetiskt: startvärde 100, en insättning på 100 nära periodens slut och slutvärde 210. Förändringen från 100 till 210 är inte 110 procents investeringsavkastning. Exakt avkastningsmått kräver flödets datum och rätt värderingar; här beräknas varken TWR eller IRR.",
+  "caveats": "Insättningar och uttag är inte samma sak som investeringens intäkter eller kostnader. Ofullständiga datum gör precisionen skenbar. GIPS-metoden används som metodreferens, inte som påstående att NTM eller någon portfölj uppfyller GIPS.",
+  "relatedAnswers": [
+    {
+      "id": "cagr",
+      "type": "prerequisite"
+    },
+    {
+      "id": "contribution-timing",
+      "type": "common-confusion"
+    },
+    {
+      "id": "sequence-risk",
+      "type": "next-question"
+    }
+  ],
+  "sources": [
+    {
+      "title": "GIPS Standards Handbook for Firms",
+      "url": "https://www.gipsstandards.org/standards/gips-standards-for-firms/gips-standards-handbook-for-firms/",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Calculation methodology: externa flöden, värderade delperioder/geometrisk länkning och separat money-weighted presentation.",
+      "limitations": "Endast avgränsade metodavsnitt lästa; ingen GIPS-kompatibilitet eller komplett IRR-instruktion påstås.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "saving",
+  "concepts": [
+    "avkastning",
+    "cagr"
+  ],
+  "relatedLessonIds": [
+    "avkastning"
+  ],
+  "slug": "cashflow-return",
+  "relatedEntityIds": [
+    "tool-return"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

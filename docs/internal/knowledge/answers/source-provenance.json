@@ -1,0 +1,113 @@
+{
+  "id": "source-provenance",
+  "question": "Vilka källuppgifter behöver jag spara för ett analysantagande?",
+  "intent": "process",
+  "category": "risk",
+  "conceptRefs": [
+    "thesis"
+  ],
+  "concepts": [
+    "thesis"
+  ],
+  "relatedLessonIds": [
+    "thesis"
+  ],
+  "aliases": [
+    "källunderlag för antaganden",
+    "Hur dokumenterar jag källor i Research?"
+  ],
+  "shortAnswer": "Spara tillräckligt för att återskapa vad du såg, varifrån det kom, vilken period det gällde, när uppgiften publicerades eller hämtades och hur du använde den. En URL ensam kan peka på många olika påståenden och på innehåll som senare ändras.",
+  "fullAnswer": "För bolagsdata: ange bolag, dokumenttyp, mått, värde, enhet, valuta, rapportperiod, publiceringsdatum och definition. Spara stabil dokumentreferens eller accession när den finns samt kontrolldatum. För ett estimat behövs dessutom leverantör, observationstid och målperiod; sammanställningsmetod och täckning kan påverka jämförbarheten. NTM:s frysta finansiella underlag har avgränsade källfält, medan dina egna externa källor måste beskrivas så att läsaren hittar rätt uppgift.",
+  "example": "”NVDA revenue från SEC” är för vagt. En tydligare mall är bolag + omsättningsmått + exakt period + värde och valuta + formulär/dokument + filed-datum + accession + kontrolldatum. Detta är en mall, ingen verifierad NVDA-siffra. På samma sätt behöver ett syntetiskt ”konsensus-EPS 10 dollar” leverantör, datum, period och basis för att kunna jämföras.",
+  "caveats": "Källan till en historisk observation bevisar inte ditt framtidsantagande. Håll källa → observation → antagande → slutsats tydligt åtskilda. Dokumentera även osäkerhet och revideringar; en nyare webbsida behöver inte visa vad som var känt vid det tidigare analysdatumet.",
+  "relatedAnswers": [
+    {
+      "id": "fact-assumption",
+      "type": "prerequisite"
+    },
+    {
+      "id": "eps-comparison",
+      "type": "common-confusion"
+    },
+    {
+      "id": "estimates",
+      "type": "related-metric"
+    }
+  ],
+  "sources": [
+    {
+      "title": "NTM: Research, lokal produkt- och metodkontroll",
+      "url": "https://nolltillmiljoner.se/research.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "example",
+        "caveats"
+      ],
+      "checked": "research-snapshot.js normalize/fromStockData/correctionFacts och public-report.js projectFact/validateFact: period, enhet, accession, filed, definition och frysta val. Texten är dokumentationsmetod, inte ett löfte om nya formulärfält.",
+      "limitations": "Kontrollerat mot aktuell lokal implementation, inte en ny hosted granskning. Arbetsmetoden är NTM:s pedagogiska förslag, inte en universell investeringsregel.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "CFA Institute: Standard V(B), dokumentation",
+      "url": "https://www.cfainstitute.org/standards/professionals/code-ethics-standards/standards-of-practice-v-b",
+      "supports": [
+        "caveats"
+      ],
+      "checked": "Fakta/åsikter och Recommended Procedures: behåll underlag för analysens faktorer.",
+      "limitations": "Professionell standard används för skillnaden källa/tolkning. Den specifika NTM-mallen kontrolleras mot lokal produktkod.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "slug": "source-provenance",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

@@ -1,0 +1,896 @@
+{
+  "date": "2026-09-19",
+  "ids": [
+    "estimate-dispersion",
+    "guidance-revision",
+    "fiscal-calendar",
+    "update-thesis",
+    "scenario-probability",
+    "valuation-sensitivity",
+    "report-snapshot",
+    "revenue-growth"
+  ],
+  "schema": true,
+  "math": {
+    "passed": true,
+    "method": "Independent Python Decimal; explicit units/timing in prose, no runtime executor added",
+    "checks": [
+      {
+        "expression": "mean 8 10 12",
+        "result": "10",
+        "expected": "10"
+      },
+      {
+        "expression": "mean 9 10 11",
+        "result": "10",
+        "expected": "10"
+      },
+      {
+        "expression": "old interval width",
+        "result": "1",
+        "expected": "1"
+      },
+      {
+        "expression": "new interval width",
+        "result": "1",
+        "expected": "1"
+      },
+      {
+        "expression": "old midpoint",
+        "result": "10.5",
+        "expected": "10.5"
+      },
+      {
+        "expression": "new midpoint",
+        "result": "11.5",
+        "expected": "11.5"
+      },
+      {
+        "expression": "EPS 10 * PE 20",
+        "result": "200",
+        "expected": "200"
+      },
+      {
+        "expression": "EPS 10 * PE 25",
+        "result": "250",
+        "expected": "250"
+      },
+      {
+        "expression": "EPS 10 * PE 30",
+        "result": "300",
+        "expected": "300"
+      },
+      {
+        "expression": "EPS 8 * PE 25",
+        "result": "200",
+        "expected": "200"
+      },
+      {
+        "expression": "EPS 12 * PE 25",
+        "result": "300",
+        "expected": "300"
+      },
+      {
+        "expression": "synthetic additive bridge residual",
+        "result": "10",
+        "expected": "10"
+      }
+    ]
+  },
+  "retrieval": [
+    {
+      "query": "Vad säger spridningen mellan analytikerestimat?",
+      "kind": "ANSWER",
+      "answerId": "estimate-dispersion",
+      "passed": true
+    },
+    {
+      "query": "spridning i konsensus",
+      "kind": "ANSWER",
+      "answerId": "estimate-dispersion",
+      "passed": true
+    },
+    {
+      "query": "Hur jämför jag två versioner av bolagets guidance?",
+      "kind": "ANSWER",
+      "answerId": "guidance-revision",
+      "passed": true
+    },
+    {
+      "query": "jämföra guidanceversioner",
+      "kind": "ANSWER",
+      "answerId": "guidance-revision",
+      "passed": true
+    },
+    {
+      "query": "Vad skiljer räkenskapsår från kalenderår i en rapport?",
+      "kind": "ANSWER",
+      "answerId": "fiscal-calendar",
+      "passed": true
+    },
+    {
+      "query": "räkenskapsår vs kalenderår",
+      "kind": "ANSWER",
+      "answerId": "fiscal-calendar",
+      "passed": true
+    },
+    {
+      "query": "Hur uppdaterar jag en tes utan att skriva om dess historik?",
+      "kind": "ANSWER",
+      "answerId": "update-thesis",
+      "passed": true
+    },
+    {
+      "query": "uppdatera tes med historik",
+      "kind": "ANSWER",
+      "answerId": "update-thesis",
+      "passed": true
+    },
+    {
+      "query": "Är ett bear-, base- eller bull-scenario en sannolikhetsprognos?",
+      "kind": "ANSWER",
+      "answerId": "scenario-probability",
+      "passed": true
+    },
+    {
+      "query": "Är base case mest sannolikt?",
+      "kind": "ANSWER",
+      "answerId": "scenario-probability",
+      "passed": true
+    },
+    {
+      "query": "Hur undersöker jag vilket antagande som driver min värdering?",
+      "kind": "ANSWER",
+      "answerId": "valuation-sensitivity",
+      "passed": true
+    },
+    {
+      "query": "känslighet i värdering",
+      "kind": "ANSWER",
+      "answerId": "valuation-sensitivity",
+      "passed": true
+    },
+    {
+      "query": "Vad betyder datum och version när jag läser en publicerad NTM-analys?",
+      "kind": "ANSWER",
+      "answerId": "report-snapshot",
+      "passed": true
+    },
+    {
+      "query": "Vad är en fryst NTM-rapport?",
+      "kind": "ANSWER",
+      "answerId": "report-snapshot",
+      "passed": true
+    },
+    {
+      "query": "Hur skiljer jag organisk tillväxt från förvärv och valuta?",
+      "kind": "ANSWER",
+      "answerId": "revenue-growth",
+      "passed": true
+    },
+    {
+      "query": "organisk tillväxt och valuta",
+      "kind": "ANSWER",
+      "answerId": "revenue-growth",
+      "passed": true
+    },
+    {
+      "query": "Ska jag köpa om guidance höjs?",
+      "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+      "answerId": null,
+      "passed": true
+    },
+    {
+      "query": "Ska jag sälja enligt bull case?",
+      "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+      "answerId": null,
+      "passed": true
+    }
+  ],
+  "duplicates": [
+    {
+      "ids": [
+        "pe",
+        "peg"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "pe"
+      ],
+      "similarity": 0.5,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "eps",
+        "dilution"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "eps"
+      ],
+      "similarity": 0.14285714285714285,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "cagr",
+        "arithmetic-geometric"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "cagr",
+        "return"
+      ],
+      "similarity": 0.3333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "cagr",
+        "nominal-real"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "return"
+      ],
+      "similarity": 0.5,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "dilution",
+        "asset-ownership"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "shares"
+      ],
+      "similarity": 0.09090909090909091,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "guidance",
+        "estimates"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "outlook"
+      ],
+      "similarity": 0.1,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fees",
+        "annual-fees"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "fees"
+      ],
+      "similarity": 0.14285714285714285,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "forward",
+        "guidance-consensus"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "outlook"
+      ],
+      "similarity": 0.3333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "forward",
+        "pe-versus-ps"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "pe"
+      ],
+      "similarity": 0.5,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "interest-rates",
+        "bond-yields"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "rates"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "fact-assumption"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.15384615384615385,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "scenario-design"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "source-provenance"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "thesis",
+        "update-thesis"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.0625,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "eps-comparison",
+        "reported-adjusted"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "eps"
+      ],
+      "similarity": 0.08333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "compounding",
+        "loss-recovery"
+      ],
+      "intents": [
+        "calculation",
+        "calculation"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "compounding"
+      ],
+      "similarity": 0.07692307692307693,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "annual-fees",
+        "contribution-timing"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "compounding"
+      ],
+      "similarity": 0.07142857142857142,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "macro-releases",
+        "seasonal-adjustment"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0.08333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "active-passive",
+        "fund-etf"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "fund"
+      ],
+      "similarity": 0.25,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "arithmetic-geometric",
+        "nominal-real"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "return"
+      ],
+      "similarity": 0.2,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "cpi-pce",
+        "headline-core"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "macro",
+        "inflation"
+      ],
+      "similarity": 0.3,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "cpi-pce",
+        "jobs-unemployment"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "cpi-pce",
+        "mom-yoy"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0.3333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "cpi-pce",
+        "nominal-real"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "inflation"
+      ],
+      "similarity": 0.3,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "cpi-pce",
+        "real-nominal-gdp"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0.3,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "estimate-age",
+        "guidance-revision"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "outlook"
+      ],
+      "similarity": 0.11764705882352941,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "etf",
+        "fund"
+      ],
+      "intents": [
+        "definition",
+        "definition"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "fund"
+      ],
+      "similarity": 0.6,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fact-assumption",
+        "scenario-design"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.125,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fact-assumption",
+        "source-provenance"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.0625,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "fact-assumption",
+        "update-thesis"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.17647058823529413,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "falsification",
+        "report-snapshot"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.047619047619047616,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "falsification",
+        "valuation-sensitivity"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.1875,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "headline-core",
+        "jobs-unemployment"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "headline-core",
+        "mom-yoy"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0.375,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "headline-core",
+        "nominal-real"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "inflation"
+      ],
+      "similarity": 0.3333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "headline-core",
+        "real-nominal-gdp"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0.3333333333333333,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "jobs-unemployment",
+        "mom-yoy"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "jobs-unemployment",
+        "real-nominal-gdp"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "mom-yoy",
+        "real-nominal-gdp"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "macro"
+      ],
+      "similarity": 0.375,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "nominal-real",
+        "real-nominal-gdp"
+      ],
+      "intents": [
+        "comparison",
+        "comparison"
+      ],
+      "samePrimaryConcept": false,
+      "sharedConcepts": [],
+      "similarity": 0.7142857142857143,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "report-snapshot",
+        "valuation-sensitivity"
+      ],
+      "intents": [
+        "application",
+        "application"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.05,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "scenario-design",
+        "source-provenance"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.0625,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "scenario-design",
+        "update-thesis"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.1111111111111111,
+      "action": "editorial-review-only"
+    },
+    {
+      "ids": [
+        "source-provenance",
+        "update-thesis"
+      ],
+      "intents": [
+        "process",
+        "process"
+      ],
+      "samePrimaryConcept": true,
+      "sharedConcepts": [
+        "thesis"
+      ],
+      "similarity": 0.05555555555555555,
+      "action": "editorial-review-only"
+    }
+  ]
+}

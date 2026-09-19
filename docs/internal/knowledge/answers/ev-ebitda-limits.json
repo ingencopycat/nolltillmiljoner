@@ -1,0 +1,116 @@
+{
+  "id": "ev-ebitda-limits",
+  "question": "Vilka begränsningar har EV/EBITDA?",
+  "intent": "limitation",
+  "conceptRefs": [
+    "enterprise-value",
+    "ebitda"
+  ],
+  "aliases": [
+    "begränsningar EV EBITDA",
+    "Är EBITDA fritt kassaflöde?"
+  ],
+  "shortAnswer": "EV/EBITDA sammanför ett verksamhetsvärde med ett resultat före vissa kostnader. EBITDA fångar inte investeringar, rörelsekapital och alla betalningar. Kvoten kan därför inte ensam beskriva kassaflöde, risk eller om aktien är billig.",
+  "fullAnswer": "Kontrollera EV-bryggan, EBITDA-definitionen, period och verksamhetsomfattning. Två bolag med samma kvot kan ha olika återinvesteringsbehov eller risk. Leasing och justeringar behöver vara förenliga i täljare och nämnare. Särskilt för finansiella verksamheter måste måttets lämplighet utredas; använd det inte bara för att fältet finns.",
+  "example": "Syntetiskt: två verksamheter har samma EBITDA men den ena kräver betydligt större investeringar för att upprätthålla kapaciteten. Samma EBITDA är då inte bevis för samma pengar till kapitalgivarna.",
+  "caveats": "Vid noll EBITDA är kvoten odefinierad och nära noll blir den instabil. Negativ EBITDA gör en vanlig multipeljämförelse svårtolkad. Justerad EBITDA kan skilja sig mellan bolag; inget visst multipeltal är en generell värderingsdom.",
+  "relatedAnswers": [
+    {
+      "id": "enterprise-value",
+      "type": "prerequisite"
+    },
+    {
+      "id": "ebit-ebitda",
+      "type": "prerequisite"
+    },
+    {
+      "id": "fcf-limitations",
+      "type": "common-confusion"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Aswath Damodaran: Relative Valuation",
+      "url": "https://pages.stern.nyu.edu/~adamodar/pdfiles/country/relvalAIMR.pdf",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Sidor 12–13 och 39–41: EV-brygga, täljare/nämnare och återinvesteringsbehov; sifferdata och historiska värderingar används inte.",
+      "limitations": "Avgränsad förenklad metod, inte full företagsvärdering; andra anspråk kan kräva justeringar.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "SEC: Non-GAAP Financial Measures",
+      "url": "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "103.01–103.02: EBIT/EBITDA utgår från net income och andra justeringar måste särskiljas; 102.07 behandlar FCF-begränsning.",
+      "limitations": "US GAAP/SEC-kontext, inte en universell definition av varje bolags justerade mått.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "valuation",
+  "concepts": [
+    "valuation",
+    "financial-statements"
+  ],
+  "relatedLessonIds": [
+    "enterprise-value"
+  ],
+  "slug": "ev-ebitda-limits",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

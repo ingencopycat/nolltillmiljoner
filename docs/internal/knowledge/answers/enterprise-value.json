@@ -1,0 +1,99 @@
+{
+  "id": "enterprise-value",
+  "question": "Vad betyder enterprise value?",
+  "intent": "definition",
+  "conceptRefs": [
+    "enterprise-value"
+  ],
+  "aliases": [
+    "Vad är EV?",
+    "Vad är enterprise value?"
+  ],
+  "shortAnswer": "Enterprise value, EV, är ett värdemått som går från aktieägarnas börsvärde till ett värde för verksamheten enligt en angiven finansieringskonvention. En förenklad brygga är börsvärde + skuld − kassa. Den är en utgångspunkt, inte en fullständig regel för varje bolag.",
+  "fullAnswer": "Ange vilka skuld- och kassaposter som ingår och vilken tidpunkt som används. Andra anspråk, minoritetsintressen, leasing eller innehav utanför rörelsen kan behöva hanteras enligt metoden. När EV jämförs med ett resultatmått ska båda avse samma verksamhet och anspråk.",
+  "example": "Syntetiskt förenklat: börsvärde 1 000, skuld 300 och kassa 100 ger EV 1 200. Exemplet antar att inga andra justeringar behövs. Det är inte ett pris någon säkert kan köpa hela bolaget för.",
+  "caveats": "Bokfört skuldvärde är inte alltid marknadsvärde, och all kassa är inte fritt tillgänglig. EV är inte samma sak som börsvärde eller ett säkert inneboende värde. Jämför inte två EV-tal utan att kontrollera definitionerna.",
+  "relatedAnswers": [
+    {
+      "id": "market-cap",
+      "type": "prerequisite"
+    },
+    {
+      "id": "debt",
+      "type": "prerequisite"
+    },
+    {
+      "id": "ev-market-cap",
+      "type": "next-question"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Aswath Damodaran: Relative Valuation",
+      "url": "https://pages.stern.nyu.edu/~adamodar/pdfiles/country/relvalAIMR.pdf",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Sidor 12–13 och 39–41: EV-brygga, täljare/nämnare och återinvesteringsbehov; sifferdata och historiska värderingar används inte.",
+      "limitations": "Avgränsad förenklad metod, inte full företagsvärdering; andra anspråk kan kräva justeringar.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "valuation",
+  "concepts": [
+    "valuation"
+  ],
+  "relatedLessonIds": [
+    "enterprise-value"
+  ],
+  "slug": "enterprise-value",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-09-19",
+  "reviewPolicy": {
+    "risk": "stable",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

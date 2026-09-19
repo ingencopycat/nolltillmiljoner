@@ -1,0 +1,12 @@
+Browser smoke: Chromium 151.0.7922.34; fresh contexts on http://127.0.0.1:52055
+test_body_failure_and_no_initial_corpus_download (knowledge100_browser.Knowledge100.test_body_failure_and_no_initial_corpus_download) ... ok
+test_cancel_slow_research_help_does_not_reopen_dialog (knowledge100_browser.Knowledge100.test_cancel_slow_research_help_does_not_reopen_dialog) ... ok
+test_mobile_keyboard_clarification_formula_and_depth (knowledge100_browser.Knowledge100.test_mobile_keyboard_clarification_formula_and_depth) ... ok
+test_public_report_help_is_generic_and_preserves_frozen_content (knowledge100_browser.Knowledge100.test_public_report_help_is_generic_and_preserves_frozen_content) ... ok
+test_shared_calculator_help_preserves_fields_and_focus (knowledge100_browser.Knowledge100.test_shared_calculator_help_preserves_fields_and_focus) ... ok
+test_synthetic_scale_browser (knowledge100_browser.Knowledge100.test_synthetic_scale_browser) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 8.297s
+
+OK

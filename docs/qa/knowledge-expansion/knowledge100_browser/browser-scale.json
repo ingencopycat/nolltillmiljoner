@@ -1,0 +1,84 @@
+{
+  "browser": "151.0.7922.34",
+  "method": "Localhost Chromium; synthetic index route only; no synthetic files staged; CSS viewport 390; 100 warmed retrieval samples.",
+  "rows": [
+    {
+      "size": 100,
+      "loadMs": 113.72359999222681,
+      "payloadBytes": 102154,
+      "search": {
+        "p95Ms": 0.5,
+        "medianMs": 0.3999999761581421
+      },
+      "ask": {
+        "p95Ms": 0.09999996423721313,
+        "medianMs": 0
+      },
+      "askNoCoverage": {
+        "p95Ms": 0.20000004768371582,
+        "medianMs": 0.10000002384185791
+      },
+      "askTypo": {
+        "p95Ms": 0.19999998807907104,
+        "medianMs": 0.10000002384185791
+      },
+      "category": {
+        "p95Ms": 0.40000003576278687,
+        "medianMs": 0.30000001192092896
+      },
+      "memory": 10000000
+    },
+    {
+      "size": 500,
+      "loadMs": 92.64639997854829,
+      "payloadBytes": 508402,
+      "search": {
+        "p95Ms": 2.200000047683716,
+        "medianMs": 2
+      },
+      "ask": {
+        "p95Ms": 0,
+        "medianMs": 0
+      },
+      "askNoCoverage": {
+        "p95Ms": 0.6000000238418579,
+        "medianMs": 0.40000003576278687
+      },
+      "askTypo": {
+        "p95Ms": 0.6000000238418579,
+        "medianMs": 0.40000003576278687
+      },
+      "category": {
+        "p95Ms": 0.800000011920929,
+        "medianMs": 0.6000000238418579
+      },
+      "memory": 10000000
+    },
+    {
+      "size": 1200,
+      "loadMs": 133.29189998330548,
+      "payloadBytes": 1221136,
+      "search": {
+        "p95Ms": 4.900000035762787,
+        "medianMs": 4.400000035762787
+      },
+      "ask": {
+        "p95Ms": 0,
+        "medianMs": 0
+      },
+      "askNoCoverage": {
+        "p95Ms": 1.300000011920929,
+        "medianMs": 1
+      },
+      "askTypo": {
+        "p95Ms": 1.100000023841858,
+        "medianMs": 0.9000000357627869
+      },
+      "category": {
+        "p95Ms": 1.600000023841858,
+        "medianMs": 1.5
+      },
+      "memory": 10000000
+    }
+  ]
+}

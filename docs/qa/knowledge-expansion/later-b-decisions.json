@@ -1,0 +1,50 @@
+{
+  "date": "2026-09-19",
+  "batch": "later-b",
+  "decisions": {
+    "discounting": {
+      "distinctIntent": "Approved bounded timing, weighting, execution or misconception objective; no new calculators.",
+      "sourceCheck": "Inputs to DCF: kassaflöde, tidpunkt, riskanpassad ränta och skillnad mellan equity/firm cash flows. Oberoende femårig faktorpotens med fasta positiva syntetiska belopp.",
+      "narrowing": "Synthetic assumptions explicit; cashflow-return deliberately does not infer exact TWR/IRR from incomplete dates."
+    },
+    "cashflow-return": {
+      "distinctIntent": "Approved bounded timing, weighting, execution or misconception objective; no new calculators.",
+      "sourceCheck": "Calculation methodology: externa flöden, värderade delperioder/geometrisk länkning och separat money-weighted presentation.",
+      "narrowing": "Synthetic assumptions explicit; cashflow-return deliberately does not infer exact TWR/IRR from incomplete dates."
+    },
+    "sequence-risk": {
+      "distinctIntent": "Approved bounded timing, weighting, execution or misconception objective; no new calculators.",
+      "sourceCheck": "Två explicita faktor-/uttagsrekursioner, separat från FIRE:s modell; oberoende Decimal kontrollerar ordning och jämförelse utan uttag.",
+      "narrowing": "Synthetic assumptions explicit; cashflow-return deliberately does not infer exact TWR/IRR from incomplete dates."
+    },
+    "price-value": {
+      "distinctIntent": "Approved bounded timing, weighting, execution or misconception objective; no new calculators.",
+      "sourceCheck": "Befintlig market-cap-definition och oberoende pris × antal-exempel; inga verkliga kurser.",
+      "narrowing": "Synthetic assumptions explicit; cashflow-return deliberately does not infer exact TWR/IRR from incomplete dates."
+    },
+    "order-spread": {
+      "distinctIntent": "Approved bounded timing, weighting, execution or misconception objective; no new calculators.",
+      "sourceCheck": "Definition av bid/ask för specificerat antal aktier och spreadskillnad.",
+      "narrowing": "Synthetic assumptions explicit; cashflow-return deliberately does not infer exact TWR/IRR from incomplete dates."
+    },
+    "split-dilution": {
+      "distinctIntent": "Approved bounded timing, weighting, execution or misconception objective; no new calculators.",
+      "sourceCheck": "Proportionell split ökar aktieantal utan att ändra ägarnas kapital/andel; 2:1-mekanik.",
+      "narrowing": "Synthetic assumptions explicit; cashflow-return deliberately does not infer exact TWR/IRR from incomplete dates."
+    },
+    "index-weighting": {
+      "distinctIntent": "Approved bounded timing, weighting, execution or misconception objective; no new calculators.",
+      "sourceCheck": "Avsnitt Free Float och Foreign Inclusion Factor: tillgängligt aktieantal och ägarbegränsning; inga trösklar kopieras. Börsvärdesviktning skiljs från prisviktning; en fond kan avvika från index.",
+      "narrowing": "Synthetic assumptions explicit; cashflow-return deliberately does not infer exact TWR/IRR from incomplete dates."
+    }
+  },
+  "ids": [
+    "discounting",
+    "cashflow-return",
+    "sequence-risk",
+    "price-value",
+    "order-spread",
+    "split-dilution",
+    "index-weighting"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "date": "2026-09-19",
+  "batch": "3b",
+  "decisions": {
+    "estimate-dispersion": {
+      "distinctIntent": "Approved revision, interpretation or scope objective; no replacement of existing definition.",
+      "sourceCheck": "Databeskrivningens bidrag, källor, datum, fiscal period och normaliseringsattribut; inga licensierade värden hämtas. Explicit syntetisk medelvärdes-/spannalgebra; inga sannolikheter tilldelas estimatlistan.",
+      "narrowing": "No actual estimate dataset or probabilities; issuer and NTM behavior explicitly scoped; historical versions not promised permanently available."
+    },
+    "guidance-revision": {
+      "distinctIntent": "Approved revision, interpretation or scope objective; no replacement of existing definition.",
+      "sourceCheck": "Outlook anger målperiod, basis och framåtblickande begränsningar. research-snapshot.js comparable och tidsstämplad revisionsprincip; gräns-/mittpunktsalgebra separat kontrollerad.",
+      "narrowing": "No actual estimate dataset or probabilities; issuer and NTM behavior explicitly scoped; historical versions not promised permanently available."
+    },
+    "fiscal-calendar": {
+      "distinctIntent": "Approved revision, interpretation or scope objective; no replacement of existing definition.",
+      "sourceCheck": "Resultattabellerna anger Year Ended June 30; jämförelsen begränsas till kalendern. Frames-varning om olika start/slut och kalenderanpassning av företagsperioder.",
+      "narrowing": "No actual estimate dataset or probabilities; issuer and NTM behavior explicitly scoped; historical versions not promised permanently available."
+    },
+    "update-thesis": {
+      "distinctIntent": "Approved revision, interpretation or scope objective; no replacement of existing definition.",
+      "sourceCheck": "thesis-storage.js append-only revisions och review.decision keep/revise/close/abstain; research-publication.js skiljer ny privat version från uttrycklig publicering.",
+      "narrowing": "No actual estimate dataset or probabilities; issuer and NTM behavior explicitly scoped; historical versions not promised permanently available."
+    },
+    "scenario-probability": {
+      "distinctIntent": "Approved revision, interpretation or scope objective; no replacement of existing definition.",
+      "sourceCheck": "valuation-core.js scenario tar EPS, tillväxt, år och P/E, inga sannolikhetsvikter; thesis-metoden skiljer antaganden från utfall.",
+      "narrowing": "No actual estimate dataset or probabilities; issuer and NTM behavior explicitly scoped; historical versions not promised permanently available."
+    },
+    "valuation-sensitivity": {
+      "distinctIntent": "Approved revision, interpretation or scope objective; no replacement of existing definition.",
+      "sourceCheck": "valuation-core.js scenario och EPS × P/E; oberoende produkter för samma framtidsbasis.",
+      "narrowing": "No actual estimate dataset or probabilities; issuer and NTM behavior explicitly scoped; historical versions not promised permanently available."
+    },
+    "report-snapshot": {
+      "distinctIntent": "Approved revision, interpretation or scope objective; no replacement of existing definition.",
+      "sourceCheck": "public-report.js fryst explicit V2-urval; public-report-ui.js visar analysisDate/basisDate/versionNumber/publishedAt; research-publication.js kräver nytt uttryckligt publiceringssteg.",
+      "narrowing": "No actual estimate dataset or probabilities; issuer and NTM behavior explicitly scoped; historical versions not promised permanently available."
+    },
+    "revenue-growth": {
+      "distinctIntent": "Approved revision, interpretation or scope objective; no replacement of existing definition.",
+      "sourceCheck": "Financial review Sales och resultatöversikt skiljer organic growth, RIG/pricing, FX och net acquisitions.",
+      "narrowing": "No actual estimate dataset or probabilities; issuer and NTM behavior explicitly scoped; historical versions not promised permanently available."
+    }
+  },
+  "ids": [
+    "estimate-dispersion",
+    "guidance-revision",
+    "fiscal-calendar",
+    "update-thesis",
+    "scenario-probability",
+    "valuation-sensitivity",
+    "report-snapshot",
+    "revenue-growth"
+  ]
+}

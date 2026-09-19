@@ -1,0 +1,3592 @@
+[
+  {
+    "id": "pe",
+    "question": "Vad betyder P/E?",
+    "category": "valuation",
+    "conceptRefs": [
+      "pe"
+    ],
+    "intent": "definition",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "pris vinst",
+      "p/e tal",
+      "price earnings",
+      "vad påverkar p/e"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "eps",
+        "type": "prerequisite"
+      },
+      {
+        "id": "forward",
+        "type": "common-confusion"
+      },
+      {
+        "id": "peg",
+        "type": "related-metric"
+      }
+    ],
+    "lessons": [
+      "pe",
+      "eps"
+    ],
+    "entities": [
+      "tool-valuation",
+      "research-nvda"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "eps",
+    "question": "Vad är EPS?",
+    "category": "metrics",
+    "conceptRefs": [
+      "eps"
+    ],
+    "intent": "definition",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "vinst per aktie",
+      "earnings per share"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "eps-comparison",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "eps",
+      "dilution"
+    ],
+    "entities": [
+      "research-nvda"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "cagr",
+    "question": "Vad skiljer CAGR från total avkastning?",
+    "category": "saving",
+    "conceptRefs": [
+      "cagr",
+      "return"
+    ],
+    "intent": "comparison",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "snittavkastning",
+      "årlig avkastning",
+      "compound annual growth rate"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "compounding",
+        "type": "prerequisite"
+      }
+    ],
+    "lessons": [
+      "cagr",
+      "avkastning"
+    ],
+    "entities": [
+      "tool-return"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "gav",
+    "question": "Hur räknar jag GAV?",
+    "category": "saving",
+    "conceptRefs": [
+      "gav"
+    ],
+    "intent": "calculation",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": null,
+    "aliases": [
+      "genomsnittligt anskaffningsvärde",
+      "snittpris",
+      "anskaffningspris"
+    ],
+    "lessons": [
+      "gav",
+      "fees"
+    ],
+    "entities": [
+      "tool-purchase"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "fcf",
+    "question": "Vad är FCF, fritt kassaflöde?",
+    "category": "metrics",
+    "conceptRefs": [
+      "fcf"
+    ],
+    "intent": "definition",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "free cash flow",
+      "kassaflöde",
+      "cfo capex"
+    ],
+    "lessons": [
+      "fcf",
+      "financial-statements"
+    ],
+    "entities": [
+      "research-nvda"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "peg",
+    "question": "Vad betyder PEG?",
+    "category": "valuation",
+    "conceptRefs": [
+      "peg",
+      "pe"
+    ],
+    "intent": "definition",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": null,
+    "aliases": [
+      "price earnings growth",
+      "pe tillväxt"
+    ],
+    "lessons": [
+      "pe",
+      "cagr"
+    ],
+    "entities": [
+      "tool-valuation"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "dilution",
+    "question": "Vad betyder dilution eller utspädning?",
+    "category": "basics",
+    "conceptRefs": [
+      "shares",
+      "eps"
+    ],
+    "intent": "definition",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "fler aktier",
+      "diluted",
+      "nyemission"
+    ],
+    "lessons": [
+      "dilution",
+      "eps"
+    ],
+    "entities": [
+      "research-crwv"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "market-cap",
+    "question": "Vad är börsvärde?",
+    "category": "basics",
+    "conceptRefs": [
+      "market-cap"
+    ],
+    "intent": "definition",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": null,
+    "aliases": [
+      "market cap",
+      "market capitalization",
+      "bolagsvärde"
+    ],
+    "lessons": [
+      "aktier",
+      "enterprise-value"
+    ],
+    "entities": [
+      "research-nvda"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "guidance",
+    "question": "Vad betyder guidance i en rapport?",
+    "category": "reports",
+    "conceptRefs": [
+      "outlook"
+    ],
+    "intent": "definition",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": null,
+    "aliases": [
+      "utsikter",
+      "prognos",
+      "outlook",
+      "guidning"
+    ],
+    "lessons": [
+      "report",
+      "forward-metrics"
+    ],
+    "entities": [
+      "research-nvda"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "revenue",
+    "question": "Vad är revenue eller omsättning?",
+    "category": "metrics",
+    "conceptRefs": [
+      "revenue"
+    ],
+    "intent": "definition",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": null,
+    "aliases": [
+      "intäkter",
+      "försäljning",
+      "sales"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "margins",
+        "type": "related-metric"
+      }
+    ],
+    "lessons": [
+      "revenue",
+      "marginal"
+    ],
+    "entities": [
+      "research-nvda"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "margins",
+    "question": "Vad är skillnaden mellan brutto-, rörelse- och nettomarginal?",
+    "category": "metrics",
+    "conceptRefs": [
+      "margins",
+      "revenue"
+    ],
+    "intent": "comparison",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "bruttomarginal",
+      "rörelsemarginal",
+      "nettomarginal",
+      "lönsamhet"
+    ],
+    "lessons": [
+      "marginal",
+      "revenue"
+    ],
+    "entities": [
+      "research-nvda"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "debt",
+    "question": "Vad säger skuld och nettoskuld om ett bolag?",
+    "category": "metrics",
+    "conceptRefs": [
+      "debt"
+    ],
+    "intent": "interpretation",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": null,
+    "aliases": [
+      "net debt",
+      "belåning",
+      "refinansiering"
+    ],
+    "lessons": [
+      "debt",
+      "financial-statements"
+    ],
+    "entities": [
+      "research-crwv"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "dividends",
+    "question": "Är utdelning gratis avkastning?",
+    "category": "basics",
+    "conceptRefs": [
+      "dividends",
+      "return"
+    ],
+    "intent": "misconception",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": null,
+    "aliases": [
+      "direktavkastning",
+      "dividend",
+      "utdelningar"
+    ],
+    "lessons": [
+      "avkastning",
+      "fcf"
+    ],
+    "entities": [
+      "tool-compound"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "fx",
+    "question": "Hur påverkar USD/SEK min avkastning?",
+    "category": "saving",
+    "conceptRefs": [
+      "fx",
+      "return"
+    ],
+    "intent": "calculation",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": null,
+    "aliases": [
+      "valuta",
+      "dollar",
+      "valutajusterad avkastning",
+      "sek usd"
+    ],
+    "lessons": [
+      "currency",
+      "avkastning"
+    ],
+    "entities": [
+      "tool-fx"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "isk",
+    "question": "Hur fungerar skatt på ISK i grunden?",
+    "category": "saving",
+    "conceptRefs": [
+      "isk"
+    ],
+    "intent": "process",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": "2026-12-01",
+    "aliases": [
+      "investeringssparkonto",
+      "schablonskatt",
+      "skattefri grundnivå"
+    ],
+    "lessons": [
+      "isk"
+    ],
+    "entities": [
+      "tool-tax"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "fees",
+    "question": "Vad är courtage och hur påverkar det små köp?",
+    "category": "saving",
+    "conceptRefs": [
+      "fees"
+    ],
+    "intent": "application",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": null,
+    "aliases": [
+      "mäklaravgift",
+      "handelsavgift",
+      "kommission"
+    ],
+    "lessons": [
+      "fees",
+      "gav"
+    ],
+    "entities": [
+      "tool-fees",
+      "tool-purchase"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "ttm",
+    "question": "Vad betyder TTM?",
+    "category": "reports",
+    "conceptRefs": [
+      "ttm"
+    ],
+    "intent": "definition",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": null,
+    "aliases": [
+      "trailing twelve months",
+      "rullande tolv månader",
+      "lttm"
+    ],
+    "lessons": [
+      "forward-metrics",
+      "financial-statements"
+    ],
+    "entities": [
+      "research-nvda"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "forward",
+    "question": "Vad skiljer forward P/E från trailing P/E?",
+    "category": "valuation",
+    "conceptRefs": [
+      "pe",
+      "outlook"
+    ],
+    "intent": "comparison",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "historiskt pe",
+      "framtida pe",
+      "prognostiserad vinst",
+      "ntm pe"
+    ],
+    "lessons": [
+      "forward-metrics",
+      "pe"
+    ],
+    "entities": [
+      "tool-valuation"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "inflation",
+    "question": "Betyder lägre inflation att priserna sjunker?",
+    "category": "macro",
+    "conceptRefs": [
+      "inflation"
+    ],
+    "intent": "misconception",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "disinflation",
+      "deflation",
+      "prisnivå",
+      "köpkraft"
+    ],
+    "lessons": [
+      "inflation"
+    ],
+    "entities": [
+      "macro-calendar"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "interest-rates",
+    "question": "Hur kan styrräntan påverka investeringar?",
+    "category": "macro",
+    "conceptRefs": [
+      "rates"
+    ],
+    "intent": "application",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": null,
+    "aliases": [
+      "ränta",
+      "räntehöjning",
+      "räntekanalen",
+      "penningpolitik"
+    ],
+    "lessons": [
+      "interest-rates",
+      "inflation"
+    ],
+    "entities": [
+      "macro-calendar"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "bond-yields",
+    "question": "Varför spelar obligationsräntor roll för aktier?",
+    "category": "macro",
+    "conceptRefs": [
+      "rates"
+    ],
+    "intent": "application",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": null,
+    "aliases": [
+      "bond yield",
+      "statsobligation",
+      "diskonteringsränta",
+      "avkastningskrav"
+    ],
+    "lessons": [
+      "interest-rates",
+      "pe"
+    ],
+    "entities": [
+      "tool-valuation"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "earnings",
+    "question": "Varför kan en aktie falla trots en bra rapport?",
+    "category": "reports",
+    "conceptRefs": [
+      "earnings"
+    ],
+    "intent": "interpretation",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": null,
+    "aliases": [
+      "rapportreaktion",
+      "förväntningar",
+      "kvartalsrapport"
+    ],
+    "lessons": [
+      "report",
+      "thesis"
+    ],
+    "entities": [
+      "research-nvda"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "estimates",
+    "question": "Vad är analytikerestimat och konsensus?",
+    "category": "reports",
+    "conceptRefs": [
+      "outlook"
+    ],
+    "intent": "definition",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": null,
+    "aliases": [
+      "analyst estimates",
+      "konsensusprognos",
+      "förväntad eps"
+    ],
+    "lessons": [
+      "forward-metrics",
+      "report"
+    ],
+    "entities": [
+      "research-nvda"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "thesis",
+    "question": "Vad ska en enkel investeringstes innehålla?",
+    "category": "risk",
+    "conceptRefs": [
+      "thesis"
+    ],
+    "intent": "process",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "investment thesis",
+      "tes",
+      "motbevis",
+      "antaganden"
+    ],
+    "lessons": [
+      "thesis",
+      "scenarios"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "diversification",
+    "question": "Vad innebär diversifiering?",
+    "category": "risk",
+    "conceptRefs": [
+      "diversification"
+    ],
+    "intent": "definition",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": null,
+    "aliases": [
+      "riskspridning",
+      "portfölj",
+      "sprida risk"
+    ],
+    "lessons": [
+      "diversifiering",
+      "position-sizing"
+    ],
+    "entities": [
+      "tool-purchase"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "eps-comparison",
+    "question": "Varför skiljer sig EPS mellan olika sajter?",
+    "category": "reports",
+    "conceptRefs": [
+      "eps"
+    ],
+    "intent": "comparison",
+    "batch": "preserved",
+    "status": "published",
+    "approval": "inherited-not-independent",
+    "reviewDue": null,
+    "aliases": [
+      "olika vinst per aktie",
+      "adjusted eps",
+      "non gaap",
+      "gaap",
+      "diluted eps"
+    ],
+    "lessons": [
+      "eps",
+      "forward-metrics"
+    ],
+    "entities": [
+      "research-nvda"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "compounding",
+    "question": "Hur fungerar ränta på ränta?",
+    "category": "saving",
+    "conceptRefs": [
+      "compounding"
+    ],
+    "intent": "calculation",
+    "batch": "preserved",
+    "status": "reviewed",
+    "approval": "inherited-not-independent",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "sammansatt avkastning",
+      "compound interest"
+    ],
+    "lessons": [
+      "compounding",
+      "cagr"
+    ],
+    "entities": [
+      "tool-compound"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "annual-fees",
+    "question": "Hur påverkar en årlig avgift mitt sparande?",
+    "category": "saving",
+    "conceptRefs": [
+      "fees",
+      "compounding"
+    ],
+    "intent": "application",
+    "batch": "preserved",
+    "status": "reviewed",
+    "approval": "inherited-not-independent",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "fondavgift",
+      "årlig avgift",
+      "löpande avgift"
+    ],
+    "lessons": [
+      "fees",
+      "compounding"
+    ],
+    "entities": [
+      "tool-fees",
+      "tool-compound"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "macro-releases",
+    "question": "Vad mäter CPI, PCE, payrolls och BNP?",
+    "category": "macro",
+    "conceptRefs": [
+      "macro",
+      "inflation"
+    ],
+    "intent": "definition",
+    "batch": "preserved",
+    "status": "reviewed",
+    "approval": "inherited-not-independent",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "cpi",
+      "pce",
+      "payrolls",
+      "nonfarm payrolls",
+      "gdp",
+      "bnp",
+      "makrosläpp"
+    ],
+    "lessons": [
+      "inflation",
+      "interest-rates"
+    ],
+    "entities": [
+      "macro-calendar"
+    ],
+    "sourceCount": 4
+  },
+  {
+    "id": "active-passive",
+    "question": "Vad skiljer aktiv från passiv fondförvaltning?",
+    "category": "basics",
+    "conceptRefs": [
+      "fund",
+      "index"
+    ],
+    "intent": "comparison",
+    "batch": "2bc",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "aktiv vs passiv fond",
+      "aktiv förvaltning eller index"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "fund",
+        "type": "prerequisite"
+      },
+      {
+        "id": "index",
+        "type": "prerequisite"
+      },
+      {
+        "id": "annual-fees",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "fonder"
+    ],
+    "entities": [
+      "tool-fees"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "arithmetic-geometric",
+    "question": "Varför skiljer sig medelavkastning från CAGR?",
+    "category": "saving",
+    "conceptRefs": [
+      "cagr",
+      "return"
+    ],
+    "intent": "comparison",
+    "batch": "2a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "aritmetisk vs geometrisk avkastning",
+      "medelavkastning och CAGR"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "cagr",
+        "type": "prerequisite"
+      },
+      {
+        "id": "compounding",
+        "type": "prerequisite"
+      },
+      {
+        "id": "drawdown",
+        "type": "next-question"
+      }
+    ],
+    "lessons": [
+      "avkastning"
+    ],
+    "entities": [
+      "tool-return"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "asset-ownership",
+    "question": "Vad innebär det att äga en aktie?",
+    "category": "basics",
+    "conceptRefs": [
+      "shares"
+    ],
+    "intent": "definition",
+    "batch": "2bc",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-09-19",
+    "aliases": [
+      "Vad är en aktie?",
+      "aktieägande"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "dilution",
+        "type": "deeper"
+      },
+      {
+        "id": "dividends",
+        "type": "common-confusion"
+      },
+      {
+        "id": "market-cap",
+        "type": "next-question"
+      }
+    ],
+    "lessons": [
+      "aktier"
+    ],
+    "entities": [
+      "tool-purchase"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "balance-sheet",
+    "question": "Vad visar en balansräkning?",
+    "category": "reports",
+    "conceptRefs": [
+      "balance-sheet"
+    ],
+    "intent": "definition",
+    "batch": "preserved",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "balansräkning",
+      "balance sheet",
+      "Vad är en balansräkning?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "income-statement",
+        "type": "next-question"
+      },
+      {
+        "id": "cash-flow-statement",
+        "type": "next-question"
+      },
+      {
+        "id": "debt",
+        "type": "related-metric"
+      },
+      {
+        "id": "working-capital",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "financial-statements",
+      "debt"
+    ],
+    "entities": [
+      "research-nvda"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "capex",
+    "question": "Vad betyder CapEx?",
+    "category": "metrics",
+    "conceptRefs": [
+      "capex"
+    ],
+    "intent": "definition",
+    "batch": "preserved",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "CapEx",
+      "capital expenditures",
+      "kapitalinvesteringar",
+      "Är hög CapEx dåligt?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "cash-flow-statement",
+        "type": "prerequisite"
+      },
+      {
+        "id": "fcf",
+        "type": "related-metric"
+      },
+      {
+        "id": "profit-versus-cash",
+        "type": "common-confusion"
+      }
+    ],
+    "lessons": [
+      "fcf",
+      "financial-statements"
+    ],
+    "entities": [
+      "research-nvda"
+    ],
+    "sourceCount": 4
+  },
+  {
+    "id": "cash-flow-statement",
+    "question": "Vad visar en kassaflödesanalys?",
+    "category": "reports",
+    "conceptRefs": [
+      "cash-flow-statement"
+    ],
+    "intent": "definition",
+    "batch": "preserved",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "kassaflödesanalys",
+      "cash flow statement",
+      "Vad är en kassaflödesanalys?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "balance-sheet",
+        "type": "prerequisite"
+      },
+      {
+        "id": "income-statement",
+        "type": "prerequisite"
+      },
+      {
+        "id": "profit-versus-cash",
+        "type": "common-confusion"
+      },
+      {
+        "id": "working-capital",
+        "type": "deeper"
+      },
+      {
+        "id": "capex",
+        "type": "related-metric"
+      },
+      {
+        "id": "fcf",
+        "type": "related-metric"
+      }
+    ],
+    "lessons": [
+      "financial-statements",
+      "fcf"
+    ],
+    "entities": [
+      "research-nvda"
+    ],
+    "sourceCount": 3
+  },
+  {
+    "id": "cashflow-return",
+    "question": "Varför räcker inte CAGR när jag sätter in eller tar ut pengar?",
+    "category": "saving",
+    "conceptRefs": [
+      "return",
+      "cagr"
+    ],
+    "intent": "limitation",
+    "batch": "later-b",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "CAGR med insättningar",
+      "avkastning med externa kassaflöden"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "cagr",
+        "type": "prerequisite"
+      },
+      {
+        "id": "contribution-timing",
+        "type": "common-confusion"
+      },
+      {
+        "id": "sequence-risk",
+        "type": "next-question"
+      }
+    ],
+    "lessons": [
+      "avkastning"
+    ],
+    "entities": [
+      "tool-return"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "concentration",
+    "question": "Hur bedömer jag koncentration utöver antalet innehav?",
+    "category": "risk",
+    "conceptRefs": [
+      "diversification"
+    ],
+    "intent": "application",
+    "batch": "2a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "koncentration utöver antal aktier",
+      "Hur ser jag gemensam exponering?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "diversification",
+        "type": "prerequisite"
+      },
+      {
+        "id": "volatility-risk",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "risk"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "contribution-timing",
+    "question": "Varför spelar insättningarnas tidpunkt roll i en sparkalkyl?",
+    "category": "saving",
+    "conceptRefs": [
+      "compounding"
+    ],
+    "intent": "application",
+    "batch": "2a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "insättning början eller slutet av månaden",
+      "När sker insättningar i ränta på ränta?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "compounding",
+        "type": "prerequisite"
+      },
+      {
+        "id": "arithmetic-geometric",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "compounding"
+    ],
+    "entities": [
+      "tool-compound"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "cpi-pce",
+    "question": "Vad skiljer CPI från PCE:s prisindex?",
+    "category": "macro",
+    "conceptRefs": [
+      "macro",
+      "inflation"
+    ],
+    "intent": "comparison",
+    "batch": "3a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "CPI vs PCE",
+      "Vad är skillnaden mellan CPI och PCE?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "macro-releases",
+        "type": "prerequisite"
+      },
+      {
+        "id": "headline-core",
+        "type": "next-question"
+      },
+      {
+        "id": "mom-yoy",
+        "type": "common-confusion"
+      }
+    ],
+    "lessons": [
+      "inflation"
+    ],
+    "entities": [
+      "macro-calendar"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "debt-maturity",
+    "question": "Varför kan skuldförfall vara viktigare än nettoskuldens storlek?",
+    "category": "metrics",
+    "conceptRefs": [
+      "debt"
+    ],
+    "intent": "interpretation",
+    "batch": "later-a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "skuldförfall och nettoskuld",
+      "när skulderna förfaller"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "debt",
+        "type": "prerequisite"
+      },
+      {
+        "id": "balance-sheet",
+        "type": "prerequisite"
+      },
+      {
+        "id": "liquidity",
+        "type": "common-confusion"
+      }
+    ],
+    "lessons": [
+      "financial-statements"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "discounting",
+    "question": "Varför påverkar avkastningskravet ett framtida belopps nuvärde?",
+    "category": "valuation",
+    "conceptRefs": [
+      "discounting"
+    ],
+    "intent": "interpretation",
+    "batch": "later-b",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "diskontering och avkastningskrav",
+      "nuvärde av framtida belopp"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "valuation-sensitivity",
+        "type": "prerequisite"
+      },
+      {
+        "id": "nominal-real",
+        "type": "common-confusion"
+      }
+    ],
+    "lessons": [
+      "scenarios"
+    ],
+    "entities": [
+      "tool-valuation"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "drawdown",
+    "question": "Vad betyder drawdown?",
+    "category": "risk",
+    "conceptRefs": [
+      "drawdown"
+    ],
+    "intent": "definition",
+    "batch": "2a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-09-19",
+    "aliases": [
+      "Vad är drawdown?",
+      "nedgång från tidigare topp"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "cagr",
+        "type": "prerequisite"
+      },
+      {
+        "id": "loss-recovery",
+        "type": "next-question"
+      },
+      {
+        "id": "volatility-risk",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "risk"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "earnings-surprise",
+    "question": "Hur jämför jag rapporterat utfall med ett daterat estimat?",
+    "category": "reports",
+    "conceptRefs": [
+      "earnings"
+    ],
+    "intent": "calculation",
+    "batch": "1d",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "Hur räknar jag rapportöverraskning?",
+      "utfall mot daterat estimat"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "earnings",
+        "type": "prerequisite"
+      },
+      {
+        "id": "guidance-consensus",
+        "type": "prerequisite"
+      },
+      {
+        "id": "reported-adjusted",
+        "type": "common-confusion"
+      },
+      {
+        "id": "estimate-age",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "forward-metrics"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 3
+  },
+  {
+    "id": "ebit-ebitda",
+    "question": "Vad skiljer EBIT från EBITDA?",
+    "category": "metrics",
+    "conceptRefs": [
+      "ebitda"
+    ],
+    "intent": "comparison",
+    "batch": "later-a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "EBIT vs EBITDA",
+      "skillnad EBIT EBITDA"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "income-statement",
+        "type": "prerequisite"
+      },
+      {
+        "id": "fcf-limitations",
+        "type": "common-confusion"
+      },
+      {
+        "id": "capex",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "financial-statements"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "enterprise-value",
+    "question": "Vad betyder enterprise value?",
+    "category": "valuation",
+    "conceptRefs": [
+      "enterprise-value"
+    ],
+    "intent": "definition",
+    "batch": "later-a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-09-19",
+    "aliases": [
+      "Vad är EV?",
+      "Vad är enterprise value?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "market-cap",
+        "type": "prerequisite"
+      },
+      {
+        "id": "debt",
+        "type": "prerequisite"
+      },
+      {
+        "id": "ev-market-cap",
+        "type": "next-question"
+      }
+    ],
+    "lessons": [
+      "enterprise-value"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "estimate-age",
+    "question": "Hur bedömer jag om ett estimat är för gammalt för min jämförelse?",
+    "category": "reports",
+    "conceptRefs": [
+      "outlook"
+    ],
+    "intent": "process",
+    "batch": "1d",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "Hur gammalt får ett estimat vara?",
+      "estimatets observationsdatum"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "estimates",
+        "type": "prerequisite"
+      },
+      {
+        "id": "guidance-consensus",
+        "type": "common-confusion"
+      },
+      {
+        "id": "source-provenance",
+        "type": "deeper"
+      },
+      {
+        "id": "earnings-surprise",
+        "type": "next-question"
+      }
+    ],
+    "lessons": [
+      "forward-metrics"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 3
+  },
+  {
+    "id": "estimate-dispersion",
+    "question": "Vad säger spridningen mellan analytikerestimat?",
+    "category": "reports",
+    "conceptRefs": [
+      "outlook"
+    ],
+    "intent": "interpretation",
+    "batch": "3b",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "spridning i konsensus",
+      "analytikerestimatens spridning"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "estimates",
+        "type": "prerequisite"
+      },
+      {
+        "id": "estimate-age",
+        "type": "prerequisite"
+      },
+      {
+        "id": "guidance-consensus",
+        "type": "common-confusion"
+      }
+    ],
+    "lessons": [
+      "forward-metrics"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "etf",
+    "question": "Vad är en ETF?",
+    "category": "basics",
+    "conceptRefs": [
+      "etf",
+      "fund"
+    ],
+    "intent": "definition",
+    "batch": "2bc",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-09-19",
+    "aliases": [
+      "Vad betyder ETF?",
+      "börshandlad fond"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "fund",
+        "type": "prerequisite"
+      },
+      {
+        "id": "fund-etf",
+        "type": "deeper"
+      },
+      {
+        "id": "index",
+        "type": "common-confusion"
+      }
+    ],
+    "lessons": [
+      "etf"
+    ],
+    "entities": [
+      "tool-fees"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "ev-ebitda-limits",
+    "question": "Vilka begränsningar har EV/EBITDA?",
+    "category": "valuation",
+    "conceptRefs": [
+      "enterprise-value",
+      "ebitda"
+    ],
+    "intent": "limitation",
+    "batch": "later-a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "begränsningar EV EBITDA",
+      "Är EBITDA fritt kassaflöde?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "enterprise-value",
+        "type": "prerequisite"
+      },
+      {
+        "id": "ebit-ebitda",
+        "type": "prerequisite"
+      },
+      {
+        "id": "fcf-limitations",
+        "type": "common-confusion"
+      }
+    ],
+    "lessons": [
+      "enterprise-value"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "ev-market-cap",
+    "question": "Vad skiljer enterprise value från börsvärde?",
+    "category": "valuation",
+    "conceptRefs": [
+      "enterprise-value",
+      "market-cap"
+    ],
+    "intent": "comparison",
+    "batch": "later-a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "EV vs börsvärde",
+      "enterprise value vs market cap"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "enterprise-value",
+        "type": "prerequisite"
+      },
+      {
+        "id": "market-cap",
+        "type": "prerequisite"
+      },
+      {
+        "id": "ev-ebitda-limits",
+        "type": "next-question"
+      }
+    ],
+    "lessons": [
+      "enterprise-value"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "fact-assumption",
+    "question": "Hur skiljer jag fakta från antaganden i en investeringstes?",
+    "category": "risk",
+    "conceptRefs": [
+      "thesis"
+    ],
+    "intent": "process",
+    "batch": "1c",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "fakta eller antagande",
+      "Hur skiljer jag observation från antagande?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "thesis",
+        "type": "prerequisite"
+      },
+      {
+        "id": "source-provenance",
+        "type": "deeper"
+      },
+      {
+        "id": "falsification",
+        "type": "next-question"
+      }
+    ],
+    "lessons": [
+      "thesis"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "falsification",
+    "question": "Hur formulerar jag ett motbevis som går att följa upp?",
+    "category": "risk",
+    "conceptRefs": [
+      "thesis"
+    ],
+    "intent": "application",
+    "batch": "1c",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "Hur motbevisar jag min tes?",
+      "Hur följer jag upp ett motbevis?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "thesis",
+        "type": "prerequisite"
+      },
+      {
+        "id": "fact-assumption",
+        "type": "prerequisite"
+      },
+      {
+        "id": "source-provenance",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "thesis"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "fcf-limitations",
+    "question": "När blir en jämförelse av fritt kassaflöde missvisande?",
+    "category": "metrics",
+    "conceptRefs": [
+      "fcf"
+    ],
+    "intent": "limitation",
+    "batch": "preserved",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "Är högt FCF alltid bra?",
+      "begränsningar med FCF",
+      "jämföra fritt kassaflöde"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "fcf",
+        "type": "prerequisite"
+      },
+      {
+        "id": "cash-flow-statement",
+        "type": "prerequisite"
+      },
+      {
+        "id": "capex",
+        "type": "prerequisite"
+      },
+      {
+        "id": "working-capital",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "fcf",
+      "financial-statements"
+    ],
+    "entities": [
+      "research-nvda",
+      "tool-valuation"
+    ],
+    "sourceCount": 3
+  },
+  {
+    "id": "fee-double-count",
+    "question": "Hur undviker jag att dra av samma avgift två gånger?",
+    "category": "saving",
+    "conceptRefs": [
+      "fees",
+      "compounding"
+    ],
+    "intent": "misconception",
+    "batch": "2a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "avgift redan avdragen",
+      "dubbelräkna fondavgiften"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "fees",
+        "type": "prerequisite"
+      },
+      {
+        "id": "annual-fees",
+        "type": "prerequisite"
+      }
+    ],
+    "lessons": [
+      "fees"
+    ],
+    "entities": [
+      "tool-fees"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "fiscal-calendar",
+    "question": "Vad skiljer räkenskapsår från kalenderår i en rapport?",
+    "category": "reports",
+    "conceptRefs": [
+      "ttm"
+    ],
+    "intent": "comparison",
+    "batch": "3b",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "räkenskapsår vs kalenderår",
+      "FY och kalenderår"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "ttm",
+        "type": "prerequisite"
+      },
+      {
+        "id": "ttm-construction",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "forward-metrics"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "fund-etf",
+    "question": "Vad skiljer handel i en ETF från handel i en traditionell fond?",
+    "category": "basics",
+    "conceptRefs": [
+      "etf",
+      "fund"
+    ],
+    "intent": "comparison",
+    "batch": "2bc",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "ETF vs traditionell fondhandel",
+      "fondhandel mot NAV eller börspris"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "etf",
+        "type": "prerequisite"
+      },
+      {
+        "id": "fund",
+        "type": "prerequisite"
+      },
+      {
+        "id": "liquidity",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "etf"
+    ],
+    "entities": [
+      "tool-fees"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "fund-overlap",
+    "question": "Hur upptäcker jag överlapp mellan fondinnehav?",
+    "category": "risk",
+    "conceptRefs": [
+      "diversification",
+      "fund"
+    ],
+    "intent": "process",
+    "batch": "2bc",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "överlapp mellan fonder",
+      "samma aktie i flera fonder"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "concentration",
+        "type": "prerequisite"
+      },
+      {
+        "id": "fund",
+        "type": "prerequisite"
+      },
+      {
+        "id": "source-provenance",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "diversifiering"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "fund",
+    "question": "Vad är en fond?",
+    "category": "basics",
+    "conceptRefs": [
+      "fund"
+    ],
+    "intent": "definition",
+    "batch": "2bc",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-09-19",
+    "aliases": [
+      "Vad betyder fond?",
+      "fondandel"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "diversification",
+        "type": "prerequisite"
+      },
+      {
+        "id": "etf",
+        "type": "next-question"
+      },
+      {
+        "id": "active-passive",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "fonder"
+    ],
+    "entities": [
+      "tool-fees"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "gross-margin",
+    "question": "Hur räknar jag bruttomarginal på jämförbara intäkter och kostnader?",
+    "category": "metrics",
+    "conceptRefs": [
+      "margins",
+      "revenue"
+    ],
+    "intent": "calculation",
+    "batch": "later-a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "Hur räknar jag bruttomarginal?",
+      "bruttomarginal i procent"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "margins",
+        "type": "prerequisite"
+      },
+      {
+        "id": "income-statement",
+        "type": "prerequisite"
+      }
+    ],
+    "lessons": [
+      "financial-statements"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "guidance-consensus",
+    "question": "Vad skiljer bolagets guidance från analytikerkonsensus?",
+    "category": "reports",
+    "conceptRefs": [
+      "outlook"
+    ],
+    "intent": "comparison",
+    "batch": "1d",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "guidance vs konsensus",
+      "bolagsprognos eller analytikerkonsensus"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "guidance",
+        "type": "prerequisite"
+      },
+      {
+        "id": "estimates",
+        "type": "prerequisite"
+      },
+      {
+        "id": "earnings-surprise",
+        "type": "next-question"
+      },
+      {
+        "id": "estimate-age",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "forward-metrics"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 3
+  },
+  {
+    "id": "guidance-revision",
+    "question": "Hur jämför jag två versioner av bolagets guidance?",
+    "category": "reports",
+    "conceptRefs": [
+      "outlook"
+    ],
+    "intent": "process",
+    "batch": "3b",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "jämföra guidanceversioner",
+      "ändrad bolagsguidance"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "guidance-consensus",
+        "type": "prerequisite"
+      },
+      {
+        "id": "source-provenance",
+        "type": "prerequisite"
+      },
+      {
+        "id": "estimate-age",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "forward-metrics"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "headline-core",
+    "question": "Vad skiljer total inflation från kärninflation?",
+    "category": "macro",
+    "conceptRefs": [
+      "inflation",
+      "macro"
+    ],
+    "intent": "comparison",
+    "batch": "3a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "headline vs core",
+      "totalinflation och kärninflation"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "inflation",
+        "type": "prerequisite"
+      },
+      {
+        "id": "cpi-pce",
+        "type": "common-confusion"
+      }
+    ],
+    "lessons": [
+      "inflation"
+    ],
+    "entities": [
+      "macro-calendar"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "income-statement",
+    "question": "Vad visar en resultaträkning?",
+    "category": "reports",
+    "conceptRefs": [
+      "income-statement"
+    ],
+    "intent": "definition",
+    "batch": "preserved",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "resultaträkning",
+      "income statement",
+      "Vad är en resultaträkning?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "balance-sheet",
+        "type": "prerequisite"
+      },
+      {
+        "id": "cash-flow-statement",
+        "type": "next-question"
+      },
+      {
+        "id": "profit-versus-cash",
+        "type": "common-confusion"
+      },
+      {
+        "id": "revenue",
+        "type": "related-metric"
+      },
+      {
+        "id": "eps",
+        "type": "related-metric"
+      },
+      {
+        "id": "margins",
+        "type": "related-metric"
+      }
+    ],
+    "lessons": [
+      "financial-statements",
+      "revenue",
+      "eps"
+    ],
+    "entities": [
+      "research-nvda"
+    ],
+    "sourceCount": 3
+  },
+  {
+    "id": "index-weighting",
+    "question": "Vad betyder det att ett index är börsvärdesviktat?",
+    "category": "basics",
+    "conceptRefs": [
+      "index",
+      "market-cap"
+    ],
+    "intent": "definition",
+    "batch": "later-b",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-09-19",
+    "aliases": [
+      "börsvärdesviktat index",
+      "market cap viktning"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "index",
+        "type": "prerequisite"
+      },
+      {
+        "id": "market-cap",
+        "type": "prerequisite"
+      },
+      {
+        "id": "concentration",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "diversifiering"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "index",
+    "question": "Vad är ett aktieindex?",
+    "category": "basics",
+    "conceptRefs": [
+      "index"
+    ],
+    "intent": "definition",
+    "batch": "2bc",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-09-19",
+    "aliases": [
+      "Vad betyder aktieindex?",
+      "Vad är ett marknadsindex?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "market-cap",
+        "type": "prerequisite"
+      },
+      {
+        "id": "etf",
+        "type": "common-confusion"
+      },
+      {
+        "id": "active-passive",
+        "type": "next-question"
+      }
+    ],
+    "lessons": [
+      "diversifiering"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "isk-inputs",
+    "question": "Vilka värden och insättningar behöver jag för ISK-kalkylatorn?",
+    "category": "saving",
+    "conceptRefs": [
+      "isk"
+    ],
+    "intent": "application",
+    "batch": "tax",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-01",
+    "aliases": [
+      "indata till ISK-kalkylatorn",
+      "kvartalsvärden för ISK"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "isk",
+        "type": "prerequisite"
+      },
+      {
+        "id": "isk-year-scope",
+        "type": "common-confusion"
+      }
+    ],
+    "lessons": [
+      "isk"
+    ],
+    "entities": [
+      "tool-tax"
+    ],
+    "sourceCount": 3
+  },
+  {
+    "id": "isk-year-scope",
+    "question": "Varför måste inkomståret anges i en ISK-beräkning?",
+    "category": "saving",
+    "conceptRefs": [
+      "isk"
+    ],
+    "intent": "limitation",
+    "batch": "tax",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-01",
+    "aliases": [
+      "inkomstår i ISK-beräkning",
+      "ISK inkomstår eller deklarationsår"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "isk",
+        "type": "prerequisite"
+      },
+      {
+        "id": "isk-inputs",
+        "type": "next-question"
+      }
+    ],
+    "lessons": [
+      "isk"
+    ],
+    "entities": [
+      "tool-tax"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "jobs-unemployment",
+    "question": "Varför kan payrolls och arbetslöshet ge olika bilder?",
+    "category": "macro",
+    "conceptRefs": [
+      "macro"
+    ],
+    "intent": "comparison",
+    "batch": "3a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "payrolls vs arbetslöshet",
+      "CES och CPS"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "macro-releases",
+        "type": "prerequisite"
+      },
+      {
+        "id": "macro-revisions",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "inflation"
+    ],
+    "entities": [
+      "macro-calendar"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "leverage-downside",
+    "question": "Hur förstärker hävstång både vinst och förlust?",
+    "category": "risk",
+    "conceptRefs": [
+      "leverage"
+    ],
+    "intent": "calculation",
+    "batch": "2a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "belåning förstärker förlust",
+      "Hur fungerar hävstångens nedsida?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "loss-recovery",
+        "type": "prerequisite"
+      },
+      {
+        "id": "volatility-risk",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "risk"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "liquidity",
+    "question": "Vad betyder likviditet för en investering?",
+    "category": "risk",
+    "conceptRefs": [
+      "liquidity"
+    ],
+    "intent": "definition",
+    "batch": "2bc",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-09-19",
+    "aliases": [
+      "Vad är marknadslikviditet?",
+      "likviditet i en aktie"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "risk-horizon",
+        "type": "prerequisite"
+      },
+      {
+        "id": "volatility-risk",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "risk"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "loss-recovery",
+    "question": "Hur stor uppgång krävs för att återhämta en procentuell förlust?",
+    "category": "risk",
+    "conceptRefs": [
+      "drawdown",
+      "compounding"
+    ],
+    "intent": "calculation",
+    "batch": "2a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "Hur mycket måste det stiga efter 50 procents fall?",
+      "50 procent förlust kräver 100 procent uppgång"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "drawdown",
+        "type": "prerequisite"
+      },
+      {
+        "id": "arithmetic-geometric",
+        "type": "common-confusion"
+      },
+      {
+        "id": "leverage-downside",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "risk"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "macro-no-forecast",
+    "question": "Varför ger ett makroutfall ingen säker riktning för börsen?",
+    "category": "macro",
+    "conceptRefs": [
+      "macro"
+    ],
+    "intent": "limitation",
+    "batch": "3a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "Betyder stark CPI att börsen faller?",
+      "makroutfall ger ingen säker börsriktning"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "macro-releases",
+        "type": "prerequisite"
+      },
+      {
+        "id": "fact-assumption",
+        "type": "prerequisite"
+      },
+      {
+        "id": "macro-revisions",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "inflation"
+    ],
+    "entities": [
+      "macro-calendar"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "macro-revisions",
+    "question": "Hur läser jag reviderade makrovärden utan att blanda versioner?",
+    "category": "macro",
+    "conceptRefs": [
+      "macro"
+    ],
+    "intent": "process",
+    "batch": "3a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "reviderade makrovärden",
+      "makrodata och vintage"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "source-provenance",
+        "type": "prerequisite"
+      },
+      {
+        "id": "seasonal-adjustment",
+        "type": "common-confusion"
+      },
+      {
+        "id": "estimate-age",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "inflation"
+    ],
+    "entities": [
+      "macro-calendar"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "mom-yoy",
+    "question": "Vad skiljer månadsförändring från årsförändring?",
+    "category": "macro",
+    "conceptRefs": [
+      "macro"
+    ],
+    "intent": "comparison",
+    "batch": "3a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "MoM vs YoY",
+      "månadsförändring eller årsförändring"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "macro-releases",
+        "type": "prerequisite"
+      },
+      {
+        "id": "seasonal-adjustment",
+        "type": "next-question"
+      }
+    ],
+    "lessons": [
+      "inflation"
+    ],
+    "entities": [
+      "macro-calendar"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "nominal-real",
+    "question": "Vad skiljer nominell från real avkastning?",
+    "category": "saving",
+    "conceptRefs": [
+      "return",
+      "inflation"
+    ],
+    "intent": "comparison",
+    "batch": "2a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "nominell vs real avkastning",
+      "avkastning efter inflation"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "cagr",
+        "type": "prerequisite"
+      },
+      {
+        "id": "inflation",
+        "type": "prerequisite"
+      }
+    ],
+    "lessons": [
+      "avkastning"
+    ],
+    "entities": [
+      "tool-return"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "order-spread",
+    "question": "Vad är köp- och säljspread?",
+    "category": "basics",
+    "conceptRefs": [
+      "spread"
+    ],
+    "intent": "definition",
+    "batch": "later-b",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-09-19",
+    "aliases": [
+      "Vad är bid ask spread?",
+      "köpkurs och säljkurs"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "liquidity",
+        "type": "prerequisite"
+      },
+      {
+        "id": "fees",
+        "type": "common-confusion"
+      },
+      {
+        "id": "fund-etf",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "fees"
+    ],
+    "entities": [
+      "tool-purchase"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "pe-interpretation",
+    "question": "Vad behöver jag kontrollera innan jag tolkar ett P/E-tal?",
+    "category": "valuation",
+    "conceptRefs": [
+      "pe"
+    ],
+    "intent": "interpretation",
+    "batch": "preserved",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "Är P/E 40 dyrt?",
+      "Är P/E dyrt?",
+      "Är högt P/E dåligt?",
+      "tolka P/E",
+      "Hur tolkar jag P/E?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "pe",
+        "type": "prerequisite"
+      },
+      {
+        "id": "forward",
+        "type": "common-confusion"
+      },
+      {
+        "id": "reported-adjusted",
+        "type": "prerequisite"
+      },
+      {
+        "id": "pe-losses",
+        "type": "deeper"
+      },
+      {
+        "id": "debt",
+        "type": "related-metric"
+      },
+      {
+        "id": "estimates",
+        "type": "related-metric"
+      }
+    ],
+    "lessons": [
+      "pe"
+    ],
+    "entities": [
+      "research-nvda",
+      "tool-valuation"
+    ],
+    "sourceCount": 5
+  },
+  {
+    "id": "pe-losses",
+    "question": "Varför är P/E svårt att använda vid negativ eller nära noll vinst?",
+    "category": "valuation",
+    "conceptRefs": [
+      "pe"
+    ],
+    "intent": "limitation",
+    "batch": "preserved",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "Negativt P/E betyder billig aktie?",
+      "negativt P/E",
+      "P/E nära noll vinst",
+      "P/E vid förlust"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "pe",
+        "type": "prerequisite"
+      },
+      {
+        "id": "eps",
+        "type": "prerequisite"
+      },
+      {
+        "id": "pe-interpretation",
+        "type": "next-question"
+      },
+      {
+        "id": "ps",
+        "type": "related-metric"
+      },
+      {
+        "id": "fcf-limitations",
+        "type": "related-metric"
+      }
+    ],
+    "lessons": [
+      "pe",
+      "eps"
+    ],
+    "entities": [
+      "research-nvda",
+      "tool-valuation"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "pe-versus-ps",
+    "question": "Vad skiljer P/E från P/S?",
+    "category": "valuation",
+    "conceptRefs": [
+      "pe",
+      "ps"
+    ],
+    "intent": "comparison",
+    "batch": "preserved",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "P/E vs P/S",
+      "P/E eller P/S, vilken är bäst?",
+      "PE vs PS",
+      "jämför P/E och P/S"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "pe",
+        "type": "prerequisite"
+      },
+      {
+        "id": "ps",
+        "type": "prerequisite"
+      },
+      {
+        "id": "revenue",
+        "type": "prerequisite"
+      },
+      {
+        "id": "pe-losses",
+        "type": "deeper"
+      },
+      {
+        "id": "margins",
+        "type": "related-metric"
+      },
+      {
+        "id": "pe-interpretation",
+        "type": "next-question"
+      }
+    ],
+    "lessons": [
+      "pe",
+      "revenue"
+    ],
+    "entities": [
+      "research-nvda",
+      "tool-valuation"
+    ],
+    "sourceCount": 3
+  },
+  {
+    "id": "peg-limitations",
+    "question": "När blir PEG missvisande?",
+    "category": "valuation",
+    "conceptRefs": [
+      "peg",
+      "pe"
+    ],
+    "intent": "limitation",
+    "batch": "later-a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "begränsningar med PEG",
+      "PEG under ett är inte automatiskt billigt"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "peg",
+        "type": "prerequisite"
+      },
+      {
+        "id": "pe-losses",
+        "type": "common-confusion"
+      },
+      {
+        "id": "estimate-age",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "pe"
+    ],
+    "entities": [
+      "tool-valuation"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "price-value",
+    "question": "Är en aktie med låg kurs automatiskt billig?",
+    "category": "basics",
+    "conceptRefs": [
+      "market-cap",
+      "pe"
+    ],
+    "intent": "misconception",
+    "batch": "later-b",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "låg aktiekurs betyder inte billig",
+      "billig kurs och börsvärde"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "market-cap",
+        "type": "prerequisite"
+      },
+      {
+        "id": "pe-interpretation",
+        "type": "deeper"
+      },
+      {
+        "id": "split-dilution",
+        "type": "common-confusion"
+      }
+    ],
+    "lessons": [
+      "aktier"
+    ],
+    "entities": [
+      "tool-purchase"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "profit-versus-cash",
+    "question": "Varför kan vinst och kassaflöde skilja sig?",
+    "category": "reports",
+    "conceptRefs": [
+      "income-statement",
+      "cash-flow-statement"
+    ],
+    "intent": "comparison",
+    "batch": "preserved",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "vinst och kassaflöde",
+      "resultat jämfört med kassaflöde",
+      "Varför är vinst inte samma sak som kassaflöde?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "income-statement",
+        "type": "prerequisite"
+      },
+      {
+        "id": "cash-flow-statement",
+        "type": "prerequisite"
+      },
+      {
+        "id": "working-capital",
+        "type": "deeper"
+      },
+      {
+        "id": "capex",
+        "type": "deeper"
+      },
+      {
+        "id": "fcf",
+        "type": "related-metric"
+      }
+    ],
+    "lessons": [
+      "financial-statements",
+      "fcf"
+    ],
+    "entities": [
+      "research-nvda"
+    ],
+    "sourceCount": 3
+  },
+  {
+    "id": "ps",
+    "question": "Vad betyder P/S?",
+    "category": "valuation",
+    "conceptRefs": [
+      "ps"
+    ],
+    "intent": "definition",
+    "batch": "preserved",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "P/S",
+      "PS",
+      "Vad är P/S?",
+      "price to sales",
+      "pris omsättning"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "revenue",
+        "type": "prerequisite"
+      },
+      {
+        "id": "market-cap",
+        "type": "prerequisite"
+      },
+      {
+        "id": "pe-versus-ps",
+        "type": "next-question"
+      },
+      {
+        "id": "margins",
+        "type": "related-metric"
+      },
+      {
+        "id": "debt",
+        "type": "related-metric"
+      }
+    ],
+    "lessons": [
+      "revenue"
+    ],
+    "entities": [
+      "research-nvda",
+      "tool-valuation"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "real-nominal-gdp",
+    "question": "Vad skiljer real från nominell BNP?",
+    "category": "macro",
+    "conceptRefs": [
+      "macro"
+    ],
+    "intent": "comparison",
+    "batch": "3a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "real vs nominell BNP",
+      "nominell BNP och real BNP"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "nominal-real",
+        "type": "common-confusion"
+      },
+      {
+        "id": "macro-revisions",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "inflation"
+    ],
+    "entities": [
+      "macro-calendar"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "report-snapshot",
+    "question": "Vad betyder datum och version när jag läser en publicerad NTM-analys?",
+    "category": "risk",
+    "conceptRefs": [
+      "thesis"
+    ],
+    "intent": "application",
+    "batch": "3b",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "datum och version i offentlig analys",
+      "Vad är en fryst NTM-rapport?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "thesis",
+        "type": "prerequisite"
+      },
+      {
+        "id": "source-provenance",
+        "type": "prerequisite"
+      },
+      {
+        "id": "update-thesis",
+        "type": "common-confusion"
+      }
+    ],
+    "lessons": [
+      "thesis"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "reported-adjusted",
+    "question": "Vad skiljer rapporterad från justerad vinst?",
+    "category": "metrics",
+    "conceptRefs": [
+      "eps"
+    ],
+    "intent": "comparison",
+    "batch": "preserved",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "rapporterad vs justerad vinst",
+      "GAAP vs non-GAAP",
+      "Adjusted earnings är väl den riktiga vinsten?",
+      "Vad är justerad vinst?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "eps",
+        "type": "prerequisite"
+      },
+      {
+        "id": "eps-comparison",
+        "type": "common-confusion"
+      },
+      {
+        "id": "pe-interpretation",
+        "type": "next-question"
+      }
+    ],
+    "lessons": [
+      "eps"
+    ],
+    "entities": [
+      "research-nvda",
+      "tool-valuation"
+    ],
+    "sourceCount": 3
+  },
+  {
+    "id": "revenue-growth",
+    "question": "Hur skiljer jag organisk tillväxt från förvärv och valuta?",
+    "category": "metrics",
+    "conceptRefs": [
+      "revenue",
+      "fx"
+    ],
+    "intent": "interpretation",
+    "batch": "3b",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "organisk tillväxt och valuta",
+      "omsättningstillväxt från förvärv"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "revenue",
+        "type": "prerequisite"
+      },
+      {
+        "id": "fx",
+        "type": "prerequisite"
+      },
+      {
+        "id": "reported-adjusted",
+        "type": "common-confusion"
+      }
+    ],
+    "lessons": [
+      "revenue"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "risk-horizon",
+    "question": "Varför behöver tidshorisonten vara tydlig innan jag väljer risk?",
+    "category": "risk",
+    "conceptRefs": [
+      "time-horizon"
+    ],
+    "intent": "application",
+    "batch": "2bc",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "tidshorisont och risk",
+      "när pengarna behövs"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "volatility-risk",
+        "type": "prerequisite"
+      },
+      {
+        "id": "savings-target",
+        "type": "next-question"
+      },
+      {
+        "id": "liquidity",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "risk"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "savings-target",
+    "question": "Hur tolkar jag tiden till ett sparmål när avkastningen är ett antagande?",
+    "category": "saving",
+    "conceptRefs": [
+      "compounding"
+    ],
+    "intent": "interpretation",
+    "batch": "2a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "Är spartiden en garanti?",
+      "tolka beräknad tid till sparmål"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "compounding",
+        "type": "prerequisite"
+      },
+      {
+        "id": "contribution-timing",
+        "type": "common-confusion"
+      },
+      {
+        "id": "nominal-real",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "compounding"
+    ],
+    "entities": [
+      "workflow-goal-followup"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "scenario-design",
+    "question": "Hur bygger jag jämförbara bear-, base- och bull-scenarier?",
+    "category": "risk",
+    "conceptRefs": [
+      "thesis"
+    ],
+    "intent": "process",
+    "batch": "1c",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "bygga bear base bull",
+      "Hur bygger jag jämförbara scenarier?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "thesis",
+        "type": "prerequisite"
+      },
+      {
+        "id": "fact-assumption",
+        "type": "prerequisite"
+      },
+      {
+        "id": "forward",
+        "type": "common-confusion"
+      },
+      {
+        "id": "pe-interpretation",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "scenarios"
+    ],
+    "entities": [
+      "tool-scenarios"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "scenario-probability",
+    "question": "Är ett bear-, base- eller bull-scenario en sannolikhetsprognos?",
+    "category": "risk",
+    "conceptRefs": [
+      "thesis"
+    ],
+    "intent": "misconception",
+    "batch": "3b",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "bear base bull sannolikheter",
+      "Är base case mest sannolikt?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "scenario-design",
+        "type": "prerequisite"
+      },
+      {
+        "id": "fact-assumption",
+        "type": "common-confusion"
+      }
+    ],
+    "lessons": [
+      "thesis"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "seasonal-adjustment",
+    "question": "Vad betyder säsongsjusterat i ett makrosläpp?",
+    "category": "macro",
+    "conceptRefs": [
+      "macro"
+    ],
+    "intent": "definition",
+    "batch": "3a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "Vad är säsongsjustering?",
+      "seasonally adjusted"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "mom-yoy",
+        "type": "prerequisite"
+      },
+      {
+        "id": "macro-revisions",
+        "type": "next-question"
+      }
+    ],
+    "lessons": [
+      "inflation"
+    ],
+    "entities": [
+      "macro-calendar"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "sequence-risk",
+    "question": "Varför spelar avkastningens ordning roll när jag gör uttag?",
+    "category": "saving",
+    "conceptRefs": [
+      "return"
+    ],
+    "intent": "interpretation",
+    "batch": "later-b",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "sekvensrisk vid uttag",
+      "ordningen på avkastningen"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "cashflow-return",
+        "type": "prerequisite"
+      },
+      {
+        "id": "arithmetic-geometric",
+        "type": "common-confusion"
+      }
+    ],
+    "lessons": [
+      "avkastning"
+    ],
+    "entities": [
+      "tool-return"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "source-provenance",
+    "question": "Vilka källuppgifter behöver jag spara för ett analysantagande?",
+    "category": "risk",
+    "conceptRefs": [
+      "thesis"
+    ],
+    "intent": "process",
+    "batch": "1c",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "källunderlag för antaganden",
+      "Hur dokumenterar jag källor i Research?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "fact-assumption",
+        "type": "prerequisite"
+      },
+      {
+        "id": "eps-comparison",
+        "type": "common-confusion"
+      },
+      {
+        "id": "estimates",
+        "type": "related-metric"
+      }
+    ],
+    "lessons": [
+      "thesis"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "split-dilution",
+    "question": "Vad skiljer en aktiesplit från utspädning?",
+    "category": "basics",
+    "conceptRefs": [
+      "shares"
+    ],
+    "intent": "comparison",
+    "batch": "later-b",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "split vs utspädning",
+      "aktiesplit och ägarandel"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "asset-ownership",
+        "type": "prerequisite"
+      },
+      {
+        "id": "dilution",
+        "type": "prerequisite"
+      },
+      {
+        "id": "gav",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "dilution"
+    ],
+    "entities": [
+      "tool-purchase"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "ttm-construction",
+    "question": "Hur bygger jag TTM utan att dubbelräkna ackumulerade kvartal?",
+    "category": "reports",
+    "conceptRefs": [
+      "ttm"
+    ],
+    "intent": "calculation",
+    "batch": "1d",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "TTM från ackumulerade kvartal",
+      "Hur räknar jag TTM från YTD?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "ttm",
+        "type": "prerequisite"
+      },
+      {
+        "id": "income-statement",
+        "type": "prerequisite"
+      },
+      {
+        "id": "eps-comparison",
+        "type": "common-confusion"
+      }
+    ],
+    "lessons": [
+      "forward-metrics"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 3
+  },
+  {
+    "id": "update-thesis",
+    "question": "Hur uppdaterar jag en tes utan att skriva om dess historik?",
+    "category": "risk",
+    "conceptRefs": [
+      "thesis"
+    ],
+    "intent": "process",
+    "batch": "3b",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "uppdatera tes med historik",
+      "bevara gammal tesversion"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "thesis",
+        "type": "prerequisite"
+      },
+      {
+        "id": "fact-assumption",
+        "type": "prerequisite"
+      },
+      {
+        "id": "source-provenance",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "thesis"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "valuation-sensitivity",
+    "question": "Hur undersöker jag vilket antagande som driver min värdering?",
+    "category": "risk",
+    "conceptRefs": [
+      "thesis",
+      "pe"
+    ],
+    "intent": "application",
+    "batch": "3b",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "känslighet i värdering",
+      "vilket antagande driver scenariot"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "pe",
+        "type": "prerequisite"
+      },
+      {
+        "id": "scenario-design",
+        "type": "prerequisite"
+      },
+      {
+        "id": "pe-interpretation",
+        "type": "deeper"
+      }
+    ],
+    "lessons": [
+      "scenarios"
+    ],
+    "entities": [
+      "tool-scenarios"
+    ],
+    "sourceCount": 1
+  },
+  {
+    "id": "volatility-risk",
+    "question": "Är volatilitet samma sak som risken att förlora pengar permanent?",
+    "category": "risk",
+    "conceptRefs": [
+      "volatility",
+      "diversification"
+    ],
+    "intent": "comparison",
+    "batch": "2a",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2027-03-18",
+    "aliases": [
+      "volatilitet vs permanent förlust",
+      "Är låg volatilitet säkert?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "diversification",
+        "type": "prerequisite"
+      },
+      {
+        "id": "drawdown",
+        "type": "common-confusion"
+      }
+    ],
+    "lessons": [
+      "risk"
+    ],
+    "entities": [
+      "workflow-manual-thesis"
+    ],
+    "sourceCount": 2
+  },
+  {
+    "id": "working-capital",
+    "question": "Hur kan rörelsekapital påverka kassaflödet?",
+    "category": "metrics",
+    "conceptRefs": [
+      "working-capital"
+    ],
+    "intent": "interpretation",
+    "batch": "preserved",
+    "status": "reviewed",
+    "approval": "accepted",
+    "reviewDue": "2026-12-31",
+    "aliases": [
+      "rörelsekapital och kassaflöde",
+      "Hur påverkar kundfordringar kassaflödet?",
+      "Är ökande lager dåligt?",
+      "Är ökande kundfordringar dåligt?",
+      "Är ökande leverantörsskulder bra?"
+    ],
+    "relatedAnswers": [
+      {
+        "id": "balance-sheet",
+        "type": "prerequisite"
+      },
+      {
+        "id": "cash-flow-statement",
+        "type": "prerequisite"
+      },
+      {
+        "id": "profit-versus-cash",
+        "type": "common-confusion"
+      },
+      {
+        "id": "fcf",
+        "type": "related-metric"
+      }
+    ],
+    "lessons": [
+      "financial-statements",
+      "fcf"
+    ],
+    "entities": [
+      "research-nvda"
+    ],
+    "sourceCount": 3
+  }
+]

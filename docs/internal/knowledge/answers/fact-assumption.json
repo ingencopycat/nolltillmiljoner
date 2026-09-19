@@ -1,0 +1,114 @@
+{
+  "id": "fact-assumption",
+  "question": "Hur skiljer jag fakta från antaganden i en investeringstes?",
+  "intent": "process",
+  "category": "risk",
+  "conceptRefs": [
+    "thesis"
+  ],
+  "concepts": [
+    "thesis"
+  ],
+  "relatedLessonIds": [
+    "thesis"
+  ],
+  "aliases": [
+    "fakta eller antagande",
+    "Hur skiljer jag observation från antagande?"
+  ],
+  "shortAnswer": "Skilj det du kan kontrollera i en källa från det du antar och hur du tolkar det. I NTM:s arbetsmetod följer resonemanget källa → observation → antagande → bedömning → slutsats. En prognos blir inte ett framtida faktum för att den har en källa.",
+  "fullAnswer": "Ange först vad källan faktiskt visar, med period och datum. Skriv sedan ditt framtidsantagande separat och förklara varför du använder det. Bedömningen är din tolkning av underlaget; slutsatsen är det resonemang som följer. Ett daterat analytikerkonsensus kan observeras som ett estimat från en viss leverantör. Det bevisar inte det framtida utfallet. Uppdelningen gör det lättare att senare se om ny information ändrar observationen, antagandet eller din bedömning.",
+  "example": "Helt syntetiskt: observationen är att bolaget rapporterade 10 miljarder dollar i omsättning för en angiven period. Antagandet är 25 procents tillväxt nästa år. Bedömningen är att konkurrenspositionen kan stödja antagandet, med en separat motivering. Den historiska omsättningen bevisar inte tillväxtantagandet; ingen sådan framtida omsättning har observerats.",
+  "caveats": "En källa kan innehålla fel eller ändras. Kontrollbar betyder inte ofelbar. Märk estimat, egna antaganden och tolkningar även när siffrorna ser exakta ut. Metoden hjälper dig hålla isär resonemangets delar men ger inget köp- eller säljbesked.",
+  "relatedAnswers": [
+    {
+      "id": "thesis",
+      "type": "prerequisite"
+    },
+    {
+      "id": "source-provenance",
+      "type": "deeper"
+    },
+    {
+      "id": "falsification",
+      "type": "next-question"
+    }
+  ],
+  "sources": [
+    {
+      "title": "NTM: Research, lokal produkt- och metodkontroll",
+      "url": "https://nolltillmiljoner.se/research.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "example",
+        "caveats"
+      ],
+      "checked": "research-review.js fields och thesis-storage.js normalizeRevision: separata antaganden/granskning; kedjan är tydligt märkt NTM-metodik, inte nya fält.",
+      "limitations": "Kontrollerat mot aktuell lokal implementation, inte en ny hosted granskning. Arbetsmetoden är NTM:s pedagogiska förslag, inte en universell investeringsregel.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "CFA Institute: Standard V(B), fakta och åsikter",
+      "url": "https://www.cfainstitute.org/standards/professionals/code-ethics-standards/standards-of-practice-v-b",
+      "supports": [
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Distinction Between Facts and Opinions: estimat och framtida förhållanden ska inte presenteras som fakta.",
+      "limitations": "Professionell standard för dess tillämpningskrets; inget påstående om att NTM-användare lyder under standarden. Siffrorna är syntetiska.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "slug": "fact-assumption",
+  "relatedEntityIds": [
+    "workflow-manual-thesis"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

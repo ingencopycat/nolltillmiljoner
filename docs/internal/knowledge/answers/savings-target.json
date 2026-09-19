@@ -1,0 +1,104 @@
+{
+  "id": "savings-target",
+  "question": "Hur tolkar jag tiden till ett sparmål när avkastningen är ett antagande?",
+  "intent": "interpretation",
+  "category": "saving",
+  "conceptRefs": [
+    "compounding"
+  ],
+  "aliases": [
+    "Är spartiden en garanti?",
+    "tolka beräknad tid till sparmål"
+  ],
+  "shortAnswer": "Tiden till målet är ett modellresultat för de valda insättningarna, startkapitalet och antagandena. Den är inte ett löfte om när målet nås. Läs resultatet tillsammans med vilken avkastning, avgift, köpkraftsbasis och insättningstidpunkt kalkylen använder.",
+  "fullAnswer": "Skriv först vad målet betyder och i vilken penningvärdesbasis det anges. Ändra sedan ett relevant antagande och jämför hur den beräknade tiden påverkas. Skilj planerade insättningar, som också kan ändras, från osäker avkastning. Om modellen inte når målet inom sin beräkningshorisont betyder det inte att ett senare datum har bevisats omöjligt.",
+  "example": "Syntetisk tolkning: en kalkyl visar 12 år med de valda indata. Det betyder ”12 år i detta beräknade förlopp”, inte ”pengarna kommer att finnas om 12 år”. Utan angivna belopp och räntor är detta ett språkligt tolkningsfall, inte en ny härledd 12-årsberäkning.",
+  "caveats": "En jämn avkastningsbana fångar inte alla verkliga förlopp. Inflation, avgifter, skatt och insättningarnas tidpunkt måste läsas enligt den aktuella kalkylens uttryckliga omfattning. Ingen sannolikhet för måluppfyllelse eller personligt sparråd följer av ett enskilt slutdatum.",
+  "relatedAnswers": [
+    {
+      "id": "compounding",
+      "type": "prerequisite"
+    },
+    {
+      "id": "contribution-timing",
+      "type": "common-confusion"
+    },
+    {
+      "id": "nominal-real",
+      "type": "deeper"
+    }
+  ],
+  "sources": [
+    {
+      "title": "NTM: angiven beräkningsmetod och syntetisk algebra",
+      "url": "https://nolltillmiljoner.se/sparmalskalkylator.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats",
+        "example"
+      ],
+      "checked": "script.js getGoalAssumptions/projectGoalValue och sparmålets antagandemodell: indata ger villkorat förlopp, ingen sannolikhetsmodell.",
+      "limitations": "Lokalt metodkontrakt läst och separat Decimal-kontroll krävs före acceptans. Ingen ny exekverbar formel i Fråga NTM.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "concepts": [
+    "compounding"
+  ],
+  "relatedLessonIds": [
+    "compounding"
+  ],
+  "slug": "savings-target",
+  "relatedEntityIds": [
+    "workflow-goal-followup"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "interpretation": {
+      "field": "fullAnswer",
+      "unsuitableField": "caveats"
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

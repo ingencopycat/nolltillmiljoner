@@ -1,0 +1,127 @@
+{
+  "id": "mom-yoy",
+  "question": "Vad skiljer månadsförändring från årsförändring?",
+  "intent": "comparison",
+  "conceptRefs": [
+    "macro"
+  ],
+  "aliases": [
+    "MoM vs YoY",
+    "månadsförändring eller årsförändring"
+  ],
+  "shortAnswer": "MoM jämför ett värde med föregående månad. YoY jämför med samma månad året före. De svarar på olika frågor och kan därför utvecklas olika samtidigt. Procentuell förändring är förändringen delad med den valda jämförelsebasen.",
+  "fullAnswer": "Skriv ut vilken bas som används innan du tolkar talet. För ett positivt index är förändringen aktuellt index / jämförelseindex − 1. En ovanligt hög eller låg nivå i jämförelsemånaden påverkar årstalet. Skillnaden mellan två procenttal anges i procentenheter, vilket inte är samma sak som deras relativa förändring.",
+  "example": "Syntetisk jämförbar indexserie: januari föregående år 100, december 103 och januari nu 104. YoY är 104 / 100 − 1 = 4 procent. MoM är 104 / 103 − 1 ≈ 0,97 procent. Om en inflationstakt går från 4 till 3 procent är förändringen −1 procentenhet.",
+  "caveats": "Blanda inte säsongsjusterade och ojusterade värden i samma kvot. En månadstakt är inte automatiskt en årstakt gånger tolv, och ett årstal förklarar inte ensamt senaste månadens rörelse. Noll eller negativa jämförelsebaser kräver annan tolkning.",
+  "relatedAnswers": [
+    {
+      "id": "macro-releases",
+      "type": "prerequisite"
+    },
+    {
+      "id": "seasonal-adjustment",
+      "type": "next-question"
+    }
+  ],
+  "sources": [
+    {
+      "title": "BLS: CPI Frequently Asked Questions",
+      "url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats"
+      ],
+      "checked": "Overview: CPI-U, all items respektive less food and energy, 1- och 12-månadersförändring samt skilda indexbasis.",
+      "limitations": "USA och den angivna serien/metoden; inga aktuella utfall, prognoser eller universella marknadsreaktioner.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "NTM: uttrycklig förändringsalgebra",
+      "url": "https://nolltillmiljoner.se/makro.html",
+      "supports": [
+        "fullAnswer",
+        "example",
+        "caveats"
+      ],
+      "checked": "Kvoter för två angivna jämförelseperioder oberoende Decimal-kontrolleras.",
+      "limitations": "Syntetisk serie, ingen ny makroberäkning eller aktuell datapunkt.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "category": "macro",
+  "concepts": [
+    "inflation"
+  ],
+  "relatedLessonIds": [
+    "inflation"
+  ],
+  "jurisdiction": "US",
+  "reviewDue": "2026-12-31",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "macro",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "comparison": {
+      "leftLabel": "MoM",
+      "rightLabel": "YoY",
+      "axes": [
+        {
+          "label": "Jämförelse",
+          "left": "Föregående månad",
+          "right": "Samma månad föregående år"
+        },
+        {
+          "label": "Exempel",
+          "left": "Cirka 0,97 procent",
+          "right": "4 procent"
+        }
+      ],
+      "limitations": "Samma serie och justering; procentenheter är separat."
+    }
+  },
+  "slug": "mom-yoy",
+  "relatedEntityIds": [
+    "macro-calendar"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "period": "timeless",
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}

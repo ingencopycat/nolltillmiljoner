@@ -3,7 +3,7 @@
  'use strict';
  const version=1,delay=7*86400000;
  const competencies=[
-  {id:'per-share',version,title:'Bolagets tillväxt och din andel',lessons:['eps','dilution','revenue'],activities:['share-count','debt-study'],knowledge:['eps','dilution'],goal:'Skilj total vinst från jämförbar vinst per aktie.'},
+  {id:'per-share',version,title:'Bolagets tillväxt och din andel',lessons:['eps','dilution','revenue'],activities:['share-count','debt-study'],knowledge:['eps','dilution','income-statement'],goal:'Skilj total vinst från jämförbar vinst per aktie.'},
   {id:'valuation-return',version,title:'Antaganden och möjlig avkastning',lessons:['pe','cagr','reverse','scenarios'],activities:['price-vs-profit','forward-demand','compare-investments'],knowledge:['pe','cagr'],goal:'Koppla EPS, tillväxt, slutmultipel och pris till en modellerad årsavkastning.'},
   {id:'real-fx',version,title:'Avkastning, köpkraft och valuta',lessons:['currency','inflation','compounding','avkastning'],activities:['fx-outcome','price-level','cost-timing'],knowledge:['fx','inflation','compounding'],goal:'Skilj nominellt utfall, valutaeffekt och köpkraft med samma period.'}
  ];

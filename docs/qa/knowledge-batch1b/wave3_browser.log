@@ -1,0 +1,13 @@
+Browser smoke: Chromium 151.0.7922.34; fresh contexts on http://127.0.0.1:50276
+test_clock_fixture_delayed_success_then_failure_keeps_history (wave3_browser.Wave3.test_clock_fixture_delayed_success_then_failure_keeps_history) ... ok
+test_fx_real_savings_application_and_existing_plan_resume (wave3_browser.Wave3.test_fx_real_savings_application_and_existing_plan_resume) ... ok
+test_independent_help_reveal_retry_and_novel_variant (wave3_browser.Wave3.test_independent_help_reveal_retry_and_novel_variant) ... ok
+test_malformed_expired_wrong_destination_and_no_silent_apply (wave3_browser.Wave3.test_malformed_expired_wrong_destination_and_no_silent_apply) ... ok
+test_mobile_themes_keyboard_help_and_bounded_navigation (wave3_browser.Wave3.test_mobile_themes_keyboard_help_and_bounded_navigation) ... ok
+test_scenario_mobile_keyboard_preview (wave3_browser.Wave3.test_scenario_mobile_keyboard_preview) ... ok
+test_valuation_application_preview_explicit_apply_and_safe_return (wave3_browser.Wave3.test_valuation_application_preview_explicit_apply_and_safe_return) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 10.863s
+
+OK

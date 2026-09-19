@@ -1,0 +1,129 @@
+{
+  "id": "nominal-real",
+  "question": "Vad skiljer nominell från real avkastning?",
+  "intent": "comparison",
+  "category": "saving",
+  "conceptRefs": [
+    "return",
+    "inflation"
+  ],
+  "aliases": [
+    "nominell vs real avkastning",
+    "avkastning efter inflation"
+  ],
+  "shortAnswer": "Nominell avkastning mäter förändringen i pengar. Real avkastning justerar för förändrad köpkraft enligt ett valt prisindex. För samma period är den exakta reala förändringen (1 + nominell avkastning) / (1 + inflation) − 1, med räntorna i decimalform.",
+  "fullAnswer": "Tänk att slutbeloppet först växer och sedan räknas om till startperiodens köpkraft. Därför divideras två förändringsfaktorer. Att bara dra inflationen från avkastningen är en approximation, inte den exakta kvoten. Använd samma period och ange vilket prisindex som används. En kalkyl i nominella kronor och ett mål i dagens köpkraft behöver en tydlig brygga mellan dessa två sätt att mäta.",
+  "example": "Syntetiskt: 100 kronor blir 110 medan samma varukorg går från 100 till 104. Köpkraftsfaktorn är 1,10 / 1,04 = 1,057692; real avkastning är cirka 5,77 procent. Subtraktionen 10 − 4 ger approximationen 6 procent. Med 8 procent nominellt och 3 procent inflation blir den exakta reala avkastningen cirka 4,85 procent.",
+  "caveats": "Prisindexet behöver vara positivt och perioderna jämförbara. Din egen konsumtionskorg kan avvika från indexet. Skatt och avgifter måste hanteras på angiven basis innan jämförelsen; inflationsjustering tar inte automatiskt hänsyn till dem. Framtida inflation och avkastning är antaganden, inte kända utfall.",
+  "relatedAnswers": [
+    {
+      "id": "cagr",
+      "type": "prerequisite"
+    },
+    {
+      "id": "inflation",
+      "type": "prerequisite"
+    }
+  ],
+  "sources": [
+    {
+      "title": "ECB: nominella och reala räntor",
+      "url": "https://www.ecb.europa.eu/ecb-and-you/explainers/tell-me/html/nominal_and_real_interest_rates.en.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer"
+      ],
+      "checked": "Avsnitten Nominal interest rate och Real interest rate: pengar kontra köpkraft.",
+      "limitations": "ECB:s subtraktionsförklaring används för begreppet, inte som bevis för exakt faktorformel.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    },
+    {
+      "title": "NTM: angiven beräkningsmetod och syntetisk algebra",
+      "url": "https://nolltillmiljoner.se/avkastningskalkylator.html",
+      "supports": [
+        "shortAnswer",
+        "fullAnswer",
+        "caveats",
+        "example"
+      ],
+      "checked": "Exakt köpkraftskvot härledd från slutbelopp/prisindex; oberoende kontroll av 10/4 och 8/3.",
+      "limitations": "Lokalt metodkontrakt läst och separat Decimal-kontroll krävs före acceptans. Ingen ny exekverbar formel i Fråga NTM.",
+      "authority": "primary",
+      "type": "methodology",
+      "evidenceStatus": "checked",
+      "reviewedAt": "2026-09-19"
+    }
+  ],
+  "concepts": [
+    "avkastning",
+    "inflation"
+  ],
+  "relatedLessonIds": [
+    "avkastning"
+  ],
+  "slug": "nominal-real",
+  "relatedEntityIds": [
+    "tool-return"
+  ],
+  "difficulty": "beginner",
+  "status": "reviewed",
+  "reviewedAt": "2026-09-19",
+  "featured": false,
+  "contentVersion": 1,
+  "reviewDue": "2027-03-18",
+  "reviewPolicy": {
+    "risk": "methodology",
+    "overdue": "label"
+  },
+  "jurisdiction": "global",
+  "period": "timeless",
+  "sections": {
+    "inline": {
+      "field": "shortAnswer",
+      "contexts": [
+        "knowledge",
+        "research",
+        "calculator",
+        "public-report",
+        "academy-reminder"
+      ]
+    },
+    "comparison": {
+      "leftLabel": "Nominell",
+      "rightLabel": "Real",
+      "axes": [
+        {
+          "label": "Mäter",
+          "left": "Förändring i pengar",
+          "right": "Förändring i köpkraft enligt valt index"
+        },
+        {
+          "label": "Exempel",
+          "left": "10 procent",
+          "right": "Cirka 5,77 procent vid 4 procents inflation"
+        }
+      ],
+      "limitations": "Samma period; realt är inte automatiskt efter skatt."
+    }
+  },
+  "internalEditorialNotes": "Bounded owner-delegated scope; synthetic examples, no investment verdict.",
+  "editorial": {
+    "owner": "NTM owner",
+    "approval": "accepted",
+    "reviewer": "Owner-delegated scope; Codex authoritative-source and arithmetic verification",
+    "reviewedAt": "2026-09-19",
+    "changeNote": "Accepted within explicitly delegated Knowledge 100 scope after evidence, duplicate, arithmetic and schema checks; independent human validation not claimed."
+  },
+  "history": [
+    {
+      "from": 0,
+      "to": 1,
+      "date": "2026-09-19",
+      "reviewer": "Codex under owner-delegated scope",
+      "reason": "Initial bounded answer; evidence and synthetic examples verified."
+    }
+  ]
+}
