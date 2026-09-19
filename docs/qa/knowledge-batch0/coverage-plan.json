@@ -1,0 +1,1952 @@
+{
+  "status": "proposal-only",
+  "existingCount": 29,
+  "proposedCount": 71,
+  "targetCount": 100,
+  "batches": [
+    20,
+    20,
+    16,
+    15
+  ],
+  "domains": {
+    "basics": [],
+    "stocks": [
+      "dilution",
+      "market-cap",
+      "dividends"
+    ],
+    "fundamentals": [
+      "eps",
+      "fcf",
+      "revenue",
+      "margins",
+      "debt",
+      "eps-comparison"
+    ],
+    "valuation": [
+      "pe",
+      "peg",
+      "forward"
+    ],
+    "returns": [
+      "cagr",
+      "fx",
+      "diversification"
+    ],
+    "macro": [
+      "inflation",
+      "interest-rates",
+      "bond-yields",
+      "macro-releases"
+    ],
+    "earnings": [
+      "guidance",
+      "ttm",
+      "earnings",
+      "estimates"
+    ],
+    "research": [
+      "thesis"
+    ],
+    "saving": [
+      "gav",
+      "isk",
+      "fees",
+      "compounding",
+      "annual-fees"
+    ]
+  },
+  "sourceTypes": {
+    "ACCOUNTING": "Primary accounting standards (IFRS/IAS or relevant US GAAP), audited report and notes; identify jurisdiction and reporting basis.",
+    "NON_GAAP": "Regulator guidance plus issuer reconciliation and stated definition; generic glossary alone is insufficient.",
+    "VALUATION": "Regulator/exchange investor education and documented valuation methodology; independently check worked arithmetic and conventions.",
+    "NTM_METHOD": "Existing NTM workflow/specification as primary evidence for product behavior; identify NTM editorial method explicitly. External investing evidence only where broader claims are made.",
+    "ESTIMATES": "Issuer releases and the actual estimate provider methodology, timestamp and coverage definition; no provider integration or data acquisition is implied.",
+    "REGULATOR": "Primary investor education from a securities regulator, with market/jurisdiction scope. Product-specific claims require current product documents.",
+    "MATH_METHOD": "Explicit mathematical derivation plus independently recalculated synthetic examples; primary methodological reference for interpretation.",
+    "RISK_METHOD": "Primary regulator risk material plus a documented risk-methodology reference; no universal risk threshold.",
+    "NTM_MATH": "Existing calculator source/method contract plus independent arithmetic; distinguish implementation convention from universal investing fact.",
+    "SE_TAX": "Skatteverket primary rules and the existing dated NTM rule registry; verify income year, jurisdiction and review deadline. No copied timeless allowance.",
+    "FUND_DOCS": "Regulator fund education plus applicable prospectus/KID and dealing rules; avoid generalizing one product to all funds.",
+    "INDEX_METHOD": "Index administrator methodology and change history; distinguish the general concept from one index implementation.",
+    "MACRO_STATS": "BLS/BEA or relevant national statistical office methodology and revision notes; specify geography, units, adjustment and vintage.",
+    "CENTRAL_BANK": "Central bank primary methodological/explanatory publications; do not infer a deterministic price reaction.",
+    "ISSUER": "Dated primary issuer releases/reconciliations and comparative prior release; a company example is not universal policy.",
+    "RETURN_METHOD": "Primary performance-measurement methodology plus transparent cash-flow/withdrawal examples; identify the tool boundary.",
+    "EXCHANGE": "Primary exchange/regulator order-execution documentation; specify market and product scope."
+  },
+  "surfaces": {
+    "Research": "research.html",
+    "Public Research": "analys.html",
+    "Academy": "academy.html",
+    "Valuation": "aktievarderingskalkylator.html",
+    "Returns": "avkastningskalkylator.html",
+    "Savings": "sparmalskalkylator.html",
+    "FIRE": "fire-kalkylator.html",
+    "Compounding": "ranta-pa-ranta.html",
+    "Fees": "avgifter.html",
+    "Purchase": "aktiekopskalkylator.html",
+    "Leverage": "havstang.html",
+    "ISK": "isk-skattkalkylator.html",
+    "Macro": "makro.html"
+  },
+  "proposals": [
+    {
+      "batch": 1,
+      "id": "balance-sheet",
+      "domain": "fundamentals",
+      "concept": "new:balance-sheet",
+      "question": "Vad visar en balansräkning?",
+      "intent": "definition",
+      "priority": "P1",
+      "need": "Explain stock-versus-flow inputs",
+      "surfaces": [
+        "Research",
+        "Academy"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "ACCOUNTING",
+      "sensitivity": "stable;method updates",
+      "reuse": [
+        "debt",
+        "revenue"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 1,
+      "id": "income-statement",
+      "domain": "fundamentals",
+      "concept": "new:income-statement",
+      "question": "Vad visar en resultaträkning?",
+      "intent": "definition",
+      "priority": "P1",
+      "need": "Orient report reading before valuation",
+      "surfaces": [
+        "Research",
+        "Academy"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "ACCOUNTING",
+      "sensitivity": "stable;method updates",
+      "reuse": [
+        "revenue",
+        "margins",
+        "eps"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 1,
+      "id": "cash-flow-statement",
+      "domain": "fundamentals",
+      "concept": "new:cash-flow-statement",
+      "question": "Vad visar en kassaflödesanalys?",
+      "intent": "definition",
+      "priority": "P1",
+      "need": "Explain cash source before FCF use",
+      "surfaces": [
+        "Research",
+        "Academy"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "ACCOUNTING",
+      "sensitivity": "stable;method updates",
+      "reuse": [
+        "fcf"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 1,
+      "id": "profit-versus-cash",
+      "domain": "fundamentals",
+      "concept": "new:cash-flow-statement",
+      "question": "Varför kan vinst och kassaflöde skilja sig?",
+      "intent": "comparison",
+      "priority": "P1",
+      "need": "Stop interchangeable metric inputs",
+      "surfaces": [
+        "Research",
+        "Public Research"
+      ],
+      "treatment": [
+        "comparison",
+        "example",
+        "limitation"
+      ],
+      "sourceType": "ACCOUNTING",
+      "sensitivity": "stable;method updates",
+      "reuse": [
+        "revenue",
+        "fcf"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 1,
+      "id": "capex",
+      "domain": "fundamentals",
+      "concept": "new:capex",
+      "question": "Vad betyder CapEx?",
+      "intent": "definition",
+      "priority": "P1",
+      "need": "Explain FCF investment input",
+      "surfaces": [
+        "Research",
+        "Academy"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "ACCOUNTING",
+      "sensitivity": "stable;method updates",
+      "reuse": [
+        "fcf"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 1,
+      "id": "working-capital",
+      "domain": "fundamentals",
+      "concept": "new:working-capital",
+      "question": "Hur kan rörelsekapital påverka kassaflödet?",
+      "intent": "interpretation",
+      "priority": "P1",
+      "need": "Explain cash conversion changes",
+      "surfaces": [
+        "Research",
+        "Public Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "ACCOUNTING",
+      "sensitivity": "stable;method updates",
+      "reuse": [
+        "fcf",
+        "revenue"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 1,
+      "id": "reported-adjusted",
+      "domain": "fundamentals",
+      "concept": "eps",
+      "question": "Vad skiljer rapporterad från justerad vinst?",
+      "intent": "comparison",
+      "priority": "P1",
+      "need": "Compare basis before entering EPS",
+      "surfaces": [
+        "Research",
+        "Valuation",
+        "Academy"
+      ],
+      "treatment": [
+        "comparison",
+        "example",
+        "limitation"
+      ],
+      "sourceType": "NON_GAAP",
+      "sensitivity": "stable;issuer definitions vary",
+      "reuse": [
+        "eps",
+        "eps-comparison"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 1,
+      "id": "fcf-limitations",
+      "domain": "fundamentals",
+      "concept": "fcf",
+      "question": "När blir en jämförelse av fritt kassaflöde missvisande?",
+      "intent": "limitation",
+      "priority": "P1",
+      "need": "Surface incompatible FCF definitions",
+      "surfaces": [
+        "Research",
+        "Public Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "NON_GAAP",
+      "sensitivity": "stable;issuer definitions vary",
+      "reuse": [
+        "fcf"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 1,
+      "id": "pe-interpretation",
+      "domain": "valuation",
+      "concept": "pe",
+      "question": "Vad behöver jag kontrollera innan jag tolkar ett P/E-tal?",
+      "intent": "interpretation",
+      "priority": "P1",
+      "need": "Answer bounded interpretation gap without price verdict",
+      "surfaces": [
+        "Valuation",
+        "Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "VALUATION",
+      "sensitivity": "stable;assumptions dated",
+      "reuse": [
+        "pe",
+        "forward",
+        "debt"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 1,
+      "id": "pe-losses",
+      "domain": "valuation",
+      "concept": "pe",
+      "question": "Varför är P/E svårt att använda vid negativ eller nära noll vinst?",
+      "intent": "limitation",
+      "priority": "P1",
+      "need": "Explain unsuitable denominator separately",
+      "surfaces": [
+        "Valuation",
+        "Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "VALUATION",
+      "sensitivity": "stable",
+      "reuse": [
+        "pe",
+        "eps"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 1,
+      "id": "ps",
+      "domain": "valuation",
+      "concept": "new:ps",
+      "question": "Vad betyder P/S?",
+      "intent": "definition",
+      "priority": "P1",
+      "need": "Prepare the missing sales-multiple comparison",
+      "surfaces": [
+        "Valuation",
+        "Research"
+      ],
+      "treatment": [
+        "formula example",
+        "limitation"
+      ],
+      "sourceType": "VALUATION",
+      "sensitivity": "stable",
+      "reuse": [
+        "revenue",
+        "market-cap"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 1,
+      "id": "pe-versus-ps",
+      "domain": "valuation",
+      "concept": "pe",
+      "question": "Vad skiljer P/E från P/S?",
+      "intent": "comparison",
+      "priority": "P1",
+      "need": "Close explicit comparison abstention gap",
+      "surfaces": [
+        "Valuation",
+        "Research"
+      ],
+      "treatment": [
+        "comparison",
+        "example",
+        "limitation"
+      ],
+      "sourceType": "VALUATION",
+      "sensitivity": "stable",
+      "reuse": [
+        "pe",
+        "revenue"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 1,
+      "id": "fact-assumption",
+      "domain": "research",
+      "concept": "thesis",
+      "question": "Hur skiljer jag fakta från antaganden i en investeringstes?",
+      "intent": "process",
+      "priority": "P1",
+      "need": "Improve provenance of authored reports",
+      "surfaces": [
+        "Research",
+        "Public Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "NTM_METHOD",
+      "sensitivity": "stable;workflow changes",
+      "reuse": [
+        "thesis"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 1,
+      "id": "scenario-design",
+      "domain": "research",
+      "concept": "thesis",
+      "question": "Hur bygger jag jämförbara bear-, base- och bull-scenarier?",
+      "intent": "process",
+      "priority": "P1",
+      "need": "Make existing scenario fields inspectable",
+      "surfaces": [
+        "Research",
+        "Valuation"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "NTM_METHOD",
+      "sensitivity": "stable;assumptions dated",
+      "reuse": [
+        "thesis",
+        "forward"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 1,
+      "id": "falsification",
+      "domain": "research",
+      "concept": "thesis",
+      "question": "Hur formulerar jag ett motbevis som går att följa upp?",
+      "intent": "application",
+      "priority": "P1",
+      "need": "Make existing invalidation fields useful",
+      "surfaces": [
+        "Research",
+        "Public Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "NTM_METHOD",
+      "sensitivity": "stable;workflow changes",
+      "reuse": [
+        "thesis"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 1,
+      "id": "source-provenance",
+      "domain": "research",
+      "concept": "thesis",
+      "question": "Vilka källuppgifter behöver jag spara för ett analysantagande?",
+      "intent": "process",
+      "priority": "P1",
+      "need": "Improve source/date/period consistency",
+      "surfaces": [
+        "Research",
+        "Public Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "NTM_METHOD",
+      "sensitivity": "stable;workflow changes",
+      "reuse": [
+        "thesis",
+        "eps-comparison"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 1,
+      "id": "guidance-consensus",
+      "domain": "earnings",
+      "concept": "outlook",
+      "question": "Vad skiljer bolagets guidance från analytikerkonsensus?",
+      "intent": "comparison",
+      "priority": "P1",
+      "need": "Prevent forecast provenance confusion",
+      "surfaces": [
+        "Research",
+        "Public Research"
+      ],
+      "treatment": [
+        "comparison",
+        "example",
+        "limitation"
+      ],
+      "sourceType": "ESTIMATES",
+      "sensitivity": "stable;method definitions vary",
+      "reuse": [
+        "guidance",
+        "estimates"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 1,
+      "id": "earnings-surprise",
+      "domain": "earnings",
+      "concept": "earnings",
+      "question": "Hur jämför jag rapporterat utfall med ett daterat estimat?",
+      "intent": "calculation",
+      "priority": "P1",
+      "need": "Explain same-basis surprise comparison",
+      "surfaces": [
+        "Research",
+        "Academy"
+      ],
+      "treatment": [
+        "formula example",
+        "limitation"
+      ],
+      "sourceType": "ESTIMATES",
+      "sensitivity": "stable;input dates required",
+      "reuse": [
+        "earnings",
+        "estimates",
+        "eps-comparison"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 1,
+      "id": "ttm-construction",
+      "domain": "earnings",
+      "concept": "ttm",
+      "question": "Hur bygger jag TTM utan att dubbelräkna ackumulerade kvartal?",
+      "intent": "calculation",
+      "priority": "P1",
+      "need": "Prevent manual period input errors",
+      "surfaces": [
+        "Research",
+        "Valuation"
+      ],
+      "treatment": [
+        "formula example",
+        "limitation"
+      ],
+      "sourceType": "ACCOUNTING",
+      "sensitivity": "stable;fiscal period scope",
+      "reuse": [
+        "ttm",
+        "eps"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 1,
+      "id": "estimate-age",
+      "domain": "earnings",
+      "concept": "outlook",
+      "question": "Hur bedömer jag om ett estimat är för gammalt för min jämförelse?",
+      "intent": "process",
+      "priority": "P1",
+      "need": "Explain dated source revisions",
+      "surfaces": [
+        "Research",
+        "Public Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "ESTIMATES",
+      "sensitivity": "time-sensitive inputs;stable method",
+      "reuse": [
+        "estimates",
+        "guidance"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "nominal-real",
+      "domain": "returns",
+      "concept": "return",
+      "question": "Vad skiljer nominell från real avkastning?",
+      "intent": "comparison",
+      "priority": "P1",
+      "need": "Explain purchasing power in savings scenarios",
+      "surfaces": [
+        "Returns",
+        "Savings",
+        "FIRE"
+      ],
+      "treatment": [
+        "comparison",
+        "formula example",
+        "limitation"
+      ],
+      "sourceType": "REGULATOR",
+      "sensitivity": "stable",
+      "reuse": [
+        "cagr",
+        "inflation"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "arithmetic-geometric",
+      "domain": "returns",
+      "concept": "cagr",
+      "question": "Varför skiljer sig medelavkastning från CAGR?",
+      "intent": "comparison",
+      "priority": "P1",
+      "need": "Prevent average-rate misuse",
+      "surfaces": [
+        "Returns",
+        "Compounding",
+        "Academy"
+      ],
+      "treatment": [
+        "comparison",
+        "formula example",
+        "limitation"
+      ],
+      "sourceType": "MATH_METHOD",
+      "sensitivity": "stable",
+      "reuse": [
+        "cagr",
+        "compounding"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "drawdown",
+      "domain": "returns",
+      "concept": "new:drawdown",
+      "question": "Vad betyder drawdown?",
+      "intent": "definition",
+      "priority": "P1",
+      "need": "Explain loss path alongside return",
+      "surfaces": [
+        "Research",
+        "Academy"
+      ],
+      "treatment": [
+        "formula example",
+        "limitation"
+      ],
+      "sourceType": "RISK_METHOD",
+      "sensitivity": "stable",
+      "reuse": [
+        "cagr",
+        "diversification"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "loss-recovery",
+      "domain": "returns",
+      "concept": "new:drawdown",
+      "question": "Hur stor uppgång krävs för att återhämta en procentuell förlust?",
+      "intent": "calculation",
+      "priority": "P1",
+      "need": "Make leverage downside understandable",
+      "surfaces": [
+        "Leverage",
+        "Returns"
+      ],
+      "treatment": [
+        "formula example",
+        "limitation"
+      ],
+      "sourceType": "MATH_METHOD",
+      "sensitivity": "stable",
+      "reuse": [
+        "compounding"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "volatility-risk",
+      "domain": "returns",
+      "concept": "new:volatility",
+      "question": "Är volatilitet samma sak som risken att förlora pengar permanent?",
+      "intent": "comparison",
+      "priority": "P1",
+      "need": "Avoid a single risk proxy",
+      "surfaces": [
+        "Research",
+        "Academy"
+      ],
+      "treatment": [
+        "comparison",
+        "example",
+        "limitation"
+      ],
+      "sourceType": "RISK_METHOD",
+      "sensitivity": "stable",
+      "reuse": [
+        "diversification",
+        "thesis"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "concentration",
+      "domain": "returns",
+      "concept": "diversification",
+      "question": "Hur bedömer jag koncentration utöver antalet innehav?",
+      "intent": "application",
+      "priority": "P1",
+      "need": "Extend existing diversification to inspection",
+      "surfaces": [
+        "Research",
+        "Purchase"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "REGULATOR",
+      "sensitivity": "stable",
+      "reuse": [
+        "diversification"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "leverage-downside",
+      "domain": "returns",
+      "concept": "new:leverage",
+      "question": "Hur förstärker hävstång både vinst och förlust?",
+      "intent": "calculation",
+      "priority": "P1",
+      "need": "Canonical explanation for existing leverage tool",
+      "surfaces": [
+        "Leverage",
+        "Academy"
+      ],
+      "treatment": [
+        "formula example",
+        "limitation"
+      ],
+      "sourceType": "REGULATOR",
+      "sensitivity": "stable;financing terms vary",
+      "reuse": [
+        "compounding",
+        "diversification"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "contribution-timing",
+      "domain": "saving",
+      "concept": "compounding",
+      "question": "Varför spelar insättningarnas tidpunkt roll i en sparkalkyl?",
+      "intent": "application",
+      "priority": "P1",
+      "need": "Explain existing monthly contribution convention",
+      "surfaces": [
+        "Compounding",
+        "Savings"
+      ],
+      "treatment": [
+        "formula example",
+        "limitation"
+      ],
+      "sourceType": "NTM_MATH",
+      "sensitivity": "stable;tool convention",
+      "reuse": [
+        "compounding",
+        "cagr"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "fee-double-count",
+      "domain": "saving",
+      "concept": "fees",
+      "question": "Hur undviker jag att dra av samma avgift två gånger?",
+      "intent": "misconception",
+      "priority": "P1",
+      "need": "Prevent net/gross assumption errors",
+      "surfaces": [
+        "Fees",
+        "Compounding"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "REGULATOR",
+      "sensitivity": "stable;product definitions vary",
+      "reuse": [
+        "annual-fees",
+        "fees"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "savings-target",
+      "domain": "saving",
+      "concept": "compounding",
+      "question": "Hur tolkar jag tiden till ett sparmål när avkastningen är ett antagande?",
+      "intent": "interpretation",
+      "priority": "P1",
+      "need": "Keep existing goal results conditional",
+      "surfaces": [
+        "Savings",
+        "FIRE"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "NTM_MATH",
+      "sensitivity": "stable;assumptions dated",
+      "reuse": [
+        "compounding"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "isk-inputs",
+      "domain": "saving",
+      "concept": "isk",
+      "question": "Vilka värden och insättningar behöver jag för ISK-kalkylatorn?",
+      "intent": "application",
+      "priority": "P1",
+      "need": "Help existing tax input workflow",
+      "surfaces": [
+        "ISK"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "SE_TAX",
+      "sensitivity": "time-sensitive;SE income year and registry",
+      "reuse": [
+        "isk"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "asset-ownership",
+      "domain": "basics",
+      "concept": "shares",
+      "question": "Vad innebär det att äga en aktie?",
+      "intent": "definition",
+      "priority": "P1",
+      "need": "Foundation before per-share metrics",
+      "surfaces": [
+        "Academy",
+        "Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "REGULATOR",
+      "sensitivity": "stable;jurisdiction caveats",
+      "reuse": [
+        "dilution",
+        "dividends"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "risk-horizon",
+      "domain": "basics",
+      "concept": "new:time-horizon",
+      "question": "Varför behöver tidshorisonten vara tydlig innan jag väljer risk?",
+      "intent": "application",
+      "priority": "P1",
+      "need": "Clarify scenario assumptions without advice",
+      "surfaces": [
+        "Academy",
+        "Savings",
+        "Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "REGULATOR",
+      "sensitivity": "stable",
+      "reuse": [
+        "diversification",
+        "thesis"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "liquidity",
+      "domain": "basics",
+      "concept": "new:liquidity",
+      "question": "Vad betyder likviditet för en investering?",
+      "intent": "definition",
+      "priority": "P1",
+      "need": "Explain exit and cash-need constraints",
+      "surfaces": [
+        "Academy",
+        "Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "REGULATOR",
+      "sensitivity": "stable",
+      "reuse": [
+        "diversification"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "fund",
+      "domain": "stocks",
+      "concept": "new:fund",
+      "question": "Vad är en fond?",
+      "intent": "definition",
+      "priority": "P1",
+      "need": "Basic object missing beside fee tools",
+      "surfaces": [
+        "Academy",
+        "Fees"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "FUND_DOCS",
+      "sensitivity": "stable;product terms vary",
+      "reuse": [
+        "annual-fees",
+        "diversification"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "etf",
+      "domain": "stocks",
+      "concept": "new:etf",
+      "question": "Vad är en ETF?",
+      "intent": "definition",
+      "priority": "P1",
+      "need": "Explain exchange-traded fund context",
+      "surfaces": [
+        "Academy",
+        "Fees",
+        "Purchase"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "FUND_DOCS",
+      "sensitivity": "stable;product terms vary",
+      "reuse": [
+        "fees",
+        "diversification"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "index",
+      "domain": "stocks",
+      "concept": "new:index",
+      "question": "Vad är ett aktieindex?",
+      "intent": "definition",
+      "priority": "P1",
+      "need": "Explain benchmark and macro context",
+      "surfaces": [
+        "Academy",
+        "Macro"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "INDEX_METHOD",
+      "sensitivity": "stable;method updates",
+      "reuse": [
+        "market-cap"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "active-passive",
+      "domain": "stocks",
+      "concept": "new:fund",
+      "question": "Vad skiljer aktiv från passiv fondförvaltning?",
+      "intent": "comparison",
+      "priority": "P2",
+      "need": "Context for fee comparison without ranking",
+      "surfaces": [
+        "Academy",
+        "Fees"
+      ],
+      "treatment": [
+        "comparison",
+        "example",
+        "limitation"
+      ],
+      "sourceType": "FUND_DOCS",
+      "sensitivity": "stable;mandates vary",
+      "reuse": [
+        "annual-fees"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "fund-etf",
+      "domain": "stocks",
+      "concept": "new:etf",
+      "question": "Vad skiljer handel i en ETF från handel i en traditionell fond?",
+      "intent": "comparison",
+      "priority": "P2",
+      "need": "Explain costs and execution differences",
+      "surfaces": [
+        "Academy",
+        "Purchase",
+        "Fees"
+      ],
+      "treatment": [
+        "comparison",
+        "example",
+        "limitation"
+      ],
+      "sourceType": "FUND_DOCS",
+      "sensitivity": "stable;market and fund terms vary",
+      "reuse": [
+        "fees"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 2,
+      "id": "fund-overlap",
+      "domain": "stocks",
+      "concept": "diversification",
+      "question": "Hur upptäcker jag överlapp mellan fondinnehav?",
+      "intent": "process",
+      "priority": "P2",
+      "need": "Turn diversification caveat into procedure",
+      "surfaces": [
+        "Academy",
+        "Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "FUND_DOCS",
+      "sensitivity": "time-sensitive holdings;stable method",
+      "reuse": [
+        "diversification"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 3,
+      "id": "cpi-pce",
+      "domain": "macro",
+      "concept": "macro",
+      "question": "Vad skiljer CPI från PCE:s prisindex?",
+      "intent": "comparison",
+      "priority": "P1",
+      "need": "Close explicit Macro comparison gap",
+      "surfaces": [
+        "Macro",
+        "Academy"
+      ],
+      "treatment": [
+        "comparison",
+        "example",
+        "limitation"
+      ],
+      "sourceType": "MACRO_STATS",
+      "sensitivity": "stable;US methodology changes",
+      "reuse": [
+        "macro-releases",
+        "inflation"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 3,
+      "id": "headline-core",
+      "domain": "macro",
+      "concept": "inflation",
+      "question": "Vad skiljer total inflation från kärninflation?",
+      "intent": "comparison",
+      "priority": "P1",
+      "need": "Explain release filters",
+      "surfaces": [
+        "Macro",
+        "Academy"
+      ],
+      "treatment": [
+        "comparison",
+        "example",
+        "limitation"
+      ],
+      "sourceType": "MACRO_STATS",
+      "sensitivity": "stable;measure and country scope",
+      "reuse": [
+        "macro-releases",
+        "inflation"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 3,
+      "id": "mom-yoy",
+      "domain": "macro",
+      "concept": "macro",
+      "question": "Vad skiljer månadsförändring från årsförändring?",
+      "intent": "comparison",
+      "priority": "P1",
+      "need": "Prevent unit confusion in release cards",
+      "surfaces": [
+        "Macro",
+        "Academy"
+      ],
+      "treatment": [
+        "comparison",
+        "formula example",
+        "limitation"
+      ],
+      "sourceType": "MACRO_STATS",
+      "sensitivity": "stable",
+      "reuse": [
+        "macro-releases"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 3,
+      "id": "seasonal-adjustment",
+      "domain": "macro",
+      "concept": "macro",
+      "question": "Vad betyder säsongsjusterat i ett makrosläpp?",
+      "intent": "definition",
+      "priority": "P2",
+      "need": "Explain observed release basis",
+      "surfaces": [
+        "Macro"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "MACRO_STATS",
+      "sensitivity": "stable;method revisions",
+      "reuse": [
+        "macro-releases"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 3,
+      "id": "macro-revisions",
+      "domain": "macro",
+      "concept": "macro",
+      "question": "Hur läser jag reviderade makrovärden utan att blanda versioner?",
+      "intent": "process",
+      "priority": "P1",
+      "need": "Explain previous value and vintage",
+      "surfaces": [
+        "Macro",
+        "Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "MACRO_STATS",
+      "sensitivity": "time-sensitive vintages;stable method",
+      "reuse": [
+        "macro-releases"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 3,
+      "id": "jobs-unemployment",
+      "domain": "macro",
+      "concept": "macro",
+      "question": "Varför kan payrolls och arbetslöshet ge olika bilder?",
+      "intent": "comparison",
+      "priority": "P2",
+      "need": "Distinguish surveys in existing calendar",
+      "surfaces": [
+        "Macro",
+        "Academy"
+      ],
+      "treatment": [
+        "comparison",
+        "example",
+        "limitation"
+      ],
+      "sourceType": "MACRO_STATS",
+      "sensitivity": "stable;US survey definitions",
+      "reuse": [
+        "macro-releases"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 3,
+      "id": "real-nominal-gdp",
+      "domain": "macro",
+      "concept": "macro",
+      "question": "Vad skiljer real från nominell BNP?",
+      "intent": "comparison",
+      "priority": "P2",
+      "need": "Explain existing GDP series",
+      "surfaces": [
+        "Macro",
+        "Academy"
+      ],
+      "treatment": [
+        "comparison",
+        "example",
+        "limitation"
+      ],
+      "sourceType": "MACRO_STATS",
+      "sensitivity": "stable;country and annualization scope",
+      "reuse": [
+        "macro-releases",
+        "inflation"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 3,
+      "id": "macro-no-forecast",
+      "domain": "macro",
+      "concept": "macro",
+      "question": "Varför ger ett makroutfall ingen säker riktning för börsen?",
+      "intent": "limitation",
+      "priority": "P1",
+      "need": "Prevent causal verdict from calendar outcome",
+      "surfaces": [
+        "Macro",
+        "Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "CENTRAL_BANK",
+      "sensitivity": "stable;no current-market claim",
+      "reuse": [
+        "macro-releases",
+        "interest-rates"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 3,
+      "id": "estimate-dispersion",
+      "domain": "earnings",
+      "concept": "outlook",
+      "question": "Vad säger spridningen mellan analytikerestimat?",
+      "intent": "interpretation",
+      "priority": "P2",
+      "need": "Improve context beyond a single consensus",
+      "surfaces": [
+        "Research",
+        "Public Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "ESTIMATES",
+      "sensitivity": "time-sensitive inputs;stable method",
+      "reuse": [
+        "estimates"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 3,
+      "id": "guidance-revision",
+      "domain": "earnings",
+      "concept": "outlook",
+      "question": "Hur jämför jag två versioner av bolagets guidance?",
+      "intent": "process",
+      "priority": "P1",
+      "need": "Explain tracked outlook changes",
+      "surfaces": [
+        "Research",
+        "Public Research"
+      ],
+      "treatment": [
+        "comparison",
+        "example",
+        "limitation"
+      ],
+      "sourceType": "ISSUER",
+      "sensitivity": "time-sensitive releases;stable method",
+      "reuse": [
+        "guidance",
+        "estimates"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 3,
+      "id": "fiscal-calendar",
+      "domain": "earnings",
+      "concept": "ttm",
+      "question": "Vad skiljer räkenskapsår från kalenderår i en rapport?",
+      "intent": "comparison",
+      "priority": "P2",
+      "need": "Prevent mismatched forecast periods",
+      "surfaces": [
+        "Research",
+        "Valuation"
+      ],
+      "treatment": [
+        "comparison",
+        "example",
+        "limitation"
+      ],
+      "sourceType": "ACCOUNTING",
+      "sensitivity": "stable;issuer calendars vary",
+      "reuse": [
+        "ttm",
+        "forward"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 3,
+      "id": "update-thesis",
+      "domain": "research",
+      "concept": "thesis",
+      "question": "Hur uppdaterar jag en tes utan att skriva om dess historik?",
+      "intent": "process",
+      "priority": "P1",
+      "need": "Support existing review/version workflow",
+      "surfaces": [
+        "Research",
+        "Public Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "NTM_METHOD",
+      "sensitivity": "stable;workflow version",
+      "reuse": [
+        "thesis"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 3,
+      "id": "scenario-probability",
+      "domain": "research",
+      "concept": "thesis",
+      "question": "Är ett bear-, base- eller bull-scenario en sannolikhetsprognos?",
+      "intent": "misconception",
+      "priority": "P1",
+      "need": "Prevent false certainty in published ranges",
+      "surfaces": [
+        "Research",
+        "Valuation",
+        "Public Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "NTM_METHOD",
+      "sensitivity": "stable",
+      "reuse": [
+        "thesis",
+        "forward"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 3,
+      "id": "valuation-sensitivity",
+      "domain": "research",
+      "concept": "thesis",
+      "question": "Hur undersöker jag vilket antagande som driver min värdering?",
+      "intent": "application",
+      "priority": "P1",
+      "need": "Use existing scenario controls deliberately",
+      "surfaces": [
+        "Valuation",
+        "Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "VALUATION",
+      "sensitivity": "stable;input assumptions dated",
+      "reuse": [
+        "pe",
+        "forward",
+        "thesis"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 3,
+      "id": "report-snapshot",
+      "domain": "research",
+      "concept": "thesis",
+      "question": "Vad betyder datum och version när jag läser en publicerad NTM-analys?",
+      "intent": "application",
+      "priority": "P1",
+      "need": "Explain frozen report scope and provenance",
+      "surfaces": [
+        "Public Research",
+        "Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "NTM_METHOD",
+      "sensitivity": "time-sensitive product contract",
+      "reuse": [
+        "thesis"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 3,
+      "id": "revenue-growth",
+      "domain": "fundamentals",
+      "concept": "revenue",
+      "question": "Hur skiljer jag organisk tillväxt från förvärv och valuta?",
+      "intent": "interpretation",
+      "priority": "P2",
+      "need": "Explain growth bridge instead of headline",
+      "surfaces": [
+        "Research",
+        "Public Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "ISSUER",
+      "sensitivity": "stable;issuer reconciliation varies",
+      "reuse": [
+        "revenue",
+        "fx"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 4,
+      "id": "ebit-ebitda",
+      "domain": "fundamentals",
+      "concept": "new:ebitda",
+      "question": "Vad skiljer EBIT från EBITDA?",
+      "intent": "comparison",
+      "priority": "P2",
+      "need": "Support debt and margin reading",
+      "surfaces": [
+        "Research",
+        "Academy"
+      ],
+      "treatment": [
+        "comparison",
+        "example",
+        "limitation"
+      ],
+      "sourceType": "NON_GAAP",
+      "sensitivity": "stable;definitions vary",
+      "reuse": [
+        "margins",
+        "debt",
+        "fcf"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 4,
+      "id": "gross-margin",
+      "domain": "fundamentals",
+      "concept": "margins",
+      "question": "Hur räknar jag bruttomarginal på jämförbara intäkter och kostnader?",
+      "intent": "calculation",
+      "priority": "P2",
+      "need": "Separate calculation from three-margin overview",
+      "surfaces": [
+        "Research",
+        "Academy"
+      ],
+      "treatment": [
+        "formula example",
+        "limitation"
+      ],
+      "sourceType": "ACCOUNTING",
+      "sensitivity": "stable;classification varies",
+      "reuse": [
+        "margins",
+        "revenue"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 4,
+      "id": "debt-maturity",
+      "domain": "fundamentals",
+      "concept": "debt",
+      "question": "Varför kan skuldförfall vara viktigare än nettoskuldens storlek?",
+      "intent": "interpretation",
+      "priority": "P2",
+      "need": "Deepen existing debt risk explanation",
+      "surfaces": [
+        "Research",
+        "Public Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "ACCOUNTING",
+      "sensitivity": "time-sensitive debt schedule;stable method",
+      "reuse": [
+        "debt"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 4,
+      "id": "enterprise-value",
+      "domain": "valuation",
+      "concept": "new:enterprise-value",
+      "question": "Vad betyder enterprise value?",
+      "intent": "definition",
+      "priority": "P2",
+      "need": "Clarify equity versus business value",
+      "surfaces": [
+        "Research",
+        "Valuation",
+        "Academy"
+      ],
+      "treatment": [
+        "formula example",
+        "limitation"
+      ],
+      "sourceType": "VALUATION",
+      "sensitivity": "stable;conventions vary",
+      "reuse": [
+        "market-cap",
+        "debt"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 4,
+      "id": "ev-market-cap",
+      "domain": "valuation",
+      "concept": "new:enterprise-value",
+      "question": "Vad skiljer enterprise value från börsvärde?",
+      "intent": "comparison",
+      "priority": "P2",
+      "need": "Prevent numerator mismatch",
+      "surfaces": [
+        "Research",
+        "Academy"
+      ],
+      "treatment": [
+        "comparison",
+        "example",
+        "limitation"
+      ],
+      "sourceType": "VALUATION",
+      "sensitivity": "stable",
+      "reuse": [
+        "market-cap",
+        "debt"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 4,
+      "id": "ev-ebitda-limits",
+      "domain": "valuation",
+      "concept": "new:enterprise-value",
+      "question": "Vilka begränsningar har EV/EBITDA?",
+      "intent": "limitation",
+      "priority": "P2",
+      "need": "Avoid cash-flow or universal-value inference",
+      "surfaces": [
+        "Research",
+        "Academy"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "VALUATION",
+      "sensitivity": "stable;sector and definition scope",
+      "reuse": [
+        "debt",
+        "fcf"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 4,
+      "id": "peg-limitations",
+      "domain": "valuation",
+      "concept": "peg",
+      "question": "När blir PEG missvisande?",
+      "intent": "limitation",
+      "priority": "P2",
+      "need": "Separate denominator and duration caveats",
+      "surfaces": [
+        "Valuation",
+        "Research"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "VALUATION",
+      "sensitivity": "stable;forecast basis dated",
+      "reuse": [
+        "peg",
+        "forward"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 4,
+      "id": "discounting",
+      "domain": "valuation",
+      "concept": "new:discounting",
+      "question": "Varför påverkar avkastningskravet ett framtida belopps nuvärde?",
+      "intent": "interpretation",
+      "priority": "P2",
+      "need": "Explain existing rate-sensitivity concept",
+      "surfaces": [
+        "Valuation",
+        "Research",
+        "Macro"
+      ],
+      "treatment": [
+        "formula example",
+        "limitation"
+      ],
+      "sourceType": "VALUATION",
+      "sensitivity": "stable;assumptions dated",
+      "reuse": [
+        "bond-yields",
+        "interest-rates"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 4,
+      "id": "cashflow-return",
+      "domain": "returns",
+      "concept": "return",
+      "question": "Varför räcker inte CAGR när jag sätter in eller tar ut pengar?",
+      "intent": "limitation",
+      "priority": "P2",
+      "need": "Explain existing return-tool boundary",
+      "surfaces": [
+        "Returns",
+        "FIRE"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "RETURN_METHOD",
+      "sensitivity": "stable",
+      "reuse": [
+        "cagr",
+        "compounding"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 4,
+      "id": "sequence-risk",
+      "domain": "returns",
+      "concept": "return",
+      "question": "Varför spelar avkastningens ordning roll när jag gör uttag?",
+      "intent": "interpretation",
+      "priority": "P2",
+      "need": "Improve existing FIRE withdrawal understanding",
+      "surfaces": [
+        "FIRE",
+        "Returns"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "RETURN_METHOD",
+      "sensitivity": "stable;model assumptions",
+      "reuse": [
+        "cagr",
+        "compounding"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 4,
+      "id": "price-value",
+      "domain": "basics",
+      "concept": "market-cap",
+      "question": "Är en aktie med låg kurs automatiskt billig?",
+      "intent": "misconception",
+      "priority": "P2",
+      "need": "Prevent per-share price anchoring",
+      "surfaces": [
+        "Academy",
+        "Purchase",
+        "Valuation"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "REGULATOR",
+      "sensitivity": "stable",
+      "reuse": [
+        "market-cap",
+        "pe"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 4,
+      "id": "order-spread",
+      "domain": "basics",
+      "concept": "new:spread",
+      "question": "Vad är köp- och säljspread?",
+      "intent": "definition",
+      "priority": "P2",
+      "need": "Explain cost omitted from commission label",
+      "surfaces": [
+        "Purchase",
+        "Fees",
+        "Academy"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "EXCHANGE",
+      "sensitivity": "stable;market mechanics vary",
+      "reuse": [
+        "fees"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 4,
+      "id": "split-dilution",
+      "domain": "stocks",
+      "concept": "shares",
+      "question": "Vad skiljer en aktiesplit från utspädning?",
+      "intent": "comparison",
+      "priority": "P2",
+      "need": "Explain GAV/share-count events",
+      "surfaces": [
+        "Purchase",
+        "Research",
+        "Academy"
+      ],
+      "treatment": [
+        "comparison",
+        "formula example",
+        "limitation"
+      ],
+      "sourceType": "REGULATOR",
+      "sensitivity": "stable;event terms vary",
+      "reuse": [
+        "dilution",
+        "gav"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 4,
+      "id": "index-weighting",
+      "domain": "stocks",
+      "concept": "new:index",
+      "question": "Vad betyder det att ett index är börsvärdesviktat?",
+      "intent": "definition",
+      "priority": "P2",
+      "need": "Explain concentration in index exposure",
+      "surfaces": [
+        "Academy",
+        "Macro"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "INDEX_METHOD",
+      "sensitivity": "stable;index rules vary",
+      "reuse": [
+        "market-cap",
+        "diversification"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    },
+    {
+      "batch": 4,
+      "id": "isk-year-scope",
+      "domain": "saving",
+      "concept": "isk",
+      "question": "Varför måste inkomståret anges i en ISK-beräkning?",
+      "intent": "limitation",
+      "priority": "P1",
+      "need": "Avoid using a current parameter for another year",
+      "surfaces": [
+        "ISK",
+        "Academy"
+      ],
+      "treatment": [
+        "example",
+        "limitation"
+      ],
+      "sourceType": "SE_TAX",
+      "sensitivity": "time-sensitive;SE income year and registry",
+      "reuse": [
+        "isk"
+      ],
+      "status": "proposal-only",
+      "ownerApproval": "pending"
+    }
+  ]
+}

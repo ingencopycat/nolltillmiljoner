@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "asOf": "2026-09-19",
+  "counts": {
+    "answers": 29,
+    "claimMappingGaps": 17,
+    "unscheduledReviews": 16,
+    "restrictedUrls": 8
+  },
+  "issueRecords": 41,
+  "categoryCounts": {
+    "1": 0,
+    "2": 16,
+    "3": 25,
+    "4": 0
+  },
+  "category4": "Separate product boundaries only, not waived issue records",
+  "proposals": 71,
+  "target": 100,
+  "batchSizes": [
+    20,
+    20,
+    16,
+    15
+  ],
+  "catalogWrites": 0,
+  "sourceRequests": 0,
+  "approvalsChanged": 0
+}

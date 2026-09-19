@@ -1,0 +1,43 @@
+✔ 26 original questions, two Wave 1 answers and one Wave 4 release answer have valid metadata (7.9738ms)
+✔ draft and needs-update content is excluded from catalog, search and generated pages (23.3258ms)
+✔ public projection excludes editorial notes, unknown keys and private source notes (8.5884ms)
+✔ search matches Swedish aliases, category, concepts and P/E punctuation (0.9475ms)
+✔ reviewed question matching is deterministic and abstains on unknown input (10.9978ms)
+✔ direct definitions outrank shared concepts and preserve question intent (13.5998ms)
+✔ publication gate rejects malformed sources, thin text, IDs, dates and references (40.9563ms)
+✔ canonical relationships link every answer to Academy and tools and return to questions (20.5062ms)
+✔ each answer has unique metadata, status-appropriate indexing and safe static text (13.1573ms)
+✔ ISK uses current rule registry with no copied annual amounts and fails on overdue review (2.3599ms)
+✔ worked examples match independent formulas and shared calculator math (0.7852ms)
+✔ knowledge analytics rejects search content and identifiers (1.543ms)
+✔ Knowledge100 labeled retrieval benchmark has no wrong confident matches or other failures (9.8638ms)
+✔ V2 also preserves every positive Wave1 exact/alias fixture (0.774ms)
+✔ formula is bounded, independently checked, unit/period explicit and never evaluated as code (0.3503ms)
+✔ safe projection excludes editorial history/private nested notes and bodies from compact index (13.6702ms)
+✔ stale policy suppresses rule answers at runtime without refreshing reviews (1.758ms)
+✔ shared context modes accept public IDs only and do not expose full answer in compact/reminder (0.4045ms)
+✔ validator rejects missing references, unknown typed fields, alias collisions, source hazards and merge loops (39.4353ms)
+✔ new substantive draft requires actual claim evidence and explicit approval before public projection (6.6483ms)
+✔ draft-only retrieval aliases, pilot labels and concepts never enter a public index (1.24ms)
+✔ typo ambiguity clarifies rather than selecting a nearby answer (1.9992ms)
+✔ substantive history audit detects edits but retrieval configuration changes do not alter content (9.6094ms)
+✔ all five local authoring examples validate as drafts and remain out of public pages (14.6068ms)
+✔ synthetic generation is explicitly test-only and pagination never embeds the inventory (28.0905ms)
+✔ seed migration preserves explicit future editorial metadata instead of resetting reviews or relationships (0.5704ms)
+✔ explicit merge retains a navigable old URL while rejecting target chains (10.604ms)
+✔ lazy load deduplicates requests, omits credentials and rejects mixed deployment versions (5.4011ms)
+✔ Wave 1 handoff preserves selected inputs and honest provenance without private fields (3.1991ms)
+✔ handoff rejects expired/future timestamps, unknown fields, company/currency/unit/method mismatches (1.6188ms)
+✔ manual EPS has no borrowed reported period or method (0.2396ms)
+✔ pinned company identities match every current supported dataset (14.8537ms)
+✔ 12 concepts resolve to 11 canonical answers, preserve overlap and route to existing practice (18.4234ms)
+✔ 30 labelled retrieval cases preserve exact definitions, reviewed typo aliases and abstention (18.5599ms)
+✔ new examples match independent arithmetic; reviewed additions stay out of sitemap (0.7869ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 260.8186

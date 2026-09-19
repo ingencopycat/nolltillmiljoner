@@ -1,0 +1,88 @@
+{
+  "checks": [
+    {
+      "check": "planning",
+      "exitCode": 0
+    },
+    {
+      "check": "editorial",
+      "exitCode": 0
+    },
+    {
+      "check": "history",
+      "exitCode": 0
+    },
+    {
+      "check": "seo",
+      "exitCode": 0
+    },
+    {
+      "check": "retrieval",
+      "exitCode": 0
+    },
+    {
+      "check": "unit",
+      "exitCode": 0
+    },
+    {
+      "check": "diff",
+      "exitCode": 0
+    },
+    {
+      "check": "existing-tracked-files-unchanged",
+      "passed": true,
+      "changed": []
+    },
+    {
+      "check": "report-local-links",
+      "passed": true,
+      "links": [
+        {
+          "path": "knowledge100-report.md",
+          "exists": true
+        },
+        {
+          "path": "knowledge100-owner-review.md",
+          "exists": true
+        },
+        {
+          "path": "knowledge-batch0-owner-checklist.md",
+          "exists": true
+        },
+        {
+          "path": "knowledge100-report.md",
+          "exists": true
+        },
+        {
+          "path": "knowledge100-owner-review.md",
+          "exists": true
+        },
+        {
+          "path": "../qa/knowledge-batch0/audit.json",
+          "exists": true
+        }
+      ]
+    }
+  ],
+  "allPassed": true,
+  "sourceVerificationPerformed": false,
+  "ownerApprovalGranted": false,
+  "publicAnswerCount": 29,
+  "retrieval": {
+    "total": 49,
+    "wrongConfidentMatch": 0,
+    "topAnswerMismatch": 0,
+    "failures": 0
+  },
+  "focusedUnitTests": {
+    "passed": 35,
+    "failed": 0,
+    "skipped": 0
+  },
+  "generatedSeo": {
+    "outdatedFiles": 0,
+    "canonicalSitemapUrls": 85
+  },
+  "fullBrowserSuiteRerun": false,
+  "scopeReason": "Documentation/planning-only change; no production code, catalog metadata or public files modified."
+}
