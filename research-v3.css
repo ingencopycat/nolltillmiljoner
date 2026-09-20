@@ -204,3 +204,29 @@ body.visual-v3 .research-card-block { border: 0; border-radius: 0; box-shadow: n
 .fundamental-profile pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .8rem; }
 .fundamental-profile p { overflow-wrap: anywhere; }
 .fundamental-evidence { margin-block: .75rem; }
+
+/* Search is the entry action; compact lists stay bounded by the selector controller. */
+#researchEntryIntro { flex-basis: 100%; margin: 0; }
+#researchEntryIntro p { max-width: 48rem; }
+.company-picker.company-picker-entry { flex-basis: 100%; max-width: none; }
+.company-picker.company-picker-entry > summary { text-align: left; }
+.company-picker-body { min-width: 0; }
+.company-results { list-style: none; padding: 0; margin: 12px 0; }
+.company-results:empty { display: none; }
+.company-results li { border-bottom: 1px solid var(--border); min-width: 0; }
+.company-results a { display: block; padding: 12px 8px; min-height: 44px; overflow-wrap: anywhere; text-decoration: none; }
+.company-results a:hover { background: var(--panel); text-decoration: underline; }
+.company-results small { display: block; padding: 0 8px 10px; color: var(--muted); }
+.company-letters, .company-pages { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.visual-v3 .company-letters button, .visual-v3 .company-pages button { width: auto; min-width: 44px; min-height: 44px; flex: 0 0 auto; padding: 8px 12px; color: var(--primary); background: var(--panel); border: 1px solid var(--border); }
+.company-letters button[aria-pressed="true"] { outline: 2px solid var(--primary); outline-offset: 2px; }
+#companyBrowse { margin-top: 16px; }
+#companyBrowse > summary { min-height: 44px; padding-block: 12px; font-weight: 600; color: var(--primary); cursor: pointer; }
+#companyRecent h2 { font-size: 1.4rem; margin-top: 20px; }
+#companySearch { min-height: 44px; }
+@media (max-width: 600px) {
+  .company-picker { max-width: 100%; }
+  .company-picker[open] { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { .research-spinner { animation: none; } }
+#main-content:is([data-entry-state="DIRECT_TICKER"], [data-entry-state="LOAD_FAILURE"]) [data-relation-ticker] { display: none; }

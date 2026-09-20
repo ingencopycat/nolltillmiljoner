@@ -11,7 +11,7 @@ function element(value = '') {
     querySelector(){return null;}, querySelectorAll(){return [];},
     appendChild(child){this.children.push(child);}, after(){}, prepend(){} };
 }
-function app(values = {}) {
+function app(values = {}, attribution) {
   const nodes = new Map(Object.entries(values).map(([key,value]) => [key,element(value)]));
   const charts = [], saved = new Map();
   const context = vm.createContext({console, URL, URLSearchParams, setTimeout(){},
@@ -20,15 +20,49 @@ function app(values = {}) {
       createElement(){return element();}, addEventListener(){}, readyState:'loading', body:element()},
     getComputedStyle(){return {getPropertyValue(){return '';}};},
     Chart: function(canvas, config){charts.push(config); this.destroy = () => {};},
-    location:{pathname:'/',search:''},
+    location:{pathname: attribution ? '/ranta-pa-ranta.html' : '/',search:attribution?.query || ''},
     localStorage:{getItem(key){return saved.has(key) ? saved.get(key) : null;},setItem(key,value){saved.set(key,value);}}
   });
   context.window = context;
+  if (attribution) {
+    context.document.referrer = attribution.referrer || '';
+    vm.runInContext(fs.readFileSync('ntm-product.js','utf8'),context);
+  }
   vm.runInContext(fs.readFileSync('valuation-core.js','utf8'),context);
   // Load the complete script, including later declarations and page-level wiring.
   vm.runInContext(process.env.NTM_BASELINE ? require('node:child_process').execFileSync('git',['show','HEAD:script.js'],{encoding:'utf8'}) : fs.readFileSync('script.js','utf8'),context);
   return {context,nodes,charts,saved};
 }
+
+test('completion uses canonical provenance before DOMContentLoaded without exposing calculation inputs', () => {
+  for (const [query, source, cta, referrer] of [
+    ['?from=home&via=home_calculator', 'home', 'home_calculator'],
+    ['?from=content&via=ai_reverse', 'content', 'ai_reverse'],
+    ['', 'direct_or_unknown'],
+    ['?from=instagram&via=assumption', 'instagram', 'assumption'],
+    ['?from=%3Cscript%3EPRIVATE%3C%2Fscript%3E&via=PRIVATE', 'direct_or_unknown'],
+    ['?from=__proto__&via=constructor', 'direct_or_unknown'],
+    ['?from=search', 'direct_or_unknown'],
+    ['', 'search', undefined, 'https://www.google.com/search?q=PRIVATE']
+  ]) {
+    const {context:c} = app({}, {query: query + (query ? '&' : '?') + 'amount=918273&text=PRIVATE', referrer});
+    // Use the real shared calculation state manager, before any DOM ready callback.
+    vm.runInContext(`const completion = new CalcState({onCalculate:()=>({success:true, amount:918273, text:'PRIVATE'})}); completion.calculate();`, c);
+    const events = JSON.parse(JSON.stringify(c.NTMEvents.snapshot()));
+    assert.deepEqual(events, [{event:'calculator_completed',category:'tools',source,tool:'compound',
+      ...(cta ? {cta} : {}),result:'success'}]);
+    assert.doesNotMatch(JSON.stringify(events), /PRIVATE|918273|amount|text|referrer|url/);
+  }
+});
+
+test('failed and incomplete calculations emit no completion event', () => {
+  const {context:c} = app({}, {query:'?from=home&via=home_calculator'});
+  for (const result of [false, null, undefined, 'Incomplete input', {success:false, error:'Invalid input'}]) {
+    c.calculationResult=result;
+    vm.runInContext('new CalcState({onCalculate:()=>calculationResult}).calculate()',c);
+  }
+  assert.deepEqual(JSON.parse(JSON.stringify(c.NTMEvents.snapshot())), []);
+});
 
 test('FIRE fixed purchasing-power withdrawals and nominal inflation linkage match independent oracles',()=>{
  const c=app().context,close=(a,b)=>assert.ok(Math.abs(a-b)<1e-6,`${a} != ${b}`);

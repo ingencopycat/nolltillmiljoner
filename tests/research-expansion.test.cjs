@@ -5,7 +5,8 @@ test('B78 publication, route, review queue and connected catalog allowlists agre
  assert.deepEqual([...R.supportedTickers].sort(),['NVDA','SOFI','CRWD',...tickers].sort());
  for(const file of ['research.js','min-review.js','ntm-product.js'])for(const t of tickers)assert.ok(fs.readFileSync(file,'utf8').includes("'"+t+"'"),file+': '+t);
  const html=fs.readFileSync('research.html','utf8');
- for(const t of tickers){assert.equal(html.split(`id="index-${t}-revenue"`).length-1,1);assert.ok(html.includes(`href="research.html?ticker=${t}"`));}
+ for(const t of tickers) assert.ok(require('../research-entry.js').companies.some(c=>c.ticker===t));
+ assert.ok(!html.includes('research-company-card'));
  for(const t of ['AVEX','BULL','NBIS','TEM','GLXY','ASML'])assert.equal(R.supportedTickers.includes(t),false);
 });
 test('B78 actual data retains null EPS, source evidence, safe comparisons and explicit manual fallback',()=>{

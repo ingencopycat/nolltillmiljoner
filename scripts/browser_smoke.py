@@ -471,9 +471,9 @@ class BrowserSmoke(unittest.TestCase):
             expect(p.locator('#thesis-text')).to_have_value('Revised synthetic thesis ' + ticker)
         self.go('research.html')
         for ticker in ['MU', 'MRVL', 'VRT', 'COHR', 'RKLB', 'TTMI', 'SNDK', 'FLY', 'CRWV']:
-            expect(p.locator('#index-' + ticker + '-period')).to_contain_text('TTM')
-            expect(p.locator('#index-' + ticker + '-revenue')).not_to_have_text('–')
-        p.locator('.research-index-grid').screenshot(path=str(Path(tempfile.gettempdir()) / 'ntm-b78-cards.png'))
+            p.locator('#companySearch').fill(ticker)
+            expect(p.locator('#stockSwitcherPills a').first).to_have_attribute('data-ticker', ticker)
+        p.locator('#companyPicker').screenshot(path=str(Path(tempfile.gettempdir()) / 'ntm-b78-selector.png'))
 
     def test_behavioral_intelligence_local_workflows(self):
         p = self.page
@@ -815,6 +815,40 @@ class BrowserSmoke(unittest.TestCase):
         self.assertFalse(any('PRIVATE-' in request for request in requests))
         self.assertNotIn('PRIVATE-', p.evaluate('JSON.stringify(NTMEvents.snapshot())'))
 
+    def test_calculator_completion_provenance_before_dom_ready(self):
+        p = self.page
+        # Keep the real calculator usable while a later script delays DOMContentLoaded.
+        # This reproduced a successful event with no source/tool/cta before the fix.
+        held = []
+        p.route('**/ntm-ui.js', lambda route: held.append(route))
+        for query, source, cta in [
+            ('?from=home&via=home_calculator', 'home', 'home_calculator'),
+            ('?from=content&via=ai_reverse', 'content', 'ai_reverse'),
+            ('', 'direct_or_unknown', None),
+            ('?from=%3Cscript%3EPRIVATE%3C%2Fscript%3E&via=PRIVATE', 'direct_or_unknown', None),
+        ]:
+            p.goto(self.base+'/ranta-pa-ranta.html'+query, wait_until='commit')
+            expect(p.locator('#growth-mode-panel')).to_have_attribute('data-calc-state', 'neutral')
+            self.assertEqual(p.evaluate('document.readyState'), 'loading')
+            p.locator('#ar').fill('0')
+            p.locator('#calculator-form button[type=submit]').click()
+            self.assertEqual(p.evaluate('NTMEvents.snapshot()'), [])
+            p.locator('#ar').fill('')
+            p.locator('#calculator-form button[type=submit]').click()
+            self.assertEqual(p.evaluate('NTMEvents.snapshot()'), [])
+            p.locator('#ar').fill('10')
+            p.locator('#startkapital').fill('918000')
+            p.locator('#calculator-form button[type=submit]').click()
+            expected = dict(event='calculator_completed', category='tools', source=source, tool='compound', result='success')
+            if cta:
+                expected['cta'] = cta
+            self.assertEqual(p.evaluate('NTMEvents.snapshot()'), [expected])
+            held.pop().continue_()
+            p.wait_for_load_state('domcontentloaded')
+            self.assertEqual(p.evaluate("NTMEvents.snapshot().filter(e=>e.event==='calculator_completed')"), [expected])
+            self.assertNotIn('918000', p.evaluate('JSON.stringify(NTMEvents.snapshot())'))
+            self.assertNotIn('PRIVATE', p.evaluate('JSON.stringify(NTMEvents.snapshot())'))
+
     def test_trust_content_journeys_and_instagram(self):
         p = self.page
         self.go('index.html')
@@ -851,7 +885,8 @@ class BrowserSmoke(unittest.TestCase):
         for flow, field in [('assumption','thesis-assumption-1'),('counterevidence','thesis-trigger')]:
             self.go('research.html?from=instagram&via=' + flow)
             expect(p.locator('.journey-intro')).to_be_visible()
-            p.locator('#researchIndex a[href*="ticker=NVDA"]').first.click()
+            p.locator('#companySearch').fill('NVDA')
+            p.locator('#stockSwitcherPills a').first.click()
             self.wait_for("typeof currentStockData !== 'undefined' && currentStockData?.symbol==='NVDA'")
             self.assertIn('#' + field, p.url)
             self.assertTrue(p.evaluate("NTMEvents.snapshot().some(e=>e.event==='research_opened' && e.source==='instagram')"))

@@ -1,0 +1,22 @@
+[
+  {
+    "gate": "browser-smoke",
+    "exitCode": 0
+  },
+  {
+    "gate": "social-browser",
+    "exitCode": 0
+  },
+  {
+    "gate": "wave5",
+    "exitCode": 0
+  },
+  {
+    "gate": "auth-browser",
+    "exitCode": 0
+  },
+  {
+    "gate": "quality",
+    "exitCode": 0
+  }
+]

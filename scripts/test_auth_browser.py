@@ -125,6 +125,14 @@ def main():
         for target in ('min-ntm.html', 'research.html', 'profil.html?u=fixture', 'index.html'):
             page.goto(base+'/'+target)
             expect(page.locator('[data-account-nav]')).to_have_text('Konto')
+            if target == 'research.html':
+                expect(page.locator('#main-content')).to_have_attribute('data-entry-state', 'NO_COMPANY')
+                expect(page.locator('#companySearch')).to_be_visible()
+                expect(page.locator('#companyRecent')).to_be_hidden()
+                expect(page.locator('#companyPicker > summary')).not_to_contain_text('Byt bolag')
+                page.goto(base+'/research.html?ticker=NVDA')
+                expect(page.locator('#main-content')).to_have_attribute('data-entry-state', 'COMPANY_SELECTED')
+                expect(page.locator('#companyName')).to_contain_text('NVIDIA')
             account(page)
         page.reload()
         expect(page.locator('#cloudConnected')).to_be_visible()

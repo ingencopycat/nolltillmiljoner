@@ -156,7 +156,7 @@
     const source = data.entities.find(e => e.id === id), rows = query(data, id, {limit:source?.type === 'research' ? 4 : 3});
     if (!source || !rows.length) return '';
     const heading = source.type === 'research' ? 'Fortsätt med ' + source.title : 'Nästa steg i NTM';
-    return `<aside class="ntm-relations" data-relation-source="${esc(id)}"${source.type === 'research' ? ` data-relation-ticker="${esc(source.tickers[0])}"` : ''} aria-labelledby="relations-${esc(id)}"><h2 id="relations-${esc(id)}">${esc(heading)}</h2><ul>${rows.map(r =>
+    return `<aside class="ntm-relations" data-relation-source="${esc(id)}"${source.type === 'research' ? ` hidden data-relation-ticker="${esc(source.tickers[0])}"` : ''} aria-labelledby="relations-${esc(id)}"><h2 id="relations-${esc(id)}">${esc(heading)}</h2><ul>${rows.map(r =>
       `<li><h3>${esc(r.destination.title)}</h3><p>${esc(r.reason)}</p><a href="${esc(href(r, source))}" data-relation-id="${esc(r.id)}" data-relation-type="${esc(r.type)}" data-destination-type="${esc(r.destination.type)}"${r.legacyCta ? ` data-ntm-cta="${esc(r.legacyCta)}"` : ''}>${esc(r.cta)}</a></li>`).join('')}</ul></aside>`;
   }
   function validate(data, destinationExists = () => true) {

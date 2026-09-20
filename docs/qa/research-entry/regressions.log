@@ -1,0 +1,158 @@
+Browser smoke: Chromium 151.0.7922.34; fresh contexts on http://127.0.0.1:55912
+test_academy_learning_progress_and_backup (__main__.BrowserSmoke.test_academy_learning_progress_and_backup) ... ok
+test_academy_v2_journeys_undo_and_reading (__main__.BrowserSmoke.test_academy_v2_journeys_undo_and_reading) ... ok
+test_academy_v3_progression_projects_and_mobile (__main__.BrowserSmoke.test_academy_v3_progression_projects_and_mobile) ... ok
+test_all_local_chart_consumers (__main__.BrowserSmoke.test_all_local_chart_consumers) ... ok
+test_behavioral_intelligence_local_workflows (__main__.BrowserSmoke.test_behavioral_intelligence_local_workflows) ... ok
+test_calculator_depth_followup_and_images (__main__.BrowserSmoke.test_calculator_depth_followup_and_images) ... Calculator depth screenshots: C:\Users\Mirne\AppData\Local\Temp\ntm-calculator-depth-87yeulb3
+ok
+test_cloud_account_foundation_two_devices_and_isolation (__main__.BrowserSmoke.test_cloud_account_foundation_two_devices_and_isolation) ... Cloud visual: C:\Users\Mirne\AppData\Local\Temp\ntm-cloud-visual-_avc787w\account-mobile-dark.png
+Cloud visual: C:\Users\Mirne\AppData\Local\Temp\ntm-cloud-visual-jdzw_y5y\account-mobile-light.png
+ok
+test_color_v2_controls_semantics_charts_and_theme_persistence (__main__.BrowserSmoke.test_color_v2_controls_semantics_charts_and_theme_persistence) ... Color control screenshots: C:\Users\Mirne\AppData\Local\Temp\ntm-colors-controls-ems5o2gn
+ok
+test_connected_journeys_and_private_editor_preservation (__main__.BrowserSmoke.test_connected_journeys_and_private_editor_preservation) ... ok
+test_connected_static_links_keyboard_and_responsive_themes (__main__.BrowserSmoke.test_connected_static_links_keyboard_and_responsive_themes) ... Connected screenshots: C:\Users\Mirne\AppData\Local\Temp\ntm-connected-visual-p6suzqom
+ok
+test_corrupt_scenarios_block_ui_save_and_delete (__main__.BrowserSmoke.test_corrupt_scenarios_block_ui_save_and_delete) ... ok
+test_daily_leverage_and_zero_net_compound (__main__.BrowserSmoke.test_daily_leverage_and_zero_net_compound) ... ok
+test_data_provenance_and_unsafe_comparison (__main__.BrowserSmoke.test_data_provenance_and_unsafe_comparison) ... ok
+test_decision_lifecycle_supported_and_manual_backup (__main__.BrowserSmoke.test_decision_lifecycle_supported_and_manual_backup) ... Lifecycle screenshots: C:\Users\Mirne\AppData\Local\Temp\ntm-lifecycle-visual-5t7x823f
+ok
+test_followup_modes_and_mobile_depth (__main__.BrowserSmoke.test_followup_modes_and_mobile_depth) ... Mobile depth screenshots: C:\Users\Mirne\AppData\Local\Temp\ntm-depth-mobile-d5awao8l
+ok
+test_grouped_money_inputs_across_calculators (__main__.BrowserSmoke.test_grouped_money_inputs_across_calculators) ... ok
+test_grouped_money_math_restore_and_reset (__main__.BrowserSmoke.test_grouped_money_math_restore_and_reset) ... ok
+test_grouped_money_touch_and_forced_colors (__main__.BrowserSmoke.test_grouped_money_touch_and_forced_colors) ... ok
+test_growth_reminders_return_private_and_mobile (__main__.BrowserSmoke.test_growth_reminders_return_private_and_mobile) ... Growth reminder visual: C:\Users\Mirne\AppData\Local\Temp\ntm-growth-visual-wm1fx2ft\research-reminders-mobile.png
+ok
+test_homepage_earnings_current_week_expand_and_missing_data (__main__.BrowserSmoke.test_homepage_earnings_current_week_expand_and_missing_data) ... Homepage earnings screenshots: C:\Users\Mirne\AppData\Local\Temp\ntm-home-earnings-_0vzf3qo
+ok
+test_knowledge_bank_search_links_and_accessibility (__main__.BrowserSmoke.test_knowledge_bank_search_links_and_accessibility) ... ok
+test_live_grouping_editing_and_yearly_growth (__main__.BrowserSmoke.test_live_grouping_editing_and_yearly_growth) ... ----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 58057)
+Traceback (most recent call last):
+  File "C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\socketserver.py", line 697, in process_request_thread
+    self.finish_request(request, client_address)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\socketserver.py", line 362, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\http\server.py", line 736, in __init__
+    super().__init__(*args, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\socketserver.py", line 766, in __init__
+    self.handle()
+    ~~~~~~~~~~~^^
+  File "C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\http\server.py", line 500, in handle
+    self.handle_one_request()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\http\server.py", line 488, in handle_one_request
+    method()
+    ~~~~~~^^
+  File "C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\http\server.py", line 743, in do_GET
+    self.copyfile(f, self.wfile)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\http\server.py", line 946, in copyfile
+    shutil.copyfileobj(source, outputfile)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\shutil.py", line 257, in copyfileobj
+    fdst_write(buf)
+    ~~~~~~~~~~^^^^^
+  File "C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\socketserver.py", line 845, in write
+    self._sock.sendall(b)
+    ~~~~~~~~~~~~~~~~~~^^^
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+----------------------------------------
+ok
+test_macro_partial_status_and_field_sources (__main__.BrowserSmoke.test_macro_partial_status_and_field_sources) ... ok
+test_manual_label_identity_and_unsafe_entry (__main__.BrowserSmoke.test_manual_label_identity_and_unsafe_entry) ... ok
+test_premium_depth_keyboard_tables_and_reduced_motion (__main__.BrowserSmoke.test_premium_depth_keyboard_tables_and_reduced_motion) ... ok
+test_premium_theme_contrast_and_zoom_reflow (__main__.BrowserSmoke.test_premium_theme_contrast_and_zoom_reflow) ... ok
+test_product_event_commit_boundaries (__main__.BrowserSmoke.test_product_event_commit_boundaries) ... ok
+test_product_paths_mobile_navigation_and_second_review (__main__.BrowserSmoke.test_product_paths_mobile_navigation_and_second_review) ... ok
+test_quality_dynamic_labels_error_recovery_and_lightbox_focus (__main__.BrowserSmoke.test_quality_dynamic_labels_error_recovery_and_lightbox_focus) ... ok
+test_research_ai_foundation (__main__.BrowserSmoke.test_research_ai_foundation) ... ok
+test_research_expansion_batches_one_and_two (__main__.BrowserSmoke.test_research_expansion_batches_one_and_two) ... ok
+test_research_history_export_outcomes_and_backup_roundtrip (__main__.BrowserSmoke.test_research_history_export_outcomes_and_backup_roundtrip) ... ok
+test_research_menu_blocks_background (__main__.BrowserSmoke.test_research_menu_blocks_background) ... ok
+test_security_policy_and_untrusted_summary_rendering (__main__.BrowserSmoke.test_security_policy_and_untrusted_summary_rendering) ... ok
+test_shared_valuation_surfaces_and_sensitivity (__main__.BrowserSmoke.test_shared_valuation_surfaces_and_sensitivity) ... ok
+test_trust_content_journeys_and_instagram (__main__.BrowserSmoke.test_trust_content_journeys_and_instagram) ... ok
+test_wave0_credibility_in_real_pages (__main__.BrowserSmoke.test_wave0_credibility_in_real_pages) ... ok
+test_weekly_macro_today_tomorrow_and_expansion (__main__.BrowserSmoke.test_weekly_macro_today_tomorrow_and_expansion) ... Weekly reliability screenshots: C:\Users\Mirne\AppData\Local\Temp\ntm-weekly-reliability-32vtml73
+ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 91.121s
+
+OK
+Browser smoke: Chromium 151.0.7922.34; fresh contexts on http://127.0.0.1:61951
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 17.787s
+
+OK
+Browser smoke: Chromium 151.0.7922.34; fresh contexts on http://127.0.0.1:60448
+test_actual_return_all_decisions_and_history (__main__.Wave2.test_actual_return_all_decisions_and_history) ... ok
+test_draft_restore_discard_no_revision_or_network_leak (__main__.Wave2.test_draft_restore_discard_no_revision_or_network_leak) ... ok
+test_exact_target_survives_evidence_navigation_reload_and_deletion (__main__.Wave2.test_exact_target_survives_evidence_navigation_reload_and_deletion) ... ok
+test_expired_draft_and_corrupt_companion_preserve_original (__main__.Wave2.test_expired_draft_and_corrupt_companion_preserve_original) ... ok
+test_manual_snooze_and_unknown_price_age (__main__.Wave2.test_manual_snooze_and_unknown_price_age) ... ok
+test_mobile_both_themes_keyboard (__main__.Wave2.test_mobile_both_themes_keyboard) ... ok
+test_revise_draft_reload_and_deliberate_reopen (__main__.Wave2.test_revise_draft_reload_and_deliberate_reopen) ... ok
+test_stale_target_and_concurrent_editor_fail_closed (__main__.Wave2.test_stale_target_and_concurrent_editor_fail_closed) ... ok
+test_unavailable_stock_and_corrupt_journal_are_not_empty_success (__main__.Wave2.test_unavailable_stock_and_corrupt_journal_are_not_empty_success) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 15.519s
+
+OK
+Browser smoke: Chromium 151.0.7922.34; fresh contexts on http://127.0.0.1:52413
+test_clock_fixture_delayed_success_then_failure_keeps_history (__main__.Wave3.test_clock_fixture_delayed_success_then_failure_keeps_history) ... ok
+test_fx_real_savings_application_and_existing_plan_resume (__main__.Wave3.test_fx_real_savings_application_and_existing_plan_resume) ... ok
+test_independent_help_reveal_retry_and_novel_variant (__main__.Wave3.test_independent_help_reveal_retry_and_novel_variant) ... ok
+test_malformed_expired_wrong_destination_and_no_silent_apply (__main__.Wave3.test_malformed_expired_wrong_destination_and_no_silent_apply) ... ok
+test_mobile_themes_keyboard_help_and_bounded_navigation (__main__.Wave3.test_mobile_themes_keyboard_help_and_bounded_navigation) ... ok
+test_scenario_mobile_keyboard_preview (__main__.Wave3.test_scenario_mobile_keyboard_preview) ... ok
+test_valuation_application_preview_explicit_apply_and_safe_return (__main__.Wave3.test_valuation_application_preview_explicit_apply_and_safe_return) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 10.596s
+
+OK
+Browser smoke: Chromium 151.0.7922.34; fresh contexts on http://127.0.0.1:54686
+test_annual_source_correction_acknowledges_once_preserves_original_and_stays_out_of_queue (__main__.Wave4.test_annual_source_correction_acknowledges_once_preserves_original_and_stays_out_of_queue) ... ok
+test_calendar_context_mobile_and_help_preserves_week (__main__.Wave4.test_calendar_context_mobile_and_help_preserves_week) ... ok
+test_macro_revision_partial_retention_and_date_crossover (__main__.Wave4.test_macro_revision_partial_retention_and_date_crossover) ... ok
+test_profiles_mobile_themes_evidence_and_keyboard_help (__main__.Wave4.test_profiles_mobile_themes_evidence_and_keyboard_help) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 25.984s
+
+OK
+test_author_explicit_financial_selection_and_changed_private_basis (__main__.Wave5.test_author_explicit_financial_selection_and_changed_private_basis) ... ok
+test_dense_sparse_themes_mobile_and_keyboard (__main__.Wave5.test_dense_sparse_themes_mobile_and_keyboard) ... ok
+test_unavailable_version_and_safe_reader_continuation (__main__.Wave5.test_unavailable_version_and_safe_reader_continuation) ... ok
+test_version_reporting_and_no_auth_required_for_read (__main__.Wave5.test_version_reporting_and_no_auth_required_for_read) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 9.775s
+
+OK
+Public cloud config and exact-origin CSP generated in staged site. Live validation still required.
+PASS SDK persistence: navigation/reload/hard reload/tab/browser restart, new device, automatic refresh, cross-tab logout, deletion/stale rejection, offline logout; no silent upload
+Public cloud config and exact-origin CSP generated in staged site. Live validation still required.
+PASS offline browser: opt-in, immutable-name confirmation, preview/cancel/focus, request allowlist, no silent upload, unpublish/private preservation, privacy, XSS text, lists/search, mobile menu and 360/390/430px dark/light overflow
+Browser smoke: Chromium 151.0.7922.34; fresh contexts on http://127.0.0.1:60676
+test_body_failure_and_no_initial_corpus_download (__main__.Knowledge100.test_body_failure_and_no_initial_corpus_download) ... ok
+test_cancel_slow_research_help_does_not_reopen_dialog (__main__.Knowledge100.test_cancel_slow_research_help_does_not_reopen_dialog) ... ok
+test_mobile_keyboard_clarification_formula_and_depth (__main__.Knowledge100.test_mobile_keyboard_clarification_formula_and_depth) ... ok
+test_public_report_help_is_generic_and_preserves_frozen_content (__main__.Knowledge100.test_public_report_help_is_generic_and_preserves_frozen_content) ... ok
+test_shared_calculator_help_preserves_fields_and_focus (__main__.Knowledge100.test_shared_calculator_help_preserves_fields_and_focus) ... ok
+test_synthetic_scale_browser (__main__.Knowledge100.test_synthetic_scale_browser) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 8.334s
+
+OK

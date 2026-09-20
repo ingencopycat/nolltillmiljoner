@@ -1,0 +1,481 @@
+{
+  "version": 1,
+  "measuredAt": "2026-09-20T07:48:47.873666+00:00",
+  "method": "Headless Chromium; cold context per page; localhost without compression or CPU/network throttling; third parties and browser-scheduled favicon requests excluded; no timing pass/fail thresholds.",
+  "pages": [
+    {
+      "page": "research.html",
+      "requestCount": 45,
+      "transferBytes": 1507575,
+      "decodedBytes": 1494075,
+      "domContentLoadedMs": 333.69999998807907,
+      "loadMs": 337.5,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/social.css",
+          "bytes": 5563,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/research-v3.css",
+          "bytes": 19900,
+          "kind": "link"
+        },
+        {
+          "path": "/public-report.css",
+          "bytes": 2110,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8600,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/research-snapshot.js",
+          "bytes": 12600,
+          "kind": "script"
+        },
+        {
+          "path": "/thesis-storage.js",
+          "bytes": 20256,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity.js",
+          "bytes": 11253,
+          "kind": "script"
+        },
+        {
+          "path": "/change-detection.js",
+          "bytes": 4860,
+          "kind": "script"
+        },
+        {
+          "path": "/research-export.js",
+          "bytes": 10111,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcomes.js",
+          "bytes": 10556,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcome-ui.js",
+          "bytes": 13798,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai.js",
+          "bytes": 8671,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai-ui.js",
+          "bytes": 4244,
+          "kind": "script"
+        },
+        {
+          "path": "/research-v3.js",
+          "bytes": 7007,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile.js",
+          "bytes": 12460,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile-ui.js",
+          "bytes": 3636,
+          "kind": "script"
+        },
+        {
+          "path": "/research-entry.js",
+          "bytes": 9783,
+          "kind": "script"
+        },
+        {
+          "path": "/research.js",
+          "bytes": 111720,
+          "kind": "script"
+        },
+        {
+          "path": "/min-review.js",
+          "bytes": 7157,
+          "kind": "script"
+        },
+        {
+          "path": "/research-review.js",
+          "bytes": 9377,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity-ui.js",
+          "bytes": 11380,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        },
+        {
+          "path": "/vendor/supabase/supabase.js",
+          "bytes": 218318,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-adapter.js",
+          "bytes": 6988,
+          "kind": "script"
+        },
+        {
+          "path": "/social-core.js",
+          "bytes": 1624,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report.js",
+          "bytes": 11902,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-ui.js",
+          "bytes": 8356,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-origin.js",
+          "bytes": 1019,
+          "kind": "script"
+        },
+        {
+          "path": "/research-publication.js",
+          "bytes": 12997,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-relations-ui.js",
+          "bytes": 365,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 15021,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 102500,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11497,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-help.js",
+          "bytes": 2296,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 1202105,
+      "cssBytes": 185068,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "research.html?ticker=NVDA",
+      "requestCount": 46,
+      "transferBytes": 1772965,
+      "decodedBytes": 1759165,
+      "domContentLoadedMs": 256.2999999523163,
+      "loadMs": 257.2999999523163,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 36686,
+          "kind": "link"
+        },
+        {
+          "path": "/social.css",
+          "bytes": 5563,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/research-v3.css",
+          "bytes": 19900,
+          "kind": "link"
+        },
+        {
+          "path": "/public-report.css",
+          "bytes": 2110,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8600,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304454,
+          "kind": "script"
+        },
+        {
+          "path": "/research-snapshot.js",
+          "bytes": 12600,
+          "kind": "script"
+        },
+        {
+          "path": "/thesis-storage.js",
+          "bytes": 20256,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity.js",
+          "bytes": 11253,
+          "kind": "script"
+        },
+        {
+          "path": "/change-detection.js",
+          "bytes": 4860,
+          "kind": "script"
+        },
+        {
+          "path": "/research-export.js",
+          "bytes": 10111,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcomes.js",
+          "bytes": 10556,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcome-ui.js",
+          "bytes": 13798,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai.js",
+          "bytes": 8671,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai-ui.js",
+          "bytes": 4244,
+          "kind": "script"
+        },
+        {
+          "path": "/research-v3.js",
+          "bytes": 7007,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile.js",
+          "bytes": 12460,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile-ui.js",
+          "bytes": 3636,
+          "kind": "script"
+        },
+        {
+          "path": "/research-entry.js",
+          "bytes": 9783,
+          "kind": "script"
+        },
+        {
+          "path": "/research.js",
+          "bytes": 111720,
+          "kind": "script"
+        },
+        {
+          "path": "/min-review.js",
+          "bytes": 7157,
+          "kind": "script"
+        },
+        {
+          "path": "/research-review.js",
+          "bytes": 9377,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity-ui.js",
+          "bytes": 11380,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        },
+        {
+          "path": "/vendor/supabase/supabase.js",
+          "bytes": 218318,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-adapter.js",
+          "bytes": 6988,
+          "kind": "script"
+        },
+        {
+          "path": "/social-core.js",
+          "bytes": 1624,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report.js",
+          "bytes": 11902,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-ui.js",
+          "bytes": 8356,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-origin.js",
+          "bytes": 1019,
+          "kind": "script"
+        },
+        {
+          "path": "/research-publication.js",
+          "bytes": 12997,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8644,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-relations-ui.js",
+          "bytes": 365,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 15021,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 102500,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11497,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-help.js",
+          "bytes": 2296,
+          "kind": "script"
+        },
+        {
+          "path": "/data/stocks/NVDA.json",
+          "bytes": 265090,
+          "kind": "fetch"
+        }
+      ],
+      "jsBytes": 1202105,
+      "cssBytes": 185068,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    }
+  ],
+  "browser": "151.0.7922.34"
+}

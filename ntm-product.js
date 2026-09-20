@@ -53,19 +53,21 @@
     subscribe(fn) { if (typeof fn !== 'function') return () => {}; listeners.add(fn); return () => listeners.delete(fn); } });
   if (typeof module !== 'undefined') module.exports = { events: root.NTMEvents, status: root.NTMStatus };
   if (!root.document?.addEventListener) return;
+  // Submit handlers can run while later scripts still delay DOMContentLoaded.
+  // Capture the canonical, allowlisted context before exposing those interactions.
+  const file = root.location.pathname.split('/').pop() || 'index.html', tool = routes[file];
+  const category = file === 'index.html' ? 'home' : file.startsWith('post-') || file === 'inlagg.html' ? 'content'
+    : tool === 'research' ? 'research' : tool === 'local' ? 'local' : tool || file === 'verktyg.html' ? 'tools'
+    : file === 'om-metod.html' ? 'trust' : ['makro.html', 'rapporter.html'].includes(file) ? 'calendar'
+    : file === 'resurser.html' ? 'resources' : 'other';
+  const params = new URLSearchParams(root.location.search);
+  const source = ['instagram', 'content', 'home'].includes(params.get('from')) ? params.get('from') : 'direct_or_unknown';
+  context = { category, source, ...(tool ? { tool } : {}) };
+  const cta = params.get('via'); if (fields.cta.includes(cta)) context.cta = cta;
+  if (source === 'direct_or_unknown') {
+    try { if (['www.google.com', 'www.google.se', 'www.bing.com', 'duckduckgo.com'].includes(new URL(root.document.referrer).hostname)) context.source = 'search'; } catch (_) { /* Unknown is honest. */ }
+  }
   root.document.addEventListener('DOMContentLoaded', () => {
-    const file = root.location.pathname.split('/').pop() || 'index.html', tool = routes[file];
-    const category = file === 'index.html' ? 'home' : file.startsWith('post-') || file === 'inlagg.html' ? 'content'
-      : tool === 'research' ? 'research' : tool === 'local' ? 'local' : tool || file === 'verktyg.html' ? 'tools'
-      : file === 'om-metod.html' ? 'trust' : ['makro.html', 'rapporter.html'].includes(file) ? 'calendar'
-      : file === 'resurser.html' ? 'resources' : 'other';
-    const params = new URLSearchParams(root.location.search);
-    const source = ['instagram', 'content', 'home'].includes(params.get('from')) ? params.get('from') : 'direct_or_unknown';
-    context = { category, source, ...(tool ? { tool } : {}) };
-    const cta = params.get('via'); if (fields.cta.includes(cta)) context.cta = cta;
-    if (source === 'direct_or_unknown') {
-      try { if (['www.google.com', 'www.google.se', 'www.bing.com', 'duckduckgo.com'].includes(new URL(root.document.referrer).hostname)) context.source = 'search'; } catch (_) { /* Unknown is honest. */ }
-    }
     emit('landing_view'); if (tool) emit('tool_opened');
     root.document.addEventListener('click', event => {
       const relation = event.target.closest?.('a[data-relation-id]');

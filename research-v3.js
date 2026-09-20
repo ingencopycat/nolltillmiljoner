@@ -94,18 +94,6 @@
   }
   document.addEventListener('DOMContentLoaded', () => {
     window.NTMVisualV3 = { workspace, revenue };
-    const search = $('companySearch');
-    if (search) search.addEventListener('input', () => {
-      const query = search.value.trim().toLocaleLowerCase('sv-SE'); let count = 0;
-      document.querySelectorAll('#stockSwitcherPills a').forEach(a => {
-        a.hidden = !!query && !a.textContent.toLocaleLowerCase('sv-SE').includes(query);
-        if (!a.hidden) count++;
-      });
-      $('companySearchStatus').textContent = query ? count ? `${count} träffar i NTM:s urval.` : 'Inget bolag i urvalet. Du kan skapa en manuell tes nedan.' : '';
-    });
-    $('companyPicker')?.addEventListener('keydown', e => {
-      if (e.key === 'Escape') { $('companyPicker').open = false; $('companyPicker').querySelector('summary').focus(); }
-    });
     const header = $('companyHeaderCard');
     if (header) {
       const source = node('details', undefined, 'company-source-details');

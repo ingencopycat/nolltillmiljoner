@@ -1,0 +1,32 @@
+✔ completion uses canonical provenance before DOMContentLoaded without exposing calculation inputs (28.5366ms)
+✔ failed and incomplete calculations emit no completion event (2.6069ms)
+✔ FIRE fixed purchasing-power withdrawals and nominal inflation linkage match independent oracles (4.3657ms)
+✔ comparison cards and chart use selected fees, month-end saving and nominal values in both modes (22.6886ms)
+✔ FIRE definition agrees across body, FAQ and structured data (0.6321ms)
+✔ yearly compound path: hand oracle, constant parity, contributions, fee and loss boundaries (3.2026ms)
+✔ yearly scenario records roundtrip and reject missing years; legacy scenarios remain valid (5.6964ms)
+✔ quality boundaries: recovery zero, impossible and non-finite values; error replaces success state (3.1602ms)
+✔ leverage explanation oracle: same returns reordered, volatility drag and zero absorption (5.9495ms)
+✔ content allows only inert formatting and HTTPS links; rule parameters match executable constants (3.5949ms)
+✔ independent monthly cash-flow oracle, fee monotonicity, FX identity and margins (2.9992ms)
+✔ loaded leverage callback submits through CalcState and renders real table/chart (6.3445ms)
+✔ loaded compound form uses finite chart series agreeing with the main result (4.7141ms)
+✔ scenario corruption and unsupported shapes block every write and retain raw recovery data (6.4894ms)
+✔ FIRE stress examples remain finite and reject zero/extreme rates (3.7684ms)
+✔ GAV optional conversion cost is included once and zero keeps the original result (4.0572ms)
+✔ FX teaching example compounds to eight percent and unchanged FX preserves asset return (2.5315ms)
+✔ homepage earnings selects the date week, not insertion order, with no priority exclusion (372.2091ms)
+✔ latest published earnings image has matching structured records for every day (20.5116ms)
+✔ events fail closed on private fields, arbitrary enum values and getters; provider failures are isolated (2.5668ms)
+✔ all status states expose words and live semantics; unknown states do not mutate UI (0.3197ms)
+✔ landing attribution strips query content and emits no private Research data (1.8256ms)
+✔ editorial metadata and original contextual journeys survive catalog migration (36.4487ms)
+✔ 2027 exchange dates match primary equity schedules and pending macro warnings expire (2.2057ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 632.8824

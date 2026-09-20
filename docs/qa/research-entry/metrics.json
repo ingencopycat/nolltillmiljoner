@@ -1,0 +1,32 @@
+[
+  {
+    "companies": 12,
+    "initial_results": 0,
+    "initial_selector_dom": 31,
+    "search_results": 10,
+    "search_render_median_ms": 0.10000002384185791,
+    "search_render_p95_ms": 0.20000004768371582,
+    "stock_requests": 0,
+    "selector_bytes": 9783
+  },
+  {
+    "companies": 100,
+    "initial_results": 0,
+    "initial_selector_dom": 31,
+    "search_results": 20,
+    "search_render_median_ms": 0.5,
+    "search_render_p95_ms": 0.6000000238418579,
+    "stock_requests": 0,
+    "selector_bytes": 13039
+  },
+  {
+    "companies": 550,
+    "initial_results": 0,
+    "initial_selector_dom": 31,
+    "search_results": 20,
+    "search_render_median_ms": 2.100000023841858,
+    "search_render_p95_ms": 2.300000011920929,
+    "stock_requests": 0,
+    "selector_bytes": 29239
+  }
+]

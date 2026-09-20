@@ -1,0 +1,70 @@
+[
+  {
+    "phase": "before",
+    "readyState": "loading",
+    "beforeDOMReady": [
+      {
+        "event": "calculator_completed",
+        "result": "success"
+      }
+    ],
+    "afterDOMReady": [
+      {
+        "event": "calculator_completed",
+        "result": "success"
+      },
+      {
+        "event": "landing_view",
+        "category": "tools",
+        "source": "home",
+        "tool": "compound",
+        "cta": "home_calculator"
+      },
+      {
+        "event": "tool_opened",
+        "category": "tools",
+        "source": "home",
+        "tool": "compound",
+        "cta": "home_calculator"
+      }
+    ]
+  },
+  {
+    "phase": "after",
+    "readyState": "loading",
+    "beforeDOMReady": [
+      {
+        "event": "calculator_completed",
+        "category": "tools",
+        "source": "home",
+        "tool": "compound",
+        "cta": "home_calculator",
+        "result": "success"
+      }
+    ],
+    "afterDOMReady": [
+      {
+        "event": "calculator_completed",
+        "category": "tools",
+        "source": "home",
+        "tool": "compound",
+        "cta": "home_calculator",
+        "result": "success"
+      },
+      {
+        "event": "landing_view",
+        "category": "tools",
+        "source": "home",
+        "tool": "compound",
+        "cta": "home_calculator"
+      },
+      {
+        "event": "tool_opened",
+        "category": "tools",
+        "source": "home",
+        "tool": "compound",
+        "cta": "home_calculator"
+      }
+    ]
+  }
+]

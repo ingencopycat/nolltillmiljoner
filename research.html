@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="social.css" />
     <link rel="stylesheet" href="visual-v3-tokens.css" />
     <link rel="stylesheet" href="research-v3.css" />
+    <noscript><style>#researchLoading { display: none !important; }</style></noscript>
 <link rel="stylesheet" href="public-report.css" />
     <script src="vendor/chart-4.5.1.umd.min.js"></script>
 <link rel="stylesheet" href="wave1.css" />
@@ -62,31 +63,29 @@
         </div>
     </header>
 
-    <main id="main-content" tabindex="-1" class="container research-container">
+    <main id="main-content" tabindex="-1" class="container research-container" data-entry-state="INITIALIZING">
         <div class="research-toolbar">
+        <header id="researchEntryIntro" class="page-intro tool-intro" hidden><span class="section-kicker">NTM Research</span><h1>Analysera ett bolag</h1><p>Bygg en investeringstes, granska rapporterad utveckling och följ vad som förändras över tid.</p></header>
         <nav class="section-local-nav research-journeys" aria-label="Research">
             <a href="research.html" aria-current="page">Analysera</a>
             <a href="upptack.html">Upptäck Research</a>
         </nav>
-<details class="company-picker" id="companyPicker"><summary>Byt bolag <span>SEC-data eller manuell tes</span></summary><div class="company-picker-body">        <!-- Stock Switcher Bar -->
+<details class="company-picker" id="companyPicker" hidden><summary>Sök/välj bolag</summary><div class="company-picker-body">        <!-- Stock Switcher Bar -->
         <nav class="research-switcher-wrap" aria-label="Välj bolag att analysera">
             <div class="research-switcher">
-                <label for="companySearch">Sök bland bolag med SEC-data</label><input id="companySearch" type="search" placeholder="Bolag eller ticker" autocomplete="off" aria-controls="stockSwitcherPills" /><p id="companySearchStatus" class="note" role="status"></p>
-                <div class="research-pills" id="stockSwitcherPills">
-                    <a href="research.html" class="research-pill" data-ticker="ALL">Alla bolag</a>
-                    <a href="research.html?ticker=NVDA" class="research-pill" data-ticker="NVDA">NVDA <span class="pill-badge">NVIDIA</span></a>
-                    <a href="research.html?ticker=SOFI" class="research-pill" data-ticker="SOFI">SOFI <span class="pill-badge">SoFi</span></a>
-                    <a href="research.html?ticker=CRWD" class="research-pill" data-ticker="CRWD">CRWD <span class="pill-badge">CrowdStrike</span></a>
-                    <a href="research.html?ticker=MU" class="research-pill" data-ticker="MU">MU <span class="pill-badge">Micron</span></a>
-                    <a href="research.html?ticker=MRVL" class="research-pill" data-ticker="MRVL">MRVL <span class="pill-badge">Marvell</span></a>
-                    <a href="research.html?ticker=VRT" class="research-pill" data-ticker="VRT">VRT <span class="pill-badge">Vertiv</span></a>
-                    <a href="research.html?ticker=COHR" class="research-pill" data-ticker="COHR">COHR <span class="pill-badge">Coherent</span></a>
-                    <a href="research.html?ticker=RKLB" class="research-pill" data-ticker="RKLB">RKLB <span class="pill-badge">Rocket Lab</span></a>
-                    <a href="research.html?ticker=TTMI" class="research-pill" data-ticker="TTMI">TTMI <span class="pill-badge">TTM Technologies</span></a>
-                    <a href="research.html?ticker=SNDK" class="research-pill" data-ticker="SNDK">SNDK <span class="pill-badge">Sandisk</span></a>
-                    <a href="research.html?ticker=FLY" class="research-pill" data-ticker="FLY">FLY <span class="pill-badge">Firefly Aerospace</span></a>
-                    <a href="research.html?ticker=CRWV" class="research-pill" data-ticker="CRWV">CRWV <span class="pill-badge">CoreWeave</span></a>
-                </div>
+                <label for="companySearch">Sök bolag eller ticker</label>
+                <input id="companySearch" type="search" placeholder="Till exempel NVDA eller NVIDIA" autocomplete="off" aria-controls="stockSwitcherPills" aria-describedby="companySearchHelp" />
+                <p id="companySearchHelp" class="note">Sök i NTM:s urval med SEC EDGAR som datakälla. Manuell tes finns nedan för andra bolag.</p>
+                <p id="companySearchStatus" class="note" role="status" aria-atomic="true"></p>
+                <ul class="company-results" id="stockSwitcherPills" aria-label="Sökresultat"></ul>
+                <div id="companySearchPages" class="company-pages"></div>
+                <details id="companyBrowse"><summary>Alla bolag</summary>
+                    <div id="companyLetters" class="company-letters" role="group" aria-label="Bolagsnamnets första bokstav"></div>
+                    <p id="companyBrowseStatus" class="note" role="status"></p>
+                    <ul id="companyBrowseResults" class="company-results" aria-label="Bolag i vald bokstavsgrupp"></ul>
+                    <div id="companyBrowsePages" class="company-pages"></div>
+                </details>
+                <section id="companyRecent" hidden aria-labelledby="companyRecentHeading"><h2 id="companyRecentHeading">Fortsätt där du slutade</h2><ul class="company-results" id="companyRecentList"></ul></section>
             </div>
         </nav>
 
@@ -98,9 +97,9 @@
                 <button type="submit">Öppna tesformulär</button><p id="manualEntryStatus" role="status"></p></form></details></div></details>
         </div>
         <!-- Loading State -->
-        <div id="researchLoading" class="card research-state-card" role="status" aria-live="polite" style="display: none;">
+        <div id="researchLoading" class="card research-state-card" role="status" aria-live="polite" style="display: flex;">
             <div class="research-spinner" aria-hidden="true"></div>
-            <p>Hämtar normaliserad bolagsdata…</p>
+            <p>Förbereder Research…</p>
         </div>
 
         <!-- Error / Empty State -->
@@ -117,202 +116,8 @@
 
 
 
-        <!-- Index / Directory View (When no ticker is chosen) -->
-        <section id="researchIndex" class="research-view" style="display: none;">
-            <header class="page-intro tool-intro">
-                <span class="section-kicker">NTM Research</span>
-                <h1>Bolagsfundamenta från SEC</h1>
-                <p>Rapporterade och härledda nyckeltal från SEC EDGAR. Bolagsanpassade mappningar har begränsningar; saknade eller inkompatibla värden lämnas tomma. Kurser och värderingsantaganden anges manuellt.</p>
-            </header>
-
-            <div class="research-index-grid">
-                <!-- NVDA Card -->
-                <article class="card research-company-card">
-                    <div class="company-card-header">
-                        <div>
-                            <span class="badge badge-accent">Teknologi & Hårdvara</span>
-                            <h2>NVIDIA Corp</h2>
-                            <span class="company-ticker-tag">NASDAQ: NVDA</span>
-                        </div>
-                        <span class="cik-tag">CIK 0001045810</span>
-                    </div>
-                    <p class="company-desc">Världsledande inom GPU-beräkningar, datacenter-arkitektur och accelererad AI-hårdvara.</p>
-                    <div class="company-highlights">
-                        <div class="highlight-item">
-                            <span class="hl-label">Intäkter TTM</span>
-                            <span class="hl-val" id="index-NVDA-revenue">–</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="hl-label">Fritt kassaflöde TTM</span>
-                            <span class="hl-val" id="index-NVDA-secondary">–</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="hl-label">Nettomarginal TTM</span>
-                            <span class="hl-val" id="index-NVDA-margin">–</span>
-                        </div>
-                    </div>
-                    <p id="index-NVDA-period" class="note" role="status">Laddar nyckeltal…</p>
-                    <a href="research.html?ticker=NVDA" class="secondary-btn card-link">Öppna analys & historik →</a>
-                </article>
-
-                <!-- SOFI Card -->
-                <article class="card research-company-card">
-                    <div class="company-card-header">
-                        <div>
-                            <span class="badge badge-primary">Fintech & Banking</span>
-                            <h2>SoFi Technologies</h2>
-                            <span class="company-ticker-tag">NASDAQ: SOFI</span>
-                        </div>
-                        <span class="cik-tag">CIK 0001818874</span>
-                    </div>
-                    <p class="company-desc">Digital finansplattform och bank med utlåning, sparande, teknikplattform och finansiella tjänster.</p>
-                    <div class="company-highlights">
-                        <div class="highlight-item">
-                            <span class="hl-label">Nettointäkter TTM</span>
-                            <span class="hl-val" id="index-SOFI-revenue">–</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="hl-label">Nettoresultat TTM</span>
-                            <span class="hl-val" id="index-SOFI-secondary">–</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="hl-label">Nettomarginal TTM</span>
-                            <span class="hl-val" id="index-SOFI-margin">–</span>
-                        </div>
-                    </div>
-                    <p id="index-SOFI-period" class="note" role="status">Laddar nyckeltal…</p>
-                    <a href="research.html?ticker=SOFI" class="secondary-btn card-link">Öppna analys & historik →</a>
-                </article>
-
-                <!-- CRWD Card -->
-                <article class="card research-company-card">
-                    <div class="company-card-header">
-                        <div>
-                            <span class="badge badge-warning">Software & SaaS</span>
-                            <h2>CrowdStrike Holdings</h2>
-                            <span class="company-ticker-tag">NASDAQ: CRWD</span>
-                        </div>
-                        <span class="cik-tag">CIK 0001535527</span>
-                    </div>
-                    <p class="company-desc">Molnbaserad cybersäkerhetsplattform med abonnemangsintäkter (ARR) och starkt fritt kassaflöde.</p>
-                    <div class="company-highlights">
-                        <div class="highlight-item">
-                            <span class="hl-label">Intäkter TTM</span>
-                            <span class="hl-val" id="index-CRWD-revenue">–</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="hl-label">Fritt kassaflöde TTM</span>
-                            <span class="hl-val" id="index-CRWD-secondary">–</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="hl-label">Nettomarginal TTM</span>
-                            <span class="hl-val" id="index-CRWD-margin">–</span>
-                        </div>
-                    </div>
-                    <p id="index-CRWD-period" class="note" role="status">Laddar nyckeltal…</p>
-                    <a href="research.html?ticker=CRWD" class="secondary-btn card-link">Öppna analys & historik →</a>
-                </article>
-                <article class="card research-company-card">
-                    <div class="company-card-header"><div><h2>Micron Technology</h2><span class="company-ticker-tag">MU</span></div><span class="cik-tag">CIK 0000723125</span></div>
-                    <p class="company-desc">SEC 10-K / 10-Q, USD. TTM EPS och total skuld kan inte visas säkert. Ange eget EPS-antagande i kalkylen.</p>
-                    <div class="company-highlights">
-                        <div class="highlight-item"><span class="hl-label">Intäkter TTM</span><span class="hl-val" id="index-MU-revenue">&ndash;</span></div>
-                        <div class="highlight-item"><span class="hl-label">Fritt kassaflöde TTM</span><span class="hl-val" id="index-MU-secondary">&ndash;</span></div>
-                        <div class="highlight-item"><span class="hl-label">Nettomarginal TTM</span><span class="hl-val" id="index-MU-margin">&ndash;</span></div>
-                    </div>
-                    <p id="index-MU-period" class="note" role="status">Laddar SEC-data...</p>
-                    <a href="research.html?ticker=MU" class="secondary-btn card-link">Analysera Micron Technology</a>
-                </article>
-                <article class="card research-company-card">
-                    <div class="company-card-header"><div><h2>Marvell Technology</h2><span class="company-ticker-tag">MRVL</span></div><span class="cik-tag">CIK 0001835632</span></div>
-                    <p class="company-desc">SEC 10-K / 10-Q, USD. TTM EPS och total skuld kan inte visas säkert. Ange eget EPS-antagande i kalkylen.</p>
-                    <div class="company-highlights">
-                        <div class="highlight-item"><span class="hl-label">Intäkter TTM</span><span class="hl-val" id="index-MRVL-revenue">&ndash;</span></div>
-                        <div class="highlight-item"><span class="hl-label">Fritt kassaflöde TTM</span><span class="hl-val" id="index-MRVL-secondary">&ndash;</span></div>
-                        <div class="highlight-item"><span class="hl-label">Nettomarginal TTM</span><span class="hl-val" id="index-MRVL-margin">&ndash;</span></div>
-                    </div>
-                    <p id="index-MRVL-period" class="note" role="status">Laddar SEC-data...</p>
-                    <a href="research.html?ticker=MRVL" class="secondary-btn card-link">Analysera Marvell Technology</a>
-                </article>
-                <article class="card research-company-card">
-                    <div class="company-card-header"><div><h2>Vertiv Holdings</h2><span class="company-ticker-tag">VRT</span></div><span class="cik-tag">CIK 0001674101</span></div>
-                    <p class="company-desc">SEC 10-K / 10-Q, USD. TTM EPS och total skuld kan inte visas säkert. Ange eget EPS-antagande i kalkylen.</p>
-                    <div class="company-highlights">
-                        <div class="highlight-item"><span class="hl-label">Intäkter TTM</span><span class="hl-val" id="index-VRT-revenue">&ndash;</span></div>
-                        <div class="highlight-item"><span class="hl-label">Fritt kassaflöde TTM</span><span class="hl-val" id="index-VRT-secondary">&ndash;</span></div>
-                        <div class="highlight-item"><span class="hl-label">Nettomarginal TTM</span><span class="hl-val" id="index-VRT-margin">&ndash;</span></div>
-                    </div>
-                    <p id="index-VRT-period" class="note" role="status">Laddar SEC-data...</p>
-                    <a href="research.html?ticker=VRT" class="secondary-btn card-link">Analysera Vertiv Holdings</a>
-                </article>
-                <article class="card research-company-card">
-                    <div class="company-card-header"><div><h2>Coherent Corp.</h2><span class="company-ticker-tag">COHR</span></div><span class="cik-tag">CIK 0000820318</span></div>
-                    <p class="company-desc">SEC 10-K / 10-Q, USD. TTM EPS och total skuld kan inte visas säkert. Ange eget EPS-antagande i kalkylen.</p>
-                    <div class="company-highlights">
-                        <div class="highlight-item"><span class="hl-label">Intäkter TTM</span><span class="hl-val" id="index-COHR-revenue">&ndash;</span></div>
-                        <div class="highlight-item"><span class="hl-label">Fritt kassaflöde TTM</span><span class="hl-val" id="index-COHR-secondary">&ndash;</span></div>
-                        <div class="highlight-item"><span class="hl-label">Nettomarginal TTM</span><span class="hl-val" id="index-COHR-margin">&ndash;</span></div>
-                    </div>
-                    <p id="index-COHR-period" class="note" role="status">Laddar SEC-data...</p>
-                    <a href="research.html?ticker=COHR" class="secondary-btn card-link">Analysera Coherent Corp.</a>
-                </article>
-                <article class="card research-company-card">
-                    <div class="company-card-header"><div><h2>Rocket Lab Corp.</h2><span class="company-ticker-tag">RKLB</span></div><span class="cik-tag">CIK 0001819994</span></div>
-                    <p class="company-desc">SEC 10-K / 10-Q, USD. TTM EPS och total skuld kan inte visas säkert. Ange eget EPS-antagande i kalkylen.</p>
-                    <div class="company-highlights">
-                        <div class="highlight-item"><span class="hl-label">Intäkter TTM</span><span class="hl-val" id="index-RKLB-revenue">&ndash;</span></div>
-                        <div class="highlight-item"><span class="hl-label">Fritt kassaflöde TTM</span><span class="hl-val" id="index-RKLB-secondary">&ndash;</span></div>
-                        <div class="highlight-item"><span class="hl-label">Nettomarginal TTM</span><span class="hl-val" id="index-RKLB-margin">&ndash;</span></div>
-                    </div>
-                    <p id="index-RKLB-period" class="note" role="status">Laddar SEC-data...</p>
-                    <a href="research.html?ticker=RKLB" class="secondary-btn card-link">Analysera Rocket Lab Corp.</a>
-                </article>
-                <article class="card research-company-card">
-                    <div class="company-card-header"><div><h2>TTM Technologies</h2><span class="company-ticker-tag">TTMI</span></div><span class="cik-tag">CIK 0001116942</span></div>
-                    <p class="company-desc">Rapporterad 52/53-veckorskalender. FY2023 slutar 1 januari 2024. USD. Total skuld och per-aktievärden saknas. Ange EPS manuellt.</p>
-                    <div class="company-highlights">
-                        <div class="highlight-item"><span class="hl-label">Intäkter TTM</span><span class="hl-val" id="index-TTMI-revenue">&ndash;</span></div>
-                        <div class="highlight-item"><span class="hl-label">Fritt kassaflöde TTM</span><span class="hl-val" id="index-TTMI-secondary">&ndash;</span></div>
-                        <div class="highlight-item"><span class="hl-label">Nettomarginal TTM</span><span class="hl-val" id="index-TTMI-margin">&ndash;</span></div>
-                    </div>
-                    <p id="index-TTMI-period" class="note" role="status">Laddar SEC-data...</p>
-                    <a href="research.html?ticker=TTMI" class="secondary-btn card-link">Analysera TTM Technologies</a>
-                </article>
-                <article class="card research-company-card">
-                    <div class="company-card-header"><div><h2>Sandisk</h2><span class="company-ticker-tag">SNDK</span></div><span class="cik-tag">CIK 0002023554</span></div>
-                    <p class="company-desc">Endast FY2026 efter avknoppningen. 53 veckor, fyra jämförbara kvartal. USD. Total skuld och per-aktievärden saknas. Ange EPS manuellt.</p>
-                    <div class="company-highlights">
-                        <div class="highlight-item"><span class="hl-label">Intäkter TTM</span><span class="hl-val" id="index-SNDK-revenue">&ndash;</span></div>
-                        <div class="highlight-item"><span class="hl-label">Fritt kassaflöde TTM</span><span class="hl-val" id="index-SNDK-secondary">&ndash;</span></div>
-                        <div class="highlight-item"><span class="hl-label">Nettomarginal TTM</span><span class="hl-val" id="index-SNDK-margin">&ndash;</span></div>
-                    </div>
-                    <p id="index-SNDK-period" class="note" role="status">Laddar SEC-data...</p>
-                    <a href="research.html?ticker=SNDK" class="secondary-btn card-link">Analysera Sandisk</a>
-                </article>
-                <article class="card research-company-card">
-                    <div class="company-card-header"><div><h2>Firefly Aerospace</h2><span class="company-ticker-tag">FLY</span></div><span class="cik-tag">CIK 0001860160</span></div>
-                    <p class="company-desc">Fundamenta före och efter IPO. Per-aktiev?rden är inte verifierade. USD. Total skuld och per-aktievärden saknas. Ange EPS manuellt.</p>
-                    <div class="company-highlights">
-                        <div class="highlight-item"><span class="hl-label">Intäkter TTM</span><span class="hl-val" id="index-FLY-revenue">&ndash;</span></div>
-                        <div class="highlight-item"><span class="hl-label">Fritt kassaflöde TTM</span><span class="hl-val" id="index-FLY-secondary">&ndash;</span></div>
-                        <div class="highlight-item"><span class="hl-label">Nettomarginal TTM</span><span class="hl-val" id="index-FLY-margin">&ndash;</span></div>
-                    </div>
-                    <p id="index-FLY-period" class="note" role="status">Laddar SEC-data...</p>
-                    <a href="research.html?ticker=FLY" class="secondary-btn card-link">Analysera Firefly Aerospace</a>
-                </article>
-                <article class="card research-company-card">
-                    <div class="company-card-header"><div><h2>CoreWeave</h2><span class="company-ticker-tag">CRWV</span></div><span class="cik-tag">CIK 0001769628</span></div>
-                    <p class="company-desc">CapEx, FCF och total skuld saknas på grund av finansierade och icke-kontanta tillgångsköp. USD. Total skuld och per-aktievärden saknas. Ange EPS manuellt.</p>
-                    <div class="company-highlights">
-                        <div class="highlight-item"><span class="hl-label">Intäkter TTM</span><span class="hl-val" id="index-CRWV-revenue">&ndash;</span></div>
-                        <div class="highlight-item"><span class="hl-label">Nettoresultat TTM</span><span class="hl-val" id="index-CRWV-secondary">&ndash;</span></div>
-                        <div class="highlight-item"><span class="hl-label">Nettomarginal TTM</span><span class="hl-val" id="index-CRWV-margin">&ndash;</span></div>
-                    </div>
-                    <p id="index-CRWV-period" class="note" role="status">Laddar SEC-data...</p>
-                    <a href="research.html?ticker=CRWV" class="secondary-btn card-link">Analysera CoreWeave</a>
-                </article>
-            </div>
-        </section>
+        <section id="researchIndex" class="research-view" style="display: none;" aria-label="Research-start"></section>
+        <noscript><p>Research behöver JavaScript för bolagssökning och din lokala tes. Aktivera JavaScript och ladda om sidan. <a href="om-metod.html">Läs om data och metod</a>.</p></noscript>
 
         <!-- Company Detail View -->
         <div id="researchDetail" class="research-view" style="display: none;">
@@ -952,18 +757,18 @@
             </div>
         </dialog>
     <!-- NTM RELATIONS START -->
-<aside class="ntm-relations" data-relation-source="research-nvda" data-relation-ticker="NVDA" aria-labelledby="relations-research-nvda"><h2 id="relations-research-nvda">Fortsätt med Nvidia Research</h2><ul><li><h3>Din tes om Nvidia</h3><p>Skriv vad som måste bli sant och ange när du vill granska tesen. Sparandet sker först när du väljer Spara ny version.</p><a href="#thesisSection" data-relation-id="nvda-thesis" data-relation-type="continue" data-destination-type="workflow">Formulera eller granska din Nvidia-tes</a></li><li><h3>Aktievärdering</h3><p>Pröva en fristående värdering med egna ingångsvärden. Din Research-analys förs inte över automatiskt.</p><a href="aktievarderingskalkylator.html" data-relation-id="nvda-valuation" data-relation-type="try" data-destination-type="calculator">Öppna värderingskalkylatorn</a></li><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-nvda" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li><li><h3>The Bond Market “Crash” Is a Trap — AI Agents Are About to Ignite Crypto</h3><p>Jordi Visser diskuterar Nvidia och AI-infrastruktur. Läs resonemanget som ett perspektiv att pröva mot din tes.</p><a href="post-jordi-visser-ai-agents-crypto.html" data-relation-id="nvda-content" data-relation-type="related" data-destination-type="video">Läs om AI-infrastruktur och Nvidia</a></li></ul></aside>
-<aside class="ntm-relations" data-relation-source="research-sofi" data-relation-ticker="SOFI" aria-labelledby="relations-research-sofi"><h2 id="relations-research-sofi">Fortsätt med SoFi Research</h2><ul><li><h3>Din tes om SoFi</h3><p>Formulera dina antaganden och välj en tid för egen granskning. Ingen tes sparas automatiskt.</p><a href="#thesisSection" data-relation-id="sofi-thesis" data-relation-type="continue" data-destination-type="workflow">Formulera eller granska din tes</a></li><li><h3>Aktievärdering</h3><p>Pröva egna vinst- och multipelantaganden fristående. Saknad eller negativ EPS behöver bedömas; inga Research-värden förs över.</p><a href="aktievarderingskalkylator.html" data-relation-id="sofi-valuation" data-relation-type="try" data-destination-type="calculator">Pröva en fristående värdering</a></li><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-sofi" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li><li><h3>Valutajusterad avkastning</h3><p>För ett utfall i SEK behöver du även ta hänsyn till USD/SEK. Beräkna valutans effekt separat.</p><a href="valutajusterad-avkastning.html" data-relation-id="sofi-fx" data-relation-type="try" data-destination-type="calculator">Räkna på USD/SEK-effekten</a></li></ul></aside>
-<aside class="ntm-relations" data-relation-source="research-crwd" data-relation-ticker="CRWD" aria-labelledby="relations-research-crwd"><h2 id="relations-research-crwd">Fortsätt med CrowdStrike Research</h2><ul><li><h3>Din tes om CrowdStrike</h3><p>Formulera dina antaganden och välj en tid för egen granskning. Ingen tes sparas automatiskt.</p><a href="#thesisSection" data-relation-id="crwd-thesis" data-relation-type="continue" data-destination-type="workflow">Formulera eller granska din tes</a></li><li><h3>Aktievärdering</h3><p>Pröva egna vinst- och multipelantaganden fristående. Saknad eller negativ EPS behöver bedömas; inga Research-värden förs över.</p><a href="aktievarderingskalkylator.html" data-relation-id="crwd-valuation" data-relation-type="try" data-destination-type="calculator">Pröva en fristående värdering</a></li><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-crwd" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li><li><h3>Valutajusterad avkastning</h3><p>För ett utfall i SEK behöver du även ta hänsyn till USD/SEK. Beräkna valutans effekt separat.</p><a href="valutajusterad-avkastning.html" data-relation-id="crwd-fx" data-relation-type="try" data-destination-type="calculator">Räkna på USD/SEK-effekten</a></li></ul></aside>
-<aside class="ntm-relations" data-relation-source="research-mu" data-relation-ticker="MU" aria-labelledby="relations-research-mu"><h2 id="relations-research-mu">Fortsätt med Micron Research</h2><ul><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-mu" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li></ul></aside>
-<aside class="ntm-relations" data-relation-source="research-mrvl" data-relation-ticker="MRVL" aria-labelledby="relations-research-mrvl"><h2 id="relations-research-mrvl">Fortsätt med Marvell Research</h2><ul><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-mrvl" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li></ul></aside>
-<aside class="ntm-relations" data-relation-source="research-vrt" data-relation-ticker="VRT" aria-labelledby="relations-research-vrt"><h2 id="relations-research-vrt">Fortsätt med Vertiv Research</h2><ul><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-vrt" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li></ul></aside>
-<aside class="ntm-relations" data-relation-source="research-cohr" data-relation-ticker="COHR" aria-labelledby="relations-research-cohr"><h2 id="relations-research-cohr">Fortsätt med Coherent Research</h2><ul><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-cohr" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li></ul></aside>
-<aside class="ntm-relations" data-relation-source="research-rklb" data-relation-ticker="RKLB" aria-labelledby="relations-research-rklb"><h2 id="relations-research-rklb">Fortsätt med Rocket Lab Research</h2><ul><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-rklb" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li></ul></aside>
-<aside class="ntm-relations" data-relation-source="research-ttmi" data-relation-ticker="TTMI" aria-labelledby="relations-research-ttmi"><h2 id="relations-research-ttmi">Fortsätt med TTM Technologies Research</h2><ul><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-ttmi" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li></ul></aside>
-<aside class="ntm-relations" data-relation-source="research-sndk" data-relation-ticker="SNDK" aria-labelledby="relations-research-sndk"><h2 id="relations-research-sndk">Fortsätt med Sandisk Research</h2><ul><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-sndk" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li></ul></aside>
-<aside class="ntm-relations" data-relation-source="research-fly" data-relation-ticker="FLY" aria-labelledby="relations-research-fly"><h2 id="relations-research-fly">Fortsätt med Firefly Aerospace Research</h2><ul><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-fly" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li></ul></aside>
-<aside class="ntm-relations" data-relation-source="research-crwv" data-relation-ticker="CRWV" aria-labelledby="relations-research-crwv"><h2 id="relations-research-crwv">Fortsätt med CoreWeave Research</h2><ul><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-crwv" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li><li><h3>Skuld: belopp, villkor och förfall</h3><p>Förstå begreppet innan du väljer antaganden.</p><a href="academy-debt.html" data-relation-id="academy-back-debt" data-relation-type="learn" data-destination-type="learn">Lär dig: Skuld: belopp, villkor och förfall</a></li><li><h3>EV och EV/EBITDA: värdera verksamheten</h3><p>Förstå begreppet innan du väljer antaganden.</p><a href="academy-enterprise-value.html" data-relation-id="academy-back-enterprise-value" data-relation-type="learn" data-destination-type="learn">Lär dig: EV och EV/EBITDA: värdera verksamheten</a></li><li><h3>FCF: fritt kassaflöde med en definition</h3><p>Förstå begreppet innan du väljer antaganden.</p><a href="academy-fcf.html" data-relation-id="academy-back-fcf" data-relation-type="learn" data-destination-type="learn">Lär dig: FCF: fritt kassaflöde med en definition</a></li></ul></aside>
+<aside class="ntm-relations" data-relation-source="research-nvda" hidden data-relation-ticker="NVDA" aria-labelledby="relations-research-nvda"><h2 id="relations-research-nvda">Fortsätt med Nvidia Research</h2><ul><li><h3>Din tes om Nvidia</h3><p>Skriv vad som måste bli sant och ange när du vill granska tesen. Sparandet sker först när du väljer Spara ny version.</p><a href="#thesisSection" data-relation-id="nvda-thesis" data-relation-type="continue" data-destination-type="workflow">Formulera eller granska din Nvidia-tes</a></li><li><h3>Aktievärdering</h3><p>Pröva en fristående värdering med egna ingångsvärden. Din Research-analys förs inte över automatiskt.</p><a href="aktievarderingskalkylator.html" data-relation-id="nvda-valuation" data-relation-type="try" data-destination-type="calculator">Öppna värderingskalkylatorn</a></li><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-nvda" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li><li><h3>The Bond Market “Crash” Is a Trap — AI Agents Are About to Ignite Crypto</h3><p>Jordi Visser diskuterar Nvidia och AI-infrastruktur. Läs resonemanget som ett perspektiv att pröva mot din tes.</p><a href="post-jordi-visser-ai-agents-crypto.html" data-relation-id="nvda-content" data-relation-type="related" data-destination-type="video">Läs om AI-infrastruktur och Nvidia</a></li></ul></aside>
+<aside class="ntm-relations" data-relation-source="research-sofi" hidden data-relation-ticker="SOFI" aria-labelledby="relations-research-sofi"><h2 id="relations-research-sofi">Fortsätt med SoFi Research</h2><ul><li><h3>Din tes om SoFi</h3><p>Formulera dina antaganden och välj en tid för egen granskning. Ingen tes sparas automatiskt.</p><a href="#thesisSection" data-relation-id="sofi-thesis" data-relation-type="continue" data-destination-type="workflow">Formulera eller granska din tes</a></li><li><h3>Aktievärdering</h3><p>Pröva egna vinst- och multipelantaganden fristående. Saknad eller negativ EPS behöver bedömas; inga Research-värden förs över.</p><a href="aktievarderingskalkylator.html" data-relation-id="sofi-valuation" data-relation-type="try" data-destination-type="calculator">Pröva en fristående värdering</a></li><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-sofi" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li><li><h3>Valutajusterad avkastning</h3><p>För ett utfall i SEK behöver du även ta hänsyn till USD/SEK. Beräkna valutans effekt separat.</p><a href="valutajusterad-avkastning.html" data-relation-id="sofi-fx" data-relation-type="try" data-destination-type="calculator">Räkna på USD/SEK-effekten</a></li></ul></aside>
+<aside class="ntm-relations" data-relation-source="research-crwd" hidden data-relation-ticker="CRWD" aria-labelledby="relations-research-crwd"><h2 id="relations-research-crwd">Fortsätt med CrowdStrike Research</h2><ul><li><h3>Din tes om CrowdStrike</h3><p>Formulera dina antaganden och välj en tid för egen granskning. Ingen tes sparas automatiskt.</p><a href="#thesisSection" data-relation-id="crwd-thesis" data-relation-type="continue" data-destination-type="workflow">Formulera eller granska din tes</a></li><li><h3>Aktievärdering</h3><p>Pröva egna vinst- och multipelantaganden fristående. Saknad eller negativ EPS behöver bedömas; inga Research-värden förs över.</p><a href="aktievarderingskalkylator.html" data-relation-id="crwd-valuation" data-relation-type="try" data-destination-type="calculator">Pröva en fristående värdering</a></li><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-crwd" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li><li><h3>Valutajusterad avkastning</h3><p>För ett utfall i SEK behöver du även ta hänsyn till USD/SEK. Beräkna valutans effekt separat.</p><a href="valutajusterad-avkastning.html" data-relation-id="crwd-fx" data-relation-type="try" data-destination-type="calculator">Räkna på USD/SEK-effekten</a></li></ul></aside>
+<aside class="ntm-relations" data-relation-source="research-mu" hidden data-relation-ticker="MU" aria-labelledby="relations-research-mu"><h2 id="relations-research-mu">Fortsätt med Micron Research</h2><ul><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-mu" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li></ul></aside>
+<aside class="ntm-relations" data-relation-source="research-mrvl" hidden data-relation-ticker="MRVL" aria-labelledby="relations-research-mrvl"><h2 id="relations-research-mrvl">Fortsätt med Marvell Research</h2><ul><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-mrvl" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li></ul></aside>
+<aside class="ntm-relations" data-relation-source="research-vrt" hidden data-relation-ticker="VRT" aria-labelledby="relations-research-vrt"><h2 id="relations-research-vrt">Fortsätt med Vertiv Research</h2><ul><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-vrt" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li></ul></aside>
+<aside class="ntm-relations" data-relation-source="research-cohr" hidden data-relation-ticker="COHR" aria-labelledby="relations-research-cohr"><h2 id="relations-research-cohr">Fortsätt med Coherent Research</h2><ul><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-cohr" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li></ul></aside>
+<aside class="ntm-relations" data-relation-source="research-rklb" hidden data-relation-ticker="RKLB" aria-labelledby="relations-research-rklb"><h2 id="relations-research-rklb">Fortsätt med Rocket Lab Research</h2><ul><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-rklb" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li></ul></aside>
+<aside class="ntm-relations" data-relation-source="research-ttmi" hidden data-relation-ticker="TTMI" aria-labelledby="relations-research-ttmi"><h2 id="relations-research-ttmi">Fortsätt med TTM Technologies Research</h2><ul><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-ttmi" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li></ul></aside>
+<aside class="ntm-relations" data-relation-source="research-sndk" hidden data-relation-ticker="SNDK" aria-labelledby="relations-research-sndk"><h2 id="relations-research-sndk">Fortsätt med Sandisk Research</h2><ul><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-sndk" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li></ul></aside>
+<aside class="ntm-relations" data-relation-source="research-fly" hidden data-relation-ticker="FLY" aria-labelledby="relations-research-fly"><h2 id="relations-research-fly">Fortsätt med Firefly Aerospace Research</h2><ul><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-fly" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li></ul></aside>
+<aside class="ntm-relations" data-relation-source="research-crwv" hidden data-relation-ticker="CRWV" aria-labelledby="relations-research-crwv"><h2 id="relations-research-crwv">Fortsätt med CoreWeave Research</h2><ul><li><h3>P/E: pris i förhållande till vinst</h3><p>Skilj aktiens pris från vinst och egna antaganden.</p><a href="academy-pe.html" data-relation-id="academy-research-crwv" data-relation-type="learn" data-destination-type="learn">Lär dig P/E</a></li><li><h3>Skuld: belopp, villkor och förfall</h3><p>Förstå begreppet innan du väljer antaganden.</p><a href="academy-debt.html" data-relation-id="academy-back-debt" data-relation-type="learn" data-destination-type="learn">Lär dig: Skuld: belopp, villkor och förfall</a></li><li><h3>EV och EV/EBITDA: värdera verksamheten</h3><p>Förstå begreppet innan du väljer antaganden.</p><a href="academy-enterprise-value.html" data-relation-id="academy-back-enterprise-value" data-relation-type="learn" data-destination-type="learn">Lär dig: EV och EV/EBITDA: värdera verksamheten</a></li><li><h3>FCF: fritt kassaflöde med en definition</h3><p>Förstå begreppet innan du väljer antaganden.</p><a href="academy-fcf.html" data-relation-id="academy-back-fcf" data-relation-type="learn" data-destination-type="learn">Lär dig: FCF: fritt kassaflöde med en definition</a></li></ul></aside>
 <!-- NTM RELATIONS END -->
     </main>
     <footer class="trust-footer"><a href="om-metod.html">Om NTM, integritet, metod och rättelser</a></footer>
@@ -992,6 +797,7 @@
     <script src="research-v3.js"></script>
     <script src="fundamental-profile.js"></script>
     <script src="fundamental-profile-ui.js"></script>
+    <script src="research-entry.js"></script>
     <script src="research.js"></script>
     <script src="min-review.js"></script>
     <script src="research-review.js"></script>

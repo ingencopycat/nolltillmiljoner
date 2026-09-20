@@ -296,18 +296,11 @@ for (const ticker of ['NVDA', 'SOFI', 'CRWD']) test(`quality: ${ticker} complete
   assert.match(exportedText(a.nodes.get('outcomeCheckpointContent')), new RegExp(`${ticker} original`));
 });
 
-test('quality: landing metrics load from stock JSON and one failed ticker does not hide the others', async () => {
-  const a = app();
-  a.context.fetch = async (url) => {
-    const ticker = url.match(/([A-Z]+)\.json/)[1];
-    if (ticker === 'SOFI') throw new Error('offline');
-    const data = stock(ticker); data.ttm.metrics.revenue.value = 123456789;
-    return { ok: true, json: async () => data };
-  };
+test('quality: entry does not fetch financial files for unselected companies', async () => {
+  const a = app(); let calls = 0;
+  a.context.fetch = async () => { calls++; throw Error('Entry must not fetch fundamentals'); };
   await a.context.showIndexView();
-  for (const ticker of ['NVDA', 'CRWD']) assert.equal(a.nodes.get(`index-${ticker}-revenue`).textContent, '$123.46M');
-  assert.equal(a.nodes.get('index-SOFI-revenue').textContent, '–');
-  assert.match(a.nodes.get('index-SOFI-period').textContent, /kunde inte laddas/);
+  assert.equal(calls, 0);
   assert.equal(a.nodes.get('researchIndex').style.display, 'block');
 });
 

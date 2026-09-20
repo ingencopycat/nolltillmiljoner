@@ -34,8 +34,8 @@ function initResearchApp() {
     const params = new URLSearchParams(window.location.search);
     const tickerParam = params.get('ticker');
 
+    window.NTMResearchEntry?.init();
     initManualThesisEntry();
-    updateStockPills(tickerParam);
 
     if (!tickerParam || tickerParam.toUpperCase() === 'ALL') {
         showIndexView();
@@ -88,12 +88,12 @@ function showManualThesis(ticker, label = '', identityType = 'ticker') {
     const data={symbol:ticker,manual:true,company:{name:saved?.companyName || label || ticker},
         companyIdentity:saved?.companyIdentity || {type:ticker.startsWith('MANUAL-') ? 'label' : identityType,key:ticker}};
     currentStockData=data;
+    window.NTMResearchEntry?.show('MANUAL_COMPANY', data);
     document.title=`${data.company.name} · Manuell tes — NTM`;
     for(const id of ['researchLoading','researchError','researchIndex']) document.getElementById(id).style.display='none';
     const detail=document.getElementById('researchDetail');detail.style.display='block';detail.classList.add('is-manual');
     document.getElementById('manualThesisEntry').open=false;
     document.getElementById('companyPicker').open=false;
-    updateStockPills(ticker);
     const visible=['manualJournalHeader','thesisReviewDepth','thesisSection','researchExportSection','thesisHistorySectionDepth'];
     for(const child of detail.children) child.hidden=!visible.includes(child.id);
     document.getElementById('manualThesisHeading').hidden=false;
@@ -108,23 +108,8 @@ function showManualThesis(ticker, label = '', identityType = 'ticker') {
     document.getElementById('thesisSection').scrollIntoView?.({block:'start'});
 }
 
-function updateStockPills(activeTicker) {
-    const pills = document.querySelectorAll('.research-pill');
-    const upperActive = (activeTicker || 'ALL').toUpperCase();
-
-    pills.forEach((pill) => {
-        const pillTicker = pill.dataset.ticker;
-        if (pillTicker === upperActive) {
-            pill.classList.add('active');
-            pill.setAttribute('aria-current', 'page');
-        } else {
-            pill.classList.remove('active');
-            pill.removeAttribute('aria-current');
-        }
-    });
-}
-
 function showLoading() {
+    window.NTMResearchEntry?.show('DIRECT_TICKER');
     document.getElementById('researchLoading').style.display = 'flex';
     document.getElementById('researchError').style.display = 'none';
     document.getElementById('researchIndex').style.display = 'none';
@@ -137,29 +122,12 @@ async function showIndexView() {
     document.getElementById('researchError').style.display = 'none';
     document.getElementById('researchIndex').style.display = 'block';
     document.getElementById('researchDetail').style.display = 'none';
-    document.title = 'NTM Research – Bolagsöversikt & Fundamentals';
+    document.title = 'Analysera ett bolag – NTM Research';
 
     if (window.NTMRecentTools && typeof window.NTMRecentTools.record === 'function') {
         window.NTMRecentTools.record();
     }
-    await Promise.all(SUPPORTED_TICKERS.map(async (ticker) => {
-        const status = document.getElementById(`index-${ticker}-period`);
-        try {
-            const response = await fetch(`data/stocks/${ticker}.json`);
-            if (!response.ok) throw new Error('load');
-            const data = await response.json();
-            if (data.symbol !== ticker) throw new Error('ticker');
-            const snapshot = window.NTMResearchSnapshot.fromStockData(data);
-            const metrics = snapshot.ttmMetrics;
-            document.getElementById(`index-${ticker}-revenue`).textContent = formatCurrency(metrics.revenue, 2);
-            document.getElementById(`index-${ticker}-secondary`).textContent = formatCurrency(ticker === 'SOFI' || data.metadata?.profile === 'financing_sensitive' ? metrics.netIncome : metrics.fcf, 2);
-            document.getElementById(`index-${ticker}-margin`).textContent = formatResearchPercent(metrics.netMargin);
-            status.textContent = `TTM t.o.m. ${snapshot.asOfPeriod || 'okänd period'} · rapportperiod, inte dagens marknadsdata`;
-        } catch (error) {
-            for (const field of ['revenue', 'secondary', 'margin']) document.getElementById(`index-${ticker}-${field}`).textContent = '–';
-            status.textContent = 'Nyckeltalen kunde inte laddas. Öppna analysen för att försöka igen.';
-        }
-    }));
+    window.NTMResearchEntry?.show('NO_COMPANY');
 }
 
 function showError(title, message) {
@@ -172,6 +140,7 @@ function showError(title, message) {
     document.getElementById('researchErrorTitle').textContent = title || 'Bolaget hittades inte';
     document.getElementById('researchErrorMessage').textContent = message || 'Kunde inte läsa in data för det angivna bolaget.';
     errorSec.style.display = 'block';
+    window.NTMResearchEntry?.show('LOAD_FAILURE');
     document.title = 'Kunde inte hitta bolaget – NTM Research';
 }
 
@@ -212,6 +181,7 @@ async function loadStockData(ticker) {
 }
 
 function renderStockDetail(data) {
+    window.NTMResearchEntry?.show('COMPANY_SELECTED', data);
     document.getElementById('researchLoading').style.display = 'none';
     document.getElementById('researchError').style.display = 'none';
     document.getElementById('researchIndex').style.display = 'none';

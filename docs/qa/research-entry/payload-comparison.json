@@ -1,0 +1,75 @@
+{
+  "baselineCommit": "a8b4f707f3e55fd4c7e9fd6ceaa099783fe78847",
+  "pages": [
+    {
+      "phase": "before",
+      "pageDOM": 1186,
+      "selectorDOM": 46,
+      "selectorLinks": 13,
+      "companyCards": 12,
+      "stockRequests": [
+        {
+          "name": "SOFI.json",
+          "bytes": 255242
+        },
+        {
+          "name": "NVDA.json",
+          "bytes": 265090
+        },
+        {
+          "name": "CRWD.json",
+          "bytes": 268628
+        },
+        {
+          "name": "MU.json",
+          "bytes": 271022
+        },
+        {
+          "name": "MRVL.json",
+          "bytes": 269605
+        },
+        {
+          "name": "VRT.json",
+          "bytes": 267087
+        },
+        {
+          "name": "COHR.json",
+          "bytes": 272412
+        },
+        {
+          "name": "RKLB.json",
+          "bytes": 270765
+        },
+        {
+          "name": "TTMI.json",
+          "bytes": 271279
+        },
+        {
+          "name": "SNDK.json",
+          "bytes": 141659
+        },
+        {
+          "name": "FLY.json",
+          "bytes": 155418
+        },
+        {
+          "name": "CRWV.json",
+          "bytes": 147358
+        }
+      ],
+      "allDecodedBytes": 4354446
+    },
+    {
+      "phase": "after",
+      "pageDOM": 942,
+      "selectorDOM": 31,
+      "selectorLinks": 0,
+      "companyCards": 0,
+      "stockRequests": [],
+      "allDecodedBytes": 1493857
+    }
+  ],
+  "changedAssetsBeforeBytes": 246970,
+  "changedAssetsAfterBytes": 242159,
+  "selectorGzipBytes": 3496
+}
