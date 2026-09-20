@@ -61,7 +61,7 @@ class Wave1(unittest.TestCase):
         article.wait_for_load_state()
         self.assertIsNone(article.evaluate('window.opener'))
         expect(article.locator('main')).to_contain_text('ursprungliga arbete ligger kvar')
-        expect(article.get_by_role('link', name='Pröva begreppet')).to_have_attribute('href','academy-activity-check-eps-0.html')
+        expect(article.get_by_role('link', name='Träna i Academy',exact=True)).to_have_attribute('href','academy-activity-check-eps-0.html')
         article.close()
         p.keyboard.press('Escape')
         expect(trigger).to_be_focused()

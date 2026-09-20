@@ -45,12 +45,12 @@ class Batch1A(unittest.TestCase):
     def test_keyboard_retrieval_neutral_limits_and_no_javascript_pages(self):
         p=self.page;self.go('fragor-svar.html')
         for q,text in [('Vad visar en balansräkning?','ögonblicksbild'),('Vad visar en resultaträkning?','Vinst är inte'),('Vad visar en kassaflödesanalys?','finansieringsverksamhet'),('Varför kan vinst och kassaflöde skilja sig?','inte ett automatiskt gott eller dåligt tecken'),('Är hög CapEx dåligt?','inte automatiskt dåligt'),('Är ökande lager dåligt?','inte automatiskt bra')]:
-            p.locator('#knowledgeAskInput').fill(q);p.locator('#knowledgeAskInput').press('Enter')
-            expect(p.locator('#knowledgeAskResult')).to_have_attribute('data-outcome','ANSWER')
-            expect(p.locator('#knowledgeAskResult')).to_contain_text(text)
+            p.locator('#question').fill(q);p.locator('#question').press('Enter')
+            expect(p.locator('#answer')).to_have_attribute('data-outcome','ANSWER')
+            expect(p.locator('#answer')).to_contain_text(text)
         for q in ['Är mycket cash alltid bra?','Är positivt kassaflöde en bra aktie?','Ska jag köpa ett bolag med hög CapEx?']:
-            p.locator('#knowledgeAskInput').fill(q);p.locator('#knowledgeAskInput').press('Enter')
-            expect(p.locator('#knowledgeAskResult')).to_have_attribute('data-outcome','ABSTAIN_UNSUPPORTED_JUDGMENT')
+            p.locator('#question').fill(q);p.locator('#question').press('Enter')
+            expect(p.locator('#answer')).to_have_attribute('data-outcome','ABSTAIN_UNSUPPORTED_JUDGMENT')
         context=self.browser.new_context(java_script_enabled=False)
         try:
             page=context.new_page()

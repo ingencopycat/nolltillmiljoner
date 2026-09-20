@@ -1,0 +1,84 @@
+{
+  "browser": "151.0.7922.34",
+  "method": "Localhost Chromium; synthetic index route only; no synthetic files staged; CSS viewport 390; 100 warmed retrieval samples.",
+  "rows": [
+    {
+      "size": 100,
+      "loadMs": 124.63670002762228,
+      "payloadBytes": 102154,
+      "search": {
+        "p95Ms": 0.5999999642372131,
+        "medianMs": 0.3999999761581421
+      },
+      "ask": {
+        "p95Ms": 0.09999996423721313,
+        "medianMs": 0
+      },
+      "askNoCoverage": {
+        "p95Ms": 0.20000004768371582,
+        "medianMs": 0.10000002384185791
+      },
+      "askTypo": {
+        "p95Ms": 0.19999998807907104,
+        "medianMs": 0.10000002384185791
+      },
+      "category": {
+        "p95Ms": 0.40000003576278687,
+        "medianMs": 0.30000001192092896
+      },
+      "memory": 10000000
+    },
+    {
+      "size": 500,
+      "loadMs": 123.0937999789603,
+      "payloadBytes": 508402,
+      "search": {
+        "p95Ms": 2.599999964237213,
+        "medianMs": 2.100000023841858
+      },
+      "ask": {
+        "p95Ms": 0.09999996423721313,
+        "medianMs": 0
+      },
+      "askNoCoverage": {
+        "p95Ms": 0.699999988079071,
+        "medianMs": 0.5
+      },
+      "askTypo": {
+        "p95Ms": 0.6000000238418579,
+        "medianMs": 0.40000003576278687
+      },
+      "category": {
+        "p95Ms": 0.800000011920929,
+        "medianMs": 0.699999988079071
+      },
+      "memory": 10000000
+    },
+    {
+      "size": 1200,
+      "loadMs": 197.37439998425543,
+      "payloadBytes": 1221136,
+      "search": {
+        "p95Ms": 6,
+        "medianMs": 5
+      },
+      "ask": {
+        "p95Ms": 0.09999996423721313,
+        "medianMs": 0
+      },
+      "askNoCoverage": {
+        "p95Ms": 1.699999988079071,
+        "medianMs": 1.100000023841858
+      },
+      "askTypo": {
+        "p95Ms": 1.899999976158142,
+        "medianMs": 1.100000023841858
+      },
+      "category": {
+        "p95Ms": 1.899999976158142,
+        "medianMs": 1.5999999642372131
+      },
+      "memory": 10000000
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "method": "Local Chromium at 390 CSS px; actual 100, synthetic compact-index responses for 500/1200; warmed 50-sample p95; interaction times include browser automation; no throttling.",
+  "rows": [
+    {
+      "count": 100,
+      "indexBytes": 102101,
+      "dom": 196,
+      "initialBodies": 0,
+      "resourcesBytes": 806087,
+      "askP95Ms": 0.09999996423721313,
+      "searchRenderP95Ms": 1.800000011920929,
+      "exploreInteractionMs": 67.24,
+      "lazyAnswerInteractionMs": 54.59
+    },
+    {
+      "count": 500,
+      "indexBytes": 508349,
+      "dom": 196,
+      "initialBodies": 0,
+      "resourcesBytes": 1211989,
+      "askP95Ms": 0,
+      "searchRenderP95Ms": 7.299999952316284,
+      "exploreInteractionMs": 72.65,
+      "lazyAnswerInteractionMs": 79.43
+    },
+    {
+      "count": 1200,
+      "indexBytes": 1221083,
+      "dom": 196,
+      "initialBodies": 0,
+      "resourcesBytes": 1924723,
+      "askP95Ms": 0,
+      "searchRenderP95Ms": 15.800000011920929,
+      "exploreInteractionMs": 60.1,
+      "lazyAnswerInteractionMs": 178.24
+    }
+  ]
+}

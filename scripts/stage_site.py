@@ -11,7 +11,7 @@ WORKSPACE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REQUIRED_FILES = [
     'vendor/supabase/supabase.js',
     'konto.html', 'profil.html', 'analys.html', 'upptack.html', 'social-core.js', 'social-ui.js', 'social.css', 'research-publication.js', 'public-report.js', 'public-report-ui.js', 'public-report-origin.js', 'public-report.css',
-    'fragor-svar.html', 'knowledge-core.js', 'knowledge-catalog.js', 'knowledge-ui.js', 'knowledge.css',
+    'fragor-svar.html', 'knowledge-core.js', 'knowledge-catalog.js', 'knowledge-ui.js', 'knowledge.css', 'knowledge-experience.js', 'knowledge-experience.css',
     'academy.html', 'academy-catalog.js', 'academy-progress.js', 'academy-ui.js', 'academy.css',
     'behavioral.js', 'behavioral-ui.js', 'research-ai.js', 'research-ai-ui.js', 'cloud-config.js', 'cloud-sync.js', 'cloud-adapter.js', 'cloud-ui.js',
     'ntm-relations.js', 'ntm-relations-ui.js',

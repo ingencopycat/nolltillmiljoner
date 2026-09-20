@@ -1,0 +1,1 @@
+const p=new URLSearchParams(location.search);document.body.classList.toggle('light-theme',p.get('theme')==='light');document.body.classList.add('direction-'+(['a','b','c'].includes(p.get('d'))?p.get('d'):'a'));document.getElementById('theme').onclick=()=>document.body.classList.toggle('light-theme');

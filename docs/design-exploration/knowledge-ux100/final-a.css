@@ -1,0 +1,33 @@
+/* Owner-selected A refinement only. Historical A/B/C rules remain in exploration.css. */
+.final-a .composer-row,
+.final-a.has-answer .composer-row{
+ display:flex;align-items:center;gap:8px;padding:7px;
+ background:var(--panel);border:1px solid color-mix(in srgb,var(--accent) 65%,var(--border));
+ border-radius:5px;box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 9%,transparent),0 0 22px color-mix(in srgb,var(--accent) 13%,transparent);
+}
+.final-a.has-answer .composer-row{box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 8%,transparent),0 0 18px color-mix(in srgb,var(--accent) 11%,transparent)}
+.final-a .composer-row:focus-within{outline:2px solid var(--focus);outline-offset:4px;box-shadow:0 0 22px color-mix(in srgb,var(--accent) 18%,transparent)}
+.final-a #composer .composer-row input{flex:1;min-width:0;width:0;font:21px/1.45 var(--font-reading);padding:14px 12px;min-height:58px}
+.final-a #composer input::placeholder{font:inherit;color:var(--muted);opacity:1}
+.final-a #composer .composer-row button{flex:0 0 46px;display:grid;place-items:center;min-width:46px;width:46px;height:46px;min-height:46px;padding:0;border-radius:3px}
+.final-a .composer-row button svg{display:block}
+.final-a .modes{gap:8px;align-items:center}
+.final-a .modes button{font-size:16px;font-weight:600;min-height:48px;padding:10px 16px;border-bottom:2px solid transparent}
+.final-a .modes button[aria-current]{border-color:var(--accent);background:var(--panel);color:var(--text)}
+.final-a .modes button:hover{color:var(--text)}
+.final-a .search-blank{padding:20px 0 36px;color:var(--secondary);max-width:600px}
+.final-a .search-blank p{font:23px/1.6 var(--font-reading);margin:0 0 12px}
+.final-a .search-blank button{font-size:14px}
+.final-a .use>p{max-width:510px;font-size:12px;line-height:1.65}
+@media(max-width:640px){
+ .final-a .product-head{flex-wrap:wrap;gap:4px;padding:16px 0 10px}
+ .final-a .product-head>.eyebrow{flex-basis:100%;margin:0 0 4px}
+ .final-a .modes{display:grid;grid-template-columns:repeat(3,1fr);width:100%;gap:6px}
+ .final-a .modes button{font-size:15px;padding:10px 12px;min-height:48px}
+ .final-a .landing{padding-top:28px}
+ .final-a #composer .composer-row input{font-size:20px;padding:10px 7px;min-height:54px}
+ .final-a #composer .composer-row button{min-width:44px;width:44px;min-height:44px;height:44px;flex-basis:44px}
+ .final-a.has-answer #composer>label{display:block;margin:0 0 9px;font-size:12px}
+ .final-a.has-answer .landing{padding-top:0}
+ .final-a .starts{margin-top:32px}
+}

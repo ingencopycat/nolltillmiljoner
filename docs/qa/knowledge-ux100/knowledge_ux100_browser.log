@@ -1,0 +1,12 @@
+Browser smoke: Chromium 151.0.7922.34; fresh contexts on http://127.0.0.1:59732
+test_history_refresh_relations_keyboard_and_privacy (knowledge_ux100_browser.KnowledgeUX100.test_history_refresh_relations_keyboard_and_privacy) ... ok
+test_lazy_error_mixed_version_suppression_and_retry (knowledge_ux100_browser.KnowledgeUX100.test_lazy_error_mixed_version_suppression_and_retry) ... ok
+test_mobile_touch (knowledge_ux100_browser.KnowledgeUX100.test_mobile_touch) ... ok
+test_production_states_themes_and_screenshot_pass (knowledge_ux100_browser.KnowledgeUX100.test_production_states_themes_and_screenshot_pass) ... ok
+test_real_and_synthetic_scale_with_production_rendering (knowledge_ux100_browser.KnowledgeUX100.test_real_and_synthetic_scale_with_production_rendering) ... ok
+test_reflow_forced_colors_and_static_no_js (knowledge_ux100_browser.KnowledgeUX100.test_reflow_forced_colors_and_static_no_js) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 15.888s
+
+OK

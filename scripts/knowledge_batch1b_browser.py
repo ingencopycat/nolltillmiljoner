@@ -44,12 +44,12 @@ class Batch1B(unittest.TestCase):
     def test_keyboard_retrieval_intents_and_no_javascript(self):
         p=self.page;self.go('fragor-svar.html')
         for q,text in [('Är P/E 40 dyrt?','avgör inte ensamt'),('Är högt P/E dåligt?','inte automatiskt dåligt'),('Negativt P/E betyder billig aktie?','inte att aktien är superbillig'),('Vad är P/S?','inte till vinst'),('P/E eller P/S, vilken är bäst?','Inget av måtten är universellt bäst'),('Adjusted earnings är väl den riktiga vinsten?','inte automatiskt mer korrekt'),('Är högt FCF alltid bra?','inte automatiskt bra')]:
-            p.locator('#knowledgeAskInput').fill(q);p.locator('#knowledgeAskInput').press('Enter')
-            expect(p.locator('#knowledgeAskResult')).to_have_attribute('data-outcome','ANSWER')
-            expect(p.locator('#knowledgeAskResult')).to_contain_text(text)
+            p.locator('#question').fill(q);p.locator('#question').press('Enter')
+            expect(p.locator('#answer')).to_have_attribute('data-outcome','ANSWER')
+            expect(p.locator('#answer')).to_contain_text(text)
         for q in ['Ska jag köpa aktien med P/E 40?','Borde jag sälja mitt bolag med negativt P/E?','Är P/S 2 ett säkert köp?']:
-            p.locator('#knowledgeAskInput').fill(q);p.locator('#knowledgeAskInput').press('Enter')
-            expect(p.locator('#knowledgeAskResult')).to_have_attribute('data-outcome','ABSTAIN_UNSUPPORTED_JUDGMENT')
+            p.locator('#question').fill(q);p.locator('#question').press('Enter')
+            expect(p.locator('#answer')).to_have_attribute('data-outcome','ABSTAIN_UNSUPPORTED_JUDGMENT')
         context=self.browser.new_context(java_script_enabled=False)
         try:
             page=context.new_page()

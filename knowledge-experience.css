@@ -1,0 +1,226 @@
+/* Scoped FINAL A presentation; canonical Visual V3 tokens. */
+.knowledge-experience {max-width:1200px;margin:auto;padding:0 12px 60px}
+.knowledge-experience .eyebrow {background:none;border:0;border-radius:0;padding:0;display:block;box-shadow:none}
+.knowledge-experience .formula {display:block;width:auto;max-width:none;background:none;border-left:0;border-right:0;border-bottom:0;padding:0;color:var(--text)}
+.knowledge-experience #search>h2,.knowledge-experience #explore>h2 {font-size:clamp(42px,6vw,76px);line-height:1.04;margin:0 0 22px}
+.knowledge-experience p,.knowledge-experience label,.knowledge-experience small {letter-spacing:normal}
+.knowledge-experience .eyebrow {letter-spacing:.12em}
+.knowledge-shell > .knowledge-answer {max-width:840px;margin:24px auto 60px}
+.knowledge-shell > .knowledge-answer h1 {font:clamp(34px,4vw,54px)/1.15 var(--font-reading);letter-spacing:-.035em}
+.knowledge-shell > .knowledge-answer .knowledge-short {background:none;border:0;padding:0}
+.knowledge-shell > .knowledge-answer .knowledge-short h2 {font:12px var(--font-ui);color:var(--muted)}
+.knowledge-shell > .knowledge-answer .knowledge-short p {font:25px/1.65 var(--font-reading)}
+.knowledge-shell > .knowledge-answer .knowledge-related {background:none;border:0;border-top:1px solid var(--border);padding:24px 0;margin:24px 0}
+.knowledge-shell > .knowledge-answer .knowledge-related h2 {font:26px var(--font-reading)}
+.knowledge-shell > .knowledge-answer .knowledge-depth {border-top:1px solid var(--border);padding-top:18px}
+.knowledge-shell > .knowledge-answer .comparison {width:100%;table-layout:fixed;border-collapse:collapse}
+.knowledge-shell > .knowledge-answer .comparison th,.knowledge-shell > .knowledge-answer .comparison td {padding:10px 6px;overflow-wrap:anywhere;text-align:left;border-bottom:1px solid var(--border)}
+.knowledge-experience #composer .composer-row textarea {flex:1;min-width:0;width:100%;resize:vertical;border:0;background:transparent;color:var(--text);font:21px/1.45 var(--font-reading);padding:12px;min-height:86px;outline:none}
+.knowledge-experience #composer textarea::placeholder {font:inherit;color:var(--muted);opacity:1}
+.knowledge-experience #composer .composer-row button {background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+@media(max-width:640px){.knowledge-experience{padding:0 0 40px}.knowledge-experience #composer .composer-row textarea{font-size:20px;padding:10px 7px;min-height:80px}}
+@media(forced-colors:active){.knowledge-experience .composer-row{border:2px solid CanvasText!important}.knowledge-experience .modes button[aria-current]{border-bottom:3px solid Highlight!important}}
+.knowledge-experience *{box-sizing:border-box}
+.knowledge-experience button,.knowledge-experience input,.knowledge-experience select,.knowledge-experience textarea{font:inherit}
+.knowledge-experience button,.knowledge-experience a,.knowledge-experience summary{-webkit-tap-highlight-color:transparent}
+.knowledge-experience button{cursor:pointer}
+.knowledge-experience button,.knowledge-experience select,.knowledge-experience input{border:1px solid var(--border);border-radius:3px;background:var(--bg);color:var(--text);padding:12px 16px;min-height:46px}
+.knowledge-experience input{width:100%;min-width:0}
+.knowledge-experience button:hover{border-color:var(--accent);background:var(--panel)}
+.knowledge-experience a{color:var(--accent);text-underline-offset:4px}
+.knowledge-experience p{line-height:1.65}
+.knowledge-experience h1,.knowledge-experience h2,.knowledge-experience h3{font-weight:400}
+.knowledge-experience h1,.knowledge-experience h2{font-family:var(--font-reading);letter-spacing:-.035em}
+.knowledge-experience h1{font-size:clamp(42px,6vw,76px);line-height:1.04;margin:0 0 22px}
+.knowledge-experience h2{font-size:32px;line-height:1.18}
+.knowledge-experience h3{font-size:18px;font-weight:600}
+.knowledge-experience small,.knowledge-experience .eyebrow,.knowledge-experience .trust{color:var(--muted)}
+.knowledge-experience .eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.knowledge-experience [hidden]{display:none!important}
+.knowledge-experience :focus-visible{outline:2px solid var(--focus);outline-offset:4px}
+.knowledge-experience h2:focus{outline:none}
+.knowledge-experience h2:focus-visible{outline:2px solid var(--focus)}
+.knowledge-experience .product-head{display:flex;align-items:center;justify-content:space-between;padding:28px 0}
+.knowledge-experience .modes{display:flex;gap:28px}
+.knowledge-experience .modes button{padding:8px 0;border:0;border-radius:0;background:none;font-size:14px;color:var(--muted)}
+.knowledge-experience .modes button[aria-current]{color:var(--text);border-bottom:2px solid var(--accent)}
+.knowledge-experience .landing{padding-top:70px}
+.knowledge-experience .intro{font:25px/1.5 var(--font-reading);color:var(--secondary);margin-top:0}
+.knowledge-experience .period{color:var(--accent)}
+.knowledge-experience #ask{max-width:840px;margin:auto}
+.knowledge-experience #composer{margin:34px 0 0}
+.knowledge-experience #composer>label{display:block;font-size:12px;margin-bottom:10px;color:var(--secondary)}
+.knowledge-experience .composer-row{display:flex;padding:7px;border:1px solid var(--border);background:var(--panel);border-radius:3px;align-items:stretch;gap:8px}
+.knowledge-experience .composer-row:focus-within{outline:2px solid var(--focus);outline-offset:3px}
+.knowledge-experience .composer-row input{background:transparent;border:0;font:21px/1.45 var(--font-reading);padding:17px 16px;outline:none!important}
+.knowledge-experience .composer-row button{flex-shrink:0;min-width:112px}
+.knowledge-experience .composer-row button span{margin-left:14px}
+.knowledge-experience .trust{font-size:12px;margin:12px 0}
+.knowledge-experience .starts{margin:54px 0}
+.knowledge-experience .starts>div{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.knowledge-experience .starts button{border:0;border-top:1px solid var(--border);border-radius:0;padding:20px 0 10px;text-align:left;background:none;font:19px/1.4 var(--font-reading)}
+.knowledge-experience .starts button span{display:block;font:12px var(--font-ui);margin-top:14px;color:var(--accent)}
+.knowledge-experience .text-button{border:0;padding:8px 0;color:var(--accent);background:none;text-align:left}
+.knowledge-experience .status{color:var(--muted);font-size:12px;margin:18px 0}
+.knowledge-experience .status:empty{display:none}
+.knowledge-experience.has-answer .landing{padding-top:0}
+.knowledge-experience.has-answer .landing h1{font-size:32px;margin:8px 0}
+.knowledge-experience.has-answer .intro{display:none}
+.knowledge-experience.has-answer #composer{margin-top:14px}
+.knowledge-experience.has-answer .composer-row input{font-size:19px;padding:12px}
+.knowledge-experience.has-answer .composer-row{background:transparent}
+.knowledge-experience .answer-reading{min-width:0}
+.knowledge-experience .answer-reading h2{font-size:42px;margin:10px 0 24px}
+.knowledge-experience .lead{font:25px/1.65 var(--font-reading);margin:0 0 25px}
+.knowledge-experience .answer-grid{padding-top:24px}
+.knowledge-experience .answer-reading>p:not(.lead){color:var(--secondary)}
+.knowledge-experience details{border-top:1px solid var(--border);margin-top:18px}
+.knowledge-experience summary{cursor:pointer;padding:18px 0;font-size:14px;font-weight:600;line-height:1.5}
+.knowledge-experience summary::marker{color:var(--accent)}
+.knowledge-experience .depth-body{font-size:17px;line-height:1.75;padding-bottom:14px;max-width:760px}
+.knowledge-experience .depth-body p{margin:8px 0 24px}
+.knowledge-experience .source-list{font-size:13px;line-height:1.6}
+.knowledge-experience .source-list section{margin:20px 0}
+.knowledge-experience .source-list p{color:var(--secondary);margin:6px 0}
+.knowledge-experience .source-list a{font-weight:600}
+.knowledge-experience .related,.knowledge-experience .use{padding-top:30px;margin-top:20px;border-top:1px solid var(--border)}
+.knowledge-experience .related h2,.knowledge-experience .use h2{font:22px var(--font-reading);margin:0 0 20px}
+.knowledge-experience .related-link{display:block;padding:13px 0;text-decoration:none;border-bottom:1px solid var(--border)}
+.knowledge-experience .related-link small{display:block;font:11px var(--font-ui);margin-bottom:8px}
+.knowledge-experience .related-link span{line-height:1.5}
+.knowledge-experience .use a{display:block;line-height:1.5;margin:16px 0;font-weight:600}
+.knowledge-experience .use p,.knowledge-experience .note{font-size:13px;color:var(--muted)}
+.knowledge-experience .answer-reading>a{display:inline-block;margin:28px 0;font-size:13px}
+.knowledge-experience #again{border-top:1px solid var(--border);margin-top:36px;padding-top:20px}
+.knowledge-experience #again p{font-size:12px;color:var(--muted)}
+.knowledge-experience #again button{border:0;color:var(--accent);padding-left:0;background:none}
+.knowledge-experience .boundary{padding:35px 0 20px;max-width:760px}
+.knowledge-experience .boundary h2{font-size:40px}
+.knowledge-experience .boundary>p{font:22px/1.65 var(--font-reading)}
+.knowledge-experience .boundary button.choice{display:block;width:100%;margin:12px 0;text-align:left}
+.knowledge-experience .boundary>a{display:block;padding:18px 0}
+.knowledge-experience #trail:empty{display:none}
+.knowledge-experience #trail{margin-top:25px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center}
+.knowledge-experience #trail .eyebrow{flex-basis:100%}
+.knowledge-experience #trail button{font-size:12px;max-width:100%;text-align:left}
+.knowledge-experience .trail-current{border:0;border-left:2px solid var(--accent);border-radius:0;padding:8px 12px;background:var(--panel)}
+.knowledge-experience .calculated{border-left:3px solid var(--accent);padding:12px 0 12px 26px;margin:30px 0;background:var(--panel)}
+.knowledge-experience .calculated .result-number{font:55px var(--font-reading);margin:12px 0}
+.knowledge-experience .calculated p{padding-right:18px}
+.knowledge-experience .calculated h3{font-size:12px;text-transform:uppercase;letter-spacing:.12em}
+.knowledge-experience .formula-form{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-bottom:20px}
+.knowledge-experience .formula-form label{font-size:12px}
+.knowledge-experience .formula-form input,.knowledge-experience .formula-form select{display:block;margin-top:8px;width:100%}
+.knowledge-experience .scope{border-left:2px solid var(--warning);padding:8px 15px;font-size:14px}
+.knowledge-experience .comparison{border-collapse:collapse;width:100%;margin:25px 0;table-layout:fixed;font-size:14px;line-height:1.6}
+.knowledge-experience .comparison caption{text-align:left;color:var(--muted);font-size:12px;padding-bottom:15px}
+.knowledge-experience .comparison th,.knowledge-experience .comparison td{padding:15px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border);overflow-wrap:anywhere}
+.knowledge-experience .comparison th:first-child{width:26%;font-size:12px}
+.knowledge-experience .comparison thead th{font-weight:600;color:var(--accent)}
+.knowledge-experience #search,.knowledge-experience #explore{max-width:840px;margin:50px auto}
+.knowledge-experience #search>label{display:block;margin-bottom:12px}
+.knowledge-experience .filters{display:flex;gap:18px;margin:20px 0}
+.knowledge-experience .filters label{font-size:12px;flex:1}
+.knowledge-experience .filters select{display:block;width:100%;margin-top:8px}
+.knowledge-experience .result-row{display:block;text-decoration:none;border-top:1px solid var(--border);padding:20px 0}
+.knowledge-experience .result-row small{display:block;margin-bottom:10px;font-size:11px}
+.knowledge-experience .result-row span{font:22px/1.4 var(--font-reading)}
+.knowledge-experience #searchStatus{font-size:12px;color:var(--muted)}
+.knowledge-experience #categories{display:grid;grid-template-columns:1fr 1fr;gap:0 30px;margin-top:30px}
+.knowledge-experience .category-row{display:flex;align-items:center;justify-content:space-between;gap:15px;background:transparent;border:0;border-top:1px solid var(--border);border-radius:0;text-align:left;padding:25px 0;font:22px var(--font-reading)}
+.knowledge-experience .category-row span{font:11px var(--font-ui);color:var(--accent)}
+.knowledge-experience #concepts{margin-top:40px}
+.knowledge-experience .context-entry{margin-top:25px;padding:15px 20px;border-left:2px solid var(--accent);background:var(--panel)}
+.knowledge-experience .context-entry p{margin:5px 0;font-size:13px}
+.knowledge-experience .context-entry a{margin-left:25px;font-size:13px}
+.knowledge-experience.direction-a #trail{border-left:1px solid var(--border);padding-left:18px}
+.knowledge-experience.direction-a #trail button:not(.trail-current){display:block;flex-basis:100%;opacity:.9}
+.knowledge-experience .primary-btn{display:inline-block;text-decoration:none}
+.knowledge-experience .direction-note{margin:16px 25px;color:var(--muted);font-size:13px}
+@media(max-width:900px){}
+@media(max-width:640px){.knowledge-experience .product-head{padding:22px 0;gap:15px}
+.knowledge-experience .product-head>.eyebrow{font-size:10px;letter-spacing:.06em}
+.knowledge-experience .modes{gap:21px}
+.knowledge-experience .modes button{font-size:13px}
+.knowledge-experience .landing{padding-top:35px}
+.knowledge-experience h1{font-size:49px}
+.knowledge-experience .intro{font-size:22px;line-height:1.5}
+.knowledge-experience #composer{margin-top:28px}
+.knowledge-experience .composer-row{display:grid;grid-template-columns:1fr}
+.knowledge-experience .composer-row input{font-size:20px;padding:12px 10px;min-height:67px}
+.knowledge-experience .composer-row button{justify-self:end;min-width:108px;padding:12px 18px}
+.knowledge-experience .trust{font-size:11px;line-height:1.65}
+.knowledge-experience .starts{margin:34px 0}
+.knowledge-experience .starts>div{grid-template-columns:1fr;gap:0}
+.knowledge-experience .starts button{font-size:19px;padding:16px 0;display:flex;justify-content:space-between;gap:15px}
+.knowledge-experience .starts button span{margin-top:3px;font-size:10px;line-height:1.4;max-width:105px;text-align:right}
+.knowledge-experience.has-answer .landing h1{font-size:27px}
+.knowledge-experience.has-answer #composer>label{display:none}
+.knowledge-experience.has-answer .composer-row{grid-template-columns:1fr auto;gap:4px}
+.knowledge-experience.has-answer .composer-row input{font-size:17px;padding:8px;min-height:52px}
+.knowledge-experience.has-answer .composer-row button{padding:10px;font-size:11px;min-width:70px}
+.knowledge-experience.has-answer .composer-row button span{display:none}
+.knowledge-experience .answer-grid{padding-top:15px}
+.knowledge-experience .answer-reading h2{font-size:34px}
+.knowledge-experience .lead{font-size:23px;line-height:1.6}
+.knowledge-experience .depth-body{font-size:16px}
+.knowledge-experience .related h2,.knowledge-experience .use h2{font-size:24px}
+.knowledge-experience .answer-reading .eyebrow{font-size:10px}
+.knowledge-experience .comparison{font-size:12px}
+.knowledge-experience .comparison th,.knowledge-experience .comparison td{padding:12px 6px}
+.knowledge-experience .comparison th:first-child{width:24%;font-size:11px}
+.knowledge-experience .boundary{padding-top:14px}
+.knowledge-experience .boundary h2{font-size:32px}
+.knowledge-experience .boundary>p{font-size:21px}
+.knowledge-experience .formula-form{grid-template-columns:1fr}
+.knowledge-experience .calculated{padding-left:18px}
+.knowledge-experience .calculated .result-number{font-size:44px}
+.knowledge-experience .calculated p{font-size:14px}
+.knowledge-experience .filters{flex-direction:column}
+.knowledge-experience #search,.knowledge-experience #explore{margin-top:30px}
+.knowledge-experience #categories{grid-template-columns:1fr}
+.knowledge-experience .category-row{font-size:23px}
+.knowledge-experience .result-row span{font-size:21px}
+.knowledge-experience .context-entry{margin-top:12px;padding:12px}
+.knowledge-experience .context-entry a{display:block;margin:10px 0}}
+.knowledge-experience h1,.knowledge-experience h2,.knowledge-experience h3{overflow-wrap:anywhere}
+.knowledge-experience input::placeholder{color:var(--muted);opacity:1}
+.knowledge-experience .answer-reading h2:focus-visible{outline:none}
+.knowledge-experience.has-answer #composer>.trust{margin-bottom:0}
+.knowledge-experience.has-answer .status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.knowledge-experience.has-answer .answer-grid{margin-top:24px}
+.knowledge-experience.direction-a #trail{gap:2px 15px;padding-top:5px;padding-bottom:5px}
+.knowledge-experience.direction-a #trail button{min-height:36px}
+@media(max-width:640px){.knowledge-experience.has-answer .answer-grid{margin-top:18px}
+.knowledge-experience.direction-a #trail{max-height:190px;overflow:auto}
+.knowledge-experience.direction-a #trail button{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.knowledge-experience *,.knowledge-experience *::before,.knowledge-experience *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.knowledge-experience.final-a .composer-row,.knowledge-experience.final-a.has-answer .composer-row{
+ display:flex;align-items:center;gap:8px;padding:7px;
+ background:var(--panel);border:1px solid color-mix(in srgb,var(--accent) 65%,var(--border));
+ border-radius:5px;box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 9%,transparent),0 0 22px color-mix(in srgb,var(--accent) 13%,transparent);
+}
+.knowledge-experience.final-a.has-answer .composer-row{box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 8%,transparent),0 0 18px color-mix(in srgb,var(--accent) 11%,transparent)}
+.knowledge-experience.final-a .composer-row:focus-within{outline:2px solid var(--focus);outline-offset:4px;box-shadow:0 0 22px color-mix(in srgb,var(--accent) 18%,transparent)}
+.knowledge-experience.final-a #composer .composer-row input{flex:1;min-width:0;width:0;font:21px/1.45 var(--font-reading);padding:14px 12px;min-height:58px}
+.knowledge-experience.final-a #composer input::placeholder{font:inherit;color:var(--muted);opacity:1}
+.knowledge-experience.final-a #composer .composer-row button{flex:0 0 46px;display:grid;place-items:center;min-width:46px;width:46px;height:46px;min-height:46px;padding:0;border-radius:3px}
+.knowledge-experience.final-a .composer-row button svg{display:block}
+.knowledge-experience.final-a .modes{gap:8px;align-items:center}
+.knowledge-experience.final-a .modes button{font-size:16px;font-weight:600;min-height:48px;padding:10px 16px;border-bottom:2px solid transparent}
+.knowledge-experience.final-a .modes button[aria-current]{border-color:var(--accent);background:var(--panel);color:var(--text)}
+.knowledge-experience.final-a .modes button:hover{color:var(--text)}
+.knowledge-experience.final-a .search-blank{padding:20px 0 36px;color:var(--secondary);max-width:600px}
+.knowledge-experience.final-a .search-blank p{font:23px/1.6 var(--font-reading);margin:0 0 12px}
+.knowledge-experience.final-a .search-blank button{font-size:14px}
+.knowledge-experience.final-a .use>p{max-width:510px;font-size:12px;line-height:1.65}
+@media(max-width:640px){.knowledge-experience.final-a .product-head{flex-wrap:wrap;gap:4px;padding:16px 0 10px}
+.knowledge-experience.final-a .product-head>.eyebrow{flex-basis:100%;margin:0 0 4px}
+.knowledge-experience.final-a .modes{display:grid;grid-template-columns:repeat(3,1fr);width:100%;gap:6px}
+.knowledge-experience.final-a .modes button{font-size:15px;padding:10px 12px;min-height:48px}
+.knowledge-experience.final-a .landing{padding-top:28px}
+.knowledge-experience.final-a #composer .composer-row input{font-size:20px;padding:10px 7px;min-height:54px}
+.knowledge-experience.final-a #composer .composer-row button{min-width:44px;width:44px;min-height:44px;height:44px;flex-basis:44px}
+.knowledge-experience.final-a.has-answer #composer>label{display:block;margin:0 0 9px;font-size:12px}
+.knowledge-experience.final-a.has-answer .landing{padding-top:0}
+.knowledge-experience.final-a .starts{margin-top:32px}}

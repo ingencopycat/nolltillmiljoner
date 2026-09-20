@@ -1,0 +1,9 @@
+Browser smoke: Chromium 151.0.7922.34; fresh contexts on http://127.0.0.1:56394
+test_actual_corpus_performance_and_lazy_payload (knowledge_expansion_browser.Expansion.test_actual_corpus_performance_and_lazy_payload) ... ok
+test_new_pages_mobile_sources_reflow_and_no_js (knowledge_expansion_browser.Expansion.test_new_pages_mobile_sources_reflow_and_no_js) ... ok
+test_required_journeys_and_context_preservation (knowledge_expansion_browser.Expansion.test_required_journeys_and_context_preservation) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 27.833s
+
+OK

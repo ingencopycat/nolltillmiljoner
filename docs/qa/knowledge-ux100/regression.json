@@ -1,0 +1,102 @@
+[
+  {
+    "name": "retrieval",
+    "exitCode": 0,
+    "seconds": 0.1
+  },
+  {
+    "name": "arithmetic",
+    "exitCode": 0,
+    "seconds": 0.11
+  },
+  {
+    "name": "rls",
+    "exitCode": 0,
+    "seconds": 2.23
+  },
+  {
+    "name": "knowledge100_browser",
+    "exitCode": 0,
+    "seconds": 10.19
+  },
+  {
+    "name": "knowledge_batch1a_browser",
+    "exitCode": 0,
+    "seconds": 6.55
+  },
+  {
+    "name": "knowledge_batch1b_browser",
+    "exitCode": 0,
+    "seconds": 6.82
+  },
+  {
+    "name": "knowledge_expansion_browser",
+    "exitCode": 0,
+    "seconds": 28.14
+  },
+  {
+    "name": "wave2_browser",
+    "exitCode": 0,
+    "seconds": 16.29
+  },
+  {
+    "name": "wave3_browser",
+    "exitCode": 0,
+    "seconds": 11.57
+  },
+  {
+    "name": "wave5_browser",
+    "exitCode": 0,
+    "seconds": 9.82
+  },
+  {
+    "name": "browser_smoke",
+    "exitCode": 0,
+    "seconds": 88.19
+  },
+  {
+    "name": "test_auth_browser",
+    "exitCode": 0,
+    "seconds": 13.45
+  },
+  {
+    "name": "test_social_browser",
+    "exitCode": 0,
+    "seconds": 14.51
+  },
+  {
+    "name": "check_workflows",
+    "exitCode": 0,
+    "seconds": 1.06
+  },
+  {
+    "name": "quality",
+    "exitCode": 0,
+    "seconds": 38.55
+  },
+  {
+    "name": "release",
+    "exitCode": 1,
+    "seconds": 25.84
+  },
+  {
+    "name": "scale-quality",
+    "exitCode": 0,
+    "seconds": 0.09
+  },
+  {
+    "name": "knowledge_ux100_browser",
+    "exitCode": 0,
+    "seconds": 16.17
+  },
+  {
+    "name": "wave1_browser",
+    "exitCode": 0,
+    "seconds": 18.45
+  },
+  {
+    "name": "wave4_browser",
+    "exitCode": 0,
+    "seconds": 27.3
+  }
+]

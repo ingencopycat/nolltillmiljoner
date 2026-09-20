@@ -1,0 +1,110 @@
+[
+  {
+    "question": "Vad är P/E?",
+    "outcome": {
+      "kind": "ANSWER",
+      "reason": "exact-question",
+      "answerId": "pe",
+      "choices": [],
+      "retrievalVersion": 4,
+      "stale": false
+    }
+  },
+  {
+    "question": "Är P/E 40 dyrt?",
+    "outcome": {
+      "kind": "ANSWER",
+      "reason": "reviewed-alias",
+      "answerId": "pe-interpretation",
+      "choices": [],
+      "retrievalVersion": 4,
+      "stale": false
+    }
+  },
+  {
+    "question": "marginal",
+    "outcome": {
+      "kind": "CLARIFY",
+      "reason": "reviewed-ambiguity",
+      "answerId": null,
+      "choices": [
+        "margins"
+      ],
+      "retrievalVersion": 4
+    }
+  },
+  {
+    "question": "P/E vs P/S",
+    "outcome": {
+      "kind": "ANSWER",
+      "reason": "reviewed-alias",
+      "answerId": "pe-versus-ps",
+      "choices": [],
+      "retrievalVersion": 4,
+      "stale": false
+    }
+  },
+  {
+    "question": "Aktien kostar 100 SEK och årlig EPS är 5 SEK vad är P/E?",
+    "outcome": {
+      "kind": "ANSWER",
+      "reason": "approved-formula",
+      "answerId": "pe",
+      "choices": [],
+      "retrievalVersion": 4,
+      "calculation": {
+        "template": "pe/1",
+        "value": 20,
+        "unit": "gånger",
+        "inputs": {
+          "price": 100,
+          "eps": 5,
+          "currency": "SEK",
+          "period": "annual"
+        },
+        "expression": "pris per aktie / vinst per aktie"
+      }
+    }
+  },
+  {
+    "question": "Och forward då?",
+    "outcome": {
+      "kind": "ABSTAIN_NO_COVERAGE",
+      "reason": "no-reviewed-answer",
+      "answerId": null,
+      "choices": [],
+      "retrievalVersion": 4
+    }
+  },
+  {
+    "question": "Vad är en aktie?",
+    "outcome": {
+      "kind": "ANSWER",
+      "reason": "reviewed-alias",
+      "answerId": "asset-ownership",
+      "choices": [],
+      "retrievalVersion": 4,
+      "stale": false
+    }
+  },
+  {
+    "question": "Hur fungerar kvantdatorer?",
+    "outcome": {
+      "kind": "ABSTAIN_NO_COVERAGE",
+      "reason": "no-reviewed-answer",
+      "answerId": null,
+      "choices": [],
+      "retrievalVersion": 4
+    }
+  },
+  {
+    "question": "Är NVIDIA ett köp?",
+    "outcome": {
+      "kind": "ABSTAIN_UNSUPPORTED_JUDGMENT",
+      "reason": "personal-investment-decision",
+      "answerId": null,
+      "choices": [],
+      "retrievalVersion": 4
+    }
+  }
+]

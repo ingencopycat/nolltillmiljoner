@@ -20,9 +20,9 @@ try:
     results.append(dict(route=route,width=width,theme=theme,overflow=overflow))
     if phase!='before':assert not overflow,(route,width,theme)
     if route=='fragor-svar.html':
-     field=p.locator('#knowledgeAskInput')
+     field=p.locator('#question')
      if field.count():
-      field.fill('Vad är P/E?');field.press('Enter');p.locator('#knowledgeAskResult').scroll_into_view_if_needed();p.screenshot(path=str(OUT/('ask-'+name+'.png')))
+      field.fill('Vad är P/E?');field.press('Enter');p.locator('#answer').scroll_into_view_if_needed();p.screenshot(path=str(OUT/('ask-'+name+'.png')))
     if route.startswith('research'):
      p.locator('#thesisSection').scroll_into_view_if_needed();p.screenshot(path=str(OUT/('thesis-'+name+'.png')))
  (OUT/'results.json').write_text(json.dumps(dict(states=results,errors=case.errors),indent=2),encoding='utf-8')

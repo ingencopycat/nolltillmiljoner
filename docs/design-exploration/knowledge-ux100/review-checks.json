@@ -1,0 +1,120 @@
+{
+  "sources": [
+    [
+      "a",
+      "dark",
+      1440
+    ],
+    [
+      "a",
+      "dark",
+      390
+    ],
+    [
+      "a",
+      "light",
+      1440
+    ],
+    [
+      "a",
+      "light",
+      390
+    ],
+    [
+      "b",
+      "dark",
+      1440
+    ],
+    [
+      "b",
+      "dark",
+      390
+    ],
+    [
+      "b",
+      "light",
+      1440
+    ],
+    [
+      "b",
+      "light",
+      390
+    ],
+    [
+      "c",
+      "dark",
+      1440
+    ],
+    [
+      "c",
+      "dark",
+      390
+    ],
+    [
+      "c",
+      "light",
+      1440
+    ],
+    [
+      "c",
+      "light",
+      390
+    ]
+  ],
+  "contrast": [
+    {
+      "theme": "dark",
+      "ratios": {
+        "--text/--bg": 16.131642023678257,
+        "--secondary/--bg": 12.163383429604181,
+        "--muted/--bg": 8.578119889623974,
+        "--accent/--bg": 10.871193263753772,
+        "--on-accent/--accent": 9.811154106595279,
+        "--muted/--panel": 7.3768927228681695
+      }
+    },
+    {
+      "theme": "light",
+      "ratios": {
+        "--text/--bg": 15.25347510288731,
+        "--secondary/--bg": 7.930392083293133,
+        "--muted/--bg": 5.606503873196803,
+        "--accent/--bg": 6.619727110508125,
+        "--on-accent/--accent": 7.122057466211895,
+        "--muted/--panel": 5.237767498588991
+      }
+    }
+  ],
+  "hub": true,
+  "coldPayload": {
+    "resources": [
+      {
+        "path": "/visual-v3-tokens.css",
+        "bytes": 3513
+      },
+      {
+        "path": "/docs/design-exploration/knowledge-ux100/exploration.css",
+        "bytes": 17531
+      },
+      {
+        "path": "/knowledge-core.js",
+        "bytes": 15021
+      },
+      {
+        "path": "/docs/design-exploration/knowledge-ux100/app.js",
+        "bytes": 23802
+      },
+      {
+        "path": "/knowledge-catalog.js",
+        "bytes": 102500
+      },
+      {
+        "path": "/images/ntm-logo.webp",
+        "bytes": 34556
+      }
+    ],
+    "htmlBytes": 4756,
+    "totalFileBytes": 201679,
+    "answerBodies": 0
+  }
+}
