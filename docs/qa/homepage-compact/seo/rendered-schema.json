@@ -1,0 +1,23 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://nolltillmiljoner.se/#website",
+    "name": "Noll till Miljoner",
+    "alternateName": "NTM",
+    "url": "https://nolltillmiljoner.se/",
+    "description": "Analysera aktier, testa investeringsidéer, använd kalkylatorer och lär dig mer om investeringar – gratis på Noll till Miljoner.",
+    "inLanguage": "sv",
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://nolltillmiljoner.se/#webpage",
+      "url": "https://nolltillmiljoner.se/",
+      "name": "Noll till Miljoner – Verktyg, Research & kunskap för investerare",
+      "description": "Analysera aktier, testa investeringsidéer, använd kalkylatorer och lär dig mer om investeringar – gratis på Noll till Miljoner.",
+      "inLanguage": "sv",
+      "isPartOf": {
+        "@id": "https://nolltillmiljoner.se/#website"
+      }
+    }
+  }
+]

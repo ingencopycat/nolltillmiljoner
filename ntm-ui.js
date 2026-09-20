@@ -10,8 +10,8 @@
       }
     });
     const nav = document.querySelector('.main-nav');
-    if(nav && !nav.querySelector('[data-account-nav]')) {
-      const account=document.createElement('a');account.href='konto.html';account.textContent='Konto';account.dataset.accountNav='';account.setAttribute('aria-label','Kontrollerar kontostatus');nav.appendChild(account);
+    if(nav) {
+      const account=nav.querySelector('[data-account-nav]')||document.createElement('a');account.href='konto.html';account.textContent='Konto';account.dataset.accountNav='';account.setAttribute('aria-label','Kontrollerar kontostatus');if(!account.parentNode)nav.appendChild(account);
       // Use the same persisted Supabase session adapter on every page. Never infer
       // authentication from a local owner ID or briefly present a logged-out label.
       let accountAdapter=window.NTMAccount?.adapter||window.NTMSocialAdapter, request=0, subscribed=false;

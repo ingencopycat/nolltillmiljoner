@@ -45,11 +45,17 @@ for(const file of fs.readdirSync(root).filter(f=>/^academy-.+\.html$/.test(f))) 
 function navigation(html, file) {
   html = html.replace(/\s*<footer class="trust-footer">[\s\S]*?<\/footer>/g, '');
   if (html.includes('src="script.js"')) html = html.replace('</main>', '</main>\n    <footer class="trust-footer"><a href="om-metod.html">Om NTM, integritet, metod och rättelser</a></footer>');
-  const secondary = [['academy.html','Academy'],['fragor-svar.html','Frågor & svar'],['inlagg.html','Inlägg och videor'],['resurser.html','Resurser'],['makro.html','Makro'],['rapporter.html','Rapporter'],['community.html','Community']];
-  const link = ([url,label]) => `<a href="${url}"${url === file ? ' class="active" aria-current="page"' : ''}>${label}</a>`;
+  const primary = [['verktyg.html','Verktyg'],['research.html','Research'],['fragor-svar.html','Fråga NTM'],['academy.html','Academy'],['min-ntm.html','Min NTM']];
+  const secondary = [['inlagg.html','Inlägg och videor'],['resurser.html','Resurser'],['makro.html','Makro'],['rapporter.html','Rapporter'],['community.html','Community']];
+  const section = file.startsWith('fragor-svar-') ? 'fragor-svar.html'
+    : file.startsWith('academy-') ? 'academy.html'
+    : file.startsWith('post-') || file === 'post.html' ? 'inlagg.html'
+    : ['analys.html','upptack.html','profil.html'].includes(file) ? 'research.html'
+    : file.endsWith('kalkylator.html') || ['ranta-pa-ranta.html','avgifter.html','havstang.html','valutajusterad-avkastning.html'].includes(file) ? 'verktyg.html' : file;
+  const link = ([url,label]) => `<a href="${url}"${url === file ? ' class="active" aria-current="page"' : url === section ? ' class="active" aria-current="location"' : ''}${url === 'konto.html' ? ' data-account-nav' : ''}>${label}</a>`;
   return html.replace(/<nav class="main-nav"[^>]*>([\s\S]*?)<\/nav>/, (_, body) => {
     const theme = body.match(/<div class="mobile-theme-row">[\s\S]*?<\/div>/)?.[0] || '';
-    return `<nav class="main-nav" aria-label="Huvudnavigering">${theme}${[['verktyg.html','Verktyg'],['research.html','Research'],['min-ntm.html','Min NTM']].map(link).join('')}<details class="nav-learn"><summary>Lär dig</summary><div class="nav-learn-links">${secondary.map(link).join('')}</div></details></nav>`;
+    return `<nav class="main-nav" aria-label="Huvudnavigering">${theme}${primary.map(link).join('')}<details class="nav-learn"><summary>Mer</summary><div class="nav-learn-links">${secondary.map(link).join('')}</div></details>${link(['konto.html','Konto'])}</nav>`;
   });
 }
 function metadata(html, file, title, description, schema) {

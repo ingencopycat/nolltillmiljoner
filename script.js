@@ -2951,10 +2951,8 @@ function renderWeeklyEvents(now = getNtmNow()) {
     .sort((a, b) => getPriorityValue(b.priority) - getPriorityValue(a.priority));
 
   const macroPanel = macroList.closest('.ntm-event-panel');
-  const partial = ['partial', 'fetch_error'].includes(window.NTM_WEEKLY_EVENTS?.meta?.status);
-  const updateNote = partial ? '<p class="ntm-empty-state">Makrodata är delvis uppdaterade. Uppgifter kan saknas eller vara äldre.</p>' : '';
   if (!macroItems.length) {
-    macroList.innerHTML = `<p class="ntm-empty-state">${weeklyRecords.macroAvailable ? 'Inga makrohändelser i kalendern idag.' : 'Makrodata för den här veckan saknas.'}</p>${updateNote}`;
+    macroList.innerHTML = `<p class="ntm-empty-state">${weeklyRecords.macroAvailable ? 'Inga makrohändelser i kalendern idag.' : 'Makrodata för den här veckan saknas.'}</p>`;
     macroPanel?.classList.add('is-empty');
   } else {
     macroPanel?.classList.remove('is-empty');
@@ -2963,7 +2961,7 @@ function renderWeeklyEvents(now = getNtmNow()) {
     const {selected,hidden}=selectHomepageMacro(macroItems);
     const remaining=hidden.length;
     macroList.innerHTML = renderHomepageMacroItems(selected) + (remaining > 0
-      ? `<details class="ntm-macro-more" data-date="${todayKey}"${keepExpanded ? ' open' : ''}><summary class="text-link ntm-more-link">Visa ${remaining} ${remaining===1?'makrohändelse':'makrohändelser'} till</summary>${renderHomepageMacroItems(hidden)}</details>` : '') + updateNote;
+      ? `<details class="ntm-macro-more" data-date="${todayKey}"${keepExpanded ? ' open' : ''}><summary class="text-link ntm-more-link">Visa ${remaining} ${remaining===1?'makrohändelse':'makrohändelser'} till</summary>${renderHomepageMacroItems(hidden)}</details>` : '');
   }
 
   const earningsPanel = earningsList.closest('.ntm-event-panel');

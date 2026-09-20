@@ -167,10 +167,15 @@ class SeoFoundationTests(unittest.TestCase):
                 self.assertIn(name, ['calculator.html'])
                 continue
             links = re.findall(r'<a href="([^"]+)"([^>]*)>', nav.group())
-            self.assertEqual([href for href, _ in links], ['verktyg.html','research.html','min-ntm.html','academy.html','fragor-svar.html','inlagg.html','resurser.html','makro.html','rapporter.html','community.html'])
-            self.assertIn('<summary>Lär dig</summary>', nav.group())
+            self.assertEqual([href for href, _ in links], ['verktyg.html','research.html','fragor-svar.html','academy.html','min-ntm.html','inlagg.html','resurser.html','makro.html','rapporter.html','community.html','konto.html'])
+            self.assertIn('<summary>Mer</summary>', nav.group())
+            self.assertNotIn('Frågor &', nav.group())
+            self.assertLessEqual(sum('aria-current=' in attrs for _, attrs in links), 1)
             for href, attrs in links:
                 self.assertEqual('aria-current="page"' in attrs, href == name)
+            if name.startswith('fragor-svar-') or name.startswith('academy-'):
+                parent = 'fragor-svar.html' if name.startswith('fragor-svar-') else 'academy.html'
+                self.assertIn('aria-current="location"', dict(links)[parent])
 
 
 if __name__ == '__main__':
