@@ -2014,10 +2014,59 @@ class BrowserSmoke(unittest.TestCase):
         self.go('index.html?ntmDate=2026-09-18')
         expect(p.locator('#ntmEarningsList')).to_have_text('Inga bolagsrapporter i kalendern idag.')
         self.go('index.html?ntmDate=2026-09-21')
+        expect(p.locator('#ntmEarningsList')).to_contain_text('ABVX')
+        p.evaluate('delete NTM_WEEKLY_EVENTS.earningsWeeks["2026-W39"];renderWeeklyEvents()')
         expect(p.locator('#ntmEarningsList')).to_have_text('Rapportdata för den här veckan saknas.')
         expect(p.locator('#ntmEarningsList details')).to_have_count(0)
         print('Homepage earnings screenshots:',folder,flush=True)
 
+
+    def test_week39_earnings_publication_desktop_mobile(self):
+        p = self.page
+        for width in [390, 1440]:
+            p.set_viewport_size({'width': width, 'height': 900})
+            self.go('rapporter.html?ntmDate=2026-09-21')
+            expect(p.locator('#earnings-readable h3')).to_contain_text('39')
+            expect(p.locator('#earnings-readable')).to_contain_text('THO, MLKN, AZO')
+            expect(p.locator('#earnings-readable')).to_contain_text('COST, LGCY, SCHL')
+            expect(p.locator('#earnings-readable')).to_contain_text('Fredag: inga bolag listade.')
+            img = p.locator('#weekVisual img')
+            img.scroll_into_view_if_needed()
+            self.wait_for('document.querySelector("#weekVisual img")?.naturalWidth > 0')
+            self.assertIn('week-39-1920.webp', img.evaluate('el=>el.currentSrc'))
+            self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'), width)
+            self.go('index.html?ntmDate=2026-09-23')
+            rows = p.locator('#ntmEarningsList .ntm-event-item:visible')
+            expect(rows).to_have_count(3)
+            summary = p.locator('#ntmEarningsList summary')
+            summary.focus(); summary.press('Enter')
+            expect(rows).to_have_count(7)
+            expect(p.locator('#ntmEarningsList')).to_contain_text('NEOV')
+            self.go('index.html?ntmDate=2026-09-25')
+            expect(p.locator('#ntmEarningsList')).to_have_text('Inga bolagsrapporter i kalendern idag.')
+
+    def test_week39_macro_publication_desktop_mobile_and_keyboard(self):
+        p = self.page
+        for width in [390, 1440]:
+            p.set_viewport_size({'width': width, 'height': 900})
+            self.go('makro.html?ntmDate=2026-09-20')
+            upcoming = p.locator('#upcomingWeeks [data-week="2026-W39"]')
+            expect(upcoming).to_be_enabled()
+            upcoming.focus(); upcoming.press('Enter')
+            expect(p.locator('#macroStructuredContent h2').first).to_contain_text('39')
+            expect(p.locator('#macroStructuredContent')).to_contain_text('US Flash Manufacturing PMI')
+            expect(p.locator('#macroStructuredContent')).to_contain_text('15:45')
+            expect(p.locator('#macroStructuredContent')).to_contain_text('Manuellt angiven')
+            p.locator('#macroImageToggleBtn').focus(); p.locator('#macroImageToggleBtn').press('Enter')
+            expect(p.locator('[role=dialog] img')).to_have_attribute('src', './images/makro/week-39.png')
+            p.keyboard.press('Escape')
+            self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'), width)
+            self.go('index.html?ntmDate=2026-09-22')
+            expect(p.locator('#ntmMacroList')).to_contain_text('Thomas Barkin')
+            expect(p.locator('#ntmMacroList')).to_contain_text('19:00')
+            self.go('makro.html?ntmDate=2026-09-21')
+            expect(p.locator('#macroStructuredContent h2').first).to_contain_text('39')
+            expect(p.locator('#weekArchive [data-week="2026-W38"]')).to_be_enabled()
 
     def test_weekly_macro_today_tomorrow_and_expansion(self):
         p=self.page

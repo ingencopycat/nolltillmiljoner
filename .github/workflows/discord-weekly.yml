@@ -1,0 +1,62 @@
+name: Preview or distribute reviewed weekly images
+on:
+  workflow_dispatch:
+    inputs:
+      kind:
+        type: choice
+        options: [macro, earnings]
+        required: true
+      week:
+        description: Canonical ISO week, for example 2026-W39
+        type: string
+        required: true
+      send:
+        description: Request live delivery (also requires owner environment approval and enable variable)
+        type: boolean
+        default: false
+permissions: {}
+concurrency:
+  group: discord-weekly-distribution
+  cancel-in-progress: false
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Preview reviewed canonical artifact
+        env:
+          PUBLICATION_KIND: ${{ inputs.kind }}
+          PUBLICATION_WEEK: ${{ inputs.week }}
+        run: node scripts/discord_weekly.cjs "$PUBLICATION_KIND" "$PUBLICATION_WEEK" --dry-run
+  send:
+    needs: preview
+    if: inputs.send && vars.NTM_DISCORD_ENABLED == 'true' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: discord-distribution
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate website publication independently of delivery
+        run: node scripts/check_weekly_events.cjs
+      - name: Deliver once with durable reservation
+        env:
+          PUBLICATION_KIND: ${{ inputs.kind }}
+          PUBLICATION_WEEK: ${{ inputs.week }}
+          NTM_DISCORD_ENABLED: ${{ vars.NTM_DISCORD_ENABLED }}
+          DISCORD_MAKRO_WEBHOOK_URL: ${{ secrets.DISCORD_MAKRO_WEBHOOK_URL }}
+          DISCORD_RAPPORTER_WEBHOOK_URL: ${{ secrets.DISCORD_RAPPORTER_WEBHOOK_URL }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/discord_weekly.cjs "$PUBLICATION_KIND" "$PUBLICATION_WEEK" --send

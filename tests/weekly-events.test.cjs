@@ -3,6 +3,35 @@ const V=require('../scripts/check_weekly_events.cjs');
 function model(){return V.loadRepository();}
 const today=new Date('2026-09-14T12:00:00Z');
 const codes=m=>V.check(m,today).filter(i=>i.level==='error').map(i=>i.code);
+
+test('week 39 earnings agrees with all image columns, reviewed hash and current/future resolution',()=>{
+  const m=model(), rows=m.data.earningsWeeks['2026-W39'].reports;
+  const expected=[['2026-09-21','after-close','ABVX'],['2026-09-22','before-open','THO MLKN AZO'],['2026-09-22','after-close','KBH WOR AYTU'],['2026-09-23','before-open','CBRL GIS CTAS PAYX'],['2026-09-23','after-close','SFIX FUL NEOV'],['2026-09-24','before-open','BB DRI SNX'],['2026-09-24','after-close','COST LGCY SCHL']];
+  assert.equal(rows.length,20);
+  for(const [date,timing,tickers] of expected)assert.equal(rows.filter(r=>r.date===date&&r.timing===timing).map(r=>r.ticker).join(' '),tickers);
+  assert.equal(rows.filter(r=>r.date==='2026-09-25').length,0);
+  const review=m.review.artifacts.find(a=>a.kind==='earnings'&&a.week==='2026-W39');
+  assert.equal(review.sha256,V.digest(m.root,review.image));
+  assert.deepEqual(review.records,V.recordsForReview('earnings',rows));
+  for(const date of ['2026-09-20','2026-09-21','2026-09-27'])assert.deepEqual(V.check(m,new Date(date+'T12:00:00Z')).filter(i=>i.level==='error'),[]);
+});
+
+test('week 39 macro image transcription preserves dates, ET timing and manual field provenance',()=>{
+  const m=model(), w=m.data.macroWeeks['2026-W39'];
+  assert.equal(w.fallbackImage,'./images/makro/week-39.png');
+  assert.equal(w.sourceTimezone,'America/New_York'); assert.equal(w.events.length,9);
+  assert.deepEqual(w.events.map(r=>r.date),['2026-09-22','2026-09-23','2026-09-23','2026-09-24','2026-09-24','2026-09-24','2026-09-24','2026-09-25','2026-09-25']);
+  assert.deepEqual(w.events.map(r=>r.time),['13:00','09:45','09:45','08:30','08:30','10:00','11:00','08:30','10:00']);
+  for(const r of w.events){
+    assert.equal(r.actual,null); assert.equal(r.fieldProvenance.actual.kind,'unavailable');
+    for(const field of ['forecast','previous'])assert.equal(r.fieldProvenance[field].kind,r[field]===null?'unavailable':'manual');
+  }
+  const review=m.review.artifacts.find(a=>a.kind==='macro'&&a.week==='2026-W39');
+  assert.equal(review.sha256,V.digest(m.root,w.fallbackImage));
+  assert.deepEqual(review.records,V.recordsForReview('macro',w.events));
+  assert.equal(m.api.resolve(m.data.macroWeeks,'2026-09-20','events').key,'2026-W38');
+  assert.ok(m.api.resolve(m.data.macroWeeks,'2026-09-21','events').available);
+});
 test('homepage macro priority keeps major releases visible and counts every hidden event exactly',()=>{
   const {macro}=model();
   const make=(id,priority,timestamp)=>({id,priority,timestamp,hasTime:true,swedishTime:'12:00'});

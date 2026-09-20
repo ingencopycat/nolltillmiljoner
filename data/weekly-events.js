@@ -12348,8 +12348,296 @@ const macroWeeks = {
     "label": "Vecka 39",
     "title": "Vecka 39, 2026",
     "sourceTimezone": "America/New_York",
-    "fallbackImage": null,
-    "events": []
+    "fallbackImage": "./images/makro/week-39.png",
+    "events": [
+      {
+        "id": "us-barkin-cfa-2026-09-22",
+        "date": "2026-09-22",
+        "time": "13:00",
+        "country": "USA",
+        "eventName": "Federal Reserve Bank of Richmond President Thomas Barkin speaks to the CFA Society Baltimore",
+        "period": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "low",
+        "source": "Owner-supplied weekly image transcription",
+        "sourceUrl": "./images/makro/week-39.png",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "forecast": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-flash-manufacturing-pmi-2026-09-23",
+        "date": "2026-09-23",
+        "time": "09:45",
+        "country": "USA",
+        "eventName": "US Flash Manufacturing PMI",
+        "period": "Sep.",
+        "forecast": "53.5",
+        "previous": "53.2",
+        "actual": null,
+        "priority": "medium",
+        "source": "Owner-supplied weekly image transcription",
+        "sourceUrl": "./images/makro/week-39.png",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-39.png"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-39.png"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-flash-services-pmi-2026-09-23",
+        "date": "2026-09-23",
+        "time": "09:45",
+        "country": "USA",
+        "eventName": "US Flash Services PMI",
+        "period": "Sep.",
+        "forecast": "55.9",
+        "previous": "56.8",
+        "actual": null,
+        "priority": "medium",
+        "source": "Owner-supplied weekly image transcription",
+        "sourceUrl": "./images/makro/week-39.png",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-39.png"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-39.png"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-weekly-jobless-claims-2026-09-24",
+        "date": "2026-09-24",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Weekly Jobless Claims",
+        "period": "Sept. 19",
+        "forecast": "204K",
+        "previous": "196K",
+        "actual": null,
+        "priority": "medium",
+        "source": "Owner-supplied weekly image transcription",
+        "sourceUrl": "./images/makro/week-39.png",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-39.png"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-39.png"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-barkin-economic-club-2026-09-24",
+        "date": "2026-09-24",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Economic Club of Washington, DC event with Federal Reserve Bank of Richmond President Thomas Barkin",
+        "period": null,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "low",
+        "source": "Owner-supplied weekly image transcription",
+        "sourceUrl": "./images/makro/week-39.png",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "forecast": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-new-home-sales-2026-09-24",
+        "date": "2026-09-24",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "New Home Sales",
+        "period": "Aug.",
+        "forecast": "620K",
+        "previous": "607K",
+        "actual": null,
+        "priority": "medium",
+        "source": "Owner-supplied weekly image transcription",
+        "sourceUrl": "./images/makro/week-39.png",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-39.png"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-39.png"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-kansas-city-fed-survey-2026-09-24",
+        "date": "2026-09-24",
+        "time": "11:00",
+        "country": "USA",
+        "eventName": "Kansas City Fed Survey",
+        "period": null,
+        "forecast": null,
+        "previous": "17",
+        "actual": null,
+        "priority": "medium",
+        "source": "Owner-supplied weekly image transcription",
+        "sourceUrl": "./images/makro/week-39.png",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-39.png"
+          },
+          "forecast": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-durable-goods-2026-09-25",
+        "date": "2026-09-25",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Durable Goods",
+        "period": "Aug.",
+        "forecast": "-0.3%",
+        "previous": "1.1%",
+        "actual": null,
+        "priority": "medium",
+        "source": "Owner-supplied weekly image transcription",
+        "sourceUrl": "./images/makro/week-39.png",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-39.png"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-39.png"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-michigan-final-consumer-survey-2026-09-25",
+        "date": "2026-09-25",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "U. Michigan Final Consumer Survey",
+        "period": "Sep.",
+        "forecast": "47.1",
+        "previous": "51.7",
+        "actual": null,
+        "priority": "medium",
+        "source": "Owner-supplied weekly image transcription",
+        "sourceUrl": "./images/makro/week-39.png",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-39.png"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-39.png"
+          }
+        },
+        "provenanceVersion": 1
+      }
+    ]
   },
   "2026-W43": {
     "weekNumber": 43,
@@ -13280,6 +13568,132 @@ const macroWeeks = {
 };
 
 const earningsWeeks = {
+  "2026-W39": {
+  "source": "Earnings Whispers — archived image transcription; company labels use published tickers",
+  "sourceImage": "./images/rapporter/week-39.png",
+  "reports": [
+    {
+      "date": "2026-09-21",
+      "companyName": "ABVX",
+      "ticker": "ABVX",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-22",
+      "companyName": "THO",
+      "ticker": "THO",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-22",
+      "companyName": "MLKN",
+      "ticker": "MLKN",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-22",
+      "companyName": "AZO",
+      "ticker": "AZO",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-22",
+      "companyName": "KBH",
+      "ticker": "KBH",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-22",
+      "companyName": "WOR",
+      "ticker": "WOR",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-22",
+      "companyName": "AYTU",
+      "ticker": "AYTU",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-23",
+      "companyName": "CBRL",
+      "ticker": "CBRL",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-23",
+      "companyName": "GIS",
+      "ticker": "GIS",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-23",
+      "companyName": "CTAS",
+      "ticker": "CTAS",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-23",
+      "companyName": "PAYX",
+      "ticker": "PAYX",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-23",
+      "companyName": "SFIX",
+      "ticker": "SFIX",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-23",
+      "companyName": "FUL",
+      "ticker": "FUL",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-23",
+      "companyName": "NEOV",
+      "ticker": "NEOV",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-24",
+      "companyName": "BB",
+      "ticker": "BB",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-24",
+      "companyName": "DRI",
+      "ticker": "DRI",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-24",
+      "companyName": "SNX",
+      "ticker": "SNX",
+      "timing": "before-open"
+    },
+    {
+      "date": "2026-09-24",
+      "companyName": "COST",
+      "ticker": "COST",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-24",
+      "companyName": "LGCY",
+      "ticker": "LGCY",
+      "timing": "after-close"
+    },
+    {
+      "date": "2026-09-24",
+      "companyName": "SCHL",
+      "ticker": "SCHL",
+      "timing": "after-close"
+    }
+  ]
+},
   "2026-W36": {
   "source": "Earnings Whispers — archived image transcription; company labels use published tickers",
   "sourceImage": "./images/rapporter/week-36.png",

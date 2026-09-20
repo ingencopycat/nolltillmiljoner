@@ -850,6 +850,169 @@
           "time": "08:30"
         }
       ]
+    },
+    {
+      "kind": "macro",
+      "week": "2026-W39",
+      "image": "./images/makro/week-39.png",
+      "sha256": "bd8dc8afc5089be5bc5698329032a824a7ccf9181dd596a0c8ef57beb7b7c10d",
+      "records": [
+        {
+          "id": "us-barkin-cfa-2026-09-22",
+          "date": "2026-09-22",
+          "time": "13:00"
+        },
+        {
+          "id": "us-barkin-economic-club-2026-09-24",
+          "date": "2026-09-24",
+          "time": "08:30"
+        },
+        {
+          "id": "us-durable-goods-2026-09-25",
+          "date": "2026-09-25",
+          "time": "08:30"
+        },
+        {
+          "id": "us-flash-manufacturing-pmi-2026-09-23",
+          "date": "2026-09-23",
+          "time": "09:45"
+        },
+        {
+          "id": "us-flash-services-pmi-2026-09-23",
+          "date": "2026-09-23",
+          "time": "09:45"
+        },
+        {
+          "id": "us-kansas-city-fed-survey-2026-09-24",
+          "date": "2026-09-24",
+          "time": "11:00"
+        },
+        {
+          "id": "us-michigan-final-consumer-survey-2026-09-25",
+          "date": "2026-09-25",
+          "time": "10:00"
+        },
+        {
+          "id": "us-new-home-sales-2026-09-24",
+          "date": "2026-09-24",
+          "time": "10:00"
+        },
+        {
+          "id": "us-weekly-jobless-claims-2026-09-24",
+          "date": "2026-09-24",
+          "time": "08:30"
+        }
+      ],
+      "reviewedAt": "2026-09-20"
+    },
+    {
+      "kind": "earnings",
+      "week": "2026-W39",
+      "image": "./images/rapporter/week-39.png",
+      "sha256": "d3296ce6ab638185621c13b2fc58294556635bfd27684cc04cd7df466310f5cb",
+      "records": [
+        {
+          "ticker": "ABVX",
+          "date": "2026-09-21",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "AYTU",
+          "date": "2026-09-22",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "AZO",
+          "date": "2026-09-22",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "BB",
+          "date": "2026-09-24",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "CBRL",
+          "date": "2026-09-23",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "COST",
+          "date": "2026-09-24",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "CTAS",
+          "date": "2026-09-23",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "DRI",
+          "date": "2026-09-24",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "FUL",
+          "date": "2026-09-23",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "GIS",
+          "date": "2026-09-23",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "KBH",
+          "date": "2026-09-22",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "LGCY",
+          "date": "2026-09-24",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "MLKN",
+          "date": "2026-09-22",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "NEOV",
+          "date": "2026-09-23",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "PAYX",
+          "date": "2026-09-23",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "SCHL",
+          "date": "2026-09-24",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "SFIX",
+          "date": "2026-09-23",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "SNX",
+          "date": "2026-09-24",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "THO",
+          "date": "2026-09-22",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "WOR",
+          "date": "2026-09-22",
+          "timing": "after-close"
+        }
+      ],
+      "reviewedAt": "2026-09-20"
     }
   ]
 }

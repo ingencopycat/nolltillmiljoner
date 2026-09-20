@@ -1,6 +1,14 @@
 const isMakroPage = window.location.pathname.toLowerCase().includes('makro');
 
 const earningsWeekData = {
+  '2026-W39': {
+    title: 'Vecka 39',
+    label: 'Vecka 39',
+    image: './images/rapporter/week-39-3840.webp',
+    preview: './images/rapporter/week-39-1920.webp',
+    fallback: './images/rapporter/week-39.png',
+    schedule: ["Måndag: inga bolag listade före öppning. Efter stängning: ABVX.", "Tisdag före öppning: THO, MLKN, AZO. Efter stängning: KBH, WOR, AYTU.", "Onsdag före öppning: CBRL, GIS, CTAS, PAYX. Efter stängning: SFIX, FUL, NEOV.", "Torsdag före öppning: BB, DRI, SNX. Efter stängning: COST, LGCY, SCHL.", "Fredag: inga bolag listade."]
+  },
   '2026-W38': {
     title: 'Vecka 38',
     label: 'Vecka 38',

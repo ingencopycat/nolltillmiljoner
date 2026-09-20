@@ -741,6 +741,34 @@
         "https://supabase.com/pricing",
         "https://supabase.com/docs/guides/auth/auth-smtp"
       ]
+    },
+    {
+      "publicDisplay": "Needs verification",
+      "caching": "Needs verification",
+      "redistribution": "Needs verification",
+      "derivedData": "Needs verification",
+      "aiUse": "Needs verification",
+      "attribution": "Needs verification",
+      "geographicMarketRestrictions": "Needs verification",
+      "rateLimits": "Needs verification",
+      "pricingModel": "Needs verification",
+      "commercialUseStatus": "Needs verification",
+      "contractRequired": "Needs verification",
+      "id": "owner-weekly-image",
+      "provider": "Owner-supplied weekly image transcription",
+      "dataset": "Week 39 macro image and manually transcribed schedule/values",
+      "currentUse": "Owner-supplied website publication input; Discord preview only, live delivery disabled.",
+      "classification": "manual; underlying publisher not identified on supplied crop",
+      "owner": "NTM founder (assignment pending)",
+      "reviewDate": null,
+      "nextReview": null,
+      "notesRisk": "Image review establishes transcription agreement only. It is not independent provider verification or a license determination; no fresh rights approval is recorded.",
+      "repositoryEvidence": [
+        "images/makro/week-39.png",
+        "data/weekly-artifacts.json",
+        "data/weekly-events.js"
+      ],
+      "termsEvidence": []
     }
   ]
 }
