@@ -7,6 +7,7 @@ import subprocess
 import tempfile
 import threading
 import time
+from collections import deque
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlparse
@@ -17,6 +18,29 @@ from stage_site import stage_site
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://session-fixture.supabase.co'
 UID = '11111111-1111-4111-8111-111111111111'
+
+
+class AuthDiagnostics:
+    """Bounded lifecycle metadata only; never retain URLs, headers or payloads."""
+    def __init__(self):
+        self.events = deque(maxlen=48)
+
+    def record(self, kind, url, status=None):
+        if kind not in ('request', 'handled', 'fulfilled', 'response', 'failed'):
+            return
+        parsed = urlparse(url)
+        if parsed.scheme+'://'+parsed.netloc != ORIGIN:
+            return
+        endpoint = parsed.path.removeprefix('/auth/v1/')
+        if endpoint not in ('token', 'user', 'logout', 'verify'):
+            return
+        row = dict(event=kind, endpoint=endpoint)
+        if type(status) is int and 100 <= status <= 599:
+            row['status'] = status
+        self.events.append(row)
+
+    def report(self, phase):
+        print('AUTH diagnostics '+json.dumps(dict(phase=phase, events=list(self.events))), flush=True)
 
 
 class QuietHandler(SimpleHTTPRequestHandler):
@@ -41,8 +65,9 @@ def main():
         server = ThreadingHTTPServer(('127.0.0.1', 0), partial(QuietHandler, directory=stage))
         threading.Thread(target=server.serve_forever, daemon=True).start()
         base = f'http://127.0.0.1:{server.server_port}'
-        state = dict(deleted=False, refreshes=0, generation=0, uploads=0, offline=False, now=int(time.time()))
+        state = dict(deleted=False, refreshes=0, refresh_rejections=0, generation=0, uploads=0, offline=False, now=int(time.time()))
         sessions, refreshes, errors = {}, {}, []
+        diagnostics = AuthDiagnostics()
 
         def issue():
             state['generation'] += 1
@@ -58,9 +83,11 @@ def main():
 
         def route(r):
             path = urlparse(r.request.url).path
+            diagnostics.record('handled', r.request.url)
             body = r.request.post_data_json or {}
             def reply(value, status=200):
                 r.fulfill(status=status, content_type='application/json', body=json.dumps(value))
+                diagnostics.record('fulfilled', r.request.url, status)
             if state['offline']:
                 r.abort(); return
             if path.endswith('/otp'):
@@ -69,6 +96,7 @@ def main():
                 reply(issue()); return
             if path.endswith('/token'):
                 if state['deleted'] or body.get('refresh_token') not in refreshes:
+                    state['refresh_rejections'] += 1
                     reply({'error_code': 'refresh_token_not_found'}, 400); return
                 refreshes.pop(body['refresh_token'])
                 state['refreshes'] += 1
@@ -101,6 +129,9 @@ def main():
             context = pw.chromium.launch_persistent_context(str(Path(directory)/profile),
                         channel=os.environ.get('BROWSER_CHANNEL') or None)
             context.route(ORIGIN+'/**', route)
+            context.on('request', lambda r: diagnostics.record('request', r.url))
+            context.on('response', lambda r: diagnostics.record('response', r.url, r.status))
+            context.on('requestfailed', lambda r: diagnostics.record('failed', r.url))
             context.on('page', lambda p: p.on('pageerror', lambda e: errors.append(str(e))))
             return context
 
@@ -193,14 +224,35 @@ def main():
         assert page.evaluate('NTMAccount.adapter.session()') is None
         assert not page.evaluate("Object.keys(localStorage).some(k=>/^sb-.*-auth-token$/.test(k))")
         # An expired saved session must also fail closed when Auth rejects refresh.
+        diagnostics.events.clear()
         state['deleted'] = False
         login(page)
+        assert page.evaluate("Object.keys(localStorage).some(k=>/^sb-.*-auth-token$/.test(k))"), 'Restoration requires a persisted SDK session'
+        # Stop the active SDK before changing time/provider state. Otherwise its
+        # background refresh can reject and clear the session before the waiter,
+        # or navigation can cancel that refresh. This case tests saved restoration;
+        # the live automatic timer is exercised separately above.
+        page.close()
+        page = context.new_page()
         state['deleted'] = True
         state['now'] += 7200
         page.clock.install(time=state['now']*1000)
-        with page.expect_response(lambda r: '/auth/v1/token' in r.url):
-            account(page, False)
-        page.wait_for_function("!Object.keys(localStorage).some(k=>/^sb-.*-auth-token$/.test(k))")
+        previous_rejections = state['refresh_rejections']
+        # Even another clock turn before navigation must not run an old SDK.
+        page.clock.fast_forward(1000)
+        assert state['refresh_rejections'] == previous_rejections
+        try:
+            with page.expect_response(lambda r: r.url == ORIGIN+'/auth/v1/token?grant_type=refresh_token'
+                                      and r.request.method == 'POST') as rejected:
+                account(page, False)
+            assert rejected.value.status == 400, 'Expired restoration must receive Auth rejection'
+            assert state['refresh_rejections'] > previous_rejections, 'Auth refresh rejection was not exercised'
+            assert page.evaluate('NTMAccount.adapter.session()') is None
+            page.wait_for_function("!Object.keys(localStorage).some(k=>/^sb-.*-auth-token$/.test(k))")
+        except Exception:
+            diagnostics.report('expired-restore-failed')
+            raise
+        diagnostics.report('expired-restore-complete')
         context.close()
         context = launch()
         page = context.pages[0]

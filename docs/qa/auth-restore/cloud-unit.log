@@ -1,0 +1,23 @@
+✔ generated public config is isolated and grants CSP only to account and public social pages (138.5747ms)
+✔ invalid or privileged config fails before changing artifacts (13.7994ms)
+✔ secret scan reports category and path without exposing the matched value (19.3449ms)
+✔ anonymous/login never uploads; migration is explicit, idempotent and restores manual history and preferences (38.0062ms)
+✔ supported snapshots, archived outcomes, scenario plans/observations and envelope metadata round-trip (42.222ms)
+✔ queue reload, bounded backoff, inspectable failures, no duplicate retry and cross-account separation (19.126ms)
+✔ conflicting IDs and corrupt cloud/local data never overwrite history; receipts require confirmation (19.1228ms)
+✔ cloud deletion preserves local by default; explicit local removal and logout retain their boundaries (10.3851ms)
+✔ adapter delegates persistence/refresh to SDK and returns only verified identity (4.7912ms)
+✔ adapter rejects stale restored identity and delegates session removal to SDK (5.3337ms)
+✔ SDK OTP errors expose bounded product codes, never provider details (24.4155ms)
+✔ legacy IDs, empty scenario groups, additional histories and read-only local use survive cloud preparation (17.4823ms)
+✔ queue corruption, blocked writes and concurrent tab changes fail without replacing a queue or local source (8.2017ms)
+✔ server conflicts surface explicitly and logout prevents a late receipt being marked synced (24.0677ms)
+✔ account changes during authorization cannot write another owner queue or delete that other account (6.2826ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 320.003

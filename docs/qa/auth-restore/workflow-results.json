@@ -1,0 +1,42 @@
+[
+  {
+    "check": "release",
+    "exit_code": 0,
+    "seconds": 42.5
+  },
+  {
+    "check": "rls",
+    "exit_code": 0,
+    "seconds": 1.9
+  },
+  {
+    "check": "smoke",
+    "exit_code": 0,
+    "seconds": 89.2
+  },
+  {
+    "check": "social",
+    "exit_code": 0,
+    "seconds": 14.2
+  },
+  {
+    "check": "wave5",
+    "exit_code": 0,
+    "seconds": 9.8
+  },
+  {
+    "check": "auth",
+    "exit_code": 0,
+    "seconds": 13.8
+  },
+  {
+    "check": "quality",
+    "exit_code": 0,
+    "seconds": 39.3
+  },
+  {
+    "check": "workflows",
+    "exit_code": 0,
+    "seconds": 1.0
+  }
+]

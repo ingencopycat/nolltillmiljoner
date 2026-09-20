@@ -1,0 +1,22 @@
+Public cloud config and exact-origin CSP generated in staged site. Live validation still required.
+AUTH diagnostics {"phase": "probe-before-waiter", "events": [{"event": "request", "endpoint": "verify"}, {"event": "handled", "endpoint": "verify"}, {"event": "fulfilled", "endpoint": "verify", "status": 200}, {"event": "response", "endpoint": "verify", "status": 200}, {"event": "request", "endpoint": "user"}, {"event": "handled", "endpoint": "user"}, {"event": "request", "endpoint": "user"}, {"event": "handled", "endpoint": "user"}, {"event": "fulfilled", "endpoint": "user", "status": 200}, {"event": "response", "endpoint": "user", "status": 200}, {"event": "fulfilled", "endpoint": "user", "status": 200}, {"event": "response", "endpoint": "user", "status": 200}, {"event": "request", "endpoint": "user"}, {"event": "handled", "endpoint": "user"}, {"event": "request", "endpoint": "user"}, {"event": "handled", "endpoint": "user"}, {"event": "fulfilled", "endpoint": "user", "status": 200}, {"event": "response", "endpoint": "user", "status": 200}, {"event": "fulfilled", "endpoint": "user", "status": 200}, {"event": "response", "endpoint": "user", "status": 200}, {"event": "request", "endpoint": "user"}, {"event": "handled", "endpoint": "user"}, {"event": "fulfilled", "endpoint": "user", "status": 200}, {"event": "response", "endpoint": "user", "status": 200}, {"event": "request", "endpoint": "token"}, {"event": "handled", "endpoint": "token"}, {"event": "fulfilled", "endpoint": "token", "status": 400}, {"event": "response", "endpoint": "token", "status": 400}]}
+AUTH diagnostics {"phase": "expired-restore-failed", "events": [{"event": "request", "endpoint": "verify"}, {"event": "handled", "endpoint": "verify"}, {"event": "fulfilled", "endpoint": "verify", "status": 200}, {"event": "response", "endpoint": "verify", "status": 200}, {"event": "request", "endpoint": "user"}, {"event": "handled", "endpoint": "user"}, {"event": "request", "endpoint": "user"}, {"event": "handled", "endpoint": "user"}, {"event": "fulfilled", "endpoint": "user", "status": 200}, {"event": "response", "endpoint": "user", "status": 200}, {"event": "fulfilled", "endpoint": "user", "status": 200}, {"event": "response", "endpoint": "user", "status": 200}, {"event": "request", "endpoint": "user"}, {"event": "handled", "endpoint": "user"}, {"event": "request", "endpoint": "user"}, {"event": "handled", "endpoint": "user"}, {"event": "fulfilled", "endpoint": "user", "status": 200}, {"event": "response", "endpoint": "user", "status": 200}, {"event": "fulfilled", "endpoint": "user", "status": 200}, {"event": "response", "endpoint": "user", "status": 200}, {"event": "request", "endpoint": "user"}, {"event": "handled", "endpoint": "user"}, {"event": "fulfilled", "endpoint": "user", "status": 200}, {"event": "response", "endpoint": "user", "status": 200}, {"event": "request", "endpoint": "token"}, {"event": "handled", "endpoint": "token"}, {"event": "fulfilled", "endpoint": "token", "status": 400}, {"event": "response", "endpoint": "token", "status": 400}]}
+python : Traceback (most recent call last):
+At line:13 char:6
++ '@ | python -B - > docs/qa/auth-restore/clock-probe.log 2>&1
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "<stdin>", line 6, in <module>
+  File "scripts\test_auth_browser.py", line 265, in <module>
+  File "scripts\test_auth_browser.py", line 233, in main
+    except Exception:
+             ^^^^^^^^
+  File "C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_sync_base.py", line 
+85, in __exit__
+    self._event.value
+  File "C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_sync_base.py", line 
+59, in value
+    raise exception
+playwright._impl._errors.TimeoutError: Timeout 30000ms exceeded while waiting for event "response"

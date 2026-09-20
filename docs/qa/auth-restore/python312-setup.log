@@ -1,0 +1,24 @@
+Collecting playwright==1.62.0 (from -r requirements-browser.txt (line 1))
+  Using cached playwright-1.62.0-py3-none-win_amd64.whl.metadata (3.3 kB)
+Collecting pyee<14,>=13 (from playwright==1.62.0->-r requirements-browser.txt (line 1))
+  Using cached pyee-13.0.1-py3-none-any.whl.metadata (3.0 kB)
+Collecting greenlet<4.0.0,>=3.1.1 (from playwright==1.62.0->-r requirements-browser.txt (line 1))
+  Downloading greenlet-3.5.6-cp312-cp312-win_amd64.whl.metadata (3.9 kB)
+Collecting typing-extensions (from pyee<14,>=13->playwright==1.62.0->-r requirements-browser.txt (line 1))
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Using cached playwright-1.62.0-py3-none-win_amd64.whl (38.2 MB)
+Downloading greenlet-3.5.6-cp312-cp312-win_amd64.whl (324 kB)
+Using cached pyee-13.0.1-py3-none-any.whl (15 kB)
+Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Installing collected packages: typing-extensions, greenlet, pyee, playwright
+Successfully installed greenlet-3.5.6 playwright-1.62.0 pyee-13.0.1 typing-extensions-4.16.0
+python.exe : 
+At line:4 char:1
++ & (Join-Path $authVenv 'Scripts/python.exe') -m pip install -r requir ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[notice] A new release of pip is available: 24.2 -> 26.2.1
+[notice] To update, run: C:\Users\Mirne\AppData\Local\Temp\ntm-auth-python312\Scripts\python.exe -m pip install 
+--upgrade pip
