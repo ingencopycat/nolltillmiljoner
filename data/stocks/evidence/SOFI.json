@@ -605,6 +605,888 @@
   ],
   "latestReportAccession": "0001818874-26-000054",
   "coverage": "24 most recent supported filings in SEC recent submissions; not a complete archive",
-  "verifiedAt": "2026-09-22T14:36:06.749613+00:00",
+  "reviewedEvidence": {
+    "schema": "ntm-reviewed-observations/1",
+    "observations": [
+      {
+        "kind": "guidance",
+        "metricId": "adjusted_ebitda",
+        "issuerLabel": "Adjusted EBITDA",
+        "label": "Justerad EBITDA",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "FY2025",
+          "end": "2025-12-31",
+          "type": "annual"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "adjusted-ebitda-v1",
+        "definition": "Adjusted EBITDA",
+        "note": "",
+        "id": "SOFI:0001818874-25-000204:ebitda",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2025-10-28",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 1035000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000204/a2025q3earningsrelease.htm",
+          "accessionNumber": "0001818874-25-000204",
+          "exhibit": "99.1",
+          "quote": "Guidance and Outlook Given the strong performance through the first three quarters of the year, management is increasing its 2025 guidance issued in our second quarter earnings. For the full year 2025, management now expects to add at least 3.5 million new members, which represents approximately 34% growth from 2024 levels. Management expects to deliver adjusted net revenue of approximately $3.54 billion, which is $165 million higher than the prior guidance of $3.375 billion. This implies approximately 36% annual growth versus 30% in our prior guidance. Management expects adjusted EBITDA of approximately $1.035 billion, above prior guidance of $960 million. This represents an EBITDA margin of 29%. SoFi expects adjusted net income of approximately $455 million, above prior guidance of $370 million. Lastly, SoFi expects adjusted EPS of approximately $0.37 cents per share, above prior guidance of $0.31 cents per share. Management expects growth in tangible book value of approximately $2.5 billion for the year, above our prior guidance of $640 million.",
+          "quoteSha256": "36a4223648a13504eee861e0d956c7891c06982a985f507fefd3c220b2a800a6",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "kpi",
+        "metricId": "members",
+        "issuerLabel": "Members",
+        "label": "Medlemmar",
+        "unit": "count",
+        "currency": null,
+        "period": {
+          "label": "Q3 2025",
+          "end": "2025-09-30",
+          "type": "instant"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "members-2024",
+        "definition": "Members We refer to our customers as “members”. We define a member as someone who has a lending relationship with us through origination and/or ongoing servicing, opened a financial services account, linked an external account to our platform, or signed up for our credit score monitoring service. Our members have access to our CFPs, our member events, our content, educational material, news, and our tools and calculators, which are provided at no cost to the member. We view members as an indication not only of the size and a measurement of growth of our business, but also as a measure of the significant value of the data we have collected over time. Once someone becomes a member, they are always considered a member unless they are removed in accordance with our terms of service, in which case, we adjust our total number of members. This could occur for a variety of reasons—including fraud or pursuant to certain legal processes—and, as our terms of service evolve together with our business practices, product offerings and applicable regulations, our grounds for removing members from our total member count could change. The determination that a member should be removed in accordance with our terms of service is subject to an evaluation process, following the completion, and based on the results, of which, relevant members and their associated products are removed from our total member count in the period in which such evaluation process concludes. However, depending on the length of the evaluation process, that removal may not take place in the same period in which the member was added to our member count or the same period in which the circumstances leading to their removal occurred. For this reason, our total member count may not yet reflect adjustments that may be made once ongoing evaluation processes, if any, conclude. Beginning in the first quarter of 2024, we aligned our methodology for calculating member and product metrics with our member and product definitions to include co-borrowers, co-signers, and joint- and co-account holders, as applicable. Quarterly amounts for prior periods were determined to be immaterial and were not recast. ",
+        "note": "Registrerade medlemmar; inte ett mått på aktiva kunder.",
+        "id": "SOFI:0001818874-25-000204:members",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2025-10-28",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 12642375.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000204/a2025q3earningsrelease.htm",
+          "accessionNumber": "0001818874-25-000204",
+          "exhibit": "99.1",
+          "quote": "Company Metrics September 30, 2025 June 30, 2025 March 31, 2025 December 31, 2024 September 30, 2024 June 30, 2024 March 31, 2024 December 31, 2023 September 30, 2023 Members 12,642,375 11,745,572 10,915,811 10,127,323 9,372,615 8,774,236 8,131,720 7,541,860 6,957,187 Total Products 18,553,053 17,142,041 15,915,425 14,745,435 13,650,730 12,776,430 11,830,128 11,142,476 10,447,806",
+          "quoteSha256": "3c8dc1b38d9afac62f9111d41b954f098e95511a00f156c8d8955273264bf851",
+          "contexts": [
+            "Members We refer to our customers as “members”. We define a member as someone who has a lending relationship with us through origination and/or ongoing servicing, opened a financial services account, linked an external account to our platform, or signed up for our credit score monitoring service. Our members have access to our CFPs, our member events, our content, educational material, news, and our tools and calculators, which are provided at no cost to the member. We view members as an indication not only of the size and a measurement of growth of our business, but also as a measure of the significant value of the data we have collected over time. Once someone becomes a member, they are always considered a member unless they are removed in accordance with our terms of service, in which case, we adjust our total number of members. This could occur for a variety of reasons—including fraud or pursuant to certain legal processes—and, as our terms of service evolve together with our business practices, product offerings and applicable regulations, our grounds for removing members from our total member count could change. The determination that a member should be removed in accordance with our terms of service is subject to an evaluation process, following the completion, and based on the results, of which, relevant members and their associated products are removed from our total member count in the period in which such evaluation process concludes. However, depending on the length of the evaluation process, that removal may not take place in the same period in which the member was added to our member count or the same period in which the circumstances leading to their removal occurred. For this reason, our total member count may not yet reflect adjustments that may be made once ongoing evaluation processes, if any, conclude. Beginning in the first quarter of 2024, we aligned our methodology for calculating member and product metrics with our member and product definitions to include co-borrowers, co-signers, and joint- and co-account holders, as applicable. Quarterly amounts for prior periods were determined to be immaterial and were not recast. "
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "kpi",
+        "metricId": "products",
+        "issuerLabel": "Total Products",
+        "label": "Produkter",
+        "unit": "count",
+        "currency": null,
+        "period": {
+          "label": "Q3 2025",
+          "end": "2025-09-30",
+          "type": "instant"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "products-2025-09-30",
+        "definition": "Total Products Total products refers to the aggregate number of lending and financial services products that our members have selected on our platform since our inception through the reporting date, whether or not the members are still registered for such products. Total products is a primary indicator of the size and reach of our Lending and Financial Services segments. Management relies on total products metrics to understand the effectiveness of our member acquisition efforts and to gauge the propensity for members to use more than one product. In our Lending segment, total products refers to the number of personal loans, student loans and home loans that have been originated through our platform through the reporting date, inclusive of loans which we originate as part of our Loan Platform Business, whether or not such loans have been paid off. If a member has multiple loan 23 products of the same loan product type, such as two personal loans, that is counted as a single product. However, if a member has multiple loan products across loan product types, such as one personal loan and one home loan, that is counted as two products. The account of a co-borrower or co-signer is not considered a separate lending product. In our Financial Services segment, total products refers to the number of SoFi Money accounts (inclusive of checking and savings accounts held at SoFi Bank and c",
+        "note": "Ändrat produktutbud och räknemetod. Historiken är inte omräknad; ingen jämförbar trend visas.",
+        "id": "SOFI:0001818874-25-000204:products",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2025-10-28",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 18553053.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000204/a2025q3earningsrelease.htm",
+          "accessionNumber": "0001818874-25-000204",
+          "exhibit": "99.1",
+          "quote": "Company Metrics September 30, 2025 June 30, 2025 March 31, 2025 December 31, 2024 September 30, 2024 June 30, 2024 March 31, 2024 December 31, 2023 September 30, 2023 Members 12,642,375 11,745,572 10,915,811 10,127,323 9,372,615 8,774,236 8,131,720 7,541,860 6,957,187 Total Products 18,553,053 17,142,041 15,915,425 14,745,435 13,650,730 12,776,430 11,830,128 11,142,476 10,447,806",
+          "quoteSha256": "3c8dc1b38d9afac62f9111d41b954f098e95511a00f156c8d8955273264bf851",
+          "contexts": [
+            "Total Products Total products refers to the aggregate number of lending and financial services products that our members have selected on our platform since our inception through the reporting date, whether or not the members are still registered for such products. Total products is a primary indicator of the size and reach of our Lending and Financial Services segments. Management relies on total products metrics to understand the effectiveness of our member acquisition efforts and to gauge the propensity for members to use more than one product. In our Lending segment, total products refers to the number of personal loans, student loans and home loans that have been originated through our platform through the reporting date, inclusive of loans which we originate as part of our Loan Platform Business, whether or not such loans have been paid off. If a member has multiple loan 23 products of the same loan product type, such as two personal loans, that is counted as a single product. However, if a member has multiple loan products across loan product types, such as one personal loan and one home loan, that is counted as two products. The account of a co-borrower or co-signer is not considered a separate lending product. In our Financial Services segment, total products refers to the number of SoFi Money accounts (inclusive of checking and savings accounts held at SoFi Bank and c"
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "adjusted_net_revenue",
+        "issuerLabel": "Adjusted net revenue",
+        "label": "Justerad nettointäkt",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "FY2025",
+          "end": "2025-12-31",
+          "type": "annual"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "adjusted-net-revenue-v1",
+        "definition": "Adjusted net revenue",
+        "note": "",
+        "id": "SOFI:0001818874-25-000204:revenue",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2025-10-28",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 3540000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000204/a2025q3earningsrelease.htm",
+          "accessionNumber": "0001818874-25-000204",
+          "exhibit": "99.1",
+          "quote": "Guidance and Outlook Given the strong performance through the first three quarters of the year, management is increasing its 2025 guidance issued in our second quarter earnings. For the full year 2025, management now expects to add at least 3.5 million new members, which represents approximately 34% growth from 2024 levels. Management expects to deliver adjusted net revenue of approximately $3.54 billion, which is $165 million higher than the prior guidance of $3.375 billion. This implies approximately 36% annual growth versus 30% in our prior guidance. Management expects adjusted EBITDA of approximately $1.035 billion, above prior guidance of $960 million. This represents an EBITDA margin of 29%. SoFi expects adjusted net income of approximately $455 million, above prior guidance of $370 million. Lastly, SoFi expects adjusted EPS of approximately $0.37 cents per share, above prior guidance of $0.31 cents per share. Management expects growth in tangible book value of approximately $2.5 billion for the year, above our prior guidance of $640 million.",
+          "quoteSha256": "36a4223648a13504eee861e0d956c7891c06982a985f507fefd3c220b2a800a6",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "adjusted_ebitda",
+        "issuerLabel": "Adjusted EBITDA",
+        "label": "Justerad EBITDA",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "FY2026",
+          "end": "2026-12-31",
+          "type": "annual"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "adjusted-ebitda-v1",
+        "definition": "Adjusted EBITDA",
+        "note": "",
+        "id": "SOFI:0001818874-26-000008:ebitda",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2026-01-30",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 1600000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000008/a2025q4earningsrelease.htm",
+          "accessionNumber": "0001818874-26-000008",
+          "exhibit": "99.1",
+          "quote": "Guidance and Outlook Looking forward to 2026, for the full year, management expects to increase total members by at least 30% year-over-year. Management expects to deliver adjusted net revenue of approximately $4.655 billion which implies approximately 30% annual revenue growth. Management expects adjusted EBITDA of approximately $1.6 billion, which equates to an annual EBITDA margin of approximately 34%. Management expects adjusted net income of approximately $825 million, which equates to a margin of approximately 18%. Lastly, management expects adjusted EPS of approximately 60 cents per share. In the first quarter of 2026, management expects to deliver adjusted net revenue of approximately $1.04 billion, adjusted EBITDA of approximately $300 million, adjusted net income of approximately $160 million, and adjusted EPS of approximately 12 cents per share. Over the medium term, management expects to deliver compounded annual growth in adjusted net revenue of at least 30% from 2025 to 2028. Additionally, management expects to deliver compounded annual growth in adjusted earnings per share of 38% to 42% from 2025 to 2028. This guidance assumes there are no meaningful changes in the macroeconomic environment and no significant new business launches or acquisitions.",
+          "quoteSha256": "4fe070951aff2938b82edbe2773b7d8455aef42909e1e66e9319072312f2ff80",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "adjusted_eps",
+        "issuerLabel": "Adjusted EPS",
+        "label": "Justerad EPS",
+        "unit": "USD/share",
+        "currency": "USD",
+        "period": {
+          "label": "FY2026",
+          "end": "2026-12-31",
+          "type": "annual"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "adjusted-eps-v1",
+        "definition": "Adjusted EPS",
+        "note": "",
+        "id": "SOFI:0001818874-26-000008:eps",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2026-01-30",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 0.6
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000008/a2025q4earningsrelease.htm",
+          "accessionNumber": "0001818874-26-000008",
+          "exhibit": "99.1",
+          "quote": "Guidance and Outlook Looking forward to 2026, for the full year, management expects to increase total members by at least 30% year-over-year. Management expects to deliver adjusted net revenue of approximately $4.655 billion which implies approximately 30% annual revenue growth. Management expects adjusted EBITDA of approximately $1.6 billion, which equates to an annual EBITDA margin of approximately 34%. Management expects adjusted net income of approximately $825 million, which equates to a margin of approximately 18%. Lastly, management expects adjusted EPS of approximately 60 cents per share. In the first quarter of 2026, management expects to deliver adjusted net revenue of approximately $1.04 billion, adjusted EBITDA of approximately $300 million, adjusted net income of approximately $160 million, and adjusted EPS of approximately 12 cents per share. Over the medium term, management expects to deliver compounded annual growth in adjusted net revenue of at least 30% from 2025 to 2028. Additionally, management expects to deliver compounded annual growth in adjusted earnings per share of 38% to 42% from 2025 to 2028. This guidance assumes there are no meaningful changes in the macroeconomic environment and no significant new business launches or acquisitions.",
+          "quoteSha256": "4fe070951aff2938b82edbe2773b7d8455aef42909e1e66e9319072312f2ff80",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "kpi",
+        "metricId": "members",
+        "issuerLabel": "Members",
+        "label": "Medlemmar",
+        "unit": "count",
+        "currency": null,
+        "period": {
+          "label": "Q4 2025",
+          "end": "2025-12-31",
+          "type": "instant"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "members-2024",
+        "definition": "Members We refer to our customers as “members”. We define a member as someone who has a lending relationship with us through origination and/or ongoing servicing, opened a financial services account, linked an external account to our platform, or signed up for our credit score monitoring service. Our members have access to our CFPs, our member events, our content, educational material, news, and our tools and calculators, which are provided at no cost to the member. We view members as an indication not only of the size and a measurement of growth of our business, but also as a measure of the significant value of the data we have collected over time. Once someone becomes a member, they are always considered a member unless they are removed in accordance with our terms of service, in which case, we adjust our total number of members. This could occur for a variety of reasons—including fraud or pursuant to certain legal processes—and, as our terms of service evolve together with our business practices, product offerings and applicable regulations, our grounds for removing members from our total member count could change. The determination that a member should be removed in accordance with our terms of service is subject to an evaluation process, following the completion, and based on the results, of which, relevant members and their associated products are removed from our total member count in the period in which such evaluation process concludes. However, depending on the length of the evaluation process, that removal may not take place in the same period in which the member was added to our member count or the same period in which the circumstances leading to their removal occurred. For this reason, our total member count may not yet reflect adjustments that may be made once ongoing evaluation processes, if any, conclude. Beginning in the first quarter of 2024, we aligned our methodology for calculating member and product metrics with our member and product definitions to include co-borrowers, co-signers, and joint- and co-account holders, as applicable. Quarterly amounts for prior periods were determined to be immaterial and were not recast. ",
+        "note": "Registrerade medlemmar; inte ett mått på aktiva kunder.",
+        "id": "SOFI:0001818874-26-000008:members",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2026-01-30",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 13651002.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000008/a2025q4earningsrelease.htm",
+          "accessionNumber": "0001818874-26-000008",
+          "exhibit": "99.1",
+          "quote": "Company Metrics December 31, 2025 September 30, 2025 June 30, 2025 March 31, 2025 December 31, 2024 September 30, 2024 June 30, 2024 March 31, 2024 December 31, 2023 Members 13,651,002 12,642,375 11,745,572 10,915,811 10,127,323 9,372,615 8,774,236 8,131,720 7,541,860 Total Products 20,168,142 18,553,053 17,142,041 15,915,425 14,745,435 13,650,730 12,776,430 11,830,128 11,142,476",
+          "quoteSha256": "ebf4c86e495aa723f4ba1e32b35115b6771ec1cc0b9a1cdb496a92c1d1baf104",
+          "contexts": [
+            "Members We refer to our customers as “members”. We define a member as someone who has a lending relationship with us through origination and/or ongoing servicing, opened a financial services account, linked an external account to our platform, or signed up for our credit score monitoring service. Our members have access to our CFPs, our member events, our content, educational material, news, and our tools and calculators, which are provided at no cost to the member. We view members as an indication not only of the size and a measurement of growth of our business, but also as a measure of the significant value of the data we have collected over time. Once someone becomes a member, they are always considered a member unless they are removed in accordance with our terms of service, in which case, we adjust our total number of members. This could occur for a variety of reasons—including fraud or pursuant to certain legal processes—and, as our terms of service evolve together with our business practices, product offerings and applicable regulations, our grounds for removing members from our total member count could change. The determination that a member should be removed in accordance with our terms of service is subject to an evaluation process, following the completion, and based on the results, of which, relevant members and their associated products are removed from our total member count in the period in which such evaluation process concludes. However, depending on the length of the evaluation process, that removal may not take place in the same period in which the member was added to our member count or the same period in which the circumstances leading to their removal occurred. For this reason, our total member count may not yet reflect adjustments that may be made once ongoing evaluation processes, if any, conclude. Beginning in the first quarter of 2024, we aligned our methodology for calculating member and product metrics with our member and product definitions to include co-borrowers, co-signers, and joint- and co-account holders, as applicable. Quarterly amounts for prior periods were determined to be immaterial and were not recast. "
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "kpi",
+        "metricId": "products",
+        "issuerLabel": "Total Products",
+        "label": "Produkter",
+        "unit": "count",
+        "currency": null,
+        "period": {
+          "label": "Q4 2025",
+          "end": "2025-12-31",
+          "type": "instant"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "products-2025-12-31",
+        "definition": "Total Products Total products refers to the aggregate number of lending and financial services products that our members have selected on our platform since our inception through the reporting date, whether or not the members are still registered for such products. Total products is a primary indicator of the size and reach of our Lending and Financial Services segments. Management relies on total products metrics to understand the effectiveness of our member acquisition efforts and to gauge the propensity for members to use more than one product. In our Lending segment, total products refers to the number of personal loans, student loans and home loans that have been originated through our platform through the reporting date, inclusive of loans which we originate as part of our Loan Platform Business, whether or not such loans have been paid off. If a member has multiple loan 23 products of the same loan product type, such as two personal loans, that is counted as a single product. However, if a member has multiple loan products across loan product types, such as one personal loan and one home loan, that is counted as two products. The account of a co-borrower or co-signer is not considered a separate lending product. In our Financial Services segment, total products refers to the number of SoFi Money accounts (inclusive of checking and savings accounts held at SoFi Bank and c",
+        "note": "Ändrat produktutbud och räknemetod. Historiken är inte omräknad; ingen jämförbar trend visas.",
+        "id": "SOFI:0001818874-26-000008:products",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2026-01-30",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 20168142.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000008/a2025q4earningsrelease.htm",
+          "accessionNumber": "0001818874-26-000008",
+          "exhibit": "99.1",
+          "quote": "Company Metrics December 31, 2025 September 30, 2025 June 30, 2025 March 31, 2025 December 31, 2024 September 30, 2024 June 30, 2024 March 31, 2024 December 31, 2023 Members 13,651,002 12,642,375 11,745,572 10,915,811 10,127,323 9,372,615 8,774,236 8,131,720 7,541,860 Total Products 20,168,142 18,553,053 17,142,041 15,915,425 14,745,435 13,650,730 12,776,430 11,830,128 11,142,476",
+          "quoteSha256": "ebf4c86e495aa723f4ba1e32b35115b6771ec1cc0b9a1cdb496a92c1d1baf104",
+          "contexts": [
+            "Total Products Total products refers to the aggregate number of lending and financial services products that our members have selected on our platform since our inception through the reporting date, whether or not the members are still registered for such products. Total products is a primary indicator of the size and reach of our Lending and Financial Services segments. Management relies on total products metrics to understand the effectiveness of our member acquisition efforts and to gauge the propensity for members to use more than one product. In our Lending segment, total products refers to the number of personal loans, student loans and home loans that have been originated through our platform through the reporting date, inclusive of loans which we originate as part of our Loan Platform Business, whether or not such loans have been paid off. If a member has multiple loan 23 products of the same loan product type, such as two personal loans, that is counted as a single product. However, if a member has multiple loan products across loan product types, such as one personal loan and one home loan, that is counted as two products. The account of a co-borrower or co-signer is not considered a separate lending product. In our Financial Services segment, total products refers to the number of SoFi Money accounts (inclusive of checking and savings accounts held at SoFi Bank and c",
+            "Product counts for Crypto for the fourth quarter of 2025 reflect activity from our product launch on December 22, 2025 through December 31, 2025 and are therefore not representative of a full quarter of performance."
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "adjusted_net_revenue",
+        "issuerLabel": "Adjusted net revenue",
+        "label": "Justerad nettointäkt",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q1 2026",
+          "end": "2026-03-31",
+          "type": "quarter"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "adjusted-net-revenue-v1",
+        "definition": "Adjusted net revenue",
+        "note": "",
+        "id": "SOFI:0001818874-26-000008:quarter-revenue",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2026-01-30",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 1040000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000008/a2025q4earningsrelease.htm",
+          "accessionNumber": "0001818874-26-000008",
+          "exhibit": "99.1",
+          "quote": "Guidance and Outlook Looking forward to 2026, for the full year, management expects to increase total members by at least 30% year-over-year. Management expects to deliver adjusted net revenue of approximately $4.655 billion which implies approximately 30% annual revenue growth. Management expects adjusted EBITDA of approximately $1.6 billion, which equates to an annual EBITDA margin of approximately 34%. Management expects adjusted net income of approximately $825 million, which equates to a margin of approximately 18%. Lastly, management expects adjusted EPS of approximately 60 cents per share. In the first quarter of 2026, management expects to deliver adjusted net revenue of approximately $1.04 billion, adjusted EBITDA of approximately $300 million, adjusted net income of approximately $160 million, and adjusted EPS of approximately 12 cents per share. Over the medium term, management expects to deliver compounded annual growth in adjusted net revenue of at least 30% from 2025 to 2028. Additionally, management expects to deliver compounded annual growth in adjusted earnings per share of 38% to 42% from 2025 to 2028. This guidance assumes there are no meaningful changes in the macroeconomic environment and no significant new business launches or acquisitions.",
+          "quoteSha256": "4fe070951aff2938b82edbe2773b7d8455aef42909e1e66e9319072312f2ff80",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "adjusted_net_revenue",
+        "issuerLabel": "Adjusted net revenue",
+        "label": "Justerad nettointäkt",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "FY2026",
+          "end": "2026-12-31",
+          "type": "annual"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "adjusted-net-revenue-v1",
+        "definition": "Adjusted net revenue",
+        "note": "",
+        "id": "SOFI:0001818874-26-000008:revenue",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2026-01-30",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 4655000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000008/a2025q4earningsrelease.htm",
+          "accessionNumber": "0001818874-26-000008",
+          "exhibit": "99.1",
+          "quote": "Guidance and Outlook Looking forward to 2026, for the full year, management expects to increase total members by at least 30% year-over-year. Management expects to deliver adjusted net revenue of approximately $4.655 billion which implies approximately 30% annual revenue growth. Management expects adjusted EBITDA of approximately $1.6 billion, which equates to an annual EBITDA margin of approximately 34%. Management expects adjusted net income of approximately $825 million, which equates to a margin of approximately 18%. Lastly, management expects adjusted EPS of approximately 60 cents per share. In the first quarter of 2026, management expects to deliver adjusted net revenue of approximately $1.04 billion, adjusted EBITDA of approximately $300 million, adjusted net income of approximately $160 million, and adjusted EPS of approximately 12 cents per share. Over the medium term, management expects to deliver compounded annual growth in adjusted net revenue of at least 30% from 2025 to 2028. Additionally, management expects to deliver compounded annual growth in adjusted earnings per share of 38% to 42% from 2025 to 2028. This guidance assumes there are no meaningful changes in the macroeconomic environment and no significant new business launches or acquisitions.",
+          "quoteSha256": "4fe070951aff2938b82edbe2773b7d8455aef42909e1e66e9319072312f2ff80",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "adjusted_ebitda",
+        "issuerLabel": "Adjusted EBITDA",
+        "label": "Justerad EBITDA",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "FY2026",
+          "end": "2026-12-31",
+          "type": "annual"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "adjusted-ebitda-v1",
+        "definition": "Adjusted EBITDA",
+        "note": "",
+        "id": "SOFI:0001818874-26-000020:ebitda",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2026-04-29",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 1600000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000020/a2026q1earningsrelease.htm",
+          "accessionNumber": "0001818874-26-000020",
+          "exhibit": "99.1",
+          "quote": "Guidance and Outlook In the second quarter of 2026, management expects to deliver adjusted net revenue growth of approximately 30%, an adjusted EBITDA margin of approximately 30%, and an adjusted net income margin of approximately 12% -13%. For the full year, management maintains its strong outlook. For 2026, management expects to increase total members by at least 30% year-over-year. Management also expects to deliver adjusted net revenue of approximately $4.655 billion which implies approximately 30% annual revenue growth. Management expects adjusted EBITDA of approximately $1.6 billion, which equates to an annual EBITDA margin of approximately 34%. Management expects adjusted net income of approximately $825 million, which equates to a margin of approximately 18%. Lastly, management expects adjusted EPS of approximately 60 cents per share.",
+          "quoteSha256": "dc3f238f081da28813b953a013a02668df7ca74da79d533f03ca0e336a184d49",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "adjusted_eps",
+        "issuerLabel": "Adjusted EPS",
+        "label": "Justerad EPS",
+        "unit": "USD/share",
+        "currency": "USD",
+        "period": {
+          "label": "FY2026",
+          "end": "2026-12-31",
+          "type": "annual"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "adjusted-eps-v1",
+        "definition": "Adjusted EPS",
+        "note": "",
+        "id": "SOFI:0001818874-26-000020:eps",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2026-04-29",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 0.6
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000020/a2026q1earningsrelease.htm",
+          "accessionNumber": "0001818874-26-000020",
+          "exhibit": "99.1",
+          "quote": "Guidance and Outlook In the second quarter of 2026, management expects to deliver adjusted net revenue growth of approximately 30%, an adjusted EBITDA margin of approximately 30%, and an adjusted net income margin of approximately 12% -13%. For the full year, management maintains its strong outlook. For 2026, management expects to increase total members by at least 30% year-over-year. Management also expects to deliver adjusted net revenue of approximately $4.655 billion which implies approximately 30% annual revenue growth. Management expects adjusted EBITDA of approximately $1.6 billion, which equates to an annual EBITDA margin of approximately 34%. Management expects adjusted net income of approximately $825 million, which equates to a margin of approximately 18%. Lastly, management expects adjusted EPS of approximately 60 cents per share.",
+          "quoteSha256": "dc3f238f081da28813b953a013a02668df7ca74da79d533f03ca0e336a184d49",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "kpi",
+        "metricId": "members",
+        "issuerLabel": "Members",
+        "label": "Medlemmar",
+        "unit": "count",
+        "currency": null,
+        "period": {
+          "label": "Q1 2026",
+          "end": "2026-03-31",
+          "type": "instant"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "members-2024",
+        "definition": "Members We refer to our customers as “members”. We define a member as someone who has a lending relationship with us through origination and/or ongoing servicing, opened a financial services account, linked an external account to our platform, or signed up for our credit score monitoring service. Our members have access to our CFPs, our member events, our content, educational material, news, and our tools and calculators, which are provided at no cost to the member. We view members as an indication not only of the size and a measurement of growth of our business, but also as a measure of the significant value of the data we have collected over time. Once someone becomes a member, they are always considered a member unless they are removed in accordance with our terms of service, in which case, we adjust our total number of members. This could occur for a variety of reasons—including fraud or pursuant to certain legal processes—and, as our terms of service evolve together with our business practices, product offerings and applicable regulations, our grounds for removing members from our total member count could change. The determination that a member should be removed in accordance with our terms of service is subject to an evaluation process, following the completion, and based on the results, of which, relevant members and their associated products are removed from our total member count in the period in which such evaluation process concludes. However, depending on the length of the evaluation process, that removal may not take place in the same period in which the member was added to our member count or the same period in which the circumstances leading to their removal occurred. For this reason, our total member count may not yet reflect adjustments that may be made once ongoing evaluation processes, if any, conclude. Beginning in the first quarter of 2024, we aligned our methodology for calculating member and product metrics with our member and product definitions to include co-borrowers, co-signers, and joint- and co-account holders, as applicable. Quarterly amounts for prior periods were determined to be immaterial and were not recast. ",
+        "note": "Registrerade medlemmar; inte ett mått på aktiva kunder.",
+        "id": "SOFI:0001818874-26-000020:members",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2026-04-29",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 14706040.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000020/a2026q1earningsrelease.htm",
+          "accessionNumber": "0001818874-26-000020",
+          "exhibit": "99.1",
+          "quote": "Company Metrics March 31, 2026 December 31, 2025 September 30, 2025 June 30, 2025 March 31, 2025 December 31, 2024 September 30, 2024 June 30, 2024 March 31, 2024 Members 14,706,040 13,651,002 12,642,375 11,745,572 10,915,811 10,127,323 9,372,615 8,774,236 8,131,720 Total Products 22,159,146 20,168,142 18,553,053 17,142,041 15,915,425 14,745,435 13,650,730 12,776,430 11,830,128",
+          "quoteSha256": "c503f9bce6f471f99e3d1ce7da9b19013726be3148f9fdbdecfbe2913a60fff5",
+          "contexts": [
+            "Members We refer to our customers as “members”. We define a member as someone who has a lending relationship with us through origination and/or ongoing servicing, opened a financial services account, linked an external account to our platform, or signed up for our credit score monitoring service. Our members have access to our CFPs, our member events, our content, educational material, news, and our tools and calculators, which are provided at no cost to the member. We view members as an indication not only of the size and a measurement of growth of our business, but also as a measure of the significant value of the data we have collected over time. Once someone becomes a member, they are always considered a member unless they are removed in accordance with our terms of service, in which case, we adjust our total number of members. This could occur for a variety of reasons—including fraud or pursuant to certain legal processes—and, as our terms of service evolve together with our business practices, product offerings and applicable regulations, our grounds for removing members from our total member count could change. The determination that a member should be removed in accordance with our terms of service is subject to an evaluation process, following the completion, and based on the results, of which, relevant members and their associated products are removed from our total member count in the period in which such evaluation process concludes. However, depending on the length of the evaluation process, that removal may not take place in the same period in which the member was added to our member count or the same period in which the circumstances leading to their removal occurred. For this reason, our total member count may not yet reflect adjustments that may be made once ongoing evaluation processes, if any, conclude. Beginning in the first quarter of 2024, we aligned our methodology for calculating member and product metrics with our member and product definitions to include co-borrowers, co-signers, and joint- and co-account holders, as applicable. Quarterly amounts for prior periods were determined to be immaterial and were not recast. "
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "kpi",
+        "metricId": "products",
+        "issuerLabel": "Total Products",
+        "label": "Produkter",
+        "unit": "count",
+        "currency": null,
+        "period": {
+          "label": "Q1 2026",
+          "end": "2026-03-31",
+          "type": "instant"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "products-2026-03-31",
+        "definition": "Total Products Total products refers to the aggregate number of lending and financial services products that our members have selected on our platform since our inception through the reporting date, whether or not the members are still registered for such products. Total products is a primary indicator of the size and reach of our Lending and Financial Services segments. Management relies on total products metrics to understand the effectiveness of our member acquisition efforts and to gauge the propensity for members to use more than one product. In our Lending segment, total products refers to the number of personal loans, student loans and home loans that have been originated through our platform through the reporting date, inclusive of loans which we originate as part of our Loan Platform Business, whether or not such loans have been paid off. If a member has multiple loan products of the same loan product type, such as two personal loans, that is counted as a single product. However, if a member has multiple loan products across loan product types, such as one personal loan and one home loan, that is counted as two products. The account of a co-borrower or co-signer is not considered a separate lending product. In our Financial Services segment, total products refers to the number of SoFi Money accounts (inclusive of checking and savings accounts held at SoFi Bank and cash",
+        "note": "Ändrat produktutbud och räknemetod. Historiken är inte omräknad; ingen jämförbar trend visas.",
+        "id": "SOFI:0001818874-26-000020:products",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2026-04-29",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 22159146.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000020/a2026q1earningsrelease.htm",
+          "accessionNumber": "0001818874-26-000020",
+          "exhibit": "99.1",
+          "quote": "Company Metrics March 31, 2026 December 31, 2025 September 30, 2025 June 30, 2025 March 31, 2025 December 31, 2024 September 30, 2024 June 30, 2024 March 31, 2024 Members 14,706,040 13,651,002 12,642,375 11,745,572 10,915,811 10,127,323 9,372,615 8,774,236 8,131,720 Total Products 22,159,146 20,168,142 18,553,053 17,142,041 15,915,425 14,745,435 13,650,730 12,776,430 11,830,128",
+          "quoteSha256": "c503f9bce6f471f99e3d1ce7da9b19013726be3148f9fdbdecfbe2913a60fff5",
+          "contexts": [
+            "Total Products Total products refers to the aggregate number of lending and financial services products that our members have selected on our platform since our inception through the reporting date, whether or not the members are still registered for such products. Total products is a primary indicator of the size and reach of our Lending and Financial Services segments. Management relies on total products metrics to understand the effectiveness of our member acquisition efforts and to gauge the propensity for members to use more than one product. In our Lending segment, total products refers to the number of personal loans, student loans and home loans that have been originated through our platform through the reporting date, inclusive of loans which we originate as part of our Loan Platform Business, whether or not such loans have been paid off. If a member has multiple loan products of the same loan product type, such as two personal loans, that is counted as a single product. However, if a member has multiple loan products across loan product types, such as one personal loan and one home loan, that is counted as two products. The account of a co-borrower or co-signer is not considered a separate lending product. In our Financial Services segment, total products refers to the number of SoFi Money accounts (inclusive of checking and savings accounts held at SoFi Bank and cash",
+            "Beginning in the first quarter of 2026, we updated our SoFi Invest product metric to reflect four products. Prior to this, our SoFi Invest service was composed of two products, self-directed accounts and robo-advisory accounts. Self-directed accounts were previously referred to as active investing accounts. The impact to prior periods was determined to be immaterial, and prior periods were not recast. (3) Limited to loans wherein we provide third party fulfillment services as part of our Loan Platform Business. (4) During the fourth quarter of 2025, we returned to crypto investing with the launch of SoFi Crypto. Technology Platform Segment Re"
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "adjusted_net_income_margin",
+        "issuerLabel": "Adjusted net income margin",
+        "label": "Justerad nettomarginal",
+        "unit": "percent",
+        "currency": null,
+        "period": {
+          "label": "Q2 2026",
+          "end": "2026-06-30",
+          "type": "quarter"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "v1",
+        "definition": "Adjusted net income margin",
+        "note": "",
+        "id": "SOFI:0001818874-26-000020:quarter-margin",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2026-04-29",
+        "value": {
+          "kind": "range",
+          "approximate": true,
+          "lower": 12.0,
+          "upper": 13.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000020/a2026q1earningsrelease.htm",
+          "accessionNumber": "0001818874-26-000020",
+          "exhibit": "99.1",
+          "quote": "Guidance and Outlook In the second quarter of 2026, management expects to deliver adjusted net revenue growth of approximately 30%, an adjusted EBITDA margin of approximately 30%, and an adjusted net income margin of approximately 12% -13%. For the full year, management maintains its strong outlook. For 2026, management expects to increase total members by at least 30% year-over-year. Management also expects to deliver adjusted net revenue of approximately $4.655 billion which implies approximately 30% annual revenue growth. Management expects adjusted EBITDA of approximately $1.6 billion, which equates to an annual EBITDA margin of approximately 34%. Management expects adjusted net income of approximately $825 million, which equates to a margin of approximately 18%. Lastly, management expects adjusted EPS of approximately 60 cents per share.",
+          "quoteSha256": "dc3f238f081da28813b953a013a02668df7ca74da79d533f03ca0e336a184d49",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "adjusted_net_revenue",
+        "issuerLabel": "Adjusted net revenue",
+        "label": "Justerad nettointäkt",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "FY2026",
+          "end": "2026-12-31",
+          "type": "annual"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "adjusted-net-revenue-v1",
+        "definition": "Adjusted net revenue",
+        "note": "",
+        "id": "SOFI:0001818874-26-000020:revenue",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2026-04-29",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 4655000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000020/a2026q1earningsrelease.htm",
+          "accessionNumber": "0001818874-26-000020",
+          "exhibit": "99.1",
+          "quote": "Guidance and Outlook In the second quarter of 2026, management expects to deliver adjusted net revenue growth of approximately 30%, an adjusted EBITDA margin of approximately 30%, and an adjusted net income margin of approximately 12% -13%. For the full year, management maintains its strong outlook. For 2026, management expects to increase total members by at least 30% year-over-year. Management also expects to deliver adjusted net revenue of approximately $4.655 billion which implies approximately 30% annual revenue growth. Management expects adjusted EBITDA of approximately $1.6 billion, which equates to an annual EBITDA margin of approximately 34%. Management expects adjusted net income of approximately $825 million, which equates to a margin of approximately 18%. Lastly, management expects adjusted EPS of approximately 60 cents per share.",
+          "quoteSha256": "dc3f238f081da28813b953a013a02668df7ca74da79d533f03ca0e336a184d49",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "adjusted_ebitda",
+        "issuerLabel": "Adjusted EBITDA",
+        "label": "Justerad EBITDA",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "FY2026",
+          "end": "2026-12-31",
+          "type": "annual"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "adjusted-ebitda-v1",
+        "definition": "Adjusted EBITDA",
+        "note": "",
+        "id": "SOFI:0001818874-26-000050:ebitda",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2026-07-29",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 1600000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000050/a2026q2earningsrelease.htm",
+          "accessionNumber": "0001818874-26-000050",
+          "exhibit": "99.1",
+          "quote": "Guidance and Outlook For the full year, management increases its revenue outlook. Management now expects to deliver adjusted net revenue of approximately $4.75 billion to $4.85 billion which implies approximately 32% to 35% annual adjusted net revenue growth year-over-year. Management continues to expect adjusted EBITDA of approximately $1.6 billion, which equates to an annual adjusted EBITDA margin of approximately 33% to 34%. Management also continues to expect adjusted net income of approximately $825 million, which equates to a margin of approximately 17%, and adjusted EPS of approximately 60 cents per share. This assumes an effective tax rate of approximately 22% for the full year 2026. For 2026, management continues to expect to increase total members by at least 30% year-over-year.",
+          "quoteSha256": "6b2510947d6c90bbe57f0a80c35b3827bd516a92a0876f664f64c42e3e1e3c9c",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "adjusted_eps",
+        "issuerLabel": "Adjusted EPS",
+        "label": "Justerad EPS",
+        "unit": "USD/share",
+        "currency": "USD",
+        "period": {
+          "label": "FY2026",
+          "end": "2026-12-31",
+          "type": "annual"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "adjusted-eps-v1",
+        "definition": "Adjusted EPS",
+        "note": "",
+        "id": "SOFI:0001818874-26-000050:eps",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2026-07-29",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 0.6
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000050/a2026q2earningsrelease.htm",
+          "accessionNumber": "0001818874-26-000050",
+          "exhibit": "99.1",
+          "quote": "Guidance and Outlook For the full year, management increases its revenue outlook. Management now expects to deliver adjusted net revenue of approximately $4.75 billion to $4.85 billion which implies approximately 32% to 35% annual adjusted net revenue growth year-over-year. Management continues to expect adjusted EBITDA of approximately $1.6 billion, which equates to an annual adjusted EBITDA margin of approximately 33% to 34%. Management also continues to expect adjusted net income of approximately $825 million, which equates to a margin of approximately 17%, and adjusted EPS of approximately 60 cents per share. This assumes an effective tax rate of approximately 22% for the full year 2026. For 2026, management continues to expect to increase total members by at least 30% year-over-year.",
+          "quoteSha256": "6b2510947d6c90bbe57f0a80c35b3827bd516a92a0876f664f64c42e3e1e3c9c",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "kpi",
+        "metricId": "members",
+        "issuerLabel": "Members",
+        "label": "Medlemmar",
+        "unit": "count",
+        "currency": null,
+        "period": {
+          "label": "Q2 2026",
+          "end": "2026-06-30",
+          "type": "instant"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "members-2024",
+        "definition": "Members We refer to our customers as “members”. We define a member as someone who has a lending relationship with us through origination and/or ongoing servicing, opened a financial services account, linked an external account to our platform, or signed up for our credit score monitoring service. Our members have access to our CFPs, our member events, our content, educational material, news, and our tools and calculators, which are provided at no cost to the member. We view members as an indication not only of the size and a measurement of growth of our business, but also as a measure of the significant value of the data we have collected over time. Once someone becomes a member, they are always considered a member unless they are removed in accordance with our terms of service, in which case, we adjust our total number of members. This could occur for a variety of reasons—including fraud or pursuant to certain legal processes—and, as our terms of service evolve together with our business practices, product offerings and applicable regulations, our grounds for removing members from our total member count could change. The determination that a member should be removed in accordance with our terms of service is subject to an evaluation process, following the completion, and based on the results, of which, relevant members and their associated products are removed from our total member count in the period in which such evaluation process concludes. However, depending on the length of the evaluation process, that removal may not take place in the same period in which the member was added to our member count or the same period in which the circumstances leading to their removal occurred. For this reason, our total member count may not yet reflect adjustments that may be made once ongoing evaluation processes, if any, conclude. Beginning in the first quarter of 2024, we aligned our methodology for calculating member and product metrics with our member and product definitions to include co-borrowers, co-signers, and joint- and co-account holders, as applicable. Quarterly amounts for prior periods were determined to be immaterial and were not recast. ",
+        "note": "Registrerade medlemmar; inte ett mått på aktiva kunder.",
+        "id": "SOFI:0001818874-26-000050:members",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2026-07-29",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 15814418.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000050/a2026q2earningsrelease.htm",
+          "accessionNumber": "0001818874-26-000050",
+          "exhibit": "99.1",
+          "quote": "Company Metrics June 30, 2026 March 31, 2026 December 31, 2025 September 30, 2025 June 30, 2025 March 31, 2025 December 31, 2024 September 30, 2024 June 30, 2024 Members 15,814,418 14,706,040 13,651,002 12,642,375 11,745,572 10,915,811 10,127,323 9,372,615 8,774,236 Total Products 24,380,974 22,159,146 20,168,142 18,553,053 17,142,041 15,915,425 14,745,435 13,650,730 12,776,430",
+          "quoteSha256": "b3d2933e4216b797b32c2d78a3b394e92f41e1f8c26770660c84256d5c574608",
+          "contexts": [
+            "Members We refer to our customers as “members”. We define a member as someone who has a lending relationship with us through origination and/or ongoing servicing, opened a financial services account, linked an external account to our platform, or signed up for our credit score monitoring service. Our members have access to our CFPs, our member events, our content, educational material, news, and our tools and calculators, which are provided at no cost to the member. We view members as an indication not only of the size and a measurement of growth of our business, but also as a measure of the significant value of the data we have collected over time. Once someone becomes a member, they are always considered a member unless they are removed in accordance with our terms of service, in which case, we adjust our total number of members. This could occur for a variety of reasons—including fraud or pursuant to certain legal processes—and, as our terms of service evolve together with our business practices, product offerings and applicable regulations, our grounds for removing members from our total member count could change. The determination that a member should be removed in accordance with our terms of service is subject to an evaluation process, following the completion, and based on the results, of which, relevant members and their associated products are removed from our total member count in the period in which such evaluation process concludes. However, depending on the length of the evaluation process, that removal may not take place in the same period in which the member was added to our member count or the same period in which the circumstances leading to their removal occurred. For this reason, our total member count may not yet reflect adjustments that may be made once ongoing evaluation processes, if any, conclude. Beginning in the first quarter of 2024, we aligned our methodology for calculating member and product metrics with our member and product definitions to include co-borrowers, co-signers, and joint- and co-account holders, as applicable. Quarterly amounts for prior periods were determined to be immaterial and were not recast. "
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "kpi",
+        "metricId": "products",
+        "issuerLabel": "Total Products",
+        "label": "Produkter",
+        "unit": "count",
+        "currency": null,
+        "period": {
+          "label": "Q2 2026",
+          "end": "2026-06-30",
+          "type": "instant"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "products-2026-06-30",
+        "definition": "Total Products Total products refers to the aggregate number of lending and financial services products that our members have selected on our platform since our inception through the reporting date, whether or not the members are still registered for such products. Total products is a primary indicator of the size and reach of our Lending and Financial Services segments. Management relies on total products metrics to understand the effectiveness of our member acquisition efforts and to gauge the propensity for members to use more than one product. In our Lending segment, total products refers to the number of personal loans, student loans and home loans that have been originated through our platform through the reporting date, inclusive of loans which we originate as part of our Loan Platform Business, whether or not such loans have been paid off. If a member has multiple loan products of the same loan product type, such as two personal loans, that is counted as a single product. However, if a member has multiple loan products across loan product types, such as one personal loan and one home loan, that is counted as two products. The account of a co-borrower or co-signer is not considered a separate lending product. In our Financial Services segment, total products refers to the number of SoFi Money accounts (inclusive of checking and savings accounts held at SoFi Bank and cash",
+        "note": "Ändrat produktutbud och räknemetod. Historiken är inte omräknad; ingen jämförbar trend visas.",
+        "id": "SOFI:0001818874-26-000050:products",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2026-07-29",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 24380974.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000050/a2026q2earningsrelease.htm",
+          "accessionNumber": "0001818874-26-000050",
+          "exhibit": "99.1",
+          "quote": "Company Metrics June 30, 2026 March 31, 2026 December 31, 2025 September 30, 2025 June 30, 2025 March 31, 2025 December 31, 2024 September 30, 2024 June 30, 2024 Members 15,814,418 14,706,040 13,651,002 12,642,375 11,745,572 10,915,811 10,127,323 9,372,615 8,774,236 Total Products 24,380,974 22,159,146 20,168,142 18,553,053 17,142,041 15,915,425 14,745,435 13,650,730 12,776,430",
+          "quoteSha256": "b3d2933e4216b797b32c2d78a3b394e92f41e1f8c26770660c84256d5c574608",
+          "contexts": [
+            "Total Products Total products refers to the aggregate number of lending and financial services products that our members have selected on our platform since our inception through the reporting date, whether or not the members are still registered for such products. Total products is a primary indicator of the size and reach of our Lending and Financial Services segments. Management relies on total products metrics to understand the effectiveness of our member acquisition efforts and to gauge the propensity for members to use more than one product. In our Lending segment, total products refers to the number of personal loans, student loans and home loans that have been originated through our platform through the reporting date, inclusive of loans which we originate as part of our Loan Platform Business, whether or not such loans have been paid off. If a member has multiple loan products of the same loan product type, such as two personal loans, that is counted as a single product. However, if a member has multiple loan products across loan product types, such as one personal loan and one home loan, that is counted as two products. The account of a co-borrower or co-signer is not considered a separate lending product. In our Financial Services segment, total products refers to the number of SoFi Money accounts (inclusive of checking and savings accounts held at SoFi Bank and cash",
+            "Beginning in the first quarter of 2026, we updated our SoFi Invest product metric to reflect four products. Prior to this, our SoFi Invest service was composed of two products, self-directed accounts and robo-advisory accounts. Self-directed accounts were previously referred to as active investing accounts. The impact to prior periods was determined to be immaterial, and prior periods were not recast. (3) Beginning in the second quarter of 2026, we updated our Financial Services products to include (i) SoFi Plus, which we relaunched during the quarter with significantly enhanced benefits, while fully transitioning the product to a paid subscr",
+            "Beginning in the second quarter of 2026, we updated our Financial Services products to include (i) SoFi Plus, which we relaunched during the quarter with significantly enhanced benefits, while fully transitioning the product to a paid subscription model; and (ii) Smart Card, our recently launched secured card (presented above within Credit Card). The impact to prior periods was determined to be immaterial, and prior periods were not recast. (4) Limited to loans wherein we provide third party fulfillment services as part of our Loan Platform Business. (5) During the fourth quarter of 2025, we returned to crypto investing with the launch of SoF"
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "adjusted_net_revenue",
+        "issuerLabel": "Adjusted net revenue",
+        "label": "Justerad nettointäkt",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "FY2026",
+          "end": "2026-12-31",
+          "type": "annual"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "adjusted-net-revenue-v1",
+        "definition": "Adjusted net revenue",
+        "note": "",
+        "id": "SOFI:0001818874-26-000050:revenue",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "publicationDate": "2026-07-29",
+        "value": {
+          "kind": "range",
+          "approximate": true,
+          "lower": 4750000000.0,
+          "upper": 4850000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000050/a2026q2earningsrelease.htm",
+          "accessionNumber": "0001818874-26-000050",
+          "exhibit": "99.1",
+          "quote": "Guidance and Outlook For the full year, management increases its revenue outlook. Management now expects to deliver adjusted net revenue of approximately $4.75 billion to $4.85 billion which implies approximately 32% to 35% annual adjusted net revenue growth year-over-year. Management continues to expect adjusted EBITDA of approximately $1.6 billion, which equates to an annual adjusted EBITDA margin of approximately 33% to 34%. Management also continues to expect adjusted net income of approximately $825 million, which equates to a margin of approximately 17%, and adjusted EPS of approximately 60 cents per share. This assumes an effective tax rate of approximately 22% for the full year 2026. For 2026, management continues to expect to increase total members by at least 30% year-over-year.",
+          "quoteSha256": "6b2510947d6c90bbe57f0a80c35b3827bd516a92a0876f664f64c42e3e1e3c9c",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "accessionNumber": "0001818874-26-000050",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000050/a2026q2earningsrelease.htm",
+        "documentSha256": "1732f88337caf54bc5ba40c68108b6bdf61b0d725c5bfbef925467ef6a2aae28",
+        "reviewDate": "2026-09-22"
+      },
+      {
+        "accessionNumber": "0001818874-26-000020",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000020/a2026q1earningsrelease.htm",
+        "documentSha256": "d381556ead8a2456863ae36cec4e3d59596c38e8cc91e6411c4ef699468232f0",
+        "reviewDate": "2026-09-22"
+      },
+      {
+        "accessionNumber": "0001818874-26-000008",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000008/a2025q4earningsrelease.htm",
+        "documentSha256": "5b6e948e2f04b35a4ef57d4654fe1d8d234f6b2136526d5d1ecd39644110e61a",
+        "reviewDate": "2026-09-22"
+      },
+      {
+        "accessionNumber": "0001818874-25-000204",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000204/a2025q3earningsrelease.htm",
+        "documentSha256": "a0f9eb6b8efefacfd3851775015b708968bf0e52bbae5d338936040e8bf3064e",
+        "reviewDate": "2026-09-22"
+      }
+    ],
+    "pendingReview": [],
+    "coverage": {
+      "guidance": "reviewed",
+      "kpi": "reviewed",
+      "note": "Medlemmar och produkter mäter räckvidd, inte aktiva kunder eller försäljning.",
+      "excluded": [
+        "FY2025 EPS: ambiguous dollar/cents wording; review required"
+      ]
+    },
+    "reviewRegistrySha256": "21a35b636ec2a5c979ff5308071a982bfcfe89f407c99b52d667c422787f13b5"
+  },
+  "verifiedAt": "2026-09-22T16:28:27.984387+00:00",
   "status": "verified"
 }

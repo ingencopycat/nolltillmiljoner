@@ -85,6 +85,7 @@
    if(ticket!==generation)return;
    if(data.status!=='verified')throw Error('Unverified');
    current=data;show(data,['verified','unavailable'].includes(status?.status)?status:{status:'unavailable'},host,stock);
+   window.NTMCompanyObservationsUI?.render(data,host,status);
    if(legacy)legacy.hidden=true;
    if(legacySection)legacySection.hidden=true;
   }catch{if(ticket===generation)host.replaceChildren(node('p','Officiell bolagsrapportering är inte tillgänglig just nu. Befintliga rapportlänkar visas nedan.'));}

@@ -604,6 +604,620 @@
   ],
   "latestReportAccession": "0001045810-26-000075",
   "coverage": "24 most recent supported filings in SEC recent submissions; not a complete archive",
-  "verifiedAt": "2026-09-22T14:36:05.708795+00:00",
+  "reviewedEvidence": {
+    "schema": "ntm-reviewed-observations/1",
+    "observations": [
+      {
+        "kind": "guidance",
+        "metricId": "gross_margin",
+        "issuerLabel": "Non-GAAP gross margin",
+        "label": "Bruttomarginal",
+        "unit": "percent",
+        "currency": null,
+        "period": {
+          "label": "Q4 FY2026",
+          "end": null,
+          "type": "quarter"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "non-gaap-sbc-excluded-fy2026",
+        "definition": "Non-GAAP gross margin",
+        "note": "FY2027 inkluderar aktiebaserad ersättning; tidigare basis gör det inte.",
+        "id": "NVDA:0001045810-25-000228:margin",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "publicationDate": "2025-11-19",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "point": 75.0,
+          "lower": 74.5,
+          "upper": 75.5
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000228/q3fy26pr.htm",
+          "accessionNumber": "0001045810-25-000228",
+          "exhibit": "99.1",
+          "quote": "NVIDIA’s outlook for the fourth quarter of fiscal 2026 is as follows: • Revenue is expected to be $65.0 billion, plus or minus 2%. • GAAP and non-GAAP gross margins are expected to be 74.8% and 75.0%, respectively, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $6.7 billion and $5.0 billion, respectively. • GAAP and non-GAAP other income and expense are expected to be an income of approximately $500 million, excluding gains and losses from non-marketable and publicly-held equity securities. • GAAP and non-GAAP tax rates are expected to be 17.0%, plus or minus 1%, excluding any discrete items.",
+          "quoteSha256": "4de6ff121a358247b833b76e119d26cbc591ec2628645e054addb7237124f58c",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "revenue",
+        "issuerLabel": "Revenue",
+        "label": "Omsättning",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q4 FY2026",
+          "end": null,
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "v1",
+        "definition": "Revenue",
+        "note": "Intervall beräknat från bolagets mittpunkt ±2 %.",
+        "id": "NVDA:0001045810-25-000228:revenue",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "publicationDate": "2025-11-19",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "point": 65000000000.0,
+          "lower": 63700000000.0,
+          "upper": 66300000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000228/q3fy26pr.htm",
+          "accessionNumber": "0001045810-25-000228",
+          "exhibit": "99.1",
+          "quote": "NVIDIA’s outlook for the fourth quarter of fiscal 2026 is as follows: • Revenue is expected to be $65.0 billion, plus or minus 2%. • GAAP and non-GAAP gross margins are expected to be 74.8% and 75.0%, respectively, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $6.7 billion and $5.0 billion, respectively. • GAAP and non-GAAP other income and expense are expected to be an income of approximately $500 million, excluding gains and losses from non-marketable and publicly-held equity securities. • GAAP and non-GAAP tax rates are expected to be 17.0%, plus or minus 1%, excluding any discrete items.",
+          "quoteSha256": "4de6ff121a358247b833b76e119d26cbc591ec2628645e054addb7237124f58c",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "china_assumption",
+        "issuerLabel": "China Data Center compute assumption",
+        "label": "Antagande Kina",
+        "unit": "text",
+        "currency": null,
+        "period": {
+          "label": "Q1 FY2027",
+          "end": null,
+          "type": "quarter"
+        },
+        "basis": "management assumption",
+        "definitionVersion": "v1",
+        "definition": "China Data Center compute assumption",
+        "note": "Inga Data Center compute-intäkter från Kina antas i guidningen.",
+        "id": "NVDA:0001045810-26-000019:china",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "publicationDate": "2026-02-25",
+        "value": {
+          "kind": "qualitative",
+          "approximate": false,
+          "text": "NVIDIA is not assuming any Data Center compute revenue from China in its outlook."
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/q4fy26pr.htm",
+          "accessionNumber": "0001045810-26-000019",
+          "exhibit": "99.1",
+          "quote": "NVIDIA is not assuming any Data Center compute revenue from China in its outlook.",
+          "quoteSha256": "84ecb2710e8ecec2050e50d07d018f38ff71338d0ee2b560e1ae40715fc8c493",
+          "contexts": [
+            "NVIDIA’s outlook for the first quarter of fiscal 2027 is as follows: • Revenue is expected to be $78.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.9% and 75.0%, respectively, plus or minus 50 basis points, inclusive of a 0.1% impact from stock-based compensation expense. • GAAP and non-GAAP operating expenses are expected to be approximately $7.7 billion and $7.5 billion, respectively, inclusive of $1.9 billion of stock-based compensation expense. For the full year fiscal 2027, GAAP and non-GAAP tax rates are expected to be between 17.0% and 19.0%, excluding any discrete items and material changes to NVIDIA’s tax environment."
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "gross_margin",
+        "issuerLabel": "Non-GAAP gross margin",
+        "label": "Bruttomarginal",
+        "unit": "percent",
+        "currency": null,
+        "period": {
+          "label": "Q1 FY2027",
+          "end": null,
+          "type": "quarter"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "non-gaap-sbc-included-fy2027",
+        "definition": "Non-GAAP gross margin",
+        "note": "FY2027 inkluderar aktiebaserad ersättning; tidigare basis gör det inte.",
+        "id": "NVDA:0001045810-26-000019:margin",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "publicationDate": "2026-02-25",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "point": 75.0,
+          "lower": 74.5,
+          "upper": 75.5
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/q4fy26pr.htm",
+          "accessionNumber": "0001045810-26-000019",
+          "exhibit": "99.1",
+          "quote": "NVIDIA’s outlook for the first quarter of fiscal 2027 is as follows: • Revenue is expected to be $78.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.9% and 75.0%, respectively, plus or minus 50 basis points, inclusive of a 0.1% impact from stock-based compensation expense. • GAAP and non-GAAP operating expenses are expected to be approximately $7.7 billion and $7.5 billion, respectively, inclusive of $1.9 billion of stock-based compensation expense. For the full year fiscal 2027, GAAP and non-GAAP tax rates are expected to be between 17.0% and 19.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.",
+          "quoteSha256": "97486ddc70be91fccbf5ab99a41b525c43cd1456d968bb710c2c698545286c89",
+          "contexts": [
+            "Beginning in the first quarter of fiscal 2027, NVIDIA will include stock-based compensation expense in non-GAAP financial measures."
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "revenue",
+        "issuerLabel": "Revenue",
+        "label": "Omsättning",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q1 FY2027",
+          "end": null,
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "v1",
+        "definition": "Revenue",
+        "note": "Intervall beräknat från bolagets mittpunkt ±2 %.",
+        "id": "NVDA:0001045810-26-000019:revenue",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "publicationDate": "2026-02-25",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "point": 78000000000.0,
+          "lower": 76440000000.0,
+          "upper": 79560000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/q4fy26pr.htm",
+          "accessionNumber": "0001045810-26-000019",
+          "exhibit": "99.1",
+          "quote": "NVIDIA’s outlook for the first quarter of fiscal 2027 is as follows: • Revenue is expected to be $78.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.9% and 75.0%, respectively, plus or minus 50 basis points, inclusive of a 0.1% impact from stock-based compensation expense. • GAAP and non-GAAP operating expenses are expected to be approximately $7.7 billion and $7.5 billion, respectively, inclusive of $1.9 billion of stock-based compensation expense. For the full year fiscal 2027, GAAP and non-GAAP tax rates are expected to be between 17.0% and 19.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.",
+          "quoteSha256": "97486ddc70be91fccbf5ab99a41b525c43cd1456d968bb710c2c698545286c89",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "tax_rate",
+        "issuerLabel": "GAAP and non-GAAP tax rates",
+        "label": "Skattesats",
+        "unit": "percent",
+        "currency": null,
+        "period": {
+          "label": "FY2027",
+          "end": null,
+          "type": "annual"
+        },
+        "basis": "GAAP and non-GAAP",
+        "definitionVersion": "v1",
+        "definition": "GAAP and non-GAAP tax rates",
+        "note": "Exklusive diskreta poster och väsentliga ändringar i skattemiljön.",
+        "id": "NVDA:0001045810-26-000019:tax",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "publicationDate": "2026-02-25",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 17.0,
+          "upper": 19.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/q4fy26pr.htm",
+          "accessionNumber": "0001045810-26-000019",
+          "exhibit": "99.1",
+          "quote": "NVIDIA’s outlook for the first quarter of fiscal 2027 is as follows: • Revenue is expected to be $78.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.9% and 75.0%, respectively, plus or minus 50 basis points, inclusive of a 0.1% impact from stock-based compensation expense. • GAAP and non-GAAP operating expenses are expected to be approximately $7.7 billion and $7.5 billion, respectively, inclusive of $1.9 billion of stock-based compensation expense. For the full year fiscal 2027, GAAP and non-GAAP tax rates are expected to be between 17.0% and 19.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.",
+          "quoteSha256": "97486ddc70be91fccbf5ab99a41b525c43cd1456d968bb710c2c698545286c89",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "china_assumption",
+        "issuerLabel": "China Data Center compute assumption",
+        "label": "Antagande Kina",
+        "unit": "text",
+        "currency": null,
+        "period": {
+          "label": "Q2 FY2027",
+          "end": null,
+          "type": "quarter"
+        },
+        "basis": "management assumption",
+        "definitionVersion": "v1",
+        "definition": "China Data Center compute assumption",
+        "note": "Inga Data Center compute-intäkter från Kina antas i guidningen.",
+        "id": "NVDA:0001045810-26-000051:china",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "publicationDate": "2026-05-20",
+        "value": {
+          "kind": "qualitative",
+          "approximate": false,
+          "text": "NVIDIA is not assuming any Data Center compute revenue from China in its outlook."
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/q1fy27pr.htm",
+          "accessionNumber": "0001045810-26-000051",
+          "exhibit": "99.1",
+          "quote": "NVIDIA is not assuming any Data Center compute revenue from China in its outlook.",
+          "quoteSha256": "84ecb2710e8ecec2050e50d07d018f38ff71338d0ee2b560e1ae40715fc8c493",
+          "contexts": [
+            "NVIDIA’s outlook for the second quarter of fiscal 2027 is as follows: • Revenue is expected to be $91.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.9% and 75.0%, respectively, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $8.5 billion and $8.3 billion, respectively. For the full year fiscal 2027, NVIDIA expects GAAP and non-GAAP tax rates to be between 16.0% and 18.0%, excluding any discrete items and material changes to NVIDIA’s tax environment."
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "gross_margin",
+        "issuerLabel": "Non-GAAP gross margin",
+        "label": "Bruttomarginal",
+        "unit": "percent",
+        "currency": null,
+        "period": {
+          "label": "Q2 FY2027",
+          "end": null,
+          "type": "quarter"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "non-gaap-sbc-included-fy2027",
+        "definition": "Non-GAAP gross margin",
+        "note": "FY2027 inkluderar aktiebaserad ersättning; tidigare basis gör det inte.",
+        "id": "NVDA:0001045810-26-000051:margin",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "publicationDate": "2026-05-20",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "point": 75.0,
+          "lower": 74.5,
+          "upper": 75.5
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/q1fy27pr.htm",
+          "accessionNumber": "0001045810-26-000051",
+          "exhibit": "99.1",
+          "quote": "NVIDIA’s outlook for the second quarter of fiscal 2027 is as follows: • Revenue is expected to be $91.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.9% and 75.0%, respectively, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $8.5 billion and $8.3 billion, respectively. For the full year fiscal 2027, NVIDIA expects GAAP and non-GAAP tax rates to be between 16.0% and 18.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.",
+          "quoteSha256": "26e6bd96479f780a3d0c11b32406399875917f142c40013ca2b160d460eae0fc",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "revenue",
+        "issuerLabel": "Revenue",
+        "label": "Omsättning",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q2 FY2027",
+          "end": null,
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "v1",
+        "definition": "Revenue",
+        "note": "Intervall beräknat från bolagets mittpunkt ±2 %.",
+        "id": "NVDA:0001045810-26-000051:revenue",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "publicationDate": "2026-05-20",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "point": 91000000000.0,
+          "lower": 89180000000.0,
+          "upper": 92820000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/q1fy27pr.htm",
+          "accessionNumber": "0001045810-26-000051",
+          "exhibit": "99.1",
+          "quote": "NVIDIA’s outlook for the second quarter of fiscal 2027 is as follows: • Revenue is expected to be $91.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.9% and 75.0%, respectively, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $8.5 billion and $8.3 billion, respectively. For the full year fiscal 2027, NVIDIA expects GAAP and non-GAAP tax rates to be between 16.0% and 18.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.",
+          "quoteSha256": "26e6bd96479f780a3d0c11b32406399875917f142c40013ca2b160d460eae0fc",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "tax_rate",
+        "issuerLabel": "GAAP and non-GAAP tax rates",
+        "label": "Skattesats",
+        "unit": "percent",
+        "currency": null,
+        "period": {
+          "label": "FY2027",
+          "end": null,
+          "type": "annual"
+        },
+        "basis": "GAAP and non-GAAP",
+        "definitionVersion": "v1",
+        "definition": "GAAP and non-GAAP tax rates",
+        "note": "Exklusive diskreta poster och väsentliga ändringar i skattemiljön.",
+        "id": "NVDA:0001045810-26-000051:tax",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "publicationDate": "2026-05-20",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 16.0,
+          "upper": 18.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/q1fy27pr.htm",
+          "accessionNumber": "0001045810-26-000051",
+          "exhibit": "99.1",
+          "quote": "NVIDIA’s outlook for the second quarter of fiscal 2027 is as follows: • Revenue is expected to be $91.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.9% and 75.0%, respectively, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $8.5 billion and $8.3 billion, respectively. For the full year fiscal 2027, NVIDIA expects GAAP and non-GAAP tax rates to be between 16.0% and 18.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.",
+          "quoteSha256": "26e6bd96479f780a3d0c11b32406399875917f142c40013ca2b160d460eae0fc",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "china_assumption",
+        "issuerLabel": "China Data Center compute assumption",
+        "label": "Antagande Kina",
+        "unit": "text",
+        "currency": null,
+        "period": {
+          "label": "Q3 FY2027",
+          "end": null,
+          "type": "quarter"
+        },
+        "basis": "management assumption",
+        "definitionVersion": "v1",
+        "definition": "China Data Center compute assumption",
+        "note": "Inga Data Center compute-intäkter från Kina antas i guidningen.",
+        "id": "NVDA:0001045810-26-000073:china",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "publicationDate": "2026-08-26",
+        "value": {
+          "kind": "qualitative",
+          "approximate": false,
+          "text": "NVIDIA is not assuming any Data Center compute revenue from China in its outlook."
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/q2fy27pr.htm",
+          "accessionNumber": "0001045810-26-000073",
+          "exhibit": "99.1",
+          "quote": "NVIDIA is not assuming any Data Center compute revenue from China in its outlook.",
+          "quoteSha256": "84ecb2710e8ecec2050e50d07d018f38ff71338d0ee2b560e1ae40715fc8c493",
+          "contexts": [
+            "NVIDIA’s outlook for the third quarter of fiscal 2027 is as follows: • Revenue is expected to be $108.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.0%, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $9.2 billion and $9.0 billion, respectively. For the full year fiscal 2027, NVIDIA expects GAAP and non-GAAP tax rates to be between 16.0% and 18.0%, excluding any discrete items and material changes to NVIDIA’s tax environment."
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "gross_margin",
+        "issuerLabel": "Non-GAAP gross margin",
+        "label": "Bruttomarginal",
+        "unit": "percent",
+        "currency": null,
+        "period": {
+          "label": "Q3 FY2027",
+          "end": null,
+          "type": "quarter"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "non-gaap-sbc-included-fy2027",
+        "definition": "Non-GAAP gross margin",
+        "note": "FY2027 inkluderar aktiebaserad ersättning; tidigare basis gör det inte.",
+        "id": "NVDA:0001045810-26-000073:margin",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "publicationDate": "2026-08-26",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "point": 74.0,
+          "lower": 73.5,
+          "upper": 74.5
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/q2fy27pr.htm",
+          "accessionNumber": "0001045810-26-000073",
+          "exhibit": "99.1",
+          "quote": "NVIDIA’s outlook for the third quarter of fiscal 2027 is as follows: • Revenue is expected to be $108.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.0%, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $9.2 billion and $9.0 billion, respectively. For the full year fiscal 2027, NVIDIA expects GAAP and non-GAAP tax rates to be between 16.0% and 18.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.",
+          "quoteSha256": "096d5d135074e5563b423cfac1b8739a41dfc875067cb232172d9fc2263ca137",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "revenue",
+        "issuerLabel": "Revenue",
+        "label": "Omsättning",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q3 FY2027",
+          "end": null,
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "v1",
+        "definition": "Revenue",
+        "note": "Intervall beräknat från bolagets mittpunkt ±2 %.",
+        "id": "NVDA:0001045810-26-000073:revenue",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "publicationDate": "2026-08-26",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "point": 108000000000.0,
+          "lower": 105840000000.0,
+          "upper": 110160000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/q2fy27pr.htm",
+          "accessionNumber": "0001045810-26-000073",
+          "exhibit": "99.1",
+          "quote": "NVIDIA’s outlook for the third quarter of fiscal 2027 is as follows: • Revenue is expected to be $108.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.0%, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $9.2 billion and $9.0 billion, respectively. For the full year fiscal 2027, NVIDIA expects GAAP and non-GAAP tax rates to be between 16.0% and 18.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.",
+          "quoteSha256": "096d5d135074e5563b423cfac1b8739a41dfc875067cb232172d9fc2263ca137",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "tax_rate",
+        "issuerLabel": "GAAP and non-GAAP tax rates",
+        "label": "Skattesats",
+        "unit": "percent",
+        "currency": null,
+        "period": {
+          "label": "FY2027",
+          "end": null,
+          "type": "annual"
+        },
+        "basis": "GAAP and non-GAAP",
+        "definitionVersion": "v1",
+        "definition": "GAAP and non-GAAP tax rates",
+        "note": "Exklusive diskreta poster och väsentliga ändringar i skattemiljön.",
+        "id": "NVDA:0001045810-26-000073:tax",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "publicationDate": "2026-08-26",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 16.0,
+          "upper": 18.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/q2fy27pr.htm",
+          "accessionNumber": "0001045810-26-000073",
+          "exhibit": "99.1",
+          "quote": "NVIDIA’s outlook for the third quarter of fiscal 2027 is as follows: • Revenue is expected to be $108.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.0%, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $9.2 billion and $9.0 billion, respectively. For the full year fiscal 2027, NVIDIA expects GAAP and non-GAAP tax rates to be between 16.0% and 18.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.",
+          "quoteSha256": "096d5d135074e5563b423cfac1b8739a41dfc875067cb232172d9fc2263ca137",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "accessionNumber": "0001045810-26-000073",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/q2fy27pr.htm",
+        "documentSha256": "3acb62ea626245998641feff48545903fdcab382669a55bed1f4ebff8fd0fa48",
+        "reviewDate": "2026-09-22"
+      },
+      {
+        "accessionNumber": "0001045810-26-000051",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/q1fy27pr.htm",
+        "documentSha256": "925671d5ec4427708199a42b69d9d29f4a479ed89e76916cd2e638e7cb6b879f",
+        "reviewDate": "2026-09-22"
+      },
+      {
+        "accessionNumber": "0001045810-26-000019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/q4fy26pr.htm",
+        "documentSha256": "d54379b18cb3268aed266ec3d215f42749156d5b141ab3e7f4bc8b044d479708",
+        "reviewDate": "2026-09-22"
+      },
+      {
+        "accessionNumber": "0001045810-25-000228",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000228/q3fy26pr.htm",
+        "documentSha256": "d6958704e3e025ac79f60866978880b7572ee9bdf3c3cd099a0f3967a8365010",
+        "reviewDate": "2026-09-22"
+      }
+    ],
+    "pendingReview": [],
+    "coverage": {
+      "guidance": "reviewed",
+      "kpi": "unsupported",
+      "note": "Ingen fristående operativ KPI vald. Data Center är en intäktsuppdelning.",
+      "excluded": [
+        "Revenue segments and marketing performance claims"
+      ]
+    },
+    "reviewRegistrySha256": "21a35b636ec2a5c979ff5308071a982bfcfe89f407c99b52d667c422787f13b5"
+  },
+  "verifiedAt": "2026-09-22T16:28:26.885038+00:00",
   "status": "verified"
 }

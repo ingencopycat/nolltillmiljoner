@@ -1,0 +1,1890 @@
+{
+  "reviewDate": "2026-09-22",
+  "documents": [
+    {
+      "ticker": "NVDA",
+      "accessionNumber": "0001045810-26-000073",
+      "publicationDate": "2026-08-26",
+      "document": {
+        "exhibit": "99.1",
+        "documentType": "earnings_release",
+        "accessionNumber": "0001045810-26-000073",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/q2fy27pr.htm",
+        "source": "SEC",
+        "relationship": "item_2_02_and_exhibit_table",
+        "legalStatus": "furnished",
+        "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/nvda-20260826.htm",
+        "sourceSha256": "51bd98b907917664dea2e93f58bda57492886b0f96f1ade0478349dbe806895d"
+      },
+      "observations": [
+        {
+          "key": "revenue",
+          "metricId": "revenue",
+          "label": "Omsättning",
+          "issuerLabel": "Revenue",
+          "pattern": "Revenue is expected to be \\$(?P<point>[\\d,]+(?:\\.\\d+)?) billion, plus or minus (?P<tolerance>[\\d,]+(?:\\.\\d+)?)%",
+          "period": {
+            "label": "Q3 FY2027",
+            "end": null,
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "kind": "guidance",
+          "quote": "NVIDIA’s outlook for the third quarter of fiscal 2027 is as follows: • Revenue is expected to be $108.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.0%, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $9.2 billion and $9.0 billion, respectively. For the full year fiscal 2027, NVIDIA expects GAAP and non-GAAP tax rates to be between 16.0% and 18.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.",
+          "quoteSha256": "096d5d135074e5563b423cfac1b8739a41dfc875067cb232172d9fc2263ca137",
+          "contexts": [],
+          "definition": "Revenue",
+          "valueKind": "range",
+          "approximate": false,
+          "note": "Intervall beräknat från bolagets mittpunkt ±2 %.",
+          "toleranceKind": "relative_percent"
+        },
+        {
+          "key": "margin",
+          "metricId": "gross_margin",
+          "label": "Bruttomarginal",
+          "issuerLabel": "Non-GAAP gross margin",
+          "pattern": "gross margins are expected to be (?P<point>[\\d,]+(?:\\.\\d+)?)%, plus or minus (?P<tolerance>[\\d,]+(?:\\.\\d+)?) basis points",
+          "period": {
+            "label": "Q3 FY2027",
+            "end": null,
+            "type": "quarter"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "non-gaap-sbc-included-fy2027",
+          "unit": "percent",
+          "currency": null,
+          "scale": 1,
+          "kind": "guidance",
+          "quote": "NVIDIA’s outlook for the third quarter of fiscal 2027 is as follows: • Revenue is expected to be $108.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.0%, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $9.2 billion and $9.0 billion, respectively. For the full year fiscal 2027, NVIDIA expects GAAP and non-GAAP tax rates to be between 16.0% and 18.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.",
+          "quoteSha256": "096d5d135074e5563b423cfac1b8739a41dfc875067cb232172d9fc2263ca137",
+          "contexts": [],
+          "definition": "Non-GAAP gross margin",
+          "valueKind": "range",
+          "approximate": false,
+          "note": "FY2027 inkluderar aktiebaserad ersättning; tidigare basis gör det inte.",
+          "toleranceKind": "basis_points"
+        },
+        {
+          "key": "tax",
+          "metricId": "tax_rate",
+          "label": "Skattesats",
+          "issuerLabel": "GAAP and non-GAAP tax rates",
+          "pattern": "tax rates (?:are expected to be|to be) between (?P<lower>[\\d,]+(?:\\.\\d+)?)% and (?P<upper>[\\d,]+(?:\\.\\d+)?)%",
+          "period": {
+            "label": "FY2027",
+            "end": null,
+            "type": "annual"
+          },
+          "basis": "GAAP and non-GAAP",
+          "definitionVersion": "v1",
+          "unit": "percent",
+          "currency": null,
+          "scale": 1,
+          "kind": "guidance",
+          "quote": "NVIDIA’s outlook for the third quarter of fiscal 2027 is as follows: • Revenue is expected to be $108.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.0%, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $9.2 billion and $9.0 billion, respectively. For the full year fiscal 2027, NVIDIA expects GAAP and non-GAAP tax rates to be between 16.0% and 18.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.",
+          "quoteSha256": "096d5d135074e5563b423cfac1b8739a41dfc875067cb232172d9fc2263ca137",
+          "contexts": [],
+          "definition": "GAAP and non-GAAP tax rates",
+          "valueKind": "range",
+          "approximate": false,
+          "note": "Exklusive diskreta poster och väsentliga ändringar i skattemiljön."
+        },
+        {
+          "key": "china",
+          "metricId": "china_assumption",
+          "label": "Antagande Kina",
+          "issuerLabel": "China Data Center compute assumption",
+          "pattern": "",
+          "period": {
+            "label": "Q3 FY2027",
+            "end": null,
+            "type": "quarter"
+          },
+          "basis": "management assumption",
+          "definitionVersion": "v1",
+          "unit": "text",
+          "currency": null,
+          "scale": 1,
+          "kind": "guidance",
+          "quote": "NVIDIA is not assuming any Data Center compute revenue from China in its outlook.",
+          "quoteSha256": "84ecb2710e8ecec2050e50d07d018f38ff71338d0ee2b560e1ae40715fc8c493",
+          "contexts": [
+            "NVIDIA’s outlook for the third quarter of fiscal 2027 is as follows: • Revenue is expected to be $108.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.0%, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $9.2 billion and $9.0 billion, respectively. For the full year fiscal 2027, NVIDIA expects GAAP and non-GAAP tax rates to be between 16.0% and 18.0%, excluding any discrete items and material changes to NVIDIA’s tax environment."
+          ],
+          "definition": "China Data Center compute assumption",
+          "valueKind": "qualitative",
+          "approximate": false,
+          "note": "Inga Data Center compute-intäkter från Kina antas i guidningen."
+        }
+      ],
+      "originalVisibleSha256": "3acb62ea626245998641feff48545903fdcab382669a55bed1f4ebff8fd0fa48"
+    },
+    {
+      "ticker": "NVDA",
+      "accessionNumber": "0001045810-26-000051",
+      "publicationDate": "2026-05-20",
+      "document": {
+        "exhibit": "99.1",
+        "documentType": "earnings_release",
+        "accessionNumber": "0001045810-26-000051",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/q1fy27pr.htm",
+        "source": "SEC",
+        "relationship": "item_2_02_and_exhibit_table",
+        "legalStatus": "furnished",
+        "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/nvda-20260520.htm",
+        "sourceSha256": "7cea62ad53755fcc8f1f0d196c7f0db46598e049715e454ef9cd8d251379903a"
+      },
+      "observations": [
+        {
+          "key": "revenue",
+          "metricId": "revenue",
+          "label": "Omsättning",
+          "issuerLabel": "Revenue",
+          "pattern": "Revenue is expected to be \\$(?P<point>[\\d,]+(?:\\.\\d+)?) billion, plus or minus (?P<tolerance>[\\d,]+(?:\\.\\d+)?)%",
+          "period": {
+            "label": "Q2 FY2027",
+            "end": null,
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "kind": "guidance",
+          "quote": "NVIDIA’s outlook for the second quarter of fiscal 2027 is as follows: • Revenue is expected to be $91.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.9% and 75.0%, respectively, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $8.5 billion and $8.3 billion, respectively. For the full year fiscal 2027, NVIDIA expects GAAP and non-GAAP tax rates to be between 16.0% and 18.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.",
+          "quoteSha256": "26e6bd96479f780a3d0c11b32406399875917f142c40013ca2b160d460eae0fc",
+          "contexts": [],
+          "definition": "Revenue",
+          "valueKind": "range",
+          "approximate": false,
+          "note": "Intervall beräknat från bolagets mittpunkt ±2 %.",
+          "toleranceKind": "relative_percent"
+        },
+        {
+          "key": "margin",
+          "metricId": "gross_margin",
+          "label": "Bruttomarginal",
+          "issuerLabel": "Non-GAAP gross margin",
+          "pattern": "gross margins are expected to be [\\d.]+% and (?P<point>[\\d,]+(?:\\.\\d+)?)%, respectively, plus or minus (?P<tolerance>[\\d,]+(?:\\.\\d+)?) basis points",
+          "period": {
+            "label": "Q2 FY2027",
+            "end": null,
+            "type": "quarter"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "non-gaap-sbc-included-fy2027",
+          "unit": "percent",
+          "currency": null,
+          "scale": 1,
+          "kind": "guidance",
+          "quote": "NVIDIA’s outlook for the second quarter of fiscal 2027 is as follows: • Revenue is expected to be $91.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.9% and 75.0%, respectively, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $8.5 billion and $8.3 billion, respectively. For the full year fiscal 2027, NVIDIA expects GAAP and non-GAAP tax rates to be between 16.0% and 18.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.",
+          "quoteSha256": "26e6bd96479f780a3d0c11b32406399875917f142c40013ca2b160d460eae0fc",
+          "contexts": [],
+          "definition": "Non-GAAP gross margin",
+          "valueKind": "range",
+          "approximate": false,
+          "note": "FY2027 inkluderar aktiebaserad ersättning; tidigare basis gör det inte.",
+          "toleranceKind": "basis_points"
+        },
+        {
+          "key": "tax",
+          "metricId": "tax_rate",
+          "label": "Skattesats",
+          "issuerLabel": "GAAP and non-GAAP tax rates",
+          "pattern": "tax rates (?:are expected to be|to be) between (?P<lower>[\\d,]+(?:\\.\\d+)?)% and (?P<upper>[\\d,]+(?:\\.\\d+)?)%",
+          "period": {
+            "label": "FY2027",
+            "end": null,
+            "type": "annual"
+          },
+          "basis": "GAAP and non-GAAP",
+          "definitionVersion": "v1",
+          "unit": "percent",
+          "currency": null,
+          "scale": 1,
+          "kind": "guidance",
+          "quote": "NVIDIA’s outlook for the second quarter of fiscal 2027 is as follows: • Revenue is expected to be $91.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.9% and 75.0%, respectively, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $8.5 billion and $8.3 billion, respectively. For the full year fiscal 2027, NVIDIA expects GAAP and non-GAAP tax rates to be between 16.0% and 18.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.",
+          "quoteSha256": "26e6bd96479f780a3d0c11b32406399875917f142c40013ca2b160d460eae0fc",
+          "contexts": [],
+          "definition": "GAAP and non-GAAP tax rates",
+          "valueKind": "range",
+          "approximate": false,
+          "note": "Exklusive diskreta poster och väsentliga ändringar i skattemiljön."
+        },
+        {
+          "key": "china",
+          "metricId": "china_assumption",
+          "label": "Antagande Kina",
+          "issuerLabel": "China Data Center compute assumption",
+          "pattern": "",
+          "period": {
+            "label": "Q2 FY2027",
+            "end": null,
+            "type": "quarter"
+          },
+          "basis": "management assumption",
+          "definitionVersion": "v1",
+          "unit": "text",
+          "currency": null,
+          "scale": 1,
+          "kind": "guidance",
+          "quote": "NVIDIA is not assuming any Data Center compute revenue from China in its outlook.",
+          "quoteSha256": "84ecb2710e8ecec2050e50d07d018f38ff71338d0ee2b560e1ae40715fc8c493",
+          "contexts": [
+            "NVIDIA’s outlook for the second quarter of fiscal 2027 is as follows: • Revenue is expected to be $91.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.9% and 75.0%, respectively, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $8.5 billion and $8.3 billion, respectively. For the full year fiscal 2027, NVIDIA expects GAAP and non-GAAP tax rates to be between 16.0% and 18.0%, excluding any discrete items and material changes to NVIDIA’s tax environment."
+          ],
+          "definition": "China Data Center compute assumption",
+          "valueKind": "qualitative",
+          "approximate": false,
+          "note": "Inga Data Center compute-intäkter från Kina antas i guidningen."
+        }
+      ],
+      "originalVisibleSha256": "925671d5ec4427708199a42b69d9d29f4a479ed89e76916cd2e638e7cb6b879f"
+    },
+    {
+      "ticker": "NVDA",
+      "accessionNumber": "0001045810-26-000019",
+      "publicationDate": "2026-02-25",
+      "document": {
+        "exhibit": "99.1",
+        "documentType": "earnings_release",
+        "accessionNumber": "0001045810-26-000019",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/q4fy26pr.htm",
+        "source": "SEC",
+        "relationship": "item_2_02_and_exhibit_table",
+        "legalStatus": "furnished",
+        "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/nvda-20260225.htm",
+        "sourceSha256": "3d206af297fb2ff3f6265a24fe359407f5ddc4ce6108c7c319223cf73040f362"
+      },
+      "observations": [
+        {
+          "key": "revenue",
+          "metricId": "revenue",
+          "label": "Omsättning",
+          "issuerLabel": "Revenue",
+          "pattern": "Revenue is expected to be \\$(?P<point>[\\d,]+(?:\\.\\d+)?) billion, plus or minus (?P<tolerance>[\\d,]+(?:\\.\\d+)?)%",
+          "period": {
+            "label": "Q1 FY2027",
+            "end": null,
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "kind": "guidance",
+          "quote": "NVIDIA’s outlook for the first quarter of fiscal 2027 is as follows: • Revenue is expected to be $78.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.9% and 75.0%, respectively, plus or minus 50 basis points, inclusive of a 0.1% impact from stock-based compensation expense. • GAAP and non-GAAP operating expenses are expected to be approximately $7.7 billion and $7.5 billion, respectively, inclusive of $1.9 billion of stock-based compensation expense. For the full year fiscal 2027, GAAP and non-GAAP tax rates are expected to be between 17.0% and 19.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.",
+          "quoteSha256": "97486ddc70be91fccbf5ab99a41b525c43cd1456d968bb710c2c698545286c89",
+          "contexts": [],
+          "definition": "Revenue",
+          "valueKind": "range",
+          "approximate": false,
+          "note": "Intervall beräknat från bolagets mittpunkt ±2 %.",
+          "toleranceKind": "relative_percent"
+        },
+        {
+          "key": "margin",
+          "metricId": "gross_margin",
+          "label": "Bruttomarginal",
+          "issuerLabel": "Non-GAAP gross margin",
+          "pattern": "gross margins are expected to be [\\d.]+% and (?P<point>[\\d,]+(?:\\.\\d+)?)%, respectively, plus or minus (?P<tolerance>[\\d,]+(?:\\.\\d+)?) basis points",
+          "period": {
+            "label": "Q1 FY2027",
+            "end": null,
+            "type": "quarter"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "non-gaap-sbc-included-fy2027",
+          "unit": "percent",
+          "currency": null,
+          "scale": 1,
+          "kind": "guidance",
+          "quote": "NVIDIA’s outlook for the first quarter of fiscal 2027 is as follows: • Revenue is expected to be $78.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.9% and 75.0%, respectively, plus or minus 50 basis points, inclusive of a 0.1% impact from stock-based compensation expense. • GAAP and non-GAAP operating expenses are expected to be approximately $7.7 billion and $7.5 billion, respectively, inclusive of $1.9 billion of stock-based compensation expense. For the full year fiscal 2027, GAAP and non-GAAP tax rates are expected to be between 17.0% and 19.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.",
+          "quoteSha256": "97486ddc70be91fccbf5ab99a41b525c43cd1456d968bb710c2c698545286c89",
+          "contexts": [
+            "Beginning in the first quarter of fiscal 2027, NVIDIA will include stock-based compensation expense in non-GAAP financial measures."
+          ],
+          "definition": "Non-GAAP gross margin",
+          "valueKind": "range",
+          "approximate": false,
+          "note": "FY2027 inkluderar aktiebaserad ersättning; tidigare basis gör det inte.",
+          "toleranceKind": "basis_points"
+        },
+        {
+          "key": "tax",
+          "metricId": "tax_rate",
+          "label": "Skattesats",
+          "issuerLabel": "GAAP and non-GAAP tax rates",
+          "pattern": "tax rates (?:are expected to be|to be) between (?P<lower>[\\d,]+(?:\\.\\d+)?)% and (?P<upper>[\\d,]+(?:\\.\\d+)?)%",
+          "period": {
+            "label": "FY2027",
+            "end": null,
+            "type": "annual"
+          },
+          "basis": "GAAP and non-GAAP",
+          "definitionVersion": "v1",
+          "unit": "percent",
+          "currency": null,
+          "scale": 1,
+          "kind": "guidance",
+          "quote": "NVIDIA’s outlook for the first quarter of fiscal 2027 is as follows: • Revenue is expected to be $78.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.9% and 75.0%, respectively, plus or minus 50 basis points, inclusive of a 0.1% impact from stock-based compensation expense. • GAAP and non-GAAP operating expenses are expected to be approximately $7.7 billion and $7.5 billion, respectively, inclusive of $1.9 billion of stock-based compensation expense. For the full year fiscal 2027, GAAP and non-GAAP tax rates are expected to be between 17.0% and 19.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.",
+          "quoteSha256": "97486ddc70be91fccbf5ab99a41b525c43cd1456d968bb710c2c698545286c89",
+          "contexts": [],
+          "definition": "GAAP and non-GAAP tax rates",
+          "valueKind": "range",
+          "approximate": false,
+          "note": "Exklusive diskreta poster och väsentliga ändringar i skattemiljön."
+        },
+        {
+          "key": "china",
+          "metricId": "china_assumption",
+          "label": "Antagande Kina",
+          "issuerLabel": "China Data Center compute assumption",
+          "pattern": "",
+          "period": {
+            "label": "Q1 FY2027",
+            "end": null,
+            "type": "quarter"
+          },
+          "basis": "management assumption",
+          "definitionVersion": "v1",
+          "unit": "text",
+          "currency": null,
+          "scale": 1,
+          "kind": "guidance",
+          "quote": "NVIDIA is not assuming any Data Center compute revenue from China in its outlook.",
+          "quoteSha256": "84ecb2710e8ecec2050e50d07d018f38ff71338d0ee2b560e1ae40715fc8c493",
+          "contexts": [
+            "NVIDIA’s outlook for the first quarter of fiscal 2027 is as follows: • Revenue is expected to be $78.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook. • GAAP and non-GAAP gross margins are expected to be 74.9% and 75.0%, respectively, plus or minus 50 basis points, inclusive of a 0.1% impact from stock-based compensation expense. • GAAP and non-GAAP operating expenses are expected to be approximately $7.7 billion and $7.5 billion, respectively, inclusive of $1.9 billion of stock-based compensation expense. For the full year fiscal 2027, GAAP and non-GAAP tax rates are expected to be between 17.0% and 19.0%, excluding any discrete items and material changes to NVIDIA’s tax environment."
+          ],
+          "definition": "China Data Center compute assumption",
+          "valueKind": "qualitative",
+          "approximate": false,
+          "note": "Inga Data Center compute-intäkter från Kina antas i guidningen."
+        }
+      ],
+      "originalVisibleSha256": "d54379b18cb3268aed266ec3d215f42749156d5b141ab3e7f4bc8b044d479708"
+    },
+    {
+      "ticker": "NVDA",
+      "accessionNumber": "0001045810-25-000228",
+      "publicationDate": "2025-11-19",
+      "document": {
+        "exhibit": "99.1",
+        "documentType": "earnings_release",
+        "accessionNumber": "0001045810-25-000228",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000228/q3fy26pr.htm",
+        "source": "SEC",
+        "relationship": "item_2_02_and_exhibit_table",
+        "legalStatus": "furnished",
+        "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000228/nvda-20251119.htm",
+        "sourceSha256": "659ef84e42d3113a0804ba32c372d28050d20c51374ba4b0cf11c2ede8c059a0"
+      },
+      "observations": [
+        {
+          "key": "revenue",
+          "metricId": "revenue",
+          "label": "Omsättning",
+          "issuerLabel": "Revenue",
+          "pattern": "Revenue is expected to be \\$(?P<point>[\\d,]+(?:\\.\\d+)?) billion, plus or minus (?P<tolerance>[\\d,]+(?:\\.\\d+)?)%",
+          "period": {
+            "label": "Q4 FY2026",
+            "end": null,
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "kind": "guidance",
+          "quote": "NVIDIA’s outlook for the fourth quarter of fiscal 2026 is as follows: • Revenue is expected to be $65.0 billion, plus or minus 2%. • GAAP and non-GAAP gross margins are expected to be 74.8% and 75.0%, respectively, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $6.7 billion and $5.0 billion, respectively. • GAAP and non-GAAP other income and expense are expected to be an income of approximately $500 million, excluding gains and losses from non-marketable and publicly-held equity securities. • GAAP and non-GAAP tax rates are expected to be 17.0%, plus or minus 1%, excluding any discrete items.",
+          "quoteSha256": "4de6ff121a358247b833b76e119d26cbc591ec2628645e054addb7237124f58c",
+          "contexts": [],
+          "definition": "Revenue",
+          "valueKind": "range",
+          "approximate": false,
+          "note": "Intervall beräknat från bolagets mittpunkt ±2 %.",
+          "toleranceKind": "relative_percent"
+        },
+        {
+          "key": "margin",
+          "metricId": "gross_margin",
+          "label": "Bruttomarginal",
+          "issuerLabel": "Non-GAAP gross margin",
+          "pattern": "gross margins are expected to be [\\d.]+% and (?P<point>[\\d,]+(?:\\.\\d+)?)%, respectively, plus or minus (?P<tolerance>[\\d,]+(?:\\.\\d+)?) basis points",
+          "period": {
+            "label": "Q4 FY2026",
+            "end": null,
+            "type": "quarter"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "non-gaap-sbc-excluded-fy2026",
+          "unit": "percent",
+          "currency": null,
+          "scale": 1,
+          "kind": "guidance",
+          "quote": "NVIDIA’s outlook for the fourth quarter of fiscal 2026 is as follows: • Revenue is expected to be $65.0 billion, plus or minus 2%. • GAAP and non-GAAP gross margins are expected to be 74.8% and 75.0%, respectively, plus or minus 50 basis points. • GAAP and non-GAAP operating expenses are expected to be approximately $6.7 billion and $5.0 billion, respectively. • GAAP and non-GAAP other income and expense are expected to be an income of approximately $500 million, excluding gains and losses from non-marketable and publicly-held equity securities. • GAAP and non-GAAP tax rates are expected to be 17.0%, plus or minus 1%, excluding any discrete items.",
+          "quoteSha256": "4de6ff121a358247b833b76e119d26cbc591ec2628645e054addb7237124f58c",
+          "contexts": [],
+          "definition": "Non-GAAP gross margin",
+          "valueKind": "range",
+          "approximate": false,
+          "note": "FY2027 inkluderar aktiebaserad ersättning; tidigare basis gör det inte.",
+          "toleranceKind": "basis_points"
+        }
+      ],
+      "originalVisibleSha256": "d6958704e3e025ac79f60866978880b7572ee9bdf3c3cd099a0f3967a8365010"
+    },
+    {
+      "ticker": "SOFI",
+      "accessionNumber": "0001818874-26-000050",
+      "publicationDate": "2026-07-29",
+      "document": {
+        "exhibit": "99.1",
+        "documentType": "earnings_release",
+        "accessionNumber": "0001818874-26-000050",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000050/a2026q2earningsrelease.htm",
+        "source": "SEC",
+        "relationship": "item_2_02_and_exhibit_table",
+        "legalStatus": "furnished",
+        "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000050/sofi-20260729.htm",
+        "sourceSha256": "85a9eb82a59b6de6d0e80166c6b8053693594a6962056442cb878b68e48bdcef"
+      },
+      "observations": [
+        {
+          "key": "revenue",
+          "metricId": "adjusted_net_revenue",
+          "label": "Justerad nettointäkt",
+          "issuerLabel": "Adjusted net revenue",
+          "pattern": "adjusted net revenue of approximately \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) billion to \\$(?P<upper>[\\d,]+(?:\\.\\d+)?) billion",
+          "period": {
+            "label": "FY2026",
+            "end": "2026-12-31",
+            "type": "annual"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "adjusted-net-revenue-v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "kind": "guidance",
+          "quote": "Guidance and Outlook For the full year, management increases its revenue outlook. Management now expects to deliver adjusted net revenue of approximately $4.75 billion to $4.85 billion which implies approximately 32% to 35% annual adjusted net revenue growth year-over-year. Management continues to expect adjusted EBITDA of approximately $1.6 billion, which equates to an annual adjusted EBITDA margin of approximately 33% to 34%. Management also continues to expect adjusted net income of approximately $825 million, which equates to a margin of approximately 17%, and adjusted EPS of approximately 60 cents per share. This assumes an effective tax rate of approximately 22% for the full year 2026. For 2026, management continues to expect to increase total members by at least 30% year-over-year.",
+          "quoteSha256": "6b2510947d6c90bbe57f0a80c35b3827bd516a92a0876f664f64c42e3e1e3c9c",
+          "contexts": [],
+          "definition": "Adjusted net revenue",
+          "valueKind": "range",
+          "approximate": true,
+          "note": ""
+        },
+        {
+          "key": "ebitda",
+          "metricId": "adjusted_ebitda",
+          "label": "Justerad EBITDA",
+          "issuerLabel": "Adjusted EBITDA",
+          "pattern": "adjusted EBITDA of approximately \\$(?P<point>[\\d,]+(?:\\.\\d+)?) billion",
+          "period": {
+            "label": "FY2026",
+            "end": "2026-12-31",
+            "type": "annual"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "adjusted-ebitda-v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "kind": "guidance",
+          "quote": "Guidance and Outlook For the full year, management increases its revenue outlook. Management now expects to deliver adjusted net revenue of approximately $4.75 billion to $4.85 billion which implies approximately 32% to 35% annual adjusted net revenue growth year-over-year. Management continues to expect adjusted EBITDA of approximately $1.6 billion, which equates to an annual adjusted EBITDA margin of approximately 33% to 34%. Management also continues to expect adjusted net income of approximately $825 million, which equates to a margin of approximately 17%, and adjusted EPS of approximately 60 cents per share. This assumes an effective tax rate of approximately 22% for the full year 2026. For 2026, management continues to expect to increase total members by at least 30% year-over-year.",
+          "quoteSha256": "6b2510947d6c90bbe57f0a80c35b3827bd516a92a0876f664f64c42e3e1e3c9c",
+          "contexts": [],
+          "definition": "Adjusted EBITDA",
+          "valueKind": "point",
+          "approximate": true,
+          "note": ""
+        },
+        {
+          "key": "eps",
+          "metricId": "adjusted_eps",
+          "label": "Justerad EPS",
+          "issuerLabel": "Adjusted EPS",
+          "pattern": "adjusted EPS of approximately (?P<point>[\\d,]+(?:\\.\\d+)?) cents per share",
+          "period": {
+            "label": "FY2026",
+            "end": "2026-12-31",
+            "type": "annual"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "adjusted-eps-v1",
+          "unit": "USD/share",
+          "currency": "USD",
+          "scale": 0.01,
+          "kind": "guidance",
+          "quote": "Guidance and Outlook For the full year, management increases its revenue outlook. Management now expects to deliver adjusted net revenue of approximately $4.75 billion to $4.85 billion which implies approximately 32% to 35% annual adjusted net revenue growth year-over-year. Management continues to expect adjusted EBITDA of approximately $1.6 billion, which equates to an annual adjusted EBITDA margin of approximately 33% to 34%. Management also continues to expect adjusted net income of approximately $825 million, which equates to a margin of approximately 17%, and adjusted EPS of approximately 60 cents per share. This assumes an effective tax rate of approximately 22% for the full year 2026. For 2026, management continues to expect to increase total members by at least 30% year-over-year.",
+          "quoteSha256": "6b2510947d6c90bbe57f0a80c35b3827bd516a92a0876f664f64c42e3e1e3c9c",
+          "contexts": [],
+          "definition": "Adjusted EPS",
+          "valueKind": "point",
+          "approximate": true,
+          "note": ""
+        },
+        {
+          "key": "members",
+          "metricId": "members",
+          "label": "Medlemmar",
+          "issuerLabel": "Members",
+          "pattern": "Members (?P<point>[\\d,]+(?:\\.\\d+)?)",
+          "period": {
+            "label": "Q2 2026",
+            "end": "2026-06-30",
+            "type": "instant"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "members-2024",
+          "unit": "count",
+          "currency": null,
+          "scale": 1,
+          "kind": "kpi",
+          "quote": "Company Metrics June 30, 2026 March 31, 2026 December 31, 2025 September 30, 2025 June 30, 2025 March 31, 2025 December 31, 2024 September 30, 2024 June 30, 2024 Members 15,814,418 14,706,040 13,651,002 12,642,375 11,745,572 10,915,811 10,127,323 9,372,615 8,774,236 Total Products 24,380,974 22,159,146 20,168,142 18,553,053 17,142,041 15,915,425 14,745,435 13,650,730 12,776,430",
+          "quoteSha256": "b3d2933e4216b797b32c2d78a3b394e92f41e1f8c26770660c84256d5c574608",
+          "contexts": [
+            "Members We refer to our customers as “members”. We define a member as someone who has a lending relationship with us through origination and/or ongoing servicing, opened a financial services account, linked an external account to our platform, or signed up for our credit score monitoring service. Our members have access to our CFPs, our member events, our content, educational material, news, and our tools and calculators, which are provided at no cost to the member. We view members as an indication not only of the size and a measurement of growth of our business, but also as a measure of the significant value of the data we have collected over time. Once someone becomes a member, they are always considered a member unless they are removed in accordance with our terms of service, in which case, we adjust our total number of members. This could occur for a variety of reasons—including fraud or pursuant to certain legal processes—and, as our terms of service evolve together with our business practices, product offerings and applicable regulations, our grounds for removing members from our total member count could change. The determination that a member should be removed in accordance with our terms of service is subject to an evaluation process, following the completion, and based on the results, of which, relevant members and their associated products are removed from our total member count in the period in which such evaluation process concludes. However, depending on the length of the evaluation process, that removal may not take place in the same period in which the member was added to our member count or the same period in which the circumstances leading to their removal occurred. For this reason, our total member count may not yet reflect adjustments that may be made once ongoing evaluation processes, if any, conclude. Beginning in the first quarter of 2024, we aligned our methodology for calculating member and product metrics with our member and product definitions to include co-borrowers, co-signers, and joint- and co-account holders, as applicable. Quarterly amounts for prior periods were determined to be immaterial and were not recast. "
+          ],
+          "definition": "Members We refer to our customers as “members”. We define a member as someone who has a lending relationship with us through origination and/or ongoing servicing, opened a financial services account, linked an external account to our platform, or signed up for our credit score monitoring service. Our members have access to our CFPs, our member events, our content, educational material, news, and our tools and calculators, which are provided at no cost to the member. We view members as an indication not only of the size and a measurement of growth of our business, but also as a measure of the significant value of the data we have collected over time. Once someone becomes a member, they are always considered a member unless they are removed in accordance with our terms of service, in which case, we adjust our total number of members. This could occur for a variety of reasons—including fraud or pursuant to certain legal processes—and, as our terms of service evolve together with our business practices, product offerings and applicable regulations, our grounds for removing members from our total member count could change. The determination that a member should be removed in accordance with our terms of service is subject to an evaluation process, following the completion, and based on the results, of which, relevant members and their associated products are removed from our total member count in the period in which such evaluation process concludes. However, depending on the length of the evaluation process, that removal may not take place in the same period in which the member was added to our member count or the same period in which the circumstances leading to their removal occurred. For this reason, our total member count may not yet reflect adjustments that may be made once ongoing evaluation processes, if any, conclude. Beginning in the first quarter of 2024, we aligned our methodology for calculating member and product metrics with our member and product definitions to include co-borrowers, co-signers, and joint- and co-account holders, as applicable. Quarterly amounts for prior periods were determined to be immaterial and were not recast. ",
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Registrerade medlemmar; inte ett mått på aktiva kunder."
+        },
+        {
+          "key": "products",
+          "metricId": "products",
+          "label": "Produkter",
+          "issuerLabel": "Total Products",
+          "pattern": "Total Products (?P<point>[\\d,]+(?:\\.\\d+)?)",
+          "period": {
+            "label": "Q2 2026",
+            "end": "2026-06-30",
+            "type": "instant"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "products-2026-06-30",
+          "unit": "count",
+          "currency": null,
+          "scale": 1,
+          "kind": "kpi",
+          "quote": "Company Metrics June 30, 2026 March 31, 2026 December 31, 2025 September 30, 2025 June 30, 2025 March 31, 2025 December 31, 2024 September 30, 2024 June 30, 2024 Members 15,814,418 14,706,040 13,651,002 12,642,375 11,745,572 10,915,811 10,127,323 9,372,615 8,774,236 Total Products 24,380,974 22,159,146 20,168,142 18,553,053 17,142,041 15,915,425 14,745,435 13,650,730 12,776,430",
+          "quoteSha256": "b3d2933e4216b797b32c2d78a3b394e92f41e1f8c26770660c84256d5c574608",
+          "contexts": [
+            "Total Products Total products refers to the aggregate number of lending and financial services products that our members have selected on our platform since our inception through the reporting date, whether or not the members are still registered for such products. Total products is a primary indicator of the size and reach of our Lending and Financial Services segments. Management relies on total products metrics to understand the effectiveness of our member acquisition efforts and to gauge the propensity for members to use more than one product. In our Lending segment, total products refers to the number of personal loans, student loans and home loans that have been originated through our platform through the reporting date, inclusive of loans which we originate as part of our Loan Platform Business, whether or not such loans have been paid off. If a member has multiple loan products of the same loan product type, such as two personal loans, that is counted as a single product. However, if a member has multiple loan products across loan product types, such as one personal loan and one home loan, that is counted as two products. The account of a co-borrower or co-signer is not considered a separate lending product. In our Financial Services segment, total products refers to the number of SoFi Money accounts (inclusive of checking and savings accounts held at SoFi Bank and cash",
+            "Beginning in the first quarter of 2026, we updated our SoFi Invest product metric to reflect four products. Prior to this, our SoFi Invest service was composed of two products, self-directed accounts and robo-advisory accounts. Self-directed accounts were previously referred to as active investing accounts. The impact to prior periods was determined to be immaterial, and prior periods were not recast. (3) Beginning in the second quarter of 2026, we updated our Financial Services products to include (i) SoFi Plus, which we relaunched during the quarter with significantly enhanced benefits, while fully transitioning the product to a paid subscr",
+            "Beginning in the second quarter of 2026, we updated our Financial Services products to include (i) SoFi Plus, which we relaunched during the quarter with significantly enhanced benefits, while fully transitioning the product to a paid subscription model; and (ii) Smart Card, our recently launched secured card (presented above within Credit Card). The impact to prior periods was determined to be immaterial, and prior periods were not recast. (4) Limited to loans wherein we provide third party fulfillment services as part of our Loan Platform Business. (5) During the fourth quarter of 2025, we returned to crypto investing with the launch of SoF"
+          ],
+          "definition": "Total Products Total products refers to the aggregate number of lending and financial services products that our members have selected on our platform since our inception through the reporting date, whether or not the members are still registered for such products. Total products is a primary indicator of the size and reach of our Lending and Financial Services segments. Management relies on total products metrics to understand the effectiveness of our member acquisition efforts and to gauge the propensity for members to use more than one product. In our Lending segment, total products refers to the number of personal loans, student loans and home loans that have been originated through our platform through the reporting date, inclusive of loans which we originate as part of our Loan Platform Business, whether or not such loans have been paid off. If a member has multiple loan products of the same loan product type, such as two personal loans, that is counted as a single product. However, if a member has multiple loan products across loan product types, such as one personal loan and one home loan, that is counted as two products. The account of a co-borrower or co-signer is not considered a separate lending product. In our Financial Services segment, total products refers to the number of SoFi Money accounts (inclusive of checking and savings accounts held at SoFi Bank and cash",
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Ändrat produktutbud och räknemetod. Historiken är inte omräknad; ingen jämförbar trend visas."
+        }
+      ],
+      "originalVisibleSha256": "1732f88337caf54bc5ba40c68108b6bdf61b0d725c5bfbef925467ef6a2aae28"
+    },
+    {
+      "ticker": "SOFI",
+      "accessionNumber": "0001818874-26-000020",
+      "publicationDate": "2026-04-29",
+      "document": {
+        "exhibit": "99.1",
+        "documentType": "earnings_release",
+        "accessionNumber": "0001818874-26-000020",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000020/a2026q1earningsrelease.htm",
+        "source": "SEC",
+        "relationship": "item_2_02_and_exhibit_table",
+        "legalStatus": "furnished",
+        "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000020/sofi-20260429.htm",
+        "sourceSha256": "cb511e4c9520fef5450f8b28899ad00132a305bf3fd1902c1a97114c44a575d8"
+      },
+      "observations": [
+        {
+          "key": "revenue",
+          "metricId": "adjusted_net_revenue",
+          "label": "Justerad nettointäkt",
+          "issuerLabel": "Adjusted net revenue",
+          "pattern": "adjusted net revenue of approximately \\$(?P<point>[\\d,]+(?:\\.\\d+)?) billion which implies",
+          "period": {
+            "label": "FY2026",
+            "end": "2026-12-31",
+            "type": "annual"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "adjusted-net-revenue-v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "kind": "guidance",
+          "quote": "Guidance and Outlook In the second quarter of 2026, management expects to deliver adjusted net revenue growth of approximately 30%, an adjusted EBITDA margin of approximately 30%, and an adjusted net income margin of approximately 12% -13%. For the full year, management maintains its strong outlook. For 2026, management expects to increase total members by at least 30% year-over-year. Management also expects to deliver adjusted net revenue of approximately $4.655 billion which implies approximately 30% annual revenue growth. Management expects adjusted EBITDA of approximately $1.6 billion, which equates to an annual EBITDA margin of approximately 34%. Management expects adjusted net income of approximately $825 million, which equates to a margin of approximately 18%. Lastly, management expects adjusted EPS of approximately 60 cents per share.",
+          "quoteSha256": "dc3f238f081da28813b953a013a02668df7ca74da79d533f03ca0e336a184d49",
+          "contexts": [],
+          "definition": "Adjusted net revenue",
+          "valueKind": "point",
+          "approximate": true,
+          "note": ""
+        },
+        {
+          "key": "ebitda",
+          "metricId": "adjusted_ebitda",
+          "label": "Justerad EBITDA",
+          "issuerLabel": "Adjusted EBITDA",
+          "pattern": "adjusted EBITDA of approximately \\$(?P<point>[\\d,]+(?:\\.\\d+)?) billion",
+          "period": {
+            "label": "FY2026",
+            "end": "2026-12-31",
+            "type": "annual"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "adjusted-ebitda-v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "kind": "guidance",
+          "quote": "Guidance and Outlook In the second quarter of 2026, management expects to deliver adjusted net revenue growth of approximately 30%, an adjusted EBITDA margin of approximately 30%, and an adjusted net income margin of approximately 12% -13%. For the full year, management maintains its strong outlook. For 2026, management expects to increase total members by at least 30% year-over-year. Management also expects to deliver adjusted net revenue of approximately $4.655 billion which implies approximately 30% annual revenue growth. Management expects adjusted EBITDA of approximately $1.6 billion, which equates to an annual EBITDA margin of approximately 34%. Management expects adjusted net income of approximately $825 million, which equates to a margin of approximately 18%. Lastly, management expects adjusted EPS of approximately 60 cents per share.",
+          "quoteSha256": "dc3f238f081da28813b953a013a02668df7ca74da79d533f03ca0e336a184d49",
+          "contexts": [],
+          "definition": "Adjusted EBITDA",
+          "valueKind": "point",
+          "approximate": true,
+          "note": ""
+        },
+        {
+          "key": "eps",
+          "metricId": "adjusted_eps",
+          "label": "Justerad EPS",
+          "issuerLabel": "Adjusted EPS",
+          "pattern": "adjusted EPS of approximately (?P<point>[\\d,]+(?:\\.\\d+)?) cents per share",
+          "period": {
+            "label": "FY2026",
+            "end": "2026-12-31",
+            "type": "annual"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "adjusted-eps-v1",
+          "unit": "USD/share",
+          "currency": "USD",
+          "scale": 0.01,
+          "kind": "guidance",
+          "quote": "Guidance and Outlook In the second quarter of 2026, management expects to deliver adjusted net revenue growth of approximately 30%, an adjusted EBITDA margin of approximately 30%, and an adjusted net income margin of approximately 12% -13%. For the full year, management maintains its strong outlook. For 2026, management expects to increase total members by at least 30% year-over-year. Management also expects to deliver adjusted net revenue of approximately $4.655 billion which implies approximately 30% annual revenue growth. Management expects adjusted EBITDA of approximately $1.6 billion, which equates to an annual EBITDA margin of approximately 34%. Management expects adjusted net income of approximately $825 million, which equates to a margin of approximately 18%. Lastly, management expects adjusted EPS of approximately 60 cents per share.",
+          "quoteSha256": "dc3f238f081da28813b953a013a02668df7ca74da79d533f03ca0e336a184d49",
+          "contexts": [],
+          "definition": "Adjusted EPS",
+          "valueKind": "point",
+          "approximate": true,
+          "note": ""
+        },
+        {
+          "key": "quarter-margin",
+          "metricId": "adjusted_net_income_margin",
+          "label": "Justerad nettomarginal",
+          "issuerLabel": "Adjusted net income margin",
+          "pattern": "adjusted net income margin of approximately (?P<lower>[\\d,]+(?:\\.\\d+)?)% -(?P<upper>[\\d,]+(?:\\.\\d+)?)%",
+          "period": {
+            "label": "Q2 2026",
+            "end": "2026-06-30",
+            "type": "quarter"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "v1",
+          "unit": "percent",
+          "currency": null,
+          "scale": 1,
+          "kind": "guidance",
+          "quote": "Guidance and Outlook In the second quarter of 2026, management expects to deliver adjusted net revenue growth of approximately 30%, an adjusted EBITDA margin of approximately 30%, and an adjusted net income margin of approximately 12% -13%. For the full year, management maintains its strong outlook. For 2026, management expects to increase total members by at least 30% year-over-year. Management also expects to deliver adjusted net revenue of approximately $4.655 billion which implies approximately 30% annual revenue growth. Management expects adjusted EBITDA of approximately $1.6 billion, which equates to an annual EBITDA margin of approximately 34%. Management expects adjusted net income of approximately $825 million, which equates to a margin of approximately 18%. Lastly, management expects adjusted EPS of approximately 60 cents per share.",
+          "quoteSha256": "dc3f238f081da28813b953a013a02668df7ca74da79d533f03ca0e336a184d49",
+          "contexts": [],
+          "definition": "Adjusted net income margin",
+          "valueKind": "range",
+          "approximate": true,
+          "note": ""
+        },
+        {
+          "key": "members",
+          "metricId": "members",
+          "label": "Medlemmar",
+          "issuerLabel": "Members",
+          "pattern": "Members (?P<point>[\\d,]+(?:\\.\\d+)?)",
+          "period": {
+            "label": "Q1 2026",
+            "end": "2026-03-31",
+            "type": "instant"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "members-2024",
+          "unit": "count",
+          "currency": null,
+          "scale": 1,
+          "kind": "kpi",
+          "quote": "Company Metrics March 31, 2026 December 31, 2025 September 30, 2025 June 30, 2025 March 31, 2025 December 31, 2024 September 30, 2024 June 30, 2024 March 31, 2024 Members 14,706,040 13,651,002 12,642,375 11,745,572 10,915,811 10,127,323 9,372,615 8,774,236 8,131,720 Total Products 22,159,146 20,168,142 18,553,053 17,142,041 15,915,425 14,745,435 13,650,730 12,776,430 11,830,128",
+          "quoteSha256": "c503f9bce6f471f99e3d1ce7da9b19013726be3148f9fdbdecfbe2913a60fff5",
+          "contexts": [
+            "Members We refer to our customers as “members”. We define a member as someone who has a lending relationship with us through origination and/or ongoing servicing, opened a financial services account, linked an external account to our platform, or signed up for our credit score monitoring service. Our members have access to our CFPs, our member events, our content, educational material, news, and our tools and calculators, which are provided at no cost to the member. We view members as an indication not only of the size and a measurement of growth of our business, but also as a measure of the significant value of the data we have collected over time. Once someone becomes a member, they are always considered a member unless they are removed in accordance with our terms of service, in which case, we adjust our total number of members. This could occur for a variety of reasons—including fraud or pursuant to certain legal processes—and, as our terms of service evolve together with our business practices, product offerings and applicable regulations, our grounds for removing members from our total member count could change. The determination that a member should be removed in accordance with our terms of service is subject to an evaluation process, following the completion, and based on the results, of which, relevant members and their associated products are removed from our total member count in the period in which such evaluation process concludes. However, depending on the length of the evaluation process, that removal may not take place in the same period in which the member was added to our member count or the same period in which the circumstances leading to their removal occurred. For this reason, our total member count may not yet reflect adjustments that may be made once ongoing evaluation processes, if any, conclude. Beginning in the first quarter of 2024, we aligned our methodology for calculating member and product metrics with our member and product definitions to include co-borrowers, co-signers, and joint- and co-account holders, as applicable. Quarterly amounts for prior periods were determined to be immaterial and were not recast. "
+          ],
+          "definition": "Members We refer to our customers as “members”. We define a member as someone who has a lending relationship with us through origination and/or ongoing servicing, opened a financial services account, linked an external account to our platform, or signed up for our credit score monitoring service. Our members have access to our CFPs, our member events, our content, educational material, news, and our tools and calculators, which are provided at no cost to the member. We view members as an indication not only of the size and a measurement of growth of our business, but also as a measure of the significant value of the data we have collected over time. Once someone becomes a member, they are always considered a member unless they are removed in accordance with our terms of service, in which case, we adjust our total number of members. This could occur for a variety of reasons—including fraud or pursuant to certain legal processes—and, as our terms of service evolve together with our business practices, product offerings and applicable regulations, our grounds for removing members from our total member count could change. The determination that a member should be removed in accordance with our terms of service is subject to an evaluation process, following the completion, and based on the results, of which, relevant members and their associated products are removed from our total member count in the period in which such evaluation process concludes. However, depending on the length of the evaluation process, that removal may not take place in the same period in which the member was added to our member count or the same period in which the circumstances leading to their removal occurred. For this reason, our total member count may not yet reflect adjustments that may be made once ongoing evaluation processes, if any, conclude. Beginning in the first quarter of 2024, we aligned our methodology for calculating member and product metrics with our member and product definitions to include co-borrowers, co-signers, and joint- and co-account holders, as applicable. Quarterly amounts for prior periods were determined to be immaterial and were not recast. ",
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Registrerade medlemmar; inte ett mått på aktiva kunder."
+        },
+        {
+          "key": "products",
+          "metricId": "products",
+          "label": "Produkter",
+          "issuerLabel": "Total Products",
+          "pattern": "Total Products (?P<point>[\\d,]+(?:\\.\\d+)?)",
+          "period": {
+            "label": "Q1 2026",
+            "end": "2026-03-31",
+            "type": "instant"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "products-2026-03-31",
+          "unit": "count",
+          "currency": null,
+          "scale": 1,
+          "kind": "kpi",
+          "quote": "Company Metrics March 31, 2026 December 31, 2025 September 30, 2025 June 30, 2025 March 31, 2025 December 31, 2024 September 30, 2024 June 30, 2024 March 31, 2024 Members 14,706,040 13,651,002 12,642,375 11,745,572 10,915,811 10,127,323 9,372,615 8,774,236 8,131,720 Total Products 22,159,146 20,168,142 18,553,053 17,142,041 15,915,425 14,745,435 13,650,730 12,776,430 11,830,128",
+          "quoteSha256": "c503f9bce6f471f99e3d1ce7da9b19013726be3148f9fdbdecfbe2913a60fff5",
+          "contexts": [
+            "Total Products Total products refers to the aggregate number of lending and financial services products that our members have selected on our platform since our inception through the reporting date, whether or not the members are still registered for such products. Total products is a primary indicator of the size and reach of our Lending and Financial Services segments. Management relies on total products metrics to understand the effectiveness of our member acquisition efforts and to gauge the propensity for members to use more than one product. In our Lending segment, total products refers to the number of personal loans, student loans and home loans that have been originated through our platform through the reporting date, inclusive of loans which we originate as part of our Loan Platform Business, whether or not such loans have been paid off. If a member has multiple loan products of the same loan product type, such as two personal loans, that is counted as a single product. However, if a member has multiple loan products across loan product types, such as one personal loan and one home loan, that is counted as two products. The account of a co-borrower or co-signer is not considered a separate lending product. In our Financial Services segment, total products refers to the number of SoFi Money accounts (inclusive of checking and savings accounts held at SoFi Bank and cash",
+            "Beginning in the first quarter of 2026, we updated our SoFi Invest product metric to reflect four products. Prior to this, our SoFi Invest service was composed of two products, self-directed accounts and robo-advisory accounts. Self-directed accounts were previously referred to as active investing accounts. The impact to prior periods was determined to be immaterial, and prior periods were not recast. (3) Limited to loans wherein we provide third party fulfillment services as part of our Loan Platform Business. (4) During the fourth quarter of 2025, we returned to crypto investing with the launch of SoFi Crypto. Technology Platform Segment Re"
+          ],
+          "definition": "Total Products Total products refers to the aggregate number of lending and financial services products that our members have selected on our platform since our inception through the reporting date, whether or not the members are still registered for such products. Total products is a primary indicator of the size and reach of our Lending and Financial Services segments. Management relies on total products metrics to understand the effectiveness of our member acquisition efforts and to gauge the propensity for members to use more than one product. In our Lending segment, total products refers to the number of personal loans, student loans and home loans that have been originated through our platform through the reporting date, inclusive of loans which we originate as part of our Loan Platform Business, whether or not such loans have been paid off. If a member has multiple loan products of the same loan product type, such as two personal loans, that is counted as a single product. However, if a member has multiple loan products across loan product types, such as one personal loan and one home loan, that is counted as two products. The account of a co-borrower or co-signer is not considered a separate lending product. In our Financial Services segment, total products refers to the number of SoFi Money accounts (inclusive of checking and savings accounts held at SoFi Bank and cash",
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Ändrat produktutbud och räknemetod. Historiken är inte omräknad; ingen jämförbar trend visas."
+        }
+      ],
+      "originalVisibleSha256": "d381556ead8a2456863ae36cec4e3d59596c38e8cc91e6411c4ef699468232f0"
+    },
+    {
+      "ticker": "SOFI",
+      "accessionNumber": "0001818874-26-000008",
+      "publicationDate": "2026-01-30",
+      "document": {
+        "exhibit": "99.1",
+        "documentType": "earnings_release",
+        "accessionNumber": "0001818874-26-000008",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000008/a2025q4earningsrelease.htm",
+        "source": "SEC",
+        "relationship": "item_2_02_and_exhibit_table",
+        "legalStatus": "furnished",
+        "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000008/sofi-20260130.htm",
+        "sourceSha256": "7e27d8216cdf5d737ca5d4749eed64d48b579b5171106730a4a9624fe778e420"
+      },
+      "observations": [
+        {
+          "key": "revenue",
+          "metricId": "adjusted_net_revenue",
+          "label": "Justerad nettointäkt",
+          "issuerLabel": "Adjusted net revenue",
+          "pattern": "adjusted net revenue of approximately \\$(?P<point>[\\d,]+(?:\\.\\d+)?) billion which implies",
+          "period": {
+            "label": "FY2026",
+            "end": "2026-12-31",
+            "type": "annual"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "adjusted-net-revenue-v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "kind": "guidance",
+          "quote": "Guidance and Outlook Looking forward to 2026, for the full year, management expects to increase total members by at least 30% year-over-year. Management expects to deliver adjusted net revenue of approximately $4.655 billion which implies approximately 30% annual revenue growth. Management expects adjusted EBITDA of approximately $1.6 billion, which equates to an annual EBITDA margin of approximately 34%. Management expects adjusted net income of approximately $825 million, which equates to a margin of approximately 18%. Lastly, management expects adjusted EPS of approximately 60 cents per share. In the first quarter of 2026, management expects to deliver adjusted net revenue of approximately $1.04 billion, adjusted EBITDA of approximately $300 million, adjusted net income of approximately $160 million, and adjusted EPS of approximately 12 cents per share. Over the medium term, management expects to deliver compounded annual growth in adjusted net revenue of at least 30% from 2025 to 2028. Additionally, management expects to deliver compounded annual growth in adjusted earnings per share of 38% to 42% from 2025 to 2028. This guidance assumes there are no meaningful changes in the macroeconomic environment and no significant new business launches or acquisitions.",
+          "quoteSha256": "4fe070951aff2938b82edbe2773b7d8455aef42909e1e66e9319072312f2ff80",
+          "contexts": [],
+          "definition": "Adjusted net revenue",
+          "valueKind": "point",
+          "approximate": true,
+          "note": ""
+        },
+        {
+          "key": "ebitda",
+          "metricId": "adjusted_ebitda",
+          "label": "Justerad EBITDA",
+          "issuerLabel": "Adjusted EBITDA",
+          "pattern": "adjusted EBITDA of approximately \\$(?P<point>[\\d,]+(?:\\.\\d+)?) billion",
+          "period": {
+            "label": "FY2026",
+            "end": "2026-12-31",
+            "type": "annual"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "adjusted-ebitda-v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "kind": "guidance",
+          "quote": "Guidance and Outlook Looking forward to 2026, for the full year, management expects to increase total members by at least 30% year-over-year. Management expects to deliver adjusted net revenue of approximately $4.655 billion which implies approximately 30% annual revenue growth. Management expects adjusted EBITDA of approximately $1.6 billion, which equates to an annual EBITDA margin of approximately 34%. Management expects adjusted net income of approximately $825 million, which equates to a margin of approximately 18%. Lastly, management expects adjusted EPS of approximately 60 cents per share. In the first quarter of 2026, management expects to deliver adjusted net revenue of approximately $1.04 billion, adjusted EBITDA of approximately $300 million, adjusted net income of approximately $160 million, and adjusted EPS of approximately 12 cents per share. Over the medium term, management expects to deliver compounded annual growth in adjusted net revenue of at least 30% from 2025 to 2028. Additionally, management expects to deliver compounded annual growth in adjusted earnings per share of 38% to 42% from 2025 to 2028. This guidance assumes there are no meaningful changes in the macroeconomic environment and no significant new business launches or acquisitions.",
+          "quoteSha256": "4fe070951aff2938b82edbe2773b7d8455aef42909e1e66e9319072312f2ff80",
+          "contexts": [],
+          "definition": "Adjusted EBITDA",
+          "valueKind": "point",
+          "approximate": true,
+          "note": ""
+        },
+        {
+          "key": "eps",
+          "metricId": "adjusted_eps",
+          "label": "Justerad EPS",
+          "issuerLabel": "Adjusted EPS",
+          "pattern": "Lastly, management expects adjusted EPS of approximately (?P<point>[\\d,]+(?:\\.\\d+)?) cents per share",
+          "period": {
+            "label": "FY2026",
+            "end": "2026-12-31",
+            "type": "annual"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "adjusted-eps-v1",
+          "unit": "USD/share",
+          "currency": "USD",
+          "scale": 0.01,
+          "kind": "guidance",
+          "quote": "Guidance and Outlook Looking forward to 2026, for the full year, management expects to increase total members by at least 30% year-over-year. Management expects to deliver adjusted net revenue of approximately $4.655 billion which implies approximately 30% annual revenue growth. Management expects adjusted EBITDA of approximately $1.6 billion, which equates to an annual EBITDA margin of approximately 34%. Management expects adjusted net income of approximately $825 million, which equates to a margin of approximately 18%. Lastly, management expects adjusted EPS of approximately 60 cents per share. In the first quarter of 2026, management expects to deliver adjusted net revenue of approximately $1.04 billion, adjusted EBITDA of approximately $300 million, adjusted net income of approximately $160 million, and adjusted EPS of approximately 12 cents per share. Over the medium term, management expects to deliver compounded annual growth in adjusted net revenue of at least 30% from 2025 to 2028. Additionally, management expects to deliver compounded annual growth in adjusted earnings per share of 38% to 42% from 2025 to 2028. This guidance assumes there are no meaningful changes in the macroeconomic environment and no significant new business launches or acquisitions.",
+          "quoteSha256": "4fe070951aff2938b82edbe2773b7d8455aef42909e1e66e9319072312f2ff80",
+          "contexts": [],
+          "definition": "Adjusted EPS",
+          "valueKind": "point",
+          "approximate": true,
+          "note": ""
+        },
+        {
+          "key": "quarter-revenue",
+          "metricId": "adjusted_net_revenue",
+          "label": "Justerad nettointäkt",
+          "issuerLabel": "Adjusted net revenue",
+          "pattern": "adjusted net revenue of approximately \\$(?P<point>[\\d,]+(?:\\.\\d+)?) billion, adjusted EBITDA",
+          "period": {
+            "label": "Q1 2026",
+            "end": "2026-03-31",
+            "type": "quarter"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "adjusted-net-revenue-v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "kind": "guidance",
+          "quote": "Guidance and Outlook Looking forward to 2026, for the full year, management expects to increase total members by at least 30% year-over-year. Management expects to deliver adjusted net revenue of approximately $4.655 billion which implies approximately 30% annual revenue growth. Management expects adjusted EBITDA of approximately $1.6 billion, which equates to an annual EBITDA margin of approximately 34%. Management expects adjusted net income of approximately $825 million, which equates to a margin of approximately 18%. Lastly, management expects adjusted EPS of approximately 60 cents per share. In the first quarter of 2026, management expects to deliver adjusted net revenue of approximately $1.04 billion, adjusted EBITDA of approximately $300 million, adjusted net income of approximately $160 million, and adjusted EPS of approximately 12 cents per share. Over the medium term, management expects to deliver compounded annual growth in adjusted net revenue of at least 30% from 2025 to 2028. Additionally, management expects to deliver compounded annual growth in adjusted earnings per share of 38% to 42% from 2025 to 2028. This guidance assumes there are no meaningful changes in the macroeconomic environment and no significant new business launches or acquisitions.",
+          "quoteSha256": "4fe070951aff2938b82edbe2773b7d8455aef42909e1e66e9319072312f2ff80",
+          "contexts": [],
+          "definition": "Adjusted net revenue",
+          "valueKind": "point",
+          "approximate": true,
+          "note": ""
+        },
+        {
+          "key": "members",
+          "metricId": "members",
+          "label": "Medlemmar",
+          "issuerLabel": "Members",
+          "pattern": "Members (?P<point>[\\d,]+(?:\\.\\d+)?)",
+          "period": {
+            "label": "Q4 2025",
+            "end": "2025-12-31",
+            "type": "instant"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "members-2024",
+          "unit": "count",
+          "currency": null,
+          "scale": 1,
+          "kind": "kpi",
+          "quote": "Company Metrics December 31, 2025 September 30, 2025 June 30, 2025 March 31, 2025 December 31, 2024 September 30, 2024 June 30, 2024 March 31, 2024 December 31, 2023 Members 13,651,002 12,642,375 11,745,572 10,915,811 10,127,323 9,372,615 8,774,236 8,131,720 7,541,860 Total Products 20,168,142 18,553,053 17,142,041 15,915,425 14,745,435 13,650,730 12,776,430 11,830,128 11,142,476",
+          "quoteSha256": "ebf4c86e495aa723f4ba1e32b35115b6771ec1cc0b9a1cdb496a92c1d1baf104",
+          "contexts": [
+            "Members We refer to our customers as “members”. We define a member as someone who has a lending relationship with us through origination and/or ongoing servicing, opened a financial services account, linked an external account to our platform, or signed up for our credit score monitoring service. Our members have access to our CFPs, our member events, our content, educational material, news, and our tools and calculators, which are provided at no cost to the member. We view members as an indication not only of the size and a measurement of growth of our business, but also as a measure of the significant value of the data we have collected over time. Once someone becomes a member, they are always considered a member unless they are removed in accordance with our terms of service, in which case, we adjust our total number of members. This could occur for a variety of reasons—including fraud or pursuant to certain legal processes—and, as our terms of service evolve together with our business practices, product offerings and applicable regulations, our grounds for removing members from our total member count could change. The determination that a member should be removed in accordance with our terms of service is subject to an evaluation process, following the completion, and based on the results, of which, relevant members and their associated products are removed from our total member count in the period in which such evaluation process concludes. However, depending on the length of the evaluation process, that removal may not take place in the same period in which the member was added to our member count or the same period in which the circumstances leading to their removal occurred. For this reason, our total member count may not yet reflect adjustments that may be made once ongoing evaluation processes, if any, conclude. Beginning in the first quarter of 2024, we aligned our methodology for calculating member and product metrics with our member and product definitions to include co-borrowers, co-signers, and joint- and co-account holders, as applicable. Quarterly amounts for prior periods were determined to be immaterial and were not recast. "
+          ],
+          "definition": "Members We refer to our customers as “members”. We define a member as someone who has a lending relationship with us through origination and/or ongoing servicing, opened a financial services account, linked an external account to our platform, or signed up for our credit score monitoring service. Our members have access to our CFPs, our member events, our content, educational material, news, and our tools and calculators, which are provided at no cost to the member. We view members as an indication not only of the size and a measurement of growth of our business, but also as a measure of the significant value of the data we have collected over time. Once someone becomes a member, they are always considered a member unless they are removed in accordance with our terms of service, in which case, we adjust our total number of members. This could occur for a variety of reasons—including fraud or pursuant to certain legal processes—and, as our terms of service evolve together with our business practices, product offerings and applicable regulations, our grounds for removing members from our total member count could change. The determination that a member should be removed in accordance with our terms of service is subject to an evaluation process, following the completion, and based on the results, of which, relevant members and their associated products are removed from our total member count in the period in which such evaluation process concludes. However, depending on the length of the evaluation process, that removal may not take place in the same period in which the member was added to our member count or the same period in which the circumstances leading to their removal occurred. For this reason, our total member count may not yet reflect adjustments that may be made once ongoing evaluation processes, if any, conclude. Beginning in the first quarter of 2024, we aligned our methodology for calculating member and product metrics with our member and product definitions to include co-borrowers, co-signers, and joint- and co-account holders, as applicable. Quarterly amounts for prior periods were determined to be immaterial and were not recast. ",
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Registrerade medlemmar; inte ett mått på aktiva kunder."
+        },
+        {
+          "key": "products",
+          "metricId": "products",
+          "label": "Produkter",
+          "issuerLabel": "Total Products",
+          "pattern": "Total Products (?P<point>[\\d,]+(?:\\.\\d+)?)",
+          "period": {
+            "label": "Q4 2025",
+            "end": "2025-12-31",
+            "type": "instant"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "products-2025-12-31",
+          "unit": "count",
+          "currency": null,
+          "scale": 1,
+          "kind": "kpi",
+          "quote": "Company Metrics December 31, 2025 September 30, 2025 June 30, 2025 March 31, 2025 December 31, 2024 September 30, 2024 June 30, 2024 March 31, 2024 December 31, 2023 Members 13,651,002 12,642,375 11,745,572 10,915,811 10,127,323 9,372,615 8,774,236 8,131,720 7,541,860 Total Products 20,168,142 18,553,053 17,142,041 15,915,425 14,745,435 13,650,730 12,776,430 11,830,128 11,142,476",
+          "quoteSha256": "ebf4c86e495aa723f4ba1e32b35115b6771ec1cc0b9a1cdb496a92c1d1baf104",
+          "contexts": [
+            "Total Products Total products refers to the aggregate number of lending and financial services products that our members have selected on our platform since our inception through the reporting date, whether or not the members are still registered for such products. Total products is a primary indicator of the size and reach of our Lending and Financial Services segments. Management relies on total products metrics to understand the effectiveness of our member acquisition efforts and to gauge the propensity for members to use more than one product. In our Lending segment, total products refers to the number of personal loans, student loans and home loans that have been originated through our platform through the reporting date, inclusive of loans which we originate as part of our Loan Platform Business, whether or not such loans have been paid off. If a member has multiple loan 23 products of the same loan product type, such as two personal loans, that is counted as a single product. However, if a member has multiple loan products across loan product types, such as one personal loan and one home loan, that is counted as two products. The account of a co-borrower or co-signer is not considered a separate lending product. In our Financial Services segment, total products refers to the number of SoFi Money accounts (inclusive of checking and savings accounts held at SoFi Bank and c",
+            "Product counts for Crypto for the fourth quarter of 2025 reflect activity from our product launch on December 22, 2025 through December 31, 2025 and are therefore not representative of a full quarter of performance."
+          ],
+          "definition": "Total Products Total products refers to the aggregate number of lending and financial services products that our members have selected on our platform since our inception through the reporting date, whether or not the members are still registered for such products. Total products is a primary indicator of the size and reach of our Lending and Financial Services segments. Management relies on total products metrics to understand the effectiveness of our member acquisition efforts and to gauge the propensity for members to use more than one product. In our Lending segment, total products refers to the number of personal loans, student loans and home loans that have been originated through our platform through the reporting date, inclusive of loans which we originate as part of our Loan Platform Business, whether or not such loans have been paid off. If a member has multiple loan 23 products of the same loan product type, such as two personal loans, that is counted as a single product. However, if a member has multiple loan products across loan product types, such as one personal loan and one home loan, that is counted as two products. The account of a co-borrower or co-signer is not considered a separate lending product. In our Financial Services segment, total products refers to the number of SoFi Money accounts (inclusive of checking and savings accounts held at SoFi Bank and c",
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Ändrat produktutbud och räknemetod. Historiken är inte omräknad; ingen jämförbar trend visas."
+        }
+      ],
+      "originalVisibleSha256": "5b6e948e2f04b35a4ef57d4654fe1d8d234f6b2136526d5d1ecd39644110e61a"
+    },
+    {
+      "ticker": "SOFI",
+      "accessionNumber": "0001818874-25-000204",
+      "publicationDate": "2025-10-28",
+      "document": {
+        "exhibit": "99.1",
+        "documentType": "earnings_release",
+        "accessionNumber": "0001818874-25-000204",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000204/a2025q3earningsrelease.htm",
+        "source": "SEC",
+        "relationship": "item_2_02_and_exhibit_table",
+        "legalStatus": "furnished",
+        "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000204/sofi-20251028.htm",
+        "sourceSha256": "8514eccebc1a5e1ddfc6eb2448b4b3b706751c5ba18b8dceb9f3c191f1592d9a"
+      },
+      "observations": [
+        {
+          "key": "revenue",
+          "metricId": "adjusted_net_revenue",
+          "label": "Justerad nettointäkt",
+          "issuerLabel": "Adjusted net revenue",
+          "pattern": "adjusted net revenue of approximately \\$(?P<point>[\\d,]+(?:\\.\\d+)?) billion",
+          "period": {
+            "label": "FY2025",
+            "end": "2025-12-31",
+            "type": "annual"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "adjusted-net-revenue-v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "kind": "guidance",
+          "quote": "Guidance and Outlook Given the strong performance through the first three quarters of the year, management is increasing its 2025 guidance issued in our second quarter earnings. For the full year 2025, management now expects to add at least 3.5 million new members, which represents approximately 34% growth from 2024 levels. Management expects to deliver adjusted net revenue of approximately $3.54 billion, which is $165 million higher than the prior guidance of $3.375 billion. This implies approximately 36% annual growth versus 30% in our prior guidance. Management expects adjusted EBITDA of approximately $1.035 billion, above prior guidance of $960 million. This represents an EBITDA margin of 29%. SoFi expects adjusted net income of approximately $455 million, above prior guidance of $370 million. Lastly, SoFi expects adjusted EPS of approximately $0.37 cents per share, above prior guidance of $0.31 cents per share. Management expects growth in tangible book value of approximately $2.5 billion for the year, above our prior guidance of $640 million.",
+          "quoteSha256": "36a4223648a13504eee861e0d956c7891c06982a985f507fefd3c220b2a800a6",
+          "contexts": [],
+          "definition": "Adjusted net revenue",
+          "valueKind": "point",
+          "approximate": true,
+          "note": ""
+        },
+        {
+          "key": "ebitda",
+          "metricId": "adjusted_ebitda",
+          "label": "Justerad EBITDA",
+          "issuerLabel": "Adjusted EBITDA",
+          "pattern": "adjusted EBITDA of approximately \\$(?P<point>[\\d,]+(?:\\.\\d+)?) billion",
+          "period": {
+            "label": "FY2025",
+            "end": "2025-12-31",
+            "type": "annual"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "adjusted-ebitda-v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "kind": "guidance",
+          "quote": "Guidance and Outlook Given the strong performance through the first three quarters of the year, management is increasing its 2025 guidance issued in our second quarter earnings. For the full year 2025, management now expects to add at least 3.5 million new members, which represents approximately 34% growth from 2024 levels. Management expects to deliver adjusted net revenue of approximately $3.54 billion, which is $165 million higher than the prior guidance of $3.375 billion. This implies approximately 36% annual growth versus 30% in our prior guidance. Management expects adjusted EBITDA of approximately $1.035 billion, above prior guidance of $960 million. This represents an EBITDA margin of 29%. SoFi expects adjusted net income of approximately $455 million, above prior guidance of $370 million. Lastly, SoFi expects adjusted EPS of approximately $0.37 cents per share, above prior guidance of $0.31 cents per share. Management expects growth in tangible book value of approximately $2.5 billion for the year, above our prior guidance of $640 million.",
+          "quoteSha256": "36a4223648a13504eee861e0d956c7891c06982a985f507fefd3c220b2a800a6",
+          "contexts": [],
+          "definition": "Adjusted EBITDA",
+          "valueKind": "point",
+          "approximate": true,
+          "note": ""
+        },
+        {
+          "key": "members",
+          "metricId": "members",
+          "label": "Medlemmar",
+          "issuerLabel": "Members",
+          "pattern": "Members (?P<point>[\\d,]+(?:\\.\\d+)?)",
+          "period": {
+            "label": "Q3 2025",
+            "end": "2025-09-30",
+            "type": "instant"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "members-2024",
+          "unit": "count",
+          "currency": null,
+          "scale": 1,
+          "kind": "kpi",
+          "quote": "Company Metrics September 30, 2025 June 30, 2025 March 31, 2025 December 31, 2024 September 30, 2024 June 30, 2024 March 31, 2024 December 31, 2023 September 30, 2023 Members 12,642,375 11,745,572 10,915,811 10,127,323 9,372,615 8,774,236 8,131,720 7,541,860 6,957,187 Total Products 18,553,053 17,142,041 15,915,425 14,745,435 13,650,730 12,776,430 11,830,128 11,142,476 10,447,806",
+          "quoteSha256": "3c8dc1b38d9afac62f9111d41b954f098e95511a00f156c8d8955273264bf851",
+          "contexts": [
+            "Members We refer to our customers as “members”. We define a member as someone who has a lending relationship with us through origination and/or ongoing servicing, opened a financial services account, linked an external account to our platform, or signed up for our credit score monitoring service. Our members have access to our CFPs, our member events, our content, educational material, news, and our tools and calculators, which are provided at no cost to the member. We view members as an indication not only of the size and a measurement of growth of our business, but also as a measure of the significant value of the data we have collected over time. Once someone becomes a member, they are always considered a member unless they are removed in accordance with our terms of service, in which case, we adjust our total number of members. This could occur for a variety of reasons—including fraud or pursuant to certain legal processes—and, as our terms of service evolve together with our business practices, product offerings and applicable regulations, our grounds for removing members from our total member count could change. The determination that a member should be removed in accordance with our terms of service is subject to an evaluation process, following the completion, and based on the results, of which, relevant members and their associated products are removed from our total member count in the period in which such evaluation process concludes. However, depending on the length of the evaluation process, that removal may not take place in the same period in which the member was added to our member count or the same period in which the circumstances leading to their removal occurred. For this reason, our total member count may not yet reflect adjustments that may be made once ongoing evaluation processes, if any, conclude. Beginning in the first quarter of 2024, we aligned our methodology for calculating member and product metrics with our member and product definitions to include co-borrowers, co-signers, and joint- and co-account holders, as applicable. Quarterly amounts for prior periods were determined to be immaterial and were not recast. "
+          ],
+          "definition": "Members We refer to our customers as “members”. We define a member as someone who has a lending relationship with us through origination and/or ongoing servicing, opened a financial services account, linked an external account to our platform, or signed up for our credit score monitoring service. Our members have access to our CFPs, our member events, our content, educational material, news, and our tools and calculators, which are provided at no cost to the member. We view members as an indication not only of the size and a measurement of growth of our business, but also as a measure of the significant value of the data we have collected over time. Once someone becomes a member, they are always considered a member unless they are removed in accordance with our terms of service, in which case, we adjust our total number of members. This could occur for a variety of reasons—including fraud or pursuant to certain legal processes—and, as our terms of service evolve together with our business practices, product offerings and applicable regulations, our grounds for removing members from our total member count could change. The determination that a member should be removed in accordance with our terms of service is subject to an evaluation process, following the completion, and based on the results, of which, relevant members and their associated products are removed from our total member count in the period in which such evaluation process concludes. However, depending on the length of the evaluation process, that removal may not take place in the same period in which the member was added to our member count or the same period in which the circumstances leading to their removal occurred. For this reason, our total member count may not yet reflect adjustments that may be made once ongoing evaluation processes, if any, conclude. Beginning in the first quarter of 2024, we aligned our methodology for calculating member and product metrics with our member and product definitions to include co-borrowers, co-signers, and joint- and co-account holders, as applicable. Quarterly amounts for prior periods were determined to be immaterial and were not recast. ",
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Registrerade medlemmar; inte ett mått på aktiva kunder."
+        },
+        {
+          "key": "products",
+          "metricId": "products",
+          "label": "Produkter",
+          "issuerLabel": "Total Products",
+          "pattern": "Total Products (?P<point>[\\d,]+(?:\\.\\d+)?)",
+          "period": {
+            "label": "Q3 2025",
+            "end": "2025-09-30",
+            "type": "instant"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "products-2025-09-30",
+          "unit": "count",
+          "currency": null,
+          "scale": 1,
+          "kind": "kpi",
+          "quote": "Company Metrics September 30, 2025 June 30, 2025 March 31, 2025 December 31, 2024 September 30, 2024 June 30, 2024 March 31, 2024 December 31, 2023 September 30, 2023 Members 12,642,375 11,745,572 10,915,811 10,127,323 9,372,615 8,774,236 8,131,720 7,541,860 6,957,187 Total Products 18,553,053 17,142,041 15,915,425 14,745,435 13,650,730 12,776,430 11,830,128 11,142,476 10,447,806",
+          "quoteSha256": "3c8dc1b38d9afac62f9111d41b954f098e95511a00f156c8d8955273264bf851",
+          "contexts": [
+            "Total Products Total products refers to the aggregate number of lending and financial services products that our members have selected on our platform since our inception through the reporting date, whether or not the members are still registered for such products. Total products is a primary indicator of the size and reach of our Lending and Financial Services segments. Management relies on total products metrics to understand the effectiveness of our member acquisition efforts and to gauge the propensity for members to use more than one product. In our Lending segment, total products refers to the number of personal loans, student loans and home loans that have been originated through our platform through the reporting date, inclusive of loans which we originate as part of our Loan Platform Business, whether or not such loans have been paid off. If a member has multiple loan 23 products of the same loan product type, such as two personal loans, that is counted as a single product. However, if a member has multiple loan products across loan product types, such as one personal loan and one home loan, that is counted as two products. The account of a co-borrower or co-signer is not considered a separate lending product. In our Financial Services segment, total products refers to the number of SoFi Money accounts (inclusive of checking and savings accounts held at SoFi Bank and c"
+          ],
+          "definition": "Total Products Total products refers to the aggregate number of lending and financial services products that our members have selected on our platform since our inception through the reporting date, whether or not the members are still registered for such products. Total products is a primary indicator of the size and reach of our Lending and Financial Services segments. Management relies on total products metrics to understand the effectiveness of our member acquisition efforts and to gauge the propensity for members to use more than one product. In our Lending segment, total products refers to the number of personal loans, student loans and home loans that have been originated through our platform through the reporting date, inclusive of loans which we originate as part of our Loan Platform Business, whether or not such loans have been paid off. If a member has multiple loan 23 products of the same loan product type, such as two personal loans, that is counted as a single product. However, if a member has multiple loan products across loan product types, such as one personal loan and one home loan, that is counted as two products. The account of a co-borrower or co-signer is not considered a separate lending product. In our Financial Services segment, total products refers to the number of SoFi Money accounts (inclusive of checking and savings accounts held at SoFi Bank and c",
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Ändrat produktutbud och räknemetod. Historiken är inte omräknad; ingen jämförbar trend visas."
+        }
+      ],
+      "originalVisibleSha256": "a0f9eb6b8efefacfd3851775015b708968bf0e52bbae5d338936040e8bf3064e"
+    },
+    {
+      "ticker": "CRWD",
+      "accessionNumber": "0001535527-26-000029",
+      "publicationDate": "2026-08-26",
+      "document": {
+        "exhibit": "99.1",
+        "documentType": "earnings_release",
+        "accessionNumber": "0001535527-26-000029",
+        "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826xex991.htm",
+        "source": "SEC",
+        "relationship": "item_2_02_and_exhibit_table",
+        "legalStatus": "furnished",
+        "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826.htm",
+        "sourceSha256": "210fbe0975165622e10316aef02d366cf58c078ca2aa7278833568a7f2373889"
+      },
+      "observations": [
+        {
+          "key": "revenue-quarter",
+          "metricId": "revenue",
+          "label": "Omsättning",
+          "issuerLabel": "Total revenue",
+          "pattern": "Total\\ revenue \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) - \\$(?P<upper>[\\d,]+(?:\\.\\d+)?) million",
+          "period": {
+            "label": "Q3 FY2027",
+            "end": "2026-10-31",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the third quarter of fiscal 2027 (ending October 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q3 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $6,184.4 - $6,188.4 million $6,603.0 - $6,611.9 million Total revenue $1,523.2 - $1,529.2 million $5,991.1 - $6,011.1 million Non-GAAP income from operations $372.7 - $375.9 million $1,497.2 - $1,508.4 million Non-GAAP net income attributable to CrowdStrike $325.4 - $327.9 million $1,302.7 - $1,311.6 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $0.31 $1.25 - $1.26 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 1,048 million 1,044 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "1c4f86b0ca3581899fdafcdd5638c5b9fd919a4aab98433bd01d16c80ae1cd7b",
+          "contexts": [],
+          "definition": "Total revenue",
+          "valueKind": "range",
+          "approximate": false,
+          "note": ""
+        },
+        {
+          "key": "revenue-annual",
+          "metricId": "revenue",
+          "label": "Omsättning",
+          "issuerLabel": "Total revenue",
+          "pattern": "Total\\ revenue \\$([\\d,]+(?:\\.\\d+)?) - \\$([\\d,]+(?:\\.\\d+)?) million \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) - \\$(?P<upper>[\\d,]+(?:\\.\\d+)?) million",
+          "period": {
+            "label": "FY2027",
+            "end": "2027-01-31",
+            "type": "annual"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the third quarter of fiscal 2027 (ending October 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q3 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $6,184.4 - $6,188.4 million $6,603.0 - $6,611.9 million Total revenue $1,523.2 - $1,529.2 million $5,991.1 - $6,011.1 million Non-GAAP income from operations $372.7 - $375.9 million $1,497.2 - $1,508.4 million Non-GAAP net income attributable to CrowdStrike $325.4 - $327.9 million $1,302.7 - $1,311.6 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $0.31 $1.25 - $1.26 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 1,048 million 1,044 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "1c4f86b0ca3581899fdafcdd5638c5b9fd919a4aab98433bd01d16c80ae1cd7b",
+          "contexts": [],
+          "definition": "Total revenue",
+          "valueKind": "range",
+          "approximate": false,
+          "note": ""
+        },
+        {
+          "key": "arr-quarter",
+          "metricId": "arr",
+          "label": "ARR",
+          "issuerLabel": "Annual recurring revenue",
+          "pattern": "Annual\\ recurring\\ revenue \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) - \\$(?P<upper>[\\d,]+(?:\\.\\d+)?) million",
+          "period": {
+            "label": "Q3 FY2027",
+            "end": "2026-10-31",
+            "type": "quarter"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the third quarter of fiscal 2027 (ending October 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q3 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $6,184.4 - $6,188.4 million $6,603.0 - $6,611.9 million Total revenue $1,523.2 - $1,529.2 million $5,991.1 - $6,011.1 million Non-GAAP income from operations $372.7 - $375.9 million $1,497.2 - $1,508.4 million Non-GAAP net income attributable to CrowdStrike $325.4 - $327.9 million $1,302.7 - $1,311.6 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $0.31 $1.25 - $1.26 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 1,048 million 1,044 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "1c4f86b0ca3581899fdafcdd5638c5b9fd919a4aab98433bd01d16c80ae1cd7b",
+          "contexts": [],
+          "definition": "Annual recurring revenue",
+          "valueKind": "range",
+          "approximate": false,
+          "note": ""
+        },
+        {
+          "key": "arr-annual",
+          "metricId": "arr",
+          "label": "ARR",
+          "issuerLabel": "Annual recurring revenue",
+          "pattern": "Annual\\ recurring\\ revenue \\$([\\d,]+(?:\\.\\d+)?) - \\$([\\d,]+(?:\\.\\d+)?) million \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) - \\$(?P<upper>[\\d,]+(?:\\.\\d+)?) million",
+          "period": {
+            "label": "FY2027",
+            "end": "2027-01-31",
+            "type": "annual"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the third quarter of fiscal 2027 (ending October 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q3 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $6,184.4 - $6,188.4 million $6,603.0 - $6,611.9 million Total revenue $1,523.2 - $1,529.2 million $5,991.1 - $6,011.1 million Non-GAAP income from operations $372.7 - $375.9 million $1,497.2 - $1,508.4 million Non-GAAP net income attributable to CrowdStrike $325.4 - $327.9 million $1,302.7 - $1,311.6 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $0.31 $1.25 - $1.26 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 1,048 million 1,044 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "1c4f86b0ca3581899fdafcdd5638c5b9fd919a4aab98433bd01d16c80ae1cd7b",
+          "contexts": [],
+          "definition": "Annual recurring revenue",
+          "valueKind": "range",
+          "approximate": false,
+          "note": ""
+        },
+        {
+          "key": "eps-quarter",
+          "metricId": "diluted_eps",
+          "label": "Utspädd EPS",
+          "issuerLabel": "Non-GAAP diluted EPS",
+          "pattern": "Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted \\$(?P<point>[\\d,]+(?:\\.\\d+)?)",
+          "period": {
+            "label": "Q3 FY2027",
+            "end": "2026-10-31",
+            "type": "quarter"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "split-adjusted-july-2026",
+          "unit": "USD/share",
+          "currency": "USD",
+          "scale": 1,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the third quarter of fiscal 2027 (ending October 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q3 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $6,184.4 - $6,188.4 million $6,603.0 - $6,611.9 million Total revenue $1,523.2 - $1,529.2 million $5,991.1 - $6,011.1 million Non-GAAP income from operations $372.7 - $375.9 million $1,497.2 - $1,508.4 million Non-GAAP net income attributable to CrowdStrike $325.4 - $327.9 million $1,302.7 - $1,311.6 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $0.31 $1.25 - $1.26 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 1,048 million 1,044 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "1c4f86b0ca3581899fdafcdd5638c5b9fd919a4aab98433bd01d16c80ae1cd7b",
+          "contexts": [
+            "Stock Split After the close of trading on July 1, 2026, CrowdStrike effected a four-for-one stock split of its common stock in the form of a stock dividend. References made to all share and per share amounts and related stockholders' equity balances related to the company's outstanding common stock have been retroactively adjusted on the applicable disclosures to reflect the effects of the stock split."
+          ],
+          "definition": "Non-GAAP diluted EPS",
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Split 4:1 den 1 juli 2026. Tidigare guidning visas på dåvarande aktiebasis; ingen automatisk jämförelse över splitten."
+        },
+        {
+          "key": "eps-annual",
+          "metricId": "diluted_eps",
+          "label": "Utspädd EPS",
+          "issuerLabel": "Non-GAAP diluted EPS",
+          "pattern": "Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted \\$([\\d,]+(?:\\.\\d+)?) \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) - \\$(?P<upper>[\\d,]+(?:\\.\\d+)?)",
+          "period": {
+            "label": "FY2027",
+            "end": "2027-01-31",
+            "type": "annual"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "split-adjusted-july-2026",
+          "unit": "USD/share",
+          "currency": "USD",
+          "scale": 1,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the third quarter of fiscal 2027 (ending October 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q3 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $6,184.4 - $6,188.4 million $6,603.0 - $6,611.9 million Total revenue $1,523.2 - $1,529.2 million $5,991.1 - $6,011.1 million Non-GAAP income from operations $372.7 - $375.9 million $1,497.2 - $1,508.4 million Non-GAAP net income attributable to CrowdStrike $325.4 - $327.9 million $1,302.7 - $1,311.6 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $0.31 $1.25 - $1.26 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 1,048 million 1,044 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "1c4f86b0ca3581899fdafcdd5638c5b9fd919a4aab98433bd01d16c80ae1cd7b",
+          "contexts": [
+            "Stock Split After the close of trading on July 1, 2026, CrowdStrike effected a four-for-one stock split of its common stock in the form of a stock dividend. References made to all share and per share amounts and related stockholders' equity balances related to the company's outstanding common stock have been retroactively adjusted on the applicable disclosures to reflect the effects of the stock split."
+          ],
+          "definition": "Non-GAAP diluted EPS",
+          "valueKind": "range",
+          "approximate": false,
+          "note": "Split 4:1 den 1 juli 2026. Tidigare guidning visas på dåvarande aktiebasis; ingen automatisk jämförelse över splitten."
+        },
+        {
+          "key": "arr-actual",
+          "metricId": "arr",
+          "label": "ARR",
+          "issuerLabel": "Annual Recurring Revenue",
+          "pattern": "to \\$(?P<point>[\\d,]+(?:\\.\\d+)?) billion",
+          "period": {
+            "label": "Q2 FY2027",
+            "end": "2026-07-31",
+            "type": "instant"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "arr-contract-renewal-v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "kind": "kpi",
+          "quote": "Annual Recurring Revenue (ARR) grew 25% year-over-year to $5.84 billion as of July 31, 2026, of which $332.8 million was net new ARR added in the quarter.",
+          "quoteSha256": "ebed008e96818299f7a7d3ab7135ce897df5837379aa3b463dd113ce7b47e016",
+          "contexts": [
+            "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription."
+          ],
+          "definition": "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription.",
+          "valueKind": "point",
+          "approximate": true,
+          "note": "Annualiserat abonnemangsavtal; förnyelse antas. Avrundat av bolaget."
+        },
+        {
+          "key": "netnew-actual",
+          "metricId": "net_new_arr",
+          "label": "Ny ARR, netto",
+          "issuerLabel": "Net new ARR",
+          "pattern": "of which \\$(?P<point>[\\d,]+(?:\\.\\d+)?) million",
+          "period": {
+            "label": "Q2 FY2027",
+            "end": "2026-07-31",
+            "type": "quarter"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "arr-contract-renewal-v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "kind": "kpi",
+          "quote": "Annual Recurring Revenue (ARR) grew 25% year-over-year to $5.84 billion as of July 31, 2026, of which $332.8 million was net new ARR added in the quarter.",
+          "quoteSha256": "ebed008e96818299f7a7d3ab7135ce897df5837379aa3b463dd113ce7b47e016",
+          "contexts": [
+            "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription."
+          ],
+          "definition": "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription.",
+          "valueKind": "point",
+          "approximate": true,
+          "note": "Nettoökning av ARR under kvartalet."
+        }
+      ],
+      "originalVisibleSha256": "d6772e3268a529ef82eec0164f014186f16e1a7080a16d66cc3d4db3623341ce"
+    },
+    {
+      "ticker": "CRWD",
+      "accessionNumber": "0001535527-26-000022",
+      "publicationDate": "2026-06-03",
+      "document": {
+        "exhibit": "99.1",
+        "documentType": "earnings_release",
+        "accessionNumber": "0001535527-26-000022",
+        "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603xex991.htm",
+        "source": "SEC",
+        "relationship": "item_2_02_and_exhibit_table",
+        "legalStatus": "furnished",
+        "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603.htm",
+        "sourceSha256": "447b28c307e231c627ff63a307644114be790a9b4e3e7506d78ff0ab656c8d3e"
+      },
+      "observations": [
+        {
+          "key": "revenue-quarter",
+          "metricId": "revenue",
+          "label": "Omsättning",
+          "issuerLabel": "Total revenue",
+          "pattern": "Total\\ revenue \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) - \\$(?P<upper>[\\d,]+(?:\\.\\d+)?) million",
+          "period": {
+            "label": "Q2 FY2027",
+            "end": "2026-07-31",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the second quarter of fiscal 2027 (ending July 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q2 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,792.6 - $5,794.6 million $6,531.7 - $6,555.5 million Total revenue $1,436.0 - $1,442.0 million $5,914.7 - $5,958.7 million Non-GAAP income from operations $345.6 - $349.1 million $1,452.3 - $1,480.3 million Non-GAAP net income attributable to CrowdStrike $300.7 - $303.4 million $1,263.1 - $1,285.2 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.16 - $1.17 $4.88 - $4.96 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 258 million 259 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "03242f1508ecfe05fa9441e86d956abbe8bfed3b2c986b7dbed16c1d78e4f1bb",
+          "contexts": [],
+          "definition": "Total revenue",
+          "valueKind": "range",
+          "approximate": false,
+          "note": ""
+        },
+        {
+          "key": "revenue-annual",
+          "metricId": "revenue",
+          "label": "Omsättning",
+          "issuerLabel": "Total revenue",
+          "pattern": "Total\\ revenue \\$([\\d,]+(?:\\.\\d+)?) - \\$([\\d,]+(?:\\.\\d+)?) million \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) - \\$(?P<upper>[\\d,]+(?:\\.\\d+)?) million",
+          "period": {
+            "label": "FY2027",
+            "end": "2027-01-31",
+            "type": "annual"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the second quarter of fiscal 2027 (ending July 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q2 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,792.6 - $5,794.6 million $6,531.7 - $6,555.5 million Total revenue $1,436.0 - $1,442.0 million $5,914.7 - $5,958.7 million Non-GAAP income from operations $345.6 - $349.1 million $1,452.3 - $1,480.3 million Non-GAAP net income attributable to CrowdStrike $300.7 - $303.4 million $1,263.1 - $1,285.2 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.16 - $1.17 $4.88 - $4.96 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 258 million 259 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "03242f1508ecfe05fa9441e86d956abbe8bfed3b2c986b7dbed16c1d78e4f1bb",
+          "contexts": [],
+          "definition": "Total revenue",
+          "valueKind": "range",
+          "approximate": false,
+          "note": ""
+        },
+        {
+          "key": "arr-quarter",
+          "metricId": "arr",
+          "label": "ARR",
+          "issuerLabel": "Annual recurring revenue",
+          "pattern": "Annual\\ recurring\\ revenue \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) - \\$(?P<upper>[\\d,]+(?:\\.\\d+)?) million",
+          "period": {
+            "label": "Q2 FY2027",
+            "end": "2026-07-31",
+            "type": "quarter"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the second quarter of fiscal 2027 (ending July 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q2 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,792.6 - $5,794.6 million $6,531.7 - $6,555.5 million Total revenue $1,436.0 - $1,442.0 million $5,914.7 - $5,958.7 million Non-GAAP income from operations $345.6 - $349.1 million $1,452.3 - $1,480.3 million Non-GAAP net income attributable to CrowdStrike $300.7 - $303.4 million $1,263.1 - $1,285.2 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.16 - $1.17 $4.88 - $4.96 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 258 million 259 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "03242f1508ecfe05fa9441e86d956abbe8bfed3b2c986b7dbed16c1d78e4f1bb",
+          "contexts": [],
+          "definition": "Annual recurring revenue",
+          "valueKind": "range",
+          "approximate": false,
+          "note": ""
+        },
+        {
+          "key": "arr-annual",
+          "metricId": "arr",
+          "label": "ARR",
+          "issuerLabel": "Annual recurring revenue",
+          "pattern": "Annual\\ recurring\\ revenue \\$([\\d,]+(?:\\.\\d+)?) - \\$([\\d,]+(?:\\.\\d+)?) million \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) - \\$(?P<upper>[\\d,]+(?:\\.\\d+)?) million",
+          "period": {
+            "label": "FY2027",
+            "end": "2027-01-31",
+            "type": "annual"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the second quarter of fiscal 2027 (ending July 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q2 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,792.6 - $5,794.6 million $6,531.7 - $6,555.5 million Total revenue $1,436.0 - $1,442.0 million $5,914.7 - $5,958.7 million Non-GAAP income from operations $345.6 - $349.1 million $1,452.3 - $1,480.3 million Non-GAAP net income attributable to CrowdStrike $300.7 - $303.4 million $1,263.1 - $1,285.2 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.16 - $1.17 $4.88 - $4.96 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 258 million 259 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "03242f1508ecfe05fa9441e86d956abbe8bfed3b2c986b7dbed16c1d78e4f1bb",
+          "contexts": [],
+          "definition": "Annual recurring revenue",
+          "valueKind": "range",
+          "approximate": false,
+          "note": ""
+        },
+        {
+          "key": "eps-quarter",
+          "metricId": "diluted_eps",
+          "label": "Utspädd EPS",
+          "issuerLabel": "Non-GAAP diluted EPS",
+          "pattern": "Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) - \\$(?P<upper>[\\d,]+(?:\\.\\d+)?)",
+          "period": {
+            "label": "Q2 FY2027",
+            "end": "2026-07-31",
+            "type": "quarter"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "pre-july-2026-split",
+          "unit": "USD/share",
+          "currency": "USD",
+          "scale": 1,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the second quarter of fiscal 2027 (ending July 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q2 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,792.6 - $5,794.6 million $6,531.7 - $6,555.5 million Total revenue $1,436.0 - $1,442.0 million $5,914.7 - $5,958.7 million Non-GAAP income from operations $345.6 - $349.1 million $1,452.3 - $1,480.3 million Non-GAAP net income attributable to CrowdStrike $300.7 - $303.4 million $1,263.1 - $1,285.2 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.16 - $1.17 $4.88 - $4.96 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 258 million 259 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "03242f1508ecfe05fa9441e86d956abbe8bfed3b2c986b7dbed16c1d78e4f1bb",
+          "contexts": [],
+          "definition": "Non-GAAP diluted EPS",
+          "valueKind": "range",
+          "approximate": false,
+          "note": "Split 4:1 den 1 juli 2026. Tidigare guidning visas på dåvarande aktiebasis; ingen automatisk jämförelse över splitten."
+        },
+        {
+          "key": "eps-annual",
+          "metricId": "diluted_eps",
+          "label": "Utspädd EPS",
+          "issuerLabel": "Non-GAAP diluted EPS",
+          "pattern": "Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted \\$([\\d,]+(?:\\.\\d+)?) - \\$([\\d,]+(?:\\.\\d+)?) \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) - \\$(?P<upper>[\\d,]+(?:\\.\\d+)?)",
+          "period": {
+            "label": "FY2027",
+            "end": "2027-01-31",
+            "type": "annual"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "pre-july-2026-split",
+          "unit": "USD/share",
+          "currency": "USD",
+          "scale": 1,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the second quarter of fiscal 2027 (ending July 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q2 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,792.6 - $5,794.6 million $6,531.7 - $6,555.5 million Total revenue $1,436.0 - $1,442.0 million $5,914.7 - $5,958.7 million Non-GAAP income from operations $345.6 - $349.1 million $1,452.3 - $1,480.3 million Non-GAAP net income attributable to CrowdStrike $300.7 - $303.4 million $1,263.1 - $1,285.2 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.16 - $1.17 $4.88 - $4.96 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 258 million 259 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "03242f1508ecfe05fa9441e86d956abbe8bfed3b2c986b7dbed16c1d78e4f1bb",
+          "contexts": [],
+          "definition": "Non-GAAP diluted EPS",
+          "valueKind": "range",
+          "approximate": false,
+          "note": "Split 4:1 den 1 juli 2026. Tidigare guidning visas på dåvarande aktiebasis; ingen automatisk jämförelse över splitten."
+        },
+        {
+          "key": "arr-actual",
+          "metricId": "arr",
+          "label": "ARR",
+          "issuerLabel": "Annual Recurring Revenue",
+          "pattern": "to \\$(?P<point>[\\d,]+(?:\\.\\d+)?) billion",
+          "period": {
+            "label": "Q1 FY2027",
+            "end": "2026-04-30",
+            "type": "instant"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "arr-contract-renewal-v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "kind": "kpi",
+          "quote": "Annual Recurring Revenue (ARR) grew 24% year-over-year to $5.51 billion as of April 30, 2026, of which $255.8 million was net new ARR added in the quarter.",
+          "quoteSha256": "fe29aa9d845bd4dc8bbdab0142bf618d1752930a3a23e8fd44bf46f5af730f9e",
+          "contexts": [
+            "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription."
+          ],
+          "definition": "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription.",
+          "valueKind": "point",
+          "approximate": true,
+          "note": "Annualiserat abonnemangsavtal; förnyelse antas. Avrundat av bolaget."
+        },
+        {
+          "key": "netnew-actual",
+          "metricId": "net_new_arr",
+          "label": "Ny ARR, netto",
+          "issuerLabel": "Net new ARR",
+          "pattern": "of which \\$(?P<point>[\\d,]+(?:\\.\\d+)?) million",
+          "period": {
+            "label": "Q1 FY2027",
+            "end": "2026-04-30",
+            "type": "quarter"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "arr-contract-renewal-v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "kind": "kpi",
+          "quote": "Annual Recurring Revenue (ARR) grew 24% year-over-year to $5.51 billion as of April 30, 2026, of which $255.8 million was net new ARR added in the quarter.",
+          "quoteSha256": "fe29aa9d845bd4dc8bbdab0142bf618d1752930a3a23e8fd44bf46f5af730f9e",
+          "contexts": [
+            "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription."
+          ],
+          "definition": "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription.",
+          "valueKind": "point",
+          "approximate": true,
+          "note": "Nettoökning av ARR under kvartalet."
+        }
+      ],
+      "originalVisibleSha256": "2658f12b20bfdc752b22a743a61f8e50ce3e8f32a5d22a17868040a229290d3c"
+    },
+    {
+      "ticker": "CRWD",
+      "accessionNumber": "0001535527-26-000007",
+      "publicationDate": "2026-03-03",
+      "document": {
+        "exhibit": "99.1",
+        "documentType": "earnings_release",
+        "accessionNumber": "0001535527-26-000007",
+        "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
+        "source": "SEC",
+        "relationship": "item_2_02_and_exhibit_table",
+        "legalStatus": "furnished",
+        "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303.htm",
+        "sourceSha256": "a43144fd4f29eff267978c7a2d74e1b2d3c138b8d8f69180006545df561152f9"
+      },
+      "observations": [
+        {
+          "key": "revenue-quarter",
+          "metricId": "revenue",
+          "label": "Omsättning",
+          "issuerLabel": "Total revenue",
+          "pattern": "Total\\ revenue \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) - \\$(?P<upper>[\\d,]+(?:\\.\\d+)?) million",
+          "period": {
+            "label": "Q1 FY2027",
+            "end": "2026-04-30",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the first quarter of fiscal 2027 (ending April 30, 2026) and guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for our long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q1 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,501.8 - $5,503.8 million $6,465.8 - $6,516.4 million Total revenue $1,360.0 - $1,364.0 million $5,867.6 - $5,927.6 million Non-GAAP income from operations $308.0 - $310.4 million $1,422.2 - $1,462.2 million Non-GAAP net income attributable to CrowdStrike $275.2 - $277.1 million $1,241.0 - $1,271.1 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.06 - $1.07 $4.78 - $4.90 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 259 million 260 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "c37f9df22c9c716c81df2432d5ed1acc3cb59e897c588f041f2d595e8da42113",
+          "contexts": [],
+          "definition": "Total revenue",
+          "valueKind": "range",
+          "approximate": false,
+          "note": ""
+        },
+        {
+          "key": "revenue-annual",
+          "metricId": "revenue",
+          "label": "Omsättning",
+          "issuerLabel": "Total revenue",
+          "pattern": "Total\\ revenue \\$([\\d,]+(?:\\.\\d+)?) - \\$([\\d,]+(?:\\.\\d+)?) million \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) - \\$(?P<upper>[\\d,]+(?:\\.\\d+)?) million",
+          "period": {
+            "label": "FY2027",
+            "end": "2027-01-31",
+            "type": "annual"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the first quarter of fiscal 2027 (ending April 30, 2026) and guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for our long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q1 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,501.8 - $5,503.8 million $6,465.8 - $6,516.4 million Total revenue $1,360.0 - $1,364.0 million $5,867.6 - $5,927.6 million Non-GAAP income from operations $308.0 - $310.4 million $1,422.2 - $1,462.2 million Non-GAAP net income attributable to CrowdStrike $275.2 - $277.1 million $1,241.0 - $1,271.1 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.06 - $1.07 $4.78 - $4.90 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 259 million 260 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "c37f9df22c9c716c81df2432d5ed1acc3cb59e897c588f041f2d595e8da42113",
+          "contexts": [],
+          "definition": "Total revenue",
+          "valueKind": "range",
+          "approximate": false,
+          "note": ""
+        },
+        {
+          "key": "arr-quarter",
+          "metricId": "arr",
+          "label": "ARR",
+          "issuerLabel": "Annual recurring revenue",
+          "pattern": "Annual\\ recurring\\ revenue \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) - \\$(?P<upper>[\\d,]+(?:\\.\\d+)?) million",
+          "period": {
+            "label": "Q1 FY2027",
+            "end": "2026-04-30",
+            "type": "quarter"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the first quarter of fiscal 2027 (ending April 30, 2026) and guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for our long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q1 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,501.8 - $5,503.8 million $6,465.8 - $6,516.4 million Total revenue $1,360.0 - $1,364.0 million $5,867.6 - $5,927.6 million Non-GAAP income from operations $308.0 - $310.4 million $1,422.2 - $1,462.2 million Non-GAAP net income attributable to CrowdStrike $275.2 - $277.1 million $1,241.0 - $1,271.1 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.06 - $1.07 $4.78 - $4.90 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 259 million 260 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "c37f9df22c9c716c81df2432d5ed1acc3cb59e897c588f041f2d595e8da42113",
+          "contexts": [],
+          "definition": "Annual recurring revenue",
+          "valueKind": "range",
+          "approximate": false,
+          "note": ""
+        },
+        {
+          "key": "arr-annual",
+          "metricId": "arr",
+          "label": "ARR",
+          "issuerLabel": "Annual recurring revenue",
+          "pattern": "Annual\\ recurring\\ revenue \\$([\\d,]+(?:\\.\\d+)?) - \\$([\\d,]+(?:\\.\\d+)?) million \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) - \\$(?P<upper>[\\d,]+(?:\\.\\d+)?) million",
+          "period": {
+            "label": "FY2027",
+            "end": "2027-01-31",
+            "type": "annual"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the first quarter of fiscal 2027 (ending April 30, 2026) and guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for our long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q1 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,501.8 - $5,503.8 million $6,465.8 - $6,516.4 million Total revenue $1,360.0 - $1,364.0 million $5,867.6 - $5,927.6 million Non-GAAP income from operations $308.0 - $310.4 million $1,422.2 - $1,462.2 million Non-GAAP net income attributable to CrowdStrike $275.2 - $277.1 million $1,241.0 - $1,271.1 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.06 - $1.07 $4.78 - $4.90 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 259 million 260 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "c37f9df22c9c716c81df2432d5ed1acc3cb59e897c588f041f2d595e8da42113",
+          "contexts": [],
+          "definition": "Annual recurring revenue",
+          "valueKind": "range",
+          "approximate": false,
+          "note": ""
+        },
+        {
+          "key": "eps-quarter",
+          "metricId": "diluted_eps",
+          "label": "Utspädd EPS",
+          "issuerLabel": "Non-GAAP diluted EPS",
+          "pattern": "Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) - \\$(?P<upper>[\\d,]+(?:\\.\\d+)?)",
+          "period": {
+            "label": "Q1 FY2027",
+            "end": "2026-04-30",
+            "type": "quarter"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "pre-july-2026-split",
+          "unit": "USD/share",
+          "currency": "USD",
+          "scale": 1,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the first quarter of fiscal 2027 (ending April 30, 2026) and guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for our long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q1 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,501.8 - $5,503.8 million $6,465.8 - $6,516.4 million Total revenue $1,360.0 - $1,364.0 million $5,867.6 - $5,927.6 million Non-GAAP income from operations $308.0 - $310.4 million $1,422.2 - $1,462.2 million Non-GAAP net income attributable to CrowdStrike $275.2 - $277.1 million $1,241.0 - $1,271.1 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.06 - $1.07 $4.78 - $4.90 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 259 million 260 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "c37f9df22c9c716c81df2432d5ed1acc3cb59e897c588f041f2d595e8da42113",
+          "contexts": [],
+          "definition": "Non-GAAP diluted EPS",
+          "valueKind": "range",
+          "approximate": false,
+          "note": "Split 4:1 den 1 juli 2026. Tidigare guidning visas på dåvarande aktiebasis; ingen automatisk jämförelse över splitten."
+        },
+        {
+          "key": "eps-annual",
+          "metricId": "diluted_eps",
+          "label": "Utspädd EPS",
+          "issuerLabel": "Non-GAAP diluted EPS",
+          "pattern": "Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted \\$([\\d,]+(?:\\.\\d+)?) - \\$([\\d,]+(?:\\.\\d+)?) \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) - \\$(?P<upper>[\\d,]+(?:\\.\\d+)?)",
+          "period": {
+            "label": "FY2027",
+            "end": "2027-01-31",
+            "type": "annual"
+          },
+          "basis": "non-GAAP",
+          "definitionVersion": "pre-july-2026-split",
+          "unit": "USD/share",
+          "currency": "USD",
+          "scale": 1,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the first quarter of fiscal 2027 (ending April 30, 2026) and guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for our long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q1 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,501.8 - $5,503.8 million $6,465.8 - $6,516.4 million Total revenue $1,360.0 - $1,364.0 million $5,867.6 - $5,927.6 million Non-GAAP income from operations $308.0 - $310.4 million $1,422.2 - $1,462.2 million Non-GAAP net income attributable to CrowdStrike $275.2 - $277.1 million $1,241.0 - $1,271.1 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.06 - $1.07 $4.78 - $4.90 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 259 million 260 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "c37f9df22c9c716c81df2432d5ed1acc3cb59e897c588f041f2d595e8da42113",
+          "contexts": [],
+          "definition": "Non-GAAP diluted EPS",
+          "valueKind": "range",
+          "approximate": false,
+          "note": "Split 4:1 den 1 juli 2026. Tidigare guidning visas på dåvarande aktiebasis; ingen automatisk jämförelse över splitten."
+        },
+        {
+          "key": "arr-actual",
+          "metricId": "arr",
+          "label": "ARR",
+          "issuerLabel": "Annual Recurring Revenue",
+          "pattern": "to \\$(?P<point>[\\d,]+(?:\\.\\d+)?) billion",
+          "period": {
+            "label": "Q4 FY2026",
+            "end": "2026-01-31",
+            "type": "instant"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "arr-contract-renewal-v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "kind": "kpi",
+          "quote": "Annual Recurring Revenue (ARR) grew 24% year-over-year to $5.25 billion as of January 31, 2026 , of which $330.7 million was net new ARR added in the quarter.",
+          "quoteSha256": "642103bd18eccfb9d49c6e2d1b9ad7dfbe655c4420ab36fb60748d3ffef4fc69",
+          "contexts": [
+            "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription."
+          ],
+          "definition": "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription.",
+          "valueKind": "point",
+          "approximate": true,
+          "note": "Annualiserat abonnemangsavtal; förnyelse antas. Avrundat av bolaget."
+        },
+        {
+          "key": "netnew-actual",
+          "metricId": "net_new_arr",
+          "label": "Ny ARR, netto",
+          "issuerLabel": "Net new ARR",
+          "pattern": "of which \\$(?P<point>[\\d,]+(?:\\.\\d+)?) million",
+          "period": {
+            "label": "Q4 FY2026",
+            "end": "2026-01-31",
+            "type": "quarter"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "arr-contract-renewal-v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "kind": "kpi",
+          "quote": "Annual Recurring Revenue (ARR) grew 24% year-over-year to $5.25 billion as of January 31, 2026 , of which $330.7 million was net new ARR added in the quarter.",
+          "quoteSha256": "642103bd18eccfb9d49c6e2d1b9ad7dfbe655c4420ab36fb60748d3ffef4fc69",
+          "contexts": [
+            "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription."
+          ],
+          "definition": "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription.",
+          "valueKind": "point",
+          "approximate": true,
+          "note": "Nettoökning av ARR under kvartalet."
+        }
+      ],
+      "originalVisibleSha256": "acfd6966937bcb8fa1efa440fd8536341dca58949b46f3e5aa10770be640ff60"
+    },
+    {
+      "ticker": "CRWD",
+      "accessionNumber": "0001535527-25-000030",
+      "publicationDate": "2025-12-02",
+      "document": {
+        "exhibit": "99.1",
+        "documentType": "earnings_release",
+        "accessionNumber": "0001535527-25-000030",
+        "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000030/crwd-20251202xex991.htm",
+        "source": "SEC",
+        "relationship": "item_2_02_and_exhibit_table",
+        "legalStatus": "furnished",
+        "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000030/crwd-20251202.htm",
+        "sourceSha256": "cdf3f5bf38dd1a1667ef015a5235705fdadb4148c89f937c778ea9d993854e7b"
+      },
+      "observations": [
+        {
+          "key": "revenue-quarter",
+          "metricId": "revenue",
+          "label": "Omsättning",
+          "issuerLabel": "Total revenue",
+          "pattern": "Total\\ revenue \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) - \\$(?P<upper>[\\d,]+(?:\\.\\d+)?) million",
+          "period": {
+            "label": "Q4 FY2026",
+            "end": "2026-01-31",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the fourth quarter of fiscal 2026 (ending January 31, 2026) and increasing its guidance for fiscal year 2026 (ending January 31, 2026). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , losses (gains) and other income from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for our long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders is not available without unreasonable effort. Q4 FY26 Guidance Full Year FY26 Guidance Total revenue $1,290.0 - $1,300.0 million $4,796.6 - $4,806.6 million Non-GAAP income from operations $315.4 - $319.4 million $1,036.1 - $1,040.1 million Non-GAAP net income attributable to CrowdStrike $282.1 - $286.6 million $949.6 - $954.0 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.09 - $1.11 million $3.70 - $3.72 million Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 258 million 256 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "73c24d919ca8c00789032eb83020799d2f36e6ada29bd6dede3b7e9f3944f3d6",
+          "contexts": [],
+          "definition": "Total revenue",
+          "valueKind": "range",
+          "approximate": false,
+          "note": ""
+        },
+        {
+          "key": "revenue-annual",
+          "metricId": "revenue",
+          "label": "Omsättning",
+          "issuerLabel": "Total revenue",
+          "pattern": "Total\\ revenue \\$([\\d,]+(?:\\.\\d+)?) - \\$([\\d,]+(?:\\.\\d+)?) million \\$(?P<lower>[\\d,]+(?:\\.\\d+)?) - \\$(?P<upper>[\\d,]+(?:\\.\\d+)?) million",
+          "period": {
+            "label": "FY2026",
+            "end": "2026-01-31",
+            "type": "annual"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "kind": "guidance",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the fourth quarter of fiscal 2026 (ending January 31, 2026) and increasing its guidance for fiscal year 2026 (ending January 31, 2026). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , losses (gains) and other income from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for our long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders is not available without unreasonable effort. Q4 FY26 Guidance Full Year FY26 Guidance Total revenue $1,290.0 - $1,300.0 million $4,796.6 - $4,806.6 million Non-GAAP income from operations $315.4 - $319.4 million $1,036.1 - $1,040.1 million Non-GAAP net income attributable to CrowdStrike $282.1 - $286.6 million $949.6 - $954.0 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.09 - $1.11 million $3.70 - $3.72 million Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 258 million 256 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "73c24d919ca8c00789032eb83020799d2f36e6ada29bd6dede3b7e9f3944f3d6",
+          "contexts": [],
+          "definition": "Total revenue",
+          "valueKind": "range",
+          "approximate": false,
+          "note": ""
+        },
+        {
+          "key": "arr-actual",
+          "metricId": "arr",
+          "label": "ARR",
+          "issuerLabel": "Annual Recurring Revenue",
+          "pattern": "to \\$(?P<point>[\\d,]+(?:\\.\\d+)?) billion",
+          "period": {
+            "label": "Q3 FY2026",
+            "end": "2025-10-31",
+            "type": "instant"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "arr-contract-renewal-v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "kind": "kpi",
+          "quote": "Annual Recurring Revenue (ARR) grew 23% year-over-year to $4.92 billion as of October 31, 2025, of which $265.3 million was net new ARR added in the quarter.",
+          "quoteSha256": "783b1b287b528a72910fd842c4cc9dc9e37c4c908326e2afcdfede97477f424d",
+          "contexts": [
+            "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription."
+          ],
+          "definition": "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription.",
+          "valueKind": "point",
+          "approximate": true,
+          "note": "Annualiserat abonnemangsavtal; förnyelse antas. Avrundat av bolaget."
+        },
+        {
+          "key": "netnew-actual",
+          "metricId": "net_new_arr",
+          "label": "Ny ARR, netto",
+          "issuerLabel": "Net new ARR",
+          "pattern": "of which \\$(?P<point>[\\d,]+(?:\\.\\d+)?) million",
+          "period": {
+            "label": "Q3 FY2026",
+            "end": "2025-10-31",
+            "type": "quarter"
+          },
+          "basis": "issuer-defined",
+          "definitionVersion": "arr-contract-renewal-v1",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "kind": "kpi",
+          "quote": "Annual Recurring Revenue (ARR) grew 23% year-over-year to $4.92 billion as of October 31, 2025, of which $265.3 million was net new ARR added in the quarter.",
+          "quoteSha256": "783b1b287b528a72910fd842c4cc9dc9e37c4c908326e2afcdfede97477f424d",
+          "contexts": [
+            "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription."
+          ],
+          "definition": "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription.",
+          "valueKind": "point",
+          "approximate": true,
+          "note": "Nettoökning av ARR under kvartalet."
+        }
+      ],
+      "originalVisibleSha256": "cd55c0ee577f2862fc928a0a236f83e4e7a783c220e0840ef86b04115d6c6b29"
+    }
+  ],
+  "coverage": {
+    "NVDA": {
+      "guidance": "reviewed",
+      "kpi": "unsupported",
+      "note": "Ingen fristående operativ KPI vald. Data Center är en intäktsuppdelning.",
+      "excluded": [
+        "Revenue segments and marketing performance claims"
+      ]
+    },
+    "SOFI": {
+      "guidance": "reviewed",
+      "kpi": "reviewed",
+      "note": "Medlemmar och produkter mäter räckvidd, inte aktiva kunder eller försäljning.",
+      "excluded": [
+        "FY2025 EPS: ambiguous dollar/cents wording; review required"
+      ]
+    },
+    "CRWD": {
+      "guidance": "reviewed",
+      "kpi": "reviewed",
+      "note": "ARR är annualiserat avtalsvärde, inte redovisad omsättning.",
+      "excluded": [
+        "FY2026 EPS: release table says million for per-share values; review required"
+      ]
+    }
+  }
+}

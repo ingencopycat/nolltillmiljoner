@@ -277,3 +277,25 @@ body.visual-v3 .research-card-block { border: 0; border-radius: 0; box-shadow: n
 .visual-v3 .overview-revenue { grid-template-columns: minmax(0,1fr); }
 .visual-v3 .fundamental-metrics [data-evidence-status=unavailable] .fundamental-value { display: none; }
 .visual-v3 .fundamental-metrics [data-evidence-status=unavailable] .fundamental-label { margin-top: 16px; }
+/* Reviewed guidance and issuer-specific KPIs: restrained rows, source detail on demand. */
+#companyObservations { border-bottom: 1px solid var(--border-color, #334155); padding-bottom: 28px; margin-bottom: 32px; }
+#companyObservations h2 { margin: 28px 0 8px; }
+.observation-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 28px; margin: 20px 0 28px; }
+.observation-metric { min-width: 0; border-top: 1px solid var(--border-color, #334155); padding-top: 14px; }
+.observation-metric h3 { font-size: .88rem; font-weight: 500; margin: 0 0 8px; }
+.observation-value { font-family: Georgia, serif; font-variant-numeric: tabular-nums; font-size: clamp(1.35rem, 2.3vw, 2rem); line-height: 1.2; overflow-wrap: anywhere; }
+.observation-period { margin: 5px 0 10px; font-size: .84rem; }
+.observation-change { font-size: .85rem; margin: 6px 0; }
+.observation-context, .observation-previous { font-size: .79rem; opacity: .75; line-height: 1.55; margin: 6px 0; }
+.observation-chart { display: flex; align-items: end; gap: 10px; margin: 18px 0 10px; }
+.observation-chart > div { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: end; text-align: center; }
+.observation-chart small { font-size: .62rem; white-space: nowrap; margin: 4px -3px; }
+.observation-bar { display: block; background: #779dbb; border-radius: 2px 2px 0 0; }
+.observation-table-scroll { max-width: 100%; overflow-x: auto; }
+.observation-history { border-collapse: collapse; width: 100%; font-size: .8rem; table-layout: fixed; }
+.observation-history th, .observation-history td { padding: 10px 8px; border-bottom: 1px solid var(--border-color, #334155); vertical-align: top; text-align: left; overflow-wrap: anywhere; }
+.observation-history td details p { white-space: normal; }
+.observation-history th:first-child { width: 20%; }
+.observation-history th:last-child { width: 34%; }
+@media(max-width: 800px) { .observation-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media(max-width: 480px) { .observation-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; } .observation-value { font-size: 1.85rem; } .observation-chart { max-width: 340px; } .observation-history { min-width: 650px; } }

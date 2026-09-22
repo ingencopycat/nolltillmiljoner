@@ -152,3 +152,6 @@ def validate_evidence(document, ticker, cik):
     latest = latest_report(events)
     if document.get('latestReportAccession') != (latest['accessionNumber'] if latest else None):
         raise ValueError('Invalid latest report')
+    if 'reviewedEvidence' in document:
+        from reviewed_company_evidence import validate
+        validate(document['reviewedEvidence'], ticker, cik)

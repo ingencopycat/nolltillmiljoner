@@ -144,6 +144,7 @@ def main():
     parser.add_argument('--all', action='store_true', help="Process all configured stock tickers")
     parser.add_argument('--offline', action='store_true', help="Run in offline mode using fixtures")
     parser.add_argument('--evidence', action='store_true', help='Refresh only the three-company filing evidence pilot')
+    parser.add_argument('--reviewed', action='store_true', help='Revalidate reviewed guidance and operating KPI passages')
     args = parser.parse_args()
 
     if args.evidence:
@@ -152,7 +153,7 @@ def main():
         failures = []
         for ticker in (PILOT if args.all else [args.ticker.upper()]):
             try:
-                update_evidence(ticker, client, offline=args.offline)
+                update_evidence(ticker, client, offline=args.offline, reviewed=args.reviewed)
             except Exception as error:
                 failures.append(ticker)
                 print(f"Evidence refresh failed for {ticker}: {error}", file=sys.stderr)
@@ -174,7 +175,7 @@ def main():
     print(f"\nCompleted {success_count}/{len(tickers_to_process)} tickers successfully.")
 
 
-def update_evidence(ticker, client, offline=False, output_dir=None):
+def update_evidence(ticker, client, offline=False, output_dir=None, reviewed=False):
     """Independent refresh cadence; shares SEC transport, identities and atomic publication."""
     from company_evidence import PILOT, refresh, validate_evidence
     from datetime import datetime, timezone
@@ -200,6 +201,26 @@ def update_evidence(ticker, client, offline=False, output_dir=None):
             fetch = client.get_filing_html
         cached = previous if previous and previous.get('status') == 'verified' and not offline else None
         document = refresh(submissions, ticker, IDENTITIES[ticker], fetch, cached)
+        if reviewed:
+            from reviewed_company_evidence import build
+            if offline:
+                def reviewed_fetch(url):
+                    acc = url.split('/')[-2]
+                    acc = acc[:10] + '-' + acc[10:12] + '-' + acc[12:]
+                    return (Path(FIXTURES_DIR) / 'company_observations' / (acc + '.html')).read_text(encoding='utf-8')
+            else:
+                reviewed_fetch = fetch
+            document['reviewedEvidence'] = build(document, reviewed_fetch)
+            if previous and previous.get('status') == 'verified':
+                old = {o['id'] for o in previous.get('reviewedEvidence', {}).get('observations', [])}
+                new = {o['id'] for o in document['reviewedEvidence']['observations']}
+                if not old.issubset(new):
+                    raise ValueError('Refresh would remove reviewed historical observations')
+        elif previous and previous.get('reviewedEvidence'):
+            document['reviewedEvidence'] = previous['reviewedEvidence']
+            newest = max(o['publicationDate'] for o in document['reviewedEvidence']['observations'])
+            document['reviewedEvidence']['pendingReview'] = [e['accessionNumber'] for e in document['events']
+                if e['classification'] == 'results_disclosure' and e['filingDate'] > newest]
         validate_evidence(document, ticker, IDENTITIES[ticker])
         document.update(verifiedAt=now, status='offline_fixture' if offline else 'verified')
         save_atomic_json(document, str(target))

@@ -626,6 +626,1178 @@
   ],
   "latestReportAccession": "0001535527-26-000031",
   "coverage": "24 most recent supported filings in SEC recent submissions; not a complete archive",
-  "verifiedAt": "2026-09-22T14:36:07.886250+00:00",
+  "reviewedEvidence": {
+    "schema": "ntm-reviewed-observations/1",
+    "observations": [
+      {
+        "kind": "kpi",
+        "metricId": "arr",
+        "issuerLabel": "Annual Recurring Revenue",
+        "label": "ARR",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q3 FY2026",
+          "end": "2025-10-31",
+          "type": "instant"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "arr-contract-renewal-v1",
+        "definition": "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription.",
+        "note": "Annualiserat abonnemangsavtal; förnyelse antas. Avrundat av bolaget.",
+        "id": "CRWD:0001535527-25-000030:arr-actual",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2025-12-02",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 4920000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000030/crwd-20251202xex991.htm",
+          "accessionNumber": "0001535527-25-000030",
+          "exhibit": "99.1",
+          "quote": "Annual Recurring Revenue (ARR) grew 23% year-over-year to $4.92 billion as of October 31, 2025, of which $265.3 million was net new ARR added in the quarter.",
+          "quoteSha256": "783b1b287b528a72910fd842c4cc9dc9e37c4c908326e2afcdfede97477f424d",
+          "contexts": [
+            "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription."
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "kpi",
+        "metricId": "net_new_arr",
+        "issuerLabel": "Net new ARR",
+        "label": "Ny ARR, netto",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q3 FY2026",
+          "end": "2025-10-31",
+          "type": "quarter"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "arr-contract-renewal-v1",
+        "definition": "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription.",
+        "note": "Nettoökning av ARR under kvartalet.",
+        "id": "CRWD:0001535527-25-000030:netnew-actual",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2025-12-02",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 265300000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000030/crwd-20251202xex991.htm",
+          "accessionNumber": "0001535527-25-000030",
+          "exhibit": "99.1",
+          "quote": "Annual Recurring Revenue (ARR) grew 23% year-over-year to $4.92 billion as of October 31, 2025, of which $265.3 million was net new ARR added in the quarter.",
+          "quoteSha256": "783b1b287b528a72910fd842c4cc9dc9e37c4c908326e2afcdfede97477f424d",
+          "contexts": [
+            "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription."
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "revenue",
+        "issuerLabel": "Total revenue",
+        "label": "Omsättning",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "FY2026",
+          "end": "2026-01-31",
+          "type": "annual"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "v1",
+        "definition": "Total revenue",
+        "note": "",
+        "id": "CRWD:0001535527-25-000030:revenue-annual",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2025-12-02",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 4796600000.0,
+          "upper": 4806600000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000030/crwd-20251202xex991.htm",
+          "accessionNumber": "0001535527-25-000030",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the fourth quarter of fiscal 2026 (ending January 31, 2026) and increasing its guidance for fiscal year 2026 (ending January 31, 2026). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , losses (gains) and other income from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for our long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders is not available without unreasonable effort. Q4 FY26 Guidance Full Year FY26 Guidance Total revenue $1,290.0 - $1,300.0 million $4,796.6 - $4,806.6 million Non-GAAP income from operations $315.4 - $319.4 million $1,036.1 - $1,040.1 million Non-GAAP net income attributable to CrowdStrike $282.1 - $286.6 million $949.6 - $954.0 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.09 - $1.11 million $3.70 - $3.72 million Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 258 million 256 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "73c24d919ca8c00789032eb83020799d2f36e6ada29bd6dede3b7e9f3944f3d6",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "revenue",
+        "issuerLabel": "Total revenue",
+        "label": "Omsättning",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q4 FY2026",
+          "end": "2026-01-31",
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "v1",
+        "definition": "Total revenue",
+        "note": "",
+        "id": "CRWD:0001535527-25-000030:revenue-quarter",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2025-12-02",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 1290000000.0,
+          "upper": 1300000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000030/crwd-20251202xex991.htm",
+          "accessionNumber": "0001535527-25-000030",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the fourth quarter of fiscal 2026 (ending January 31, 2026) and increasing its guidance for fiscal year 2026 (ending January 31, 2026). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , losses (gains) and other income from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for our long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders is not available without unreasonable effort. Q4 FY26 Guidance Full Year FY26 Guidance Total revenue $1,290.0 - $1,300.0 million $4,796.6 - $4,806.6 million Non-GAAP income from operations $315.4 - $319.4 million $1,036.1 - $1,040.1 million Non-GAAP net income attributable to CrowdStrike $282.1 - $286.6 million $949.6 - $954.0 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.09 - $1.11 million $3.70 - $3.72 million Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 258 million 256 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "73c24d919ca8c00789032eb83020799d2f36e6ada29bd6dede3b7e9f3944f3d6",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "kpi",
+        "metricId": "arr",
+        "issuerLabel": "Annual Recurring Revenue",
+        "label": "ARR",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q4 FY2026",
+          "end": "2026-01-31",
+          "type": "instant"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "arr-contract-renewal-v1",
+        "definition": "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription.",
+        "note": "Annualiserat abonnemangsavtal; förnyelse antas. Avrundat av bolaget.",
+        "id": "CRWD:0001535527-26-000007:arr-actual",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-03-03",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 5250000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
+          "accessionNumber": "0001535527-26-000007",
+          "exhibit": "99.1",
+          "quote": "Annual Recurring Revenue (ARR) grew 24% year-over-year to $5.25 billion as of January 31, 2026 , of which $330.7 million was net new ARR added in the quarter.",
+          "quoteSha256": "642103bd18eccfb9d49c6e2d1b9ad7dfbe655c4420ab36fb60748d3ffef4fc69",
+          "contexts": [
+            "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription."
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "arr",
+        "issuerLabel": "Annual recurring revenue",
+        "label": "ARR",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "FY2027",
+          "end": "2027-01-31",
+          "type": "annual"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "v1",
+        "definition": "Annual recurring revenue",
+        "note": "",
+        "id": "CRWD:0001535527-26-000007:arr-annual",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-03-03",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 6465800000.0,
+          "upper": 6516400000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
+          "accessionNumber": "0001535527-26-000007",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the first quarter of fiscal 2027 (ending April 30, 2026) and guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for our long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q1 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,501.8 - $5,503.8 million $6,465.8 - $6,516.4 million Total revenue $1,360.0 - $1,364.0 million $5,867.6 - $5,927.6 million Non-GAAP income from operations $308.0 - $310.4 million $1,422.2 - $1,462.2 million Non-GAAP net income attributable to CrowdStrike $275.2 - $277.1 million $1,241.0 - $1,271.1 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.06 - $1.07 $4.78 - $4.90 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 259 million 260 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "c37f9df22c9c716c81df2432d5ed1acc3cb59e897c588f041f2d595e8da42113",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "arr",
+        "issuerLabel": "Annual recurring revenue",
+        "label": "ARR",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q1 FY2027",
+          "end": "2026-04-30",
+          "type": "quarter"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "v1",
+        "definition": "Annual recurring revenue",
+        "note": "",
+        "id": "CRWD:0001535527-26-000007:arr-quarter",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-03-03",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 5501800000.0,
+          "upper": 5503800000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
+          "accessionNumber": "0001535527-26-000007",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the first quarter of fiscal 2027 (ending April 30, 2026) and guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for our long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q1 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,501.8 - $5,503.8 million $6,465.8 - $6,516.4 million Total revenue $1,360.0 - $1,364.0 million $5,867.6 - $5,927.6 million Non-GAAP income from operations $308.0 - $310.4 million $1,422.2 - $1,462.2 million Non-GAAP net income attributable to CrowdStrike $275.2 - $277.1 million $1,241.0 - $1,271.1 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.06 - $1.07 $4.78 - $4.90 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 259 million 260 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "c37f9df22c9c716c81df2432d5ed1acc3cb59e897c588f041f2d595e8da42113",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "diluted_eps",
+        "issuerLabel": "Non-GAAP diluted EPS",
+        "label": "Utspädd EPS",
+        "unit": "USD/share",
+        "currency": "USD",
+        "period": {
+          "label": "FY2027",
+          "end": "2027-01-31",
+          "type": "annual"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "pre-july-2026-split",
+        "definition": "Non-GAAP diluted EPS",
+        "note": "Split 4:1 den 1 juli 2026. Tidigare guidning visas på dåvarande aktiebasis; ingen automatisk jämförelse över splitten.",
+        "id": "CRWD:0001535527-26-000007:eps-annual",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-03-03",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 4.78,
+          "upper": 4.9
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
+          "accessionNumber": "0001535527-26-000007",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the first quarter of fiscal 2027 (ending April 30, 2026) and guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for our long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q1 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,501.8 - $5,503.8 million $6,465.8 - $6,516.4 million Total revenue $1,360.0 - $1,364.0 million $5,867.6 - $5,927.6 million Non-GAAP income from operations $308.0 - $310.4 million $1,422.2 - $1,462.2 million Non-GAAP net income attributable to CrowdStrike $275.2 - $277.1 million $1,241.0 - $1,271.1 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.06 - $1.07 $4.78 - $4.90 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 259 million 260 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "c37f9df22c9c716c81df2432d5ed1acc3cb59e897c588f041f2d595e8da42113",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "diluted_eps",
+        "issuerLabel": "Non-GAAP diluted EPS",
+        "label": "Utspädd EPS",
+        "unit": "USD/share",
+        "currency": "USD",
+        "period": {
+          "label": "Q1 FY2027",
+          "end": "2026-04-30",
+          "type": "quarter"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "pre-july-2026-split",
+        "definition": "Non-GAAP diluted EPS",
+        "note": "Split 4:1 den 1 juli 2026. Tidigare guidning visas på dåvarande aktiebasis; ingen automatisk jämförelse över splitten.",
+        "id": "CRWD:0001535527-26-000007:eps-quarter",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-03-03",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 1.06,
+          "upper": 1.07
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
+          "accessionNumber": "0001535527-26-000007",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the first quarter of fiscal 2027 (ending April 30, 2026) and guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for our long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q1 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,501.8 - $5,503.8 million $6,465.8 - $6,516.4 million Total revenue $1,360.0 - $1,364.0 million $5,867.6 - $5,927.6 million Non-GAAP income from operations $308.0 - $310.4 million $1,422.2 - $1,462.2 million Non-GAAP net income attributable to CrowdStrike $275.2 - $277.1 million $1,241.0 - $1,271.1 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.06 - $1.07 $4.78 - $4.90 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 259 million 260 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "c37f9df22c9c716c81df2432d5ed1acc3cb59e897c588f041f2d595e8da42113",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "kpi",
+        "metricId": "net_new_arr",
+        "issuerLabel": "Net new ARR",
+        "label": "Ny ARR, netto",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q4 FY2026",
+          "end": "2026-01-31",
+          "type": "quarter"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "arr-contract-renewal-v1",
+        "definition": "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription.",
+        "note": "Nettoökning av ARR under kvartalet.",
+        "id": "CRWD:0001535527-26-000007:netnew-actual",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-03-03",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 330700000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
+          "accessionNumber": "0001535527-26-000007",
+          "exhibit": "99.1",
+          "quote": "Annual Recurring Revenue (ARR) grew 24% year-over-year to $5.25 billion as of January 31, 2026 , of which $330.7 million was net new ARR added in the quarter.",
+          "quoteSha256": "642103bd18eccfb9d49c6e2d1b9ad7dfbe655c4420ab36fb60748d3ffef4fc69",
+          "contexts": [
+            "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription."
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "revenue",
+        "issuerLabel": "Total revenue",
+        "label": "Omsättning",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "FY2027",
+          "end": "2027-01-31",
+          "type": "annual"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "v1",
+        "definition": "Total revenue",
+        "note": "",
+        "id": "CRWD:0001535527-26-000007:revenue-annual",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-03-03",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 5867600000.0,
+          "upper": 5927600000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
+          "accessionNumber": "0001535527-26-000007",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the first quarter of fiscal 2027 (ending April 30, 2026) and guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for our long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q1 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,501.8 - $5,503.8 million $6,465.8 - $6,516.4 million Total revenue $1,360.0 - $1,364.0 million $5,867.6 - $5,927.6 million Non-GAAP income from operations $308.0 - $310.4 million $1,422.2 - $1,462.2 million Non-GAAP net income attributable to CrowdStrike $275.2 - $277.1 million $1,241.0 - $1,271.1 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.06 - $1.07 $4.78 - $4.90 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 259 million 260 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "c37f9df22c9c716c81df2432d5ed1acc3cb59e897c588f041f2d595e8da42113",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "revenue",
+        "issuerLabel": "Total revenue",
+        "label": "Omsättning",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q1 FY2027",
+          "end": "2026-04-30",
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "v1",
+        "definition": "Total revenue",
+        "note": "",
+        "id": "CRWD:0001535527-26-000007:revenue-quarter",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-03-03",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 1360000000.0,
+          "upper": 1364000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
+          "accessionNumber": "0001535527-26-000007",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the first quarter of fiscal 2027 (ending April 30, 2026) and guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for our long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q1 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,501.8 - $5,503.8 million $6,465.8 - $6,516.4 million Total revenue $1,360.0 - $1,364.0 million $5,867.6 - $5,927.6 million Non-GAAP income from operations $308.0 - $310.4 million $1,422.2 - $1,462.2 million Non-GAAP net income attributable to CrowdStrike $275.2 - $277.1 million $1,241.0 - $1,271.1 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.06 - $1.07 $4.78 - $4.90 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 259 million 260 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "c37f9df22c9c716c81df2432d5ed1acc3cb59e897c588f041f2d595e8da42113",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "kpi",
+        "metricId": "arr",
+        "issuerLabel": "Annual Recurring Revenue",
+        "label": "ARR",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q1 FY2027",
+          "end": "2026-04-30",
+          "type": "instant"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "arr-contract-renewal-v1",
+        "definition": "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription.",
+        "note": "Annualiserat abonnemangsavtal; förnyelse antas. Avrundat av bolaget.",
+        "id": "CRWD:0001535527-26-000022:arr-actual",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-06-03",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 5510000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603xex991.htm",
+          "accessionNumber": "0001535527-26-000022",
+          "exhibit": "99.1",
+          "quote": "Annual Recurring Revenue (ARR) grew 24% year-over-year to $5.51 billion as of April 30, 2026, of which $255.8 million was net new ARR added in the quarter.",
+          "quoteSha256": "fe29aa9d845bd4dc8bbdab0142bf618d1752930a3a23e8fd44bf46f5af730f9e",
+          "contexts": [
+            "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription."
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "arr",
+        "issuerLabel": "Annual recurring revenue",
+        "label": "ARR",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "FY2027",
+          "end": "2027-01-31",
+          "type": "annual"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "v1",
+        "definition": "Annual recurring revenue",
+        "note": "",
+        "id": "CRWD:0001535527-26-000022:arr-annual",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-06-03",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 6531700000.0,
+          "upper": 6555500000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603xex991.htm",
+          "accessionNumber": "0001535527-26-000022",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the second quarter of fiscal 2027 (ending July 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q2 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,792.6 - $5,794.6 million $6,531.7 - $6,555.5 million Total revenue $1,436.0 - $1,442.0 million $5,914.7 - $5,958.7 million Non-GAAP income from operations $345.6 - $349.1 million $1,452.3 - $1,480.3 million Non-GAAP net income attributable to CrowdStrike $300.7 - $303.4 million $1,263.1 - $1,285.2 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.16 - $1.17 $4.88 - $4.96 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 258 million 259 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "03242f1508ecfe05fa9441e86d956abbe8bfed3b2c986b7dbed16c1d78e4f1bb",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "arr",
+        "issuerLabel": "Annual recurring revenue",
+        "label": "ARR",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q2 FY2027",
+          "end": "2026-07-31",
+          "type": "quarter"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "v1",
+        "definition": "Annual recurring revenue",
+        "note": "",
+        "id": "CRWD:0001535527-26-000022:arr-quarter",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-06-03",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 5792600000.0,
+          "upper": 5794600000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603xex991.htm",
+          "accessionNumber": "0001535527-26-000022",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the second quarter of fiscal 2027 (ending July 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q2 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,792.6 - $5,794.6 million $6,531.7 - $6,555.5 million Total revenue $1,436.0 - $1,442.0 million $5,914.7 - $5,958.7 million Non-GAAP income from operations $345.6 - $349.1 million $1,452.3 - $1,480.3 million Non-GAAP net income attributable to CrowdStrike $300.7 - $303.4 million $1,263.1 - $1,285.2 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.16 - $1.17 $4.88 - $4.96 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 258 million 259 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "03242f1508ecfe05fa9441e86d956abbe8bfed3b2c986b7dbed16c1d78e4f1bb",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "diluted_eps",
+        "issuerLabel": "Non-GAAP diluted EPS",
+        "label": "Utspädd EPS",
+        "unit": "USD/share",
+        "currency": "USD",
+        "period": {
+          "label": "FY2027",
+          "end": "2027-01-31",
+          "type": "annual"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "pre-july-2026-split",
+        "definition": "Non-GAAP diluted EPS",
+        "note": "Split 4:1 den 1 juli 2026. Tidigare guidning visas på dåvarande aktiebasis; ingen automatisk jämförelse över splitten.",
+        "id": "CRWD:0001535527-26-000022:eps-annual",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-06-03",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 4.88,
+          "upper": 4.96
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603xex991.htm",
+          "accessionNumber": "0001535527-26-000022",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the second quarter of fiscal 2027 (ending July 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q2 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,792.6 - $5,794.6 million $6,531.7 - $6,555.5 million Total revenue $1,436.0 - $1,442.0 million $5,914.7 - $5,958.7 million Non-GAAP income from operations $345.6 - $349.1 million $1,452.3 - $1,480.3 million Non-GAAP net income attributable to CrowdStrike $300.7 - $303.4 million $1,263.1 - $1,285.2 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.16 - $1.17 $4.88 - $4.96 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 258 million 259 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "03242f1508ecfe05fa9441e86d956abbe8bfed3b2c986b7dbed16c1d78e4f1bb",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "diluted_eps",
+        "issuerLabel": "Non-GAAP diluted EPS",
+        "label": "Utspädd EPS",
+        "unit": "USD/share",
+        "currency": "USD",
+        "period": {
+          "label": "Q2 FY2027",
+          "end": "2026-07-31",
+          "type": "quarter"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "pre-july-2026-split",
+        "definition": "Non-GAAP diluted EPS",
+        "note": "Split 4:1 den 1 juli 2026. Tidigare guidning visas på dåvarande aktiebasis; ingen automatisk jämförelse över splitten.",
+        "id": "CRWD:0001535527-26-000022:eps-quarter",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-06-03",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 1.16,
+          "upper": 1.17
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603xex991.htm",
+          "accessionNumber": "0001535527-26-000022",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the second quarter of fiscal 2027 (ending July 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q2 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,792.6 - $5,794.6 million $6,531.7 - $6,555.5 million Total revenue $1,436.0 - $1,442.0 million $5,914.7 - $5,958.7 million Non-GAAP income from operations $345.6 - $349.1 million $1,452.3 - $1,480.3 million Non-GAAP net income attributable to CrowdStrike $300.7 - $303.4 million $1,263.1 - $1,285.2 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.16 - $1.17 $4.88 - $4.96 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 258 million 259 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "03242f1508ecfe05fa9441e86d956abbe8bfed3b2c986b7dbed16c1d78e4f1bb",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "kpi",
+        "metricId": "net_new_arr",
+        "issuerLabel": "Net new ARR",
+        "label": "Ny ARR, netto",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q1 FY2027",
+          "end": "2026-04-30",
+          "type": "quarter"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "arr-contract-renewal-v1",
+        "definition": "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription.",
+        "note": "Nettoökning av ARR under kvartalet.",
+        "id": "CRWD:0001535527-26-000022:netnew-actual",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-06-03",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 255800000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603xex991.htm",
+          "accessionNumber": "0001535527-26-000022",
+          "exhibit": "99.1",
+          "quote": "Annual Recurring Revenue (ARR) grew 24% year-over-year to $5.51 billion as of April 30, 2026, of which $255.8 million was net new ARR added in the quarter.",
+          "quoteSha256": "fe29aa9d845bd4dc8bbdab0142bf618d1752930a3a23e8fd44bf46f5af730f9e",
+          "contexts": [
+            "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription."
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "revenue",
+        "issuerLabel": "Total revenue",
+        "label": "Omsättning",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "FY2027",
+          "end": "2027-01-31",
+          "type": "annual"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "v1",
+        "definition": "Total revenue",
+        "note": "",
+        "id": "CRWD:0001535527-26-000022:revenue-annual",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-06-03",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 5914700000.0,
+          "upper": 5958700000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603xex991.htm",
+          "accessionNumber": "0001535527-26-000022",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the second quarter of fiscal 2027 (ending July 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q2 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,792.6 - $5,794.6 million $6,531.7 - $6,555.5 million Total revenue $1,436.0 - $1,442.0 million $5,914.7 - $5,958.7 million Non-GAAP income from operations $345.6 - $349.1 million $1,452.3 - $1,480.3 million Non-GAAP net income attributable to CrowdStrike $300.7 - $303.4 million $1,263.1 - $1,285.2 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.16 - $1.17 $4.88 - $4.96 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 258 million 259 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "03242f1508ecfe05fa9441e86d956abbe8bfed3b2c986b7dbed16c1d78e4f1bb",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "revenue",
+        "issuerLabel": "Total revenue",
+        "label": "Omsättning",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q2 FY2027",
+          "end": "2026-07-31",
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "v1",
+        "definition": "Total revenue",
+        "note": "",
+        "id": "CRWD:0001535527-26-000022:revenue-quarter",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-06-03",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 1436000000.0,
+          "upper": 1442000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603xex991.htm",
+          "accessionNumber": "0001535527-26-000022",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the second quarter of fiscal 2027 (ending July 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q2 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $5,792.6 - $5,794.6 million $6,531.7 - $6,555.5 million Total revenue $1,436.0 - $1,442.0 million $5,914.7 - $5,958.7 million Non-GAAP income from operations $345.6 - $349.1 million $1,452.3 - $1,480.3 million Non-GAAP net income attributable to CrowdStrike $300.7 - $303.4 million $1,263.1 - $1,285.2 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $1.16 - $1.17 $4.88 - $4.96 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 258 million 259 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "03242f1508ecfe05fa9441e86d956abbe8bfed3b2c986b7dbed16c1d78e4f1bb",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "kpi",
+        "metricId": "arr",
+        "issuerLabel": "Annual Recurring Revenue",
+        "label": "ARR",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q2 FY2027",
+          "end": "2026-07-31",
+          "type": "instant"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "arr-contract-renewal-v1",
+        "definition": "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription.",
+        "note": "Annualiserat abonnemangsavtal; förnyelse antas. Avrundat av bolaget.",
+        "id": "CRWD:0001535527-26-000029:arr-actual",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-08-26",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 5840000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826xex991.htm",
+          "accessionNumber": "0001535527-26-000029",
+          "exhibit": "99.1",
+          "quote": "Annual Recurring Revenue (ARR) grew 25% year-over-year to $5.84 billion as of July 31, 2026, of which $332.8 million was net new ARR added in the quarter.",
+          "quoteSha256": "ebed008e96818299f7a7d3ab7135ce897df5837379aa3b463dd113ce7b47e016",
+          "contexts": [
+            "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription."
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "arr",
+        "issuerLabel": "Annual recurring revenue",
+        "label": "ARR",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "FY2027",
+          "end": "2027-01-31",
+          "type": "annual"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "v1",
+        "definition": "Annual recurring revenue",
+        "note": "",
+        "id": "CRWD:0001535527-26-000029:arr-annual",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-08-26",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 6603000000.0,
+          "upper": 6611900000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826xex991.htm",
+          "accessionNumber": "0001535527-26-000029",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the third quarter of fiscal 2027 (ending October 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q3 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $6,184.4 - $6,188.4 million $6,603.0 - $6,611.9 million Total revenue $1,523.2 - $1,529.2 million $5,991.1 - $6,011.1 million Non-GAAP income from operations $372.7 - $375.9 million $1,497.2 - $1,508.4 million Non-GAAP net income attributable to CrowdStrike $325.4 - $327.9 million $1,302.7 - $1,311.6 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $0.31 $1.25 - $1.26 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 1,048 million 1,044 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "1c4f86b0ca3581899fdafcdd5638c5b9fd919a4aab98433bd01d16c80ae1cd7b",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "arr",
+        "issuerLabel": "Annual recurring revenue",
+        "label": "ARR",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q3 FY2027",
+          "end": "2026-10-31",
+          "type": "quarter"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "v1",
+        "definition": "Annual recurring revenue",
+        "note": "",
+        "id": "CRWD:0001535527-26-000029:arr-quarter",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-08-26",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 6184400000.0,
+          "upper": 6188400000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826xex991.htm",
+          "accessionNumber": "0001535527-26-000029",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the third quarter of fiscal 2027 (ending October 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q3 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $6,184.4 - $6,188.4 million $6,603.0 - $6,611.9 million Total revenue $1,523.2 - $1,529.2 million $5,991.1 - $6,011.1 million Non-GAAP income from operations $372.7 - $375.9 million $1,497.2 - $1,508.4 million Non-GAAP net income attributable to CrowdStrike $325.4 - $327.9 million $1,302.7 - $1,311.6 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $0.31 $1.25 - $1.26 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 1,048 million 1,044 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "1c4f86b0ca3581899fdafcdd5638c5b9fd919a4aab98433bd01d16c80ae1cd7b",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "diluted_eps",
+        "issuerLabel": "Non-GAAP diluted EPS",
+        "label": "Utspädd EPS",
+        "unit": "USD/share",
+        "currency": "USD",
+        "period": {
+          "label": "FY2027",
+          "end": "2027-01-31",
+          "type": "annual"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "split-adjusted-july-2026",
+        "definition": "Non-GAAP diluted EPS",
+        "note": "Split 4:1 den 1 juli 2026. Tidigare guidning visas på dåvarande aktiebasis; ingen automatisk jämförelse över splitten.",
+        "id": "CRWD:0001535527-26-000029:eps-annual",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-08-26",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 1.25,
+          "upper": 1.26
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826xex991.htm",
+          "accessionNumber": "0001535527-26-000029",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the third quarter of fiscal 2027 (ending October 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q3 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $6,184.4 - $6,188.4 million $6,603.0 - $6,611.9 million Total revenue $1,523.2 - $1,529.2 million $5,991.1 - $6,011.1 million Non-GAAP income from operations $372.7 - $375.9 million $1,497.2 - $1,508.4 million Non-GAAP net income attributable to CrowdStrike $325.4 - $327.9 million $1,302.7 - $1,311.6 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $0.31 $1.25 - $1.26 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 1,048 million 1,044 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "1c4f86b0ca3581899fdafcdd5638c5b9fd919a4aab98433bd01d16c80ae1cd7b",
+          "contexts": [
+            "Stock Split After the close of trading on July 1, 2026, CrowdStrike effected a four-for-one stock split of its common stock in the form of a stock dividend. References made to all share and per share amounts and related stockholders' equity balances related to the company's outstanding common stock have been retroactively adjusted on the applicable disclosures to reflect the effects of the stock split."
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "diluted_eps",
+        "issuerLabel": "Non-GAAP diluted EPS",
+        "label": "Utspädd EPS",
+        "unit": "USD/share",
+        "currency": "USD",
+        "period": {
+          "label": "Q3 FY2027",
+          "end": "2026-10-31",
+          "type": "quarter"
+        },
+        "basis": "non-GAAP",
+        "definitionVersion": "split-adjusted-july-2026",
+        "definition": "Non-GAAP diluted EPS",
+        "note": "Split 4:1 den 1 juli 2026. Tidigare guidning visas på dåvarande aktiebasis; ingen automatisk jämförelse över splitten.",
+        "id": "CRWD:0001535527-26-000029:eps-quarter",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-08-26",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 0.31
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826xex991.htm",
+          "accessionNumber": "0001535527-26-000029",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the third quarter of fiscal 2027 (ending October 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q3 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $6,184.4 - $6,188.4 million $6,603.0 - $6,611.9 million Total revenue $1,523.2 - $1,529.2 million $5,991.1 - $6,011.1 million Non-GAAP income from operations $372.7 - $375.9 million $1,497.2 - $1,508.4 million Non-GAAP net income attributable to CrowdStrike $325.4 - $327.9 million $1,302.7 - $1,311.6 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $0.31 $1.25 - $1.26 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 1,048 million 1,044 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "1c4f86b0ca3581899fdafcdd5638c5b9fd919a4aab98433bd01d16c80ae1cd7b",
+          "contexts": [
+            "Stock Split After the close of trading on July 1, 2026, CrowdStrike effected a four-for-one stock split of its common stock in the form of a stock dividend. References made to all share and per share amounts and related stockholders' equity balances related to the company's outstanding common stock have been retroactively adjusted on the applicable disclosures to reflect the effects of the stock split."
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "kpi",
+        "metricId": "net_new_arr",
+        "issuerLabel": "Net new ARR",
+        "label": "Ny ARR, netto",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q2 FY2027",
+          "end": "2026-07-31",
+          "type": "quarter"
+        },
+        "basis": "issuer-defined",
+        "definitionVersion": "arr-contract-renewal-v1",
+        "definition": "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription.",
+        "note": "Nettoökning av ARR under kvartalet.",
+        "id": "CRWD:0001535527-26-000029:netnew-actual",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-08-26",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 332800000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826xex991.htm",
+          "accessionNumber": "0001535527-26-000029",
+          "exhibit": "99.1",
+          "quote": "Annual Recurring Revenue (ARR) grew 25% year-over-year to $5.84 billion as of July 31, 2026, of which $332.8 million was net new ARR added in the quarter.",
+          "quoteSha256": "ebed008e96818299f7a7d3ab7135ce897df5837379aa3b463dd113ce7b47e016",
+          "contexts": [
+            "Annual Recurring Revenue ARR is calculated as the annualized value of CrowdStrike’s customer subscription contracts as of the measurement date, assuming any contract that expires during the next 12 months is renewed on its existing terms. To the extent that CrowdStrike is negotiating a renewal with a customer after the expiration of the subscription, CrowdStrike continues to include that revenue in ARR if CrowdStrike is actively in discussion with such an organization for a new subscription or renewal, or until such organization notifies CrowdStrike that it is not renewing its subscription."
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "revenue",
+        "issuerLabel": "Total revenue",
+        "label": "Omsättning",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "FY2027",
+          "end": "2027-01-31",
+          "type": "annual"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "v1",
+        "definition": "Total revenue",
+        "note": "",
+        "id": "CRWD:0001535527-26-000029:revenue-annual",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-08-26",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 5991100000.0,
+          "upper": 6011100000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826xex991.htm",
+          "accessionNumber": "0001535527-26-000029",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the third quarter of fiscal 2027 (ending October 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q3 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $6,184.4 - $6,188.4 million $6,603.0 - $6,611.9 million Total revenue $1,523.2 - $1,529.2 million $5,991.1 - $6,011.1 million Non-GAAP income from operations $372.7 - $375.9 million $1,497.2 - $1,508.4 million Non-GAAP net income attributable to CrowdStrike $325.4 - $327.9 million $1,302.7 - $1,311.6 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $0.31 $1.25 - $1.26 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 1,048 million 1,044 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "1c4f86b0ca3581899fdafcdd5638c5b9fd919a4aab98433bd01d16c80ae1cd7b",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "revenue",
+        "issuerLabel": "Total revenue",
+        "label": "Omsättning",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q3 FY2027",
+          "end": "2026-10-31",
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "v1",
+        "definition": "Total revenue",
+        "note": "",
+        "id": "CRWD:0001535527-26-000029:revenue-quarter",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "publicationDate": "2026-08-26",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "lower": 1523200000.0,
+          "upper": 1529200000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826xex991.htm",
+          "accessionNumber": "0001535527-26-000029",
+          "exhibit": "99.1",
+          "quote": "Financial Outlook CrowdStrike is providing the following guidance for the third quarter of fiscal 2027 (ending October 31, 2026) and increasing its guidance for fiscal year 2027 (ending January 31, 2027). Guidance for non-GAAP financial measures excludes stock-based compensation expense and related employer payroll taxes, amortization of acquired intangible assets (including purchased patents), acquisition-related expenses (credits), net, amortization of debt issuance costs and discount, mark-to-market adjustments on deferred compensation liabilities, legal reserve and settlement charges or benefits, costs (recoveries) associated with the July 19 Incident and related matters, net, strategic plan related charges (benefits) , net, losses (gains) and other expense (income) from strategic investments, and losses (gains) on deferred compensation assets, and is adjusted for its long-term non-GAAP effective tax rate. The company has not provided the most directly comparable GAAP measures because certain items are out of the company's control or cannot be reasonably predicted. Accordingly, a reconciliation for non-GAAP income from operations, non-GAAP net income attributable to CrowdStrike, and non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted, is not available without unreasonable effort. Q3 FY27 Guidance Full Year FY27 Guidance Annual recurring revenue $6,184.4 - $6,188.4 million $6,603.0 - $6,611.9 million Total revenue $1,523.2 - $1,529.2 million $5,991.1 - $6,011.1 million Non-GAAP income from operations $372.7 - $375.9 million $1,497.2 - $1,508.4 million Non-GAAP net income attributable to CrowdStrike $325.4 - $327.9 million $1,302.7 - $1,311.6 million Non-GAAP net income per share attributable to CrowdStrike common stockholders, diluted $0.31 $1.25 - $1.26 Weighted average shares used in computing non-GAAP net income per share attributable to common stockholders, diluted 1,048 million 1,044 million Non-GAAP tax rate 21.0% 21.0%",
+          "quoteSha256": "1c4f86b0ca3581899fdafcdd5638c5b9fd919a4aab98433bd01d16c80ae1cd7b",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-22"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "accessionNumber": "0001535527-26-000029",
+        "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826xex991.htm",
+        "documentSha256": "d6772e3268a529ef82eec0164f014186f16e1a7080a16d66cc3d4db3623341ce",
+        "reviewDate": "2026-09-22"
+      },
+      {
+        "accessionNumber": "0001535527-26-000022",
+        "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603xex991.htm",
+        "documentSha256": "2658f12b20bfdc752b22a743a61f8e50ce3e8f32a5d22a17868040a229290d3c",
+        "reviewDate": "2026-09-22"
+      },
+      {
+        "accessionNumber": "0001535527-26-000007",
+        "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
+        "documentSha256": "acfd6966937bcb8fa1efa440fd8536341dca58949b46f3e5aa10770be640ff60",
+        "reviewDate": "2026-09-22"
+      },
+      {
+        "accessionNumber": "0001535527-25-000030",
+        "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000030/crwd-20251202xex991.htm",
+        "documentSha256": "cd55c0ee577f2862fc928a0a236f83e4e7a783c220e0840ef86b04115d6c6b29",
+        "reviewDate": "2026-09-22"
+      }
+    ],
+    "pendingReview": [],
+    "coverage": {
+      "guidance": "reviewed",
+      "kpi": "reviewed",
+      "note": "ARR är annualiserat avtalsvärde, inte redovisad omsättning.",
+      "excluded": [
+        "FY2026 EPS: release table says million for per-share values; review required"
+      ]
+    },
+    "reviewRegistrySha256": "21a35b636ec2a5c979ff5308071a982bfcfe89f407c99b52d667c422787f13b5"
+  },
+  "verifiedAt": "2026-09-22T16:28:29.630456+00:00",
   "status": "verified"
 }
