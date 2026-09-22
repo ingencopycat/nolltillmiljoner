@@ -1,0 +1,631 @@
+{
+  "schema": "ntm-company-evidence/1",
+  "ticker": "CRWD",
+  "cik": "0001535527",
+  "events": [
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "10-Q",
+      "accessionNumber": "0001535527-26-000031",
+      "filingDate": "2026-08-27",
+      "reportDate": "2026-07-31",
+      "primaryDocument": "crwd-20260731.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "8-K",
+      "accessionNumber": "0001535527-26-000029",
+      "filingDate": "2026-08-26",
+      "reportDate": "2026-08-26",
+      "primaryDocument": "crwd-20260826.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0001535527-26-000029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826xex991.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "furnished",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826.htm",
+          "sourceSha256": "210fbe0975165622e10316aef02d366cf58c078ca2aa7278833568a7f2373889"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "8-K",
+      "accessionNumber": "0001104659-26-076376",
+      "filingDate": "2026-06-22",
+      "reportDate": "2026-06-17",
+      "primaryDocument": "tm2618192d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465926076376/tm2618192d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465926076376/",
+      "items": [
+        "5.03",
+        "5.07",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "10-Q",
+      "accessionNumber": "0001535527-26-000025",
+      "filingDate": "2026-06-04",
+      "reportDate": "2026-04-30",
+      "primaryDocument": "crwd-20260430.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000025/crwd-20260430.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000025/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "8-K",
+      "accessionNumber": "0001535527-26-000022",
+      "filingDate": "2026-06-03",
+      "reportDate": "2026-06-03",
+      "primaryDocument": "crwd-20260603.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/",
+      "items": [
+        "2.02",
+        "8.01",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0001535527-26-000022",
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603xex991.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "furnished",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603.htm",
+          "sourceSha256": "447b28c307e231c627ff63a307644114be790a9b4e3e7506d78ff0ab656c8d3e"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "8-K",
+      "accessionNumber": "0001535527-26-000018",
+      "filingDate": "2026-04-21",
+      "reportDate": "2026-04-16",
+      "primaryDocument": "crwd-20260416.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000018/crwd-20260416.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000018/",
+      "items": [
+        "5.02",
+        "7.01",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "8-K",
+      "accessionNumber": "0001535527-26-000013",
+      "filingDate": "2026-04-06",
+      "reportDate": "2026-04-06",
+      "primaryDocument": "crwd-20260406.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000013/crwd-20260406.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000013/",
+      "items": [
+        "8.01",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "10-K",
+      "accessionNumber": "0001535527-26-000010",
+      "filingDate": "2026-03-05",
+      "reportDate": "2026-01-31",
+      "primaryDocument": "crwd-20260131.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000010/crwd-20260131.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000010/",
+      "items": [],
+      "amendment": false,
+      "classification": "annual_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "8-K",
+      "accessionNumber": "0001535527-26-000007",
+      "filingDate": "2026-03-03",
+      "reportDate": "2026-03-03",
+      "primaryDocument": "crwd-20260303.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0001535527-26-000007",
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303xex991.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "furnished",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303.htm",
+          "sourceSha256": "a43144fd4f29eff267978c7a2d74e1b2d3c138b8d8f69180006545df561152f9"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "8-K",
+      "accessionNumber": "0001104659-25-124912",
+      "filingDate": "2025-12-29",
+      "reportDate": "2025-12-22",
+      "primaryDocument": "tm2534248d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925124912/tm2534248d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925124912/",
+      "items": [
+        "5.02",
+        "7.01",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "10-Q",
+      "accessionNumber": "0001535527-25-000033",
+      "filingDate": "2025-12-03",
+      "reportDate": "2025-10-31",
+      "primaryDocument": "crwd-20251031.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000033/crwd-20251031.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000033/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "8-K",
+      "accessionNumber": "0001535527-25-000030",
+      "filingDate": "2025-12-02",
+      "reportDate": "2025-12-02",
+      "primaryDocument": "crwd-20251202.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000030/crwd-20251202.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000030/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0001535527-25-000030",
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000030/crwd-20251202xex991.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "furnished",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000030/crwd-20251202.htm",
+          "sourceSha256": "cdf3f5bf38dd1a1667ef015a5235705fdadb4148c89f937c778ea9d993854e7b"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "10-Q",
+      "accessionNumber": "0001535527-25-000025",
+      "filingDate": "2025-08-28",
+      "reportDate": "2025-07-31",
+      "primaryDocument": "crwd-20250731.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000025/crwd-20250731.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000025/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "8-K",
+      "accessionNumber": "0001535527-25-000023",
+      "filingDate": "2025-08-27",
+      "reportDate": "2025-08-27",
+      "primaryDocument": "crwd-20250827.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000023/crwd-20250827.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000023/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0001535527-25-000023",
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000023/crwd-20252708xex991.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "furnished",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000023/crwd-20250827.htm",
+          "sourceSha256": "f1779efef642204a915620397d9aeca049f8e380ca4e9c337dc88ad2bdc993f9"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "8-K",
+      "accessionNumber": "0001104659-25-061216",
+      "filingDate": "2025-06-20",
+      "reportDate": "2025-06-18",
+      "primaryDocument": "tm2518570d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925061216/tm2518570d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925061216/",
+      "items": [
+        "5.07"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "10-Q",
+      "accessionNumber": "0001535527-25-000019",
+      "filingDate": "2025-06-04",
+      "reportDate": "2025-04-30",
+      "primaryDocument": "crwd-20250430.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000019/crwd-20250430.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000019/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "8-K",
+      "accessionNumber": "0001535527-25-000017",
+      "filingDate": "2025-06-03",
+      "reportDate": "2025-06-03",
+      "primaryDocument": "crwd-20250603.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000017/crwd-20250603.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000017/",
+      "items": [
+        "2.02",
+        "8.01",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0001535527-25-000017",
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000017/crwd-20250603xex991.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "furnished",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000017/crwd-20250603.htm",
+          "sourceSha256": "c07c30c5a3c7a1d3d98c852aecb30434b1b938951cf6a45930bc467419a33dc2"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "8-K",
+      "accessionNumber": "0001104659-25-045244",
+      "filingDate": "2025-05-07",
+      "reportDate": "2025-05-06",
+      "primaryDocument": "tm2514190d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925045244/tm2514190d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925045244/",
+      "items": [
+        "2.02",
+        "2.05",
+        "7.01",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [],
+      "documentStatus": "unsupported_relationship"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "8-K",
+      "accessionNumber": "0001104659-25-039500",
+      "filingDate": "2025-04-25",
+      "reportDate": "2025-04-23",
+      "primaryDocument": "tm2513136d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925039500/tm2513136d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925039500/",
+      "items": [
+        "5.02"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "8-K",
+      "accessionNumber": "0001104659-25-036392",
+      "filingDate": "2025-04-18",
+      "reportDate": "2025-04-16",
+      "primaryDocument": "tm2512714d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925036392/tm2512714d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925036392/",
+      "items": [
+        "5.02"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "10-K",
+      "accessionNumber": "0001535527-25-000009",
+      "filingDate": "2025-03-10",
+      "reportDate": "2025-01-31",
+      "primaryDocument": "crwd-20250131.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000009/crwd-20250131.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000009/",
+      "items": [],
+      "amendment": false,
+      "classification": "annual_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "8-K",
+      "accessionNumber": "0001535527-25-000005",
+      "filingDate": "2025-03-04",
+      "reportDate": "2025-03-04",
+      "primaryDocument": "crwd-20250304.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000005/crwd-20250304.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000005/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0001535527-25-000005",
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000005/crwd-20250304xex991.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "furnished",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000005/crwd-20250304.htm",
+          "sourceSha256": "32d66840b786c55a617861e5fa3cdaeb8386d4c7c4dfecef24cce07d1efc1b2d"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "8-K",
+      "accessionNumber": "0001104659-25-015279",
+      "filingDate": "2025-02-20",
+      "reportDate": "2025-02-14",
+      "primaryDocument": "tm257102d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925015279/tm257102d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925015279/",
+      "items": [
+        "5.02"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "form": "8-K",
+      "accessionNumber": "0001104659-24-128515",
+      "filingDate": "2024-12-13",
+      "reportDate": "2024-12-11",
+      "primaryDocument": "tm2430723d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465924128515/tm2430723d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465924128515/",
+      "items": [
+        "3.03",
+        "5.03",
+        "8.01",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    }
+  ],
+  "latestReportAccession": "0001535527-26-000031",
+  "coverage": "24 most recent supported filings in SEC recent submissions; not a complete archive",
+  "verifiedAt": "2026-09-22T14:36:07.886250+00:00",
+  "status": "verified"
+}

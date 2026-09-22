@@ -8,6 +8,7 @@
   section.replaceChildren();section.hidden=!!data.manual;if(data.manual)return;
   const profile=window.NTMFundamentalProfile.build(data);
   section.append(node('h2','Vad visar bolagets rapporterade utveckling?'),node('p','Fundamental profil · avgränsad pilot. Beskrivningar av historiska uppgifter, ingen bedömning av aktien.','note'));
+  if(['NVDA','SOFI','CRWD'].includes(data.symbol)){const reports=node('a','Senaste rapportering och officiella dokument');reports.href='#companyEvidence';section.append(reports);}
   const deeper=node('details');deeper.append(node('summary','Fler dimensioner och datakvalitet'));
   for(const [i,s] of profile.statements.entries()){
    const article=node('article');article.dataset.dimension=s.dimension;article.dataset.evidenceStatus=s.status;

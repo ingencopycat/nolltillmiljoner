@@ -1,0 +1,210 @@
+[
+  {
+    "ticker": "NVDA",
+    "cik": "0001045810",
+    "accessedAt": "2026-09-22",
+    "submissionsUrl": "https://data.sec.gov/submissions/CIK0001045810.json",
+    "accession": "0001045810-26-000073",
+    "filed": "2026-08-26",
+    "accepted": "2026-08-26T20:21:19.000Z",
+    "items": "2.02,9.01",
+    "documentUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/nvda-20260826.htm",
+    "verification": "Primary 8-K retrieved; exhibit links inspected",
+    "releaseUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/q2fy27pr.htm",
+    "releaseSha256": "3e3140c8413a4cd4a2012648ba2d2e918e1efef3d02bb74d3dce47c3e5696a66",
+    "releaseInspected": true
+  },
+  {
+    "ticker": "SOFI",
+    "cik": "0001818874",
+    "accessedAt": "2026-09-22",
+    "submissionsUrl": "https://data.sec.gov/submissions/CIK0001818874.json",
+    "accession": "0001818874-26-000050",
+    "filed": "2026-07-29",
+    "accepted": "2026-07-29T11:06:09.000Z",
+    "items": "2.02,9.01",
+    "documentUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000050/sofi-20260729.htm",
+    "exhibitLinks": [
+      {
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000050/a2026q2earningsrelease.htm",
+        "label": "99.1"
+      }
+    ],
+    "verification": "Primary 8-K retrieved; exhibit links inspected",
+    "releaseUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000050/a2026q2earningsrelease.htm",
+    "releaseSha256": "30787fdbc076c9b561526055f3a3f4c3ba269a94e9d6ad2e27fc9e29f5e796fb",
+    "releaseInspected": true
+  },
+  {
+    "ticker": "CRWD",
+    "cik": "0001535527",
+    "accessedAt": "2026-09-22",
+    "submissionsUrl": "https://data.sec.gov/submissions/CIK0001535527.json",
+    "accession": "0001535527-26-000029",
+    "filed": "2026-08-26",
+    "accepted": "2026-08-26T20:07:02.000Z",
+    "items": "2.02,9.01",
+    "documentUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826.htm",
+    "exhibitLinks": [
+      {
+        "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826xex991.htm",
+        "label": "99.1"
+      },
+      {
+        "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826xex991.htm",
+        "label": "Press release dated August 26, 2026"
+      }
+    ],
+    "verification": "Primary 8-K retrieved; exhibit links inspected",
+    "releaseUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826xex991.htm",
+    "releaseSha256": "dc42569e0caef40f9f9883ce9b2c9928b22d4a6cba11f570a72611d8e9d5d21d",
+    "releaseInspected": true
+  },
+  {
+    "ticker": "MU",
+    "cik": "0000723125",
+    "accessedAt": "2026-09-22",
+    "submissionsUrl": "https://data.sec.gov/submissions/CIK0000723125.json",
+    "accession": "0000723125-26-000013",
+    "filed": "2026-06-24",
+    "accepted": "2026-06-24T20:02:01.000Z",
+    "items": "2.02,9.01",
+    "documentUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/mu-20260624.htm",
+    "exhibitLinks": [
+      {
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/a2026q3ex991-pressrelease.htm",
+        "label": "Press Release issued on"
+      },
+      {
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/a2026q3ex991-pressrelease.htm",
+        "label": "June 24"
+      },
+      {
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/a2026q3ex991-pressrelease.htm",
+        "label": ", 2026"
+      }
+    ],
+    "verification": "Primary 8-K retrieved; exhibit links inspected",
+    "releaseUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/a2026q3ex991-pressrelease.htm",
+    "releaseSha256": "85b4a1bc91a4f493aea30f49fe5c6e2071e293bb5274b158a30ebdb63607f19d",
+    "releaseInspected": true
+  },
+  {
+    "ticker": "MRVL",
+    "cik": "0001835632",
+    "accessedAt": "2026-09-22",
+    "submissionsUrl": "https://data.sec.gov/submissions/CIK0001835632.json",
+    "accession": "0001835632-26-000022",
+    "filed": "2026-08-27",
+    "accepted": "2026-08-27T20:05:59.000Z",
+    "items": "2.02,9.01",
+    "documentUrl": "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000022/mrvl-20260827.htm",
+    "verification": "Primary 8-K retrieved; exhibit links inspected",
+    "releaseUrl": "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000022/q227_8kx812026ex-991.htm",
+    "releaseSha256": "84c1754c0bedae57bf60b8e3c2a35b4d41e5394deabd84fd01975f742c026992",
+    "releaseInspected": true
+  },
+  {
+    "ticker": "VRT",
+    "cik": "0001674101",
+    "accessedAt": "2026-09-22",
+    "submissionsUrl": "https://data.sec.gov/submissions/CIK0001674101.json",
+    "accession": "0001628280-26-050323",
+    "filed": "2026-07-29",
+    "accepted": "2026-07-29T10:01:57.000Z",
+    "items": "2.02,7.01,9.01",
+    "documentUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026050323/vrt-20260729.htm",
+    "verification": "Primary 8-K retrieved; exhibit links inspected",
+    "releaseUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026050323/q22026exhibit991vrt07292026.htm",
+    "releaseSha256": "2b451c60cdd197a63f6f83e3f604cb1a34e47e3372557fb75751846f8d46db2a",
+    "releaseInspected": true
+  },
+  {
+    "ticker": "COHR",
+    "cik": "0000820318",
+    "accessedAt": "2026-09-22",
+    "submissionsUrl": "https://data.sec.gov/submissions/CIK0000820318.json",
+    "accession": "0001193125-26-346860",
+    "filed": "2026-08-12",
+    "accepted": "2026-08-12T20:10:13.000Z",
+    "items": "2.02,7.01,9.01",
+    "documentUrl": "https://www.sec.gov/Archives/edgar/data/820318/000119312526346860/d128030d8k.htm",
+    "exhibitLinks": [
+      {
+        "url": "https://www.sec.gov/Archives/edgar/data/820318/000119312526346860/d128030dex991.htm",
+        "label": "Press Release dated August&#160;12, 2026"
+      },
+      {
+        "url": "https://www.sec.gov/Archives/edgar/data/820318/000119312526346860/d128030dex992.htm",
+        "label": "Investor Presentation"
+      }
+    ],
+    "verification": "Primary 8-K retrieved; exhibit links inspected",
+    "releaseUrl": "https://www.sec.gov/Archives/edgar/data/820318/000119312526346860/d128030dex991.htm",
+    "releaseSha256": "38414af3df8aaf2ddcc30fda68f83ab65d4298291a3db97b0b627d6a9fdaee3b",
+    "releaseInspected": true
+  },
+  {
+    "ticker": "RKLB",
+    "cik": "0001819994",
+    "accessedAt": "2026-09-22",
+    "submissionsUrl": "https://data.sec.gov/submissions/CIK0001819994.json",
+    "accession": "0001819994-26-000061",
+    "filed": "2026-08-10",
+    "accepted": "2026-08-10T20:08:45.000Z",
+    "items": "2.02,9.01",
+    "documentUrl": "https://www.sec.gov/Archives/edgar/data/1819994/000181999426000061/rklb-20260810.htm",
+    "exhibitLinks": [
+      {
+        "url": "https://www.sec.gov/Archives/edgar/data/1819994/000181999426000061/rklb-08102026ex991.htm",
+        "label": "Press Release of Rocket Lab Corporation, dated August 10, 2026"
+      }
+    ],
+    "verification": "Primary 8-K retrieved; exhibit links inspected",
+    "releaseUrl": "https://www.sec.gov/Archives/edgar/data/1819994/000181999426000061/rklb-08102026ex991.htm",
+    "releaseSha256": "f4554acb1e381f9c4b9e59f7f09e47641334bf5c67a0774013518ea7c95f8044",
+    "releaseInspected": true
+  },
+  {
+    "ticker": "TTMI",
+    "cik": "0001116942",
+    "accessedAt": "2026-09-22",
+    "submissionsUrl": "https://data.sec.gov/submissions/CIK0001116942.json",
+    "accession": "0001193125-26-336163",
+    "filed": "2026-08-06",
+    "accepted": "2026-08-06T01:28:46.000Z",
+    "items": "2.02,9.01",
+    "documentUrl": "https://www.sec.gov/Archives/edgar/data/1116942/000119312526336163/d132953d8k.htm",
+    "exhibitLinks": [
+      {
+        "url": "https://www.sec.gov/Archives/edgar/data/1116942/000119312526336163/d132953dex991.htm",
+        "label": "Press release regarding earnings results, dated August&#160;5, 2026"
+      }
+    ],
+    "verification": "Primary 8-K retrieved; exhibit links inspected",
+    "releaseUrl": "https://www.sec.gov/Archives/edgar/data/1116942/000119312526336163/d132953dex991.htm",
+    "releaseSha256": "47ac62b8149239e15540212e29db19b03417751602de6602a0255486b1bf1b13",
+    "releaseInspected": true
+  },
+  {
+    "ticker": "SNDK",
+    "cik": "0002023554",
+    "accessedAt": "2026-09-22",
+    "submissionsUrl": "https://data.sec.gov/submissions/CIK0002023554.json",
+    "accession": "0001628280-26-053346",
+    "filed": "2026-08-05",
+    "accepted": "2026-08-05T20:09:06.000Z",
+    "items": "2.02,8.01,9.01",
+    "documentUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000162828026053346/sndk-20260805.htm",
+    "exhibitLinks": [
+      {
+        "url": "https://www.sec.gov/Archives/edgar/data/2023554/000162828026053346/sndkq4-26ex991xpressrelease.htm",
+        "label": "Press release issued by Sandisk Corporation on August 5, 2026 announcing financial results for the fiscal fourth quarter ended July 3, 2026."
+      }
+    ],
+    "verification": "Primary 8-K retrieved; exhibit links inspected",
+    "releaseUrl": "https://www.sec.gov/Archives/edgar/data/2023554/000162828026053346/sndkq4-26ex991xpressrelease.htm",
+    "releaseSha256": "8119c41796686eb47a05d27df00729829cd99b507ba4861cd8462d9d755201c9",
+    "releaseInspected": true
+  }
+]

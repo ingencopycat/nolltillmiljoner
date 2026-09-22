@@ -940,6 +940,7 @@ function createMetricCell(metric, key) {
 // ============================================================================
 
 function renderFilings(data) {
+    window.NTMCompanyEvidence?.render(data);
     const list = document.getElementById('filingsList');
     list.innerHTML = '';
 
@@ -2153,6 +2154,7 @@ function initChangeDetection(data) {
     const { thesis: latest, error } = window.NTMThesisStorage.get(ticker);
     const thesis = latest?.revisions.find((r) => r.id === currentThesisState.selectedRevisionId)
         || latest?.revisions[latest.revisions.length - 1];
+    window.NTMCompanyEvidence?.setBaseline(error ? null : thesis?.savedAt);
     const label = document.getElementById('changeBaselineLabel');
     if (label) label.textContent = thesis
         ? `${thesis.id === latest.latestRevisionId ? 'Senaste version' : 'Historisk version'} sparad ${formatRevisionDate(thesis.savedAt)} · Jämförs med aktuella bolagsdata ${data.ttm?.asOfPeriod || data.valuationBase?.asOfPeriod || '–'}. Aktiekursantaganden jämförs inte.`

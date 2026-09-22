@@ -64,6 +64,29 @@ class BrowserSmoke(unittest.TestCase):
             ticker = path.split('ticker=',1)[1].split('&',1)[0].split('#',1)[0]
             self.wait_for('ticker => typeof currentStockData !== "undefined" && currentStockData?.symbol === ticker', arg=ticker)
 
+    def test_company_evidence_pilot(self):
+        for ticker in ('NVDA', 'SOFI', 'CRWD'):
+            self.go('research.html?ticker=' + ticker)
+            panel = self.page.locator('#companyEvidence')
+            expect(panel).to_contain_text('Senaste rapportering')
+            self.page.get_by_role('link', name='Senaste rapportering och officiella dokument').click()
+            expect(panel).to_be_visible()
+            expect(panel).to_contain_text('Resultatmeddelande')
+            expect(panel).to_contain_text('Nytt underlag är ingen investeringsslutsats')
+            self.assertTrue(panel.get_by_role('link', name='Öppna resultatmeddelandet hos SEC').first.get_attribute('href').startswith('https://www.sec.gov/Archives/'))
+            self.page.evaluate("NTMCompanyEvidence.setBaseline('2026-01-01T00:00:00Z')")
+            expect(self.page.locator('#companyEvidenceSince')).to_contain_text('efter den sparade versionens datum')
+            self.page.set_viewport_size({'width': 390, 'height': 844})
+            self.assertLessEqual(self.page.evaluate('document.documentElement.scrollWidth'), 391)
+        self.page.route('**/data/stocks/evidence/NVDA.status.json', lambda route: route.fulfill(json={'status':'unavailable'}))
+        self.go('research.html?ticker=NVDA')
+        expect(self.page.locator('#companyEvidence')).to_contain_text('tidigare verifierat underlag visas')
+        self.page.route('**/data/stocks/evidence/SOFI.json', lambda route: route.fulfill(status=503,body='unavailable'))
+        self.go('research.html?ticker=SOFI')
+        expect(self.page.locator('#companyEvidence')).to_contain_text('inte tillgänglig')
+        self.go('research.html?ticker=MU')
+        expect(self.page.locator('#companyEvidence')).to_have_count(0)
+
     def open_depth_for(self, selector):
         """Open V3 disclosures with real summary clicks before using a deep control."""
         target = self.page.locator(selector).first

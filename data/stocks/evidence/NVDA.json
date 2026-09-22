@@ -1,0 +1,609 @@
+{
+  "schema": "ntm-company-evidence/1",
+  "ticker": "NVDA",
+  "cik": "0001045810",
+  "events": [
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "8-K",
+      "accessionNumber": "0001045810-26-000078",
+      "filingDate": "2026-09-03",
+      "reportDate": "2026-09-02",
+      "primaryDocument": "nvda-20260902.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000078/nvda-20260902.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000078/",
+      "items": [
+        "8.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "10-Q",
+      "accessionNumber": "0001045810-26-000075",
+      "filingDate": "2026-08-26",
+      "reportDate": "2026-07-26",
+      "primaryDocument": "nvda-20260726.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "8-K",
+      "accessionNumber": "0001045810-26-000073",
+      "filingDate": "2026-08-26",
+      "reportDate": "2026-08-26",
+      "primaryDocument": "nvda-20260826.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/nvda-20260826.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0001045810-26-000073",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/q2fy27pr.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "furnished",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/nvda-20260826.htm",
+          "sourceSha256": "51bd98b907917664dea2e93f58bda57492886b0f96f1ade0478349dbe806895d"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "8-K",
+      "accessionNumber": "0001045810-26-000069",
+      "filingDate": "2026-08-17",
+      "reportDate": "2026-08-17",
+      "primaryDocument": "nvda-20260817.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000069/nvda-20260817.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000069/",
+      "items": [
+        "1.01",
+        "2.03",
+        "7.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "8-K",
+      "accessionNumber": "0001045810-26-000060",
+      "filingDate": "2026-07-02",
+      "reportDate": "2026-06-28",
+      "primaryDocument": "nvda-20260628.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000060/nvda-20260628.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000060/",
+      "items": [
+        "5.02"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "8-K",
+      "accessionNumber": "0001045810-26-000056",
+      "filingDate": "2026-06-30",
+      "reportDate": "2026-06-24",
+      "primaryDocument": "nvda-20260624.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000056/nvda-20260624.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000056/",
+      "items": [
+        "5.07"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "8-K",
+      "accessionNumber": "0001193125-26-275783",
+      "filingDate": "2026-06-18",
+      "reportDate": "2026-06-15",
+      "primaryDocument": "d48176d8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000119312526275783/d48176d8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000119312526275783/",
+      "items": [
+        "8.01",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "10-Q",
+      "accessionNumber": "0001045810-26-000052",
+      "filingDate": "2026-05-20",
+      "reportDate": "2026-04-26",
+      "primaryDocument": "nvda-20260426.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/nvda-20260426.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "8-K",
+      "accessionNumber": "0001045810-26-000051",
+      "filingDate": "2026-05-20",
+      "reportDate": "2026-05-20",
+      "primaryDocument": "nvda-20260520.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/nvda-20260520.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0001045810-26-000051",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/q1fy27pr.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "furnished",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/nvda-20260520.htm",
+          "sourceSha256": "7cea62ad53755fcc8f1f0d196c7f0db46598e049715e454ef9cd8d251379903a"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "8-K",
+      "accessionNumber": "0001045810-26-000028",
+      "filingDate": "2026-05-08",
+      "reportDate": "2026-05-07",
+      "primaryDocument": "nvda-20260507.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000028/nvda-20260507.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000028/",
+      "items": [
+        "5.02"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "8-K",
+      "accessionNumber": "0001045810-26-000026",
+      "filingDate": "2026-04-27",
+      "reportDate": "2026-04-24",
+      "primaryDocument": "nvda-20260424.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000026/nvda-20260424.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000026/",
+      "items": [
+        "5.02"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "8-K",
+      "accessionNumber": "0001045810-26-000024",
+      "filingDate": "2026-03-06",
+      "reportDate": "2026-03-02",
+      "primaryDocument": "nvda-20260302.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000024/nvda-20260302.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000024/",
+      "items": [
+        "5.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "10-K",
+      "accessionNumber": "0001045810-26-000021",
+      "filingDate": "2026-02-25",
+      "reportDate": "2026-01-25",
+      "primaryDocument": "nvda-20260125.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/",
+      "items": [],
+      "amendment": false,
+      "classification": "annual_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "8-K",
+      "accessionNumber": "0001045810-26-000019",
+      "filingDate": "2026-02-25",
+      "reportDate": "2026-02-25",
+      "primaryDocument": "nvda-20260225.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/nvda-20260225.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0001045810-26-000019",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/q4fy26pr.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "furnished",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/nvda-20260225.htm",
+          "sourceSha256": "3d206af297fb2ff3f6265a24fe359407f5ddc4ce6108c7c319223cf73040f362"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "8-K",
+      "accessionNumber": "0001045810-26-000003",
+      "filingDate": "2026-01-23",
+      "reportDate": "2026-01-20",
+      "primaryDocument": "nvda-20260120.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000003/nvda-20260120.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000003/",
+      "items": [
+        "5.02"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "10-Q",
+      "accessionNumber": "0001045810-25-000230",
+      "filingDate": "2025-11-19",
+      "reportDate": "2025-10-26",
+      "primaryDocument": "nvda-20251026.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000230/nvda-20251026.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000230/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "8-K",
+      "accessionNumber": "0001045810-25-000228",
+      "filingDate": "2025-11-19",
+      "reportDate": "2025-11-19",
+      "primaryDocument": "nvda-20251119.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000228/nvda-20251119.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000228/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0001045810-25-000228",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000228/q3fy26pr.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "furnished",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000228/nvda-20251119.htm",
+          "sourceSha256": "659ef84e42d3113a0804ba32c372d28050d20c51374ba4b0cf11c2ede8c059a0"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "10-Q",
+      "accessionNumber": "0001045810-25-000209",
+      "filingDate": "2025-08-27",
+      "reportDate": "2025-07-27",
+      "primaryDocument": "nvda-20250727.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000209/nvda-20250727.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000209/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "8-K",
+      "accessionNumber": "0001045810-25-000207",
+      "filingDate": "2025-08-27",
+      "reportDate": "2025-08-27",
+      "primaryDocument": "nvda-20250827.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000207/nvda-20250827.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000207/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0001045810-25-000207",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000207/q2fy26pr.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "furnished",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000207/nvda-20250827.htm",
+          "sourceSha256": "4b908f211587e188870ab4abb7be1880e8b5a91bd35cb0505cb4feb7502915c5"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "8-K",
+      "accessionNumber": "0001045810-25-000197",
+      "filingDate": "2025-08-05",
+      "reportDate": "2025-07-31",
+      "primaryDocument": "nvda-20250731.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000197/nvda-20250731.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000197/",
+      "items": [
+        "5.02"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "8-K",
+      "accessionNumber": "0001045810-25-000179",
+      "filingDate": "2025-07-01",
+      "reportDate": "2025-06-25",
+      "primaryDocument": "nvda-20250625.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000179/nvda-20250625.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000179/",
+      "items": [
+        "5.07"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "10-Q",
+      "accessionNumber": "0001045810-25-000116",
+      "filingDate": "2025-05-28",
+      "reportDate": "2025-04-27",
+      "primaryDocument": "nvda-20250427.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000116/nvda-20250427.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000116/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "8-K",
+      "accessionNumber": "0001045810-25-000115",
+      "filingDate": "2025-05-28",
+      "reportDate": "2025-05-28",
+      "primaryDocument": "nvda-20250528.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000115/nvda-20250528.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000115/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0001045810-25-000115",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000115/q1fy26pr.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "furnished",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000115/nvda-20250528.htm",
+          "sourceSha256": "49ca5454dcc2b63492bee6519c46fc8451f7c80dccd7724d9ede511ee5d16119"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "form": "8-K",
+      "accessionNumber": "0001045810-25-000082",
+      "filingDate": "2025-04-15",
+      "reportDate": "2025-04-09",
+      "primaryDocument": "nvda-20250409.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000082/nvda-20250409.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000082/",
+      "items": [
+        "8.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    }
+  ],
+  "latestReportAccession": "0001045810-26-000075",
+  "coverage": "24 most recent supported filings in SEC recent submissions; not a complete archive",
+  "verifiedAt": "2026-09-22T14:36:05.708795+00:00",
+  "status": "verified"
+}

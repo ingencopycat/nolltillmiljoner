@@ -53,6 +53,10 @@ jobs:
       - name: Refresh validated stocks
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python scripts/update_stocks.py --all
+      - name: Refresh pilot SEC filing evidence
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        continue-on-error: true
+        run: python -B scripts/update_stocks.py --evidence --all
       - uses: actions/upload-artifact@v4
         with:
           name: validated-data
@@ -61,6 +65,7 @@ jobs:
             data/stocks/NVDA.json
             data/stocks/SOFI.json
             data/stocks/CRWD.json
+            data/stocks/evidence/*.json
           if-no-files-found: error
   commit-data:
     needs: prepare-data
@@ -78,7 +83,7 @@ jobs:
       - id: commit
         shell: bash
         run: |
-          git add data/weekly-events.js data/stocks/NVDA.json data/stocks/SOFI.json data/stocks/CRWD.json
+          git add data/weekly-events.js data/stocks/NVDA.json data/stocks/SOFI.json data/stocks/CRWD.json data/stocks/evidence/*.json
           if ! git diff --cached --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"

@@ -1,0 +1,165 @@
+[
+  {
+    "ticker": "NVDA",
+    "url": "https://investor.nvidia.com/financial-info/quarterly-results/default.aspx",
+    "accessedAt": "2026-09-22",
+    "resolvedUrl": "https://investor.nvidia.com/financial-info/quarterly-results/default.aspx",
+    "platformMarkers": [
+      "q4inc",
+      "q4cdn",
+      "q4api",
+      "q4web"
+    ],
+    "feedOrCalendarLinks": [
+      "https://investor.nvidia.com/stock-info/historical-price-lookup/default.aspx",
+      "https://investor.nvidia.com/investor-resources/rss/default.aspx"
+    ],
+    "fileFormatsObserved": [
+      "pdf"
+    ],
+    "status": "retrieved",
+    "discoveryCaveat": "Page-level platform/file-format markers are discovery hints, not verified financial endpoints or reuse permission. Feed/calendar URLs were filtered by URL pattern; contents were not comprehensively tested."
+  },
+  {
+    "ticker": "SOFI",
+    "url": "https://investors.sofi.com/financials/quarterly-results/default.aspx",
+    "accessedAt": "2026-09-22",
+    "resolvedUrl": "https://investors.sofi.com/financials/quarterly-results/default.aspx",
+    "platformMarkers": [
+      "q4inc",
+      "q4cdn",
+      "q4api",
+      "q4web"
+    ],
+    "feedOrCalendarLinks": [],
+    "fileFormatsObserved": [
+      "pdf"
+    ],
+    "status": "retrieved",
+    "discoveryCaveat": "Page-level platform/file-format markers are discovery hints, not verified financial endpoints or reuse permission. Feed/calendar URLs were filtered by URL pattern; contents were not comprehensively tested."
+  },
+  {
+    "ticker": "CRWD",
+    "url": "https://ir.crowdstrike.com/results-filings/quarterly-results",
+    "accessedAt": "2026-09-22",
+    "status": "The read operation timed out"
+  },
+  {
+    "ticker": "MU",
+    "url": "https://investors.micron.com/financials/quarterly-results/",
+    "accessedAt": "2026-09-22",
+    "resolvedUrl": "https://investors.micron.com/financials/quarterly-results/",
+    "platformMarkers": [
+      "q4inc",
+      "q4cdn",
+      "q4api",
+      "q4web"
+    ],
+    "feedOrCalendarLinks": [
+      "https://www.micron.com/secure-portal/technical-support-contact"
+    ],
+    "fileFormatsObserved": [
+      "pdf",
+      "xlsx",
+      "xls",
+      "csv",
+      "zip"
+    ],
+    "status": "retrieved",
+    "discoveryCaveat": "Page-level platform/file-format markers are discovery hints, not verified financial endpoints or reuse permission. Feed/calendar URLs were filtered by URL pattern; contents were not comprehensively tested."
+  },
+  {
+    "ticker": "MRVL",
+    "url": "https://investor.marvell.com/financial-information/financial-results",
+    "accessedAt": "2026-09-22",
+    "resolvedUrl": "https://investor.marvell.com/financial-information/financial-results",
+    "platformMarkers": [
+      "qmod",
+      "quotemedia"
+    ],
+    "feedOrCalendarLinks": [
+      "https://investor.marvell.com/news-events/press-releases/rss",
+      "https://www.marvell.com/products/optical-modules.html",
+      "https://investor.marvell.com/stock-data/historical-data",
+      "https://investor.marvell.com/rss-news-feed"
+    ],
+    "fileFormatsObserved": [
+      "pdf",
+      "zip"
+    ],
+    "status": "retrieved",
+    "discoveryCaveat": "Page-level platform/file-format markers are discovery hints, not verified financial endpoints or reuse permission. Feed/calendar URLs were filtered by URL pattern; contents were not comprehensively tested."
+  },
+  {
+    "ticker": "VRT",
+    "url": "https://investors.vertiv.com/financials/quarterly-results/default.aspx",
+    "accessedAt": "2026-09-22",
+    "resolvedUrl": "https://investors.vertiv.com/financials/quarterly-results/default.aspx",
+    "platformMarkers": [
+      "q4inc",
+      "q4cdn",
+      "q4api",
+      "q4web"
+    ],
+    "feedOrCalendarLinks": [
+      "https://www.vertiv.com/en-us/products-catalog/critical-power/",
+      "https://www.vertiv.com/en-us/products-catalog/critical-power/uninterruptible-power-supplies-ups/",
+      "https://www.vertiv.com/en-us/products-catalog/critical-power/dc-power-systems/",
+      "https://www.vertiv.com/en-us/products-catalog/critical-power/power-distribution/",
+      "https://www.vertiv.com/en-us/products-catalog/critical-power/industrial-ac-and-dc-systems/",
+      "https://www.vertiv.com/en-us/products-catalog/critical-power/power-transfer-switches/",
+      "https://www.vertiv.com/en-us/products-catalog/critical-power/power-control-and-monitoring/",
+      "https://www.vertiv.com/en-us/products-catalog/critical-power/switchgear/",
+      "https://www.vertiv.com/en-us/products-catalog/critical-power/busway-and-busduct/",
+      "https://www.vertiv.com/en-us/products-catalog/critical-power/battery-energy-storage-system-bess/",
+      "https://www.vertiv.com/en-us/products/services/electrical-services/",
+      "https://www.vertiv.com/en-us/products/services/electrical-safety-and-compliance/",
+      "https://www.vertiv.com/en-us/solutions/core-data-centers--critical-facilities/",
+      "https://www.vertiv.com/en-us/solutions/vertiv-guide-to-mission-critical-facility-services/",
+      "https://www.vertiv.com/en-us/search/?resultGroup=all&amp;selectedResultGroup=all&amp;contentType=Brochures#?availability=Exclude%20Discontinued%20Products&amp;documentType=technicalSpecifications&amp;documentType=manuals&amp;documentType=brochures"
+    ],
+    "fileFormatsObserved": [
+      "pdf"
+    ],
+    "status": "retrieved",
+    "discoveryCaveat": "Page-level platform/file-format markers are discovery hints, not verified financial endpoints or reuse permission. Feed/calendar URLs were filtered by URL pattern; contents were not comprehensively tested."
+  },
+  {
+    "ticker": "COHR",
+    "url": "https://ir.coherent.com/",
+    "accessedAt": "2026-09-22",
+    "status": "The read operation timed out"
+  },
+  {
+    "ticker": "RKLB",
+    "url": "https://investors.rocketlabcorp.com/financial-information/quarterly-results",
+    "accessedAt": "2026-09-22",
+    "status": "The read operation timed out"
+  },
+  {
+    "ticker": "TTMI",
+    "url": "https://investors.ttm.com/financial-information/financial-results",
+    "accessedAt": "2026-09-22",
+    "resolvedUrl": "https://investors.ttm.com/financial-information/financial-results",
+    "platformMarkers": [
+      "qmod",
+      "quotemedia"
+    ],
+    "feedOrCalendarLinks": [
+      "https://investors.ttm.com/news-events/press-releases/rss",
+      "https://investors.ttm.com/stock-data/historical-data"
+    ],
+    "fileFormatsObserved": [
+      "pdf",
+      "zip"
+    ],
+    "status": "retrieved",
+    "discoveryCaveat": "Page-level platform/file-format markers are discovery hints, not verified financial endpoints or reuse permission. Feed/calendar URLs were filtered by URL pattern; contents were not comprehensively tested."
+  },
+  {
+    "ticker": "SNDK",
+    "url": "https://investor.sandisk.com/",
+    "accessedAt": "2026-09-22",
+    "status": "The read operation timed out"
+  }
+]

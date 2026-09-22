@@ -1,0 +1,150 @@
+{
+  "retrievedOn": "2026-09-22",
+  "source": "SEC EDGAR",
+  "fixtures": [
+    {
+      "file": "NVDA.json",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001045810.json",
+      "sha256": "11658d8e1545cf35969b4e1130b4cbd58182b1bca2dca69ff77f53040900975d",
+      "transformation": "selected official metadata columns and rows"
+    },
+    {
+      "file": "0001045810-26-000073.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/nvda-20260826.htm",
+      "sha256": "4caba74c3571d9cad4c1e748b038bed74499669635d8a076a450d0d367a4a969",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "0001045810-26-000051.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/nvda-20260520.htm",
+      "sha256": "bf2ae0e18c51fd0ea1d0f64624119feb8629450ce3fb3e9a9b8845b12ada6121",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "0001045810-26-000019.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/nvda-20260225.htm",
+      "sha256": "e8b3b28744e658c9314aa366a2d157bff556ef4f383f30824c0043462cbf6c34",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "0001045810-25-000228.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000228/nvda-20251119.htm",
+      "sha256": "f7591f7a92cadef810a3ecacd81385d2c8b2c91ab7c959c89b0b821b6307810a",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "0001045810-25-000207.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000207/nvda-20250827.htm",
+      "sha256": "c0d16fca08595f58d580b2482cfa531826f2c3c59a2ee2e9c3a122095c5bf4bb",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "0001045810-25-000115.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000115/nvda-20250528.htm",
+      "sha256": "49fff4626b4df3fae75ad5e09d0c67acb383d02fcb13c0d1d62d6da5dff16eb2",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "SOFI.json",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001818874.json",
+      "sha256": "6c05ec39f3dc5ceaf130a1a8dff8a68d4fed0da90b87bcb98548c9ee6ad9a9ab",
+      "transformation": "selected official metadata columns and rows"
+    },
+    {
+      "file": "0001818874-26-000050.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000050/sofi-20260729.htm",
+      "sha256": "1b7f6e8fe55e45eb2d959e038466759b2bea4b5da6621d120d0cf2ed2a56c16a",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "0001818874-26-000020.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000020/sofi-20260429.htm",
+      "sha256": "11669837c7f9658eaf2573c72bd16eb546356f4e316545ed8cf2e94cc4616fa9",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "0001818874-26-000008.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000008/sofi-20260130.htm",
+      "sha256": "8deb8c36603857190d7bea3c1351d4d8ec27d6897925c01e83f63c02fec545e0",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "0001818874-25-000204.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000204/sofi-20251028.htm",
+      "sha256": "1a36a87dc7b24879898bdddfc8cb0b0ad82071bc48841bf53f7d31062157ff9a",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "0001818874-25-000148.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000148/sofi-20250729.htm",
+      "sha256": "d4e2cbd567de3e22cdf100ac3539bf5bc7859c633cd3c91a1d96c0bb2f522c72",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "0001818874-25-000068.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000068/sofi-20250429.htm",
+      "sha256": "7d299d1ca28fe6bbc88b2247bce1b0cb7ccbcc20f21f1380532bdae663bcfddb",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "CRWD.json",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001535527.json",
+      "sha256": "0fb2c706302b5bcdaddbb8ce2ee3dbc401feeaac1c39dfdde11c271bec31c1fd",
+      "transformation": "selected official metadata columns and rows"
+    },
+    {
+      "file": "0001535527-26-000029.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826.htm",
+      "sha256": "ee8057fe9e3582c42f7c56b27a92aaf7c02291effce0d24e1860448890b7f25d",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "0001535527-26-000022.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603.htm",
+      "sha256": "ed4258b09955bef341799976dffbe02432a63a51f610f9b285fad5c3326b7a3e",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "0001535527-26-000007.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303.htm",
+      "sha256": "aff2f8cb16b71bc029d1c974b2230c86c1589c35b927f91891b1d0b1136522bb",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "0001535527-25-000030.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000030/crwd-20251202.htm",
+      "sha256": "09613574aef9a5382bf013f988a8e08c4031a80e37ce795ee8451d0159abe648",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "0001535527-25-000023.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000023/crwd-20250827.htm",
+      "sha256": "b75eb5f9841d60878a3858a2bfd2539bf262e10cf2768332e018c677a25bddf5",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "0001535527-25-000017.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000017/crwd-20250603.htm",
+      "sha256": "702678be526505a77a9e55e7d3c5c7b06974ce0fa9ed359a586820149bcd9a94",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "0001104659-25-045244.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925045244/tm2514190d1_8k.htm",
+      "sha256": "e794bfff3af7ae7a430f1610253e52ddad2aafc25edc424c2776094a334a8a9d",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "0001535527-25-000005.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000005/crwd-20250304.htm",
+      "sha256": "21790dce169ae874354fa214062e6d13146e9af0dbb6171946078faafd4069e1",
+      "transformation": "Item 2.02 and exhibit-table source fragments with inert HTML wrappers"
+    },
+    {
+      "file": "amendments.json",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001818874.json",
+      "sha256": "ac5286f325980338a56287983b9fe916086f2594cb264b7de91bbc40cbc4f54b",
+      "transformation": "selected official metadata columns and rows"
+    }
+  ]
+}

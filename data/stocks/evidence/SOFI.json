@@ -1,0 +1,610 @@
+{
+  "schema": "ntm-company-evidence/1",
+  "ticker": "SOFI",
+  "cik": "0001818874",
+  "events": [
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "10-Q",
+      "accessionNumber": "0001818874-26-000054",
+      "filingDate": "2026-08-06",
+      "reportDate": "2026-06-30",
+      "primaryDocument": "sofi-20260630.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000054/sofi-20260630.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000054/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "8-K",
+      "accessionNumber": "0001818874-26-000050",
+      "filingDate": "2026-07-29",
+      "reportDate": "2026-07-29",
+      "primaryDocument": "sofi-20260729.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000050/sofi-20260729.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000050/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0001818874-26-000050",
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000050/a2026q2earningsrelease.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "furnished",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000050/sofi-20260729.htm",
+          "sourceSha256": "85a9eb82a59b6de6d0e80166c6b8053693594a6962056442cb878b68e48bdcef"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "8-K",
+      "accessionNumber": "0001818874-26-000043",
+      "filingDate": "2026-06-18",
+      "reportDate": "2026-06-17",
+      "primaryDocument": "sofi-20260617.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000043/sofi-20260617.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000043/",
+      "items": [
+        "5.07"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "10-Q",
+      "accessionNumber": "0001818874-26-000037",
+      "filingDate": "2026-05-07",
+      "reportDate": "2026-03-31",
+      "primaryDocument": "sofi-20260331.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000037/sofi-20260331.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000037/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "8-K",
+      "accessionNumber": "0001818874-26-000020",
+      "filingDate": "2026-04-29",
+      "reportDate": "2026-04-29",
+      "primaryDocument": "sofi-20260429.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000020/sofi-20260429.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000020/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0001818874-26-000020",
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000020/a2026q1earningsrelease.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "furnished",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000020/sofi-20260429.htm",
+          "sourceSha256": "cb511e4c9520fef5450f8b28899ad00132a305bf3fd1902c1a97114c44a575d8"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "10-K",
+      "accessionNumber": "0001818874-26-000013",
+      "filingDate": "2026-02-17",
+      "reportDate": "2025-12-31",
+      "primaryDocument": "sofi-20251231.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000013/sofi-20251231.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000013/",
+      "items": [],
+      "amendment": false,
+      "classification": "annual_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "8-K",
+      "accessionNumber": "0001818874-26-000008",
+      "filingDate": "2026-01-30",
+      "reportDate": "2026-01-30",
+      "primaryDocument": "sofi-20260130.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000008/sofi-20260130.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000008/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0001818874-26-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000008/a2025q4earningsrelease.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "furnished",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000008/sofi-20260130.htm",
+          "sourceSha256": "7e27d8216cdf5d737ca5d4749eed64d48b579b5171106730a4a9624fe778e420"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "8-K",
+      "accessionNumber": "0001818874-26-000005",
+      "filingDate": "2026-01-09",
+      "reportDate": "2026-01-05",
+      "primaryDocument": "sofi-20260105.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000005/sofi-20260105.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000005/",
+      "items": [
+        "5.02"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "8-K",
+      "accessionNumber": "0001818874-26-000003",
+      "filingDate": "2026-01-05",
+      "reportDate": "2026-01-02",
+      "primaryDocument": "sofi-20260102.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000003/sofi-20260102.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000003/",
+      "items": [
+        "8.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "8-K",
+      "accessionNumber": "0001818874-25-000232",
+      "filingDate": "2025-12-08",
+      "reportDate": "2025-12-04",
+      "primaryDocument": "sofi-20251204.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000232/sofi-20251204.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000232/",
+      "items": [
+        "8.01",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "8-K",
+      "accessionNumber": "0001818874-25-000225",
+      "filingDate": "2025-12-05",
+      "reportDate": "2025-12-04",
+      "primaryDocument": "sofi-20251204.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000225/sofi-20251204.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000225/",
+      "items": [
+        "8.01",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "8-K",
+      "accessionNumber": "0001818874-25-000222",
+      "filingDate": "2025-12-04",
+      "reportDate": "2025-12-02",
+      "primaryDocument": "sofi-20251202.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000222/sofi-20251202.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000222/",
+      "items": [
+        "5.02"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "8-K",
+      "accessionNumber": "0001818874-25-000215",
+      "filingDate": "2025-11-13",
+      "reportDate": "2025-11-12",
+      "primaryDocument": "sofi-20251112.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000215/sofi-20251112.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000215/",
+      "items": [
+        "7.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "10-Q",
+      "accessionNumber": "0001818874-25-000210",
+      "filingDate": "2025-11-06",
+      "reportDate": "2025-09-30",
+      "primaryDocument": "sofi-20250930.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000210/sofi-20250930.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000210/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "8-K",
+      "accessionNumber": "0001818874-25-000204",
+      "filingDate": "2025-10-28",
+      "reportDate": "2025-10-28",
+      "primaryDocument": "sofi-20251028.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000204/sofi-20251028.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000204/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0001818874-25-000204",
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000204/a2025q3earningsrelease.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "furnished",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000204/sofi-20251028.htm",
+          "sourceSha256": "8514eccebc1a5e1ddfc6eb2448b4b3b706751c5ba18b8dceb9f3c191f1592d9a"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "8-K",
+      "accessionNumber": "0001818874-25-000195",
+      "filingDate": "2025-08-29",
+      "reportDate": "2025-08-28",
+      "primaryDocument": "sofi-20250828.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000195/sofi-20250828.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000195/",
+      "items": [
+        "7.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "10-Q",
+      "accessionNumber": "0001818874-25-000180",
+      "filingDate": "2025-08-07",
+      "reportDate": "2025-06-30",
+      "primaryDocument": "sofi-20250630.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000180/sofi-20250630.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000180/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "8-K",
+      "accessionNumber": "0001818874-25-000171",
+      "filingDate": "2025-07-31",
+      "reportDate": "2025-07-29",
+      "primaryDocument": "sofi-20250729.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000171/sofi-20250729.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000171/",
+      "items": [
+        "8.01",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "8-K",
+      "accessionNumber": "0001818874-25-000160",
+      "filingDate": "2025-07-30",
+      "reportDate": "2025-07-29",
+      "primaryDocument": "sofi-20250729.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000160/sofi-20250729.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000160/",
+      "items": [
+        "8.01",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "8-K",
+      "accessionNumber": "0001818874-25-000148",
+      "filingDate": "2025-07-29",
+      "reportDate": "2025-07-29",
+      "primaryDocument": "sofi-20250729.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000148/sofi-20250729.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000148/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0001818874-25-000148",
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000148/a2025q2earningsrelease.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "furnished",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000148/sofi-20250729.htm",
+          "sourceSha256": "d72a918e27c953b1e6045906381f01c8aad43cd62157e0ea3eec221f55f725b8"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "8-K",
+      "accessionNumber": "0001818874-25-000081",
+      "filingDate": "2025-05-30",
+      "reportDate": "2025-05-28",
+      "primaryDocument": "sofi-20250528.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000081/sofi-20250528.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000081/",
+      "items": [
+        "5.07"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "10-Q",
+      "accessionNumber": "0001818874-25-000072",
+      "filingDate": "2025-05-06",
+      "reportDate": "2025-03-31",
+      "primaryDocument": "sofi-20250331.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000072/sofi-20250331.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000072/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "8-K",
+      "accessionNumber": "0001818874-25-000068",
+      "filingDate": "2025-04-29",
+      "reportDate": "2025-04-29",
+      "primaryDocument": "sofi-20250429.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000068/sofi-20250429.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000068/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0001818874-25-000068",
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000068/a2025q1earningsrelease.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "furnished",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000068/sofi-20250429.htm",
+          "sourceSha256": "1e1e9d659f60de12427236543fbd305224a5653c226e5025bce67ad3861786d2"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "form": "8-K",
+      "accessionNumber": "0001818874-25-000049",
+      "filingDate": "2025-03-27",
+      "reportDate": "2025-03-21",
+      "primaryDocument": "sofi-20250321.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000049/sofi-20250321.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000049/",
+      "items": [
+        "5.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    }
+  ],
+  "latestReportAccession": "0001818874-26-000054",
+  "coverage": "24 most recent supported filings in SEC recent submissions; not a complete archive",
+  "verifiedAt": "2026-09-22T14:36:06.749613+00:00",
+  "status": "verified"
+}

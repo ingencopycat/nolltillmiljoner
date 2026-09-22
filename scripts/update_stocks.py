@@ -143,7 +143,22 @@ def main():
     parser.add_argument('--ticker', type=str, default='SOFI', help="Stock ticker symbol (default: SOFI)")
     parser.add_argument('--all', action='store_true', help="Process all configured stock tickers")
     parser.add_argument('--offline', action='store_true', help="Run in offline mode using fixtures")
+    parser.add_argument('--evidence', action='store_true', help='Refresh only the three-company filing evidence pilot')
     args = parser.parse_args()
+
+    if args.evidence:
+        from company_evidence import PILOT
+        client = SECClient()
+        failures = []
+        for ticker in (PILOT if args.all else [args.ticker.upper()]):
+            try:
+                update_evidence(ticker, client, offline=args.offline)
+            except Exception as error:
+                failures.append(ticker)
+                print(f"Evidence refresh failed for {ticker}: {error}", file=sys.stderr)
+        if failures:
+            raise SystemExit(1)
+        return
 
     tickers_to_process = list(COMPANY_PROFILES.keys()) if args.all else [args.ticker.upper()]
 
@@ -157,6 +172,43 @@ def main():
             sys.exit(1)
 
     print(f"\nCompleted {success_count}/{len(tickers_to_process)} tickers successfully.")
+
+
+def update_evidence(ticker, client, offline=False, output_dir=None):
+    """Independent refresh cadence; shares SEC transport, identities and atomic publication."""
+    from company_evidence import PILOT, refresh, validate_evidence
+    from datetime import datetime, timezone
+    from pathlib import Path
+    if ticker not in PILOT:
+        raise ValueError('Outside evidence pilot')
+    directory = Path(output_dir or os.path.join(DATA_STOCKS_DIR, 'evidence'))
+    target = directory / (ticker + '.json')
+    previous = json.loads(target.read_text(encoding='utf-8')) if target.exists() else None
+    now = datetime.now(timezone.utc).isoformat()
+    try:
+        if previous:
+            validate_evidence(previous, ticker, IDENTITIES[ticker])
+        if offline:
+            fixtures = Path(FIXTURES_DIR) / 'company_evidence'
+            submissions = json.loads((fixtures / (ticker + '.json')).read_text(encoding='utf-8'))
+            def fetch(url):
+                accession = url.split('/')[-2]
+                accession = accession[:10] + '-' + accession[10:12] + '-' + accession[12:]
+                return (fixtures / (accession + '.html')).read_text(encoding='utf-8')
+        else:
+            submissions = client.get_submissions(IDENTITIES[ticker])
+            fetch = client.get_filing_html
+        cached = previous if previous and previous.get('status') == 'verified' and not offline else None
+        document = refresh(submissions, ticker, IDENTITIES[ticker], fetch, cached)
+        validate_evidence(document, ticker, IDENTITIES[ticker])
+        document.update(verifiedAt=now, status='offline_fixture' if offline else 'verified')
+        save_atomic_json(document, str(target))
+        save_atomic_json(dict(status=document['status'], checkedAt=now), str(directory / (ticker + '.status.json')))
+        return document
+    except Exception:
+        # Never replace the last verified evidence with an empty or partial refresh.
+        save_atomic_json(dict(status='unavailable', checkedAt=now), str(directory / (ticker + '.status.json')))
+        raise
 
 
 if __name__ == '__main__':
