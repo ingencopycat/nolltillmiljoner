@@ -1,0 +1,29 @@
+# Form 4 pilot — 2026-09-22
+
+Implemented within the existing SEC client, atomic company-evidence feeds, Research API and Visual V3 company experience. No commit, push or deployment. Earlier financial, guidance, KPI, segment and capital evidence is preserved; all 376 reviewed observations match the pre-task snapshot.
+
+| Issuer | Filings / transaction rows | Real examples |
+| --- | --- | --- |
+| NVDA | 12 / 60 | Parker award; Kress withholding and multiple sales; Huang withholding/gift; Shoquist original and amendment |
+| SOFI | 8 / 42 | Noto purchase: 13,888 shares at reported weighted price $18.0578; Keough exercise, missing exercise price and tax withholding |
+| CRWD | 16 / 178 | Austin exercise and corresponding derivative leg, followed by sales; Kurtz multiple execution rows; director awards |
+
+Coverage: all Form 4/4-A entries in the checked SEC recent index from September 1, 2026, through the September 22 retrieval. Three older examples supplement this: Noto June 16, 2026, and Shoquist November 28 / December 1, 2023. Older examples are visibly separate and are not continuous history. The 280 rows include the amendment's repeated source rows; they are not 280 independent economic transactions.
+
+The reusable model preserves issuer/owner identities and relationships, security, trade/filing dates, SEC code, A/D, reported decimal quantities/prices, D/I ownership, post-transaction holdings, derivative terms/underlying security, field-level footnote references, filing remarks, accession, original/styled source URLs and source-text SHA-256. Owner addresses are omitted from normalized/public data. The [fixture manifest](../../../tests/fixtures/company_insiders/README.md) links all original SEC documents.
+
+Classification separates purchases, sales, awards, exercises/conversions, derivatives, withholding and other activity. F is not automatically called tax withholding without a tax footnote. Derivative units never merge with underlying shares. Derived value is restricted to meaningful positive-priced, non-derivative P/S trades; inputs and formula are inspectable, weighted prices marked approximate. No sentiment or thesis assessment is produced.
+
+Important boundary: [SEC P/S codes include open-market **or private** transactions](https://www.sec.gov/edgar/searchedgar/ownershipformcodes.html). None of this selected XML explicitly establishes an open-market venue. Real purchases/sales are therefore labelled neutrally; explicit open-market wording and negation/future-language rejection have synthetic offline tests. A real, explicitly venue-confirmed pilot example remains unproved, rather than being inferred from a price or trading plan.
+
+Accession/table/row identities make reruns stable. New filings are fetched incrementally using existing SEC identification/throttling. Prior evidence is retained; `--reverify-insiders` detects changed source text and fails for review. The existing scheduled refresh includes `--insiders`. Outages, malformed XML, excessive batches and recent-index gaps preserve the last verified whole feed and mark refresh unavailable. There is no automatic archival paging. CI uses only fixtures.
+
+Both Shoquist filings remain intact. Reviewed identical economic rows plus amendment remarks establish a footnote-only correction to a 10b5-1 adoption date. It contributes no new activity. Unreviewed amendments and possible originals are excluded from summaries pending review; missing original dates widen the candidate set conservatively. Numeric amendments are not automatically reconciled.
+
+UI: neutral filing-type bars, four initial timeline entries, progressive disclosure and type/person/history filters. Quantity, transaction date, ownership form and meaningful prices are visible; codes, footnotes, resulting holdings and sources live in transaction detail / **Källor & metod**. No cross-period share totals or split-adjusted trading trends. Existing `NTMCompanyEvidence.insidersSince` exposes read-only new-filing/category/correction counts, using conservative day boundaries; saved Research revisions remain unchanged. Final comparison UI is not built.
+
+Validation: release gate passed (240 Python tests, one optional PostgreSQL skip; 377 JS tests, 375 passed and two optional migration skips), 42 browser smoke tests, four Fundamental Profile/Wave 4 tests, accessibility/CSP across 41 pages plus all three pilots, prior observation/segment/capital browser regressions (24/40/24 cases), security/staging/reference checks and `git diff --check`. Two real-data screenshot passes each covered 24 company/viewport/theme combinations; representative images were visually inspected. A final conservative venue-negation change passed the 20 focused Python tests. See [QA review](../../qa/company-insiders/review.md).
+
+Locally release-ready for this bounded, conservative Form 4 pilot; production has not been released. Limitations are explicit venue ambiguity, selective older examples, manual economic-amendment review and bounded recent-index catch-up. Full acceptance of a real venue-confirmed open-market example remains outstanding.
+
+Next: validate the compact activity view with users and add a reviewed venue-confirmed example if primary evidence supports it. My product judgment is to investigate **13D/13G before 13F** only if ownership/control-change context is wanted: [13D/G concerns beneficial ownership and control intent](https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/exchange-act-sections-13d-13g-regulation-13d-g-beneficial-ownership-reporting), while [13F is quarterly institutional holdings reporting](https://www.investor.gov/introduction-investing/investing-basics/glossary/form-13f-reports-filed-institutional-investment). Neither was implemented; this pilot alone does not establish demand for either.

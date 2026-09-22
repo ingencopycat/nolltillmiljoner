@@ -157,9 +157,11 @@ class SECClient:
         url = f'https://data.sec.gov/api/xbrl/companyfacts/CIK{cik_clean}.json'
         return self._fetch_json(url)
 
-    def get_filing_html(self, url: str) -> str:
+    def get_filing_html(self, url: str, max_bytes: int = 2_000_000) -> str:
         """Bounded, inert SEC HTML. Never follow a redirect to another origin."""
         import re
+        if not isinstance(max_bytes, int) or not 1 <= max_bytes <= 10_000_000:
+            raise SECClientError('Unsupported SEC document size limit')
         if not re.fullmatch(r'https://www\.sec\.gov/Archives/edgar/data/\d+/\d{18}/[A-Za-z0-9_-]+\.html?', url):
             raise SECClientError('Unsupported SEC document URL')
         class NoRedirect(urllib.request.HTTPRedirectHandler):
@@ -171,9 +173,30 @@ class SECClient:
             with urllib.request.build_opener(NoRedirect).open(request, timeout=self.timeout) as response:
                 if response.headers.get_content_type() not in ('text/html', 'application/xhtml+xml'):
                     raise SECClientError('Unexpected SEC document content type')
-                content = response.read(2_000_001)
-                if len(content) > 2_000_000 or response.headers.get('Content-Encoding') not in (None, 'identity'):
+                content = response.read(max_bytes + 1)
+                if len(content) > max_bytes or response.headers.get('Content-Encoding') not in (None, 'identity'):
                     raise SECClientError('SEC document exceeds supported bounds')
                 return content.decode('utf-8')
         except (urllib.error.URLError, OSError, UnicodeError) as error:
             raise SECNetworkError('SEC document unavailable') from error
+
+    def get_ownership_xml(self, url: str) -> str:
+        """Fetch original SEC ownership XML, never an XSL rendering or another origin."""
+        import re
+        if not re.fullmatch(r'https://www\.sec\.gov/Archives/edgar/data/\d+/\d{18}/[A-Za-z0-9_.-]+\.xml', url):
+            raise SECClientError('Unsupported SEC ownership URL')
+        class NoRedirect(urllib.request.HTTPRedirectHandler):
+            def redirect_request(self, *args, **kwargs):
+                raise SECClientError('SEC ownership redirect refused')
+        self._throttle()
+        request=urllib.request.Request(url,headers={'User-Agent':self.user_agent,'Accept':'application/xml,text/xml','Accept-Encoding':'identity'})
+        try:
+            with urllib.request.build_opener(NoRedirect).open(request,timeout=self.timeout) as response:
+                if response.headers.get_content_type() not in ('application/xml','text/xml','text/plain'):
+                    raise SECClientError('Unexpected SEC ownership content type')
+                content=response.read(1_000_001)
+                if len(content)>1_000_000 or response.headers.get('Content-Encoding') not in (None,'identity'):
+                    raise SECClientError('SEC ownership exceeds supported bounds')
+                return content.decode('utf-8-sig')
+        except (urllib.error.URLError,OSError,UnicodeError) as error:
+            raise SECNetworkError('SEC ownership document unavailable') from error

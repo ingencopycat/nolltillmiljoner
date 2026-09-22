@@ -155,3 +155,6 @@ def validate_evidence(document, ticker, cik):
     if 'reviewedEvidence' in document:
         from reviewed_company_evidence import validate
         validate(document['reviewedEvidence'], ticker, cik)
+    if 'insiderEvidence' in document:
+        from company_insiders import validate as validate_insiders
+        validate_insiders(document['insiderEvidence'], ticker, cik)

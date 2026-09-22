@@ -22,6 +22,7 @@
   if(ordered.some((e,i)=>e!==data.events[i]))throw Error('Invalid order');
   const latest=data.events.filter(e=>['annual_report','quarterly_report'].includes(e.classification)&&!e.amendment&&e.reportDate).sort((a,b)=>b.reportDate.localeCompare(a.reportDate)||b.filingDate.localeCompare(a.filingDate))[0];
   if(data.latestReportAccession!==(latest?.accessionNumber||null))throw Error('Invalid latest report');
+  if(data.insiderEvidence&&window.NTMCompanyInsiders)window.NTMCompanyInsiders.validate(data.insiderEvidence,ticker,data.cik);
   return data;
  }
  function since(data,savedAt){
@@ -86,9 +87,12 @@
    if(data.status!=='verified')throw Error('Unverified');
    current=data;show(data,['verified','unavailable'].includes(status?.status)?status:{status:'unavailable'},host,stock);
    window.NTMCompanyObservationsUI?.render(data,host,status);
+   window.NTMCompanySegmentsUI?.render(data,host,status);
+   window.NTMCompanyCapitalUI?.render(data,host,status);
+   window.NTMCompanyInsidersUI?.render(data,host,status);
    if(legacy)legacy.hidden=true;
    if(legacySection)legacySection.hidden=true;
   }catch{if(ticket===generation)host.replaceChildren(node('p','Officiell bolagsrapportering är inte tillgänglig just nu. Befintliga rapportlänkar visas nedan.'));}
  }
- window.NTMCompanyEvidence={validate,since,render,reportLabel,setBaseline(date){baseline=date||null;renderBaseline();}};
+ window.NTMCompanyEvidence={validate,since,render,reportLabel,insidersSince(data,date,until){return window.NTMCompanyInsiders?.changesSince(data.insiderEvidence,date,until)||{filings:[],count:0,categories:{},corrections:0};},setBaseline(date){baseline=date||null;renderBaseline();}};
 })();

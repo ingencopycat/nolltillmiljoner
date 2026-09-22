@@ -299,3 +299,111 @@ body.visual-v3 .research-card-block { border: 0; border-radius: 0; box-shadow: n
 .observation-history th:last-child { width: 34%; }
 @media(max-width: 800px) { .observation-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media(max-width: 480px) { .observation-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; } .observation-value { font-size: 1.85rem; } .observation-chart { max-width: 340px; } .observation-history { min-width: 650px; } }
+/* Business mix extends Visual V3's open financial rows, without card nesting. */
+#companySegments { margin-bottom: 30px; padding-bottom: 26px; border-bottom: 1px solid var(--border-color, #334155); }
+#companySegments h2 { margin: 26px 0 12px; }
+.segment-selector { display: flex; align-items: center; gap: 14px; font-size: .82rem; margin: 14px 0; }
+.segment-selector select { font: inherit; padding: 10px 12px; background: var(--panel); color: var(--text); border: 1px solid var(--border-color, #7d8b9b); border-radius: 4px; max-width: 100%; }
+.segment-top { margin: 18px 0 24px; }
+.segment-total { font-family: Georgia, serif; font-size: clamp(1.7rem, 3vw, 2.5rem); font-variant-numeric: tabular-nums; }
+.segment-context { font-size: .8rem; opacity: .78; line-height: 1.55; margin: 8px 0; }
+.segment-mix { display: flex; height: 16px; margin: 20px 0 0; overflow: hidden; border-radius: 2px; gap: 2px; }
+.segment-mix > span { flex-shrink: 1; }
+.segment-row { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr) .7fr .7fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border-color, #334155); font-size: .92rem; align-items: baseline; }
+.segment-row > :not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+.segment-row strong { font-weight: 500; }
+.segment-column-head { font-size: .72rem; opacity: .72; padding: 8px 0; }
+.segment-name { display: flex; align-items: baseline; gap: 10px; }
+.segment-name i { display: inline-block; width: 10px; height: 10px; flex: 0 0 10px; }
+.segment-trend { display: flex; align-items: end; gap: 18px; margin: 30px 0 20px; max-width: 780px; }
+.segment-column { flex: 1; display: flex; flex-direction: column; align-items: stretch; text-align: center; min-width: 0; }
+.segment-stack { display: flex; flex-direction: column; justify-content: end; margin: 8px 0; }
+.segment-stack span { display: block; }
+.segment-column small { font-size: .72rem; }
+.segment-table-scroll { max-width: 100%; overflow: auto; }
+.segment-table-scroll table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: .8rem; }
+.segment-table-scroll td, .segment-table-scroll th { padding: 12px 10px; border-bottom: 1px solid var(--border-color, #334155); text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.segment-table-scroll th:last-child { width: 40%; }
+@media(max-width: 600px) {
+ .segment-selector { flex-direction: column; align-items: start; gap: 5px; }
+ .segment-row { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.25fr) .65fr .7fr; gap: 7px; font-size: .76rem; }
+ .segment-column-head { font-size: .65rem; }
+ .segment-name { gap: 5px; }
+ .segment-trend { gap: 8px; }
+ .segment-column small { font-size: .61rem; }
+ .segment-table-scroll table { min-width: 680px; }
+}
+.segment-selector { white-space: nowrap; }
+.segment-selector select { width: auto; flex: 0 1 380px; }
+.segment-chart-label { margin-top: 26px; }
+.segment-chart-label + .segment-trend { margin-top: 12px; }
+@media(max-width: 600px) { .segment-selector select { flex: none; width: 100%; } }
+/* Capital evidence uses the same open rows and typography as Fundamental Profile. */
+#companyCapital { margin-bottom: 30px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+.capital-metrics { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 22px 28px; margin: 18px 0; }
+.capital-metric { min-width: 0; }
+.capital-metric h3 { font: 500 .86rem/1.5 var(--font-ui); margin: 0 0 8px; }
+.capital-value { font-family: Georgia,serif; font-size: clamp(1.5rem,2.4vw,2.2rem); font-variant-numeric: tabular-nums; line-height: 1.25; }
+.capital-context { font-size: .8rem; line-height: 1.6; color: var(--muted); margin: 7px 0; }
+.capital-change { font-size: .9rem; margin: 7px 0; }
+.capital-chart-title { font-size: .8rem; margin: 22px 0 10px; }
+.capital-chart { display: flex; align-items: end; gap: 20px; max-width: 760px; margin: 12px 0 18px; }
+.capital-chart > div { display: flex; flex: 1; min-width: 0; flex-direction: column; text-align: center; }
+.capital-chart span { display: block; background: #779dbb; margin: 6px 0; border-radius: 2px 2px 0 0; }
+.capital-chart small { font-size: .72rem; font-variant-numeric: tabular-nums; }
+.capital-more { border-top: 1px solid var(--border); margin: 16px 0 26px; }
+.capital-more > summary { cursor: pointer; min-height: 44px; padding-block: 13px; font-size: .85rem; }
+.capital-detail-row { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; padding: 10px 0; border-top: 1px solid var(--border); font-size: .88rem; }
+.capital-detail-row strong { font-weight: 500; text-align: right; }
+.capital-detail-row small { grid-column: 1/-1; color: var(--muted); }
+.capital-selector { display: flex; align-items: center; gap: 15px; font-size: .8rem; margin: 18px 0 10px; }
+.capital-selector select { width: auto; max-width: 100%; min-height: 44px; font: inherit; background: var(--panel); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 8px 12px; }
+.capital-source-links { display: flex; flex-wrap: wrap; gap: 0 22px; margin: 14px 0; }
+.capital-source-links a { display: inline-flex; align-items: center; min-height: 44px; font-size: .8rem; }
+.capital-table-scroll { max-width: 100%; overflow: auto; }
+.capital-table-scroll table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: .8rem; }
+.capital-table-scroll th, .capital-table-scroll td { text-align: left; vertical-align: top; padding: 12px 10px; border-bottom: 1px solid var(--border); overflow-wrap: anywhere; }
+.capital-table-scroll th:last-child { width: 45%; }
+.capital-table-scroll summary { cursor: pointer; min-height: 44px; }
+@media(max-width:700px) {
+ .capital-metrics { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px 14px; }
+ .capital-value { font-size: 1.55rem; }
+ .capital-metric:last-child:nth-child(3) { grid-column: 1/-1; }
+ .capital-selector { flex-direction: column; align-items: stretch; gap: 5px; }
+ .capital-chart { gap: 9px; }
+ .capital-chart small { font-size: .65rem; }
+ .capital-table-scroll table { min-width: 640px; }
+}
+@media(max-width:390px) { .capital-metrics { grid-template-columns: 1fr; } }
+/* Ownership activity: neutral filing timeline, no sentiment or net-share score. */
+#companyInsiders { margin-bottom: 30px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+.insider-context { color: var(--muted); font-size: .82rem; line-height: 1.6; margin: 8px 0; }
+.insider-filters { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin: 22px 0 16px; }
+.insider-filters label { font-size: .78rem; display: flex; flex-direction: column; gap: 6px; }
+.insider-filters select { width: 100%; min-height: 44px; padding: 8px 10px; background: var(--panel); color: var(--text); border: 1px solid var(--border); border-radius: 4px; font: inherit; }
+.insider-breakdown { max-width: 720px; margin: 14px 0 28px; }
+.insider-bar-row { display: grid; grid-template-columns: 170px 1fr 28px; gap: 16px; align-items: center; margin: 10px 0; font-size: .8rem; }
+.insider-bar-track { display: block; height: 10px; }
+.insider-bar-track i { display: block; height: 100%; background: #779dbb; }
+.insider-bar-row strong { text-align: right; font-weight: 500; }
+.insider-timeline { border-top: 1px solid var(--border); }
+.insider-filing { padding: 20px 0; border-bottom: 1px solid var(--border); }
+.insider-filing h3 { font-size: 1.2rem; margin: 0 0 4px; }
+.insider-action { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 22px; padding: 12px 0; font-size: .9rem; }
+.insider-action strong { font-weight: 500; }
+.insider-action small { font-size: .78rem; color: var(--muted); }
+.insider-action > :nth-child(even) { text-align: right; }
+.insider-correction { font-size: .85rem; border-left: 2px solid var(--muted); padding-left: 12px; }
+.insider-detail > summary { min-height: 44px; padding: 12px 0; cursor: pointer; font-size: .82rem; color: var(--muted); }
+.insider-detail a { display: inline-flex; min-height: 44px; align-items: center; }
+.insider-detail { overflow-wrap: anywhere; }
+.insider-source-row { border-top: 1px solid var(--border); margin-top: 18px; padding-top: 15px; font-size: .82rem; line-height: 1.6; }
+.insider-source-row h4 { margin: 0 0 10px; font-size: .9rem; }
+.insider-footnote { color: var(--muted); font-size: .78rem; }
+.insider-more { min-height: 44px; margin: 18px 0; padding: 9px 18px; background: var(--panel); color: var(--text); border: 1px solid var(--border); border-radius: 4px; cursor: pointer; }
+@media(max-width:650px) {
+ .insider-filters { grid-template-columns: 1fr; gap: 10px; }
+ .insider-action { grid-template-columns: 1fr; gap: 5px; }
+ .insider-action > :nth-child(even) { text-align: left; }
+ .insider-bar-row { grid-template-columns: 135px 1fr 20px; gap: 10px; font-size: .74rem; }
+}

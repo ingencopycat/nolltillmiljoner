@@ -56,7 +56,7 @@ jobs:
       - name: Refresh pilot SEC filing evidence
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         continue-on-error: true
-        run: python -B scripts/update_stocks.py --evidence --reviewed --all
+        run: python -B scripts/update_stocks.py --evidence --reviewed --insiders --all
       - uses: actions/upload-artifact@v4
         with:
           name: validated-data

@@ -16,7 +16,7 @@
   const section=el('section');section.id='companyObservations';section.setAttribute('aria-label','Bolagets guidning och operativa nyckeltal');
   try{A.validate(data,feed.ticker,feed.cik);}catch{section.append(el('p','Granskade bolagsuppgifter är inte tillgängliga.'));host.prepend(section);return;}
   if(status?.status!=='verified')section.append(el('p','Uppdateringen är otillgänglig; tidigare verifierade uppgifter visas.'));
-  const history=A.asOf(data,new Date().toISOString());
+  const history=A.asOf(data,new Date().toISOString()).filter(o=>!['business_mix','capital'].includes(o.kind));
   for(const kind of ['guidance','kpi']){
    const all=history.filter(o=>o.kind===kind);section.append(el('h2',kind==='guidance'?'Bolagets guidning':'Operativa nyckeltal'));
    if(!all.length){section.append(el('p',data.coverage.note,'observation-context'));continue;}

@@ -145,6 +145,8 @@ def main():
     parser.add_argument('--offline', action='store_true', help="Run in offline mode using fixtures")
     parser.add_argument('--evidence', action='store_true', help='Refresh only the three-company filing evidence pilot')
     parser.add_argument('--reviewed', action='store_true', help='Revalidate reviewed guidance and operating KPI passages')
+    parser.add_argument('--insiders', action='store_true', help='Incrementally refresh SEC Form 4 ownership evidence')
+    parser.add_argument('--reverify-insiders', action='store_true', help='Also re-fetch retained ownership documents; changes require review')
     args = parser.parse_args()
 
     if args.evidence:
@@ -153,7 +155,7 @@ def main():
         failures = []
         for ticker in (PILOT if args.all else [args.ticker.upper()]):
             try:
-                update_evidence(ticker, client, offline=args.offline, reviewed=args.reviewed)
+                update_evidence(ticker, client, offline=args.offline, reviewed=args.reviewed, insiders=args.insiders or args.reverify_insiders, reverify_insiders=args.reverify_insiders)
             except Exception as error:
                 failures.append(ticker)
                 print(f"Evidence refresh failed for {ticker}: {error}", file=sys.stderr)
@@ -175,7 +177,7 @@ def main():
     print(f"\nCompleted {success_count}/{len(tickers_to_process)} tickers successfully.")
 
 
-def update_evidence(ticker, client, offline=False, output_dir=None, reviewed=False):
+def update_evidence(ticker, client, offline=False, output_dir=None, reviewed=False, insiders=False, reverify_insiders=False):
     """Independent refresh cadence; shares SEC transport, identities and atomic publication."""
     from company_evidence import PILOT, refresh, validate_evidence
     from datetime import datetime, timezone
@@ -209,7 +211,11 @@ def update_evidence(ticker, client, offline=False, output_dir=None, reviewed=Fal
                     acc = acc[:10] + '-' + acc[10:12] + '-' + acc[12:]
                     return (Path(FIXTURES_DIR) / 'company_observations' / (acc + '.html')).read_text(encoding='utf-8')
             else:
-                reviewed_fetch = fetch
+                from reviewed_company_evidence import REVIEWS
+                periodic = {r['document']['url'] for r in json.loads(REVIEWS.read_text(encoding='utf-8'))['documents']
+                            if r['document']['documentType'] == 'periodic_filing'}
+                def reviewed_fetch(url):
+                    return client.get_filing_html(url, max_bytes=10_000_000) if url in periodic else fetch(url)
             document['reviewedEvidence'] = build(document, reviewed_fetch)
             if previous and previous.get('status') == 'verified':
                 old = {o['id'] for o in previous.get('reviewedEvidence', {}).get('observations', [])}
@@ -221,6 +227,21 @@ def update_evidence(ticker, client, offline=False, output_dir=None, reviewed=Fal
             newest = max(o['publicationDate'] for o in document['reviewedEvidence']['observations'])
             document['reviewedEvidence']['pendingReview'] = [e['accessionNumber'] for e in document['events']
                 if e['classification'] == 'results_disclosure' and e['filingDate'] > newest]
+        if insiders:
+            from company_insiders import refresh as refresh_insiders
+            insider_submissions=submissions
+            if offline:
+                ownership_fixtures=Path(FIXTURES_DIR)/'company_insiders'
+                insider_submissions=json.loads((ownership_fixtures/(ticker+'.json')).read_text(encoding='utf-8'))
+                def fetch_xml(url):
+                    a=url.split('/')[-2];a=a[:10]+'-'+a[10:12]+'-'+a[12:]
+                    return (ownership_fixtures/(a+'.xml')).read_text(encoding='utf-8')
+            else:
+                fetch_xml=client.get_ownership_xml
+            document['insiderEvidence']=refresh_insiders(insider_submissions,ticker,IDENTITIES[ticker],fetch_xml,
+                previous.get('insiderEvidence') if previous and not offline else None,reverify=reverify_insiders)
+        elif previous and previous.get('insiderEvidence'):
+            document['insiderEvidence']=previous['insiderEvidence']
         validate_evidence(document, ticker, IDENTITIES[ticker])
         document.update(verifiedAt=now, status='offline_fixture' if offline else 'verified')
         save_atomic_json(document, str(target))

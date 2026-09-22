@@ -1,0 +1,3720 @@
+[
+  {
+    "schemaVersion": 1,
+    "methodVersion": "ntm-fundamental/1",
+    "company": "NVDA",
+    "statements": [
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "NVDA",
+        "profile": "standard_company",
+        "dimension": "growth",
+        "statementType": "revenue-change",
+        "status": "available",
+        "eligibility": {
+          "eligible": true,
+          "reason": null
+        },
+        "text": "Omsättningen ökade mellan FY2025 och FY2026 med 65,47 %.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "revenue",
+            "period": "FY2025",
+            "fact": {
+              "value": 130497000000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2024-01-29",
+              "periodEnd": "2025-01-26",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "Revenues",
+              "label": "Total Revenue",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:Revenues",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2026",
+            "fact": {
+              "value": 215938000000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-01-27",
+              "periodEnd": "2026-01-25",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "Revenues",
+              "label": "Total Revenue",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:Revenues",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": {
+          "kind": "NTM calculation",
+          "formula": "(nytt / tidigare − 1) × 100",
+          "value": 65.47353579009479,
+          "unit": "%"
+        },
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": ""
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "NVDA",
+        "profile": "standard_company",
+        "dimension": "profitability",
+        "statementType": "operating-margin",
+        "status": "available",
+        "eligibility": {
+          "eligible": true,
+          "reason": null
+        },
+        "text": "Rörelsemarginalen gick från 62,42 % till 60,38 % (−2,04 procentenheter).",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "operatingIncome",
+            "period": "FY2025",
+            "fact": {
+              "value": 81453000000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2024-01-29",
+              "periodEnd": "2025-01-26",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "OperatingIncomeLoss",
+              "label": "Operating Income",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "operatingIncome:us-gaap:OperatingIncomeLoss",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2025",
+            "fact": {
+              "value": 130497000000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2024-01-29",
+              "periodEnd": "2025-01-26",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "Revenues",
+              "label": "Total Revenue",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:Revenues",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "operatingIncome",
+            "period": "FY2026",
+            "fact": {
+              "value": 130387000000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-01-27",
+              "periodEnd": "2026-01-25",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "OperatingIncomeLoss",
+              "label": "Operating Income",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "operatingIncome:us-gaap:OperatingIncomeLoss",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2026",
+            "fact": {
+              "value": 215938000000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-01-27",
+              "periodEnd": "2026-01-25",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "Revenues",
+              "label": "Total Revenue",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:Revenues",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": {
+          "kind": "NTM calculation",
+          "formula": "rörelseresultat / intäkter × 100; ny marginal − tidigare marginal",
+          "values": [
+            62.417526839697466,
+            60.38168363141272
+          ],
+          "value": -2.0358432082847457,
+          "unit": "procentenheter"
+        },
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Marginalens riktning avgör inte investeringens utfall."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "NVDA",
+        "profile": "standard_company",
+        "dimension": "cash",
+        "statementType": "fcf-change",
+        "status": "available",
+        "eligibility": {
+          "eligible": true,
+          "reason": null
+        },
+        "text": "Fritt kassaflöde gick från 60 853 000 000 till 96 676 000 000 USD.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "freeCashFlow",
+            "period": "FY2025",
+            "fact": {
+              "value": 60853000000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2024-01-29",
+              "periodEnd": "2025-01-26",
+              "source": "SEC-derived",
+              "taxonomy": "us-gaap",
+              "concept": null,
+              "label": "Free Cash Flow (FCF)",
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": true,
+              "derivationNotes": "Free Cash Flow computed as Operating Cash Flow minus CapEx",
+              "derivedFrom": [
+                "0001045810-26-000021",
+                "0001045810-26-000021"
+              ],
+              "kind": "derived",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "freeCashFlow:us-gaap:freeCashFlow",
+              "periodType": "annual",
+              "derivationMethod": "operatingCashFlow_minus_capex",
+              "sourceFilings": [
+                {
+                  "accession": "0001045810-26-000021",
+                  "filed": "2026-02-25"
+                }
+              ]
+            }
+          },
+          {
+            "metric": "operatingCashFlow",
+            "period": "FY2025",
+            "fact": {
+              "value": 64089000000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2024-01-29",
+              "periodEnd": "2025-01-26",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "NetCashProvidedByUsedInOperatingActivities",
+              "label": "Net Cash Provided by Operating Activities",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "operatingCashFlow:us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "capex",
+            "period": "FY2025",
+            "fact": {
+              "value": 3236000000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2024-01-29",
+              "periodEnd": "2025-01-26",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "PaymentsToAcquireProductiveAssets",
+              "label": "Capital Expenditures (Acquisition of Property & Equipment)",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "capex:us-gaap:PaymentsToAcquireProductiveAssets",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "freeCashFlow",
+            "period": "FY2026",
+            "fact": {
+              "value": 96676000000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-01-27",
+              "periodEnd": "2026-01-25",
+              "source": "SEC-derived",
+              "taxonomy": "us-gaap",
+              "concept": null,
+              "label": "Free Cash Flow (FCF)",
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": true,
+              "derivationNotes": "Free Cash Flow computed as Operating Cash Flow minus CapEx",
+              "derivedFrom": [
+                "0001045810-26-000021",
+                "0001045810-26-000021"
+              ],
+              "kind": "derived",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "freeCashFlow:us-gaap:freeCashFlow",
+              "periodType": "annual",
+              "derivationMethod": "operatingCashFlow_minus_capex",
+              "sourceFilings": [
+                {
+                  "accession": "0001045810-26-000021",
+                  "filed": "2026-02-25"
+                }
+              ]
+            }
+          },
+          {
+            "metric": "operatingCashFlow",
+            "period": "FY2026",
+            "fact": {
+              "value": 102718000000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-01-27",
+              "periodEnd": "2026-01-25",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "NetCashProvidedByUsedInOperatingActivities",
+              "label": "Net Cash Provided by Operating Activities",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "operatingCashFlow:us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "capex",
+            "period": "FY2026",
+            "fact": {
+              "value": 6042000000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-01-27",
+              "periodEnd": "2026-01-25",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "PaymentsToAcquireProductiveAssets",
+              "label": "Capital Expenditures (Acquisition of Property & Equipment)",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "capex:us-gaap:PaymentsToAcquireProductiveAssets",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": {
+          "kind": "NTM calculation",
+          "formula": "operativt kassaflöde − CapEx",
+          "values": [
+            60853000000,
+            96676000000
+          ],
+          "unit": "USD"
+        },
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "FCF enligt befintlig definition. Förvärv, finansiering och aktiebaserad ersättning dras inte separat av. Inte universellt jämförbart mellan branscher."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "NVDA",
+        "profile": "standard_company",
+        "dimension": "balance",
+        "statementType": "dated-components",
+        "status": "available",
+        "eligibility": {
+          "eligible": true,
+          "reason": null
+        },
+        "text": "På balansdagen 2026-01-25: likvida medel 10 605 000 000 USD; rapporterad skuldkomponent 8 468 000 000 USD.",
+        "comparisonBasis": "Senaste tillgängliga helårets balansdag",
+        "evidence": [
+          {
+            "metric": "cashAndCashEquivalents",
+            "period": "FY2026",
+            "fact": {
+              "value": 10605000000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-01-27",
+              "periodEnd": "2026-01-25",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "CashAndCashEquivalentsAtCarryingValue",
+              "label": "Cash and Cash Equivalents",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "cashAndCashEquivalents:us-gaap:CashAndCashEquivalentsAtCarryingValue",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "debt",
+            "period": "FY2026",
+            "fact": {
+              "value": 8468000000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-01-27",
+              "periodEnd": "2026-01-25",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "LongTermDebt",
+              "label": "Total Debt (Long-Term Debt & Current Portion)",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "debt:us-gaap:LongTermDebt",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Skuldkomponentens definition visas i underlaget. Ingen slutsats om nettokassa, fullständig skuldsättning, likviditetskvalitet eller fritt disponibla medel."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "NVDA",
+        "profile": "standard_company",
+        "dimension": "perShare",
+        "statementType": "R6",
+        "status": "unavailable",
+        "eligibility": {
+          "eligible": false,
+          "reason": "Verifierad, splitjämförbar vägd utspädd aktiebas saknas. Punktantal aktier får inte användas."
+        },
+        "text": "Otillräckligt underlag för att bedöma utvecklingen.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "netIncomeToCommon",
+            "period": "FY2025",
+            "fact": {
+              "value": 72880000000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2024-01-29",
+              "periodEnd": "2025-01-26",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "NetIncomeLoss",
+              "label": "Net Income Attributable to Common Stockholders",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "netIncomeToCommon:us-gaap:NetIncomeLoss",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "dilutedEps",
+            "period": "FY2025",
+            "fact": {
+              "value": 2.94,
+              "unit": "USD/shares",
+              "period": "FY2025",
+              "periodStart": "2024-01-29",
+              "periodEnd": "2025-01-26",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "EarningsPerShareDiluted",
+              "label": "Earnings Per Share, Diluted",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "dilutedEps:us-gaap:EarningsPerShareDiluted",
+              "periodType": "annual",
+              "shareBasis": null,
+              "shareBasisStatus": "unverified"
+            }
+          },
+          {
+            "metric": "dilutedShares",
+            "period": "FY2025",
+            "fact": {
+              "value": 24804000000,
+              "unit": "shares",
+              "period": "FY2025",
+              "periodStart": "2024-01-29",
+              "periodEnd": "2025-01-26",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+              "label": "Weighted Average Number of Diluted Shares Outstanding",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": null,
+              "definition": "dilutedShares:us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+              "periodType": "annual",
+              "shareBasis": null,
+              "shareBasisStatus": "unverified"
+            }
+          },
+          {
+            "metric": "netIncomeToCommon",
+            "period": "FY2026",
+            "fact": {
+              "value": 120067000000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-01-27",
+              "periodEnd": "2026-01-25",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "NetIncomeLoss",
+              "label": "Net Income Attributable to Common Stockholders",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "netIncomeToCommon:us-gaap:NetIncomeLoss",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "dilutedEps",
+            "period": "FY2026",
+            "fact": {
+              "value": 4.9,
+              "unit": "USD/shares",
+              "period": "FY2026",
+              "periodStart": "2025-01-27",
+              "periodEnd": "2026-01-25",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "EarningsPerShareDiluted",
+              "label": "Earnings Per Share, Diluted",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "dilutedEps:us-gaap:EarningsPerShareDiluted",
+              "periodType": "annual",
+              "shareBasis": null,
+              "shareBasisStatus": "unverified"
+            }
+          },
+          {
+            "metric": "dilutedShares",
+            "period": "FY2026",
+            "fact": {
+              "value": 24514000000,
+              "unit": "shares",
+              "period": "FY2026",
+              "periodStart": "2025-01-27",
+              "periodEnd": "2026-01-25",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+              "label": "Weighted Average Number of Diluted Shares Outstanding",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": null,
+              "definition": "dilutedShares:us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+              "periodType": "annual",
+              "shareBasis": null,
+              "shareBasisStatus": "unverified"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "R6:s tolerans 0,1 procentenhet är en visningsregel, inte investeringsväsentlighet. Ingen automatisk slutsats om utspädningsproblem."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "NVDA",
+        "profile": "standard_company",
+        "dimension": "momentum",
+        "statementType": "revenue-rate-direction",
+        "status": "available",
+        "eligibility": {
+          "eligible": true,
+          "reason": null
+        },
+        "text": "Intäkternas årsförändring gick från 114,2 % till 65,47 %.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "revenue",
+            "period": "FY2024",
+            "fact": {
+              "value": 60922000000,
+              "unit": "USD",
+              "period": "FY2024",
+              "periodStart": "2023-01-30",
+              "periodEnd": "2024-01-28",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "Revenues",
+              "label": "Total Revenue",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:Revenues",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2025",
+            "fact": {
+              "value": 130497000000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2024-01-29",
+              "periodEnd": "2025-01-26",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "Revenues",
+              "label": "Total Revenue",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:Revenues",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2026",
+            "fact": {
+              "value": 215938000000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-01-27",
+              "periodEnd": "2026-01-25",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "Revenues",
+              "label": "Total Revenue",
+              "form": "10-K",
+              "filed": "2026-02-25",
+              "accession": "0001045810-26-000021",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:Revenues",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": {
+          "kind": "NTM calculation",
+          "formula": "(nytt / tidigare − 1) × 100 för två intilliggande årpar",
+          "values": [
+            114.20340763599354,
+            65.47353579009479
+          ],
+          "unit": "%"
+        },
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Avser rapporterade fundamenta. Säger inget om aktiekursens momentum eller framtida utveckling."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "NVDA",
+        "profile": "standard_company",
+        "dimension": "quality",
+        "statementType": "coverage-diagnostic",
+        "status": "available",
+        "eligibility": {
+          "eligible": true,
+          "reason": null
+        },
+        "text": "5 av 6 avgränsade beskrivningar har underlag. 1 saknar jämförbart underlag. Senaste tillgängliga helår: FY2026, slutdatum 2026-01-25.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Diagnostik av NTM:s underlag, inte bolagets kvalitet. Hämtningstid är inte rapportperiod.",
+        "diagnostics": {
+          "annualObservations": 3,
+          "latestPeriodEnd": "2026-01-25",
+          "fetchedAt": "2026-09-14T19:35:10.693065+00:00",
+          "updateStatus": "success",
+          "blocked": [
+            {
+              "dimension": "perShare",
+              "reason": "Verifierad, splitjämförbar vägd utspädd aktiebas saknas. Punktantal aktier får inte användas."
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "methodVersion": "ntm-fundamental/1",
+    "company": "SOFI",
+    "statements": [
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "SOFI",
+        "profile": "financial_services",
+        "dimension": "growth",
+        "statementType": "revenue-change",
+        "status": "available",
+        "eligibility": {
+          "eligible": true,
+          "reason": null
+        },
+        "text": "Nettointäkterna ökade mellan FY2024 och FY2025 med 35,09 %.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "revenue",
+            "period": "FY2024",
+            "fact": {
+              "value": 2674859000,
+              "unit": "USD",
+              "period": "FY2024",
+              "periodStart": "2024-01-01",
+              "periodEnd": "2024-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenuesNetOfInterestExpense",
+              "label": "Total Net Revenue (Net of Interest Expense)",
+              "form": "10-K",
+              "filed": "2026-02-17",
+              "accession": "0001818874-26-000013",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenuesNetOfInterestExpense",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2025",
+            "fact": {
+              "value": 3613354000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenuesNetOfInterestExpense",
+              "label": "Total Net Revenue (Net of Interest Expense)",
+              "form": "10-K",
+              "filed": "2026-02-17",
+              "accession": "0001818874-26-000013",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenuesNetOfInterestExpense",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": {
+          "kind": "NTM calculation",
+          "formula": "(nytt / tidigare − 1) × 100",
+          "value": 35.085774614661936,
+          "unit": "%"
+        },
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": ""
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "SOFI",
+        "profile": "financial_services",
+        "dimension": "profitability",
+        "statementType": "operating-margin",
+        "status": "unavailable",
+        "eligibility": {
+          "eligible": false,
+          "reason": "Industrimarginal används inte för finansiella bolag."
+        },
+        "text": "Otillräckligt underlag för att bedöma utvecklingen.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "operatingIncome",
+            "period": "FY2024",
+            "fact": {
+              "value": null,
+              "unit": "USD",
+              "period": "FY2024",
+              "periodStart": "2024-01-01",
+              "periodEnd": "2024-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": null,
+              "label": null,
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "unsupported": true,
+              "unsupportedReason": "Financial institution: Operating income is not reported as a standard line item in depository banking.",
+              "kind": "unavailable",
+              "qualityStatus": "unavailable",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "operatingIncome:us-gaap:operatingIncome",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2024",
+            "fact": {
+              "value": 2674859000,
+              "unit": "USD",
+              "period": "FY2024",
+              "periodStart": "2024-01-01",
+              "periodEnd": "2024-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenuesNetOfInterestExpense",
+              "label": "Total Net Revenue (Net of Interest Expense)",
+              "form": "10-K",
+              "filed": "2026-02-17",
+              "accession": "0001818874-26-000013",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenuesNetOfInterestExpense",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "operatingIncome",
+            "period": "FY2025",
+            "fact": {
+              "value": null,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": null,
+              "label": null,
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "unsupported": true,
+              "unsupportedReason": "Financial institution: Operating income is not reported as a standard line item in depository banking.",
+              "kind": "unavailable",
+              "qualityStatus": "unavailable",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "operatingIncome:us-gaap:operatingIncome",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2025",
+            "fact": {
+              "value": 3613354000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenuesNetOfInterestExpense",
+              "label": "Total Net Revenue (Net of Interest Expense)",
+              "form": "10-K",
+              "filed": "2026-02-17",
+              "accession": "0001818874-26-000013",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenuesNetOfInterestExpense",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Marginalens riktning avgör inte investeringens utfall."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "SOFI",
+        "profile": "financial_services",
+        "dimension": "cash",
+        "statementType": "fcf-change",
+        "status": "unavailable",
+        "eligibility": {
+          "eligible": false,
+          "reason": "FCF är undanhållet för denna finansiella bolagsprofil."
+        },
+        "text": "Otillräckligt underlag för att bedöma utvecklingen.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "freeCashFlow",
+            "period": "FY2024",
+            "fact": {
+              "value": null,
+              "unit": "USD",
+              "period": "FY2024",
+              "periodStart": "2024-01-01",
+              "periodEnd": "2024-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": null,
+              "label": null,
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "unsupported": true,
+              "unsupportedReason": "Financial institution: Free Cash Flow (OCF - CapEx) is not economically meaningful for depository and lending institutions whose cash flow is dominated by loan origination and deposit changes.",
+              "kind": "unavailable",
+              "qualityStatus": "unavailable",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "freeCashFlow:us-gaap:freeCashFlow",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "operatingCashFlow",
+            "period": "FY2024",
+            "fact": {
+              "value": -1119807000,
+              "unit": "USD",
+              "period": "FY2024",
+              "periodStart": "2024-01-01",
+              "periodEnd": "2024-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "NetCashProvidedByUsedInOperatingActivities",
+              "label": "Net Cash Provided by (Used in) Operating Activities",
+              "form": "10-K",
+              "filed": "2026-02-17",
+              "accession": "0001818874-26-000013",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "operatingCashFlow:us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "capex",
+            "period": "FY2024",
+            "fact": {
+              "value": 154265000,
+              "unit": "USD",
+              "period": "FY2024",
+              "periodStart": "2024-01-01",
+              "periodEnd": "2024-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "PaymentsToAcquireProductiveAssets",
+              "label": "Payments to Acquire Productive Assets (CapEx)",
+              "form": "10-K",
+              "filed": "2026-02-17",
+              "accession": "0001818874-26-000013",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "capex:us-gaap:PaymentsToAcquireProductiveAssets",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "freeCashFlow",
+            "period": "FY2025",
+            "fact": {
+              "value": null,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": null,
+              "label": null,
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "unsupported": true,
+              "unsupportedReason": "Financial institution: Free Cash Flow (OCF - CapEx) is not economically meaningful for depository and lending institutions whose cash flow is dominated by loan origination and deposit changes.",
+              "kind": "unavailable",
+              "qualityStatus": "unavailable",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "freeCashFlow:us-gaap:freeCashFlow",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "operatingCashFlow",
+            "period": "FY2025",
+            "fact": {
+              "value": -3742458000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "NetCashProvidedByUsedInOperatingActivities",
+              "label": "Net Cash Provided by (Used in) Operating Activities",
+              "form": "10-K",
+              "filed": "2026-02-17",
+              "accession": "0001818874-26-000013",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "operatingCashFlow:us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "capex",
+            "period": "FY2025",
+            "fact": {
+              "value": 242444000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "PaymentsToAcquireProductiveAssets",
+              "label": "Payments to Acquire Productive Assets (CapEx)",
+              "form": "10-K",
+              "filed": "2026-02-17",
+              "accession": "0001818874-26-000013",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "capex:us-gaap:PaymentsToAcquireProductiveAssets",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "FCF enligt befintlig definition. Förvärv, finansiering och aktiebaserad ersättning dras inte separat av. Inte universellt jämförbart mellan branscher."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "SOFI",
+        "profile": "financial_services",
+        "dimension": "balance",
+        "statementType": "dated-components",
+        "status": "unavailable",
+        "eligibility": {
+          "eligible": false,
+          "reason": "Värde saknas eller är undanhållet."
+        },
+        "text": "Otillräckligt underlag för att bedöma utvecklingen.",
+        "comparisonBasis": "Senaste tillgängliga helårets balansdag",
+        "evidence": [
+          {
+            "metric": "cashAndCashEquivalents",
+            "period": "FY2025",
+            "fact": {
+              "value": 4929452000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "CashAndCashEquivalentsAtCarryingValue",
+              "label": "Cash and Cash Equivalents, at Carrying Value",
+              "form": "10-K",
+              "filed": "2026-02-17",
+              "accession": "0001818874-26-000013",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "cashAndCashEquivalents:us-gaap:CashAndCashEquivalentsAtCarryingValue",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "debt",
+            "period": "FY2025",
+            "fact": {
+              "value": null,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": null,
+              "label": null,
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "unsupported": true,
+              "unsupportedReason": "Financial institution balance sheet: traditional industrial Total Debt is ambiguous due to customer deposits ($37.5B) vs funded debt borrowings ($1.8B via DebtLongtermAndShorttermCombinedAmount).",
+              "kind": "unavailable",
+              "qualityStatus": "unavailable",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "debt:us-gaap:debt",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Skuldkomponentens definition visas i underlaget. Ingen slutsats om nettokassa, fullständig skuldsättning, likviditetskvalitet eller fritt disponibla medel."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "SOFI",
+        "profile": "financial_services",
+        "dimension": "perShare",
+        "statementType": "R6",
+        "status": "unavailable",
+        "eligibility": {
+          "eligible": false,
+          "reason": "Verifierad, splitjämförbar vägd utspädd aktiebas saknas. Punktantal aktier får inte användas."
+        },
+        "text": "Otillräckligt underlag för att bedöma utvecklingen.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "netIncomeToCommon",
+            "period": "FY2024",
+            "fact": {
+              "value": 479136000,
+              "unit": "USD",
+              "period": "FY2024",
+              "periodStart": "2024-01-01",
+              "periodEnd": "2024-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+              "label": "Net Income (Loss) Available to Common Stockholders, Basic",
+              "form": "10-K",
+              "filed": "2026-02-17",
+              "accession": "0001818874-26-000013",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "netIncomeToCommon:us-gaap:NetIncomeLossAvailableToCommonStockholdersBasic",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "dilutedEps",
+            "period": "FY2024",
+            "fact": {
+              "value": 0.39,
+              "unit": "USD/shares",
+              "period": "FY2024",
+              "periodStart": "2024-01-01",
+              "periodEnd": "2024-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "EarningsPerShareDiluted",
+              "label": "Earnings Per Share, Diluted",
+              "form": "10-K",
+              "filed": "2026-02-17",
+              "accession": "0001818874-26-000013",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "dilutedEps:us-gaap:EarningsPerShareDiluted",
+              "periodType": "annual",
+              "shareBasis": null,
+              "shareBasisStatus": "unverified"
+            }
+          },
+          {
+            "metric": "dilutedShares",
+            "period": "FY2024",
+            "fact": {
+              "value": 1101390000,
+              "unit": "shares",
+              "period": "FY2024",
+              "periodStart": "2024-01-01",
+              "periodEnd": "2024-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+              "label": "Weighted Average Number of Diluted Shares Outstanding",
+              "form": "10-K",
+              "filed": "2026-02-17",
+              "accession": "0001818874-26-000013",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": null,
+              "definition": "dilutedShares:us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+              "periodType": "annual",
+              "shareBasis": null,
+              "shareBasisStatus": "unverified"
+            }
+          },
+          {
+            "metric": "netIncomeToCommon",
+            "period": "FY2025",
+            "fact": {
+              "value": 481320000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+              "label": "Net Income (Loss) Available to Common Stockholders, Basic",
+              "form": "10-K",
+              "filed": "2026-02-17",
+              "accession": "0001818874-26-000013",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "netIncomeToCommon:us-gaap:NetIncomeLossAvailableToCommonStockholdersBasic",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "dilutedEps",
+            "period": "FY2025",
+            "fact": {
+              "value": 0.39,
+              "unit": "USD/shares",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "EarningsPerShareDiluted",
+              "label": "Earnings Per Share, Diluted",
+              "form": "10-K",
+              "filed": "2026-02-17",
+              "accession": "0001818874-26-000013",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "dilutedEps:us-gaap:EarningsPerShareDiluted",
+              "periodType": "annual",
+              "shareBasis": null,
+              "shareBasisStatus": "unverified"
+            }
+          },
+          {
+            "metric": "dilutedShares",
+            "period": "FY2025",
+            "fact": {
+              "value": 1251767000,
+              "unit": "shares",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+              "label": "Weighted Average Number of Diluted Shares Outstanding",
+              "form": "10-K",
+              "filed": "2026-02-17",
+              "accession": "0001818874-26-000013",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": null,
+              "definition": "dilutedShares:us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+              "periodType": "annual",
+              "shareBasis": null,
+              "shareBasisStatus": "unverified"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "R6:s tolerans 0,1 procentenhet är en visningsregel, inte investeringsväsentlighet. Ingen automatisk slutsats om utspädningsproblem."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "SOFI",
+        "profile": "financial_services",
+        "dimension": "momentum",
+        "statementType": "revenue-rate-direction",
+        "status": "available",
+        "eligibility": {
+          "eligible": true,
+          "reason": null
+        },
+        "text": "Intäkternas årsförändring gick från 26,01 % till 35,09 %.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "revenue",
+            "period": "FY2023",
+            "fact": {
+              "value": 2122789000,
+              "unit": "USD",
+              "period": "FY2023",
+              "periodStart": "2023-01-01",
+              "periodEnd": "2023-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenuesNetOfInterestExpense",
+              "label": "Total Net Revenue (Net of Interest Expense)",
+              "form": "10-K",
+              "filed": "2026-02-17",
+              "accession": "0001818874-26-000013",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenuesNetOfInterestExpense",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2024",
+            "fact": {
+              "value": 2674859000,
+              "unit": "USD",
+              "period": "FY2024",
+              "periodStart": "2024-01-01",
+              "periodEnd": "2024-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenuesNetOfInterestExpense",
+              "label": "Total Net Revenue (Net of Interest Expense)",
+              "form": "10-K",
+              "filed": "2026-02-17",
+              "accession": "0001818874-26-000013",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenuesNetOfInterestExpense",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2025",
+            "fact": {
+              "value": 3613354000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenuesNetOfInterestExpense",
+              "label": "Total Net Revenue (Net of Interest Expense)",
+              "form": "10-K",
+              "filed": "2026-02-17",
+              "accession": "0001818874-26-000013",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenuesNetOfInterestExpense",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": {
+          "kind": "NTM calculation",
+          "formula": "(nytt / tidigare − 1) × 100 för två intilliggande årpar",
+          "values": [
+            26.00682404139083,
+            35.085774614661936
+          ],
+          "unit": "%"
+        },
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Avser rapporterade fundamenta. Säger inget om aktiekursens momentum eller framtida utveckling."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "SOFI",
+        "profile": "financial_services",
+        "dimension": "quality",
+        "statementType": "coverage-diagnostic",
+        "status": "available",
+        "eligibility": {
+          "eligible": true,
+          "reason": null
+        },
+        "text": "2 av 6 avgränsade beskrivningar har underlag. 4 saknar jämförbart underlag. Senaste tillgängliga helår: FY2025, slutdatum 2025-12-31.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Diagnostik av NTM:s underlag, inte bolagets kvalitet. Hämtningstid är inte rapportperiod.",
+        "diagnostics": {
+          "annualObservations": 3,
+          "latestPeriodEnd": "2025-12-31",
+          "fetchedAt": "2026-09-14T19:35:10.292566+00:00",
+          "updateStatus": "success",
+          "blocked": [
+            {
+              "dimension": "profitability",
+              "reason": "Industrimarginal används inte för finansiella bolag."
+            },
+            {
+              "dimension": "cash",
+              "reason": "FCF är undanhållet för denna finansiella bolagsprofil."
+            },
+            {
+              "dimension": "balance",
+              "reason": "Värde saknas eller är undanhållet."
+            },
+            {
+              "dimension": "perShare",
+              "reason": "Verifierad, splitjämförbar vägd utspädd aktiebas saknas. Punktantal aktier får inte användas."
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "methodVersion": "ntm-fundamental/1",
+    "company": "CRWD",
+    "statements": [
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "CRWD",
+        "profile": "software_saas",
+        "dimension": "growth",
+        "statementType": "revenue-change",
+        "status": "available",
+        "eligibility": {
+          "eligible": true,
+          "reason": null
+        },
+        "text": "Omsättningen ökade mellan FY2025 och FY2026 med 21,71 %.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "revenue",
+            "period": "FY2025",
+            "fact": {
+              "value": 3953624000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2024-02-01",
+              "periodEnd": "2025-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Total Revenue",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2026",
+            "fact": {
+              "value": 4812005000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-02-01",
+              "periodEnd": "2026-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Total Revenue",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": {
+          "kind": "NTM calculation",
+          "formula": "(nytt / tidigare − 1) × 100",
+          "value": 21.711245176577233,
+          "unit": "%"
+        },
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": ""
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "CRWD",
+        "profile": "software_saas",
+        "dimension": "profitability",
+        "statementType": "operating-margin",
+        "status": "available",
+        "eligibility": {
+          "eligible": true,
+          "reason": null
+        },
+        "text": "Rörelsemarginalen gick från −2,94 % till −6,1 % (−3,15 procentenheter).",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "operatingIncome",
+            "period": "FY2025",
+            "fact": {
+              "value": -116400000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2024-02-01",
+              "periodEnd": "2025-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "OperatingIncomeLoss",
+              "label": "Operating Income (Loss)",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "operatingIncome:us-gaap:OperatingIncomeLoss",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2025",
+            "fact": {
+              "value": 3953624000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2024-02-01",
+              "periodEnd": "2025-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Total Revenue",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "operatingIncome",
+            "period": "FY2026",
+            "fact": {
+              "value": -293292000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-02-01",
+              "periodEnd": "2026-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "OperatingIncomeLoss",
+              "label": "Operating Income (Loss)",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "operatingIncome:us-gaap:OperatingIncomeLoss",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2026",
+            "fact": {
+              "value": 4812005000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-02-01",
+              "periodEnd": "2026-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Total Revenue",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": {
+          "kind": "NTM calculation",
+          "formula": "rörelseresultat / intäkter × 100; ny marginal − tidigare marginal",
+          "values": [
+            -2.9441342929929606,
+            -6.095006135696035
+          ],
+          "value": -3.150871842703075,
+          "unit": "procentenheter"
+        },
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Marginalens riktning avgör inte investeringens utfall."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "CRWD",
+        "profile": "software_saas",
+        "dimension": "cash",
+        "statementType": "fcf-change",
+        "status": "available",
+        "eligibility": {
+          "eligible": true,
+          "reason": null
+        },
+        "text": "Fritt kassaflöde gick från 1 126 875 000 till 1 310 241 000 USD.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "freeCashFlow",
+            "period": "FY2025",
+            "fact": {
+              "value": 1126875000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2024-02-01",
+              "periodEnd": "2025-01-31",
+              "source": "SEC-derived",
+              "taxonomy": "us-gaap",
+              "concept": null,
+              "label": "Free Cash Flow (FCF)",
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": true,
+              "derivationNotes": "Free Cash Flow computed as Operating Cash Flow minus CapEx",
+              "derivedFrom": [
+                "0001535527-26-000010",
+                "0001535527-26-000010"
+              ],
+              "kind": "derived",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "freeCashFlow:us-gaap:freeCashFlow",
+              "periodType": "annual",
+              "derivationMethod": "operatingCashFlow_minus_capex",
+              "sourceFilings": [
+                {
+                  "accession": "0001535527-26-000010",
+                  "filed": "2026-03-05"
+                }
+              ]
+            }
+          },
+          {
+            "metric": "operatingCashFlow",
+            "period": "FY2025",
+            "fact": {
+              "value": 1381727000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2024-02-01",
+              "periodEnd": "2025-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "NetCashProvidedByUsedInOperatingActivities",
+              "label": "Net Cash Provided by Operating Activities",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "operatingCashFlow:us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "capex",
+            "period": "FY2025",
+            "fact": {
+              "value": 254852000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2024-02-01",
+              "periodEnd": "2025-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+              "label": "Capital Expenditures (Purchases of Property & Equipment)",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "capex:us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "freeCashFlow",
+            "period": "FY2026",
+            "fact": {
+              "value": 1310241000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-02-01",
+              "periodEnd": "2026-01-31",
+              "source": "SEC-derived",
+              "taxonomy": "us-gaap",
+              "concept": null,
+              "label": "Free Cash Flow (FCF)",
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": true,
+              "derivationNotes": "Free Cash Flow computed as Operating Cash Flow minus CapEx",
+              "derivedFrom": [
+                "0001535527-26-000010",
+                "0001535527-26-000010"
+              ],
+              "kind": "derived",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "freeCashFlow:us-gaap:freeCashFlow",
+              "periodType": "annual",
+              "derivationMethod": "operatingCashFlow_minus_capex",
+              "sourceFilings": [
+                {
+                  "accession": "0001535527-26-000010",
+                  "filed": "2026-03-05"
+                }
+              ]
+            }
+          },
+          {
+            "metric": "operatingCashFlow",
+            "period": "FY2026",
+            "fact": {
+              "value": 1612349000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-02-01",
+              "periodEnd": "2026-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "NetCashProvidedByUsedInOperatingActivities",
+              "label": "Net Cash Provided by Operating Activities",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "operatingCashFlow:us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "capex",
+            "period": "FY2026",
+            "fact": {
+              "value": 302108000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-02-01",
+              "periodEnd": "2026-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+              "label": "Capital Expenditures (Purchases of Property & Equipment)",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "capex:us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": {
+          "kind": "NTM calculation",
+          "formula": "operativt kassaflöde − CapEx",
+          "values": [
+            1126875000,
+            1310241000
+          ],
+          "unit": "USD"
+        },
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "FCF enligt befintlig definition. Förvärv, finansiering och aktiebaserad ersättning dras inte separat av. Inte universellt jämförbart mellan branscher."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "CRWD",
+        "profile": "software_saas",
+        "dimension": "balance",
+        "statementType": "dated-components",
+        "status": "available",
+        "eligibility": {
+          "eligible": true,
+          "reason": null
+        },
+        "text": "På balansdagen 2026-01-31: likvida medel 5 230 125 000 USD; rapporterad skuldkomponent 745 471 000 USD.",
+        "comparisonBasis": "Senaste tillgängliga helårets balansdag",
+        "evidence": [
+          {
+            "metric": "cashAndCashEquivalents",
+            "period": "FY2026",
+            "fact": {
+              "value": 5230125000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-02-01",
+              "periodEnd": "2026-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "CashAndCashEquivalentsAtCarryingValue",
+              "label": "Cash and Cash Equivalents",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "cashAndCashEquivalents:us-gaap:CashAndCashEquivalentsAtCarryingValue",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "debt",
+            "period": "FY2026",
+            "fact": {
+              "value": 745471000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-02-01",
+              "periodEnd": "2026-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "LongTermDebtNoncurrent",
+              "label": "Total Debt (Senior Notes)",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "debt:us-gaap:LongTermDebtNoncurrent",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Skuldkomponentens definition visas i underlaget. Ingen slutsats om nettokassa, fullständig skuldsättning, likviditetskvalitet eller fritt disponibla medel."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "CRWD",
+        "profile": "software_saas",
+        "dimension": "perShare",
+        "statementType": "R6",
+        "status": "unavailable",
+        "eligibility": {
+          "eligible": false,
+          "reason": "Verifierad, splitjämförbar vägd utspädd aktiebas saknas. Punktantal aktier får inte användas."
+        },
+        "text": "Otillräckligt underlag för att bedöma utvecklingen.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "netIncomeToCommon",
+            "period": "FY2025",
+            "fact": {
+              "value": -15241000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2024-02-01",
+              "periodEnd": "2025-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "NetIncomeLoss",
+              "label": "Net Income (Loss) Attributable to Common Stockholders",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "netIncomeToCommon:us-gaap:NetIncomeLoss",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "dilutedEps",
+            "period": "FY2025",
+            "fact": {
+              "value": -0.06,
+              "unit": "USD/shares",
+              "period": "FY2025",
+              "periodStart": "2024-02-01",
+              "periodEnd": "2025-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "EarningsPerShareDiluted",
+              "label": "Earnings Per Share, Diluted",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "dilutedEps:us-gaap:EarningsPerShareDiluted",
+              "periodType": "annual",
+              "shareBasis": null,
+              "shareBasisStatus": "unverified"
+            }
+          },
+          {
+            "metric": "dilutedShares",
+            "period": "FY2025",
+            "fact": {
+              "value": 244750000,
+              "unit": "shares",
+              "period": "FY2025",
+              "periodStart": "2024-02-01",
+              "periodEnd": "2025-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+              "label": "Weighted Average Number of Diluted Shares Outstanding",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": null,
+              "definition": "dilutedShares:us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+              "periodType": "annual",
+              "shareBasis": null,
+              "shareBasisStatus": "unverified"
+            }
+          },
+          {
+            "metric": "netIncomeToCommon",
+            "period": "FY2026",
+            "fact": {
+              "value": -162502000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-02-01",
+              "periodEnd": "2026-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "NetIncomeLoss",
+              "label": "Net Income (Loss) Attributable to Common Stockholders",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "netIncomeToCommon:us-gaap:NetIncomeLoss",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "dilutedEps",
+            "period": "FY2026",
+            "fact": {
+              "value": -0.65,
+              "unit": "USD/shares",
+              "period": "FY2026",
+              "periodStart": "2025-02-01",
+              "periodEnd": "2026-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "EarningsPerShareDiluted",
+              "label": "Earnings Per Share, Diluted",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "dilutedEps:us-gaap:EarningsPerShareDiluted",
+              "periodType": "annual",
+              "shareBasis": null,
+              "shareBasisStatus": "unverified"
+            }
+          },
+          {
+            "metric": "dilutedShares",
+            "period": "FY2026",
+            "fact": {
+              "value": 250576000,
+              "unit": "shares",
+              "period": "FY2026",
+              "periodStart": "2025-02-01",
+              "periodEnd": "2026-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+              "label": "Weighted Average Number of Diluted Shares Outstanding",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": null,
+              "definition": "dilutedShares:us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+              "periodType": "annual",
+              "shareBasis": null,
+              "shareBasisStatus": "unverified"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "R6:s tolerans 0,1 procentenhet är en visningsregel, inte investeringsväsentlighet. Ingen automatisk slutsats om utspädningsproblem."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "CRWD",
+        "profile": "software_saas",
+        "dimension": "momentum",
+        "statementType": "revenue-rate-direction",
+        "status": "available",
+        "eligibility": {
+          "eligible": true,
+          "reason": null
+        },
+        "text": "Intäkternas årsförändring gick från 29,39 % till 21,71 %.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "revenue",
+            "period": "FY2024",
+            "fact": {
+              "value": 3055555000,
+              "unit": "USD",
+              "period": "FY2024",
+              "periodStart": "2023-02-01",
+              "periodEnd": "2024-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Total Revenue",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2025",
+            "fact": {
+              "value": 3953624000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2024-02-01",
+              "periodEnd": "2025-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Total Revenue",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2026",
+            "fact": {
+              "value": 4812005000,
+              "unit": "USD",
+              "period": "FY2026",
+              "periodStart": "2025-02-01",
+              "periodEnd": "2026-01-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenueFromContractWithCustomerIncludingAssessedTax",
+              "label": "Total Revenue",
+              "form": "10-K",
+              "filed": "2026-03-05",
+              "accession": "0001535527-26-000010",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": {
+          "kind": "NTM calculation",
+          "formula": "(nytt / tidigare − 1) × 100 för två intilliggande årpar",
+          "values": [
+            29.391354434791705,
+            21.711245176577233
+          ],
+          "unit": "%"
+        },
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Avser rapporterade fundamenta. Säger inget om aktiekursens momentum eller framtida utveckling."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "CRWD",
+        "profile": "software_saas",
+        "dimension": "quality",
+        "statementType": "coverage-diagnostic",
+        "status": "available",
+        "eligibility": {
+          "eligible": true,
+          "reason": null
+        },
+        "text": "5 av 6 avgränsade beskrivningar har underlag. 1 saknar jämförbart underlag. Senaste tillgängliga helår: FY2026, slutdatum 2026-01-31.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Diagnostik av NTM:s underlag, inte bolagets kvalitet. Hämtningstid är inte rapportperiod.",
+        "diagnostics": {
+          "annualObservations": 3,
+          "latestPeriodEnd": "2026-01-31",
+          "fetchedAt": "2026-09-14T19:35:11.081756+00:00",
+          "updateStatus": "success",
+          "blocked": [
+            {
+              "dimension": "perShare",
+              "reason": "Verifierad, splitjämförbar vägd utspädd aktiebas saknas. Punktantal aktier får inte användas."
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "methodVersion": "ntm-fundamental/1",
+    "company": "CRWV",
+    "statements": [
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "CRWV",
+        "profile": "financing_sensitive",
+        "dimension": "growth",
+        "statementType": "revenue-change",
+        "status": "unavailable",
+        "eligibility": {
+          "eligible": false,
+          "reason": "Värde saknas eller är undanhållet."
+        },
+        "text": "Otillräckligt underlag för att bedöma utvecklingen.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "revenue",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2025",
+            "fact": {
+              "value": 5131000000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "label": "revenue",
+              "form": "10-K",
+              "filed": "2026-03-02",
+              "accession": "0001769628-26-000104",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": ""
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "CRWV",
+        "profile": "financing_sensitive",
+        "dimension": "profitability",
+        "statementType": "operating-margin",
+        "status": "unavailable",
+        "eligibility": {
+          "eligible": false,
+          "reason": "Värde saknas eller är undanhållet."
+        },
+        "text": "Otillräckligt underlag för att bedöma utvecklingen.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "operatingIncome",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "revenue",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "operatingIncome",
+            "period": "FY2025",
+            "fact": {
+              "value": -46000000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "OperatingIncomeLoss",
+              "label": "operatingIncome",
+              "form": "10-K",
+              "filed": "2026-03-02",
+              "accession": "0001769628-26-000104",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "operatingIncome:us-gaap:OperatingIncomeLoss",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2025",
+            "fact": {
+              "value": 5131000000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "label": "revenue",
+              "form": "10-K",
+              "filed": "2026-03-02",
+              "accession": "0001769628-26-000104",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Marginalens riktning avgör inte investeringens utfall."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "CRWV",
+        "profile": "financing_sensitive",
+        "dimension": "cash",
+        "statementType": "fcf-change",
+        "status": "unavailable",
+        "eligibility": {
+          "eligible": false,
+          "reason": "Värde saknas eller är undanhållet."
+        },
+        "text": "Otillräckligt underlag för att bedöma utvecklingen.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "freeCashFlow",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "operatingCashFlow",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "capex",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "freeCashFlow",
+            "period": "FY2025",
+            "fact": {
+              "value": null,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": null,
+              "label": null,
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "unsupported": true,
+              "unsupportedReason": "CoreWeave: cash PP&E purchases exclude non-cash additions and OEM/lease financing. A comparable comprehensive investment/debt scope is not verified; simple FCF is disabled.",
+              "kind": "unavailable",
+              "qualityStatus": "unavailable",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "freeCashFlow:us-gaap:freeCashFlow",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "operatingCashFlow",
+            "period": "FY2025",
+            "fact": {
+              "value": 3058000000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "NetCashProvidedByUsedInOperatingActivities",
+              "label": "operatingCashFlow",
+              "form": "10-K",
+              "filed": "2026-03-02",
+              "accession": "0001769628-26-000104",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "operatingCashFlow:us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "capex",
+            "period": "FY2025",
+            "fact": {
+              "value": null,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": null,
+              "label": null,
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "unsupported": true,
+              "unsupportedReason": "CoreWeave: cash PP&E purchases exclude non-cash additions and OEM/lease financing. A comparable comprehensive investment/debt scope is not verified; simple FCF is disabled.",
+              "kind": "unavailable",
+              "qualityStatus": "unavailable",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "capex:us-gaap:capex",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "FCF enligt befintlig definition. Förvärv, finansiering och aktiebaserad ersättning dras inte separat av. Inte universellt jämförbart mellan branscher."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "CRWV",
+        "profile": "financing_sensitive",
+        "dimension": "balance",
+        "statementType": "dated-components",
+        "status": "unavailable",
+        "eligibility": {
+          "eligible": false,
+          "reason": "Värde saknas eller är undanhållet."
+        },
+        "text": "Otillräckligt underlag för att bedöma utvecklingen.",
+        "comparisonBasis": "Senaste tillgängliga helårets balansdag",
+        "evidence": [
+          {
+            "metric": "cashAndCashEquivalents",
+            "period": "FY2025",
+            "fact": {
+              "value": 3127000000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "CashAndCashEquivalentsAtCarryingValue",
+              "label": "cashAndCashEquivalents",
+              "form": "10-K",
+              "filed": "2026-03-02",
+              "accession": "0001769628-26-000104",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "cashAndCashEquivalents:us-gaap:CashAndCashEquivalentsAtCarryingValue",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "debt",
+            "period": "FY2025",
+            "fact": {
+              "value": null,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": null,
+              "label": null,
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "unsupported": true,
+              "unsupportedReason": "CoreWeave: cash PP&E purchases exclude non-cash additions and OEM/lease financing. A comparable comprehensive investment/debt scope is not verified; simple FCF is disabled.",
+              "kind": "unavailable",
+              "qualityStatus": "unavailable",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "debt:us-gaap:debt",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Skuldkomponentens definition visas i underlaget. Ingen slutsats om nettokassa, fullständig skuldsättning, likviditetskvalitet eller fritt disponibla medel."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "CRWV",
+        "profile": "financing_sensitive",
+        "dimension": "perShare",
+        "statementType": "R6",
+        "status": "unavailable",
+        "eligibility": {
+          "eligible": false,
+          "reason": "Värde saknas eller är undanhållet."
+        },
+        "text": "Otillräckligt underlag för att bedöma utvecklingen.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "netIncomeToCommon",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "dilutedEps",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "dilutedShares",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "netIncomeToCommon",
+            "period": "FY2025",
+            "fact": {
+              "value": null,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": null,
+              "label": null,
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "unsupported": true,
+              "unsupportedReason": "A reconciled diluted/common numerator is not verified. Consolidated net income is not a substitute; enter EPS manually for valuation.",
+              "kind": "unavailable",
+              "qualityStatus": "unavailable",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "netIncomeToCommon:us-gaap:netIncomeToCommon",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "dilutedEps",
+            "period": "FY2025",
+            "fact": {
+              "value": null,
+              "unit": "USD/shares",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "EarningsPerShareDiluted",
+              "label": "dilutedEps",
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "unsupported": true,
+              "unsupportedReason": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+              "kind": "unavailable",
+              "qualityStatus": "unavailable",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "dilutedEps:us-gaap:EarningsPerShareDiluted",
+              "periodType": "annual",
+              "shareBasis": null,
+              "shareBasisStatus": "unverified"
+            }
+          },
+          {
+            "metric": "dilutedShares",
+            "period": "FY2025",
+            "fact": {
+              "value": null,
+              "unit": "shares",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+              "label": "dilutedShares",
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "unsupported": true,
+              "unsupportedReason": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+              "kind": "unavailable",
+              "qualityStatus": "unavailable",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": null,
+              "definition": "dilutedShares:us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+              "periodType": "annual",
+              "shareBasis": null,
+              "shareBasisStatus": "unverified"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "R6:s tolerans 0,1 procentenhet är en visningsregel, inte investeringsväsentlighet. Ingen automatisk slutsats om utspädningsproblem."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "CRWV",
+        "profile": "financing_sensitive",
+        "dimension": "momentum",
+        "statementType": "revenue-rate-direction",
+        "status": "unavailable",
+        "eligibility": {
+          "eligible": false,
+          "reason": "Värde saknas eller är undanhållet."
+        },
+        "text": "Otillräckligt underlag för att bedöma utvecklingen.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "revenue",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "revenue",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2025",
+            "fact": {
+              "value": 5131000000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "label": "revenue",
+              "form": "10-K",
+              "filed": "2026-03-02",
+              "accession": "0001769628-26-000104",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Avser rapporterade fundamenta. Säger inget om aktiekursens momentum eller framtida utveckling."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "CRWV",
+        "profile": "financing_sensitive",
+        "dimension": "quality",
+        "statementType": "coverage-diagnostic",
+        "status": "available",
+        "eligibility": {
+          "eligible": true,
+          "reason": null
+        },
+        "text": "0 av 6 avgränsade beskrivningar har underlag. 6 saknar jämförbart underlag. Senaste tillgängliga helår: FY2025, slutdatum 2025-12-31.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Diagnostik av NTM:s underlag, inte bolagets kvalitet. Hämtningstid är inte rapportperiod.",
+        "diagnostics": {
+          "annualObservations": 1,
+          "latestPeriodEnd": "2025-12-31",
+          "fetchedAt": "2026-09-14T22:44:08.755489+00:00",
+          "updateStatus": "success",
+          "blocked": [
+            {
+              "dimension": "growth",
+              "reason": "Värde saknas eller är undanhållet."
+            },
+            {
+              "dimension": "profitability",
+              "reason": "Värde saknas eller är undanhållet."
+            },
+            {
+              "dimension": "cash",
+              "reason": "Värde saknas eller är undanhållet."
+            },
+            {
+              "dimension": "balance",
+              "reason": "Värde saknas eller är undanhållet."
+            },
+            {
+              "dimension": "perShare",
+              "reason": "Värde saknas eller är undanhållet."
+            },
+            {
+              "dimension": "momentum",
+              "reason": "Värde saknas eller är undanhållet."
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": 1,
+    "methodVersion": "ntm-fundamental/1",
+    "company": "FLY",
+    "statements": [
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "FLY",
+        "profile": "limited_history",
+        "dimension": "growth",
+        "statementType": "revenue-change",
+        "status": "unavailable",
+        "eligibility": {
+          "eligible": false,
+          "reason": "Värde saknas eller är undanhållet."
+        },
+        "text": "Otillräckligt underlag för att bedöma utvecklingen.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "revenue",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2025",
+            "fact": {
+              "value": 159855000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "label": "revenue",
+              "form": "10-K",
+              "filed": "2026-03-20",
+              "accession": "0001193125-26-116309",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": ""
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "FLY",
+        "profile": "limited_history",
+        "dimension": "profitability",
+        "statementType": "operating-margin",
+        "status": "unavailable",
+        "eligibility": {
+          "eligible": false,
+          "reason": "Värde saknas eller är undanhållet."
+        },
+        "text": "Otillräckligt underlag för att bedöma utvecklingen.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "operatingIncome",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "revenue",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "operatingIncome",
+            "period": "FY2025",
+            "fact": {
+              "value": -260688000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "OperatingIncomeLoss",
+              "label": "operatingIncome",
+              "form": "10-K",
+              "filed": "2026-03-20",
+              "accession": "0001193125-26-116309",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "operatingIncome:us-gaap:OperatingIncomeLoss",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2025",
+            "fact": {
+              "value": 159855000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "label": "revenue",
+              "form": "10-K",
+              "filed": "2026-03-20",
+              "accession": "0001193125-26-116309",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Marginalens riktning avgör inte investeringens utfall."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "FLY",
+        "profile": "limited_history",
+        "dimension": "cash",
+        "statementType": "fcf-change",
+        "status": "unavailable",
+        "eligibility": {
+          "eligible": false,
+          "reason": "Värde saknas eller är undanhållet."
+        },
+        "text": "Otillräckligt underlag för att bedöma utvecklingen.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "freeCashFlow",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "operatingCashFlow",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "capex",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "freeCashFlow",
+            "period": "FY2025",
+            "fact": {
+              "value": -237750000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC-derived",
+              "taxonomy": "us-gaap",
+              "concept": null,
+              "label": "Free Cash Flow (OCF minus cash PP&E purchases)",
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": true,
+              "derivationNotes": "Free Cash Flow computed as Operating Cash Flow minus CapEx",
+              "derivedFrom": [
+                "0001193125-26-116309",
+                "0001193125-26-116309"
+              ],
+              "kind": "derived",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "freeCashFlow:us-gaap:freeCashFlow",
+              "periodType": "annual",
+              "derivationMethod": "operatingCashFlow_minus_capex",
+              "sourceFilings": [
+                {
+                  "accession": "0001193125-26-116309",
+                  "filed": "2026-03-20"
+                }
+              ]
+            }
+          },
+          {
+            "metric": "operatingCashFlow",
+            "period": "FY2025",
+            "fact": {
+              "value": -204924000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "NetCashProvidedByUsedInOperatingActivities",
+              "label": "operatingCashFlow",
+              "form": "10-K",
+              "filed": "2026-03-20",
+              "accession": "0001193125-26-116309",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "operatingCashFlow:us-gaap:NetCashProvidedByUsedInOperatingActivities",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "capex",
+            "period": "FY2025",
+            "fact": {
+              "value": 32826000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+              "label": "capex",
+              "form": "10-K",
+              "filed": "2026-03-20",
+              "accession": "0001193125-26-116309",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "capex:us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "FCF enligt befintlig definition. Förvärv, finansiering och aktiebaserad ersättning dras inte separat av. Inte universellt jämförbart mellan branscher."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "FLY",
+        "profile": "limited_history",
+        "dimension": "balance",
+        "statementType": "dated-components",
+        "status": "unavailable",
+        "eligibility": {
+          "eligible": false,
+          "reason": "Värde saknas eller är undanhållet."
+        },
+        "text": "Otillräckligt underlag för att bedöma utvecklingen.",
+        "comparisonBasis": "Senaste tillgängliga helårets balansdag",
+        "evidence": [
+          {
+            "metric": "cashAndCashEquivalents",
+            "period": "FY2025",
+            "fact": {
+              "value": 792966000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "CashAndCashEquivalentsAtCarryingValue",
+              "label": "cashAndCashEquivalents",
+              "form": "10-K",
+              "filed": "2026-03-20",
+              "accession": "0001193125-26-116309",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "cashAndCashEquivalents:us-gaap:CashAndCashEquivalentsAtCarryingValue",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "debt",
+            "period": "FY2025",
+            "fact": {
+              "value": null,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": null,
+              "label": null,
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "unsupported": true,
+              "unsupportedReason": "A complete comparable debt scope is not verified for this coverage profile; no partial debt is labelled total debt.",
+              "kind": "unavailable",
+              "qualityStatus": "unavailable",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "debt:us-gaap:debt",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Skuldkomponentens definition visas i underlaget. Ingen slutsats om nettokassa, fullständig skuldsättning, likviditetskvalitet eller fritt disponibla medel."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "FLY",
+        "profile": "limited_history",
+        "dimension": "perShare",
+        "statementType": "R6",
+        "status": "unavailable",
+        "eligibility": {
+          "eligible": false,
+          "reason": "Värde saknas eller är undanhållet."
+        },
+        "text": "Otillräckligt underlag för att bedöma utvecklingen.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "netIncomeToCommon",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "dilutedEps",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "dilutedShares",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "netIncomeToCommon",
+            "period": "FY2025",
+            "fact": {
+              "value": null,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": null,
+              "label": null,
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "unsupported": true,
+              "unsupportedReason": "A reconciled diluted/common numerator is not verified. Consolidated net income is not a substitute; enter EPS manually for valuation.",
+              "kind": "unavailable",
+              "qualityStatus": "unavailable",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "netIncomeToCommon:us-gaap:netIncomeToCommon",
+              "periodType": "annual"
+            }
+          },
+          {
+            "metric": "dilutedEps",
+            "period": "FY2025",
+            "fact": {
+              "value": null,
+              "unit": "USD/shares",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "EarningsPerShareDiluted",
+              "label": "dilutedEps",
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "unsupported": true,
+              "unsupportedReason": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+              "kind": "unavailable",
+              "qualityStatus": "unavailable",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "dilutedEps:us-gaap:EarningsPerShareDiluted",
+              "periodType": "annual",
+              "shareBasis": null,
+              "shareBasisStatus": "unverified"
+            }
+          },
+          {
+            "metric": "dilutedShares",
+            "period": "FY2025",
+            "fact": {
+              "value": null,
+              "unit": "shares",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+              "label": "dilutedShares",
+              "form": null,
+              "filed": null,
+              "accession": null,
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "unsupported": true,
+              "unsupportedReason": "Comparable diluted share/EPS basis is not verified across the selected history; manual EPS is required.",
+              "kind": "unavailable",
+              "qualityStatus": "unavailable",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": null,
+              "definition": "dilutedShares:us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+              "periodType": "annual",
+              "shareBasis": null,
+              "shareBasisStatus": "unverified"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "R6:s tolerans 0,1 procentenhet är en visningsregel, inte investeringsväsentlighet. Ingen automatisk slutsats om utspädningsproblem."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "FLY",
+        "profile": "limited_history",
+        "dimension": "momentum",
+        "statementType": "revenue-rate-direction",
+        "status": "unavailable",
+        "eligibility": {
+          "eligible": false,
+          "reason": "Värde saknas eller är undanhållet."
+        },
+        "text": "Otillräckligt underlag för att bedöma utvecklingen.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [
+          {
+            "metric": "revenue",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "revenue",
+            "period": null,
+            "fact": null
+          },
+          {
+            "metric": "revenue",
+            "period": "FY2025",
+            "fact": {
+              "value": 159855000,
+              "unit": "USD",
+              "period": "FY2025",
+              "periodStart": "2025-01-01",
+              "periodEnd": "2025-12-31",
+              "source": "SEC",
+              "taxonomy": "us-gaap",
+              "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "label": "revenue",
+              "form": "10-K",
+              "filed": "2026-03-20",
+              "accession": "0001193125-26-116309",
+              "isDerived": false,
+              "derivationNotes": null,
+              "derivedFrom": null,
+              "kind": "reported",
+              "qualityStatus": "available",
+              "methodVersion": "ntm-sec-normalizer/1",
+              "currency": "USD",
+              "definition": "revenue:us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+              "periodType": "annual"
+            }
+          }
+        ],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Avser rapporterade fundamenta. Säger inget om aktiekursens momentum eller framtida utveckling."
+      },
+      {
+        "schemaVersion": 1,
+        "methodVersion": "ntm-fundamental/1",
+        "dataMethodVersion": "ntm-sec-normalizer/1",
+        "company": "FLY",
+        "profile": "limited_history",
+        "dimension": "quality",
+        "statementType": "coverage-diagnostic",
+        "status": "available",
+        "eligibility": {
+          "eligible": true,
+          "reason": null
+        },
+        "text": "0 av 6 avgränsade beskrivningar har underlag. 6 saknar jämförbart underlag. Senaste tillgängliga helår: FY2025, slutdatum 2025-12-31.",
+        "comparisonBasis": "På varandra följande helår; högst en dags längdskillnad",
+        "evidence": [],
+        "calculation": null,
+        "interpretationKind": "descriptive",
+        "userAssumptions": [],
+        "limitations": "Diagnostik av NTM:s underlag, inte bolagets kvalitet. Hämtningstid är inte rapportperiod.",
+        "diagnostics": {
+          "annualObservations": 1,
+          "latestPeriodEnd": "2025-12-31",
+          "fetchedAt": "2026-09-14T22:44:08.515981+00:00",
+          "updateStatus": "success",
+          "blocked": [
+            {
+              "dimension": "growth",
+              "reason": "Värde saknas eller är undanhållet."
+            },
+            {
+              "dimension": "profitability",
+              "reason": "Värde saknas eller är undanhållet."
+            },
+            {
+              "dimension": "cash",
+              "reason": "Värde saknas eller är undanhållet."
+            },
+            {
+              "dimension": "balance",
+              "reason": "Värde saknas eller är undanhållet."
+            },
+            {
+              "dimension": "perShare",
+              "reason": "Värde saknas eller är undanhållet."
+            },
+            {
+              "dimension": "momentum",
+              "reason": "Värde saknas eller är undanhållet."
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

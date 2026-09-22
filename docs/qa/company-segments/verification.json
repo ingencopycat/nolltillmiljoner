@@ -1,0 +1,30 @@
+{
+  "date": "2026-09-22",
+  "release": "passed",
+  "python": {
+    "tests": 200,
+    "skipped": 1
+  },
+  "javascript": {
+    "tests": 343,
+    "passed": 341,
+    "skipped": 2
+  },
+  "browserSmoke": 42,
+  "wave4": 4,
+  "priorObservationsRegressionCases": 24,
+  "accessibilityPageRecords": 41,
+  "pilotAccessibilityPageRecords": 3,
+  "screenshotPassCases": [
+    40,
+    40
+  ],
+  "newBusinessObservations": 124,
+  "priorGuidanceKpiObservationsUnchanged": 63,
+  "liveSecRefresh": [
+    "NVDA",
+    "SOFI",
+    "CRWD"
+  ],
+  "commitPushDeploy": false
+}

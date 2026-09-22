@@ -1,24 +1,27 @@
-﻿/* Reviewed company observations. Pure, issuer-scoped evidence APIs; no snapshot writes. */
+/* Reviewed company observations. Pure, issuer-scoped evidence APIs; no snapshot writes. */
 (function(root){
  'use strict';
+ const capital=root?.NTMCompanyCapital||(typeof require==='function'?require('./company-capital.js'):null);
  const iso=s=>typeof s==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(s)&&Number.isFinite(Date.parse(s))&&new Date(s).toISOString().slice(0,10)===s;
  function validate(data,ticker,cik){
   if(data?.schema!=='ntm-reviewed-observations/1'||!Array.isArray(data.observations)||!Array.isArray(data.pendingReview))throw Error('Invalid observations');
   const seen=new Set();
   for(const o of data.observations){
-   if(o.ticker!==ticker||o.cik!==cik||seen.has(o.id)||typeof o.id!=='string'||!iso(o.publicationDate)||!['guidance','kpi'].includes(o.kind)||!['quarter','annual','instant'].includes(o.period?.type)||!o.period.label||o.period.end&&!iso(o.period.end)||!o.basis||!o.definitionVersion||!o.metricId||o.review?.status!=='reviewed')throw Error('Invalid observation');
+   if(o.ticker!==ticker||o.cik!==cik||seen.has(o.id)||typeof o.id!=='string'||!iso(o.publicationDate)||!['guidance','kpi','business_mix','capital'].includes(o.kind)||!['quarter','annual','instant','year_to_date'].includes(o.period?.type)||!o.period.label||o.period.end&&!iso(o.period.end)||!o.basis||!o.definitionVersion||!o.metricId||o.review?.status!=='reviewed')throw Error('Invalid observation');
    seen.add(o.id);
+   if(o.kind==='capital'&&(!o.capital?.scope||!o.capital.shareBasis||!['industrial','bank'].includes(o.capital.sectorBasis)||!['capital','liquidity'].includes(o.capital.section)||!iso(o.period.end)||o.period.end>o.publicationDate||o.period.type==='instant'&&o.period.start||o.period.type!=='instant'&&!iso(o.period.start)))throw Error('Invalid capital scope');
    const s=o.source,acc=s?.accessionNumber,base=`https://www.sec.gov/Archives/edgar/data/${Number(cik)}/${acc?.replaceAll('-','')}/`;
    if(!/^\d{10}-\d{2}-\d{6}$/.test(acc)||!s.url?.startsWith(base)||! /^[A-Za-z0-9_-]+\.html?$/.test(s.url.slice(base.length))||!s.quote||! /^[a-f0-9]{64}$/.test(s.quoteSha256))throw Error('Invalid provenance');
    const v=o.value;if(!v||!['point','range','qualitative','withdrawn'].includes(v.kind)||v.kind==='point'&&!Number.isFinite(v.point)||v.kind==='range'&&(!Number.isFinite(v.lower)||!Number.isFinite(v.upper)||v.lower>v.upper)||v.kind==='qualitative'&&!v.text)throw Error('Invalid value');
   }
   return data;
  }
- const group=o=>[o.ticker,o.kind,o.metricId,o.period.type,o.period.label,o.period.end].join('|');
- const sameBasis=(a,b)=>['ticker','kind','metricId','unit','currency','basis','definitionVersion'].every(k=>a[k]===b[k])&&a.period.type===b.period.type;
+ const group=o=>[o.ticker,o.kind,o.metricId,o.period.type,o.period.label,o.period.end,o.group?.id||'',o.category?.id||'',o.capital?.scope||''].join('|');
+ const sameBasis=(a,b)=>['ticker','kind','metricId','unit','currency','basis','definitionVersion'].every(k=>a[k]===b[k])&&a.period.type===b.period.type&&a.group?.id===b.group?.id&&a.category?.id===b.category?.id;
  const bounds=o=>o.value.kind==='point'?[o.value.point,o.value.point]:o.value.kind==='range'?[o.value.lower,o.value.upper]:null;
  function compare(a,b){
   if(!a||!b)return {comparable:false,reason:'Historik saknas'};
+  if(a.kind==='capital'||b.kind==='capital')return capital.compare(a,b);
   if(!sameBasis(a,b))return {comparable:false,reason:'Ej jämförbart · ändrad definition eller basis'};
   if(a.kind==='guidance'&&group(a)!==group(b))return {comparable:false,reason:'Olika målperioder'};
   if(a.kind==='kpi'){
@@ -40,10 +43,10 @@
  function changesSince(data,savedAt,until=new Date().toISOString()){
   if(!Number.isFinite(Date.parse(savedAt)))return [];
   const day=new Date(savedAt).toISOString().slice(0,10),history=asOf(data,until);
-  return history.filter(o=>o.publicationDate>day).map(o=>{
+  return history.filter(o=>o.kind!=='capital'&&o.publicationDate>day).map(o=>{
    const previous=history.filter(p=>p.publicationDate<o.publicationDate&&p.kind===o.kind&&p.metricId===o.metricId&&p.ticker===o.ticker&&(o.kind==='kpi'?p.period.type===o.period.type:group(p)===group(o))).at(-1);
    return {observation:o,previous:previous||null,newGuidance:o.kind==='guidance',comparison:compare(previous,o)};
-  });
+  }).concat(capital.changesSince(data,savedAt,until));
  }
  const fmt=(v,unit)=>new Intl.NumberFormat('sv-SE',{maximumFractionDigits:unit==='USD'?4:2}).format(v/(unit==='USD'&&Math.abs(v)>=1e9?1e9:unit==='USD'&&Math.abs(v)>=1e6?1e6:unit==='count'&&Math.abs(v)>=1e6?1e6:1));
  function valueLabel(o){const v=o.value;if(v.kind==='withdrawn')return 'Återkallad';if(v.kind==='qualitative')return 'Kvalitativ uppgift';const number=v.kind==='range'?`${fmt(v.lower,o.unit)}–${fmt(v.upper,o.unit)}`:fmt(v.point,o.unit);const n=v.point??v.upper;return (v.approximate?'≈ ':'')+number+(o.unit==='percent'?' %':o.unit==='USD/share'?' USD/aktie':o.unit==='USD'?(n>=1e9?' md USD':n>=1e6?' mn USD':' USD'):o.unit==='count'&&n>=1e6?' mn':'');}
@@ -51,4 +54,3 @@
  if(typeof module==='object'&&module.exports)module.exports=api;
  if(root)root.NTMCompanyObservations=api;
 })(typeof window==='undefined'?null:window);
-

@@ -1,4 +1,4 @@
-﻿import copy,json,sys,tempfile,unittest
+import copy,json,sys,tempfile,unittest
 from pathlib import Path
 from unittest.mock import Mock
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'scripts'))
@@ -43,9 +43,9 @@ class ReviewedEvidenceTests(unittest.TestCase):
   with self.assertRaises(ValueError):build(d,fetch)
  def test_unknown_release_waits_for_review(self):
   d=feed('NVDA');e=copy.deepcopy(next(e for e in d['events'] if e['documents']));e.update(accessionNumber='0001045810-26-000999',filingDate='2026-09-23');d['events'].insert(0,e)
-  r=build(d,fetch);self.assertEqual(r['pendingReview'],[e['accessionNumber']]);self.assertEqual(len(r['observations']),14)
+  r=build(d,fetch);self.assertEqual(r['pendingReview'],[e['accessionNumber']]);self.assertEqual(len([o for o in r['observations'] if o['kind'] in ('guidance','kpi')]),14)
  def test_rolling_recent_window_keeps_reviewed_archive(self):
-  d=feed('SOFI');d['events']=[];self.assertEqual(len(build(d,fetch)['observations']),21)
+  d=feed('SOFI');d['events']=[];self.assertEqual(len([o for o in build(d,fetch)['observations'] if o['kind'] in ('guidance','kpi')]),21)
  def test_outage_preserves_last_verified_observations_bytes(self):
   with tempfile.TemporaryDirectory() as directory:
    d=feed('NVDA');path=Path(directory)/'NVDA.json';path.write_text(json.dumps(d),encoding='utf-8');before=path.read_bytes()
@@ -55,7 +55,7 @@ class ReviewedEvidenceTests(unittest.TestCase):
  def test_offline_pipeline_never_published_as_live(self):
   with tempfile.TemporaryDirectory() as directory:
    d=update_evidence('NVDA',None,offline=True,output_dir=directory,reviewed=True)
-   self.assertEqual(d['status'],'offline_fixture');self.assertEqual(len(d['reviewedEvidence']['observations']),14)
+   self.assertEqual(d['status'],'offline_fixture');self.assertEqual(len([o for o in d['reviewedEvidence']['observations'] if o['kind'] in ('guidance','kpi')]),14)
  def test_missing_metric_is_not_invented(self):
   self.assertFalse(any(o['kind']=='kpi' for o in feed('NVDA')['reviewedEvidence']['observations']))
   self.assertFalse(any(o['metricId']=='diluted_eps' and o['publicationDate']=='2025-12-02' for o in feed('CRWD')['reviewedEvidence']['observations']))
