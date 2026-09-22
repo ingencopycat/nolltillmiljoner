@@ -209,7 +209,7 @@ function element() {
     appendChild(child) { this.children.push(child); },
     append(...children) { this.children.push(...children); }, after() {}, before() {}, scrollIntoView() {},
     replaceChildren() { this.children = []; }, focus() {}, remove() {}, click() {},
-    addEventListener() {}, setAttribute() {},
+    addEventListener() {}, setAttribute() {}, closest() { return null; },
   };
 }
 

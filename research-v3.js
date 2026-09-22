@@ -38,6 +38,10 @@
     const original = (data.annual || []).slice(-6);
     if (original.filter(a => Number.isFinite(a.metrics?.revenue?.value)).length < 2) return;
     if (original.some(a => a.metrics?.revenue?.value < 0)) return;
+    const comparable=original.every((a,i)=>a.metrics?.revenue?.unit==='USD'&&a.metrics.revenue.currency==='USD'&&
+      ['period','periodStart','periodEnd'].every(k=>a[k]===a.metrics.revenue[k])&&
+      !window.NTMFundamentalProfile.factReason(a.metrics?.revenue,data.metadata.methodVersion)&&
+      (!i||!window.NTMFundamentalProfile.compare(original[i-1].metrics.revenue,a.metrics.revenue,data.metadata.methodVersion)));
     const rows = [];
     for (const annual of original) {
       const previousYear = Number(rows.at(-1)?.period?.match(/^FY(\d{4})$/)?.[1]);
@@ -81,13 +85,18 @@
       tr.append(source); body.append(tr);
     }
     $('overviewRevenueValues').replaceChildren(table);
+    // Keep source observations inspectable, but do not plot an ineligible comparison.
+    plot.hidden=!comparable;
+    let unavailable=$('revenueUnavailable');
+    if(!unavailable){unavailable=node('p','Jämförbar intäktshistorik saknas. Se källorna för rapporterade värden.','note');unavailable.id='revenueUnavailable';plot.after(unavailable);}
+    unavailable.hidden=comparable;
     $('revenueHeading').textContent = data.metadata?.profile === 'financial_services' ? 'Nettointäkter över tid' : 'Intäkter över tid';
     let context = $('revenueContext');
     if (!context) {
       context = node('aside', undefined, 'revenue-context'); context.id = 'revenueContext';
-      context.append(node('h3', 'Att läsa siffrorna'), node('p', 'Historiken visar rapporterade helår. Nyckeltalen ovan sammanfattar de senaste fyra kvartalen. Helår och TTM är olika perioder och visas separat.'));
+      context.append(node('p', 'Historiken visar rapporterade helår. Nyckeltalen ovan sammanfattar de senaste fyra kvartalen. Helår och TTM är olika perioder och visas separat.'));
       const link = node('a', 'Fördjupa i rapporterna'); link.href = '#researchFinancials'; context.append(link);
-      section.append(context);
+      $('revenueSources').append(context);
     }
     section.querySelector('.section-title-row > .note').textContent = 'Räkenskapsår · miljarder USD';
     section.hidden = false;

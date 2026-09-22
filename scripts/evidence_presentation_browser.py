@@ -1,0 +1,51 @@
+﻿"""Two-pass owner presentation QA using unchanged production JSON, no live SEC calls."""
+import argparse,json
+from pathlib import Path
+from playwright.sync_api import expect
+from browser_smoke import BrowserSmoke
+
+parser=argparse.ArgumentParser();parser.add_argument('--pass-number',required=True);args=parser.parse_args()
+OUT=Path(__file__).resolve().parents[1]/'docs/qa/evidence-presentation'/('pass-'+args.pass_number);OUT.mkdir(parents=True,exist_ok=True)
+BrowserSmoke.setUpClass();case=BrowserSmoke();case.setUp();p=case.page;records=[]
+try:
+ p.emulate_media(reduced_motion='reduce')
+ for ticker in ('NVDA','SOFI','CRWD'):
+  case.go('research.html?ticker='+ticker)
+  p.locator('#thesis-text').fill('Presentation review: saved analysis remains unchanged.')
+  p.locator('#thesisForm [type=submit]').click()
+  case.wait_for('t=>NTMThesisStorage.get(t).thesis?.revisionCount>=1',arg=ticker)
+  saved=p.evaluate('t=>NTMThesisStorage.get(t).thesis.revisions',ticker)
+  for width in (1440,360,390,430):
+   for theme in ('dark','light'):
+    key=f'{ticker}-{width}-{theme}';p.set_viewport_size({'width':width,'height':960 if width==1440 else 844})
+    case.go('research.html?ticker='+ticker);p.evaluate('applyTheme',theme)
+    expect(p.locator('#companyEvidence')).to_contain_text('Officiella dokument')
+    expect(p.locator('#fundamentalSources')).not_to_have_attribute('open','')
+    expect(p.locator('#reportingSources')).not_to_have_attribute('open','')
+    assert p.locator('#fundamentalProfile button:visible').count()==0
+    assert p.locator('#companyEvidence .reporting-grid a:visible').count()>=2
+    assert p.locator('#overviewRevenuePlot').is_visible()
+    assert p.locator('#companyEvidenceSince').is_visible()
+    assert p.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),key
+    for name,selector in [('overview','#companyHeaderCard'),('numbers','#keyMetricsGrid'),('growth-profitability','#fundamentalProfile'),('revenue','#overviewRevenue'),('reporting-saved','#companyEvidence')]:
+     p.locator(selector).screenshot(path=str(OUT/f'{key}-{name}.png'),animations='disabled')
+    for ident in ('fundamentalSources','reportingSources'):
+     summary=p.locator('#'+ident+' > summary');summary.focus();p.keyboard.press('Enter')
+     expect(p.locator('#'+ident)).to_have_attribute('open','')
+     summary.scroll_into_view_if_needed();p.screenshot(path=str(OUT/f'{key}-{ident}-expanded.png'),animations='disabled')
+     assert p.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),(key,ident)
+     if ident=='fundamentalSources':
+      trigger=p.locator('#fundamentalSources button').first;trigger.focus();p.keyboard.press('Enter')
+      expect(p.locator('#provenanceDialog')).to_be_visible();p.keyboard.press('Escape');expect(trigger).to_be_focused()
+     summary.click()
+    assert p.evaluate('t=>NTMThesisStorage.get(t).thesis.revisions',ticker)==saved
+    records.append({'company':ticker,'width':width,'theme':theme,'overflow':False,'evidenceKeyboard':'passed','revisionUnchanged':True})
+    print('PASS',key,flush=True)
+ # Ineligible source comparisons remain available as observations, never drawn as trends.
+ case.go('research.html?ticker=NVDA')
+ for edit in ("d.annual.at(-1).metrics.revenue.restated=true", "d.annual.at(-1).metrics.revenue.currency='EUR';d.annual.at(-1).metrics.revenue.unit='EUR'", "d.annual.at(-1).periodEnd='2026-01-01'", "d.annual.splice(1,1)"):
+  p.evaluate('()=>{const d=structuredClone(currentStockData);'+edit+';NTMVisualV3.revenue(d)}')
+  expect(p.locator('#overviewRevenuePlot')).not_to_be_visible();expect(p.locator('#revenueUnavailable')).to_be_visible()
+ (OUT/'results.json').write_text(json.dumps(records,indent=2),encoding='utf-8')
+finally:
+ case.tearDown();BrowserSmoke.tearDownClass()
