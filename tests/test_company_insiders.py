@@ -15,7 +15,7 @@ def filing(t,a):return next(f for f in load(t)['filings'] if f['accessionNumber'
 
 class InsidersTests(unittest.TestCase):
  def test_real_fixtures_reproduce_published(self):
-  for t,count in [('NVDA',12),('SOFI',8),('CRWD',16)]:
+  for t,count in [('NVDA',13),('SOFI',8),('CRWD',16)]:
    data=load(t);self.assertEqual(len(data['filings']),count);self.assertEqual(data,json.loads((ROOT/'data/stocks/evidence'/(t+'.json')).read_text(encoding='utf-8'))['insiderEvidence'])
  def test_real_purchase_price_and_precision(self):
   f=filing('SOFI','0001613438-26-000016');r=f['transactions'][0];self.assertEqual(r['code'],'P');self.assertEqual(r['fields']['shares']['value'],'13888');self.assertEqual(r['fields']['price']['value'],'18.0578');self.assertTrue(r['classification']['weightedPrice']);self.assertEqual(r['classification']['venue'],'unspecified')
