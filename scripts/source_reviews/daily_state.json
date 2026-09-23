@@ -1,4 +1,105 @@
 {
   "schema": "ntm-sec-daily/1",
-  "issuers": {}
+  "issuers": {
+    "NVDA": {
+      "review": {
+        "0001045810-26-000078": {
+          "ticker": "NVDA",
+          "accession": "0001045810-26-000078",
+          "form": "8-K",
+          "filingDate": "2026-09-03",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000078/nvda-20260902.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 8.01"
+        },
+        "0001193125-26-275783": {
+          "ticker": "NVDA",
+          "accession": "0001193125-26-275783",
+          "form": "8-K",
+          "filingDate": "2026-06-18",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000119312526275783/d48176d8k.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 8.01, 9.01"
+        },
+        "0001045810-26-000028": {
+          "ticker": "NVDA",
+          "accession": "0001045810-26-000028",
+          "form": "8-K",
+          "filingDate": "2026-05-08",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000028/nvda-20260507.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 5.02"
+        },
+        "0001045810-26-000026": {
+          "ticker": "NVDA",
+          "accession": "0001045810-26-000026",
+          "form": "8-K",
+          "filingDate": "2026-04-27",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000026/nvda-20260424.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 5.02"
+        },
+        "0001045810-26-000024": {
+          "ticker": "NVDA",
+          "accession": "0001045810-26-000024",
+          "form": "8-K",
+          "filingDate": "2026-03-06",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000024/nvda-20260302.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 5.02, 9.01"
+        },
+        "0001045810-26-000003": {
+          "ticker": "NVDA",
+          "accession": "0001045810-26-000003",
+          "form": "8-K",
+          "filingDate": "2026-01-23",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000003/nvda-20260120.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 5.02"
+        },
+        "0001045810-25-000197": {
+          "ticker": "NVDA",
+          "accession": "0001045810-25-000197",
+          "form": "8-K",
+          "filingDate": "2025-08-05",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000197/nvda-20250731.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 5.02"
+        },
+        "0001045810-25-000039": {
+          "ticker": "NVDA",
+          "accession": "0001045810-25-000039",
+          "form": "8-K",
+          "filingDate": "2025-03-07",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000039/nvda-20250303.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 5.02"
+        },
+        "0001045810-25-000007": {
+          "ticker": "NVDA",
+          "accession": "0001045810-25-000007",
+          "form": "8-K",
+          "filingDate": "2025-01-17",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000007/nvda-20250113.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 8.01"
+        }
+      },
+      "seen": {
+        "0001045810-26-000078": "82fff786890e6dcd727c47db641c11ab8c3489d3dd7526f3210650423ad5a847",
+        "0001199039-26-000016": "b2e9a9a71e623b4facad3e4e42d3ed8bc4e8f15e04661b34c085d2541540f6ab",
+        "0001243821-26-000007": "93c979d54d1815ce741a575f55da28cc3c09ad931f093d6728b390d0ff465b1b",
+        "0001283854-26-000010": "c338fd483eb4ae4be693a871bbd26809c02b1ba2b86f875eed496c2588c09839",
+        "0001696841-26-000012": "2c3f3bbb98f6ffb9e27584140d355ac2bb54b535529cf49b8665ea83a3121d70",
+        "0001588670-26-000014": "f735ce136b789d5acffbd5afe5066769f5f4d4dc55a916b6eaa796839cc42845",
+        "0001197649-26-000012": "e511cc472afd9e2fae1d61c65dd0008ab6510d3f8ee629e4e93209a47f6b5d57",
+        "0002152188-26-000005": "55012e2ecf28049eacd379d4983255a30f6912cf7e7e3d632da9ddd7f59caa55",
+        "0001199039-26-000014": "4825cb0fabba112978ce722e167942805cc2146ee59e75629d41089b759c6df1",
+        "0001197647-26-000009": "b5cc673a005471fd51c3c4b4df3c5e599df647588e355aa23af2e2a27f3c2e06",
+        "0001199039-26-000012": "5b708e2561920f43d8eba64d361155b2caba7e8a325d504ef00cdccbc18323ac",
+        "0001696841-26-000010": "d2a1d263ae27692f21bd5e305f83077199ea4b3ae097f14181135bc4a426503a"
+      },
+      "through": "2026-09-22"
+    }
+  }
 }
