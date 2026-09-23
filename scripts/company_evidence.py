@@ -33,7 +33,7 @@ class Structure(HTMLParser):
         if self.row is not None: self.row.append(value)
 
 
-def filing_events(submissions, ticker, cik):
+def filing_events(submissions, ticker, cik, limit=24):
     if str(submissions.get('cik', '')).zfill(10) != cik:
         raise ValueError('SEC company mismatch')
     recent = submissions['filings']['recent']
@@ -66,7 +66,8 @@ def filing_events(submissions, ticker, cik):
                      documents=[], documentStatus='not_applicable')
         if acc in result and event != result[acc]: raise ValueError('Conflicting duplicate accession')
         result[acc] = event
-    return sorted(result.values(), key=lambda e:(e['filingDate'],e['accessionNumber']), reverse=True)[:24]
+    if not isinstance(limit,int) or not 1<=limit<=10000: raise ValueError('Invalid filing limit')
+    return sorted(result.values(), key=lambda e:(e['filingDate'],e['accessionNumber']), reverse=True)[:limit]
 
 
 def earnings_documents(event, html):
@@ -158,3 +159,9 @@ def validate_evidence(document, ticker, cik):
     if 'insiderEvidence' in document:
         from company_insiders import validate as validate_insiders
         validate_insiders(document['insiderEvidence'], ticker, cik)
+    if 'ownershipEvidence' in document:
+        from company_ownership import validate as validate_ownership
+        validate_ownership(document['ownershipEvidence'], ticker, cik)
+    if 'materialEvents' in document:
+        from company_material_events import validate as validate_material
+        validate_material(document['materialEvents'], ticker, cik)

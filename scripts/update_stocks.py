@@ -146,6 +146,10 @@ def main():
     parser.add_argument('--evidence', action='store_true', help='Refresh only the three-company filing evidence pilot')
     parser.add_argument('--reviewed', action='store_true', help='Revalidate reviewed guidance and operating KPI passages')
     parser.add_argument('--insiders', action='store_true', help='Incrementally refresh SEC Form 4 ownership evidence')
+    parser.add_argument('--ownership', action='store_true', help='Refresh reviewed Schedule 13D/G evidence and review queue')
+    parser.add_argument('--material-events', action='store_true', help='Refresh reviewed material 8-K events and review queue')
+    parser.add_argument('--reverify-material-events', action='store_true', help='Re-fetch reviewed material-event documents')
+    parser.add_argument('--reverify-ownership', action='store_true', help='Re-fetch reviewed Schedule sources without rewriting history')
     parser.add_argument('--reverify-insiders', action='store_true', help='Also re-fetch retained ownership documents; changes require review')
     args = parser.parse_args()
 
@@ -155,7 +159,7 @@ def main():
         failures = []
         for ticker in (PILOT if args.all else [args.ticker.upper()]):
             try:
-                update_evidence(ticker, client, offline=args.offline, reviewed=args.reviewed, insiders=args.insiders or args.reverify_insiders, reverify_insiders=args.reverify_insiders)
+                update_evidence(ticker, client, offline=args.offline, reviewed=args.reviewed, insiders=args.insiders or args.reverify_insiders, reverify_insiders=args.reverify_insiders, ownership=args.ownership or args.reverify_ownership, reverify_ownership=args.reverify_ownership, material_events=args.material_events or args.reverify_material_events, reverify_material_events=args.reverify_material_events)
             except Exception as error:
                 failures.append(ticker)
                 print(f"Evidence refresh failed for {ticker}: {error}", file=sys.stderr)
@@ -177,7 +181,7 @@ def main():
     print(f"\nCompleted {success_count}/{len(tickers_to_process)} tickers successfully.")
 
 
-def update_evidence(ticker, client, offline=False, output_dir=None, reviewed=False, insiders=False, reverify_insiders=False):
+def update_evidence(ticker, client, offline=False, output_dir=None, reviewed=False, insiders=False, reverify_insiders=False, ownership=False, reverify_ownership=False, material_events=False, reverify_material_events=False):
     """Independent refresh cadence; shares SEC transport, identities and atomic publication."""
     from company_evidence import PILOT, refresh, validate_evidence
     from datetime import datetime, timezone
@@ -242,6 +246,37 @@ def update_evidence(ticker, client, offline=False, output_dir=None, reviewed=Fal
                 previous.get('insiderEvidence') if previous and not offline else None,reverify=reverify_insiders)
         elif previous and previous.get('insiderEvidence'):
             document['insiderEvidence']=previous['insiderEvidence']
+        if ownership:
+            from company_ownership import refresh as refresh_ownership
+            ownership_submissions=submissions
+            if offline:
+                ownership_fixtures=Path(FIXTURES_DIR)/'company_ownership'
+                ownership_submissions=json.loads((ownership_fixtures/(ticker+'.json')).read_text(encoding='utf-8'))
+                def ownership_fetch(url):
+                    a=url.split('/')[-2];a=a[:10]+'-'+a[10:12]+'-'+a[12:]
+                    return (ownership_fixtures/(a+('.xml' if url.endswith('.xml') else '.html'))).read_text(encoding='utf-8')
+            else:
+                def ownership_fetch(url):
+                    return client.get_ownership_xml(url) if url.endswith('.xml') else client.get_filing_html(url)
+            document['ownershipEvidence']=refresh_ownership(ownership_submissions,ticker,IDENTITIES[ticker],ownership_fetch,
+                previous.get('ownershipEvidence') if previous and not offline else None,reverify=reverify_ownership)
+        elif previous and previous.get('ownershipEvidence'):
+            document['ownershipEvidence']=previous['ownershipEvidence']
+        if material_events:
+            from company_material_events import refresh as refresh_material
+            material_submissions=submissions
+            if offline:
+                material_fixtures=Path(FIXTURES_DIR)/'company_material_events'
+                material_submissions=json.loads((material_fixtures/(ticker+'.json')).read_text(encoding='utf-8'))
+                def material_fetch(url):
+                    a=url.split('/')[-2];a=a[:10]+'-'+a[10:12]+'-'+a[12:]
+                    return (material_fixtures/(a+'.html')).read_text(encoding='utf-8')
+            else:
+                material_fetch=client.get_filing_html
+            document['materialEvents']=refresh_material(material_submissions,ticker,IDENTITIES[ticker],material_fetch,
+                previous.get('materialEvents') if previous and not offline else None,reverify=reverify_material_events)
+        elif previous and previous.get('materialEvents'):
+            document['materialEvents']=previous['materialEvents']
         validate_evidence(document, ticker, IDENTITIES[ticker])
         document.update(verifiedAt=now, status='offline_fixture' if offline else 'verified')
         save_atomic_json(document, str(target))

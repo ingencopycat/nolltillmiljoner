@@ -1,0 +1,873 @@
+{
+  "schema": "ntm-material-event-review/1",
+  "startDate": "2025-01-01",
+  "documents": [
+    {
+      "ticker": "NVDA",
+      "accessionNumber": "0001045810-26-000069",
+      "metadata": {
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "form": "8-K",
+        "accessionNumber": "0001045810-26-000069",
+        "filingDate": "2026-08-17",
+        "reportDate": "2026-08-17",
+        "primaryDocument": "nvda-20260817.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000069/nvda-20260817.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000069/",
+        "items": [
+          "1.01",
+          "2.03",
+          "7.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable"
+      },
+      "sha256": "f77c7aa1cd78c6dae9e053ef004b7abaf900df9e870e9a323d703e1977ee1a4e",
+      "reviewDate": "2026-09-23",
+      "requiredItems": [
+        "1.01",
+        "2.03",
+        "7.01"
+      ],
+      "passages": [
+        "Item 1.01. Entry into a Material Definitive Agreement On August 17, 2026, NVIDIA Corporation (“NVIDIA”) announced a multi-year partnership with SB Energy Corp. (collectively with its affiliates, “SB Energy”) to advance the development of the PORTS Technology Campus, a large-scale AI data center campus in Pike County, Ohio (the “Portsmouth Site”). Through the partnership and the credit support described below, NVIDIA has secured land, power, and shell capacity at the Portsmouth Site to host NVIDIA AI compute infrastructure. An affiliate of OpenAI Group PBC (such affiliate, “OpenAI”) will be the tenant. Residual Value Guaranties On August 17, 2026, NVIDIA entered into multiple residual value guaranties (collectively, the “Agreements”) with SB Energy (the “Lessor”) relating to leases for approximately 4.25 gigawatts of IT load in the aggregate at the Portsmouth Site. An Agreement generally will become effective upon commencement of the applicable lease. NVIDIA also can provide credit support to secure approximately an additional 3.8 gigawatts at the Portsmouth Site, exercisable in its sole discretion. NVIDIA’s aggregate payment obligation is cumulatively capped at $105 billion for its initial commitment under the Agreements. NVIDIA’s payment obligations are subject to specified conditions, including among other things, that the Lessor has satisfied applicable ready-for-service conditions under the lease for the relevant premises, expected beginning in 2028. Pursuant to the Agreements, OpenAI is the tenant; however, in the event of (i) OpenAI’s insolvency resulting in a default under a lease, or (ii) OpenAI’s failure to make payments under a lease (each a “Trigger Event”), NVIDIA will pay an amount generally equal to any shortfall between the guaranteed minimum value of a lease (as set forth in the Agreements) and amounts recovered through a replacement lease or sale. Upon a Trigger Event, NVIDIA may elect to (i) assume the applicable lease, (ii) require the Lessor to seek to relet the applicable premises, (iii) initiate a sale process, (iv) allow the applicable lease to be terminated, or (v) defer the exercise of these remedies for up to one year while paying specified project agreement costs. NVIDIA’s obligations under an Agreement will terminate upon the earliest to occur of (i) the 20th anniversary of the commencement of the applicable lease, (ii) the termination of the applicable lease by OpenAI in accordance with its terms, (iii) OpenAI achieving a satisfactory credit rating, and (iv) other customary termination events. OpenAI has agreed to reimburse and indemnify NVIDIA for any and all amounts actually paid by NVIDIA to the Lessor under the Agreements. The foregoing description of the Agreements does not purport to be complete and is qualified in its entirety by reference to the full text of the Agreements, the form of which will be filed as an exhibit to NVIDIA’s Quarterly Report on Form 10-Q for the fiscal quarter ended July 26, 2026. OpenAI, as the tenant, will utilize capacity at the Portsmouth Site supporting approximately 4.25 gigawatts of IT load to deploy NVIDIA’s full-stack DSX AI factory platform, subject to limited exceptions.",
+        "Item 2.03. Creation of a Direct Financial Obligation or an Obligation under an Off-Balance Sheet Arrangement of a Registrant The information set forth in",
+        "Item 1.01 above is hereby incorporated by reference into this",
+        "Item 2.03.",
+        "Item 7.01. Regulation FD On August 17, 2026, NVIDIA issued a press release announcing the partnership with SB Energy. The press release is attached as Exhibit 99.1 hereto and is incorporated herein by reference. The press release is furnished and shall not be deemed \"filed\" for purposes of Section 18 of the Securities Exchange Act of 1934, as amended, or subject to the liabilities of that Section or Sections 11 and 12(a)(2) of the Securities Act of 1933, as amended. The information in this",
+        "Item 7.01 of this Current Report on Form 8-K, including Exhibit 99.1, shall not be incorporated by reference in any filing with the U.S. Securities and Exchange Commission made by NVIDIA, whether made before or after the date hereof, regardless of any general incorporation language in such filing. Forward-Looking Statements Certain statements in this Current Report on Form 8-K, including, but not limited to, statements as to: NVIDIA’s partnership with SB Energy and the expected benefits and impacts of the partnership; the development, timing, scale, capacity, and operation of the Portsmouth Site; OpenAI’s role as the tenant and the expected deployment of NVIDIA’s DSX AI factory platform at the Portsmouth Site; the potential expansion of the Portsmouth Site and related commitments; the amount, timing, and conditions of any payments by NVIDIA under the Agreements; the expected timing of the Lessor’s satisfaction of the applicable ready-for-service conditions; and other statements that are not historical facts are forward-looking statements within the meaning of Section 27A of the Securities Act of 1933, as amended, and Section 21E of the Securities Exchange Act of 1934, as amended, which are subject to the “safe harbor” created by those sections based on management’s beliefs and assumptions and on information currently available to management and are subject to risks and uncertainties that could cause results to be materially different than expectations. Important factors that could cause actual results to differ materially include: global economic and political conditions; NVIDIA’s reliance on third parties to manufacture, assemble, package and test NVIDIA’s products; the impact of technological development and competition; development of new products and technologies or enhancements to NVIDIA’s existing products and technologies; market acceptance of NVIDIA’s products or NVIDIA’s partners’ products; design, manufacturing or software defects; changes in consumer preferences or demands; changes in industry standards and interfaces; unexpected loss of performance of NVIDIA’s products or technologies when integrated into systems; NVIDIA’s ability to realize the potential benefits of business investments or acquisitions; and changes in applicable laws and regulations, as well as other factors detailed from time to time in the most recent reports NVIDIA files with the Securities and Exchange Commission (the “SEC”) including, but not limited to, its most recent Annual Report on Form 10-K and subsequent Quarterly Reports on Form 10-Q. Copies of reports filed with the SEC are posted on NVIDIA’s website and are available from NVIDIA without charge. These forward-looking statements are not guarantees of future performance and speak only as of the date hereof, and, except as required by law, NVIDIA disclaims any obligation to update these forward-looking statements to reflect future events or circumstances.",
+        "Item 9.01. Financial Statements and Exhibits. (d) Exhibits Exhibit Description 99.1 Press release, issued August 17, 2026 104 The cover page of this Current Report on Form 8-K, formatted in inline XBRL (included as Exhibit 101)"
+      ]
+    },
+    {
+      "ticker": "NVDA",
+      "accessionNumber": "0001045810-26-000060",
+      "metadata": {
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "form": "8-K",
+        "accessionNumber": "0001045810-26-000060",
+        "filingDate": "2026-07-02",
+        "reportDate": "2026-06-28",
+        "primaryDocument": "nvda-20260628.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000060/nvda-20260628.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000060/",
+        "items": [
+          "5.02"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable"
+      },
+      "sha256": "3c82af2d95b63027ce60ea933a666bd15071e5b9d348272acdea42755b2b94fa",
+      "reviewDate": "2026-09-23",
+      "requiredItems": [
+        "5.02"
+      ],
+      "passages": [
+        "Item 5.02. Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers; Compensatory Arrangements of Certain Officers. (b) On June 28, 2026, Ajay K. Puri, Executive Vice President, Worldwide Field Operations of NVIDIA Corporation, or the Company, notified the Company of his intention to retire from his role effective upon the employment commencement date of his successor. Mr. Puri, a 21-year executive at NVIDIA, is expected to remain with the Company in a senior advisory role to ensure a seamless transition to his successor. (c) On July 1, 2026, the Company appointed Nicholas Parker, age 55, as Executive Vice President, Worldwide Field Operations of the Company, effective upon the commencement of his employment with the Company, which is anticipated to be on August 24, 2026. Mr. Parker will join the Company after 26 years at Microsoft Corporation and brings a combination of industry knowledge and business acumen as the Company works to extend its global leadership in AI infrastructure and expand the ecosystem. He most recently served as Executive Vice President and Chief Business Officer of Microsoft’s Worldwide Sales & Solutions organization from 2025 to 2026, where he was responsible for operating the commercial business for enterprise, small and medium business and consumer customers. He also served as President, Industry & Partner Sales from 2022 to 2025, and Vice President, Global Partner Solutions from 2020 to 2022. Mr. Parker’s annual base salary will be $1,000,000 and he will receive a sign-on bonus of $5,000,000. He will be eligible to receive target annualized cash variable compensation of $1,500,000 pursuant to the Company’s Fiscal 2027 Variable Compensation Plan, pro-rated for his time worked during fiscal year 2027. Mr. Parker will also receive two new hire equity grants consisting of (a) restricted stock units, or RSUs, with a target value of $35,000,000, vesting approximately over a four-year period according to the Company’s standard new hire vesting schedule, and (b) multi-year performance-based RSUs, or MY PSUs, with a target value of $5,000,000, which will be eligible to vest based on the Company’s total shareholder return relative to the Standard & Poor’s 500 Composite Index over a three-year period. The terms of the RSUs and MY PSUs will be governed by the Company's Amended and Restated 2007 Equity Incentive Plan and applicable RSU and MY PSU agreements. Mr. Parker will be eligible to participate in the Company's benefit programs available to similarly situated employees. Mr. Parker will enter into the Company’s indemnity agreement, which would require the Company to indemnify Mr. Parker, under the circumstances and to the extent provided for therein, against certain expenses and other amounts incurred by Mr. Parker as a result of being made a party to certain actions, suits, proceedings and the like by reason of his position as an officer of the Company."
+      ]
+    },
+    {
+      "ticker": "NVDA",
+      "accessionNumber": "0001045810-25-000082",
+      "metadata": {
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "form": "8-K",
+        "accessionNumber": "0001045810-25-000082",
+        "filingDate": "2025-04-15",
+        "reportDate": "2025-04-09",
+        "primaryDocument": "nvda-20250409.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000082/nvda-20250409.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000082/",
+        "items": [
+          "8.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable"
+      },
+      "sha256": "bea68230c22427c6958b395bda04109f3493502c30d234ee9c466674de585c99",
+      "reviewDate": "2026-09-23",
+      "requiredItems": [
+        "8.01"
+      ],
+      "passages": [
+        "Item 8.01 Other Events. On April 9, 2025, the U.S. government, or USG, informed NVIDIA Corporation, or the Company, that the USG requires a license for export to China (including Hong Kong and Macau) and D:5 countries, or to companies headquartered or with an ultimate parent therein, of the Company’s H20 integrated circuits and any other circuits achieving the H20’s memory bandwidth, interconnect bandwidth, or combination thereof. The USG indicated that the license requirement addresses the risk that the covered products may be used in, or diverted to, a supercomputer in China. On April 14, 2025, the USG informed the Company that the license requirement will be in effect for the indefinite future. The Company’s first quarter of fiscal year 2026 ends on April 27, 2025. First quarter results are expected to include up to approximately $5.5 billion of charges associated with H20 products for inventory, purchase commitments, and related reserves. Certain statements in this Current Report on Form 8-K including statements regarding the USG’s intentions and the impact of the license requirement on the Company’s first quarter financial results are forward-looking statements that are subject to risks and uncertainties that could cause results to be materially different than expectations. Important factors that could cause actual results to differ materially include: global economic conditions; our reliance on third parties to manufacture, assemble, package and test our products; the impact of technological development and competition; development of new products and technologies or enhancements to our existing product and technologies; market acceptance of our products or our partners’ products; design, manufacturing or software defects; changes in consumer preferences or demands; changes in industry standards and interfaces; unexpected loss of performance of our products or technologies when integrated into systems; as well as other factors detailed from time to time in the most recent reports NVIDIA files with the Securities and Exchange Commission, or SEC, including, but not limited to, its annual report on Form 10-K and quarterly reports on Form 10-Q. Copies of reports filed with the SEC are posted on the company’s website and are available from NVIDIA without charge. These forward-looking statements are not guarantees of future performance and speak only as of the date hereof, and, except as required by law, NVIDIA disclaims any obligation to update these forward-looking statements to reflect future events or circumstances."
+      ]
+    },
+    {
+      "ticker": "NVDA",
+      "accessionNumber": "0001045810-22-000005",
+      "metadata": {
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "form": "8-K",
+        "accessionNumber": "0001045810-22-000005",
+        "filingDate": "2022-02-08",
+        "reportDate": "2022-02-08",
+        "primaryDocument": "nvda-20220208.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581022000005/nvda-20220208.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581022000005/",
+        "items": [
+          "1.02"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable"
+      },
+      "sha256": "df478175a094f27cf5c4f350751f336898979ca20049a6c7f3f7c620e659c2f1",
+      "reviewDate": "2026-09-23",
+      "requiredItems": [
+        "1.02"
+      ],
+      "passages": [
+        "Item 1.02 Termination of a Material Definitive Agreement . On February 8, 2022, NVIDIA Corporation (the “Company”), SoftBank Group Capital Limited (“SoftBank”) and SVF Holdco (UK) Limited (together with SoftBank, the “Sellers”) mutually terminated the Share Purchase Agreement (the “Purchase Agreement”), dated as of September 13, 2020, by and among the Company, NVIDIA International Holdings Inc., the Sellers and Arm Limited. The material terms of the Purchase Agreement were previously disclosed on a Form 8-K filed by the Company with the U.S. Securities and Exchange Commission on September 1 4 , 2020 . The parties agreed to terminate the Purchase Agreement because of significant regulatory challenges preventing the consummation of the transaction. In accordance with the terms of the Purchase Agreement, the Sellers will retain the $1.25 billion prepaid by the Company, and the Company will retain its 20-year Arm license. The Company intends to record a $1.36 billion charge in the first quarter of fiscal year 2023, inclusive of the $1.25 billion prepayment provided at signing, due to the termination of the Purchase Agreement."
+      ]
+    },
+    {
+      "ticker": "SOFI",
+      "accessionNumber": "0001818874-24-000045",
+      "metadata": {
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "form": "8-K",
+        "accessionNumber": "0001818874-24-000045",
+        "filingDate": "2024-03-08",
+        "reportDate": "2024-03-04",
+        "primaryDocument": "sofi-20240304.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887424000045/sofi-20240304.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887424000045/",
+        "items": [
+          "1.01",
+          "2.03",
+          "3.02",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable"
+      },
+      "sha256": "fb3c6834530746e61eefd0a730e811c178452f9bbed9e2275c74e9805edffeaf",
+      "reviewDate": "2026-09-23",
+      "requiredItems": [
+        "1.01",
+        "2.03",
+        "3.02"
+      ],
+      "passages": [
+        "Introductory Note On March 8, 2024, SoFi Technologies, Inc. (“SoFi” or the “Company”) closed its previously announced private offering of convertible senior notes due 2029 (the “notes”) in an aggregate principal amount of $862.5 million. The aggregate principal amount of notes includes $112.5 million aggregate principal amount of notes that was purchased by the initial purchasers pursuant to the initial purchasers’ option to purchase additional notes, which option was exercised in full by the initial purchasers on March 6, 2024. The net proceeds from the offering were approximately $845.3 million, after deducting the initial purchasers’ discount and before the cost of the capped call transactions described below and offering expenses payable by the Company.",
+        "Item 1.01 Entry into a Material Definitive Agreement. Indenture The notes were issued pursuant to, and are governed by, an indenture (the “Indenture”), dated as of March 8, 2024, between the Company and U.S. Bank Trust Company, National Association, as trustee (the “Trustee”). The notes will be the Company’s unsecured, unsubordinated obligations and will be (i) equal in right of payment with the Company’s existing and future unsecured, unsubordinated indebtedness; (ii) senior in right of payment to the Company’s existing and future indebtedness that is expressly subordinated in right of payment to the notes; (iii) effectively subordinated to the Company’s existing and future secured indebtedness, to the extent of the value of the collateral securing that indebtedness; and (iv) structurally subordinated to all existing and future indebtedness and other liabilities, including trade payables, and (to the extent that the Company is not a holder thereof) preferred equity, if any, of the Company’s subsidiaries. The notes will pay interest at a rate of 1.25%, payable semi-annually in arrears on March 15 and September 15 of each year, beginning on September 15, 2024. The notes will mature on March 15, 2029 (the “Maturity Date”), unless earlier repurchased, redeemed or converted. Prior to the close of business on the business day immediately preceding September 15, 2028 (the “Free Convertibility Date”), noteholders may convert their notes at their option only in the following circumstances: (i) during any calendar quarter commencing after the calendar quarter ending on June 30, 2024, if the last reported sale price per share of the Company’s common stock, $0.0001 par value per share (the “common stock”) for each of at least 20 trading days, whether or not consecutive, during the 30 consecutive trading days ending on, and including, the last trading day of the immediately preceding calendar quarter, exceeds 130% of the conversion price then in effect on each applicable trading day, as determined by the Company in good faith; (ii) during the five consecutive business days immediately after any five consecutive trading day period (such five consecutive trading day period, the “Measurement Period”) if the trading price per $1,000 principal amount of notes for each trading day of the Measurement Period was less than 98% of the product of the last reported sale price per share of common stock on such trading day and the conversion rate on such trading day, subject to compliance with certain procedures and conditions, as set forth in the Indenture; (iii) upon the occurrence of certain corporate events or distributions on common stock, as set forth in the Indenture; and (iv) if the Company calls such notes for redemption (but solely, subject to certain exceptions, with respect to such notes called for redemption). Noteholders may convert their notes at their option at any time from, and including, the Free Convertibility Date until the close of business on the second scheduled trading day immediately before the Maturity Date, regardless of the foregoing conditions. The Company will settle conversions by paying or delivering, as applicable, cash and, if applicable, shares of common stock, based on the applicable conversion rate(s). The consideration due upon conversion will be determined over an observation period consisting of 30 “VWAP Trading Days” (as defined in the Indenture). The initial conversion rate is 105.8089 shares of common stock per $1,000 principal amount of notes, which represents an initial conversion price of approximately $9.45 per share of common stock. The 1 conversion rate and conversion price will be subject to customary adjustments upon the occurrence of certain events. In addition, if certain corporate events that constitute a “Make-Whole Fundamental Change” (as defined in the Indenture) occur, then the conversion rate will, in certain circumstances, be increased for a specified period of time. The notes will be redeemable, in whole or in part, at the Company’s option at any time, and from time to time, on or after March 15, 2027 and on or before the 30th scheduled trading day immediately before the Maturity Date, at a cash redemption price equal to the principal amount of the notes to be redeemed, plus accrued and unpaid special interest and additional interest, if any, thereon to, but excluding, the redemption date, but only if certain liquidity conditions described in the Indenture are satisfied and the last reported sale price per share of common stock exceeds 130% of the conversion price on (i) each of at least 20 trading days, whether or not consecutive, during the 30 consecutive trading days ending on, and including, the trading day immediately before the date the Company sends the related redemption notice and (ii) the trading day immediately before the date the Company sends such notice. In addition, calling any note for redemption will constitute a Make-Whole Fundamental Change with respect to that note, in which case the conversion rate applicable to the conversion of that note will be increased in certain circumstances if it is converted after it is called for redemption. If certain corporate events that constitute a “Fundamental Change” (as defined in the Indenture) occur, then noteholders will have the right to require the Company to repurchase their notes at a cash repurchase price equal to the principal amount of the notes to be repurchased, plus accrued and unpaid interest, if any, thereon to, but excluding, the “Fundamental Change Repurchase Date” (as defined in the Indenture). The definition of Fundamental Change includes certain business combination transactions involving the Company and certain de-listing events with respect to the common stock. The Indenture does not contain any financial or operating covenants or restrictions on the payments of dividends, the incurrence of indebtedness or the issuance or repurchase of securities by the Company or any of its subsidiaries. The Indenture contains customary terms and covenants and events of default. If any event of default (other than certain events of bankruptcy, insolvency or reorganization involving the Company) occurs and is continuing, then, the Trustee, by written notice to the Company, or noteholders of at least 25% of the aggregate principal amount of notes then outstanding, by written notice to the Company and the Trustee, may declare the principal amount of, and all accrued and unpaid special interest and additional interest, if any, on, all of the notes then outstanding to become due and payable immediately. If an event of default involving certain events of bankruptcy, insolvency or reorganization occurs, then the principal amount of, and all accrued and unpaid special interest and additional interest, if any, on, all of the notes then outstanding will immediately become due and payable without any further action or notice by any person. However, notwithstanding the foregoing, the Company may elect, at its option, that the sole remedy for an event of default relating to certain failures by the Company to comply with certain reporting covenants in the Indenture consist exclusively of the right of the noteholders to receive special interest on the notes for up to 365 calendar days during which such event of default has occurred and is continuing, at a specified rate for the first 180 days of 0.25% per annum, and thereafter at a rate of 0.50% per annum, on the principal amount of the notes. The above description of the Indenture and the notes is a summary and is not complete. A copy of the Indenture and the form of the certificate representing the notes are filed as Exhibits 4.1 and 4.2, respectively, to this Current Report on Form 8-K and are incorporated herein by reference. Capped Call Transactions On March 5, 2024, in connection with the pricing of the notes, the Company entered into confirmations substantially in the form attached hereto as Exhibit 10.1 evidencing privately negotiated capped call transactions (the “Base Capped Call Transactions”) with one or more of the initial purchasers or their affiliates and certain other financial institutions (the “Capped Call Counterparties”). On March 6, 2024, in connection with the exercise by the initial purchasers of their option to purchase additional notes, the Company entered into additional confirmations, also substantially in the form attached hereto as Exhibit 10.1, evidencing additional privately negotiated capped call transactions (the “Additional Capped Call Transactions,” and together with the Base Capped Call Transactions, the “Capped Call Transactions”) with each of the Capped Call Counterparties. 2 The Capped Call Transactions initially cover, subject to customary anti-dilution adjustments, the number of shares of common stock that initially underlie the notes. The Capped Call Transactions are expected to generally reduce the potential dilutive effect on the common stock upon any conversion of notes and/or, at the Company’s election and subject to certain conditions, offset any cash payments the Company is required to make in excess of the principal amount of converted notes, as the case may be, with such reduction and/or offset subject to a cap which initially is $14.54 per share, representing a premium of 100% over the last reported sale price per share of common stock on March 5, 2024, subject to certain adjustments under the terms of the Capped Call Transactions. The Company was advised that, in connection with establishing their initial hedges of the capped call transactions, the option counterparties or their respective affiliates expected to enter into various derivative transactions with respect to common stock and/or purchase shares of common stock concurrently with or shortly after the previously announced pricing of the notes, including with or from, as the case may be, certain investors in the notes. This activity could have increased (or reduce the size of any decrease in) the market price of common stock or the notes at that time. In addition, the Company was advised that the Capped Call Counterparties or their respective affiliates may modify their hedge positions by entering into or unwinding various derivatives with respect to common stock and/or purchasing or selling shares of common stock or other securities of the Company in secondary market transactions following the pricing of the notes and prior to the maturity of the notes (and are likely to do so during the relevant valuation period under the capped call transactions or in connection with any repurchase, redemption, exchange or early conversion of the notes or any other date on which the notes are retired, in each case, if the Company exercises the relevant election to terminate the corresponding portion of the Capped Call Transactions). This activity could also cause or avoid an increase or decrease in the market price of the common stock or the notes, which could affect a noteholder’s ability to convert the notes, and, to the extent the activity occurs during any observation period related to a conversion of notes, it could affect the number of shares and value of the consideration that a noteholder will receive upon conversion of the notes. The above descriptions of the Capped Call Transactions confirmations are a summary only and are qualified in their entirety by reference to the form of Capped Call Transactions confirmation, which is filed as Exhibit 10.1 to this Current Report on Form 8-K and is incorporated herein by reference. The Capped Call Counterparties and/or their affiliates have in the past performed, and may in the future from time to time perform, investment banking, financial advisory, lending and/or commercial banking services, or other services for the Company and its subsidiaries, for which they have received, and may in the future receive, customary compensation and expense reimbursement. Exchange Transactions On March 4, 2024, the Company entered into separate, privately negotiated exchange agreements (the “Exchange Agreements”), with a limited number of holders of its 0% Convertible Senior Notes due 2026 (the “2026 notes”), to exchange $600 million in aggregate principal amount of 2026 notes for an aggregate of approximately 61,713,287 shares of common stock (which estimate is based upon the closing share price of the common stock on March 4, 2024). The final aggregate number of shares of common stock to be exchanged pursuant to the Exchange Agreements will be calculated based on the daily volume-weighted average price per share of common stock over a specified period. The settlement of the exchange transactions pursuant to the Exchange Agreements are subject to customary closing conditions, which may not be satisfied. Accordingly, the actual amounts exchanged, and the consideration for the exchange transactions, may be different than the amount identified above. Pursuant to the requirements of Form 8-K, and subsequent to the consummation of the transactions contemplated by the Exchange Agreements (including the issuance of shares of common stock pursuant thereto), the Company intends to file an amendment to this Current Report on Form 8-K to disclose the aggregate number of shares of common stock issued in such transactions. Holders of the 2026 notes that participate in any of these exchanges or repurchases may purchase or sell shares of common stock in the open market to unwind any hedge positions they may have with respect to the 2026 3 notes or to hedge their exposure in connection with these transactions. These activities may adversely affect the trading price of common stock and the notes. Moreover, market activities by holders of the 2026 notes that participate in the exchanges may impact the initial conversion price of the notes the Company is offering. Unwind Agreements As previously disclosed, in connection with issuing the 2026 notes, the Company entered into privately negotiated capped call transactions (the “Existing Capped Call Transactions”) with certain financial institutions (the “Existing Capped Call Counterparties”). In connection with the Exchange Agreements, the Company entered into unwind agreements substantially in the form attached hereto as Exhibit 10.2, with one or more of the Existing Capped Call Counterparties to terminate a portion of the Existing Capped Call Transactions up to the notional amounts corresponding to the amount of 2026 notes exchanged. In connection with the termination of these transactions, the Company expects the Existing Capped Call Counterparties or their respective affiliates to unwind their related hedge positions, which may have involved the sale of shares of common stock in the open market or other transactions with respect to common stock. This hedge unwind activity could have offset or exacerbated the effects of the purchase, sale or other activity that holders of the 2026 notes that participated in the exchange or repurchase transactions effected in connection with those transactions. The above descriptions of the unwind agreements are a summary only and are qualified in their entirety by reference to the Form of Unwind Agreement, which is attached hereto as Exhibit 10.2, and is incorporated herein by reference.",
+        "Item 2.03 Creation of a Direct Financial Obligation or an Obligation under an Off-Balance Sheet Arrangement of a Registrant. The information set forth above in the Introductory Note and in",
+        "Item 1.01 of this Current Report on Form 8-K is incorporated by reference into this",
+        "Item 2.03.",
+        "Item 3.02 Unregistered Sales of Equity Securities . Sale of the Notes The information set forth in the Introductory Note and under the heading “Indenture” in",
+        "Item 1.01 of this Current Report on Form 8-K is incorporated by reference into this",
+        "Item 3.02. The Company offered and sold the notes to the initial purchasers in reliance on the exemption from registration provided by Section 4(a)(2) of the Securities Act of 1933, as amended (“Securities Act”). The Company relied on this exemption from registration based in part on representations made by the initial purchasers. The notes were resold by the initial purchasers to persons whom the initial purchasers reasonably believe are “qualified institutional buyers,” as defined in, and in accordance with, Rule 144A under the Securities Act. Any shares of common stock that may be issued upon conversion of the notes will be issued in reliance upon Section 3(a)(9) of the Securities Act as involving an exchange by the Company exclusively with its security holders. Initially, a maximum of 118,638,169 shares of common stock may be issued upon conversion of the notes, based on the initial maximum conversion rate of 137.5515 shares of common stock per $1,000 principal amount of notes, which is subject to customary anti-dilution adjustment provisions. Exchange Transactions The information under the heading “Exchange Transactions” in",
+        "Item 1.01 of this Current Report on Form 8-K is incorporated by reference into this",
+        "Item 3.02. The Company expects the issuance of shares of common stock pursuant to the Exchange Agreements to be exempt from registration under the Securities Act in reliance upon Section 4(a)(2) thereof. The Company is relying on this exemption from registration based in part on representations made by the holders of 2026 notes party to the Exchange Agreements. 4 Forward-Looking Statements This Current Report on Form 8-K includes forward-looking statements, including statements regarding the effects of the capped call transactions and the effects of entering into the exchange agreements and the unwind agreements and completing the transactions contemplated thereby as described above. Forward-looking statements represent SoFi’s current expectations regarding future events and are subject to known and unknown risks and uncertainties that could cause actual results to differ materially from those implied by the forward-looking statements, and there can be no assurance that future developments affecting SoFi will be those that it has anticipated. Among those risks and uncertainties are market conditions, including market interest rates, the trading price and volatility of the common stock and risks relating to SoFi’s business, including those described in periodic reports that SoFi files from time to time with the Securities and Exchange Commission (the “SEC”). For additional information on these and other factors that could affect SoFi’s actual results, see the risk factors set forth in SoFi’s filings with the SEC, including the most recent Annual Report filed with the SEC on February 27, 2024. The forward-looking statements included in this Current Report on Form 8-K speak only as of the date of this Current Report on Form 8-K, and SoFi does not undertake to update the statements included in this Current Report on Form 8-K for subsequent developments, except as may be required by law.",
+        "Item 9.01 Financial Statements and Exhibits. (d) Exhibits Exhibit No. Description 4.1 Indenture, dated as of March 8, 2024, between SoFi Technologies, Inc. and U.S. Bank Trust Company, National Association, as Trustee 4.2 Form of Certificate representing the 1.25% Convertible Senior Notes due 2029 (included as Exhibit A to Exhibit 4.1) 10.1 Form of Confirmation for Capped Call Transactions 10.2 Form of Unwind Agreement 104 Cover Page Interactive Data File (embedded within the inline XBRL document) 5"
+      ]
+    },
+    {
+      "ticker": "SOFI",
+      "accessionNumber": "0001818874-24-000084",
+      "metadata": {
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "form": "8-K/A",
+        "accessionNumber": "0001818874-24-000084",
+        "filingDate": "2024-03-26",
+        "reportDate": "2024-03-04",
+        "primaryDocument": "sofi-20240304.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887424000084/sofi-20240304.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887424000084/",
+        "items": [
+          "1.01",
+          "3.02"
+        ],
+        "amendment": true,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable"
+      },
+      "sha256": "8ac07de3741077bc47e28d7b8cf5d20556adcf2ad80b06949c8aa49505fb5c4e",
+      "reviewDate": "2026-09-23",
+      "requiredItems": [
+        "1.01",
+        "3.02"
+      ],
+      "passages": [
+        "Item 1.01 and",
+        "Item 3.02 of the Original Form 8-K, each under the heading “Exchange Transactions” thereto, to include the number of shares of the Company’s common stock issued at the settlement of the Exchange Agreements described in the Original Form 8-K. Except as set forth in this Amendment, the Original Form 8-K remains unchanged.",
+        "Item 1.01 Entry into a Material Definitive Agreement. Exchange Transactions On March 25, 2024 and March 26, 2024, the Company issued an aggregate of 72,621,879 shares of common stock in the settlement of the transactions contemplated by the Exchange Agreements.",
+        "Item 3.02 Unregistered Sales of Equity Securities. Exchange Transactions The information under the heading “Exchange Transactions” in",
+        "Item 1.01 of this Amendment is incorporated by reference into this",
+        "Item 3.02. The Company issued the shares of common stock pursuant to the Exchange Agreements in reliance on the exemption from registration provided by Section 4(a)(2) of the Securities Act of 1933, as amended. The Company relied on this exemption from registration based in part on representations made by the holders of 2026 notes party to the Exchange Agreements. 1"
+      ]
+    },
+    {
+      "ticker": "SOFI",
+      "accessionNumber": "0001818874-26-000005",
+      "metadata": {
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "form": "8-K",
+        "accessionNumber": "0001818874-26-000005",
+        "filingDate": "2026-01-09",
+        "reportDate": "2026-01-05",
+        "primaryDocument": "sofi-20260105.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000005/sofi-20260105.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000005/",
+        "items": [
+          "5.02"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable"
+      },
+      "sha256": "5926b91024492ef428d771a1c6e9ac0d82e2306f99e73cb8d3a0a173ccd31c9a",
+      "reviewDate": "2026-09-23",
+      "requiredItems": [
+        "5.02"
+      ],
+      "passages": [
+        "Item 5.02 Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers; Compensatory Arrangements of Certain Officers. SoFi Technologies, Inc. (the \"Company\") previously announced that Stephen Simcock retired from his position as the Company's General Counsel, effective December 31, 2025. The Company and Mr. Simcock have mutually agreed that Mr. Simcock will serve as an advisor to the Company from January 5, 2026 through December 31, 2026, in order to provide transitional services in exchange for (i) a monthly fee of $83,333.33 and (ii) Company-paid COBRA subsidies. In connection therewith, the Company and Mr. Simcock have entered into an Advisor Agreement, dated January 5, 2026, a copy of which is expected to be filed with the Company's Annual Report on Form 10-K for the year ended December 31, 2025. 1"
+      ]
+    },
+    {
+      "ticker": "SOFI",
+      "accessionNumber": "0001818874-22-000020",
+      "metadata": {
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "form": "8-K",
+        "accessionNumber": "0001818874-22-000020",
+        "filingDate": "2022-02-24",
+        "reportDate": "2022-02-19",
+        "primaryDocument": "sofi-20220219.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887422000020/sofi-20220219.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887422000020/",
+        "items": [
+          "1.01",
+          "3.02",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable"
+      },
+      "sha256": "9bf8b7eda05f3eefd7d15392b7358f8e0858a7cb36da19a9116b2c24b0970a57",
+      "reviewDate": "2026-09-23",
+      "requiredItems": [
+        "1.01",
+        "3.02"
+      ],
+      "passages": [
+        "Item 1.01 Entry into a Material Definitive Agreement. On February 19, 2022 , SoFi Technologies, Inc. (“SoFi”) entered into an Agreement and Plan of Merger and Reorganization (the “Merger Agreement”), by and among SoFi, Technisys S.A., a Luxembourg société anonyme (“Technisys”), Atom New Delaware, Inc., a Delaware corporation and a wholly owned subsidiary of Technisys (“Atom New Delaware”), Atom Merger Sub Corporation, a Delaware corporation and a wholly owned subsidiary of SoFi (“Merger Sub”), and Fortis Advisors LLC, a Delaware limited liability company, in its capacity as the representative. The Merger Agreement provides that, upon the terms and subject to the conditions set forth therein, Merger Sub will merge with and into Atom New Delaware (the “Merger”), with Atom New Delaware surviving the Merger and becoming a wholly owned subsidiary of SoFi. Subject to the terms and conditions of the Merger Agreement, prior to the Merger, Technisys and Atom New Delaware will undertake certain pre-closing restructuring transactions (the “Pre-Closing Restructuring”). Among other things, Technisys converted into a société à responsabilité limitée on February 23, 2022, and prior to the closing of the Merger (the \"Closing\"), the shareholders of Technisys will effect the contribution of all of the outstanding shares of common stock, nominal value $1.00 per share, of Technisys (“Technisys Common Stock”), and preferred stock, nominal value $1.00 per share, of Technisys (“Technisys Preferred Stock” and, together with Technisys Common Stock, “Technisys Stock”), for shares of common stock, par value $0.01 per share, of Atom New Delaware (“Atom New Delaware Common Stock”), and preferred stock, par value $0.01 per share, of Atom New Delaware (“Atom New Delaware Preferred Stock” and, together with Atom New Delaware Common Stock, “Atom New Delaware Stock”), respectively, in each case on a one-to-100 basis. Subject to the terms and conditions of the Merger Agreement, at the effective time of the Merger (the “Effective Time”), the holders of shares of Atom New Delaware Stock that are issued and outstanding immediately prior to the Effective Time, other than treasury shares and dissenting shares, will receive aggregate base merger consideration of 84,074,719 shares of common stock, $0.0001 par value per share, of SoFi (“SoFi Common Stock” and such shares, the “Merger Consideration”), subject to customary cash, debt and working capital adjustments that will be settled in shares of SoFi Common Stock. At the Closing, a portion of the Merger Consideration will be deposited with an escrow agent to secure the indemnification and post-Closing purchase price adjustment obligations of former Atom New Delaware stockholders under the Merger Agreement. As of the Effective Time, each unit granted under Technisys’ 2020 Long Term Incentive Plan that is outstanding as of immediately prior to the Effective Time, each of which has a value equal to 1/99 of a share of Technisys Common Stock (each, a “Technisys LTIP Unit”), and that is vested or that vests by its terms as of the date of the Merger Agreement as a result of the occurrence of the Effective Time, will be canceled in exchange for the right to receive, without interest and less applicable withholding taxes, an amount in cash equal to the value of the per share Merger Consideration on a per Technisys LTIP Unit basis, as calculated in accordance with the Merger Agreement, which cash amount will be payable in two equal installments, the first within 30 days of Closing and the second on the one-year anniversary of Closing. As of the Effective Time, each Technisys LTIP Unit that is unvested and will not vest by its terms as of the date of the Merger Agreement as a result of the occurrence of the Effective Time, will be canceled and converted into a SoFi restricted stock unit award with a vesting schedule that is no less favorable to the holder of such Technisys LTIP Unit than the vesting schedule that applied to such Technisys LTIP Unit immediately prior to the Effective Time, and in respect of a number of shares of SoFi Common Stock equal to the per share Merger Consideration on a per Technisys LTIP Unit basis, divided by the average closing price of SoFi Common Stock over the five consecutive trading days prior to the Closing. The consideration delivered to holders of Technisys LTIP Units will reduce the aggregate base consideration of 84,074,719 shares of SoFi Common Stock otherwise deliverable in the Merger as described above. The Merger Agreement contains customary representations and warranties from Technisys and Atom New Delaware, on the one hand, and SoFi and Merger Sub, on the other hand, and each of Technisys and Atom New Delaware, on the one hand, and SoFi and Merger Sub, on the other hand, has agreed to customary covenants, including, among others, covenants relating to the conduct of its business during the interim period between the execution of the Merger Agreement and the Effective Time. Technisys and Atom New Delaware have also agreed to certain non-solicitation obligations relating to alternative business combination proposals. The representations, warranties and pre-Closing covenants of Technisys and Atom New Delaware will survive the Closing for a period of 1 15 months following the Closing. Former stockholders of Atom New Delaware will indemnify SoFi for certain losses arising out of breaches of representations, warranties, pre-Closing covenants and certain other matters, subject to certain limitations set forth in the Merger Agreement. The completion of the Merger is subject to certain conditions, including (a) the adoption and approval of the Merger Agreement and the transactions contemplated thereby, including the Merger, by the stockholders of Atom New Delaware, (b) the completion of the Pre-Closing Restructuring and (c) the absence of any injunction, law, restraining order or decree of any nature of any governmental authority of competent jurisdiction making illegal, enjoining, restraining or prohibiting the consummation of the transactions contemplated by the Merger Agreement. The obligations of each of Technisys, Atom New Delaware, SoFi and Merger Sub to complete the Merger are also subject to certain additional conditions, including (i) the accuracy of the representations and warranties of the other parties to the Merger Agreement (subject, with specified exceptions, to materiality or material adverse effect standards), and (ii) performance in all material respects by the other parties of their obligations under the Merger Agreement. The obligations of SoFi and Merger Sub to complete the Merger are subject to further conditions, including (A) the continued employment of certain employees of Technisys, (B) since the date of the Merger Agreement, the absence of any change, effect, event, occurrence, state of facts or development which, individually or in the aggregate, has had a material adverse effect on Technisys that is continuing or is reasonably likely to have a material adverse effect on Technisys, and (C) the absence of a pending or threatened action, suit or proceeding brought by any governmental authority of competent jurisdiction seeking to restrain the consummation of the transactions contemplated by the Merger Agreement. No vote of SoFi stockholders will be required in connection with the Merger or the other transactions contemplated by the Merger Agreement. The Merger Agreement contains certain termination rights, including the right of (a) either SoFi or Technisys to terminate the Merger Agreement if (i) the closing of the Merger has not occurred by March 31, 2022, (ii) any final, nonappealable injunction, law, restraining order or decree of any nature of any governmental authority of competent jurisdiction is in effect that makes illegal, enjoins, restrains or prohibits the consummation of the transactions contemplated by the Merger Agreement, or (iii) the other parties are in material breach of their respective representations and warranties or covenants under the Merger Agreement that would give rise to the failure of a closing condition, subject to a cure period; and (b) SoFi to terminate the Merger Agreement if (i) the contribution contemplated by the Pre-Closing Restructuring has not occurred by March 18, 2022, or (ii) the Atom New Delaware stockholder approval has not been delivered within four business days of the completion of the contribution contemplated by the Pre-Closing Restructuring. The representations, warranties and covenants of the parties set forth in the Merger Agreement have been made only for purposes of, and were and are solely for the benefit of the parties to, the Merger Agreement; may be subject to limitations agreed upon by the contracting parties, including being qualified by confidential disclosures made for the purposes of allocating contractual risk between the parties to the Merger Agreement instead of establishing these matters as facts; and may be subject to standards of materiality applicable to the contracting parties that differ from those applicable to investors. Accordingly, the representations and warranties may not describe the actual state of affairs at the date they were made or at any other time, and investors should not rely on them as statements of fact. The foregoing description of the Merger Agreement does not purport to be complete and is qualified in its entirety by reference to the full text of the Merger Agreement, which is attached hereto as Exhibit 2.1 and is incorporated herein by reference. In connection with the execution of the Merger Agreement, certain shareholders of Technisys, which collectively hold approximately 85% of Technisys’ capital stock, entered into a Support Agreement with SoFi, pursuant to which, among other things, and subject to the terms and conditions of the Support Agreement, each such shareholder agreed to, among other things, (a) execute and deliver a written consent approving the adoption of the Merger Agreement and the transactions contemplated thereby, including the Merger, in its capacity as a holder of Atom New Delaware Stock following the completion of the contribution contemplated by the Pre-Closing Restructuring, and (b) vote or cause to be voted (including by written consent) all of its Technisys Stock or Atom New Delaware Stock, as applicable, against any acquisition proposal or other action, agreement or transaction intended or reasonably expected to adversely affect the consummation of the transactions contemplated by the Merger Agreement, including the Merger. 2 The foregoing description of the Support Agreement does not purport to be complete and is qualified in its entirety by reference to the full text of the Support Agreement, which is attached hereto as Exhibit 10.1 and is incorporated herein by reference. In connection with the execution of the Merger Agreement, all of the shareholders of Technisys entered into a Lock-Up Agreement with SoFi. Among other things, the Lock-Up Agreement provides that, subject to the terms and conditions therein, 54% of the Merger Consideration issued to each holder of Atom New Delaware Stock in the Merger (the “Lock-Up Shares”) may not be transferred, subject to certain customary exceptions, until (a) the date that is the three-month anniversary of the Closing with respect to 50% of such holder’s Lock-Up Shares and (b) the date that is the six-month anniversary of the Closing with respect to the remaining 50% of such holder’s Lock-Up Shares. The Lock-Up Agreement also provides certain registration rights for the benefit of the former holders of Technisys Stock following the Closing. Among other things, SoFi is required to file with the U.S. Securities and Exchange Commission (the “SEC”) a registration statement covering the resale of the SoFi Common Stock to be issued in the Merger within 10 business days following the date of the Closing. SoFi must use commercially reasonable efforts to keep such registration continuously effective with respect to such shares until the earlier of (i) the date the shareholders no longer hold any registrable shares, and (ii) the date all registrable shares held by the shareholders may be sold without restriction under Rule 144. The foregoing description of the Lock-Up Agreement does not purport to be complete and is qualified in its entirety by reference to the full text of the Lock-Up Agreement, which is attached hereto as Exhibit 10.2 and is incorporated herein by reference.",
+        "Item 3.02 Unregistered Sales of Equity Securities. The disclosure set forth in",
+        "Item 1.01 of this Current Report on Form 8-K is incorporated in this",
+        "Item 3.02 by reference. The shares of SoFi Common Stock to be issued in connection with the Merger will not be registered under the Securities Act of 1933, as amended, and will be issued in reliance on the exemption from registration requirements provided by Section 4(a)(2) thereof. Cautionary Statement Forward-Looking Statements This communication contains certain forward-looking statements, including, but not limited to, certain plans, expectations, goals, projections, and statements about the proposed transaction, the plans, objectives, expectations and intentions of SoFi and Technisys, the expected completion of the transaction and other statements that are not historical facts. Such statements are subject to numerous assumptions, risks and uncertainties. These forward-looking statements are not guarantees of performance. Such statements can be identified by the fact that they do not relate strictly to historical or current facts. Words such as “anticipate”, “believe”, “continue”, “could”, “estimate”, “expect”, “intend”, “may”, “opportunity”, “future”, “strategy”, “might”, “plan”, “possible”, “potential”, “predict”, “project”, “should”, “strive”, “would”, “will be”, “will continue”, “will likely result” and similar expressions may identify forward-looking statements, but the absence of these words does not mean that a statement is not forward-looking. Factors that could cause actual results to differ materially from those contemplated by these forward-looking statements include: the effect and uncertainties related to the COVID-19 pandemic (including any government responses thereto); SoFi’s ability to achieve and maintain profitability in the future; the impact on SoFi’s business of the regulatory environment and complexities with compliance related to such environment; SoFi’s ability to respond to general economic conditions; SoFi’s ability to manage its growth effectively and its expectations regarding the development and expansion of its business; SoFi’s ability to access sources of capital, including debt financing and other sources of capital to finance operations and growth; the success of SoFi’s continued investments in its Financial Services segment and in its business generally; the success of SoFi’s marketing efforts and its ability to expand its member base; SoFi’s ability to maintain its leadership position in certain categories of its business and to grow market share in existing markets or any new markets it may enter; SoFi’s ability to develop new products, features and functionality that are competitive and meet market needs; SoFi’s ability to realize the benefits of its 3 strategy, including what SoFi refers to as its Financial Services Productivity Loop; SoFi’s ability to make accurate credit and pricing decisions or effectively forecast its loss rates; SoFi’s ability to establish and maintain an effective system of internal controls over financial reporting; SoFi’s ability to realize the anticipated benefits of its acquisition of Golden Pacific Bank; the impact of additional regulation as a result of SoFi’s becoming a bank holding company; SoFi’s ability to operate SoFi Bank pursuant to its operating agreement with the Office of the Comptroller of the Currency; the outcome of any legal or governmental proceedings that may be instituted against SoFi; the occurrence of any event, change or other circumstances that could give rise to the right of SoFi or Technisys to terminate the merger agreement; the outcome of any legal proceedings that may be instituted against SoFi or Technisys; delays in completing the transaction; the failure to satisfy any of the conditions to the transaction on a timely basis or at all; the possibility that the anticipated benefits of the transaction are not realized when expected or at all, including as a result of the impact of, or problems arising from, integration or as a result of changes in the economic or market environments and competitive factors; the possibility that the transaction may be more expensive to complete than anticipated, including as a result of unexpected factors or events; diversion of management’s attention from ongoing business operations and opportunities; potential adverse reactions or changes to business or employee relationships, including those resulting from the announcement or completion of the transaction; the dilution caused by SoFi’s issuance of additional shares of its capital stock in connection with the transaction; and other factors that may affect the future results of SoFi and Technisys. Additional factors that could cause results to differ materially from those described above can be found in SoFi’s Quarterly Report on Form 10-Q for the quarterly period ended September 30, 2021, which is on file with the SEC and available on SoFi’s investor relations website, https://investors.sofi.com, under the heading “Financials,” and in other documents SoFi files with the SEC. All forward-looking statements speak only as of the date they are made and are based on information available at that time. Neither SoFi nor Technisys assumes any obligation to update forward-looking statements to reflect circumstances or events that occur after the date the forward-looking statements were made or to reflect the occurrence of unanticipated events except as required by federal securities laws. As forward-looking statements involve significant risks and uncertainties, caution should be exercised against placing undue reliance on such statements.",
+        "Item 9.01 Financial Statements and Exhibits. (d) Exhibits Exhibit No. Description 2.1 Agreement and Plan of Merger and Reorganization, dated as of February 19, 2022, by and among SoFi Technologies, Inc., Technisys S.A., Atom New Delaware, Inc., Atom Merger Sub Corporation and Fortis Advisors LLC, as representative* 10.1 Support Agreement, dated as of February 19, 2022, by and among SoFi Technologies, Inc. and the shareholders of Technisys S.A. party thereto * 10.2 Lock-Up Agreement, dated as of February 19, 2022, by and among SoFi Technologies, Inc. and the shareholders of Technisys S.A. party thereto * 104 Cover Page Interactive Data File (embedded within the inline XBRL document) * Schedules have been omitted pursuant to Item 601(a)(5) of Regulation S-K. A copy of any omitted schedule will be furnished supplementally to the SEC upon request; provided, however, that the parties may request confidential treatment pursuant to Rule 24b-2 of the Securities Exchange Act of 1934, as amended, for any document so furnished. 4"
+      ]
+    },
+    {
+      "ticker": "SOFI",
+      "accessionNumber": "0001818874-25-000215",
+      "metadata": {
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "form": "8-K",
+        "accessionNumber": "0001818874-25-000215",
+        "filingDate": "2025-11-13",
+        "reportDate": "2025-11-12",
+        "primaryDocument": "sofi-20251112.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000215/sofi-20251112.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000215/",
+        "items": [
+          "7.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001818874.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable"
+      },
+      "sha256": "a7a174e3969df0a512128e171032b6c7a3416259a04a6b45951f4cb06890809a",
+      "reviewDate": "2026-09-23",
+      "requiredItems": [
+        "7.01"
+      ],
+      "passages": [
+        "Item 7.01 Regulation FD Disclosure. On November 12, 2025, Mr. Christopher Lapointe, SoFi Technologies, Inc.’s (the “Company”) Chief Financial Officer, entered into a prepaid variable forward contract (the “contract”) with an unaffiliated third-party dealer (the “dealer”) on 500,000 shares of the Company’s common stock, $0.0001 par value per share (the “Company Common Stock”), representing less than 0.05% of the Company’s total outstanding shares. The transaction represents a contract by which Mr. Lapointe will receive an upfront cash payment and must, when the contract matures in approximately two years, settle any obligations under the contract. Specifically, the contract is scheduled to mature on or about November 12, 2027 (the “maturity date”), at which time, Mr. Lapointe may deliver shares of the Company's Common Stock or elect to settle the contract in cash. The amount of such delivery of shares or cash payment will be determined by the share price of the Company Common Stock on the maturity date. Mr. Lapointe pledged 500,000 shares of the Company's Common Stock (the “Pledged Shares”) to secure his obligations under the contract. In exchange for assuming this obligation, Mr. Lapointe will receive an upfront cash payment of $11,771,830. Mr. Lapointe will retain all voting, dividend, and other rights in the Pledged Shares during the term of the pledge. If Mr. Lapointe elects to deliver shares of the Company’s Common Stock, the number of shares will be determined based on the price of the Company's Common Stock relative to the floor price of $25.38 per share and the cap price of $50.58 per share. This means that if, on or about November 12, 2027, the per share price of the Company’s Common Stock is (i) $50.58, Mr. Lapointe could surrender 250,890 shares, or (ii) $25.38 or lower, Mr. Lapointe could surrender 500,000 shares. Mr. Lapointe will not participate in the performance of the Pledged Shares above the cap price of $50.58 or below the floor price of $25.38 unless he elects to settle the contract in cash. From time to time, Mr. Lapointe may enter into prepaid variable forward contracts because the structure provides liquidity while also allowing him to maintain all voting, dividend, and other rights in the Company Common Stock. A majority of Mr. Lapointe’s compensation is in the form of Company equity, and he has not sold any Company Common Stock since joining the Company in 2018. 1"
+      ],
+      "exclusion": "Officer personal forward contract; not issuer financing. Existing insider scope remains separate."
+    },
+    {
+      "ticker": "CRWD",
+      "accessionNumber": "0001104659-24-081571",
+      "metadata": {
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "form": "8-K",
+        "accessionNumber": "0001104659-24-081571",
+        "filingDate": "2024-07-22",
+        "reportDate": "2024-07-19",
+        "primaryDocument": "tm2419936d1_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465924081571/tm2419936d1_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465924081571/",
+        "items": [
+          "8.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable"
+      },
+      "sha256": "87a065a891b33990116347b2804b174ad4724e8b12c3431d42c1282d0b1208df",
+      "reviewDate": "2026-09-23",
+      "requiredItems": [
+        "8.01"
+      ],
+      "passages": [
+        "Item 8.01 Other Events. On July 19, 2024, CrowdStrike Holdings, Inc. (“we” or “us”) released a sensor configuration update for our Falcon sensor software that resulted in outages for a number of our customers utilizing certain Windows systems (the “event”). The event was not caused by a cyberattack. We urgently mobilized teams to support the security and stability of our customers. Certain Windows systems that were online when the update was released at 4:09 UTC on July 19 were affected. We identified and isolated the issue and the update was reverted at 5:27 UTC. We continue to work with impacted customers to fully restore their systems. As part of that effort, we have provided remediation information through our customer support portal and published event-related updates accessible through our blog at www.crowdstrike.com/blog. This is an evolving situation. We continue to evaluate the impact of the event on our business and operations. Forward-Looking Statements This Form 8-K contains forward-looking statements that involve risks and uncertainties, including statements regarding our understanding of the event and its impacts. A number of factors could cause outcomes to differ materially from our statements, including the discovery of new information regarding the event and other risks and uncertainties included in our filings with the Securities and Exchange Commission, particularly under the caption “Risk Factors” in our most recently filed Quarterly Report on Form 10-Q. Accordingly, you should not rely on these forward-looking statements. All forward-looking statements are based on information currently available to us, and we do not assume any obligation to update any statement to reflect changes in circumstances or our expectations."
+      ]
+    },
+    {
+      "ticker": "CRWD",
+      "accessionNumber": "0001535527-26-000018",
+      "metadata": {
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "form": "8-K",
+        "accessionNumber": "0001535527-26-000018",
+        "filingDate": "2026-04-21",
+        "reportDate": "2026-04-16",
+        "primaryDocument": "crwd-20260416.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000018/crwd-20260416.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000018/",
+        "items": [
+          "5.02",
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable"
+      },
+      "sha256": "7b61f1e63c6139492ba15a36bbdf454dd1cdc149d149ba3efbdbb3a635a3f4f5",
+      "reviewDate": "2026-09-23",
+      "requiredItems": [
+        "5.02",
+        "7.01"
+      ],
+      "passages": [
+        "Item 5.02 Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers; Compensatory Arrangements of Certain Officers. On April 16, 2026, the Board of Directors (the “Board”) of CrowdStrike Holdings, Inc. (the “Company” or “CrowdStrike”), upon the recommendation of the Compensation Committee of the Board (the “Compensation Committee”), approved a performance-and service-based equity award under the Company’s 2019 Equity Incentive Plan (the “Plan”) to Michael Sentonas, the Company’s President, consisting of performance stock units (“PSUs”) with a target of 100,000 PSUs, that can result in as few as zero shares of the Company’s Class A common stock (“Common Stock”) being issued if the Company’s stock price performance is below the 25th percentile of the companies in the S&P 500 over a three-year period, and up to 200,000 shares if the Company’s stock price performance meets or exceeds the 90th percentile of the companies in the S&P 500 (the “Award”). Certain strategic considerations that informed the Board’s decision to grant this Award are described in",
+        "Item 7.01 below. Award Structure and Performance Metrics The Award is composed of PSUs that may be earned based on the Company’s total stockholder return (“TSR”) relative to the TSR of the companies comprising the S&P 500 Index over a three-year performance period beginning on December 22, 2025 and ending on December 22, 2028 (the “Performance Period”). The award is structured with a target of 100,000 PSUs, with the actual number of PSUs which may be earned ranging from 50% (assuming threshold achievement) to 200% of the target number of PSUs subject to the award, based on the Company’s TSR percentile ranking during the Performance Period, with linear interpolation between performance levels, as set forth in the award agreement. If performance is achieved below the threshold level, 0% of the PSUs will be earned. The table below summarizes these performance goals and related payout levels: Performance Level Relative TSR Percentile Ranking Payout (% of Target PSUs) Maximum 90th percentile or above 200% Above Target 75th percentile 150% Target 55th percentile 100% Threshold 25th percentile 50% Below Threshold Below 25th percentile 0% Following the end of the Performance Period, the Compensation Committee will determine the extent to which the applicable performance goals have been achieved and will determine the number of PSUs, if any, that have been earned (the “Earned PSUs”). In addition, the Earned PSUs will be subject to an additional one-year service-based vesting requirement such that 25% of the Earned PSUs will vest on each of March 20, 2029, June 20, 2029, September 20, 2029 and December 20, 2029 (the “Final Vesting Date”), in each case, subject to Mr. Sentonas’s continued service with the Company (any Earned PSUs that satisfy the service-based vesting requirement, the “Vested PSUs”). Except as described below, any PSUs that are not earned or do not become Vested PSUs will be forfeited without consideration. Additional Terms and Conditions In the event of a “change in control” (as defined in the Plan) that occurs prior to the end of the Performance Period, the Company’s TSR performance and applicable percentile ranking will be determined as of the date of such change in control. For this purpose, the Company’s TSR will be measured based on the price per share of the Company’s common stock (plus the value of any other consideration received by the Company’s stockholders) in the transaction, and the TSR of the applicable peer companies will be measured using the 45-trading-day period ending on and including the public announcement date of the change in control. The Compensation Committee will certify the resulting performance level and the number of PSUs earned, if any, in connection with the transaction. Upon consummation of the change in control, any Earned PSUs will be converted into the same form of consideration, and on the same economic terms, as are applicable to holders of the Company’s common stock in the transaction, including cash, stock, equity-based awards, or a combination thereof; provided that such converted award will be subject to vesting based on Mr. Sentonas’s continued service through the Final Vesting Date (subject to the acceleration provisions described in the next paragraph). If Mr. Sentonas’s employment is terminated by the Company without cause or by Mr. Sentonas for good reason within three months prior to or 24 months following a change in control, any converted awards will vest in full as of the date of such termination. In addition, if the surviving company does not assume, continue or substitute the converted awards in connection with the change in control, such awards will vest in full upon consummation of the transaction. If Mr. Sentonas’s employment is terminated by the Company without cause or by Mr. Sentonas for good reason prior to the end of the Performance Period and more than three months prior to or more than 24 months following a change in control, the Company’s TSR performance will be measured as of Mr. Sentonas’s termination date using the same methodology applicable at the end of the Performance Period. The number of PSUs earned will be determined based on actual performance through such date and such Earned PSUs will be prorated based on a fraction, the numerator of which is the number of days elapsed 2 from the start of the Performance Period through the termination date, and the denominator of which is the total number of days from the start of the Performance Period (i.e., December 22, 2025) to the Final Vesting Date. Any Vested PSUs following such performance measurement and time-based proration will vest as of the termination date. Any remaining unvested PSUs will be forfeited without consideration. If Mr. Sentonas’s employment terminates for any other reason prior to the end of the Performance Period, any unvested portion of the PSUs subject to the Award will be forfeited without consideration. If Mr. Sentonas’s employment is terminated by the Company without cause or by Mr. Sentonas for good reason following the end of the Performance Period and more than three months prior to or more than 24 months following a change in control, the Company’s TSR performance will be measured based on the actual performance achieved at the end of the Performance Period, and a number of Earned PSUs will be accelerated as of the termination date such that the total number of Vested PSUs as of the termination date will equal the product of (i) the number of Earned PSUs, multiplied by (ii) a fraction, the numerator of which is the number of days elapsed from the start of the Performance Period through the termination date, and the denominator of which is the total number of days from the start of the Performance Period (i.e., December 22, 2025) to the Final Vesting Date. Any Vested PSUs following such performance measurement and time-based proration will vest as of the termination date. Any remaining unvested PSUs will be forfeited without consideration. If Mr. Sentonas’s employment terminates for any other reason following the end of the Performance Period but prior to the Final Vesting Date, any unvested portion of the PSUs subject to the Award will be forfeited without consideration. The foregoing summary of the Award does not purport to be complete and is qualified in its entirety by reference to the full terms and conditions of the award agreement, which is filed as Exhibit 10.1 to this Form 8-K and incorporated herein by reference.",
+        "Item 7.01 Regulation FD Disclosure The disclosure under",
+        "Item 5.02 is incorporated herein by reference. Leading CrowdStrike Through the Next Stage of Growth The Board approved the Award to incentivize achievement of CrowdStrike’s long-term growth strategy by (i) aligning Mr. Sentonas’s interests with those of the Company’s stockholders through performance-based compensation tied directly to meaningful stock price outperformance, and (ii) providing a compelling incentive for Mr. Sentonas to continue to lead CrowdStrike as it executes on its ambition to achieve $20 billion in ending annual recurring revenue (“ARR”). Working alongside CrowdStrike’s CEO and Founder George Kurtz, Mr. Sentonas has been a principal architect of CrowdStrike’s strategic and financial trajectory over the past three years — driving the platform and technology strategy, go-to-market execution, and corporate development activity that have contributed directly to the Company’s growth from $3.06 billion in total revenue in fiscal year 2024 to $4.81 billion in fiscal year 2026, and from $3.44 billion in ending ARR in fiscal year 2024 to $5.25 billion in ending ARR in fiscal year 2026. Non-GAAP income from operations has expanded and, free cash flow has increased over the same period, marking a new phase in the Company’s financial maturity. Over the three-year period coinciding with Mr. Sentonas’s expanded leadership role, CrowdStrike’s stock has delivered a 300% return, ranking in the 95th percentile of S&P 500 constituents — reflecting the direct connection between the Company’s operational execution and stockholder value creation. Mr. Sentonas has driven CrowdStrike’s expansion into three of the highest-growth markets in cybersecurity. Falcon Cloud Security has delivered double-digit ending ARR annual growth from February 1, 2023 to January 31, 2026. Falcon Next-Gen Identity has become one of the top solutions driving multi-module expansion, and Falcon Next-Gen SIEM has emerged as one of the fastest-growing ARR contributors in the portfolio. Together, these three markets represent a substantial expansion of CrowdStrike’s addressable revenue opportunity. On the corporate development front, Mr. Sentonas has executed a disciplined, platform-first M&A strategy that has systematically expanded CrowdStrike’s TAM and strengthened its competitive differentiation. CrowdStrike’s most recent acquisitions of Pangea, Onum, SGNL, and Seraphic Security collectively extend the Falcon platform into AI application security, network data intelligence, dynamic identity and access control, and browser security, each addressing a distinct and growing market opportunity. We believe CrowdStrike is well positioned for its next phase of growth, as we aim to drive ARR growth, scale the Company, expand profitability, and continue to deliver a platform spanning endpoint, cloud, identity, security operations, browser, AI application security, and more. Mr. Sentonas has been instrumental in building that position, and his continued leadership is central to the Company’s ability to deliver value for customers, investors, partners and employees. 3 Incentive Opportunities Aligned with Stockholders The Award is designed to be performance- and service-based and at risk, with the number of PSUs earned directly tied to the Company’s TSR relative to the TSR of the companies comprising the S&P 500 Index over a three-year period as well as an additional one-year service period. This structure creates strong retention incentives and ensures that Mr. Sentonas’s compensation is directly aligned with the returns experienced by the Company’s stockholders relative to broader market performance, and that Mr. Sentonas will earn above-target compensation only if CrowdStrike delivers TSR performance that outperforms the majority of S&P 500 companies, while receiving no award if performance falls below the 25th percentile threshold. This relative performance structure rewards the Company’s distinctive value creation and competitive execution rather than stock price appreciation that may stem from general market conditions. This approach rewards superior returns to stockholders regardless of overall market direction and aligns executive compensation with the stockholder experience. The three-year performance period reinforces a focus on sustained outperformance rather than short-term stock price fluctuations. Unlike pure time-based equity compensation, this Award provides no guaranteed value and can result in zero compensation if minimum performance thresholds are not achieved. This ensures that Mr. Sentonas’s interests remain directly tied to delivering superior returns to stockholders relative to alternative investment opportunities in the broader market. The Board believes this performance-based structure is particularly appropriate given the dynamic nature of the cybersecurity market. As CrowdStrike continues to execute on its strategic vision, this Award will ensure that Mr. Sentonas’s compensation remains directly aligned with the Company’s success in translating market leadership into superior stockholder returns. The information disclosed under this",
+        "Item 7.01 shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934, as amended, and shall not be deemed incorporated by reference into any filing made under the Securities Act of 1933, as amended, except as expressly set forth by specific reference in such filing. Forward Looking Statements This Current Report on Form 8-K contains forward-looking statements that involve risks and uncertainties, including statements regarding the potential benefits of granting the Award to Mr. Sentonas, including ensuring strong retention incentives and maintaining alignment with stockholder interests, and expectations regarding Company performance targets, financial performance, market opportunities, competitive advantages and stockholder returns. A number of factors could cause outcomes to differ materially from our statements, including the risks and uncertainties included in our filings with the Securities and Exchange Commission, particularly under the caption “Risk Factors” in our most recently filed Annual Report on Form 10-K. Accordingly, you should not place undue reliance on these forward-looking statements. All forward-looking statements are based on information currently available to us, and we do not assume any obligation to update any statement to reflect changes in circumstances or our expectations. 4",
+        "Item 9.01 Financial Statements and Exhibits. (d) Exhibits Exhibit Number Description of Exhibit 10.1 Performance Unit Agreement with Michael Sentonas, dated April 16, 2026, under the CrowdStrike Holdings, Inc. 2019 Equity Incentive Plan 104 Cover Page Interactive Data File - the cover page XBRL tags are embedded within the Inline XBRL document 5"
+      ],
+      "exclusion": "Compensatory award; Item 5.02 does not establish a leadership appointment. No generic event published."
+    },
+    {
+      "ticker": "CRWD",
+      "accessionNumber": "0001104659-26-076376",
+      "metadata": {
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "form": "8-K",
+        "accessionNumber": "0001104659-26-076376",
+        "filingDate": "2026-06-22",
+        "reportDate": "2026-06-17",
+        "primaryDocument": "tm2618192d1_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465926076376/tm2618192d1_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465926076376/",
+        "items": [
+          "5.03",
+          "5.07",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable"
+      },
+      "sha256": "2363bb0f1f086c2d8c179996cb42952e302b61e6e8bc536a07e60dd11846cbc0",
+      "reviewDate": "2026-09-23",
+      "requiredItems": [
+        "5.03",
+        "5.07"
+      ],
+      "passages": [
+        "Item 5.03 Amendments to Articles of Incorporation or Bylaws; Change in Fiscal Year. As described in",
+        "Item 5.07 below, the stockholders of CrowdStrike Holdings, Inc. (the “Company”) approved, upon the recommendation of the Company’s Board of Directors, an amendment and restatement of the Company’s Amended and Restated Certificate of Incorporation at the Annual Meeting of Stockholders (the “Annual Meeting”) on June 17, 2026 to limit the liability of certain officers to the fullest extent permitted by the General Corporation Law of the State of Delaware (the “Amendment and Restatement”), as described in more detail in the Company’s Definitive Proxy Statement on Schedule 14A filed with the Securities and Exchange Commission on May 5, 2026 (the “Proxy Statement”). On June 22, 2026, the Company filed an Amended and Restated Certificate of Incorporation of the Company (the “Amended and Restated Certificate of Incorporation”) with the Secretary of State of the State of Delaware, which became effective immediately upon its filing. The foregoing description does not purport to be complete and is qualified in its entirety by reference to the full text of the Amended and Restated Certificate of Incorporation, which is attached as Exhibit 3.1 to this Current Report on Form 8-K and incorporated herein by reference.",
+        "Item 5.07 Submission of Matters to a Vote of Security Holders. The Company held the Annual Meeting on June 17, 2026. Proxies for the Annual Meeting were solicited pursuant to Regulation 14A of the Securities Exchange Act of 1934, as amended. At the close of business on April 24, 2026, the record date for the Annual Meeting, there were 254,536,521 shares of Class A common stock outstanding and entitled to vote. Holders of Class A common stock were entitled to one vote per share on each proposal. At the Annual Meeting, the Company’s stockholders voted on the following four proposals, each of which is described in more detail in the Proxy Statement. The number of votes cast with respect to each proposal was as indicated below: 1. Election of Class I Directors. The following nominees were elected to serve as Class I directors until the Company’s 2029 annual meeting of stockholders and until their respective successors are duly elected and qualified, or, if sooner, until the director’s death, resignation or removal, based on the following results of voting: Nominee Votes For Votes Withheld Broker Non- Votes Johanna Flower 131,014,818 39,026,380 39,947,114 Denis J. O’Leary 104,319,861 65,721,337 39,947,114 2. Ratification of Selection of Independent Registered Public Accounting Firm. The selection of PricewaterhouseCoopers LLP as the independent registered public accounting firm for the Company for the fiscal year ending January 31, 2027 was ratified based on the following results of voting: Votes For Votes Against Abstentions Broker Non-Votes 207,551,102 1,434,320 1,002,890 N/A 3. Approval of an Amendment and Restatement of Our Amended and Restated Certificate of Incorporation to Limit Officer Liability as Permitted by Delaware Law. The Amendment and Restatement was approved based on the following results of voting: Votes For Votes Against Abstentions Broker Non-Votes 144,387,962 24,713,003 940,233 39,947,114 4. Ratification, on an Advisory Basis, of Supermajority Voting Provisions in Our Amended and Restated Certificate of Incorporation and Amended and Restated Bylaws. The supermajority voting provisions were not ratified, on an advisory basis, based on the following results of voting: Votes For Votes Against Abstentions Broker Non-Votes 24,034,816 144,942,474 1,063,908 39,947,114",
+        "Item 9.01 Financial Statements and Exhibits. (d) Exhibits Exhibit Number Description of Exhibit 3.1 Amended and Restated Certificate of Incorporation of CrowdStrike Holdings, Inc., dated June 22, 2026 104 Cover Page Interactive Data File - the cover page XBRL tags are embedded within the Inline XBRL document"
+      ]
+    },
+    {
+      "ticker": "CRWD",
+      "accessionNumber": "0001104659-25-045244",
+      "metadata": {
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "form": "8-K",
+        "accessionNumber": "0001104659-25-045244",
+        "filingDate": "2025-05-07",
+        "reportDate": "2025-05-06",
+        "primaryDocument": "tm2514190d1_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925045244/tm2514190d1_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925045244/",
+        "items": [
+          "2.02",
+          "2.05",
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "results_disclosure",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable"
+      },
+      "sha256": "e8259560a28e2b0589f7cf0e47362a77bbcb15a8744d5faaad1d1d7e2d746b09",
+      "reviewDate": "2026-09-23",
+      "requiredItems": [
+        "2.02",
+        "2.05",
+        "7.01"
+      ],
+      "passages": [
+        "Item 2.02 - Results of Operations and Financial Condition CrowdStrike Holdings, Inc. (“CrowdStrike” or the “Company”) expects its fiscal 2026 first quarter (ended April 30, 2025) financial results to be in-line with or above its guidance as provided in its fourth quarter 2025 earnings release on March 4, 2025. The Company also reaffirms its guidance for the fiscal year 2026 (ending January 31, 2026) , as provided in its earnings press release issued March 4, 2025, that was previously furnished as Exhibit 99.1 to the Company’s Current Report on Form 8-K filed with the Securities and Exchange Commission on March 4, 2025.",
+        "Item 2.05 - Costs Associated with Exit or Disposal Activities On May 6, 2025, the Company announced a strategic plan (the “Plan”) to evolve its operations to yield greater efficiencies as the Company continues to scale its business with focus and discipline to meet its goal of $10 billion in ending ARR. The Plan is expected to result in a reduction of roles representing approximately 500 positions or 5% of the Company’s global workforce. CrowdStrike expects to continue to hire in key strategic areas throughout its fiscal year ending January 31, 2026. CrowdStrike estimates that it will incur approximately $36 million to $53 million in charges in connection with the Plan, of which approximately $7 million is expected to be recognized in the first quarter of fiscal 2026, and substantially all of the remainder of which will be incurred in the second quarter of fiscal 2026. These charges primarily consist of approximately $19 million to $26 million of future cash expenditures related to severance payments, employee benefits, and related costs; and approximately $10 million to $20 million in non-cash charges for stock-based compensation. The Company intends to exclude the charges associated with the Plan from its non-GAAP financial measures. The actions associated with the Plan are expected to be substantially complete by the end of the second quarter of fiscal 2026, subject to local law and consultation requirements.",
+        "Item 7.01 – Regulation FD Disclosure A note to CrowdStrike’s employees from CrowdStrike’s Chief Executive Officer regarding these actions is attached to this Current Report on Form 8-K as Exhibit 99.1. The Company will release financial results for its first quarter fiscal 2026 ended April 30, 2025 after the U.S. market close on Tuesday, June 3, 2025. CrowdStrike will host a conference call that day at 2:00 p.m. Pacific Time (5:00 p.m. Eastern time) to discuss the results. Information on how to register for the live event is available on the Company’s Investor Relations website at ir.crowdstrike.com. A live webcast of the conference call and the financial results press release will also be accessible from the CrowdStrike investor relations website. An audio webcast replay of the conference call will be available on the investor relations website for one year. Forward-Looking Statements This Current Report on Form 8-K contains forward-looking statements, including CrowdStrike’s expectations of its financial results for its fiscal quarter ended April 30, 2025, CrowdStrike’s reaffirmation of guidance for the 2026 fiscal year, CrowdStrike’s estimates of the amount and timing of charges that it expects to incur in the Plan, and the benefits that CrowdStrike anticipates from the Plan. These forward-looking statements are based on CrowdStrike’s current beliefs and expectations, and are subject to inherent risks and uncertainties. Actual results could differ materially, and therefore you should not place undue reliance on any forward-looking statements. Risks include, but are not limited to, that the Plan could cost more than anticipated, that the Plan could negatively affect CrowdStrike’s ability to recruit and retain skilled personnel, that the Plan could negatively affect CrowdStrike’s business operations, as well as the risks described in CrowdStrike’s filings with the Securities and Exchange Commission, including CrowdStrike’s most recent report on Form 10-K. In addition, Crowdstrike has not completed its financial closing procedures for the quarter ended April 30, 2025, and therefore its actual financial results for the quarter ended April 30, 2025 could differ from CrowdStrike’s current expectations. CrowdStrike assumes no obligation to update any such forward-looking statements, except as required by law.",
+        "Item 9.01 Financial Statements and Exhibits. (d) Exhibits Exhibit No. Exhibit Description 99.1 Note to CrowdStrike employees from CrowdStrike’s Chief Executive Officer, dated May 6, 2025. 104 Cover Page Interactive Data File—the cover page XBRL tags are embedded within the Inline XBRL document."
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "id": "NVDA:0001045810-26-000069/guarantees:0001045810-26-000069",
+      "eventId": "NVDA:0001045810-26-000069/guarantees",
+      "ticker": "NVDA",
+      "accessionNumber": "0001045810-26-000069",
+      "category": "financing",
+      "template": "guarantees",
+      "eventDate": "2026-08-17",
+      "items": [
+        "1.01",
+        "2.03",
+        "7.01"
+      ],
+      "parameters": {
+        "counterparty": "SB Energy",
+        "project": "Portsmouth Site"
+      },
+      "facts": [
+        {
+          "label": "Kumulativt betalningstak",
+          "reportedText": "105",
+          "scale": "1000000000",
+          "value": "105000000000",
+          "unit": "USD",
+          "qualifier": "Tak för villkorade garantiåtaganden; inte utbetalt lån eller aktuell skuld.",
+          "passage": 0
+        }
+      ],
+      "evidencePassages": [
+        0,
+        4,
+        5
+      ],
+      "reviewDate": "2026-09-23",
+      "groupingBasis": "Item 2.03 incorporates the agreements in 1.01; 7.01 announces the same partnership. One guarantee event."
+    },
+    {
+      "id": "NVDA:0001045810-26-000060/succession:0001045810-26-000060",
+      "eventId": "NVDA:0001045810-26-000060/succession",
+      "ticker": "NVDA",
+      "accessionNumber": "0001045810-26-000060",
+      "category": "leadership",
+      "template": "executive_successor",
+      "eventDate": "2026-07-01",
+      "items": [
+        "5.02"
+      ],
+      "parameters": {
+        "incoming": "Nicholas Parker",
+        "outgoing": "Ajay K. Puri"
+      },
+      "facts": [],
+      "evidencePassages": [
+        0
+      ],
+      "reviewDate": "2026-09-23",
+      "groupingBasis": "Retirement and successor appointment are one reviewed succession; future employment commencement is not asserted as completed."
+    },
+    {
+      "id": "NVDA:0001045810-25-000082/export:0001045810-25-000082",
+      "eventId": "NVDA:0001045810-25-000082/export",
+      "ticker": "NVDA",
+      "accessionNumber": "0001045810-25-000082",
+      "category": "regulatory",
+      "template": "export_license",
+      "eventDate": "2025-04-14",
+      "items": [
+        "8.01"
+      ],
+      "parameters": {
+        "product": "H20"
+      },
+      "facts": [
+        {
+          "label": "Förväntade kostnader, upp till cirka",
+          "reportedText": "5.5",
+          "scale": "1000000000",
+          "value": "5500000000.0",
+          "unit": "USD",
+          "qualifier": "Uppskattning i rapporten för Q1 FY2026, inte fastställd slutlig kostnad.",
+          "passage": 0
+        }
+      ],
+      "evidencePassages": [
+        0
+      ],
+      "reviewDate": "2026-09-23",
+      "groupingBasis": "Explicit reviewed Item 8.01 export-license disclosure. Not automatically reclassified as Item 2.06 impairment."
+    },
+    {
+      "id": "NVDA:0001045810-22-000005/termination:0001045810-22-000005",
+      "eventId": "NVDA:0001045810-22-000005/termination",
+      "ticker": "NVDA",
+      "accessionNumber": "0001045810-22-000005",
+      "category": "termination",
+      "template": "agreement_terminated",
+      "eventDate": "2022-02-08",
+      "items": [
+        "1.02"
+      ],
+      "parameters": {
+        "target": "Arm Limited"
+      },
+      "facts": [
+        {
+          "label": "Förskott som säljarna behåller",
+          "reportedText": "1.25",
+          "scale": "1000000000",
+          "value": "1250000000.00",
+          "unit": "USD",
+          "qualifier": "Rapporterat avtalsvillkor.",
+          "passage": 0
+        }
+      ],
+      "evidencePassages": [
+        0
+      ],
+      "reviewDate": "2026-09-23",
+      "groupingBasis": "Termination of the Arm purchase agreement; not a completed acquisition."
+    },
+    {
+      "id": "SOFI:0001818874-24-000045/notes:0001818874-24-000045",
+      "eventId": "SOFI:0001818874-24-000045/notes",
+      "ticker": "SOFI",
+      "accessionNumber": "0001818874-24-000045",
+      "category": "financing",
+      "template": "notes_issued",
+      "eventDate": "2024-03-08",
+      "items": [
+        "1.01",
+        "2.03",
+        "3.02",
+        "9.01"
+      ],
+      "parameters": {
+        "maturity": "2029"
+      },
+      "facts": [
+        {
+          "label": "Nominellt emissionsbelopp",
+          "reportedText": "862.5",
+          "scale": "1000000",
+          "value": "862500000.0",
+          "unit": "USD",
+          "qualifier": "Bruttobelopp, inte nettolikvid.",
+          "passage": 0
+        }
+      ],
+      "evidencePassages": [
+        0,
+        1,
+        10
+      ],
+      "reviewDate": "2026-09-23",
+      "groupingBasis": "Introductory Note / Indenture / Sale of the Notes cover one convertible-note issuance. 9.01 is supporting exhibits only."
+    },
+    {
+      "id": "SOFI:0001818874-24-000045/exchange:0001818874-24-000045",
+      "eventId": "SOFI:0001818874-24-000045/exchange",
+      "ticker": "SOFI",
+      "accessionNumber": "0001818874-24-000045",
+      "category": "financing",
+      "template": "notes_exchange",
+      "eventDate": "2024-03-04",
+      "items": [
+        "1.01",
+        "3.02",
+        "9.01"
+      ],
+      "parameters": {
+        "maturity": "2026"
+      },
+      "facts": [
+        {
+          "label": "Nominellt belopp i bytesavtal",
+          "reportedText": "600",
+          "scale": "1000000",
+          "value": "600000000",
+          "unit": "USD",
+          "qualifier": "Avtalat belopp; avvecklingen var villkorad.",
+          "passage": 1
+        }
+      ],
+      "evidencePassages": [
+        1,
+        9
+      ],
+      "reviewDate": "2026-09-23",
+      "groupingBasis": "Exchange Transactions is separate from issuance of 2029 notes despite shared item codes. No estimated share count is treated as final."
+    },
+    {
+      "id": "SOFI:0001818874-24-000045/exchange:0001818874-24-000084",
+      "eventId": "SOFI:0001818874-24-000045/exchange",
+      "ticker": "SOFI",
+      "accessionNumber": "0001818874-24-000084",
+      "category": "financing",
+      "template": "exchange_settled",
+      "eventDate": "2024-03-26",
+      "items": [
+        "1.01",
+        "3.02"
+      ],
+      "parameters": {},
+      "facts": [
+        {
+          "label": "Emitterade aktier vid avveckling",
+          "reportedText": "72,621,879",
+          "scale": "1",
+          "value": "72621879",
+          "unit": "shares",
+          "qualifier": "Sammanlagt den 25–26 mars 2024.",
+          "passage": 2
+        }
+      ],
+      "evidencePassages": [
+        2
+      ],
+      "reviewDate": "2026-09-23",
+      "groupingBasis": "Explanatory Note explicitly supplements only Exchange Transactions in the original March 8 filing; the separate 2029-note event is unchanged.",
+      "previousId": "SOFI:0001818874-24-000045/exchange:0001818874-24-000045"
+    },
+    {
+      "id": "SOFI:0001818874-26-000005/transition:0001818874-26-000005",
+      "eventId": "SOFI:0001818874-26-000005/transition",
+      "ticker": "SOFI",
+      "accessionNumber": "0001818874-26-000005",
+      "category": "leadership",
+      "template": "executive_advisor",
+      "eventDate": "2026-01-05",
+      "items": [
+        "5.02"
+      ],
+      "parameters": {
+        "person": "Stephen Simcock"
+      },
+      "facts": [],
+      "evidencePassages": [
+        0
+      ],
+      "reviewDate": "2026-09-23",
+      "groupingBasis": "Post-retirement advisory agreement for transitional services; not a new executive appointment."
+    },
+    {
+      "id": "SOFI:0001818874-22-000020/acquisition:0001818874-22-000020",
+      "eventId": "SOFI:0001818874-22-000020/acquisition",
+      "ticker": "SOFI",
+      "accessionNumber": "0001818874-22-000020",
+      "category": "acquisition",
+      "template": "acquisition_agreed",
+      "eventDate": "2022-02-19",
+      "items": [
+        "1.01",
+        "3.02",
+        "9.01"
+      ],
+      "parameters": {
+        "target": "Technisys"
+      },
+      "facts": [],
+      "evidencePassages": [
+        0,
+        3,
+        4
+      ],
+      "reviewDate": "2026-09-23",
+      "groupingBasis": "Merger agreement and proposed consideration are one announced transaction; completion is not asserted."
+    },
+    {
+      "id": "CRWD:0001104659-24-081571/outage:0001104659-24-081571",
+      "eventId": "CRWD:0001104659-24-081571/outage",
+      "ticker": "CRWD",
+      "accessionNumber": "0001104659-24-081571",
+      "category": "operating_incident",
+      "template": "service_outage",
+      "eventDate": "2024-07-19",
+      "items": [
+        "8.01"
+      ],
+      "parameters": {
+        "product": "Falcon"
+      },
+      "facts": [],
+      "evidencePassages": [
+        0
+      ],
+      "reviewDate": "2026-09-23",
+      "groupingBasis": "Issuer explicitly says the event was not caused by a cyberattack. Reviewed operational outage, not Item 1.05."
+    },
+    {
+      "id": "CRWD:0001104659-26-076376/charter:0001104659-26-076376",
+      "eventId": "CRWD:0001104659-26-076376/charter",
+      "ticker": "CRWD",
+      "accessionNumber": "0001104659-26-076376",
+      "category": "governance",
+      "template": "officer_liability",
+      "eventDate": "2026-06-22",
+      "items": [
+        "5.03",
+        "5.07",
+        "9.01"
+      ],
+      "parameters": {},
+      "facts": [],
+      "evidencePassages": [
+        0,
+        1,
+        2
+      ],
+      "reviewDate": "2026-09-23",
+      "groupingBasis": "Charter amendment and related approval; other routine annual voting results are not independent events."
+    },
+    {
+      "id": "CRWD:0001104659-25-045244/restructure:0001104659-25-045244",
+      "eventId": "CRWD:0001104659-25-045244/restructure",
+      "ticker": "CRWD",
+      "accessionNumber": "0001104659-25-045244",
+      "category": "restructuring",
+      "template": "workforce_plan",
+      "eventDate": "2025-05-06",
+      "items": [
+        "2.05",
+        "7.01",
+        "9.01"
+      ],
+      "parameters": {},
+      "facts": [
+        {
+          "label": "Berörda tjänster, cirka",
+          "reportedText": "500",
+          "scale": "1",
+          "value": "500",
+          "unit": "positions",
+          "qualifier": "Planerad minskning, inte bekräftat genomförande.",
+          "passage": 1
+        },
+        {
+          "label": "Uppskattade kostnader, lägst",
+          "reportedText": "36",
+          "scale": "1000000",
+          "value": "36000000",
+          "unit": "USD",
+          "qualifier": "Rapporterat intervall 36–53 miljoner USD.",
+          "passage": 1
+        },
+        {
+          "label": "Uppskattade kostnader, högst",
+          "reportedText": "53",
+          "scale": "1000000",
+          "value": "53000000",
+          "unit": "USD",
+          "qualifier": "Rapporterat intervall 36–53 miljoner USD.",
+          "passage": 1
+        }
+      ],
+      "evidencePassages": [
+        1
+      ],
+      "reviewDate": "2026-09-23",
+      "groupingBasis": "Item 2.05 plan and related employee note in 7.01/99.1 are one event. Item 2.02 guidance remains canonical earnings evidence and is excluded from this observation."
+    }
+  ]
+}

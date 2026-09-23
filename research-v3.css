@@ -407,3 +407,44 @@ body.visual-v3 .research-card-block { border: 0; border-radius: 0; box-shadow: n
  .insider-action > :nth-child(even) { text-align: left; }
  .insider-bar-row { grid-template-columns: 135px 1fr 20px; gap: 10px; font-size: .74rem; }
 }
+/* Reviewed major ownership: open rows, neutral history, no shareholder pie. */
+#companyOwnership { margin: 28px 0 38px; }
+.ownership-context { color: var(--muted); font-size: .82rem; line-height: 1.65; }
+.ownership-filter { display: flex; flex-direction: column; gap: 7px; max-width: 360px; margin: 20px 0; font-size: .8rem; }
+.ownership-filter select { min-height: 44px; padding: 10px; color: var(--text); background: var(--panel); border: 1px solid var(--border); border-radius: 3px; }
+.ownership-entry { padding: 18px 0; border-top: 1px solid var(--border); }
+.ownership-entry > .ownership-context { margin: 7px 0; }
+.ownership-entry h3 { margin: 0 0 10px; font-size: 1.15rem; overflow-wrap: anywhere; }
+.ownership-values { display: flex; align-items: baseline; gap: 25px; flex-wrap: wrap; }
+.ownership-values strong { font-size: 1.65rem; font-weight: 500; }
+.ownership-values span { font-size: .95rem; }
+.ownership-change { font-size: .86rem; }
+.ownership-notice { border-left: 2px solid var(--muted); padding-left: 12px; font-size: .84rem; line-height: 1.65; }
+.ownership-history { max-width: 400px; margin: 15px 0; }
+.ownership-history svg { display: block; width: 100%; fill: var(--muted); }
+.ownership-history svg text { font-size: 11px; fill: var(--text); }
+.ownership-history-line { stroke: #779dbb; stroke-width: 2; }
+.ownership-history-dates { display: flex; justify-content: space-between; gap: 10px; font-size: .72rem; color: var(--muted); }
+.ownership-history small { font-size: .72rem; color: var(--muted); }
+.ownership-detail > summary { min-height: 44px; padding: 12px 0; cursor: pointer; font-size: .82rem; color: var(--muted); }
+.ownership-detail { overflow-wrap: anywhere; }
+.ownership-source { border-top: 1px solid var(--border); padding-top: 18px; margin-top: 12px; font-size: .85rem; line-height: 1.7; }
+.ownership-source a { display: inline-flex; min-height: 44px; align-items: center; }
+.ownership-source h4 { font-size: 1rem; margin: 0; }
+.ownership-source h5 { font-size: .85rem; margin: 16px 0 5px; }
+.ownership-person { border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+.ownership-footnote { color: var(--muted); font-size: .78rem; }
+/* Material company events: neutral investor timeline, evidence on demand. */
+#companyMaterialEvents { margin: 28px 0 38px; }
+.material-context { color: var(--muted); font-size: .82rem; line-height: 1.65; }
+.material-event { border-top: 1px solid var(--border); padding: 18px 0; }
+.material-event h3 { font-size: 1.1rem; margin: 5px 0 10px; }
+.material-date { font-size: .78rem; color: var(--muted); margin: 0; }
+.material-description { max-width: 850px; font-size: .96rem; line-height: 1.65; margin: 8px 0; }
+.material-facts { display: flex; flex-wrap: wrap; gap: 18px 40px; margin: 14px 0; }
+.material-facts > div { max-width: 360px; display: flex; flex-direction: column; gap: 5px; }
+.material-facts span,.material-facts small { font-size: .78rem; color: var(--muted); line-height: 1.5; }
+.material-facts strong { font-size: 1.05rem; font-weight: 500; }
+.material-event .ownership-source { overflow-wrap: anywhere; }
+.material-event .ownership-source summary { min-height: 44px; padding: 12px 0; cursor: pointer; }
+@media(max-width:650px) { .material-facts { flex-direction: column; gap: 15px; } }

@@ -1,0 +1,950 @@
+{
+  "version": 1,
+  "measuredAt": "2026-09-23T17:00:29.332607+00:00",
+  "method": "Headless Chromium; cold context per page; localhost without compression or CPU/network throttling; third parties and browser-scheduled favicon requests excluded; no timing pass/fail thresholds.",
+  "pages": [
+    {
+      "page": "research.html?ticker=NVDA",
+      "requestCount": 61,
+      "transferBytes": 2638317,
+      "decodedBytes": 2620017,
+      "domContentLoadedMs": 731.1999999284744,
+      "loadMs": 775.5,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 38404,
+          "kind": "link"
+        },
+        {
+          "path": "/social.css",
+          "bytes": 5563,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/research-v3.css",
+          "bytes": 38668,
+          "kind": "link"
+        },
+        {
+          "path": "/public-report.css",
+          "bytes": 2110,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8600,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304185,
+          "kind": "script"
+        },
+        {
+          "path": "/research-snapshot.js",
+          "bytes": 12600,
+          "kind": "script"
+        },
+        {
+          "path": "/thesis-storage.js",
+          "bytes": 20256,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity.js",
+          "bytes": 11253,
+          "kind": "script"
+        },
+        {
+          "path": "/change-detection.js",
+          "bytes": 4860,
+          "kind": "script"
+        },
+        {
+          "path": "/research-export.js",
+          "bytes": 10111,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcomes.js",
+          "bytes": 10556,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcome-ui.js",
+          "bytes": 13798,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai.js",
+          "bytes": 8671,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai-ui.js",
+          "bytes": 4244,
+          "kind": "script"
+        },
+        {
+          "path": "/research-v3.js",
+          "bytes": 7788,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile.js",
+          "bytes": 12460,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile-ui.js",
+          "bytes": 5648,
+          "kind": "script"
+        },
+        {
+          "path": "/research-entry.js",
+          "bytes": 9783,
+          "kind": "script"
+        },
+        {
+          "path": "/company-capital.js",
+          "bytes": 6741,
+          "kind": "script"
+        },
+        {
+          "path": "/company-capital-ui.js",
+          "bytes": 10591,
+          "kind": "script"
+        },
+        {
+          "path": "/company-observations.js",
+          "bytes": 5978,
+          "kind": "script"
+        },
+        {
+          "path": "/company-observations-ui.js",
+          "bytes": 6565,
+          "kind": "script"
+        },
+        {
+          "path": "/company-segments.js",
+          "bytes": 5975,
+          "kind": "script"
+        },
+        {
+          "path": "/company-segments-ui.js",
+          "bytes": 7586,
+          "kind": "script"
+        },
+        {
+          "path": "/company-insiders.js",
+          "bytes": 7519,
+          "kind": "script"
+        },
+        {
+          "path": "/company-insiders-ui.js",
+          "bytes": 10546,
+          "kind": "script"
+        },
+        {
+          "path": "/company-ownership.js",
+          "bytes": 4732,
+          "kind": "script"
+        },
+        {
+          "path": "/company-ownership-ui.js",
+          "bytes": 8566,
+          "kind": "script"
+        },
+        {
+          "path": "/company-material-events.js",
+          "bytes": 6797,
+          "kind": "script"
+        },
+        {
+          "path": "/company-material-events-ui.js",
+          "bytes": 5210,
+          "kind": "script"
+        },
+        {
+          "path": "/company-evidence.js",
+          "bytes": 9918,
+          "kind": "script"
+        },
+        {
+          "path": "/research.js",
+          "bytes": 111843,
+          "kind": "script"
+        },
+        {
+          "path": "/min-review.js",
+          "bytes": 7157,
+          "kind": "script"
+        },
+        {
+          "path": "/research-review.js",
+          "bytes": 9377,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity-ui.js",
+          "bytes": 11380,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        },
+        {
+          "path": "/vendor/supabase/supabase.js",
+          "bytes": 218318,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-adapter.js",
+          "bytes": 6988,
+          "kind": "script"
+        },
+        {
+          "path": "/social-core.js",
+          "bytes": 1624,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report.js",
+          "bytes": 11902,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-ui.js",
+          "bytes": 8356,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-origin.js",
+          "bytes": 1019,
+          "kind": "script"
+        },
+        {
+          "path": "/research-publication.js",
+          "bytes": 12997,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8663,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-relations-ui.js",
+          "bytes": 365,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 15021,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 102500,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11497,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-help.js",
+          "bytes": 2296,
+          "kind": "script"
+        },
+        {
+          "path": "/data/stocks/NVDA.json",
+          "bytes": 265090,
+          "kind": "fetch"
+        },
+        {
+          "path": "/data/stocks/evidence/NVDA.json",
+          "bytes": 739350,
+          "kind": "fetch"
+        },
+        {
+          "path": "/data/stocks/evidence/NVDA.status.json",
+          "bytes": 82,
+          "kind": "fetch"
+        }
+      ],
+      "jsBytes": 1301495,
+      "cssBytes": 205554,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "research.html?ticker=SOFI",
+      "requestCount": 61,
+      "transferBytes": 2579298,
+      "decodedBytes": 2560998,
+      "domContentLoadedMs": 700.3000000715256,
+      "loadMs": 766.3000000715256,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 38404,
+          "kind": "link"
+        },
+        {
+          "path": "/social.css",
+          "bytes": 5563,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/research-v3.css",
+          "bytes": 38668,
+          "kind": "link"
+        },
+        {
+          "path": "/public-report.css",
+          "bytes": 2110,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8600,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304185,
+          "kind": "script"
+        },
+        {
+          "path": "/research-snapshot.js",
+          "bytes": 12600,
+          "kind": "script"
+        },
+        {
+          "path": "/thesis-storage.js",
+          "bytes": 20256,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity.js",
+          "bytes": 11253,
+          "kind": "script"
+        },
+        {
+          "path": "/change-detection.js",
+          "bytes": 4860,
+          "kind": "script"
+        },
+        {
+          "path": "/research-export.js",
+          "bytes": 10111,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcomes.js",
+          "bytes": 10556,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcome-ui.js",
+          "bytes": 13798,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai.js",
+          "bytes": 8671,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai-ui.js",
+          "bytes": 4244,
+          "kind": "script"
+        },
+        {
+          "path": "/research-v3.js",
+          "bytes": 7788,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile.js",
+          "bytes": 12460,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile-ui.js",
+          "bytes": 5648,
+          "kind": "script"
+        },
+        {
+          "path": "/research-entry.js",
+          "bytes": 9783,
+          "kind": "script"
+        },
+        {
+          "path": "/company-capital.js",
+          "bytes": 6741,
+          "kind": "script"
+        },
+        {
+          "path": "/company-capital-ui.js",
+          "bytes": 10591,
+          "kind": "script"
+        },
+        {
+          "path": "/company-observations.js",
+          "bytes": 5978,
+          "kind": "script"
+        },
+        {
+          "path": "/company-observations-ui.js",
+          "bytes": 6565,
+          "kind": "script"
+        },
+        {
+          "path": "/company-segments.js",
+          "bytes": 5975,
+          "kind": "script"
+        },
+        {
+          "path": "/company-segments-ui.js",
+          "bytes": 7586,
+          "kind": "script"
+        },
+        {
+          "path": "/company-insiders.js",
+          "bytes": 7519,
+          "kind": "script"
+        },
+        {
+          "path": "/company-insiders-ui.js",
+          "bytes": 10546,
+          "kind": "script"
+        },
+        {
+          "path": "/company-ownership.js",
+          "bytes": 4732,
+          "kind": "script"
+        },
+        {
+          "path": "/company-ownership-ui.js",
+          "bytes": 8566,
+          "kind": "script"
+        },
+        {
+          "path": "/company-material-events.js",
+          "bytes": 6797,
+          "kind": "script"
+        },
+        {
+          "path": "/company-material-events-ui.js",
+          "bytes": 5210,
+          "kind": "script"
+        },
+        {
+          "path": "/company-evidence.js",
+          "bytes": 9918,
+          "kind": "script"
+        },
+        {
+          "path": "/research.js",
+          "bytes": 111843,
+          "kind": "script"
+        },
+        {
+          "path": "/min-review.js",
+          "bytes": 7157,
+          "kind": "script"
+        },
+        {
+          "path": "/research-review.js",
+          "bytes": 9377,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity-ui.js",
+          "bytes": 11380,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        },
+        {
+          "path": "/vendor/supabase/supabase.js",
+          "bytes": 218318,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-adapter.js",
+          "bytes": 6988,
+          "kind": "script"
+        },
+        {
+          "path": "/social-core.js",
+          "bytes": 1624,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report.js",
+          "bytes": 11902,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-ui.js",
+          "bytes": 8356,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-origin.js",
+          "bytes": 1019,
+          "kind": "script"
+        },
+        {
+          "path": "/research-publication.js",
+          "bytes": 12997,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8663,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-relations-ui.js",
+          "bytes": 365,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 15021,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 102500,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11497,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-help.js",
+          "bytes": 2296,
+          "kind": "script"
+        },
+        {
+          "path": "/data/stocks/SOFI.json",
+          "bytes": 255242,
+          "kind": "fetch"
+        },
+        {
+          "path": "/data/stocks/evidence/SOFI.json",
+          "bytes": 690179,
+          "kind": "fetch"
+        },
+        {
+          "path": "/data/stocks/evidence/SOFI.status.json",
+          "bytes": 82,
+          "kind": "fetch"
+        }
+      ],
+      "jsBytes": 1301495,
+      "cssBytes": 205554,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    },
+    {
+      "page": "research.html?ticker=CRWD",
+      "requestCount": 61,
+      "transferBytes": 2883818,
+      "decodedBytes": 2865518,
+      "domContentLoadedMs": 741.3999999761581,
+      "loadMs": 798.8999999761581,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 116204,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 38404,
+          "kind": "link"
+        },
+        {
+          "path": "/social.css",
+          "bytes": 5563,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/research-v3.css",
+          "bytes": 38668,
+          "kind": "link"
+        },
+        {
+          "path": "/public-report.css",
+          "bytes": 2110,
+          "kind": "link"
+        },
+        {
+          "path": "/vendor/chart-4.5.1.umd.min.js",
+          "bytes": 208522,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 8600,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 304185,
+          "kind": "script"
+        },
+        {
+          "path": "/research-snapshot.js",
+          "bytes": 12600,
+          "kind": "script"
+        },
+        {
+          "path": "/thesis-storage.js",
+          "bytes": 20256,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity.js",
+          "bytes": 11253,
+          "kind": "script"
+        },
+        {
+          "path": "/change-detection.js",
+          "bytes": 4860,
+          "kind": "script"
+        },
+        {
+          "path": "/research-export.js",
+          "bytes": 10111,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcomes.js",
+          "bytes": 10556,
+          "kind": "script"
+        },
+        {
+          "path": "/research-outcome-ui.js",
+          "bytes": 13798,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai.js",
+          "bytes": 8671,
+          "kind": "script"
+        },
+        {
+          "path": "/research-ai-ui.js",
+          "bytes": 4244,
+          "kind": "script"
+        },
+        {
+          "path": "/research-v3.js",
+          "bytes": 7788,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile.js",
+          "bytes": 12460,
+          "kind": "script"
+        },
+        {
+          "path": "/fundamental-profile-ui.js",
+          "bytes": 5648,
+          "kind": "script"
+        },
+        {
+          "path": "/research-entry.js",
+          "bytes": 9783,
+          "kind": "script"
+        },
+        {
+          "path": "/company-capital.js",
+          "bytes": 6741,
+          "kind": "script"
+        },
+        {
+          "path": "/company-capital-ui.js",
+          "bytes": 10591,
+          "kind": "script"
+        },
+        {
+          "path": "/company-observations.js",
+          "bytes": 5978,
+          "kind": "script"
+        },
+        {
+          "path": "/company-observations-ui.js",
+          "bytes": 6565,
+          "kind": "script"
+        },
+        {
+          "path": "/company-segments.js",
+          "bytes": 5975,
+          "kind": "script"
+        },
+        {
+          "path": "/company-segments-ui.js",
+          "bytes": 7586,
+          "kind": "script"
+        },
+        {
+          "path": "/company-insiders.js",
+          "bytes": 7519,
+          "kind": "script"
+        },
+        {
+          "path": "/company-insiders-ui.js",
+          "bytes": 10546,
+          "kind": "script"
+        },
+        {
+          "path": "/company-ownership.js",
+          "bytes": 4732,
+          "kind": "script"
+        },
+        {
+          "path": "/company-ownership-ui.js",
+          "bytes": 8566,
+          "kind": "script"
+        },
+        {
+          "path": "/company-material-events.js",
+          "bytes": 6797,
+          "kind": "script"
+        },
+        {
+          "path": "/company-material-events-ui.js",
+          "bytes": 5210,
+          "kind": "script"
+        },
+        {
+          "path": "/company-evidence.js",
+          "bytes": 9918,
+          "kind": "script"
+        },
+        {
+          "path": "/research.js",
+          "bytes": 111843,
+          "kind": "script"
+        },
+        {
+          "path": "/min-review.js",
+          "bytes": 7157,
+          "kind": "script"
+        },
+        {
+          "path": "/research-review.js",
+          "bytes": 9377,
+          "kind": "script"
+        },
+        {
+          "path": "/research-continuity-ui.js",
+          "bytes": 11380,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        },
+        {
+          "path": "/vendor/supabase/supabase.js",
+          "bytes": 218318,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-adapter.js",
+          "bytes": 6988,
+          "kind": "script"
+        },
+        {
+          "path": "/social-core.js",
+          "bytes": 1624,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report.js",
+          "bytes": 11902,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-ui.js",
+          "bytes": 8356,
+          "kind": "script"
+        },
+        {
+          "path": "/public-report-origin.js",
+          "bytes": 1019,
+          "kind": "script"
+        },
+        {
+          "path": "/research-publication.js",
+          "bytes": 12997,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8663,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-relations-ui.js",
+          "bytes": 365,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 15021,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 102500,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 7949,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11497,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-help.js",
+          "bytes": 2296,
+          "kind": "script"
+        },
+        {
+          "path": "/data/stocks/CRWD.json",
+          "bytes": 268628,
+          "kind": "fetch"
+        },
+        {
+          "path": "/data/stocks/evidence/CRWD.json",
+          "bytes": 981313,
+          "kind": "fetch"
+        },
+        {
+          "path": "/data/stocks/evidence/CRWD.status.json",
+          "bytes": 82,
+          "kind": "fetch"
+        }
+      ],
+      "jsBytes": 1301495,
+      "cssBytes": 205554,
+      "imageBytes": 34556,
+      "excludedExternalRequests": []
+    }
+  ],
+  "browser": "153.0.8010.53"
+}

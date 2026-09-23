@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?><edgarSubmission xmlns="http://www.sec.gov/edgar/schedule13g" xmlns:com="http://www.sec.gov/edgar/common">
+  <headerData>
+    <submissionType>SCHEDULE 13G/A</submissionType>
+    <previousAccessionNumber>0001595888-25-000106</previousAccessionNumber>
+    <filerInfo>
+      <filer>
+        <filerCredentials>
+          <cik>0001595888</cik>
+          <ccc>XXXXXXXX</ccc>
+        </filerCredentials>
+      </filer>
+      <liveTestFlag>LIVE</liveTestFlag>
+
+
+
+    </filerInfo>
+  </headerData>
+  <formData>
+    <coverPageHeader>
+      <amendmentNo>1</amendmentNo>
+      <securitiesClassTitle>Common stock, $0.0001 par value per share</securitiesClassTitle>
+      <eventDateRequiresFilingThisStatement>09/30/2025</eventDateRequiresFilingThisStatement>
+      <issuerInfo>
+        <issuerCik>0001818874</issuerCik>
+        <issuerName>SoFi Technologies, Inc.</issuerName>
+        <issuerCusip>83406F102</issuerCusip>
+        <issuerPrincipalExecutiveOfficeAddress>
+          <com:street1>234 1ST STREET</com:street1>
+          <com:street2>234 1ST STREET</com:street2>
+          <com:city>SAN FRANCISCO</com:city>
+          <com:stateOrCountry>CA</com:stateOrCountry>
+          <com:zipCode>94105</com:zipCode>
+        </issuerPrincipalExecutiveOfficeAddress>
+      </issuerInfo>
+      <designateRulesPursuantThisScheduleFiled>
+        <designateRulePursuantThisScheduleFiled>Rule 13d-1(c)</designateRulePursuantThisScheduleFiled>
+      </designateRulesPursuantThisScheduleFiled>
+    </coverPageHeader>
+    <coverPageHeaderReportingPersonDetails>
+
+      <reportingPersonName>JANE STREET GROUP, LLC</reportingPersonName>
+      <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+      <reportingPersonBeneficiallyOwnedNumberOfShares>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>30678897.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>30678897.00</sharedDispositivePower>
+      </reportingPersonBeneficiallyOwnedNumberOfShares>
+      <reportingPersonBeneficiallyOwnedAggregateNumberOfShares>30678897.00</reportingPersonBeneficiallyOwnedAggregateNumberOfShares>
+      <classPercent>2.6</classPercent>
+      <typeOfReportingPerson>HC</typeOfReportingPerson>
+    </coverPageHeaderReportingPersonDetails>
+    <coverPageHeaderReportingPersonDetails>
+
+      <reportingPersonName>Jane Street Capital, LLC</reportingPersonName>
+      <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+      <reportingPersonBeneficiallyOwnedNumberOfShares>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>249930.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>249930.00</sharedDispositivePower>
+      </reportingPersonBeneficiallyOwnedNumberOfShares>
+      <reportingPersonBeneficiallyOwnedAggregateNumberOfShares>249930.00</reportingPersonBeneficiallyOwnedAggregateNumberOfShares>
+      <classPercent>0.0</classPercent>
+      <typeOfReportingPerson>BD</typeOfReportingPerson>
+    </coverPageHeaderReportingPersonDetails>
+    <coverPageHeaderReportingPersonDetails>
+
+      <reportingPersonName>Jane Street Options, LLC</reportingPersonName>
+      <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+      <reportingPersonBeneficiallyOwnedNumberOfShares>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>15926061.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>15926061.00</sharedDispositivePower>
+      </reportingPersonBeneficiallyOwnedNumberOfShares>
+      <reportingPersonBeneficiallyOwnedAggregateNumberOfShares>15926061.00</reportingPersonBeneficiallyOwnedAggregateNumberOfShares>
+      <classPercent>1.3</classPercent>
+      <typeOfReportingPerson>BD</typeOfReportingPerson>
+    </coverPageHeaderReportingPersonDetails>
+    <coverPageHeaderReportingPersonDetails>
+
+      <reportingPersonName>Jane Street Global Trading, LLC</reportingPersonName>
+      <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+      <reportingPersonBeneficiallyOwnedNumberOfShares>
+        <soleVotingPower>0.00</soleVotingPower>
+        <sharedVotingPower>14502906.00</sharedVotingPower>
+        <soleDispositivePower>0.00</soleDispositivePower>
+        <sharedDispositivePower>14502906.00</sharedDispositivePower>
+      </reportingPersonBeneficiallyOwnedNumberOfShares>
+      <reportingPersonBeneficiallyOwnedAggregateNumberOfShares>14502906.00</reportingPersonBeneficiallyOwnedAggregateNumberOfShares>
+      <classPercent>1.2</classPercent>
+      <typeOfReportingPerson>OO</typeOfReportingPerson>
+    </coverPageHeaderReportingPersonDetails>
+    <items>
+      <item1>
+        <issuerName>SoFi Technologies, Inc.</issuerName>
+        <issuerPrincipalExecutiveOfficeAddress>234 1ST STREET, 234 1ST STREET, SAN FRANCISCO, CALIFORNIA, 94105.</issuerPrincipalExecutiveOfficeAddress>
+      </item1>
+      <item2>
+        <filingPersonName>Jane Street Group, LLC; Jane Street Capital, LLC;
+Jane Street Options, LLC; Jane Street Global Trading, LLC</filingPersonName>
+        <principalBusinessOfficeOrResidenceAddress>Jane Street Group, LLC
+250 Vesey Street
+6th Floor
+New York, NY 10281
+
+Jane Street Capital, LLC
+250 Vesey Street
+6th Floor
+New York, NY 10281
+
+Jane Street Options, LLC
+250 Vesey Street
+6th Floor
+New York, NY 10281
+
+Jane Street Global Trading, LLC
+250 Vesey Street
+6th Floor
+New York, NY 10281</principalBusinessOfficeOrResidenceAddress>
+        <citizenship>See Item 4 of Cover Page</citizenship>
+      </item2>
+      <item3>
+        <notApplicableFlag>Y</notApplicableFlag>
+      </item3>
+      <item4>
+        <amountBeneficiallyOwned>30678897</amountBeneficiallyOwned>
+        <classPercent>2.6</classPercent>
+        <numberOfSharesPersonHas>
+          <solePowerOrDirectToVote>0</solePowerOrDirectToVote>
+          <sharedPowerOrDirectToVote>30678897</sharedPowerOrDirectToVote>
+          <solePowerOrDirectToDispose>0</solePowerOrDirectToDispose>
+          <sharedPowerOrDirectToDispose>30678897</sharedPowerOrDirectToDispose>
+        </numberOfSharesPersonHas>
+      </item4>
+      <item5>
+        <classOwnership5PercentOrLess>Y</classOwnership5PercentOrLess>
+      </item5>
+      <item6>
+        <notApplicableFlag>Y</notApplicableFlag>
+      </item6>
+      <item7>
+        <notApplicableFlag>N</notApplicableFlag>
+        <subsidiaryIdentificationAndClassification>Subsidiary:
+Jane Street Capital, LLC
+Jane Street Global Trading, LLC
+Jane Street Options, LLC</subsidiaryIdentificationAndClassification>
+      </item7>
+      <item8>
+        <notApplicableFlag>Y</notApplicableFlag>
+      </item8>
+      <item9>
+        <notApplicableFlag>Y</notApplicableFlag>
+      </item9>
+      <item10>
+        <notApplicableFlag>N</notApplicableFlag>
+        <certifications>By signing below I certify that, to the best of my knowledge and belief, the securities referred to above were not acquired and are not held for the purpose of or with the effect of changing or influencing the control of the issuer of the securities and were not acquired and are not held in connection with or as a participant in any transaction having that purpose or effect, other than activities solely in connection with a nomination under &amp;#167; 240.14a-11.
+
+</certifications>
+      </item10>
+    </items>
+    <signatureInformation>
+      <reportingPersonName>JANE STREET GROUP, LLC</reportingPersonName>
+      <signatureDetails>
+        <signature>/s/ Jeremy Kahn</signature>
+        <title>Jeremy Kahn (Authorized Signatory)</title>
+        <date>11/13/2025</date>
+      </signatureDetails>
+    </signatureInformation>
+    <signatureInformation>
+      <reportingPersonName>Jane Street Capital, LLC</reportingPersonName>
+      <signatureDetails>
+        <signature>/s/ Jeremy Kahn</signature>
+        <title>Jeremy Kahn (Authorized Signatory)</title>
+        <date>11/13/2025</date>
+      </signatureDetails>
+    </signatureInformation>
+    <signatureInformation>
+      <reportingPersonName>Jane Street Options, LLC</reportingPersonName>
+      <signatureDetails>
+        <signature>/s/ Jeremy Kahn</signature>
+        <title>Jeremy Kahn (Authorized Signatory)</title>
+        <date>11/13/2025</date>
+      </signatureDetails>
+    </signatureInformation>
+    <signatureInformation>
+      <reportingPersonName>Jane Street Global Trading, LLC</reportingPersonName>
+      <signatureDetails>
+        <signature>/s/ Jeremy Kahn</signature>
+        <title>Jeremy Kahn (Authorized Signatory)</title>
+        <date>11/13/2025</date>
+      </signatureDetails>
+    </signatureInformation>
+  </formData>
+
+</edgarSubmission>

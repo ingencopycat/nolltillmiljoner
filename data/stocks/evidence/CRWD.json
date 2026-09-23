@@ -24298,6 +24298,483 @@
     },
     "amendmentReviews": []
   },
-  "verifiedAt": "2026-09-22T18:34:50.886123+00:00",
+  "ownershipEvidence": {
+    "schema": "ntm-company-ownership/1",
+    "filings": [
+      {
+        "persons": [
+          {
+            "name": "Vanguard Capital Management",
+            "shares": "18449066",
+            "percent": "7.27",
+            "personType": "IA",
+            "powers": {
+              "soleVotingPower": "2483673",
+              "sharedVotingPower": "0",
+              "soleDispositivePower": "18449066",
+              "sharedDispositivePower": "0"
+            },
+            "comments": "In accordance with SEC Release No. 34-39538 (January 12, 1998), this Schedule 13G reflects the securities beneficially owned, or deemed to be beneficially owned, by Vanguard Capital Management LLC and the following affiliates of Vanguard Capital Management LLC or business divisions of such affiliates: Vanguard Asset Management Limited, Vanguard Fiduciary Trust Company, Vanguard Global Advisers, LLC and Vanguard Investments Australia Ltd. This Schedule 13G includes securities held by Vanguard funds, or sleeves thereof, over which Vanguard Capital Management LLC exercises dispositive power, in addition to securities held by clients over which the affiliates or business divisions of such affiliates indicated above exercise dispositive and/or voting power. This Schedule 13G does not include securities, if any, beneficially owned by other subsidiaries or affiliates of Vanguard Capital Management LLC, or business divisions of such subsidiaries, whose ownership of securities is disaggregated from that of the reporting business unit in accordance with such release.",
+            "locator": "formData/coverPageHeaderReportingPersonDetails[1]",
+            "entityId": "sec:0002100119",
+            "cik": "0002100119"
+          }
+        ],
+        "eventDate": "2026-03-31",
+        "security": "Common Stock",
+        "cusips": [
+          "22788C105"
+        ],
+        "amendmentNumber": null,
+        "reportedPreviousAccession": null,
+        "filerCik": "0002100119",
+        "rules": [
+          "Rule 13d-1(b)"
+        ],
+        "statements": {
+          "relationships": "",
+          "group": "",
+          "onBehalfOf": "Vanguard Capital Management, including investment companies registered under the Investment Company Act of 1940 and other managed accounts, have the right to receive or the power to direct the receipt of dividends from, or the proceeds from the sale of, the securities reported herein.No one other person's interest in the securities reported herein is more than 5%.",
+          "certification": "By signing below I certify that, to the best of my knowledge and belief, the securities referred to above were acquired and are held in the ordinary course of business and were not acquired and are not held for the purpose of or with the effect of changing or influencing the control of the issuer of the securities and were not acquired and are not held in connection with or as a participant in any transaction having that purpose or effect, other than activities solely in connection with a nomination under &#167; 240.14a-11.",
+          "purpose": ""
+        },
+        "accessionNumber": "0002100119-26-000287",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "form": "SCHEDULE 13G",
+        "filingDate": "2026-04-29",
+        "url": "https://www.sec.gov/Archives/edgar/data/1535527/000210011926000287/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000210011926000287/xslSCHEDULE_13G_X02/primary_doc.xml",
+        "family": "13G",
+        "seriesId": "sec:0002100119:0001535527",
+        "displayPerson": 0,
+        "historyOnly": false,
+        "previousAccession": null,
+        "comparison": {
+          "state": "baseline",
+          "reason": "Första granskade observationen i detta urval."
+        },
+        "context": "Separat rapporterande Vanguard-enhet. Serien kopplas inte ihop med The Vanguard Groups tidigare rapportering.",
+        "relationships": "",
+        "purposeContext": "",
+        "reviewDate": "2026-09-23",
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000210011926000287/primary_doc.xml",
+          "sha256": "4d4836ea35246449ffd683be3dc8cae2537fc445976648abde8c44d39a402a0c",
+          "format": "SEC Schedule XML"
+        }
+      },
+      {
+        "persons": [
+          {
+            "name": "The Vanguard Group",
+            "shares": "0",
+            "percent": "0",
+            "personType": "IA",
+            "powers": {
+              "soleVotingPower": "0",
+              "sharedVotingPower": "0",
+              "soleDispositivePower": "0",
+              "sharedDispositivePower": "0"
+            },
+            "comments": "On January 12, 2026, The Vanguard Group, Inc. went through an internal realignment. In accordance with SEC Release No. 34-39538 (January 12, 1998), certain subsidiaries or business divisions of subsidiaries of The Vanguard Group, Inc., that formerly had, or were deemed to have, beneficial ownership with The Vanguard Group, Inc., will report beneficial ownership separately (on a disaggregated basis) from The Vanguard Group, Inc. in reliance on such release. These subsidiaries and/or business divisions pursue the same investment strategies as previously pursued by The Vanguard Group, Inc. prior to the realignment. Further in accordance with SEC Release No. 34-39538 (January 12, 1998), The Vanguard Group, Inc. no longer has, or is deemed to have, beneficial ownership over securities beneficially owned by such subsidiaries and/or business divisions.",
+            "locator": "formData/coverPageHeaderReportingPersonDetails[1]",
+            "entityId": "sec:0000102909",
+            "cik": "0000102909"
+          }
+        ],
+        "eventDate": "2026-03-13",
+        "security": "Common Stock",
+        "cusips": [
+          "22788C105"
+        ],
+        "amendmentNumber": "6",
+        "reportedPreviousAccession": null,
+        "filerCik": "0000102909",
+        "rules": [
+          "Rule 13d-1(b)"
+        ],
+        "statements": {
+          "relationships": "",
+          "group": "",
+          "onBehalfOf": "The Vanguard Group, including investment companies registered under the Investment Company Act of 1940 and other managed accounts, have the right to receive or the power to direct the receipt of dividends from, or the proceeds from the sale of, the securities reported herein.No one other person's interest in the securities reported herein is more than 5%.",
+          "certification": "By signing below I certify that, to the best of my knowledge and belief, the securities referred to above were acquired and are held in the ordinary course of business and were not acquired and are not held for the purpose of or with the effect of changing or influencing the control of the issuer of the securities and were not acquired and are not held in connection with or as a participant in any transaction having that purpose or effect, other than activities solely in connection with a nomination under &#167; 240.14a-11.",
+          "purpose": ""
+        },
+        "accessionNumber": "0000102909-26-001050",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2026-03-26",
+        "url": "https://www.sec.gov/Archives/edgar/data/1535527/000010290926001050/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000010290926001050/xslSCHEDULE_13G_X02/primary_doc.xml",
+        "family": "13G",
+        "seriesId": "sec:0000102909:0001535527",
+        "displayPerson": 0,
+        "historyOnly": false,
+        "previousAccession": null,
+        "comparison": {
+          "state": "baseline",
+          "reason": "Första granskade observationen i detta urval."
+        },
+        "context": "Vanguard beskriver ändrad rapporteringsstruktur. Nollvärdet innebär inte att motsvarande aktier har sålts.",
+        "relationships": "",
+        "purposeContext": "",
+        "reviewDate": "2026-09-23",
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000010290926001050/primary_doc.xml",
+          "sha256": "027b3b653d731c73cf8b1c8cb9b46f7ea443ce5935994ff40b3f07776365d417",
+          "format": "SEC Schedule XML"
+        }
+      }
+    ],
+    "pendingReview": [],
+    "excluded": [],
+    "checkedThrough": "2026-04-29",
+    "coverage": {
+      "startDate": "2025-01-01",
+      "basis": "Selected reviewed disclosures; older examples are separate; not a complete shareholder register."
+    }
+  },
+  "materialEvents": {
+    "schema": "ntm-company-material-events/1",
+    "documents": {
+      "0001104659-24-081571": {
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "form": "8-K",
+        "accessionNumber": "0001104659-24-081571",
+        "filingDate": "2024-07-22",
+        "reportDate": "2024-07-19",
+        "primaryDocument": "tm2419936d1_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465924081571/tm2419936d1_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465924081571/",
+        "items": [
+          "8.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "87a065a891b33990116347b2804b174ad4724e8b12c3431d42c1282d0b1208df",
+        "passages": [
+          "Item 8.01 Other Events. On July 19, 2024, CrowdStrike Holdings, Inc. (“we” or “us”) released a sensor configuration update for our Falcon sensor software that resulted in outages for a number of our customers utilizing certain Windows systems (the “event”). The event was not caused by a cyberattack. We urgently mobilized teams to support the security and stability of our customers. Certain Windows systems that were online when the update was released at 4:09 UTC on July 19 were affected. We identified and isolated the issue and the update was reverted at 5:27 UTC. We continue to work with impacted customers to fully restore their systems. As part of that effort, we have provided remediation information through our customer support portal and published event-related updates accessible through our blog at www.crowdstrike.com/blog. This is an evolving situation. We continue to evaluate the impact of the event on our business and operations. Forward-Looking Statements This Form 8-K contains forward-looking statements that involve risks and uncertainties, including statements regarding our understanding of the event and its impacts. A number of factors could cause outcomes to differ materially from our statements, including the discovery of new information regarding the event and other risks and uncertainties included in our filings with the Securities and Exchange Commission, particularly under the caption “Risk Factors” in our most recently filed Quarterly Report on Form 10-Q. Accordingly, you should not rely on these forward-looking statements. All forward-looking statements are based on information currently available to us, and we do not assume any obligation to update any statement to reflect changes in circumstances or our expectations."
+        ],
+        "reviewDate": "2026-09-23"
+      },
+      "0001535527-26-000018": {
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "form": "8-K",
+        "accessionNumber": "0001535527-26-000018",
+        "filingDate": "2026-04-21",
+        "reportDate": "2026-04-16",
+        "primaryDocument": "crwd-20260416.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000018/crwd-20260416.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000018/",
+        "items": [
+          "5.02",
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "7b61f1e63c6139492ba15a36bbdf454dd1cdc149d149ba3efbdbb3a635a3f4f5",
+        "passages": [
+          "Item 5.02 Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers; Compensatory Arrangements of Certain Officers. On April 16, 2026, the Board of Directors (the “Board”) of CrowdStrike Holdings, Inc. (the “Company” or “CrowdStrike”), upon the recommendation of the Compensation Committee of the Board (the “Compensation Committee”), approved a performance-and service-based equity award under the Company’s 2019 Equity Incentive Plan (the “Plan”) to Michael Sentonas, the Company’s President, consisting of performance stock units (“PSUs”) with a target of 100,000 PSUs, that can result in as few as zero shares of the Company’s Class A common stock (“Common Stock”) being issued if the Company’s stock price performance is below the 25th percentile of the companies in the S&P 500 over a three-year period, and up to 200,000 shares if the Company’s stock price performance meets or exceeds the 90th percentile of the companies in the S&P 500 (the “Award”). Certain strategic considerations that informed the Board’s decision to grant this Award are described in",
+          "Item 7.01 below. Award Structure and Performance Metrics The Award is composed of PSUs that may be earned based on the Company’s total stockholder return (“TSR”) relative to the TSR of the companies comprising the S&P 500 Index over a three-year performance period beginning on December 22, 2025 and ending on December 22, 2028 (the “Performance Period”). The award is structured with a target of 100,000 PSUs, with the actual number of PSUs which may be earned ranging from 50% (assuming threshold achievement) to 200% of the target number of PSUs subject to the award, based on the Company’s TSR percentile ranking during the Performance Period, with linear interpolation between performance levels, as set forth in the award agreement. If performance is achieved below the threshold level, 0% of the PSUs will be earned. The table below summarizes these performance goals and related payout levels: Performance Level Relative TSR Percentile Ranking Payout (% of Target PSUs) Maximum 90th percentile or above 200% Above Target 75th percentile 150% Target 55th percentile 100% Threshold 25th percentile 50% Below Threshold Below 25th percentile 0% Following the end of the Performance Period, the Compensation Committee will determine the extent to which the applicable performance goals have been achieved and will determine the number of PSUs, if any, that have been earned (the “Earned PSUs”). In addition, the Earned PSUs will be subject to an additional one-year service-based vesting requirement such that 25% of the Earned PSUs will vest on each of March 20, 2029, June 20, 2029, September 20, 2029 and December 20, 2029 (the “Final Vesting Date”), in each case, subject to Mr. Sentonas’s continued service with the Company (any Earned PSUs that satisfy the service-based vesting requirement, the “Vested PSUs”). Except as described below, any PSUs that are not earned or do not become Vested PSUs will be forfeited without consideration. Additional Terms and Conditions In the event of a “change in control” (as defined in the Plan) that occurs prior to the end of the Performance Period, the Company’s TSR performance and applicable percentile ranking will be determined as of the date of such change in control. For this purpose, the Company’s TSR will be measured based on the price per share of the Company’s common stock (plus the value of any other consideration received by the Company’s stockholders) in the transaction, and the TSR of the applicable peer companies will be measured using the 45-trading-day period ending on and including the public announcement date of the change in control. The Compensation Committee will certify the resulting performance level and the number of PSUs earned, if any, in connection with the transaction. Upon consummation of the change in control, any Earned PSUs will be converted into the same form of consideration, and on the same economic terms, as are applicable to holders of the Company’s common stock in the transaction, including cash, stock, equity-based awards, or a combination thereof; provided that such converted award will be subject to vesting based on Mr. Sentonas’s continued service through the Final Vesting Date (subject to the acceleration provisions described in the next paragraph). If Mr. Sentonas’s employment is terminated by the Company without cause or by Mr. Sentonas for good reason within three months prior to or 24 months following a change in control, any converted awards will vest in full as of the date of such termination. In addition, if the surviving company does not assume, continue or substitute the converted awards in connection with the change in control, such awards will vest in full upon consummation of the transaction. If Mr. Sentonas’s employment is terminated by the Company without cause or by Mr. Sentonas for good reason prior to the end of the Performance Period and more than three months prior to or more than 24 months following a change in control, the Company’s TSR performance will be measured as of Mr. Sentonas’s termination date using the same methodology applicable at the end of the Performance Period. The number of PSUs earned will be determined based on actual performance through such date and such Earned PSUs will be prorated based on a fraction, the numerator of which is the number of days elapsed 2 from the start of the Performance Period through the termination date, and the denominator of which is the total number of days from the start of the Performance Period (i.e., December 22, 2025) to the Final Vesting Date. Any Vested PSUs following such performance measurement and time-based proration will vest as of the termination date. Any remaining unvested PSUs will be forfeited without consideration. If Mr. Sentonas’s employment terminates for any other reason prior to the end of the Performance Period, any unvested portion of the PSUs subject to the Award will be forfeited without consideration. If Mr. Sentonas’s employment is terminated by the Company without cause or by Mr. Sentonas for good reason following the end of the Performance Period and more than three months prior to or more than 24 months following a change in control, the Company’s TSR performance will be measured based on the actual performance achieved at the end of the Performance Period, and a number of Earned PSUs will be accelerated as of the termination date such that the total number of Vested PSUs as of the termination date will equal the product of (i) the number of Earned PSUs, multiplied by (ii) a fraction, the numerator of which is the number of days elapsed from the start of the Performance Period through the termination date, and the denominator of which is the total number of days from the start of the Performance Period (i.e., December 22, 2025) to the Final Vesting Date. Any Vested PSUs following such performance measurement and time-based proration will vest as of the termination date. Any remaining unvested PSUs will be forfeited without consideration. If Mr. Sentonas’s employment terminates for any other reason following the end of the Performance Period but prior to the Final Vesting Date, any unvested portion of the PSUs subject to the Award will be forfeited without consideration. The foregoing summary of the Award does not purport to be complete and is qualified in its entirety by reference to the full terms and conditions of the award agreement, which is filed as Exhibit 10.1 to this Form 8-K and incorporated herein by reference.",
+          "Item 7.01 Regulation FD Disclosure The disclosure under",
+          "Item 5.02 is incorporated herein by reference. Leading CrowdStrike Through the Next Stage of Growth The Board approved the Award to incentivize achievement of CrowdStrike’s long-term growth strategy by (i) aligning Mr. Sentonas’s interests with those of the Company’s stockholders through performance-based compensation tied directly to meaningful stock price outperformance, and (ii) providing a compelling incentive for Mr. Sentonas to continue to lead CrowdStrike as it executes on its ambition to achieve $20 billion in ending annual recurring revenue (“ARR”). Working alongside CrowdStrike’s CEO and Founder George Kurtz, Mr. Sentonas has been a principal architect of CrowdStrike’s strategic and financial trajectory over the past three years — driving the platform and technology strategy, go-to-market execution, and corporate development activity that have contributed directly to the Company’s growth from $3.06 billion in total revenue in fiscal year 2024 to $4.81 billion in fiscal year 2026, and from $3.44 billion in ending ARR in fiscal year 2024 to $5.25 billion in ending ARR in fiscal year 2026. Non-GAAP income from operations has expanded and, free cash flow has increased over the same period, marking a new phase in the Company’s financial maturity. Over the three-year period coinciding with Mr. Sentonas’s expanded leadership role, CrowdStrike’s stock has delivered a 300% return, ranking in the 95th percentile of S&P 500 constituents — reflecting the direct connection between the Company’s operational execution and stockholder value creation. Mr. Sentonas has driven CrowdStrike’s expansion into three of the highest-growth markets in cybersecurity. Falcon Cloud Security has delivered double-digit ending ARR annual growth from February 1, 2023 to January 31, 2026. Falcon Next-Gen Identity has become one of the top solutions driving multi-module expansion, and Falcon Next-Gen SIEM has emerged as one of the fastest-growing ARR contributors in the portfolio. Together, these three markets represent a substantial expansion of CrowdStrike’s addressable revenue opportunity. On the corporate development front, Mr. Sentonas has executed a disciplined, platform-first M&A strategy that has systematically expanded CrowdStrike’s TAM and strengthened its competitive differentiation. CrowdStrike’s most recent acquisitions of Pangea, Onum, SGNL, and Seraphic Security collectively extend the Falcon platform into AI application security, network data intelligence, dynamic identity and access control, and browser security, each addressing a distinct and growing market opportunity. We believe CrowdStrike is well positioned for its next phase of growth, as we aim to drive ARR growth, scale the Company, expand profitability, and continue to deliver a platform spanning endpoint, cloud, identity, security operations, browser, AI application security, and more. Mr. Sentonas has been instrumental in building that position, and his continued leadership is central to the Company’s ability to deliver value for customers, investors, partners and employees. 3 Incentive Opportunities Aligned with Stockholders The Award is designed to be performance- and service-based and at risk, with the number of PSUs earned directly tied to the Company’s TSR relative to the TSR of the companies comprising the S&P 500 Index over a three-year period as well as an additional one-year service period. This structure creates strong retention incentives and ensures that Mr. Sentonas’s compensation is directly aligned with the returns experienced by the Company’s stockholders relative to broader market performance, and that Mr. Sentonas will earn above-target compensation only if CrowdStrike delivers TSR performance that outperforms the majority of S&P 500 companies, while receiving no award if performance falls below the 25th percentile threshold. This relative performance structure rewards the Company’s distinctive value creation and competitive execution rather than stock price appreciation that may stem from general market conditions. This approach rewards superior returns to stockholders regardless of overall market direction and aligns executive compensation with the stockholder experience. The three-year performance period reinforces a focus on sustained outperformance rather than short-term stock price fluctuations. Unlike pure time-based equity compensation, this Award provides no guaranteed value and can result in zero compensation if minimum performance thresholds are not achieved. This ensures that Mr. Sentonas’s interests remain directly tied to delivering superior returns to stockholders relative to alternative investment opportunities in the broader market. The Board believes this performance-based structure is particularly appropriate given the dynamic nature of the cybersecurity market. As CrowdStrike continues to execute on its strategic vision, this Award will ensure that Mr. Sentonas’s compensation remains directly aligned with the Company’s success in translating market leadership into superior stockholder returns. The information disclosed under this",
+          "Item 7.01 shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934, as amended, and shall not be deemed incorporated by reference into any filing made under the Securities Act of 1933, as amended, except as expressly set forth by specific reference in such filing. Forward Looking Statements This Current Report on Form 8-K contains forward-looking statements that involve risks and uncertainties, including statements regarding the potential benefits of granting the Award to Mr. Sentonas, including ensuring strong retention incentives and maintaining alignment with stockholder interests, and expectations regarding Company performance targets, financial performance, market opportunities, competitive advantages and stockholder returns. A number of factors could cause outcomes to differ materially from our statements, including the risks and uncertainties included in our filings with the Securities and Exchange Commission, particularly under the caption “Risk Factors” in our most recently filed Annual Report on Form 10-K. Accordingly, you should not place undue reliance on these forward-looking statements. All forward-looking statements are based on information currently available to us, and we do not assume any obligation to update any statement to reflect changes in circumstances or our expectations. 4",
+          "Item 9.01 Financial Statements and Exhibits. (d) Exhibits Exhibit Number Description of Exhibit 10.1 Performance Unit Agreement with Michael Sentonas, dated April 16, 2026, under the CrowdStrike Holdings, Inc. 2019 Equity Incentive Plan 104 Cover Page Interactive Data File - the cover page XBRL tags are embedded within the Inline XBRL document 5"
+        ],
+        "reviewDate": "2026-09-23"
+      },
+      "0001104659-26-076376": {
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "form": "8-K",
+        "accessionNumber": "0001104659-26-076376",
+        "filingDate": "2026-06-22",
+        "reportDate": "2026-06-17",
+        "primaryDocument": "tm2618192d1_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465926076376/tm2618192d1_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465926076376/",
+        "items": [
+          "5.03",
+          "5.07",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "2363bb0f1f086c2d8c179996cb42952e302b61e6e8bc536a07e60dd11846cbc0",
+        "passages": [
+          "Item 5.03 Amendments to Articles of Incorporation or Bylaws; Change in Fiscal Year. As described in",
+          "Item 5.07 below, the stockholders of CrowdStrike Holdings, Inc. (the “Company”) approved, upon the recommendation of the Company’s Board of Directors, an amendment and restatement of the Company’s Amended and Restated Certificate of Incorporation at the Annual Meeting of Stockholders (the “Annual Meeting”) on June 17, 2026 to limit the liability of certain officers to the fullest extent permitted by the General Corporation Law of the State of Delaware (the “Amendment and Restatement”), as described in more detail in the Company’s Definitive Proxy Statement on Schedule 14A filed with the Securities and Exchange Commission on May 5, 2026 (the “Proxy Statement”). On June 22, 2026, the Company filed an Amended and Restated Certificate of Incorporation of the Company (the “Amended and Restated Certificate of Incorporation”) with the Secretary of State of the State of Delaware, which became effective immediately upon its filing. The foregoing description does not purport to be complete and is qualified in its entirety by reference to the full text of the Amended and Restated Certificate of Incorporation, which is attached as Exhibit 3.1 to this Current Report on Form 8-K and incorporated herein by reference.",
+          "Item 5.07 Submission of Matters to a Vote of Security Holders. The Company held the Annual Meeting on June 17, 2026. Proxies for the Annual Meeting were solicited pursuant to Regulation 14A of the Securities Exchange Act of 1934, as amended. At the close of business on April 24, 2026, the record date for the Annual Meeting, there were 254,536,521 shares of Class A common stock outstanding and entitled to vote. Holders of Class A common stock were entitled to one vote per share on each proposal. At the Annual Meeting, the Company’s stockholders voted on the following four proposals, each of which is described in more detail in the Proxy Statement. The number of votes cast with respect to each proposal was as indicated below: 1. Election of Class I Directors. The following nominees were elected to serve as Class I directors until the Company’s 2029 annual meeting of stockholders and until their respective successors are duly elected and qualified, or, if sooner, until the director’s death, resignation or removal, based on the following results of voting: Nominee Votes For Votes Withheld Broker Non- Votes Johanna Flower 131,014,818 39,026,380 39,947,114 Denis J. O’Leary 104,319,861 65,721,337 39,947,114 2. Ratification of Selection of Independent Registered Public Accounting Firm. The selection of PricewaterhouseCoopers LLP as the independent registered public accounting firm for the Company for the fiscal year ending January 31, 2027 was ratified based on the following results of voting: Votes For Votes Against Abstentions Broker Non-Votes 207,551,102 1,434,320 1,002,890 N/A 3. Approval of an Amendment and Restatement of Our Amended and Restated Certificate of Incorporation to Limit Officer Liability as Permitted by Delaware Law. The Amendment and Restatement was approved based on the following results of voting: Votes For Votes Against Abstentions Broker Non-Votes 144,387,962 24,713,003 940,233 39,947,114 4. Ratification, on an Advisory Basis, of Supermajority Voting Provisions in Our Amended and Restated Certificate of Incorporation and Amended and Restated Bylaws. The supermajority voting provisions were not ratified, on an advisory basis, based on the following results of voting: Votes For Votes Against Abstentions Broker Non-Votes 24,034,816 144,942,474 1,063,908 39,947,114",
+          "Item 9.01 Financial Statements and Exhibits. (d) Exhibits Exhibit Number Description of Exhibit 3.1 Amended and Restated Certificate of Incorporation of CrowdStrike Holdings, Inc., dated June 22, 2026 104 Cover Page Interactive Data File - the cover page XBRL tags are embedded within the Inline XBRL document"
+        ],
+        "reviewDate": "2026-09-23"
+      },
+      "0001104659-25-045244": {
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "form": "8-K",
+        "accessionNumber": "0001104659-25-045244",
+        "filingDate": "2025-05-07",
+        "reportDate": "2025-05-06",
+        "primaryDocument": "tm2514190d1_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925045244/tm2514190d1_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925045244/",
+        "items": [
+          "2.02",
+          "2.05",
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "results_disclosure",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001535527.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "e8259560a28e2b0589f7cf0e47362a77bbcb15a8744d5faaad1d1d7e2d746b09",
+        "passages": [
+          "Item 2.02 - Results of Operations and Financial Condition CrowdStrike Holdings, Inc. (“CrowdStrike” or the “Company”) expects its fiscal 2026 first quarter (ended April 30, 2025) financial results to be in-line with or above its guidance as provided in its fourth quarter 2025 earnings release on March 4, 2025. The Company also reaffirms its guidance for the fiscal year 2026 (ending January 31, 2026) , as provided in its earnings press release issued March 4, 2025, that was previously furnished as Exhibit 99.1 to the Company’s Current Report on Form 8-K filed with the Securities and Exchange Commission on March 4, 2025.",
+          "Item 2.05 - Costs Associated with Exit or Disposal Activities On May 6, 2025, the Company announced a strategic plan (the “Plan”) to evolve its operations to yield greater efficiencies as the Company continues to scale its business with focus and discipline to meet its goal of $10 billion in ending ARR. The Plan is expected to result in a reduction of roles representing approximately 500 positions or 5% of the Company’s global workforce. CrowdStrike expects to continue to hire in key strategic areas throughout its fiscal year ending January 31, 2026. CrowdStrike estimates that it will incur approximately $36 million to $53 million in charges in connection with the Plan, of which approximately $7 million is expected to be recognized in the first quarter of fiscal 2026, and substantially all of the remainder of which will be incurred in the second quarter of fiscal 2026. These charges primarily consist of approximately $19 million to $26 million of future cash expenditures related to severance payments, employee benefits, and related costs; and approximately $10 million to $20 million in non-cash charges for stock-based compensation. The Company intends to exclude the charges associated with the Plan from its non-GAAP financial measures. The actions associated with the Plan are expected to be substantially complete by the end of the second quarter of fiscal 2026, subject to local law and consultation requirements.",
+          "Item 7.01 – Regulation FD Disclosure A note to CrowdStrike’s employees from CrowdStrike’s Chief Executive Officer regarding these actions is attached to this Current Report on Form 8-K as Exhibit 99.1. The Company will release financial results for its first quarter fiscal 2026 ended April 30, 2025 after the U.S. market close on Tuesday, June 3, 2025. CrowdStrike will host a conference call that day at 2:00 p.m. Pacific Time (5:00 p.m. Eastern time) to discuss the results. Information on how to register for the live event is available on the Company’s Investor Relations website at ir.crowdstrike.com. A live webcast of the conference call and the financial results press release will also be accessible from the CrowdStrike investor relations website. An audio webcast replay of the conference call will be available on the investor relations website for one year. Forward-Looking Statements This Current Report on Form 8-K contains forward-looking statements, including CrowdStrike’s expectations of its financial results for its fiscal quarter ended April 30, 2025, CrowdStrike’s reaffirmation of guidance for the 2026 fiscal year, CrowdStrike’s estimates of the amount and timing of charges that it expects to incur in the Plan, and the benefits that CrowdStrike anticipates from the Plan. These forward-looking statements are based on CrowdStrike’s current beliefs and expectations, and are subject to inherent risks and uncertainties. Actual results could differ materially, and therefore you should not place undue reliance on any forward-looking statements. Risks include, but are not limited to, that the Plan could cost more than anticipated, that the Plan could negatively affect CrowdStrike’s ability to recruit and retain skilled personnel, that the Plan could negatively affect CrowdStrike’s business operations, as well as the risks described in CrowdStrike’s filings with the Securities and Exchange Commission, including CrowdStrike’s most recent report on Form 10-K. In addition, Crowdstrike has not completed its financial closing procedures for the quarter ended April 30, 2025, and therefore its actual financial results for the quarter ended April 30, 2025 could differ from CrowdStrike’s current expectations. CrowdStrike assumes no obligation to update any such forward-looking statements, except as required by law.",
+          "Item 9.01 Financial Statements and Exhibits. (d) Exhibits Exhibit No. Exhibit Description 99.1 Note to CrowdStrike employees from CrowdStrike’s Chief Executive Officer, dated May 6, 2025. 104 Cover Page Interactive Data File—the cover page XBRL tags are embedded within the Inline XBRL document."
+        ],
+        "reviewDate": "2026-09-23"
+      }
+    },
+    "observations": [
+      {
+        "id": "CRWD:0001104659-26-076376/charter:0001104659-26-076376",
+        "eventId": "CRWD:0001104659-26-076376/charter",
+        "ticker": "CRWD",
+        "accessionNumber": "0001104659-26-076376",
+        "category": "governance",
+        "template": "officer_liability",
+        "eventDate": "2026-06-22",
+        "items": [
+          "5.03",
+          "5.07",
+          "9.01"
+        ],
+        "parameters": {},
+        "facts": [],
+        "evidencePassages": [
+          0,
+          1,
+          2
+        ],
+        "reviewDate": "2026-09-23",
+        "groupingBasis": "Charter amendment and related approval; other routine annual voting results are not independent events.",
+        "publicationDate": "2026-06-22",
+        "form": "8-K"
+      },
+      {
+        "id": "CRWD:0001104659-25-045244/restructure:0001104659-25-045244",
+        "eventId": "CRWD:0001104659-25-045244/restructure",
+        "ticker": "CRWD",
+        "accessionNumber": "0001104659-25-045244",
+        "category": "restructuring",
+        "template": "workforce_plan",
+        "eventDate": "2025-05-06",
+        "items": [
+          "2.05",
+          "7.01",
+          "9.01"
+        ],
+        "parameters": {},
+        "facts": [
+          {
+            "label": "Berörda tjänster, cirka",
+            "reportedText": "500",
+            "scale": "1",
+            "value": "500",
+            "unit": "positions",
+            "qualifier": "Planerad minskning, inte bekräftat genomförande.",
+            "passage": 1
+          },
+          {
+            "label": "Uppskattade kostnader, lägst",
+            "reportedText": "36",
+            "scale": "1000000",
+            "value": "36000000",
+            "unit": "USD",
+            "qualifier": "Rapporterat intervall 36–53 miljoner USD.",
+            "passage": 1
+          },
+          {
+            "label": "Uppskattade kostnader, högst",
+            "reportedText": "53",
+            "scale": "1000000",
+            "value": "53000000",
+            "unit": "USD",
+            "qualifier": "Rapporterat intervall 36–53 miljoner USD.",
+            "passage": 1
+          }
+        ],
+        "evidencePassages": [
+          1
+        ],
+        "reviewDate": "2026-09-23",
+        "groupingBasis": "Item 2.05 plan and related employee note in 7.01/99.1 are one event. Item 2.02 guidance remains canonical earnings evidence and is excluded from this observation.",
+        "publicationDate": "2025-05-07",
+        "form": "8-K"
+      },
+      {
+        "id": "CRWD:0001104659-24-081571/outage:0001104659-24-081571",
+        "eventId": "CRWD:0001104659-24-081571/outage",
+        "ticker": "CRWD",
+        "accessionNumber": "0001104659-24-081571",
+        "category": "operating_incident",
+        "template": "service_outage",
+        "eventDate": "2024-07-19",
+        "items": [
+          "8.01"
+        ],
+        "parameters": {
+          "product": "Falcon"
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-23",
+        "groupingBasis": "Issuer explicitly says the event was not caused by a cyberattack. Reviewed operational outage, not Item 1.05.",
+        "publicationDate": "2024-07-22",
+        "form": "8-K"
+      }
+    ],
+    "pendingReview": [
+      {
+        "accessionNumber": "0001535527-26-000022",
+        "filingDate": "2026-06-03",
+        "items": [
+          "2.02",
+          "8.01",
+          "9.01"
+        ],
+        "candidates": [],
+        "earningsCanonical": true,
+        "needsReview": true,
+        "supportingItems": [
+          "9.01"
+        ]
+      },
+      {
+        "accessionNumber": "0001535527-26-000013",
+        "filingDate": "2026-04-06",
+        "items": [
+          "8.01",
+          "9.01"
+        ],
+        "candidates": [],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": [
+          "9.01"
+        ]
+      },
+      {
+        "accessionNumber": "0001104659-25-124912",
+        "filingDate": "2025-12-29",
+        "items": [
+          "5.02",
+          "7.01",
+          "9.01"
+        ],
+        "candidates": [
+          "leadership"
+        ],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": [
+          "9.01"
+        ]
+      },
+      {
+        "accessionNumber": "0001535527-25-000017",
+        "filingDate": "2025-06-03",
+        "items": [
+          "2.02",
+          "8.01",
+          "9.01"
+        ],
+        "candidates": [],
+        "earningsCanonical": true,
+        "needsReview": true,
+        "supportingItems": [
+          "9.01"
+        ]
+      },
+      {
+        "accessionNumber": "0001104659-25-039500",
+        "filingDate": "2025-04-25",
+        "items": [
+          "5.02"
+        ],
+        "candidates": [
+          "leadership"
+        ],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": []
+      },
+      {
+        "accessionNumber": "0001104659-25-036392",
+        "filingDate": "2025-04-18",
+        "items": [
+          "5.02"
+        ],
+        "candidates": [
+          "leadership"
+        ],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": []
+      },
+      {
+        "accessionNumber": "0001104659-25-015279",
+        "filingDate": "2025-02-20",
+        "items": [
+          "5.02"
+        ],
+        "candidates": [
+          "leadership"
+        ],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": []
+      }
+    ],
+    "checkedThrough": "2026-08-26",
+    "coverage": {
+      "startDate": "2025-01-01",
+      "basis": "Selected reviewed material events plus older examples; not a complete archive"
+    }
+  },
+  "verifiedAt": "2026-09-23T17:02:16.776974+00:00",
   "status": "verified"
 }

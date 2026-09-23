@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><edgarSubmission xmlns="http://www.sec.gov/edgar/schedule13g" xmlns:ns2="http://www.sec.gov/edgar/common">
+<headerData>
+<submissionType>SCHEDULE 13G</submissionType>
+<filerInfo>
+<filer>
+<filerCredentials>
+<cik>0000019617</cik>
+<ccc>XXXXXXXX</ccc>
+</filerCredentials>
+</filer>
+<liveTestFlag>LIVE</liveTestFlag>
+</filerInfo>
+</headerData>
+<formData>
+<coverPageHeader>
+<securitiesClassTitle>Common stock, $0.0001 par value per share</securitiesClassTitle>
+<eventDateRequiresFilingThisStatement>12/31/2025</eventDateRequiresFilingThisStatement>
+<issuerInfo>
+<issuerCik>0001818874</issuerCik>
+<issuerName>SoFi Technologies, Inc.</issuerName>
+<issuerCusip>83406F102</issuerCusip>
+<issuerPrincipalExecutiveOfficeAddress>
+<ns2:street1>234 1st Street</ns2:street1>
+<ns2:city>San Francisco</ns2:city>
+<ns2:stateOrCountry>CA</ns2:stateOrCountry>
+<ns2:zipCode>94105</ns2:zipCode>
+</issuerPrincipalExecutiveOfficeAddress>
+</issuerInfo>
+<designateRulesPursuantThisScheduleFiled>
+<designateRulePursuantThisScheduleFiled>Rule 13d-1(b)</designateRulePursuantThisScheduleFiled>
+</designateRulesPursuantThisScheduleFiled>
+</coverPageHeader>
+<coverPageHeaderReportingPersonDetails>
+<reportingPersonName>JPMORGAN CHASE &amp; CO.</reportingPersonName>
+<citizenshipOrOrganization>DE</citizenshipOrOrganization>
+<reportingPersonBeneficiallyOwnedNumberOfShares>
+<soleVotingPower>58776908</soleVotingPower>
+<sharedVotingPower>236589.0</sharedVotingPower>
+<soleDispositivePower>64729879</soleDispositivePower>
+<sharedDispositivePower>247164.0</sharedDispositivePower>
+</reportingPersonBeneficiallyOwnedNumberOfShares>
+<reportingPersonBeneficiallyOwnedAggregateNumberOfShares>64981867</reportingPersonBeneficiallyOwnedAggregateNumberOfShares>
+<aggregateAmountExcludesCertainSharesFlag>N</aggregateAmountExcludesCertainSharesFlag>
+<classPercent>5.1</classPercent>
+<typeOfReportingPerson>HC</typeOfReportingPerson>
+</coverPageHeaderReportingPersonDetails>
+<items>
+<item1>
+<issuerName>SoFi Technologies, Inc.</issuerName>
+<issuerPrincipalExecutiveOfficeAddress>234 1st Street San Francisco CA 94105</issuerPrincipalExecutiveOfficeAddress>
+</item1>
+<item2>
+<filingPersonName>JPMORGAN CHASE &amp; CO.</filingPersonName>
+<principalBusinessOfficeOrResidenceAddress>270 Park Avenue,,New York, NY 10017</principalBusinessOfficeOrResidenceAddress>
+<citizenship>DE</citizenship>
+</item2>
+<item3>
+<notApplicableFlag>N</notApplicableFlag>
+<typeOfPersonFiling>HC</typeOfPersonFiling>
+</item3>
+<item4>
+<amountBeneficiallyOwned>64981867</amountBeneficiallyOwned>
+<classPercent>5.1</classPercent>
+<numberOfSharesPersonHas>
+<solePowerOrDirectToVote>58776908</solePowerOrDirectToVote>
+<sharedPowerOrDirectToVote>236589</sharedPowerOrDirectToVote>
+<solePowerOrDirectToDispose>64729879</solePowerOrDirectToDispose>
+<sharedPowerOrDirectToDispose>247164</sharedPowerOrDirectToDispose>
+</numberOfSharesPersonHas>
+</item4>
+<item5>
+<notApplicableFlag>Y</notApplicableFlag>
+<classOwnership5PercentOrLess>N</classOwnership5PercentOrLess>
+</item5>
+<item6>
+<notApplicableFlag>N</notApplicableFlag>
+<ownershipMoreThan5PercentOnBehalfOfAnotherPerson>Not Applicable</ownershipMoreThan5PercentOnBehalfOfAnotherPerson>
+</item6>
+<item7>
+<notApplicableFlag>N</notApplicableFlag>
+<subsidiaryIdentificationAndClassification>J.P. Morgan Trust Company of Delaware;
+J.P. Morgan Securities LLC;
+JPMorgan Chase Bank, National Association;
+JPMorgan Asset Management (UK) Limited;
+J.P. MORGAN SE;
+J.P. Morgan Investment Management Inc.;
+J.P. Morgan Wealth Management Solutions Inc.;
+55I, LLC</subsidiaryIdentificationAndClassification>
+</item7>
+<item8>
+<notApplicableFlag>N</notApplicableFlag>
+<identificationAndClassificationOfGroupMembers>Not Applicable</identificationAndClassificationOfGroupMembers>
+</item8>
+<item9>
+<notApplicableFlag>N</notApplicableFlag>
+<groupDissolutionNotice>Not Applicable</groupDissolutionNotice>
+</item9>
+<item10>
+<notApplicableFlag>N</notApplicableFlag>
+<certifications>By signing below I certify that, to the best of my knowledge and belief, the securities referred to above were acquired and are held in the ordinary course of business and were not acquired and are not held for the purpose of or with the effect of changing or influencing the control of the issuer of the securities and were not acquired and are not held in connection with or as a participant in any transaction having that purpose or effect, other than activities solely in connection with a nomination under ?? 240.14a-11.</certifications>
+</item10>
+</items>
+<signatureInformation>
+<reportingPersonName>JPMORGAN CHASE &amp; CO.</reportingPersonName>
+<signatureDetails>
+<signature>Rachel Tsvaygoft</signature>
+<title>Vice President</title>
+<date>01/21/2026</date>
+</signatureDetails>
+</signatureInformation>
+</formData>
+</edgarSubmission>

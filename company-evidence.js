@@ -23,6 +23,8 @@
   const latest=data.events.filter(e=>['annual_report','quarterly_report'].includes(e.classification)&&!e.amendment&&e.reportDate).sort((a,b)=>b.reportDate.localeCompare(a.reportDate)||b.filingDate.localeCompare(a.filingDate))[0];
   if(data.latestReportAccession!==(latest?.accessionNumber||null))throw Error('Invalid latest report');
   if(data.insiderEvidence&&window.NTMCompanyInsiders)window.NTMCompanyInsiders.validate(data.insiderEvidence,ticker,data.cik);
+  if(data.ownershipEvidence&&window.NTMCompanyOwnership)window.NTMCompanyOwnership.validate(data.ownershipEvidence,ticker,data.cik);
+  if(data.materialEvents&&window.NTMCompanyMaterialEvents)window.NTMCompanyMaterialEvents.validate(data.materialEvents,ticker,data.cik);
   return data;
  }
  function since(data,savedAt){
@@ -90,9 +92,11 @@
    window.NTMCompanySegmentsUI?.render(data,host,status);
    window.NTMCompanyCapitalUI?.render(data,host,status);
    window.NTMCompanyInsidersUI?.render(data,host,status);
+   window.NTMCompanyOwnershipUI?.render(data,host,status);
+   window.NTMCompanyMaterialEventsUI?.render(data,host,status);
    if(legacy)legacy.hidden=true;
    if(legacySection)legacySection.hidden=true;
   }catch{if(ticket===generation)host.replaceChildren(node('p','Officiell bolagsrapportering är inte tillgänglig just nu. Befintliga rapportlänkar visas nedan.'));}
  }
- window.NTMCompanyEvidence={validate,since,render,reportLabel,insidersSince(data,date,until){return window.NTMCompanyInsiders?.changesSince(data.insiderEvidence,date,until)||{filings:[],count:0,categories:{},corrections:0};},setBaseline(date){baseline=date||null;renderBaseline();}};
+ window.NTMCompanyEvidence={validate,since,render,reportLabel,materialSince(data,date,until){return window.NTMCompanyMaterialEvents?.changesSince(data?.materialEvents,date,until)||{events:[],count:0,newEvents:0,updates:0};},ownershipSince(data,date,until){return window.NTMCompanyOwnership?.changesSince(data?.ownershipEvidence,date,until)||{filings:[],count:0,amendments:0,changes:[]};},insidersSince(data,date,until){return window.NTMCompanyInsiders?.changesSince(data.insiderEvidence,date,until)||{filings:[],count:0,categories:{},corrections:0};},setBaseline(date){baseline=date||null;renderBaseline();}};
 })();

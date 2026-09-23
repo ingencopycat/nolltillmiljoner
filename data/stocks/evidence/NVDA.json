@@ -16607,6 +16607,615 @@
       }
     ]
   },
-  "verifiedAt": "2026-09-22T18:34:47.417870+00:00",
+  "ownershipEvidence": {
+    "schema": "ntm-company-ownership/1",
+    "filings": [
+      {
+        "persons": [
+          {
+            "name": "Vanguard Capital Management",
+            "shares": "1777408252",
+            "percent": "7.31",
+            "personType": "IA",
+            "powers": {
+              "soleVotingPower": "238857870",
+              "sharedVotingPower": "0",
+              "soleDispositivePower": "1777408252",
+              "sharedDispositivePower": "0"
+            },
+            "comments": "In accordance with SEC Release No. 34-39538 (January 12, 1998), this Schedule 13G reflects the securities beneficially owned, or deemed to be beneficially owned, by Vanguard Capital Management LLC and the following affiliates of Vanguard Capital Management LLC or business divisions of such affiliates: Vanguard Asset Management Limited, Vanguard Fiduciary Trust Company, Vanguard Global Advisers, LLC and Vanguard Investments Australia Ltd. This Schedule 13G includes securities held by Vanguard funds, or sleeves thereof, over which Vanguard Capital Management LLC exercises dispositive power, in addition to securities held by clients over which the affiliates or business divisions of such affiliates indicated above exercise dispositive and/or voting power. This Schedule 13G does not include securities, if any, beneficially owned by other subsidiaries or affiliates of Vanguard Capital Management LLC, or business divisions of such subsidiaries, whose ownership of securities is disaggregated from that of the reporting business unit in accordance with such release.",
+            "locator": "formData/coverPageHeaderReportingPersonDetails[1]",
+            "entityId": "sec:0002100119",
+            "cik": "0002100119"
+          }
+        ],
+        "eventDate": "2026-03-31",
+        "security": "Common Stock",
+        "cusips": [
+          "67066G104"
+        ],
+        "amendmentNumber": null,
+        "reportedPreviousAccession": null,
+        "filerCik": "0002100119",
+        "rules": [
+          "Rule 13d-1(b)"
+        ],
+        "statements": {
+          "relationships": "",
+          "group": "",
+          "onBehalfOf": "Vanguard Capital Management, including investment companies registered under the Investment Company Act of 1940 and other managed accounts, have the right to receive or the power to direct the receipt of dividends from, or the proceeds from the sale of, the securities reported herein.No one other person's interest in the securities reported herein is more than 5%.",
+          "certification": "By signing below I certify that, to the best of my knowledge and belief, the securities referred to above were acquired and are held in the ordinary course of business and were not acquired and are not held for the purpose of or with the effect of changing or influencing the control of the issuer of the securities and were not acquired and are not held in connection with or as a participant in any transaction having that purpose or effect, other than activities solely in connection with a nomination under &#167; 240.14a-11.",
+          "purpose": ""
+        },
+        "accessionNumber": "0002100119-26-000017",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "form": "SCHEDULE 13G",
+        "filingDate": "2026-04-28",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000210011926000017/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000210011926000017/xslSCHEDULE_13G_X02/primary_doc.xml",
+        "family": "13G",
+        "seriesId": "sec:0002100119:0001045810",
+        "displayPerson": 0,
+        "historyOnly": false,
+        "previousAccession": null,
+        "comparison": {
+          "state": "baseline",
+          "reason": "Första granskade observationen i detta urval."
+        },
+        "context": "Separat rapporterande Vanguard-enhet. Serien kopplas inte ihop med The Vanguard Groups tidigare rapportering.",
+        "relationships": "",
+        "purposeContext": "",
+        "reviewDate": "2026-09-23",
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000210011926000017/primary_doc.xml",
+          "sha256": "b977825aa514c238685c0558a729d1c8fbc1a07be874d0938c1a5408f06373e7",
+          "format": "SEC Schedule XML"
+        }
+      },
+      {
+        "persons": [
+          {
+            "name": "The Vanguard Group",
+            "shares": "0",
+            "percent": "0",
+            "personType": "IA",
+            "powers": {
+              "soleVotingPower": "0",
+              "sharedVotingPower": "0",
+              "soleDispositivePower": "0",
+              "sharedDispositivePower": "0"
+            },
+            "comments": "On January 12, 2026, The Vanguard Group, Inc. went through an internal realignment. In accordance with SEC Release No. 34-39538 (January 12, 1998), certain subsidiaries or business divisions of subsidiaries of The Vanguard Group, Inc., that formerly had, or were deemed to have, beneficial ownership with The Vanguard Group, Inc., will report beneficial ownership separately (on a disaggregated basis) from The Vanguard Group, Inc. in reliance on such release. These subsidiaries and/or business divisions pursue the same investment strategies as previously pursued by The Vanguard Group, Inc. prior to the realignment. Further in accordance with SEC Release No. 34-39538 (January 12, 1998), The Vanguard Group, Inc. no longer has, or is deemed to have, beneficial ownership over securities beneficially owned by such subsidiaries and/or business divisions.",
+            "locator": "formData/coverPageHeaderReportingPersonDetails[1]",
+            "entityId": "sec:0000102909",
+            "cik": "0000102909"
+          }
+        ],
+        "eventDate": "2026-03-13",
+        "security": "Common Stock",
+        "cusips": [
+          "67066G104"
+        ],
+        "amendmentNumber": "14",
+        "reportedPreviousAccession": null,
+        "filerCik": "0000102909",
+        "rules": [
+          "Rule 13d-1(b)"
+        ],
+        "statements": {
+          "relationships": "",
+          "group": "",
+          "onBehalfOf": "The Vanguard Group, including investment companies registered under the Investment Company Act of 1940 and other managed accounts, have the right to receive or the power to direct the receipt of dividends from, or the proceeds from the sale of, the securities reported herein.No one other person's interest in the securities reported herein is more than 5%.",
+          "certification": "By signing below I certify that, to the best of my knowledge and belief, the securities referred to above were acquired and are held in the ordinary course of business and were not acquired and are not held for the purpose of or with the effect of changing or influencing the control of the issuer of the securities and were not acquired and are not held in connection with or as a participant in any transaction having that purpose or effect, other than activities solely in connection with a nomination under &#167; 240.14a-11.",
+          "purpose": ""
+        },
+        "accessionNumber": "0000102909-26-000426",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2026-03-26",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000010290926000426/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000010290926000426/xslSCHEDULE_13G_X02/primary_doc.xml",
+        "family": "13G",
+        "seriesId": "sec:0000102909:0001045810",
+        "displayPerson": 0,
+        "historyOnly": false,
+        "previousAccession": "0000102909-26-000226",
+        "comparison": {
+          "state": "not_comparable",
+          "reason": "Intern omorganisation och separat rapportering från dotterbolag ändrar omfattningen. Ej jämförbart."
+        },
+        "context": "Vanguard beskriver ändrad rapporteringsstruktur. Nollvärdet innebär inte att motsvarande aktier har sålts.",
+        "relationships": "",
+        "purposeContext": "",
+        "reviewDate": "2026-09-23",
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000010290926000426/primary_doc.xml",
+          "sha256": "ac53d2e0b91fd4c17537c23b9f283538f150ac6aa43c9da16db932891f48768c",
+          "format": "SEC Schedule XML"
+        }
+      },
+      {
+        "persons": [
+          {
+            "name": "The Vanguard Group",
+            "shares": "2266625855",
+            "percent": "9.32",
+            "personType": "IA",
+            "powers": {
+              "soleVotingPower": "0",
+              "sharedVotingPower": "239897362",
+              "soleDispositivePower": "0",
+              "sharedDispositivePower": "2266625855"
+            },
+            "comments": "On January 12, 2026, The Vanguard Group, Inc. went through an internal realignment. As of that date, The Vanguard Group, Inc. no longer performs portfolio management services or administers proxy voting. In accordance with SEC Release No. 34-39538 (January 12, 1998), The Vanguard Group, Inc. anticipates that certain subsidiaries or business divisions of subsidiaries of The Vanguard Group, Inc., that currently have, or are deemed to have, beneficial ownership with The Vanguard Group, Inc., will report beneficial ownership separately (on a disaggregated basis) from The Vanguard Group, Inc. in reliance on such release. These subsidiaries and/or business divisions pursue the same investment strategies as previously pursued by The Vanguard Group, Inc. prior to the realignment.",
+            "locator": "formData/coverPageHeaderReportingPersonDetails[1]",
+            "entityId": "sec:0000102909",
+            "cik": "0000102909"
+          }
+        ],
+        "eventDate": "2025-12-31",
+        "security": "Common Stock",
+        "cusips": [
+          "67066G104"
+        ],
+        "amendmentNumber": "13",
+        "reportedPreviousAccession": null,
+        "filerCik": "0000102909",
+        "rules": [
+          "Rule 13d-1(b)"
+        ],
+        "statements": {
+          "relationships": "",
+          "group": "",
+          "onBehalfOf": "The Vanguard Group, Inc.'s clients, including investment companies registered under the Investment Company Act of 1940 and other managed accounts, have the right to receive or the power to direct the receipt of dividends from, or the proceeds from the sale of, the securities reported herein. No one other person's interest in the securities reported herein is more than 5%.",
+          "certification": "By signing below I certify that, to the best of my knowledge and belief, the securities referred to above were acquired and are held in the ordinary course of business and were not acquired and are not held for the purpose of or with the effect of changing or influencing the control of the issuer of the securities and were not acquired and are not held in connection with or as a participant in any transaction having that purpose or effect, other than activities solely in connection with a nomination under &#167; 240.14a-11.",
+          "purpose": ""
+        },
+        "accessionNumber": "0000102909-26-000226",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2026-01-30",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000010290926000226/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000010290926000226/xslSCHEDULE_13G_X01/primary_doc.xml",
+        "family": "13G",
+        "seriesId": "sec:0000102909:0001045810",
+        "displayPerson": 0,
+        "historyOnly": false,
+        "previousAccession": null,
+        "comparison": {
+          "state": "baseline",
+          "reason": "Första granskade observationen i detta urval."
+        },
+        "context": "Rapporten beskriver en kommande uppdelning av Vanguards rapportering.",
+        "relationships": "",
+        "purposeContext": "",
+        "reviewDate": "2026-09-23",
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000010290926000226/primary_doc.xml",
+          "sha256": "848e63d47c3b60b61952a43d53e3a7e30a002022684a6f22e4acf36887962c4f",
+          "format": "SEC Schedule XML"
+        }
+      }
+    ],
+    "pendingReview": [],
+    "excluded": [
+      {
+        "accessionNumber": "0001045810-26-000062",
+        "issuerCik": "0001513845",
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000062/primary_doc.xml",
+          "sha256": "ad12837640dcac1f564ddceeb3b357950f4a0af2ee22ac6493f56dc200682a54"
+        }
+      },
+      {
+        "accessionNumber": "0001045810-26-000008",
+        "issuerCik": "0001769628",
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000008/primary_doc.xml",
+          "sha256": "8d8aa78e9ea9fc30f9a0d16c66683092a9184114330611e76e27cf2bf9356be4"
+        }
+      },
+      {
+        "accessionNumber": "0001045810-25-000103",
+        "issuerCik": "0001769628",
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000103/primary_doc.xml",
+          "sha256": "766b81650cd0628dd60818603c2581dfc9266b4d22a01d6c13c591e17c511e14"
+        }
+      },
+      {
+        "accessionNumber": "0001045810-25-000014",
+        "issuerCik": "0001832483",
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000014/primary_doc.xml",
+          "sha256": "5d776a7b193e992aa10e26e117ccccf83a7d63b79f78b9892dcca3291f72237a"
+        }
+      }
+    ],
+    "checkedThrough": "2026-07-20",
+    "coverage": {
+      "startDate": "2025-01-01",
+      "basis": "Selected reviewed disclosures; older examples are separate; not a complete shareholder register."
+    }
+  },
+  "materialEvents": {
+    "schema": "ntm-company-material-events/1",
+    "documents": {
+      "0001045810-26-000069": {
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "form": "8-K",
+        "accessionNumber": "0001045810-26-000069",
+        "filingDate": "2026-08-17",
+        "reportDate": "2026-08-17",
+        "primaryDocument": "nvda-20260817.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000069/nvda-20260817.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000069/",
+        "items": [
+          "1.01",
+          "2.03",
+          "7.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "f77c7aa1cd78c6dae9e053ef004b7abaf900df9e870e9a323d703e1977ee1a4e",
+        "passages": [
+          "Item 1.01. Entry into a Material Definitive Agreement On August 17, 2026, NVIDIA Corporation (“NVIDIA”) announced a multi-year partnership with SB Energy Corp. (collectively with its affiliates, “SB Energy”) to advance the development of the PORTS Technology Campus, a large-scale AI data center campus in Pike County, Ohio (the “Portsmouth Site”). Through the partnership and the credit support described below, NVIDIA has secured land, power, and shell capacity at the Portsmouth Site to host NVIDIA AI compute infrastructure. An affiliate of OpenAI Group PBC (such affiliate, “OpenAI”) will be the tenant. Residual Value Guaranties On August 17, 2026, NVIDIA entered into multiple residual value guaranties (collectively, the “Agreements”) with SB Energy (the “Lessor”) relating to leases for approximately 4.25 gigawatts of IT load in the aggregate at the Portsmouth Site. An Agreement generally will become effective upon commencement of the applicable lease. NVIDIA also can provide credit support to secure approximately an additional 3.8 gigawatts at the Portsmouth Site, exercisable in its sole discretion. NVIDIA’s aggregate payment obligation is cumulatively capped at $105 billion for its initial commitment under the Agreements. NVIDIA’s payment obligations are subject to specified conditions, including among other things, that the Lessor has satisfied applicable ready-for-service conditions under the lease for the relevant premises, expected beginning in 2028. Pursuant to the Agreements, OpenAI is the tenant; however, in the event of (i) OpenAI’s insolvency resulting in a default under a lease, or (ii) OpenAI’s failure to make payments under a lease (each a “Trigger Event”), NVIDIA will pay an amount generally equal to any shortfall between the guaranteed minimum value of a lease (as set forth in the Agreements) and amounts recovered through a replacement lease or sale. Upon a Trigger Event, NVIDIA may elect to (i) assume the applicable lease, (ii) require the Lessor to seek to relet the applicable premises, (iii) initiate a sale process, (iv) allow the applicable lease to be terminated, or (v) defer the exercise of these remedies for up to one year while paying specified project agreement costs. NVIDIA’s obligations under an Agreement will terminate upon the earliest to occur of (i) the 20th anniversary of the commencement of the applicable lease, (ii) the termination of the applicable lease by OpenAI in accordance with its terms, (iii) OpenAI achieving a satisfactory credit rating, and (iv) other customary termination events. OpenAI has agreed to reimburse and indemnify NVIDIA for any and all amounts actually paid by NVIDIA to the Lessor under the Agreements. The foregoing description of the Agreements does not purport to be complete and is qualified in its entirety by reference to the full text of the Agreements, the form of which will be filed as an exhibit to NVIDIA’s Quarterly Report on Form 10-Q for the fiscal quarter ended July 26, 2026. OpenAI, as the tenant, will utilize capacity at the Portsmouth Site supporting approximately 4.25 gigawatts of IT load to deploy NVIDIA’s full-stack DSX AI factory platform, subject to limited exceptions.",
+          "Item 2.03. Creation of a Direct Financial Obligation or an Obligation under an Off-Balance Sheet Arrangement of a Registrant The information set forth in",
+          "Item 1.01 above is hereby incorporated by reference into this",
+          "Item 2.03.",
+          "Item 7.01. Regulation FD On August 17, 2026, NVIDIA issued a press release announcing the partnership with SB Energy. The press release is attached as Exhibit 99.1 hereto and is incorporated herein by reference. The press release is furnished and shall not be deemed \"filed\" for purposes of Section 18 of the Securities Exchange Act of 1934, as amended, or subject to the liabilities of that Section or Sections 11 and 12(a)(2) of the Securities Act of 1933, as amended. The information in this",
+          "Item 7.01 of this Current Report on Form 8-K, including Exhibit 99.1, shall not be incorporated by reference in any filing with the U.S. Securities and Exchange Commission made by NVIDIA, whether made before or after the date hereof, regardless of any general incorporation language in such filing. Forward-Looking Statements Certain statements in this Current Report on Form 8-K, including, but not limited to, statements as to: NVIDIA’s partnership with SB Energy and the expected benefits and impacts of the partnership; the development, timing, scale, capacity, and operation of the Portsmouth Site; OpenAI’s role as the tenant and the expected deployment of NVIDIA’s DSX AI factory platform at the Portsmouth Site; the potential expansion of the Portsmouth Site and related commitments; the amount, timing, and conditions of any payments by NVIDIA under the Agreements; the expected timing of the Lessor’s satisfaction of the applicable ready-for-service conditions; and other statements that are not historical facts are forward-looking statements within the meaning of Section 27A of the Securities Act of 1933, as amended, and Section 21E of the Securities Exchange Act of 1934, as amended, which are subject to the “safe harbor” created by those sections based on management’s beliefs and assumptions and on information currently available to management and are subject to risks and uncertainties that could cause results to be materially different than expectations. Important factors that could cause actual results to differ materially include: global economic and political conditions; NVIDIA’s reliance on third parties to manufacture, assemble, package and test NVIDIA’s products; the impact of technological development and competition; development of new products and technologies or enhancements to NVIDIA’s existing products and technologies; market acceptance of NVIDIA’s products or NVIDIA’s partners’ products; design, manufacturing or software defects; changes in consumer preferences or demands; changes in industry standards and interfaces; unexpected loss of performance of NVIDIA’s products or technologies when integrated into systems; NVIDIA’s ability to realize the potential benefits of business investments or acquisitions; and changes in applicable laws and regulations, as well as other factors detailed from time to time in the most recent reports NVIDIA files with the Securities and Exchange Commission (the “SEC”) including, but not limited to, its most recent Annual Report on Form 10-K and subsequent Quarterly Reports on Form 10-Q. Copies of reports filed with the SEC are posted on NVIDIA’s website and are available from NVIDIA without charge. These forward-looking statements are not guarantees of future performance and speak only as of the date hereof, and, except as required by law, NVIDIA disclaims any obligation to update these forward-looking statements to reflect future events or circumstances.",
+          "Item 9.01. Financial Statements and Exhibits. (d) Exhibits Exhibit Description 99.1 Press release, issued August 17, 2026 104 The cover page of this Current Report on Form 8-K, formatted in inline XBRL (included as Exhibit 101)"
+        ],
+        "reviewDate": "2026-09-23"
+      },
+      "0001045810-26-000060": {
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "form": "8-K",
+        "accessionNumber": "0001045810-26-000060",
+        "filingDate": "2026-07-02",
+        "reportDate": "2026-06-28",
+        "primaryDocument": "nvda-20260628.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000060/nvda-20260628.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000060/",
+        "items": [
+          "5.02"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "3c82af2d95b63027ce60ea933a666bd15071e5b9d348272acdea42755b2b94fa",
+        "passages": [
+          "Item 5.02. Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers; Compensatory Arrangements of Certain Officers. (b) On June 28, 2026, Ajay K. Puri, Executive Vice President, Worldwide Field Operations of NVIDIA Corporation, or the Company, notified the Company of his intention to retire from his role effective upon the employment commencement date of his successor. Mr. Puri, a 21-year executive at NVIDIA, is expected to remain with the Company in a senior advisory role to ensure a seamless transition to his successor. (c) On July 1, 2026, the Company appointed Nicholas Parker, age 55, as Executive Vice President, Worldwide Field Operations of the Company, effective upon the commencement of his employment with the Company, which is anticipated to be on August 24, 2026. Mr. Parker will join the Company after 26 years at Microsoft Corporation and brings a combination of industry knowledge and business acumen as the Company works to extend its global leadership in AI infrastructure and expand the ecosystem. He most recently served as Executive Vice President and Chief Business Officer of Microsoft’s Worldwide Sales & Solutions organization from 2025 to 2026, where he was responsible for operating the commercial business for enterprise, small and medium business and consumer customers. He also served as President, Industry & Partner Sales from 2022 to 2025, and Vice President, Global Partner Solutions from 2020 to 2022. Mr. Parker’s annual base salary will be $1,000,000 and he will receive a sign-on bonus of $5,000,000. He will be eligible to receive target annualized cash variable compensation of $1,500,000 pursuant to the Company’s Fiscal 2027 Variable Compensation Plan, pro-rated for his time worked during fiscal year 2027. Mr. Parker will also receive two new hire equity grants consisting of (a) restricted stock units, or RSUs, with a target value of $35,000,000, vesting approximately over a four-year period according to the Company’s standard new hire vesting schedule, and (b) multi-year performance-based RSUs, or MY PSUs, with a target value of $5,000,000, which will be eligible to vest based on the Company’s total shareholder return relative to the Standard & Poor’s 500 Composite Index over a three-year period. The terms of the RSUs and MY PSUs will be governed by the Company's Amended and Restated 2007 Equity Incentive Plan and applicable RSU and MY PSU agreements. Mr. Parker will be eligible to participate in the Company's benefit programs available to similarly situated employees. Mr. Parker will enter into the Company’s indemnity agreement, which would require the Company to indemnify Mr. Parker, under the circumstances and to the extent provided for therein, against certain expenses and other amounts incurred by Mr. Parker as a result of being made a party to certain actions, suits, proceedings and the like by reason of his position as an officer of the Company."
+        ],
+        "reviewDate": "2026-09-23"
+      },
+      "0001045810-25-000082": {
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "form": "8-K",
+        "accessionNumber": "0001045810-25-000082",
+        "filingDate": "2025-04-15",
+        "reportDate": "2025-04-09",
+        "primaryDocument": "nvda-20250409.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000082/nvda-20250409.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000082/",
+        "items": [
+          "8.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "bea68230c22427c6958b395bda04109f3493502c30d234ee9c466674de585c99",
+        "passages": [
+          "Item 8.01 Other Events. On April 9, 2025, the U.S. government, or USG, informed NVIDIA Corporation, or the Company, that the USG requires a license for export to China (including Hong Kong and Macau) and D:5 countries, or to companies headquartered or with an ultimate parent therein, of the Company’s H20 integrated circuits and any other circuits achieving the H20’s memory bandwidth, interconnect bandwidth, or combination thereof. The USG indicated that the license requirement addresses the risk that the covered products may be used in, or diverted to, a supercomputer in China. On April 14, 2025, the USG informed the Company that the license requirement will be in effect for the indefinite future. The Company’s first quarter of fiscal year 2026 ends on April 27, 2025. First quarter results are expected to include up to approximately $5.5 billion of charges associated with H20 products for inventory, purchase commitments, and related reserves. Certain statements in this Current Report on Form 8-K including statements regarding the USG’s intentions and the impact of the license requirement on the Company’s first quarter financial results are forward-looking statements that are subject to risks and uncertainties that could cause results to be materially different than expectations. Important factors that could cause actual results to differ materially include: global economic conditions; our reliance on third parties to manufacture, assemble, package and test our products; the impact of technological development and competition; development of new products and technologies or enhancements to our existing product and technologies; market acceptance of our products or our partners’ products; design, manufacturing or software defects; changes in consumer preferences or demands; changes in industry standards and interfaces; unexpected loss of performance of our products or technologies when integrated into systems; as well as other factors detailed from time to time in the most recent reports NVIDIA files with the Securities and Exchange Commission, or SEC, including, but not limited to, its annual report on Form 10-K and quarterly reports on Form 10-Q. Copies of reports filed with the SEC are posted on the company’s website and are available from NVIDIA without charge. These forward-looking statements are not guarantees of future performance and speak only as of the date hereof, and, except as required by law, NVIDIA disclaims any obligation to update these forward-looking statements to reflect future events or circumstances."
+        ],
+        "reviewDate": "2026-09-23"
+      },
+      "0001045810-22-000005": {
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "form": "8-K",
+        "accessionNumber": "0001045810-22-000005",
+        "filingDate": "2022-02-08",
+        "reportDate": "2022-02-08",
+        "primaryDocument": "nvda-20220208.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581022000005/nvda-20220208.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581022000005/",
+        "items": [
+          "1.02"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001045810.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "df478175a094f27cf5c4f350751f336898979ca20049a6c7f3f7c620e659c2f1",
+        "passages": [
+          "Item 1.02 Termination of a Material Definitive Agreement . On February 8, 2022, NVIDIA Corporation (the “Company”), SoftBank Group Capital Limited (“SoftBank”) and SVF Holdco (UK) Limited (together with SoftBank, the “Sellers”) mutually terminated the Share Purchase Agreement (the “Purchase Agreement”), dated as of September 13, 2020, by and among the Company, NVIDIA International Holdings Inc., the Sellers and Arm Limited. The material terms of the Purchase Agreement were previously disclosed on a Form 8-K filed by the Company with the U.S. Securities and Exchange Commission on September 1 4 , 2020 . The parties agreed to terminate the Purchase Agreement because of significant regulatory challenges preventing the consummation of the transaction. In accordance with the terms of the Purchase Agreement, the Sellers will retain the $1.25 billion prepaid by the Company, and the Company will retain its 20-year Arm license. The Company intends to record a $1.36 billion charge in the first quarter of fiscal year 2023, inclusive of the $1.25 billion prepayment provided at signing, due to the termination of the Purchase Agreement."
+        ],
+        "reviewDate": "2026-09-23"
+      }
+    },
+    "observations": [
+      {
+        "id": "NVDA:0001045810-26-000069/guarantees:0001045810-26-000069",
+        "eventId": "NVDA:0001045810-26-000069/guarantees",
+        "ticker": "NVDA",
+        "accessionNumber": "0001045810-26-000069",
+        "category": "financing",
+        "template": "guarantees",
+        "eventDate": "2026-08-17",
+        "items": [
+          "1.01",
+          "2.03",
+          "7.01"
+        ],
+        "parameters": {
+          "counterparty": "SB Energy",
+          "project": "Portsmouth Site"
+        },
+        "facts": [
+          {
+            "label": "Kumulativt betalningstak",
+            "reportedText": "105",
+            "scale": "1000000000",
+            "value": "105000000000",
+            "unit": "USD",
+            "qualifier": "Tak för villkorade garantiåtaganden; inte utbetalt lån eller aktuell skuld.",
+            "passage": 0
+          }
+        ],
+        "evidencePassages": [
+          0,
+          4,
+          5
+        ],
+        "reviewDate": "2026-09-23",
+        "groupingBasis": "Item 2.03 incorporates the agreements in 1.01; 7.01 announces the same partnership. One guarantee event.",
+        "publicationDate": "2026-08-17",
+        "form": "8-K"
+      },
+      {
+        "id": "NVDA:0001045810-26-000060/succession:0001045810-26-000060",
+        "eventId": "NVDA:0001045810-26-000060/succession",
+        "ticker": "NVDA",
+        "accessionNumber": "0001045810-26-000060",
+        "category": "leadership",
+        "template": "executive_successor",
+        "eventDate": "2026-07-01",
+        "items": [
+          "5.02"
+        ],
+        "parameters": {
+          "incoming": "Nicholas Parker",
+          "outgoing": "Ajay K. Puri"
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-23",
+        "groupingBasis": "Retirement and successor appointment are one reviewed succession; future employment commencement is not asserted as completed.",
+        "publicationDate": "2026-07-02",
+        "form": "8-K"
+      },
+      {
+        "id": "NVDA:0001045810-25-000082/export:0001045810-25-000082",
+        "eventId": "NVDA:0001045810-25-000082/export",
+        "ticker": "NVDA",
+        "accessionNumber": "0001045810-25-000082",
+        "category": "regulatory",
+        "template": "export_license",
+        "eventDate": "2025-04-14",
+        "items": [
+          "8.01"
+        ],
+        "parameters": {
+          "product": "H20"
+        },
+        "facts": [
+          {
+            "label": "Förväntade kostnader, upp till cirka",
+            "reportedText": "5.5",
+            "scale": "1000000000",
+            "value": "5500000000.0",
+            "unit": "USD",
+            "qualifier": "Uppskattning i rapporten för Q1 FY2026, inte fastställd slutlig kostnad.",
+            "passage": 0
+          }
+        ],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-23",
+        "groupingBasis": "Explicit reviewed Item 8.01 export-license disclosure. Not automatically reclassified as Item 2.06 impairment.",
+        "publicationDate": "2025-04-15",
+        "form": "8-K"
+      },
+      {
+        "id": "NVDA:0001045810-22-000005/termination:0001045810-22-000005",
+        "eventId": "NVDA:0001045810-22-000005/termination",
+        "ticker": "NVDA",
+        "accessionNumber": "0001045810-22-000005",
+        "category": "termination",
+        "template": "agreement_terminated",
+        "eventDate": "2022-02-08",
+        "items": [
+          "1.02"
+        ],
+        "parameters": {
+          "target": "Arm Limited"
+        },
+        "facts": [
+          {
+            "label": "Förskott som säljarna behåller",
+            "reportedText": "1.25",
+            "scale": "1000000000",
+            "value": "1250000000.00",
+            "unit": "USD",
+            "qualifier": "Rapporterat avtalsvillkor.",
+            "passage": 0
+          }
+        ],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-23",
+        "groupingBasis": "Termination of the Arm purchase agreement; not a completed acquisition.",
+        "publicationDate": "2022-02-08",
+        "form": "8-K"
+      }
+    ],
+    "pendingReview": [
+      {
+        "accessionNumber": "0001045810-26-000078",
+        "filingDate": "2026-09-03",
+        "items": [
+          "8.01"
+        ],
+        "candidates": [],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": []
+      },
+      {
+        "accessionNumber": "0001193125-26-275783",
+        "filingDate": "2026-06-18",
+        "items": [
+          "8.01",
+          "9.01"
+        ],
+        "candidates": [],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": [
+          "9.01"
+        ]
+      },
+      {
+        "accessionNumber": "0001045810-26-000028",
+        "filingDate": "2026-05-08",
+        "items": [
+          "5.02"
+        ],
+        "candidates": [
+          "leadership"
+        ],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": []
+      },
+      {
+        "accessionNumber": "0001045810-26-000026",
+        "filingDate": "2026-04-27",
+        "items": [
+          "5.02"
+        ],
+        "candidates": [
+          "leadership"
+        ],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": []
+      },
+      {
+        "accessionNumber": "0001045810-26-000024",
+        "filingDate": "2026-03-06",
+        "items": [
+          "5.02",
+          "9.01"
+        ],
+        "candidates": [
+          "leadership"
+        ],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": [
+          "9.01"
+        ]
+      },
+      {
+        "accessionNumber": "0001045810-26-000003",
+        "filingDate": "2026-01-23",
+        "items": [
+          "5.02"
+        ],
+        "candidates": [
+          "leadership"
+        ],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": []
+      },
+      {
+        "accessionNumber": "0001045810-25-000197",
+        "filingDate": "2025-08-05",
+        "items": [
+          "5.02"
+        ],
+        "candidates": [
+          "leadership"
+        ],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": []
+      },
+      {
+        "accessionNumber": "0001045810-25-000039",
+        "filingDate": "2025-03-07",
+        "items": [
+          "5.02"
+        ],
+        "candidates": [
+          "leadership"
+        ],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": []
+      },
+      {
+        "accessionNumber": "0001045810-25-000007",
+        "filingDate": "2025-01-17",
+        "items": [
+          "8.01"
+        ],
+        "candidates": [],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": []
+      }
+    ],
+    "checkedThrough": "2026-09-03",
+    "coverage": {
+      "startDate": "2025-01-01",
+      "basis": "Selected reviewed material events plus older examples; not a complete archive"
+    }
+  },
+  "verifiedAt": "2026-09-23T17:02:14.883211+00:00",
   "status": "verified"
 }

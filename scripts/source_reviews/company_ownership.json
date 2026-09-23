@@ -1,0 +1,695 @@
+{
+  "schema": "ntm-ownership-review/1",
+  "startDate": "2025-01-01",
+  "reviewDate": "2026-09-23",
+  "documents": [
+    {
+      "ticker": "NVDA",
+      "accessionNumber": "0001045810-26-000062",
+      "metadata": {
+        "accessionNumber": "0001045810-26-000062",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "form": "SCHEDULE 13G",
+        "filingDate": "2026-07-20",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000062/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000062/xslSCHEDULE_13G_X01/primary_doc.xml"
+      },
+      "sha256": "ad12837640dcac1f564ddceeb3b357950f4a0af2ee22ac6493f56dc200682a54",
+      "reviewDate": "2026-09-23",
+      "excludedIssuer": "0001513845"
+    },
+    {
+      "ticker": "NVDA",
+      "accessionNumber": "0002100119-26-000017",
+      "metadata": {
+        "accessionNumber": "0002100119-26-000017",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "form": "SCHEDULE 13G",
+        "filingDate": "2026-04-28",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000210011926000017/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000210011926000017/xslSCHEDULE_13G_X02/primary_doc.xml"
+      },
+      "sha256": "b977825aa514c238685c0558a729d1c8fbc1a07be874d0938c1a5408f06373e7",
+      "reviewDate": "2026-09-23",
+      "seriesId": "sec:0002100119:0001045810",
+      "displayPerson": 0,
+      "persons": [
+        {
+          "name": "Vanguard Capital Management",
+          "entityId": "sec:0002100119",
+          "cik": "0002100119"
+        }
+      ],
+      "comparison": {
+        "state": "baseline",
+        "reason": "Första granskade observationen i detta urval."
+      },
+      "context": "Separat rapporterande Vanguard-enhet. Serien kopplas inte ihop med The Vanguard Groups tidigare rapportering."
+    },
+    {
+      "ticker": "NVDA",
+      "accessionNumber": "0000102909-26-000426",
+      "metadata": {
+        "accessionNumber": "0000102909-26-000426",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2026-03-26",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000010290926000426/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000010290926000426/xslSCHEDULE_13G_X02/primary_doc.xml"
+      },
+      "sha256": "ac53d2e0b91fd4c17537c23b9f283538f150ac6aa43c9da16db932891f48768c",
+      "reviewDate": "2026-09-23",
+      "seriesId": "sec:0000102909:0001045810",
+      "displayPerson": 0,
+      "persons": [
+        {
+          "name": "The Vanguard Group",
+          "entityId": "sec:0000102909",
+          "cik": "0000102909"
+        }
+      ],
+      "comparison": {
+        "state": "not_comparable",
+        "reason": "Intern omorganisation och separat rapportering från dotterbolag ändrar omfattningen. Ej jämförbart."
+      },
+      "context": "Vanguard beskriver ändrad rapporteringsstruktur. Nollvärdet innebär inte att motsvarande aktier har sålts.",
+      "previousAccession": "0000102909-26-000226"
+    },
+    {
+      "ticker": "NVDA",
+      "accessionNumber": "0000102909-26-000226",
+      "metadata": {
+        "accessionNumber": "0000102909-26-000226",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2026-01-30",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000010290926000226/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000010290926000226/xslSCHEDULE_13G_X01/primary_doc.xml"
+      },
+      "sha256": "848e63d47c3b60b61952a43d53e3a7e30a002022684a6f22e4acf36887962c4f",
+      "reviewDate": "2026-09-23",
+      "seriesId": "sec:0000102909:0001045810",
+      "displayPerson": 0,
+      "persons": [
+        {
+          "name": "The Vanguard Group",
+          "entityId": "sec:0000102909",
+          "cik": "0000102909"
+        }
+      ],
+      "comparison": {
+        "state": "baseline",
+        "reason": "Första granskade observationen i detta urval."
+      },
+      "context": "Rapporten beskriver en kommande uppdelning av Vanguards rapportering."
+    },
+    {
+      "ticker": "NVDA",
+      "accessionNumber": "0001045810-26-000008",
+      "metadata": {
+        "accessionNumber": "0001045810-26-000008",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2026-01-26",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000008/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000008/xslSCHEDULE_13G_X01/primary_doc.xml"
+      },
+      "sha256": "8d8aa78e9ea9fc30f9a0d16c66683092a9184114330611e76e27cf2bf9356be4",
+      "reviewDate": "2026-09-23",
+      "excludedIssuer": "0001769628"
+    },
+    {
+      "ticker": "NVDA",
+      "accessionNumber": "0001045810-25-000103",
+      "metadata": {
+        "accessionNumber": "0001045810-25-000103",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "form": "SCHEDULE 13G",
+        "filingDate": "2025-05-15",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000103/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000103/xslSCHEDULE_13G_X01/primary_doc.xml"
+      },
+      "sha256": "766b81650cd0628dd60818603c2581dfc9266b4d22a01d6c13c591e17c511e14",
+      "reviewDate": "2026-09-23",
+      "excludedIssuer": "0001769628"
+    },
+    {
+      "ticker": "NVDA",
+      "accessionNumber": "0001045810-25-000014",
+      "metadata": {
+        "accessionNumber": "0001045810-25-000014",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2025-02-14",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000014/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000014/xslSCHEDULE_13G_X01/primary_doc.xml"
+      },
+      "sha256": "5d776a7b193e992aa10e26e117ccccf83a7d63b79f78b9892dcca3291f72237a",
+      "reviewDate": "2026-09-23",
+      "excludedIssuer": "0001832483"
+    },
+    {
+      "ticker": "SOFI",
+      "accessionNumber": "0002100119-26-000989",
+      "metadata": {
+        "accessionNumber": "0002100119-26-000989",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "form": "SCHEDULE 13G",
+        "filingDate": "2026-04-30",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000210011926000989/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000210011926000989/xslSCHEDULE_13G_X02/primary_doc.xml"
+      },
+      "sha256": "ca953f53e1c7ee2ffe02d5d0c3cbdcc2e5489c9d09b8b1cc46f169630b78b34c",
+      "reviewDate": "2026-09-23",
+      "seriesId": "sec:0002100119:0001818874",
+      "displayPerson": 0,
+      "persons": [
+        {
+          "name": "Vanguard Capital Management",
+          "entityId": "sec:0002100119",
+          "cik": "0002100119"
+        }
+      ],
+      "comparison": {
+        "state": "baseline",
+        "reason": "Första granskade observationen i detta urval."
+      },
+      "context": "Separat rapporterande Vanguard-enhet. Serien kopplas inte ihop med The Vanguard Groups tidigare rapportering."
+    },
+    {
+      "ticker": "SOFI",
+      "accessionNumber": "0002012383-26-001719",
+      "metadata": {
+        "accessionNumber": "0002012383-26-001719",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "form": "SCHEDULE 13G",
+        "filingDate": "2026-04-27",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000201238326001719/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000201238326001719/xslSCHEDULE_13G_X02/primary_doc.xml"
+      },
+      "sha256": "c95bd2a453bf5ae46dd33b54e67d044723a6b18937018f8b46f968e850f6f265",
+      "reviewDate": "2026-09-23",
+      "seriesId": "sec:0002012383:0001818874",
+      "displayPerson": 0,
+      "persons": [
+        {
+          "name": "BlackRock, Inc.",
+          "entityId": "sec:0002012383",
+          "cik": "0002012383"
+        }
+      ],
+      "comparison": {
+        "state": "baseline",
+        "reason": "Första granskade observationen i detta urval."
+      }
+    },
+    {
+      "ticker": "SOFI",
+      "accessionNumber": "0000102909-26-002381",
+      "metadata": {
+        "accessionNumber": "0000102909-26-002381",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2026-03-27",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000010290926002381/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000010290926002381/xslSCHEDULE_13G_X02/primary_doc.xml"
+      },
+      "sha256": "f86eaeef1943bb0ff27502bcb066cf99d1e0875e04b4692a3f24bbffe98f9e0c",
+      "reviewDate": "2026-09-23",
+      "seriesId": "sec:0000102909:0001818874",
+      "displayPerson": 0,
+      "persons": [
+        {
+          "name": "The Vanguard Group",
+          "entityId": "sec:0000102909",
+          "cik": "0000102909"
+        }
+      ],
+      "comparison": {
+        "state": "baseline",
+        "reason": "Första granskade observationen i detta urval."
+      },
+      "context": "Vanguard beskriver ändrad rapporteringsstruktur. Nollvärdet innebär inte att motsvarande aktier har sålts."
+    },
+    {
+      "ticker": "SOFI",
+      "accessionNumber": "0000019617-26-000076",
+      "metadata": {
+        "accessionNumber": "0000019617-26-000076",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2026-02-04",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000001961726000076/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000001961726000076/xslSCHEDULE_13G_X01/primary_doc.xml"
+      },
+      "sha256": "c13b30a469752384ed936eeeb5d688f0df8f5c88ed5baabf62e8ab801872efb2",
+      "reviewDate": "2026-09-23",
+      "seriesId": "sec:0000019617:0001818874",
+      "displayPerson": 0,
+      "persons": [
+        {
+          "name": "JPMORGAN CHASE & CO.",
+          "entityId": "sec:0000019617",
+          "cik": "0000019617"
+        }
+      ],
+      "comparison": {
+        "state": "comparable",
+        "reason": "Samma rapporterande juridiska person, dotterbolagslista och aktieslag. Rapporterat ägande kan jämföras; procenttalens nämnare kan förändras."
+      },
+      "previousAccession": "0000019617-26-000047"
+    },
+    {
+      "ticker": "SOFI",
+      "accessionNumber": "0000019617-26-000047",
+      "metadata": {
+        "accessionNumber": "0000019617-26-000047",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "form": "SCHEDULE 13G",
+        "filingDate": "2026-01-21",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000001961726000047/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000001961726000047/xslSCHEDULE_13G_X01/primary_doc.xml"
+      },
+      "sha256": "0b7c4737293d9b6ac083b65639cd2d355365683ed20625903913b76e0186cf4c",
+      "reviewDate": "2026-09-23",
+      "seriesId": "sec:0000019617:0001818874",
+      "displayPerson": 0,
+      "persons": [
+        {
+          "name": "JPMORGAN CHASE & CO.",
+          "entityId": "sec:0000019617",
+          "cik": "0000019617"
+        }
+      ],
+      "comparison": {
+        "state": "baseline",
+        "reason": "Första granskade observationen i detta urval."
+      }
+    },
+    {
+      "ticker": "SOFI",
+      "accessionNumber": "0001595888-25-000145",
+      "metadata": {
+        "accessionNumber": "0001595888-25-000145",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2025-11-13",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000159588825000145/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000159588825000145/xslSCHEDULE_13G_X01/primary_doc.xml"
+      },
+      "sha256": "7725dae7501e922743a38659b8f256b57b520fb4e9cd8310f6055148dcdde28f",
+      "reviewDate": "2026-09-23",
+      "seriesId": "sec:0001595888:0001818874",
+      "displayPerson": 0,
+      "persons": [
+        {
+          "name": "JANE STREET GROUP, LLC",
+          "entityId": "sec:0001595888",
+          "cik": "0001595888"
+        },
+        {
+          "name": "Jane Street Capital, LLC",
+          "entityId": "reviewed:0001595888-25-000106:person:2"
+        },
+        {
+          "name": "Jane Street Options, LLC",
+          "entityId": "reviewed:0001595888-25-000106:person:3"
+        },
+        {
+          "name": "Jane Street Global Trading, LLC",
+          "entityId": "reviewed:0001595888-25-000106:person:4"
+        }
+      ],
+      "comparison": {
+        "state": "comparable",
+        "reason": "Samma fyra rapporterande personer, aktieslag och rapporteringsomfattning. Rapporterade procenttal jämförs; förändringen är ingen härledd transaktion."
+      },
+      "relationships": "Jane Street Group är moderbolag; dotterbolagens rapporterade innehav överlappar moderbolagets. Beloppen summeras inte.",
+      "previousAccession": "0001595888-25-000106"
+    },
+    {
+      "ticker": "SOFI",
+      "accessionNumber": "0001595888-25-000106",
+      "metadata": {
+        "accessionNumber": "0001595888-25-000106",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "form": "SCHEDULE 13G",
+        "filingDate": "2025-08-06",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000159588825000106/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000159588825000106/xslSCHEDULE_13G_X01/primary_doc.xml"
+      },
+      "sha256": "4cd8e99eba36983a9203df452107342f0d64722b162f038fcf61743fd4ad647b",
+      "reviewDate": "2026-09-23",
+      "seriesId": "sec:0001595888:0001818874",
+      "displayPerson": 0,
+      "persons": [
+        {
+          "name": "JANE STREET GROUP, LLC",
+          "entityId": "sec:0001595888",
+          "cik": "0001595888"
+        },
+        {
+          "name": "Jane Street Capital, LLC",
+          "entityId": "reviewed:0001595888-25-000106:person:2"
+        },
+        {
+          "name": "Jane Street Options, LLC",
+          "entityId": "reviewed:0001595888-25-000106:person:3"
+        },
+        {
+          "name": "Jane Street Global Trading, LLC",
+          "entityId": "reviewed:0001595888-25-000106:person:4"
+        }
+      ],
+      "comparison": {
+        "state": "baseline",
+        "reason": "Första granskade observationen i detta urval."
+      },
+      "relationships": "Jane Street Group är moderbolag; dotterbolagens rapporterade innehav överlappar moderbolagets. Beloppen summeras inte."
+    },
+    {
+      "ticker": "SOFI",
+      "accessionNumber": "0001140361-22-030137",
+      "metadata": {
+        "accessionNumber": "0001140361-22-030137",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "form": "SC 13D/A",
+        "filingDate": "2022-08-17",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000114036122030137/brhc10040985_sc13da.htm",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000114036122030137/brhc10040985_sc13da.htm"
+      },
+      "sha256": "bb5814596db01ccca656ddf245751005393e891c2998e6bf225294ad94363182",
+      "reviewDate": "2026-09-23",
+      "seriesId": "reviewed:0001140361-22-028766:joint",
+      "displayPerson": 1,
+      "historyOnly": true,
+      "persons": [
+        {
+          "name": "Delaware Project 10 L.L.C.",
+          "entityId": "reviewed:0001140361-22-028766:person:1"
+        },
+        {
+          "name": "SoftBank Group Corp.",
+          "entityId": "reviewed:0001140361-22-028766:person:2"
+        }
+      ],
+      "passages": [
+        "7 SOLE VOTING POWER 45,422,128 8 SHARED VOTING POWER 0 9 SOLE DISPOSITIVE POWER 45,422,128 10 SHARED DISPOSITIVE POWER 0 11 AGGREGATE AMOUNT BENEFICIALLY OWNED BY EACH REPORTING PERSON 45,422,128",
+        "13 PERCENT OF CLASS REPRESENTED BY AMOUNT IN ROW (11) 4.9%",
+        "Project 10 LLC is an indirect, wholly owned subsidiary of SoftBank. As a result, SoftBank may be deemed to beneficially own the shares of Common Stock beneficially owned by Project 10 LLC."
+      ],
+      "legacy": {
+        "persons": [
+          {
+            "name": "Delaware Project 10 L.L.C.",
+            "shares": "45422128",
+            "percent": "4.9",
+            "personType": "CO",
+            "powers": {
+              "soleVotingPower": "45422128",
+              "sharedVotingPower": "0",
+              "soleDispositivePower": "45422128",
+              "sharedDispositivePower": "0"
+            },
+            "comments": "",
+            "locator": "Cover page 1; rows 7–14"
+          },
+          {
+            "name": "SoftBank Group Corp.",
+            "shares": "45422128",
+            "percent": "4.9",
+            "personType": "CO",
+            "powers": {
+              "soleVotingPower": "45422128",
+              "sharedVotingPower": "0",
+              "soleDispositivePower": "45422128",
+              "sharedDispositivePower": "0"
+            },
+            "comments": "",
+            "locator": "Cover page 2; rows 7–14"
+          }
+        ],
+        "eventDate": "2022-08-16",
+        "security": "Common Stock, par value $0.0001 per share",
+        "cusips": [
+          "83406F102"
+        ],
+        "amendmentNumber": "6",
+        "reportedPreviousAccession": null,
+        "filerCik": null,
+        "rules": [],
+        "statements": {
+          "relationships": "Project 10 LLC is an indirect, wholly owned subsidiary of SoftBank. As a result, SoftBank may be deemed to beneficially own the shares of Common Stock beneficially owned by Project 10 LLC."
+        }
+      },
+      "comparison": {
+        "state": "not_comparable",
+        "reason": "Den senare rapporten inkluderar uttryckligen 31 428 aktier från tilldelade RSU:er. Tidigare omfattning är inte styrkt: ingen positionsförändring beräknas."
+      },
+      "relationships": "SoftBank och dess indirekt helägda Delaware Project 10 redovisar samma aktier. Två rapporterande personer, ett överlappande innehav; summeras inte.",
+      "previousAccession": "0001140361-22-029305",
+      "context": "Äldre 13D-historik från 2022, inte ett aktuellt innehav. Senaste urvalet redovisar 4,9 %."
+    },
+    {
+      "ticker": "SOFI",
+      "accessionNumber": "0001140361-22-029305",
+      "metadata": {
+        "accessionNumber": "0001140361-22-029305",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "form": "SC 13D/A",
+        "filingDate": "2022-08-11",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000114036122029305/brhc10040727_sc13da.htm",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000114036122029305/brhc10040727_sc13da.htm"
+      },
+      "sha256": "8057f5786e90cbfaae7878f30ec5fcd1dc38d65c0c6ffd63a5bb87a290c44a1e",
+      "reviewDate": "2026-09-23",
+      "seriesId": "reviewed:0001140361-22-028766:joint",
+      "displayPerson": 1,
+      "historyOnly": true,
+      "persons": [
+        {
+          "name": "Delaware Project 10 L.L.C.",
+          "entityId": "reviewed:0001140361-22-028766:person:1"
+        },
+        {
+          "name": "SoftBank Group Corp.",
+          "entityId": "reviewed:0001140361-22-028766:person:2"
+        }
+      ],
+      "passages": [
+        "7 SOLE VOTING POWER 63,651,933 8 SHARED VOTING POWER 0 9 SOLE DISPOSITIVE POWER 63,651,933 10 SHARED DISPOSITIVE POWER 0 11 AGGREGATE AMOUNT BENEFICIALLY OWNED BY EACH REPORTING PERSON 63,651,933",
+        "13 PERCENT OF CLASS REPRESENTED BY AMOUNT IN ROW (11) 6.9%",
+        "Project 10 LLC is an indirect, wholly owned subsidiary of SoftBank. As a result, SoftBank may be deemed to beneficially own the shares of Common Stock beneficially owned by Project 10 LLC."
+      ],
+      "legacy": {
+        "persons": [
+          {
+            "name": "Delaware Project 10 L.L.C.",
+            "shares": "63651933",
+            "percent": "6.9",
+            "personType": "CO",
+            "powers": {
+              "soleVotingPower": "63651933",
+              "sharedVotingPower": "0",
+              "soleDispositivePower": "63651933",
+              "sharedDispositivePower": "0"
+            },
+            "comments": "",
+            "locator": "Cover page 1; rows 7–14"
+          },
+          {
+            "name": "SoftBank Group Corp.",
+            "shares": "63651933",
+            "percent": "6.9",
+            "personType": "CO",
+            "powers": {
+              "soleVotingPower": "63651933",
+              "sharedVotingPower": "0",
+              "soleDispositivePower": "63651933",
+              "sharedDispositivePower": "0"
+            },
+            "comments": "",
+            "locator": "Cover page 2; rows 7–14"
+          }
+        ],
+        "eventDate": "2022-08-09",
+        "security": "Common Stock, par value $0.0001 per share",
+        "cusips": [
+          "83406F102"
+        ],
+        "amendmentNumber": "5",
+        "reportedPreviousAccession": null,
+        "filerCik": null,
+        "rules": [],
+        "statements": {
+          "relationships": "Project 10 LLC is an indirect, wholly owned subsidiary of SoftBank. As a result, SoftBank may be deemed to beneficially own the shares of Common Stock beneficially owned by Project 10 LLC."
+        }
+      },
+      "comparison": {
+        "state": "comparable",
+        "reason": "Samma rapporterande personer och aktieslag. Antal aktier kan jämföras; procenttalen använder olika rapporterade antal utestående aktier."
+      },
+      "relationships": "SoftBank och dess indirekt helägda Delaware Project 10 redovisar samma aktier. Två rapporterande personer, ett överlappande innehav; summeras inte.",
+      "previousAccession": "0001140361-22-028766"
+    },
+    {
+      "ticker": "SOFI",
+      "accessionNumber": "0001140361-22-028766",
+      "metadata": {
+        "accessionNumber": "0001140361-22-028766",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "form": "SC 13D/A",
+        "filingDate": "2022-08-08",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000114036122028766/brhc10040546_sc13da.htm",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000114036122028766/brhc10040546_sc13da.htm"
+      },
+      "sha256": "c8fb15453e536ba0c48426edafb720b67a4c07adabce2ac00aec92a118d31103",
+      "reviewDate": "2026-09-23",
+      "seriesId": "reviewed:0001140361-22-028766:joint",
+      "displayPerson": 1,
+      "historyOnly": true,
+      "persons": [
+        {
+          "name": "Delaware Project 10 L.L.C.",
+          "entityId": "reviewed:0001140361-22-028766:person:1"
+        },
+        {
+          "name": "SoftBank Group Corp.",
+          "entityId": "reviewed:0001140361-22-028766:person:2"
+        }
+      ],
+      "passages": [
+        "7 SOLE VOTING POWER 83,216,977 8 SHARED VOTING POWER 0 9 SOLE DISPOSITIVE POWER 83,216,977 10 SHARED DISPOSITIVE POWER 0 11 AGGREGATE AMOUNT BENEFICIALLY OWNED BY EACH REPORTING PERSON 83,216,977",
+        "13 PERCENT OF CLASS REPRESENTED BY AMOUNT IN ROW (11) 9.0%",
+        "Project 10 LLC is an indirect, wholly owned subsidiary of SoftBank. As a result, SoftBank may be deemed to beneficially own the shares of Common Stock beneficially owned by Project 10 LLC.",
+        "The Reporting Persons have determined to sell some or all of their holdings of Shares of the Issuer in the open market, in private transactions or otherwise, on such terms and at such times as the Reporting Persons may deem advisable."
+      ],
+      "legacy": {
+        "persons": [
+          {
+            "name": "Delaware Project 10 L.L.C.",
+            "shares": "83216977",
+            "percent": "9.0",
+            "personType": "CO",
+            "powers": {
+              "soleVotingPower": "83216977",
+              "sharedVotingPower": "0",
+              "soleDispositivePower": "83216977",
+              "sharedDispositivePower": "0"
+            },
+            "comments": "",
+            "locator": "Cover page 1; rows 7–14"
+          },
+          {
+            "name": "SoftBank Group Corp.",
+            "shares": "83216977",
+            "percent": "9.0",
+            "personType": "CO",
+            "powers": {
+              "soleVotingPower": "83216977",
+              "sharedVotingPower": "0",
+              "soleDispositivePower": "83216977",
+              "sharedDispositivePower": "0"
+            },
+            "comments": "",
+            "locator": "Cover page 2; rows 7–14"
+          }
+        ],
+        "eventDate": "2022-08-05",
+        "security": "Common Stock, par value $0.0001 per share",
+        "cusips": [
+          "83406F102"
+        ],
+        "amendmentNumber": "4",
+        "reportedPreviousAccession": null,
+        "filerCik": null,
+        "rules": [],
+        "statements": {
+          "relationships": "Project 10 LLC is an indirect, wholly owned subsidiary of SoftBank. As a result, SoftBank may be deemed to beneficially own the shares of Common Stock beneficially owned by Project 10 LLC.",
+          "purpose": "The Reporting Persons have determined to sell some or all of their holdings of Shares of the Issuer in the open market, in private transactions or otherwise, on such terms and at such times as the Reporting Persons may deem advisable."
+        }
+      },
+      "comparison": {
+        "state": "baseline",
+        "reason": "Äldre urval börjar vid ändring 4; tidigare rapporter ingår inte."
+      },
+      "relationships": "SoftBank och dess indirekt helägda Delaware Project 10 redovisar samma aktier. Två rapporterande personer, ett överlappande innehav; summeras inte.",
+      "purposeContext": "I denna rapport uppgav parterna att de hade beslutat att sälja en del av eller hela innehavet. Tidpunkt och omfattning var villkorade av bland annat marknadsförhållanden."
+    },
+    {
+      "ticker": "CRWD",
+      "accessionNumber": "0002100119-26-000287",
+      "metadata": {
+        "accessionNumber": "0002100119-26-000287",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "form": "SCHEDULE 13G",
+        "filingDate": "2026-04-29",
+        "url": "https://www.sec.gov/Archives/edgar/data/1535527/000210011926000287/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000210011926000287/xslSCHEDULE_13G_X02/primary_doc.xml"
+      },
+      "sha256": "4d4836ea35246449ffd683be3dc8cae2537fc445976648abde8c44d39a402a0c",
+      "reviewDate": "2026-09-23",
+      "seriesId": "sec:0002100119:0001535527",
+      "displayPerson": 0,
+      "persons": [
+        {
+          "name": "Vanguard Capital Management",
+          "entityId": "sec:0002100119",
+          "cik": "0002100119"
+        }
+      ],
+      "comparison": {
+        "state": "baseline",
+        "reason": "Första granskade observationen i detta urval."
+      },
+      "context": "Separat rapporterande Vanguard-enhet. Serien kopplas inte ihop med The Vanguard Groups tidigare rapportering."
+    },
+    {
+      "ticker": "CRWD",
+      "accessionNumber": "0000102909-26-001050",
+      "metadata": {
+        "accessionNumber": "0000102909-26-001050",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2026-03-26",
+        "url": "https://www.sec.gov/Archives/edgar/data/1535527/000010290926001050/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000010290926001050/xslSCHEDULE_13G_X02/primary_doc.xml"
+      },
+      "sha256": "027b3b653d731c73cf8b1c8cb9b46f7ea443ce5935994ff40b3f07776365d417",
+      "reviewDate": "2026-09-23",
+      "seriesId": "sec:0000102909:0001535527",
+      "displayPerson": 0,
+      "persons": [
+        {
+          "name": "The Vanguard Group",
+          "entityId": "sec:0000102909",
+          "cik": "0000102909"
+        }
+      ],
+      "comparison": {
+        "state": "baseline",
+        "reason": "Första granskade observationen i detta urval."
+      },
+      "context": "Vanguard beskriver ändrad rapporteringsstruktur. Nollvärdet innebär inte att motsvarande aktier har sålts."
+    }
+  ]
+}

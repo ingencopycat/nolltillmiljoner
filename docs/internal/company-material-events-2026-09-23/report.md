@@ -1,0 +1,29 @@
+# Material company events — 2026-09-23
+
+Added to the existing SEC client, company-evidence envelope, atomic updater, Visual V3 company view and read-only Research API. No parallel feed or database. Earlier filing, financial/KPI, segment, capital, insider and ownership evidence remains unchanged against the pre-task snapshot. No commit, push or deployment.
+
+**12 reviewed observations form 11 underlying events**, supported by 11 event documents; two further documents are reviewed exclusions. [Official sources and hashes](../../../tests/fixtures/company_material_events/README.md).
+
+| Pilot | Actual retained events |
+| --- | --- |
+| NVDA | SB Energy/Portsmouth guarantee agreements, with a reported cumulative $105bn conditional cap; Puri/Parker succession; H20 export-license disclosure and estimated costs; termination of the Arm purchase agreement. |
+| SOFI | $862.5m 2029 convertible-note issuance; a separate $600m exchange agreement and its amendment reporting 72,621,879 issued shares; Simcock's post-retirement advisory transition; Technisys acquisition agreement, not an asserted completion. |
+| CRWD | Planned reduction of approximately 500 roles and estimated $36m–$53m costs; July 2024 service outage, explicitly **not caused by a cyberattack**; charter amendment limiting certain officers' liability. |
+
+Retained categories are financing/material agreements, termination, acquisition agreements, leadership transitions, restructuring, governance, reviewed regulatory developments and operational incidents. They explain contractual exposure, business structure, leadership or operational changes. Routine voting, standalone exhibit metadata, compensation-only filings and personal officer financing do not become generic material events. Other deterministic item codes provide review candidates, not automatic publication or an importance score. [SEC Form 8-K](https://www.sec.gov/files/form8-k.pdf) supplies the item semantics.
+
+Identity is explicit: **underlying event ID + immutable filing observation ID + scoped item references**. NVIDIA's agreement, obligation and FD disclosure are one guarantee event. SOFI's original filing contains two distinct transactions, even though they share item codes; its amendment updates only the exchange event. Original and amended evidence both remain inspectable. Item 9.01 only supports an event. CrowdStrike's restructuring is extracted from Item 2.05 while its co-filed Item 2.02 remains canonical earnings evidence, without a duplicate earnings event.
+
+Ingestion verifies whole-source hashes, required item headings, exact passages, source-backed template parameters and numeric conversions. Presentation uses **fixed Swedish templates**, not free-form/AI summaries. Amounts retain unit, scale and qualifiers: guarantee cap versus debt, gross issuance versus proceeds, planned versus completed actions and estimates versus final figures. Source dates, filing dates, item relationships and amendment links remain available.
+
+Automation discovers candidates incrementally. `--material-events` reuses cached reviewed sources and queues new/ambiguous filings; it does not publish unreviewed text. The current queue has NVDA 9, SOFI 9 and CRWD 7 documents, including mixed/broad disclosures needing review. `--reverify-material-events` rejects changed source text instead of rewriting history. Outages and malformed documents preserve the last verified whole feed. The existing scheduled command includes this layer. All 13 reviewed source hashes passed a live recheck; CI remains offline.
+
+UI: **Bolagshändelser**, a concise publication-ordered timeline with separate event dates, category filter, factual sentences, qualified numbers and expandable official sources. Amendments appear once as an updated event; original evidence remains below. No new charts are needed for this discrete event timeline. Detailed SEC mechanics sit under event evidence / **Källor & metod**.
+
+Research: `NTMCompanyEvidence.materialSince` returns grouped new events versus updates, categories, verified facts, new source observations and whether the reported event date is after the saved day. Publication date controls when evidence becomes available; same-day ordering is conservatively excluded. As-of views cannot leak later amendment values. Saved revisions are untouched; no final comparison UI was built.
+
+Validation passed: **276 Python tests** (one optional PostgreSQL skip), **401 JS tests** (399 pass, two optional migration skips), 42 browser smoke tests, four Fundamental Profile/Wave 4 tests, accessibility/CSP on 41 pages plus three pilots, earlier observation/segment/capital/insider/ownership browser matrices (24/40/24/24/24), security/staging/reference gates and `git diff --check`. Two screenshot passes each cover 24 real-data company/viewport/theme combinations. [QA record](../../qa/company-material-events/review.md).
+
+**Locally release-ready for the bounded reviewed pilot.** Coverage is selective, spanning 2022–2026 examples, with manual admission of new documents and no automatic archival paging. No real Item 1.05 cybersecurity or Item 2.06 impairment example was found in the inspected pilot indexes; candidate classification is tested synthetically. The outage and H20 estimated charges are not relabelled as those items. No completed acquisition is asserted from an agreement-stage filing.
+
+**The evidence stack is now sufficient to build a factual pilot “Sedan din analys”.** The next layer should use immutable saved revisions, explicit coverage/pending-review states, publication boundaries and each data type's comparability rules. Missing or unreviewed evidence must remain distinct from “nothing changed.” This is readiness for a bounded comparison experience, not a claim of comprehensive intelligence or validated user usefulness.
