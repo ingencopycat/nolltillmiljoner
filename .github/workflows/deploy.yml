@@ -3,8 +3,14 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: '35 12,14,16 * * 1-5'
+    - cron: '35 6 * * *'
   workflow_dispatch:
+    inputs:
+      ticker:
+        description: 'Update now: SEC issuer (ALL runs all three)'
+        type: choice
+        default: ALL
+        options: [ALL, NVDA, SOFI, CRWD]
 concurrency:
   group: pages-and-macro
   cancel-in-progress: false
@@ -25,7 +31,9 @@ jobs:
         with:
           node-version: '22'
       - run: python -m unittest discover -s tests -p "test_*.py"
+        if: github.event_name == 'push'
       - run: node scripts/check_calendar_coverage.cjs
+        if: github.event_name == 'push'
   prepare-data:
     needs: validate
     runs-on: ubuntu-latest
@@ -48,24 +56,43 @@ jobs:
         run: |
           python scripts/update_macro.py
           python tests/test_macro.py
+          node scripts/preserve_macro_noop.cjs
       - name: Validate weekly publication after update
         run: node scripts/check_weekly_events.cjs
-      - name: Refresh validated stocks
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-        run: python scripts/update_stocks.py --all
-      - name: Refresh pilot SEC filing evidence
+      - name: Incremental SEC update (scheduled and Update now)
+        id: sec
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         continue-on-error: true
-        run: python -B scripts/update_stocks.py --evidence --reviewed --insiders --ownership --material-events --all
+        env:
+          SEC_TICKER: ${{ inputs.ticker || 'ALL' }}
+        run: |
+          if [ "$SEC_TICKER" = ALL ]; then
+            python -B scripts/update_stocks.py --daily --all
+          else
+            python -B scripts/update_stocks.py --daily --ticker "$SEC_TICKER"
+          fi
+      - name: Owner SEC review and run summary
+        if: always() && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+        run: |
+          python -c "import json,os; p=json.load(open('artifacts/sec-refresh.json')); s={k:v for k,v in p.items() if k!='issuers'}; open(os.environ['GITHUB_STEP_SUMMARY'],'a').write('## SEC refresh\n\n'+json.dumps(s,indent=2)+'\n\nSee sec-owner-review artifact for bounded source links and reasons.\n')"
+      - uses: actions/upload-artifact@v4
+        if: always() && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+        with:
+          name: sec-owner-review
+          path: artifacts/sec-refresh.json
+          retention-days: 14
+          if-no-files-found: error
       - uses: actions/upload-artifact@v4
         with:
           name: validated-data
+          retention-days: 1
           path: |
             data/weekly-events.js
             data/stocks/NVDA.json
             data/stocks/SOFI.json
             data/stocks/CRWD.json
             data/stocks/evidence/*.json
+            scripts/source_reviews/daily_state.json
           if-no-files-found: error
   commit-data:
     needs: prepare-data
@@ -74,16 +101,22 @@ jobs:
       contents: write
     outputs:
       revision: ${{ steps.commit.outputs.revision }}
+      publish: ${{ steps.commit.outputs.publish }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
           name: validated-data
-          path: data
+          path: .
       - id: commit
         shell: bash
         run: |
-          git add data/weekly-events.js data/stocks/NVDA.json data/stocks/SOFI.json data/stocks/CRWD.json data/stocks/evidence/*.json
+          git add data/weekly-events.js data/stocks/NVDA.json data/stocks/SOFI.json data/stocks/CRWD.json data/stocks/evidence/*.json scripts/source_reviews/daily_state.json
+          if ! git diff --cached --quiet -- data; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+          fi
           if ! git diff --cached --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -93,6 +126,7 @@ jobs:
           echo "revision=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
   build:
     needs: commit-data
+    if: github.event_name == 'push' || needs.commit-data.outputs.publish == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:

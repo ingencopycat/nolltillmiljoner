@@ -143,6 +143,7 @@ def main():
     parser.add_argument('--ticker', type=str, default='SOFI', help="Stock ticker symbol (default: SOFI)")
     parser.add_argument('--all', action='store_true', help="Process all configured stock tickers")
     parser.add_argument('--offline', action='store_true', help="Run in offline mode using fixtures")
+    parser.add_argument('--daily', action='store_true', help='Incremental pilot admission; same path for scheduled and owner runs')
     parser.add_argument('--evidence', action='store_true', help='Refresh only the three-company filing evidence pilot')
     parser.add_argument('--reviewed', action='store_true', help='Revalidate reviewed guidance and operating KPI passages')
     parser.add_argument('--insiders', action='store_true', help='Incrementally refresh SEC Form 4 ownership evidence')
@@ -152,6 +153,16 @@ def main():
     parser.add_argument('--reverify-ownership', action='store_true', help='Re-fetch reviewed Schedule sources without rewriting history')
     parser.add_argument('--reverify-insiders', action='store_true', help='Also re-fetch retained ownership documents; changes require review')
     args = parser.parse_args()
+
+    if args.daily:
+        if args.offline or args.evidence or args.reviewed or args.insiders or args.ownership or args.material_events or args.reverify_insiders or args.reverify_ownership or args.reverify_material_events:
+            parser.error('--daily uses its own admission policy; do not combine refresh modes')
+        from sec_daily import run
+        from company_evidence import PILOT
+        result = run(list(PILOT) if args.all else [args.ticker.upper()], SECClient())
+        if result['rejectedFailed']:
+            raise SystemExit(1)
+        return
 
     if args.evidence:
         from company_evidence import PILOT
