@@ -87,6 +87,7 @@
       },
       "seen": {
         "0001045810-26-000078": "82fff786890e6dcd727c47db641c11ab8c3489d3dd7526f3210650423ad5a847",
+        "0001696841-26-000014": "c7206a41796e13e39bc9bc2bdbec790d2c156d2eb56b2b26a31788c18fa53f94",
         "0001199039-26-000016": "b2e9a9a71e623b4facad3e4e42d3ed8bc4e8f15e04661b34c085d2541540f6ab",
         "0001243821-26-000007": "93c979d54d1815ce741a575f55da28cc3c09ad931f093d6728b390d0ff465b1b",
         "0001283854-26-000010": "c338fd483eb4ae4be693a871bbd26809c02b1ba2b86f875eed496c2588c09839",
@@ -98,6 +99,194 @@
         "0001197647-26-000009": "b5cc673a005471fd51c3c4b4df3c5e599df647588e355aa23af2e2a27f3c2e06",
         "0001199039-26-000012": "5b708e2561920f43d8eba64d361155b2caba7e8a325d504ef00cdccbc18323ac",
         "0001696841-26-000010": "d2a1d263ae27692f21bd5e305f83077199ea4b3ae097f14181135bc4a426503a"
+      },
+      "through": "2026-09-23"
+    },
+    "SOFI": {
+      "review": {
+        "0001818874-26-000003": {
+          "ticker": "SOFI",
+          "accession": "0001818874-26-000003",
+          "form": "8-K",
+          "filingDate": "2026-01-05",
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887426000003/sofi-20260102.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 8.01"
+        },
+        "0001818874-25-000232": {
+          "ticker": "SOFI",
+          "accession": "0001818874-25-000232",
+          "form": "8-K",
+          "filingDate": "2025-12-08",
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000232/sofi-20251204.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 8.01, 9.01"
+        },
+        "0001818874-25-000225": {
+          "ticker": "SOFI",
+          "accession": "0001818874-25-000225",
+          "form": "8-K",
+          "filingDate": "2025-12-05",
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000225/sofi-20251204.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 8.01, 9.01"
+        },
+        "0001818874-25-000222": {
+          "ticker": "SOFI",
+          "accession": "0001818874-25-000222",
+          "form": "8-K",
+          "filingDate": "2025-12-04",
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000222/sofi-20251202.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 5.02"
+        },
+        "0001818874-25-000195": {
+          "ticker": "SOFI",
+          "accession": "0001818874-25-000195",
+          "form": "8-K",
+          "filingDate": "2025-08-29",
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000195/sofi-20250828.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 7.01"
+        },
+        "0001818874-25-000171": {
+          "ticker": "SOFI",
+          "accession": "0001818874-25-000171",
+          "form": "8-K",
+          "filingDate": "2025-07-31",
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000171/sofi-20250729.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 8.01, 9.01"
+        },
+        "0001818874-25-000160": {
+          "ticker": "SOFI",
+          "accession": "0001818874-25-000160",
+          "form": "8-K",
+          "filingDate": "2025-07-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000160/sofi-20250729.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 8.01, 9.01"
+        },
+        "0001818874-25-000049": {
+          "ticker": "SOFI",
+          "accession": "0001818874-25-000049",
+          "form": "8-K",
+          "filingDate": "2025-03-27",
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000049/sofi-20250321.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 5.02, 9.01"
+        },
+        "0001818874-25-000002": {
+          "ticker": "SOFI",
+          "accession": "0001818874-25-000002",
+          "form": "8-K",
+          "filingDate": "2025-01-10",
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000181887425000002/sofi-20250108.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 5.02"
+        }
+      },
+      "seen": {
+        "0002032458-26-000028": "135eea2ebbf37df94790cb360d62481f64ba4677039a70847ad7d5116922f038",
+        "0001934200-26-000011": "4ace94c9e23f409da0043ddb437639c468a077bc0a086b48a9030c12778a2751",
+        "0002032458-26-000026": "a4eadff28c34fdfa4c24c0b65307fcaf5baa7fe9fcb507a191a2b99aa0ceda6e",
+        "0001864508-26-000008": "4133c750edbf2dac80abdf221ee7aecf3a151c32df238a09e62cf2a573806d91",
+        "0001351119-26-000019": "e99d0a4ab2f46e4399fc58c48102beb6d0d1e558fef31c56178f33c5afb24daf",
+        "0001613438-26-000022": "855bf220d5a6c69f32a6aee138e1bb863a1052626ab9bfcb6532fe2c62d27c54",
+        "0002012135-26-000023": "818703dd959c4a7237e1678c34b3c497ec9d47527a6231b71950f0b3c5ac9e7a",
+        "0001934200-26-000009": "d8b757c480a4ab48bbbb68301fd46cc20695a5664e1337ac292283ed43dc5f2f",
+        "0002034857-26-000014": "f723a71e20fd92726bea9edf263fae6674875ee302738cf6e8421aebc85a13e1"
+      },
+      "through": "2026-09-23"
+    },
+    "CRWD": {
+      "review": {
+        "0001535527-26-000022": {
+          "ticker": "CRWD",
+          "accession": "0001535527-26-000022",
+          "form": "8-K",
+          "filingDate": "2026-06-03",
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603.htm",
+          "recognized": "results_disclosure",
+          "reason": "Earnings: new KPI, changed segment definition or ambiguous guidance requires passage and comparability review."
+        },
+        "0001535527-26-000013": {
+          "ticker": "CRWD",
+          "accession": "0001535527-26-000013",
+          "form": "8-K",
+          "filingDate": "2026-04-06",
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000013/crwd-20260406.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 8.01, 9.01"
+        },
+        "0001104659-25-124912": {
+          "ticker": "CRWD",
+          "accession": "0001104659-25-124912",
+          "form": "8-K",
+          "filingDate": "2025-12-29",
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925124912/tm2534248d1_8k.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 5.02, 7.01, 9.01"
+        },
+        "0001535527-25-000017": {
+          "ticker": "CRWD",
+          "accession": "0001535527-25-000017",
+          "form": "8-K",
+          "filingDate": "2025-06-03",
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000017/crwd-20250603.htm",
+          "recognized": "results_disclosure",
+          "reason": "Earnings: new KPI, changed segment definition or ambiguous guidance requires passage and comparability review."
+        },
+        "0001104659-25-039500": {
+          "ticker": "CRWD",
+          "accession": "0001104659-25-039500",
+          "form": "8-K",
+          "filingDate": "2025-04-25",
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925039500/tm2513136d1_8k.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 5.02"
+        },
+        "0001104659-25-036392": {
+          "ticker": "CRWD",
+          "accession": "0001104659-25-036392",
+          "form": "8-K",
+          "filingDate": "2025-04-18",
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925036392/tm2512714d1_8k.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 5.02"
+        },
+        "0001104659-25-015279": {
+          "ticker": "CRWD",
+          "accession": "0001104659-25-015279",
+          "form": "8-K",
+          "filingDate": "2025-02-20",
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925015279/tm257102d1_8k.htm",
+          "recognized": "other_current_report",
+          "reason": "Unreviewed 8-K item/structure: 5.02"
+        }
+      },
+      "seen": {
+        "0001921602-26-000010": "43cf9bc342f206b32d15f21b7ebe7f29caa87dad964bb69b3e1d0901b8d0c094",
+        "0001968270-26-000015": "62a8316d0164a0c6adc37b4295fe08dffa14eb3d780b4dd59b7cf2621a3d3691",
+        "0001778564-26-000169": "b4a793ffbcb088b8f1aaffdcee52c13302f22ad4e877c9a7e9014bc760b2df7e",
+        "0001778564-26-000168": "fe0305cacd0ec20b1c77ceaee91045ed087e4f07f5265823acfc9e7855e42914",
+        "0001778610-26-000022": "9669c84547a784f00e48530fd5978b431082cb769121a5053453e107c39f3138",
+        "0001778564-26-000165": "6baa6ff4c87a729aead482f6620b14f2564acf7f7709bebb76e3ee0580ea9d40",
+        "0001319245-26-000014": "bf2eb75ba52f4446416acd0020a7a80e9d3513825998fcae6b17fcc109482dce",
+        "0001872303-26-000008": "0ed51cfe6d39de0e301a4d828c0b778fea56d89b62c0ee7ae77e847f84f736c8",
+        "0001253512-26-000015": "c5c1d9ab865490b814a130b8a608e642b4f4e415314aff8ba34ad5e0facf7bdd",
+        "0001201326-26-000023": "5d4c20aab1e63604afb5d3d53b9a1a59232ee49f6fdbbe41a8d6a42b60054081",
+        "0001445832-26-000013": "22d39431d1413da47aefe3280f04db696d907a935cc2724c6df63ebe9e001bb2",
+        "0001220632-26-000006": "44a9762872ee36f030b7d15a61b2b9bb85f294b85eebf23f344b966cfa3f4e0f",
+        "0001445832-26-000011": "58c82cb2c9f450addf318ff1df451217e176a2f21cea96c0297ea9a90f82b265",
+        "0001778564-26-000163": "c00e734152f1cda2ec83da0e36684a6c50c24afb4589dfc01b0fec2af29008ba",
+        "0001061632-26-000008": "f5be62ef32b95bd53af62d7b9ee2dfd0d349d7dea0acfd2ba8c6fb0285676ccd",
+        "0001778564-26-000161": "e761b6dfa557cdcbef58504aee4a0c5c8e5dd742536cf48046d62c9349b9d5bd",
+        "0001778564-26-000159": "b846254748d587d2260feb70a286822c0eba0d23ac1582106d9a2ca31b7647c5",
+        "0001778564-26-000157": "7495a05657e93d68e149ff931c08e96cc8df3ebe6443af5329c4ee4d4fc0b79e",
+        "0001778564-26-000155": "c29b3532b3d714b42c567dda34770f10cc32c767ff03d861c5d0f6633089a8c9",
+        "0001201326-26-000021": "1ecc2efea63bf5ed5ead822b473a0f426e0137d490d8915a935eb986a6d02ff1",
+        "0001778564-26-000153": "98e18fafcb41d40a58e1e2ecc8d52ce2cbb07336d710648af317a069ae609595"
       },
       "through": "2026-09-22"
     }

@@ -7580,6 +7580,244 @@
     "schema": "ntm-company-insiders/1",
     "filings": [
       {
+        "accessionNumber": "0002032458-26-000028",
+        "filingDate": "2026-09-23",
+        "form": "4",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000203245826000028/wk-form4_1790208724.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000203245826000028/xslF345X06/wk-form4_1790208724.xml",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "issuerName": "SoFi Technologies, Inc.",
+        "issuerTradingSymbol": "SOFI",
+        "periodOfReport": "2026-09-21",
+        "owners": [
+          {
+            "cik": "0002032458",
+            "name": "Keough Kelli",
+            "isDirector": false,
+            "isOfficer": true,
+            "isTenPercentOwner": false,
+            "isOther": false,
+            "officerTitle": "EVP, GBUL, SIPS",
+            "otherText": ""
+          }
+        ],
+        "transactions": [
+          {
+            "id": "0002032458-26-000028:nonDerivative:transaction:1",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "10203",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "price": {
+                "value": "16.9862",
+                "footnoteIds": [
+                  "F2"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "408073",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F2"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          }
+        ],
+        "holdings": [],
+        "footnotes": {
+          "F1": "The sale reported on this Form 4 was completed pursuant to a Rule 10b5-1 Trading Plan adopted by the Reporting Person on July 30, 2025.",
+          "F2": "The reported transactions were executed in multiple trades. The sale price of $16.9862 reported in Column 4 is the weighted average sale price for the 10,203 shares sold by the Reporting Person within a range of $16.9020 to $17.0766 per share. The Reporting Person hereby undertakes to provide to the Staff of the SEC, the Issuer or any security holder of the Issuer, upon request, full information regarding the number of shares sold at each separate price within the price range noted above."
+        },
+        "remarks": "",
+        "planCheckbox": true,
+        "originalFiledDate": null,
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000203245826000028/wk-form4_1790208724.xml",
+          "sha256": "fbee458590e681db8a96ba657a374ae844d6e13151018ed3e6f076d41a1a3d56",
+          "format": "SEC ownership XML"
+        },
+        "parserVersion": 1
+      },
+      {
+        "accessionNumber": "0001934200-26-000011",
+        "filingDate": "2026-09-23",
+        "form": "4",
+        "url": "https://www.sec.gov/Archives/edgar/data/1818874/000193420026000011/wk-form4_1790208644.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1818874/000193420026000011/xslF345X06/wk-form4_1790208644.xml",
+        "ticker": "SOFI",
+        "cik": "0001818874",
+        "issuerName": "SoFi Technologies, Inc.",
+        "issuerTradingSymbol": "SOFI",
+        "periodOfReport": "2026-09-21",
+        "owners": [
+          {
+            "cik": "0001934200",
+            "name": "Rishel Jeremy",
+            "isDirector": false,
+            "isOfficer": true,
+            "isTenPercentOwner": false,
+            "isOther": false,
+            "officerTitle": "Chief Technology Officer",
+            "otherText": ""
+          }
+        ],
+        "transactions": [
+          {
+            "id": "0001934200-26-000011:nonDerivative:transaction:1",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "18624",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "price": {
+                "value": "17.50",
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "912650.443",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": false,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          }
+        ],
+        "holdings": [],
+        "footnotes": {
+          "F1": "The sale reported on this Form 4 was completed pursuant to a Rule 10b5-1 Trading Plan adopted by the Reporting Person on June 9, 2026."
+        },
+        "remarks": "",
+        "planCheckbox": true,
+        "originalFiledDate": null,
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1818874/000193420026000011/wk-form4_1790208644.xml",
+          "sha256": "454b0bd0dc5f5aeffd5f4dc0c32795dd178720ef1df912fdd8b76ad435643d93",
+          "format": "SEC ownership XML"
+        },
+        "parserVersion": 1
+      },
+      {
         "accessionNumber": "0002034857-26-000014",
         "filingDate": "2026-09-16",
         "form": "4",
@@ -12505,6 +12743,6 @@
       "basis": "Selected reviewed material events plus older examples; not a complete archive"
     }
   },
-  "verifiedAt": "2026-09-23T17:02:15.746652+00:00",
+  "verifiedAt": "2026-09-24T12:07:37.014748+00:00",
   "status": "verified"
 }
