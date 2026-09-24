@@ -4,10 +4,10 @@ on:
     inputs:
       kind:
         type: choice
-        options: [macro, earnings, news]
+        options: [macro, earnings, news, education]
         required: true
       week:
-        description: ISO week (macro/earnings) or canonical article slug (news)
+        description: ISO week (macro/earnings) or canonical article slug (news/education)
         type: string
         required: true
       send:
@@ -50,10 +50,10 @@ jobs:
         with:
           node-version: '22'
       - name: Validate website publication independently of delivery
-        if: inputs.kind != 'news'
+        if: inputs.kind != 'news' && inputs.kind != 'education'
         run: node scripts/check_weekly_events.cjs
-      - name: Validate generated news page
-        if: inputs.kind == 'news'
+      - name: Validate generated article page
+        if: inputs.kind == 'news' || inputs.kind == 'education'
         run: node scripts/build_seo.cjs --check
       - name: Deliver once with durable reservation
         env:
@@ -63,5 +63,6 @@ jobs:
           DISCORD_MAKRO_WEBHOOK_URL: ${{ secrets.DISCORD_MAKRO_WEBHOOK_URL }}
           DISCORD_RAPPORTER_WEBHOOK_URL: ${{ secrets.DISCORD_RAPPORTER_WEBHOOK_URL }}
           DISCORD_NYHETER_WEBHOOK_URL: ${{ secrets.DISCORD_NYHETER_WEBHOOK_URL }}
+          DISCORD_UTBILDNINGAR_WEBHOOK_URL: ${{ secrets.DISCORD_UTBILDNINGAR_WEBHOOK_URL }}
           GITHUB_TOKEN: ${{ github.token }}
         run: node scripts/discord_weekly.cjs "$PUBLICATION_KIND" "$PUBLICATION_WEEK" --send

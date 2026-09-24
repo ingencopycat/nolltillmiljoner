@@ -1,5 +1,61 @@
 const NTM_POSTS = [
   {
+  "title": "Aktier och fonder – vad är skillnaden?",
+  "date": "2026-09-24",
+  "slug": "aktier-och-fonder-vad-ar-skillnaden",
+  "category": "Utbildning",
+  "tags": [
+    "Aktier",
+    "Fonder",
+    "Riskspridning"
+  ],
+  "excerpt": "En aktie är en ägarandel i ett bolag. En fond samlar flera investeringar. Här får du koll på skillnaderna, riskerna och kostnaderna – och varför du inte måste välja bara det ena.",
+  "media": {
+    "type": "none"
+  },
+  "editorial": {
+    "attribution": "Noll till Miljoner (NTM)",
+    "publishedAt": "2026-09-24",
+    "updatedAt": "2026-09-24",
+    "aiSummary": false,
+    "verification": [],
+    "commercialStatus": "unknown",
+    "sourceUrl": "https://www.fi.se/sv/for-konsumenter/spara/investera-i-aktier/",
+    "sourceNote": "Introduktion med utgångspunkt i NTM:s Instagramkarusell Aktier & fonder. Definitioner, fondtyper och avgiftsnyanser kontrollerade mot källorna nedan den 24 september 2026. Exemplen beskriver möjligheter, inte en rekommenderad portfölj.",
+    "corrections": [
+      {
+        "date": "2026-09-24",
+        "kind": "content",
+        "text": "Ny introduktionsartikel med jämförelse, risk- och avgiftsnyanser samt fortsättning i Academy."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Finansinspektionen: Investera i aktier",
+        "accessedAt": "2026-09-24",
+        "url": "https://www.fi.se/sv/for-konsumenter/spara/investera-i-aktier/"
+      },
+      {
+        "title": "Konsumenternas: Olika fondtyper",
+        "accessedAt": "2026-09-24",
+        "url": "https://www.konsumenternas.se/sparande--pension/sparande/fonder/olika-fondtyper/"
+      },
+      {
+        "title": "Konsumenternas: Avgifter i fondsparande",
+        "accessedAt": "2026-09-24",
+        "url": "https://www.konsumenternas.se/sparande--pension/sparande/fonder/fondavgifter/"
+      },
+      {
+        "title": "Finansinspektionen: Fondavgifters effekt över tid",
+        "publishedAt": "2026-01-30",
+        "accessedAt": "2026-09-24",
+        "url": "https://www.fi.se/sv/publicerat/nyheter/2026/fondavgifter-kan-kosta-dig-hundratusentals-kronor-pa-sikt/"
+      }
+    ]
+  },
+  "content": "<h2>Vad är en aktie?</h2><p>När du köper en aktie blir du delägare i ett företag. Avkastningen kan komma från att aktien stiger i pris och från utdelning, om bolaget beslutar att dela ut pengar till ägarna. Alla bolag lämnar inte utdelning, och den kan ändras eller utebli.</p><p>Aktiekursen kan också falla. Även ett bolag som utvecklas väl kan få en lägre aktiekurs, till exempel om marknaden hade väntat sig ännu bättre resultat. Du kan förlora en del av eller hela det investerade kapitalet.</p><h2>Vad är en fond?</h2><p>En fond samlar pengar från många sparare och investerar enligt en bestämd inriktning. Du köper andelar i fonden. Den kan äga aktier, obligationer och andra räntepapper eller andra tillåtna tillgångar, beroende på fondtyp.</p><p>En indexfond försöker följa ett bestämt index, ett mått på utvecklingen för en grupp värdepapper. I en aktivt förvaltad fond gör förvaltaren egna val inom fondens inriktning. Inget av sätten garanterar vinst.</p><h2>Riskspridning – fler innehav, mindre beroende</h2><p>Riskspridning betyder att du inte låter ett enda bolag eller en enda marknad avgöra hela utfallet. En bred global aktieindexfond kan innehålla hundratals eller tusentals bolag. Men en fond som fokuserar på en enda bransch kan ändå vara starkt koncentrerad.</p><p>Flera fonder kan dessutom äga samma bolag. Titta därför på innehållet, inte bara antalet fonder. Riskspridning minskar beroendet av enskilda investeringar, men skyddar inte mot alla förluster när marknaden faller.</p><h2>Aktier eller fonder? Sex skillnader</h2><dl><dt>Val</dt><dd><strong>Aktier:</strong> Du väljer vilka bolag du vill äga.</dd><dd><strong>Fonder:</strong> Du väljer fondens inriktning. Förvaltaren eller indexet styr innehaven.</dd><dt>Riskspridning</dt><dd><strong>Aktier:</strong> Du bygger spridningen själv. Få bolag kan ge stor koncentration.</dd><dd><strong>Fonder:</strong> Kan ge många innehav i ett köp. Hur bred spridningen är varierar.</dd><dt>Tid</dt><dd><strong>Aktier:</strong> Att välja och följa bolag kan kräva mer tid.</dd><dd><strong>Fonder:</strong> Kräver ofta mindre löpande arbete, men behöver också följas upp.</dd><dt>Avgifter</dt><dd><strong>Aktier:</strong> Ingen fondförvaltningsavgift, men konto- och andra kostnader kan finnas.</dd><dd><strong>Fonder:</strong> Har ofta en löpande avgift. Nivå och övriga kostnader varierar.</dd><dt>Kunskap och analys</dt><dd><strong>Aktier:</strong> Du behöver förstå bolagets verksamhet, ekonomi och pris.</dd><dd><strong>Fonder:</strong> Du behöver förstå inriktning, innehav, risk och avgifter.</dd><dt>Köp och sälj</dt><dd><strong>Aktier:</strong> Courtage och valutaväxlingskostnad kan tillkomma beroende på marknad och mäklare.</dd><dd><strong>Fonder:</strong> Vanliga fonder handlas ofta utan courtage. Andra avgifter kan finnas. Börshandlade fonder, ETF:er, kan ha courtage.</dd></dl><p>Courtage är mäklarens avgift för en affär. Jämför villkoren för just den produkt och tjänst du använder. Fondens faktablad beskriver bland annat risker och kostnader.</p><p>Även en liten löpande avgift påverkar sparandet över tid: pengar som går till avgifter finns inte kvar för att ge framtida avkastning. Avgiften är därför viktig att förstå, tillsammans med vad fonden faktiskt investerar i.</p><h2>Måste man välja?</h2><p>Nej. Du kan äga aktier, fonder eller båda. Ett möjligt upplägg är att låta breda fonder utgöra en bas och komplettera med enskilda aktier. Det är ett exempel, inte en rekommenderad fördelning. En extra aktie kan också öka exponeringen mot ett bolag som redan finns i fonden.</p><p>Ingen kategori är automatiskt rätt eller säkrast. Innehåll, tidshorisont och hur stora förluster du kan och vill bära spelar roll. Pengar som snart behövs har mindre tid att återhämta sig efter ett kursfall.</p><p><strong>Förstå vad du äger, vilken risk du tar och varför du investerar.</strong></p>"
+},
+  {
     title: 'Trump och Xi möts i Washington – AI, handel och Taiwan i fokus',
     date: '2026-09-24',
     slug: 'trump-xi-washington-ai-handel-taiwan',

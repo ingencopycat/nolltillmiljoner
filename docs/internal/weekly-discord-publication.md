@@ -53,6 +53,8 @@ Manual posts are not automatically discoverable. If the owner posts this week ma
 
 The same adapter now also supports text-only canonical news articles through `kind=news`; see [news publication and owner setup](news-publication-2026-09-24.md). Its workflow is now named **Preview or distribute reviewed NTM publications**. Weekly kind/week inputs, image review and identity behavior are unchanged. There is no Research or social-platform distribution framework here.
 
+The reviewed-article path also supports `kind=education` for **#utbildningar**, with `DISCORD_UTBILDNINGAR_WEBHOOK_URL`. See [the education article, dry run and exact owner setup](education-publication-2026-09-24.md). It shares the protected environment and durable ledger; no second sender or ledger is introduced.
+
 ## Local validation, 2026-09-20 (completed reports publication)
 
 - Full `scripts/validate_release.py`: **passed**, including all **167 Python tests**, **314 Node tests**, Knowledge/history, SEO, coverage, weekly review, rules, cloud security, diff check and isolated staging/local references.

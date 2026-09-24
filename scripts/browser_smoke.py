@@ -2137,5 +2137,41 @@ class BrowserSmoke(unittest.TestCase):
         print('Weekly reliability screenshots:',folder,flush=True)
 
 
+    def test_education_article_responsive_comparison(self):
+        p = self.page
+        folder = Path(tempfile.gettempdir()) / 'ntm-education-qa'
+        folder.mkdir(exist_ok=True)
+        p.add_init_script("document.addEventListener('securitypolicyviolation',e=>{window.__csp=[...(window.__csp||[]),e.violatedDirective]})")
+        self.go('post-aktier-och-fonder-vad-ar-skillnaden.html')
+        p.emulate_media(reduced_motion='reduce')
+        expect(p.locator('h1')).to_have_text('Aktier och fonder – vad är skillnaden?')
+        expect(p.locator('.post-content dt')).to_have_count(6)
+        expect(p.locator('.post-content dd')).to_have_count(12)
+        expect(p.locator('.post-media')).to_have_count(0)
+        for width in [360,390,430,1440]:
+            p.set_viewport_size({'width':width,'height':1000})
+            for theme in ['dark','light']:
+                p.evaluate('applyTheme',theme)
+                p.evaluate('document.fonts.ready')
+                self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'),width)
+                cells=p.locator('.post-content dl > *').evaluate_all('(els)=>els.map(e=>({x:e.getBoundingClientRect().x,y:e.getBoundingClientRect().y,w:e.getBoundingClientRect().width}))')
+                if width<600:
+                    self.assertTrue(all(cells[i]['y']<cells[i+1]['y'] for i in range(len(cells)-1)))
+                else:
+                    self.assertEqual(cells[0]['y'],cells[1]['y'])
+                    self.assertLess(cells[0]['x'],cells[1]['x'])
+                p.locator('.post-content dl').screenshot(path=str(folder/f'comparison-{width}-{theme}.png'),animations='disabled')
+                p.screenshot(path=str(folder/f'article-{width}-{theme}.png'),full_page=True,animations='disabled')
+        for identifier in ['aktier','fonder','diversifiering']:
+            expect(p.locator(f'.ntm-relations a[href="academy-{identifier}.html?from=content"]')).to_have_count(1)
+        p.locator('.post-actions button').focus()
+        self.assertNotEqual(p.locator('.post-actions button').evaluate('(e)=>getComputedStyle(e).outlineStyle'),'none')
+        self.assertEqual(p.evaluate('window.__csp||[]'),[])
+        self.go('inlagg.html')
+        p.locator('[data-category="Utbildning"]').click()
+        expect(p.locator('#postResults a.resource-card-link').first).to_have_attribute('href','post-aktier-och-fonder-vad-ar-skillnaden.html')
+        print('Education screenshots:',folder,flush=True)
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)

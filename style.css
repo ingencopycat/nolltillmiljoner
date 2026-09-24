@@ -3952,6 +3952,17 @@ body.light-theme .post-article { background: var(--panel); }
 .post-single-image img { display: block; width: 100%; height: auto; }
 .post-content { color: var(--muted); line-height: 1.75; }
 .post-content p { margin: 0 0 14px; }
+/* Native article comparison: semantic terms, two descriptions, no horizontal scroll. */
+.post-content dl { display: grid; grid-template-columns: minmax(100px, .6fr) repeat(2, minmax(0, 1fr)); margin: 24px 0; font-family: var(--font-ui); font-size: 1rem; line-height: 1.6; }
+.post-content dt, .post-content dd { margin: 0; padding: 14px 12px; border-top: 1px solid var(--border); overflow-wrap: anywhere; }
+.post-content dt { font-weight: 700; color: var(--text); }
+.post-content dd strong { color: var(--text); }
+@media (max-width: 600px) {
+  .post-content dl { grid-template-columns: minmax(0, 1fr); }
+  .post-content dt { padding: 16px 0 6px; }
+  .post-content dd { border: 0; padding: 0 0 8px; }
+}
+
 .post-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .copy-feedback { color: var(--primary); font-size: 0.85rem; font-weight: 700; }
 .not-found { display: grid; gap: 14px; padding: 40px; text-align: center; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-surface); }

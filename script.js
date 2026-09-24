@@ -3020,7 +3020,7 @@ function escapePostText(value) {
 // Content is data: escape first, then restore only these attribute-free formatting
 // tokens. This also runs in the static generator (no browser DOM dependency).
 function constrainPostMarkup(value) {
-  return escapePostText(value).replace(/&lt;(\/?(?:p|h2|strong|em|ul|ol|li|br))&gt;/g, '<$1>')
+  return escapePostText(value).replace(/&lt;(\/?(?:p|h2|strong|em|ul|ol|li|br|dl|dt|dd))&gt;/g, '<$1>')
     .replace(/&lt;span lang=&quot;(en|sv)&quot;&gt;/g, '<span lang="$1">')
     .replace(/&lt;\/span&gt;/g, '</span>');
 }
@@ -3208,7 +3208,7 @@ function initPostPreviewLightboxes() {
 
 function renderPostView(post) {
   const ed = post.editorial;
-  const sources = ed?.sources?.length ? `<section class="editorial-note" aria-label="Artikelns källor"><h2>Källor</h2><ul>${ed.sources.map(s => `<li><a href="${safePostLink(s.url)}" target="_blank" rel="noopener noreferrer">${escapePostText(s.title)}</a> · Publicerad ${escapePostText(s.publishedAt)} · Hämtad ${escapePostText(s.accessedAt)}</li>`).join('')}</ul><p>${escapePostText(ed.sourceNote || '')}</p></section>` : '';
+  const sources = ed?.sources?.length ? `<section class="editorial-note" aria-label="Artikelns källor"><h2>Källor</h2><ul>${ed.sources.map(s => `<li><a href="${safePostLink(s.url)}" target="_blank" rel="noopener noreferrer">${escapePostText(s.title)}</a>${s.publishedAt ? ` · Publicerad ${escapePostText(s.publishedAt)}` : ''} · Hämtad ${escapePostText(s.accessedAt)}</li>`).join('')}</ul><p>${escapePostText(ed.sourceNote || '')}</p></section>` : '';
   const editorial = ed ? `<aside class="editorial-note"><h2>Källa och granskning</h2><p>${escapePostText(ed.attribution)} · Publicerad <time datetime="${ed.publishedAt}">${ed.publishedAt}</time> · Metadata uppdaterad <time datetime="${ed.updatedAt}">${ed.updatedAt}</time>.</p>
     <p>${ed.aiSummary ? 'AI-sammanfattning av källans resonemang, inte NTM:s verifierade slutsats.' : 'NTM:s publicerade innehåll och perspektiv.'}</p>
     <p>${ed.sourceUrl ? `<a href="${safePostLink(ed.sourceUrl)}" target="_blank" rel="noopener noreferrer">Öppna källan – ${escapePostText(ed.attribution)}</a>` : 'Länk till primärkälla saknas.'}</p>

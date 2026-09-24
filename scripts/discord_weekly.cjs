@@ -6,25 +6,34 @@ const fail = code => { throw new Error(code); };
 const hash = value => require('node:crypto').createHash('sha256').update(value).digest('hex');
 const pageHash = bytes => hash(bytes.toString('utf8').replace(/\r\n/g, '\n'));
 
-// News uses the canonical post registry and generated page, never scraped source prose.
-function previewNews(root, slug) {
+// Article destinations share the canonical registry, reviewed text and delivery path.
+const articleKinds = {
+  news: {channel: 'nyheter', category: 'Nyheter', manifest: 'news-distribution.json', cta: 'Läs hela på Noll till Miljoner →'},
+  education: {channel: 'utbildningar', category: 'Utbildning', manifest: 'education-distribution.json', cta: 'Läs hela guiden på Noll till Miljoner →'}
+};
+function previewArticle(root, slug, kind) {
+  if (!Object.hasOwn(articleKinds, kind)) fail('invalid_publication');
+  const config = articleKinds[kind];
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug || '')) fail('invalid_publication');
   const context = require('node:vm').createContext({});
   require('node:vm').runInContext(fs.readFileSync(path.join(root, 'posts.js'), 'utf8'), context);
   const posts = require('node:vm').runInContext('NTM_POSTS', context);
   const matches = posts.filter(p => p.slug === slug);
-  const manifest = JSON.parse(fs.readFileSync(path.join(root, 'docs/internal/news-distribution.json'), 'utf8'));
+  const manifest = JSON.parse(fs.readFileSync(path.join(root, 'docs/internal', config.manifest), 'utf8'));
   const review = manifest.articles?.[slug], post = matches[0];
-  if (manifest.version !== 1 || matches.length !== 1 || !review || post.category !== 'Nyheter' || post.media.type !== 'none'
-      || !post.editorial.sources?.length || post.editorial.verification.length || hash(JSON.stringify(post)) !== review.postSha256) fail('news_review_mismatch');
+  if (manifest.version !== 1 || matches.length !== 1 || !review || post.category !== config.category || post.media.type !== 'none'
+      || !post.editorial.sources?.length || post.editorial.verification.length || hash(JSON.stringify(post)) !== review.postSha256) fail(`${kind}_review_mismatch`);
   const file = `post-${slug}.html`, bytes = fs.readFileSync(path.join(root, file));
-  if (pageHash(bytes) !== review.htmlSha256) fail('news_page_mismatch');
+  if (pageHash(bytes) !== review.htmlSha256) fail(`${kind}_page_mismatch`);
   if (typeof review.text !== 'string' || !review.text.trim() || review.text.length > 1500
-      || /https?:|@|[<>]/i.test(review.text)) fail('invalid_news_caption');
+      || /https?:|@|[<>]/i.test(review.text)) fail(`invalid_${kind}_caption`);
   const url = `https://nolltillmiljoner.se/${file}`;
-  return {channel: 'nyheter', slug, text: `${review.text}\n\n[Läs hela på Noll till Miljoner →](<${url}>)`,
-    url, image: null, htmlSha256: review.htmlSha256, identity: `news:${slug}`};
+  return {channel: config.channel, slug, text: `${review.text}\n\n[${config.cta}](<${url}>)`,
+    url, image: null, htmlSha256: review.htmlSha256, identity: `${kind}:${slug}`};
 }
+
+const previewNews = (root, slug) => previewArticle(root, slug, 'news');
+const previewEducation = (root, slug) => previewArticle(root, slug, 'education');
 
 function preview(model, kind, week) {
   if (!channels[kind] || !/^\d{4}-W\d{2}$/.test(week)) fail('invalid_publication');
@@ -87,14 +96,15 @@ function githubLedger(env, fetcher = fetch) {
 
 async function deliver(plan, root, env, ledger, fetcher = fetch) {
   if (env.NTM_DISCORD_ENABLED !== 'true') fail('live_disabled');
-  const secretNames = {makro: 'DISCORD_MAKRO_WEBHOOK_URL', rapporter: 'DISCORD_RAPPORTER_WEBHOOK_URL', nyheter: 'DISCORD_NYHETER_WEBHOOK_URL'};
+  const secretNames = {makro: 'DISCORD_MAKRO_WEBHOOK_URL', rapporter: 'DISCORD_RAPPORTER_WEBHOOK_URL', nyheter: 'DISCORD_NYHETER_WEBHOOK_URL', utbildningar: 'DISCORD_UTBILDNINGAR_WEBHOOK_URL'};
   if (!Object.hasOwn(secretNames, plan.channel)) fail('invalid_destination');
   const secret = env[secretNames[plan.channel]];
   if (!/^https:\/\/discord\.com\/api(?:\/v10)?\/webhooks\/\d+\/[A-Za-z0-9_-]+$/.test(secret || '')) fail('missing_or_invalid_webhook');
-  const news = plan.channel === 'nyheter';
+  const articleKind = Object.keys(articleKinds).find(kind => articleKinds[kind].channel === plan.channel);
+  const article = Boolean(articleKind);
   let bytes;
-  if (news) {
-    if (JSON.stringify(previewNews(root, plan.slug)) !== JSON.stringify(plan)) fail('news_review_mismatch');
+  if (article) {
+    if (JSON.stringify(previewArticle(root, plan.slug, articleKind)) !== JSON.stringify(plan)) fail(`${articleKind}_review_mismatch`);
   } else {
     bytes = fs.readFileSync(path.resolve(root, plan.image));
     if (!plan.identity.endsWith(':' + hash(bytes))) fail('artifact_changed');
@@ -105,19 +115,19 @@ async function deliver(plan, root, env, ledger, fetcher = fetch) {
     if (previous.status === 'sent') return {status: 'already_sent', identity: plan.identity};
     fail('delivery_uncertain_manual_review_required');
   }
-  if (news) {
+  if (article) {
     // A reviewed local preview is not proof of release. Fail before reserving or posting.
     try {
       const published = await fetcher(plan.url, {redirect: 'error', signal: AbortSignal.timeout(15000)});
-      if (!published.ok || pageHash(Buffer.from(await published.arrayBuffer())) !== plan.htmlSha256) fail('news_not_published');
-    } catch { fail('news_not_published'); }
+      if (!published.ok || pageHash(Buffer.from(await published.arrayBuffer())) !== plan.htmlSha256) fail(`${articleKind}_not_published`);
+    } catch { fail(`${articleKind}_not_published`); }
   }
   state.data.publications[plan.identity] = {status: 'reserved', channel: plan.channel};
   await ledger.write(state); // Durable BEFORE the only POST; failure stops sending.
   const form = new FormData();
   form.append('payload_json', JSON.stringify({content: plan.text, allowed_mentions: {parse: []},
-    ...(news ? {flags: 4} : {attachments: [{id: 0, filename: path.basename(plan.image)}]})}));
-  if (!news) form.append('files[0]', new Blob([bytes], {type: 'image/png'}), path.basename(plan.image));
+    ...(article ? {flags: 4} : {attachments: [{id: 0, filename: path.basename(plan.image)}]})}));
+  if (!article) form.append('files[0]', new Blob([bytes], {type: 'image/png'}), path.basename(plan.image));
   let message;
   try {
     const response = await fetcher(secret + '?wait=true', {method: 'POST', redirect: 'error', body: form, signal: AbortSignal.timeout(15000)});
@@ -134,10 +144,10 @@ async function deliver(plan, root, env, ledger, fetcher = fetch) {
 async function main(args = process.argv.slice(2), env = process.env) {
   const [kind, week, mode = '--dry-run'] = args;
   if (args.length > 3 || !['--dry-run', '--send'].includes(mode)) fail('invalid_arguments');
-  const model = weekly.loadRepository(), plan = kind === 'news' ? previewNews(model.root, week) : preview(model, kind, week);
+  const model = weekly.loadRepository(), plan = Object.hasOwn(articleKinds, kind) ? previewArticle(model.root, week, kind) : preview(model, kind, week);
   if (mode === '--dry-run') { console.log(JSON.stringify(plan, null, 2)); return; }
-  if (kind !== 'news' && weekly.check(model).some(i => i.level === 'error')) fail('weekly_validation_failed');
+  if (!Object.hasOwn(articleKinds, kind) && weekly.check(model).some(i => i.level === 'error')) fail('weekly_validation_failed');
   console.log(JSON.stringify(await deliver(plan, model.root, env, githubLedger(env))));
 }
-module.exports = {preview, previewNews, githubLedger, deliver, main};
+module.exports = {preview, previewArticle, previewNews, previewEducation, githubLedger, deliver, main};
 if (require.main === module) main().catch(() => { console.error('Discord distribution stopped safely. Check configuration, publication review and delivery ledger; do not retry an uncertain delivery.'); process.exitCode = 1; });

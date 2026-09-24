@@ -24,7 +24,7 @@ test('changed source/page, unreviewed article and unsafe caption fail closed', (
     const reset = () => files.forEach(f => fs.copyFileSync(path.join(root, f), path.join(temp, f)));
     reset(); fs.appendFileSync(path.join(temp, `post-${slug}.html`), 'changed');
     assert.throws(() => D.previewNews(temp, slug), /page_mismatch/);
-    reset(); fs.appendFileSync(path.join(temp, 'posts.js'), '\nNTM_POSTS[0].title="Changed";');
+    reset(); fs.appendFileSync(path.join(temp, 'posts.js'), '\nNTM_POSTS.find(p=>p.slug===\"trump-xi-washington-ai-handel-taiwan\").title="Changed";');
     assert.throws(() => D.previewNews(temp, slug), /review_mismatch/);
     for (const text of ['@everyone', 'https://evil.invalid', '<img>', 'x'.repeat(1501)]) {
       reset(); const m = JSON.parse(fs.readFileSync(path.join(temp, files[2]))); m.articles[slug].text = text;

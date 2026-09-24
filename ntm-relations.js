@@ -11,6 +11,7 @@
   const relationTypes = ['learn', 'try', 'research', 'related', 'source', 'continue', 'discuss'];
   const supportedTickers = ['NVDA', 'SOFI', 'CRWD', 'MU', 'MRVL', 'VRT', 'COHR', 'RKLB', 'TTMI', 'SNDK', 'FLY', 'CRWV'];
   const postMetadata = {
+    'aktier-och-fonder-vad-ar-skillnaden': {concepts: ['aktier', 'fonder', 'diversifiering', 'fees', 'risk']},
     'trump-xi-washington-ai-handel-taiwan': {tickers: ['NVDA'], concepts: ['ai', 'semiconductors', 'risk'], themes: ['macro']},
     'jordi-visser-linjart-exponentiellt-ai-trading': { concepts: ['ai', 'valuation', 'risk'], themes: ['ai-infrastructure'] },
     'jordi-visser-anthony-pompliano-ai-krypto-makro': { concepts: ['ai', 'crypto', 'interest-rates'], themes: ['macro'] },
@@ -25,6 +26,9 @@
     return { id, from, to, type, priority, reason, cta, ...extra };
   }
   const relations = [
+    edge('education-stocks', 'post-aktier-och-fonder-vad-ar-skillnaden', 'learn-aktier', 'learn', 10, 'Fördjupa grunderna om ägande, pris och utdelning.', 'Fortsätt i NTM Academy: Aktier'),
+    edge('education-funds', 'post-aktier-och-fonder-vad-ar-skillnaden', 'learn-fonder', 'learn', 20, 'Lär dig mer om fondtyper, innehåll och avgifter.', 'Fortsätt i NTM Academy: Fonder'),
+    edge('education-diversification', 'post-aktier-och-fonder-vad-ar-skillnaden', 'learn-diversifiering', 'learn', 30, 'Förstå hur investeringar kan överlappa och hur risk kan spridas.', 'Fortsätt i NTM Academy: Riskspridning'),
     edge('trump-xi-nvda', 'post-trump-xi-washington-ai-handel-taiwan', 'research-nvda', 'research', 10, 'Sätt teknikexportens betydelse i relation till Nvidias rapporterade bolagsdata och dina egna antaganden.', 'Granska Nvidia i Research'),
     edge('trump-xi-macro', 'post-trump-xi-washington-ai-handel-taiwan', 'macro-calendar', 'related', 20, 'Följ kommande ekonomiska publiceringar som kompletterar nyhetsbilden.', 'Öppna makrokalendern'),
     ...(knowledge?.publicEntries()||[]).flatMap(q=>[
