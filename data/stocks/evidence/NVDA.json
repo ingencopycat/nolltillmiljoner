@@ -9489,6 +9489,363 @@
     "schema": "ntm-company-insiders/1",
     "filings": [
       {
+        "accessionNumber": "0001696841-26-000014",
+        "filingDate": "2026-09-23",
+        "form": "4",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000169684126000014/wk-form4_1790196985.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000169684126000014/xslF345X06/wk-form4_1790196985.xml",
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "issuerName": "NVIDIA CORP",
+        "issuerTradingSymbol": "NVDA",
+        "periodOfReport": "2026-09-21",
+        "owners": [
+          {
+            "cik": "0001696841",
+            "name": "Teter Timothy S.",
+            "isDirector": false,
+            "isOfficer": true,
+            "isTenPercentOwner": false,
+            "isOther": false,
+            "officerTitle": "EVP, General Counsel and Sec",
+            "otherText": ""
+          }
+        ],
+        "transactions": [
+          {
+            "id": "0001696841-26-000014:nonDerivative:transaction:1",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "12483",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "222.1932",
+                "footnoteIds": [
+                  "F2"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "2705637",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "I",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": "By Trust",
+                "footnoteIds": [
+                  "F4"
+                ]
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F2",
+              "F3",
+              "F4"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001696841-26-000014:nonDerivative:transaction:2",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "13478",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "223.0489",
+                "footnoteIds": [
+                  "F5"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "2692159",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "I",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": "By Trust",
+                "footnoteIds": [
+                  "F4"
+                ]
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F5",
+              "F4"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001696841-26-000014:nonDerivative:transaction:3",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "4499",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "223.7479",
+                "footnoteIds": [
+                  "F6"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "2687660",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "I",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": "By Trust",
+                "footnoteIds": [
+                  "F4"
+                ]
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F6",
+              "F4"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          }
+        ],
+        "holdings": [
+          {
+            "id": "0001696841-26-000014:nonDerivative:holding:1",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "price": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "268238",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F3"
+            ]
+          }
+        ],
+        "footnotes": {
+          "F1": "The reported transaction was effected pursuant to a Rule 10b5-1 trading plan adopted by the Reporting Person on May 22, 2026.",
+          "F2": "Represents weighted average sales price. The shares were sold at prices ranging from $221.59 to $222.58. The Reporting Person will provide upon request, to the Securities and Exchange Commission (the \"SEC\"), the Issuer or security holder of the Issuer, full information regarding the number of shares sold at each separate price.",
+          "F3": "Reflects 30,460 shares transferred without consideration from the Reporting Person to The Horne Teter Family Living Trust, dated 02/01/2019 (the \"Trust\"), of which the Reporting Person is trustee.",
+          "F4": "Shares held by the Trust.",
+          "F5": "Represents weighted average sales price. The shares were sold at prices ranging from $222.59 to $223.58. The Reporting Person will provide upon request, to the SEC, the Issuer or security holder of the Issuer, full information regarding the number of shares sold at each separate price.",
+          "F6": "Represents weighted average sales price. The shares were sold at prices ranging from $223.59 to $224.00. The Reporting Person will provide upon request, to the SEC, the Issuer or security holder of the Issuer, full information regarding the number of shares sold at each separate price."
+        },
+        "remarks": "",
+        "planCheckbox": true,
+        "originalFiledDate": null,
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000169684126000014/wk-form4_1790196985.xml",
+          "sha256": "87b3a8f9f46990cc520bcd8af0970fbfb1aac270147ef430a23e24ef926be228",
+          "format": "SEC ownership XML"
+        },
+        "parserVersion": 1
+      },
+      {
         "accessionNumber": "0001199039-26-000016",
         "filingDate": "2026-09-22",
         "form": "4",
@@ -17543,6 +17900,6 @@
       "basis": "Selected reviewed material events plus older examples; not a complete archive"
     }
   },
-  "verifiedAt": "2026-09-23T19:12:08.131734+00:00",
+  "verifiedAt": "2026-09-24T12:07:36.581353+00:00",
   "status": "verified"
 }

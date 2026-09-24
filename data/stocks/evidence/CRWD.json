@@ -6705,6 +6705,4498 @@
     "schema": "ntm-company-insiders/1",
     "filings": [
       {
+        "accessionNumber": "0001968270-26-000015",
+        "filingDate": "2026-09-22",
+        "form": "4",
+        "url": "https://www.sec.gov/Archives/edgar/data/1535527/000196827026000015/form4-09222026_080908.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000196827026000015/xslF345X06/form4-09222026_080908.xml",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "issuerName": "CrowdStrike Holdings, Inc.",
+        "issuerTradingSymbol": "CRWD",
+        "periodOfReport": "2026-09-21",
+        "owners": [
+          {
+            "cik": "0001968270",
+            "name": "Sentonas Michael",
+            "isDirector": false,
+            "isOfficer": true,
+            "isTenPercentOwner": false,
+            "isOther": false,
+            "officerTitle": "PRESIDENT",
+            "otherText": ""
+          }
+        ],
+        "transactions": [
+          {
+            "id": "0001968270-26-000015:nonDerivative:transaction:1",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "48866",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "231.61",
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "1475538",
+                "footnoteIds": [
+                  "F1",
+                  "F2"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F2"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": false,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001968270-26-000015:nonDerivative:transaction:2",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "995",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "238.21",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "1474543",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F3",
+              "F1"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001968270-26-000015:nonDerivative:transaction:3",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "2",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "242.64",
+                "footnoteIds": [
+                  "F4"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "1474541",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F4",
+              "F1"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          }
+        ],
+        "holdings": [],
+        "footnotes": {
+          "F1": "Includes shares to be issued in connection with the vesting of one or more restricted stock units (RSUs).",
+          "F2": "On July 2, 2026, the Issuer executed a four-for-one stock split with a record date of June 25, 2026, effected in the form of a one-time special stock dividend on each share of the company's Class A common stock.",
+          "F3": "This transaction was executed in multiple trades at prices ranging from $237.56 to $238.47. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F4": "This transaction was executed in multiple trades at prices ranging from $242.50 to $242.78. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected."
+        },
+        "remarks": "All reported sales were made to cover tax withholdings due on vesting of restricted stock unit awards, as required under the Issuer's administrative policies.",
+        "planCheckbox": false,
+        "originalFiledDate": null,
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000196827026000015/form4-09222026_080908.xml",
+          "sha256": "5dd4d2d07221590762d220bbb0247bd69745ac479b64020f8106cf2d877ef364",
+          "format": "SEC ownership XML"
+        },
+        "parserVersion": 1
+      },
+      {
+        "accessionNumber": "0001921602-26-000010",
+        "filingDate": "2026-09-22",
+        "form": "4",
+        "url": "https://www.sec.gov/Archives/edgar/data/1535527/000192160226000010/form4-09222026_080910.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000192160226000010/xslF345X06/form4-09222026_080910.xml",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "issuerName": "CrowdStrike Holdings, Inc.",
+        "issuerTradingSymbol": "CRWD",
+        "periodOfReport": "2026-09-21",
+        "owners": [
+          {
+            "cik": "0001921602",
+            "name": "Saha Anurag",
+            "isDirector": false,
+            "isOfficer": true,
+            "isTenPercentOwner": false,
+            "isOther": false,
+            "officerTitle": "CHIEF ACCOUNTING OFFICER",
+            "otherText": ""
+          }
+        ],
+        "transactions": [
+          {
+            "id": "0001921602-26-000010:nonDerivative:transaction:1",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "6876",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "231.61",
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "206016",
+                "footnoteIds": [
+                  "F1",
+                  "F2"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F2"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": false,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001921602-26-000010:nonDerivative:transaction:2",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "140",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "238.23",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "205876",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F3",
+              "F1"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          }
+        ],
+        "holdings": [],
+        "footnotes": {
+          "F1": "Includes shares to be issued in connection with the vesting of one or more restricted stock units (RSUs).",
+          "F2": "On July 2, 2026, the Issuer executed a four-for-one stock split with a record date of June 25, 2026, effected in the form of a one-time special stock dividend on each share of the company's Class A common stock.",
+          "F3": "This transaction was executed in multiple trades at prices ranging from $237.58 to $238.51. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected."
+        },
+        "remarks": "All reported sales were made to cover tax withholdings due on vesting of restricted stock unit awards, as required under the Issuer's administrative policies.",
+        "planCheckbox": false,
+        "originalFiledDate": null,
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000192160226000010/form4-09222026_080910.xml",
+          "sha256": "d02f46923879a6906a34bda09313aed3eb4a5dafb5db95e7e9a675355f0686db",
+          "format": "SEC ownership XML"
+        },
+        "parserVersion": 1
+      },
+      {
+        "accessionNumber": "0001778610-26-000022",
+        "filingDate": "2026-09-22",
+        "form": "4",
+        "url": "https://www.sec.gov/Archives/edgar/data/1535527/000177861026000022/form4-09222026_080901.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000177861026000022/xslF345X06/form4-09222026_080901.xml",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "issuerName": "CrowdStrike Holdings, Inc.",
+        "issuerTradingSymbol": "CRWD",
+        "periodOfReport": "2026-09-21",
+        "owners": [
+          {
+            "cik": "0001778610",
+            "name": "Podbere Burt W.",
+            "isDirector": false,
+            "isOfficer": true,
+            "isTenPercentOwner": false,
+            "isOther": false,
+            "officerTitle": "CHIEF FINANCIAL OFFICER",
+            "otherText": ""
+          }
+        ],
+        "transactions": [
+          {
+            "id": "0001778610-26-000022:nonDerivative:transaction:1",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "31101",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "238.09",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "665717",
+                "footnoteIds": [
+                  "F2"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F2"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778610-26-000022:nonDerivative:transaction:2",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "1899",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "238.77",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "663818",
+                "footnoteIds": [
+                  "F2"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F3",
+              "F2"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778610-26-000022:nonDerivative:transaction:3",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "800",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "239.94",
+                "footnoteIds": [
+                  "F4"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "663018",
+                "footnoteIds": [
+                  "F2"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F4",
+              "F2"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778610-26-000022:nonDerivative:transaction:4",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "76",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "240.88",
+                "footnoteIds": [
+                  "F5"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "662942",
+                "footnoteIds": [
+                  "F2"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F5",
+              "F2"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778610-26-000022:nonDerivative:transaction:5",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "4",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "242.13",
+                "footnoteIds": [
+                  "F6"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "662938",
+                "footnoteIds": [
+                  "F2"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F6",
+              "F2"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778610-26-000022:nonDerivative:transaction:6",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "2",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "244.47",
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "662936",
+                "footnoteIds": [
+                  "F2"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F2"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": false,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          }
+        ],
+        "holdings": [
+          {
+            "id": "0001778610-26-000022:nonDerivative:holding:1",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "price": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "171200",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "I",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": "Buttonwillow Trust",
+                "footnoteIds": [
+                  "F7"
+                ]
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F7"
+            ]
+          },
+          {
+            "id": "0001778610-26-000022:nonDerivative:holding:2",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "price": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "171200",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "I",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": "Doris Trust",
+                "footnoteIds": [
+                  "F7"
+                ]
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F7"
+            ]
+          },
+          {
+            "id": "0001778610-26-000022:nonDerivative:holding:3",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "price": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "118000",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "I",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": "By trust (The PericlesPod Trust)",
+                "footnoteIds": [
+                  "F7"
+                ]
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F7"
+            ]
+          },
+          {
+            "id": "0001778610-26-000022:nonDerivative:holding:4",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "price": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "75472",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "I",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": "By trust (The PlutoPod Trust)",
+                "footnoteIds": [
+                  "F7"
+                ]
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F7"
+            ]
+          },
+          {
+            "id": "0001778610-26-000022:nonDerivative:holding:5",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "price": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "71804",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "I",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": "By trust (The Callie Hodia Podbere Children's Trust)",
+                "footnoteIds": [
+                  "F7"
+                ]
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F7"
+            ]
+          },
+          {
+            "id": "0001778610-26-000022:nonDerivative:holding:6",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "price": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "71808",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "I",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": "By trust (The Indiana Hope Podbere Children's Trust)",
+                "footnoteIds": [
+                  "F7"
+                ]
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F7"
+            ]
+          },
+          {
+            "id": "0001778610-26-000022:nonDerivative:holding:7",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "price": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7716",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "I",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": "By trust (The PersephonePod Trust)",
+                "footnoteIds": [
+                  "F7"
+                ]
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F7"
+            ]
+          },
+          {
+            "id": "0001778610-26-000022:nonDerivative:holding:8",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "price": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "50496",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "I",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": "By trust (The Whistler Pod Trust)",
+                "footnoteIds": [
+                  "F7"
+                ]
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F7"
+            ]
+          },
+          {
+            "id": "0001778610-26-000022:nonDerivative:holding:9",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "price": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "79136",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "I",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": "By trust (The OvidPod Trust)",
+                "footnoteIds": [
+                  "F7"
+                ]
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F7"
+            ]
+          },
+          {
+            "id": "0001778610-26-000022:nonDerivative:holding:10",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "price": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "73560",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "I",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": "By trust (The PetraPod Trust)",
+                "footnoteIds": [
+                  "F7"
+                ]
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F7"
+            ]
+          },
+          {
+            "id": "0001778610-26-000022:nonDerivative:holding:11",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "price": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "208000",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "I",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": "By Spouse",
+                "footnoteIds": [
+                  "F7"
+                ]
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F7"
+            ]
+          },
+          {
+            "id": "0001778610-26-000022:nonDerivative:holding:12",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "price": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "60000",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "I",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": "By trust (The Doris Ranch Pod Trust)",
+                "footnoteIds": [
+                  "F7"
+                ]
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F7"
+            ]
+          }
+        ],
+        "footnotes": {
+          "F1": "This transaction was executed in multiple trades at prices ranging from $237.65 to $238.63. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F2": "Includes shares to be issued in connection with the vesting of one or more restricted stock units (RSUs).",
+          "F3": "This transaction was executed in multiple trades at prices ranging from $238.68 to $238.96. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F4": "This transaction was executed in multiple trades at prices ranging from $239.77 to $240.14. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F5": "This transaction was executed in multiple trades at prices ranging from $240.87 to $241.77. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F6": "This transaction was executed in multiple trades at prices ranging from $242.00 to $242.55. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F7": "The reporting person disclaims beneficial ownership except to the extent of his pecuniary interest therein."
+        },
+        "remarks": "All reported sales were made to cover tax withholdings due on vesting of restricted stock unit awards, as required under the Issuer's administrative policies.",
+        "planCheckbox": false,
+        "originalFiledDate": null,
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000177861026000022/form4-09222026_080901.xml",
+          "sha256": "0ebd5280fae8c87d5dc2b531d1da2c77fe1a2bb775b5f89273b49fe8551f3676",
+          "format": "SEC ownership XML"
+        },
+        "parserVersion": 1
+      },
+      {
+        "accessionNumber": "0001778564-26-000169",
+        "filingDate": "2026-09-22",
+        "form": "4",
+        "url": "https://www.sec.gov/Archives/edgar/data/1535527/000177856426000169/form4-09222026_080906.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000177856426000169/xslF345X06/form4-09222026_080906.xml",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "issuerName": "CrowdStrike Holdings, Inc.",
+        "issuerTradingSymbol": "CRWD",
+        "periodOfReport": "2026-09-21",
+        "owners": [
+          {
+            "cik": "0001778564",
+            "name": "Kurtz George",
+            "isDirector": true,
+            "isOfficer": true,
+            "isTenPercentOwner": false,
+            "isOther": false,
+            "officerTitle": "PRESIDENT AND CEO",
+            "otherText": ""
+          }
+        ],
+        "transactions": [
+          {
+            "id": "0001778564-26-000169:nonDerivative:transaction:1",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "3014",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "249.86",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7631504",
+                "footnoteIds": [
+                  "F2"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F2"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          }
+        ],
+        "holdings": [
+          {
+            "id": "0001778564-26-000169:nonDerivative:holding:1",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "price": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "400000",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "I",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": "Kurtz Family Dynasty Trust",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F3"
+            ]
+          }
+        ],
+        "footnotes": {
+          "F1": "This transaction was executed in multiple trades at prices ranging from $249.67 to $250.31. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F2": "Includes shares to be issued in connection with the vesting of one or more restricted stock units (RSUs).",
+          "F3": "The Reporting Person disclaims beneficial ownership of these shares except to the extent of his pecuniary interest in such shares."
+        },
+        "remarks": "This Form 4 is the second of two Forms 4 being filed by the reporting person relating to transactions that occurred on September 21, 2026 (Transaction Date). Because there are more than 30 rows associated with the reporting person's transactions that occurred on the Transaction Date, and EDGAR will not allow for the entry of more than 30 rows on a single Form 4, this second Form 4 is being filed to report the transactions that were not included on the first Form 4. The two Forms 4 filed by the reporting person on the date hereof should be read together as one consolidated filing.",
+        "planCheckbox": true,
+        "originalFiledDate": null,
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000177856426000169/form4-09222026_080906.xml",
+          "sha256": "2d7fc0aef3e5cc9841307e42246daec73be777d1561d3747eaaf11480f74c58a",
+          "format": "SEC ownership XML"
+        },
+        "parserVersion": 1
+      },
+      {
+        "accessionNumber": "0001778564-26-000168",
+        "filingDate": "2026-09-22",
+        "form": "4",
+        "url": "https://www.sec.gov/Archives/edgar/data/1535527/000177856426000168/form4-09222026_080903.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000177856426000168/xslF345X06/form4-09222026_080903.xml",
+        "ticker": "CRWD",
+        "cik": "0001535527",
+        "issuerName": "CrowdStrike Holdings, Inc.",
+        "issuerTradingSymbol": "CRWD",
+        "periodOfReport": "2026-09-21",
+        "owners": [
+          {
+            "cik": "0001778564",
+            "name": "Kurtz George",
+            "isDirector": true,
+            "isOfficer": true,
+            "isTenPercentOwner": false,
+            "isOther": false,
+            "officerTitle": "PRESIDENT AND CEO",
+            "otherText": ""
+          }
+        ],
+        "transactions": [
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:1",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "160",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "price": {
+                "value": "232.07",
+                "footnoteIds": [
+                  "F2"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7715859",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F2",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:2",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "80",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "price": {
+                "value": "233.84",
+                "footnoteIds": [
+                  "F4"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7715779",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F4",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:3",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "200",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "price": {
+                "value": "236.34",
+                "footnoteIds": [
+                  "F5"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7715579",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F5",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:4",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "280",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "price": {
+                "value": "238.29",
+                "footnoteIds": [
+                  "F6"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7715299",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F6",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:5",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "120",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "price": {
+                "value": "239.51",
+                "footnoteIds": [
+                  "F7"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7715179",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F7",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:6",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "40",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "price": {
+                "value": "240.45",
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7715139",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": false,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:7",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "160",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "price": {
+                "value": "241.95",
+                "footnoteIds": [
+                  "F8"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7714979",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F8",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:8",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "120",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "price": {
+                "value": "243.30",
+                "footnoteIds": [
+                  "F9"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7714859",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F9",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:9",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "121",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "price": {
+                "value": "244.35",
+                "footnoteIds": [
+                  "F10"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7714738",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F10",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:10",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "1149",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "price": {
+                "value": "245.81",
+                "footnoteIds": [
+                  "F11"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7713589",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F11",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:11",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "3469",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "246.83",
+                "footnoteIds": [
+                  "F12"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7710120",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F12",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:12",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "1101",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "price": {
+                "value": "247.80",
+                "footnoteIds": [
+                  "F13"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7709019",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F13",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:13",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "1960",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "price": {
+                "value": "248.98",
+                "footnoteIds": [
+                  "F14"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7707059",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F14",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:14",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "1040",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "price": {
+                "value": "249.76",
+                "footnoteIds": [
+                  "F15"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7706019",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F15",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:15",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "37612",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "231.61",
+                "footnoteIds": [
+                  "F16"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7668407",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F16",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:16",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "80",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "232.89",
+                "footnoteIds": [
+                  "F17"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7668327",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F17",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:17",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "120",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "233.93",
+                "footnoteIds": [
+                  "F18"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7668207",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F18",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:18",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "120",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "235.43",
+                "footnoteIds": [
+                  "F19"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7668087",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F19",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:19",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "473",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "236.37",
+                "footnoteIds": [
+                  "F20"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7667614",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F20",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:20",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "492",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "237.75",
+                "footnoteIds": [
+                  "F21"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7667122",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F21",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:21",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "480",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "238.64",
+                "footnoteIds": [
+                  "F22"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7666642",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F22",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:22",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "229",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "240.24",
+                "footnoteIds": [
+                  "F23"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7666413",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F23",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:23",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "281",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "241.78",
+                "footnoteIds": [
+                  "F24"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7666132",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F24",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:24",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "301",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "242.98",
+                "footnoteIds": [
+                  "F25"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7665831",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F25",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:25",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "570",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "243.99",
+                "footnoteIds": [
+                  "F26"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7665261",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F26",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:26",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "1430",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "245.45",
+                "footnoteIds": [
+                  "F27"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7663831",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F27",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:27",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "5700",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "246.27",
+                "footnoteIds": [
+                  "F28"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7658131",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F28",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:28",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "11022",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "247.10",
+                "footnoteIds": [
+                  "F29"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7647109",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F29",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:29",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "4319",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "248.27",
+                "footnoteIds": [
+                  "F30"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7642790",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F30",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001778564-26-000168:nonDerivative:transaction:30",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Class A common stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-09-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "8272",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "249.21",
+                "footnoteIds": [
+                  "F31"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "7634518",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F31",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          }
+        ],
+        "holdings": [],
+        "footnotes": {
+          "F1": "Includes shares sold pursuant to a 10b-1 plan adopted on January 6, 2026.",
+          "F2": "This transaction was executed in multiple trades at prices ranging from $231.99 to $232.14. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F3": "Includes shares to be issued in connection with the vesting of one or more restricted stock units (RSUs).",
+          "F4": "This transaction was executed in multiple trades at prices ranging from $233.69 to $233.99. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F5": "This transaction was executed in multiple trades at prices ranging from $235.95 to $236.54. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F6": "This transaction was executed in multiple trades at prices ranging from $237.78 to $238.59. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F7": "This transaction was executed in multiple trades at prices ranging from $239.03 to $239.80. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F8": "This transaction was executed in multiple trades at prices ranging from $241.75 to $242.49. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F9": "This transaction was executed in multiple trades at prices ranging from $242.94 to $243.49. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F10": "This transaction was executed in multiple trades at prices ranging from $243.98 to $244.59. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F11": "This transaction was executed in multiple trades at prices ranging from $245.39 to $246.38. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F12": "This transaction was executed in multiple trades at prices ranging from $246.39 to $247.36. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F13": "This transaction was executed in multiple trades at prices ranging from $247.39 to $248.29. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F14": "This transaction was executed in multiple trades at prices ranging from $248.42 to $249.37. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F15": "This transaction was executed in multiple trades at prices ranging from $249.46 to $250.15. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F16": "This transaction was executed in multiple trades at prices ranging from $231.02 to $231.61. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F17": "This transaction was executed in multiple trades at prices ranging from $232.41 to $233.37. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F18": "This transaction was executed in multiple trades at prices ranging from $233.51 to $234.38. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F19": "This transaction was executed in multiple trades at prices ranging from $234.99 to $235.81. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F20": "This transaction was executed in multiple trades at prices ranging from $235.99 to $236.79. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F21": "This transaction was executed in multiple trades at prices ranging from $237.18 to $238.16. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F22": "This transaction was executed in multiple trades at prices ranging from $238.32 to $239.24. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F23": "This transaction was executed in multiple trades at prices ranging from $239.98 to $240.41. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F24": "This transaction was executed in multiple trades at prices ranging from $241.20 to $242.14. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F25": "This transaction was executed in multiple trades at prices ranging from $242.50 to $243.49. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F26": "This transaction was executed in multiple trades at prices ranging from $243.53 to $244.50. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F27": "This transaction was executed in multiple trades at prices ranging from $244.66 to $245.65. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F28": "This transaction was executed in multiple trades at prices ranging from $245.66 to $246.65. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F29": "This transaction was executed in multiple trades at prices ranging from $246.66 to $247.65. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F30": "This transaction was executed in multiple trades at prices ranging from $247.68 to $248.67. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected.",
+          "F31": "This transaction was executed in multiple trades at prices ranging from $248.68 to $249.67. The price reported above reflects the weighted average sale price. The Reporting Person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected."
+        },
+        "remarks": "74,515 shares of the reported sales were made to cover tax withholdings due on vesting of restricted stock unit awards, as required under the Issuer's administrative policies.",
+        "planCheckbox": true,
+        "originalFiledDate": null,
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1535527/000177856426000168/form4-09222026_080903.xml",
+          "sha256": "cc967d5d4cdd79627687b606931fe82c6d936b21bec5cacf6c7fa10943c930c0",
+          "format": "SEC ownership XML"
+        },
+        "parserVersion": 1
+      },
+      {
         "accessionNumber": "0001872303-26-000008",
         "filingDate": "2026-09-21",
         "form": "4",
@@ -24775,6 +29267,6 @@
       "basis": "Selected reviewed material events plus older examples; not a complete archive"
     }
   },
-  "verifiedAt": "2026-09-23T17:02:16.776974+00:00",
+  "verifiedAt": "2026-09-24T12:07:37.926104+00:00",
   "status": "verified"
 }
