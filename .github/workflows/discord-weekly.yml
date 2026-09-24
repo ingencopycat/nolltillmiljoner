@@ -1,13 +1,13 @@
-name: Preview or distribute reviewed weekly images
+name: Preview or distribute reviewed NTM publications
 on:
   workflow_dispatch:
     inputs:
       kind:
         type: choice
-        options: [macro, earnings]
+        options: [macro, earnings, news]
         required: true
       week:
-        description: Canonical ISO week, for example 2026-W39
+        description: ISO week (macro/earnings) or canonical article slug (news)
         type: string
         required: true
       send:
@@ -50,7 +50,11 @@ jobs:
         with:
           node-version: '22'
       - name: Validate website publication independently of delivery
+        if: inputs.kind != 'news'
         run: node scripts/check_weekly_events.cjs
+      - name: Validate generated news page
+        if: inputs.kind == 'news'
+        run: node scripts/build_seo.cjs --check
       - name: Deliver once with durable reservation
         env:
           PUBLICATION_KIND: ${{ inputs.kind }}
@@ -58,5 +62,6 @@ jobs:
           NTM_DISCORD_ENABLED: ${{ vars.NTM_DISCORD_ENABLED }}
           DISCORD_MAKRO_WEBHOOK_URL: ${{ secrets.DISCORD_MAKRO_WEBHOOK_URL }}
           DISCORD_RAPPORTER_WEBHOOK_URL: ${{ secrets.DISCORD_RAPPORTER_WEBHOOK_URL }}
+          DISCORD_NYHETER_WEBHOOK_URL: ${{ secrets.DISCORD_NYHETER_WEBHOOK_URL }}
           GITHUB_TOKEN: ${{ github.token }}
         run: node scripts/discord_weekly.cjs "$PUBLICATION_KIND" "$PUBLICATION_WEEK" --send

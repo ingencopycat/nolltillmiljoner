@@ -11,6 +11,7 @@
   const relationTypes = ['learn', 'try', 'research', 'related', 'source', 'continue', 'discuss'];
   const supportedTickers = ['NVDA', 'SOFI', 'CRWD', 'MU', 'MRVL', 'VRT', 'COHR', 'RKLB', 'TTMI', 'SNDK', 'FLY', 'CRWV'];
   const postMetadata = {
+    'trump-xi-washington-ai-handel-taiwan': {tickers: ['NVDA'], concepts: ['ai', 'semiconductors', 'risk'], themes: ['macro']},
     'jordi-visser-linjart-exponentiellt-ai-trading': { concepts: ['ai', 'valuation', 'risk'], themes: ['ai-infrastructure'] },
     'jordi-visser-anthony-pompliano-ai-krypto-makro': { concepts: ['ai', 'crypto', 'interest-rates'], themes: ['macro'] },
     'jordi-visser-ai-agents-crypto': { tickers: ['NVDA'], companies: ['NVIDIA'], concepts: ['ai', 'crypto', 'interest-rates'], themes: ['ai-infrastructure', 'macro'] },
@@ -24,6 +25,8 @@
     return { id, from, to, type, priority, reason, cta, ...extra };
   }
   const relations = [
+    edge('trump-xi-nvda', 'post-trump-xi-washington-ai-handel-taiwan', 'research-nvda', 'research', 10, 'Sätt teknikexportens betydelse i relation till Nvidias rapporterade bolagsdata och dina egna antaganden.', 'Granska Nvidia i Research'),
+    edge('trump-xi-macro', 'post-trump-xi-washington-ai-handel-taiwan', 'macro-calendar', 'related', 20, 'Följ kommande ekonomiska publiceringar som kompletterar nyhetsbilden.', 'Öppna makrokalendern'),
     ...(knowledge?.publicEntries()||[]).flatMap(q=>[
       ...q.relatedLessonIds.flatMap((id,i)=>[
         edge('knowledge-lesson-'+q.id+'-'+id,'knowledge-'+q.id,'learn-'+id,'learn',10+i,'Fortsätt med en strukturerad lektion.','Lär dig mer'),

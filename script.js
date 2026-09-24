@@ -3020,7 +3020,7 @@ function escapePostText(value) {
 // Content is data: escape first, then restore only these attribute-free formatting
 // tokens. This also runs in the static generator (no browser DOM dependency).
 function constrainPostMarkup(value) {
-  return escapePostText(value).replace(/&lt;(\/?(?:p|strong|em|ul|ol|li|br))&gt;/g, '<$1>')
+  return escapePostText(value).replace(/&lt;(\/?(?:p|h2|strong|em|ul|ol|li|br))&gt;/g, '<$1>')
     .replace(/&lt;span lang=&quot;(en|sv)&quot;&gt;/g, '<span lang="$1">')
     .replace(/&lt;\/span&gt;/g, '</span>');
 }
@@ -3208,6 +3208,7 @@ function initPostPreviewLightboxes() {
 
 function renderPostView(post) {
   const ed = post.editorial;
+  const sources = ed?.sources?.length ? `<section class="editorial-note" aria-label="Artikelns källor"><h2>Källor</h2><ul>${ed.sources.map(s => `<li><a href="${safePostLink(s.url)}" target="_blank" rel="noopener noreferrer">${escapePostText(s.title)}</a> · Publicerad ${escapePostText(s.publishedAt)} · Hämtad ${escapePostText(s.accessedAt)}</li>`).join('')}</ul><p>${escapePostText(ed.sourceNote || '')}</p></section>` : '';
   const editorial = ed ? `<aside class="editorial-note"><h2>Källa och granskning</h2><p>${escapePostText(ed.attribution)} · Publicerad <time datetime="${ed.publishedAt}">${ed.publishedAt}</time> · Metadata uppdaterad <time datetime="${ed.updatedAt}">${ed.updatedAt}</time>.</p>
     <p>${ed.aiSummary ? 'AI-sammanfattning av källans resonemang, inte NTM:s verifierade slutsats.' : 'NTM:s publicerade innehåll och perspektiv.'}</p>
     <p>${ed.sourceUrl ? `<a href="${safePostLink(ed.sourceUrl)}" target="_blank" rel="noopener noreferrer">Öppna källan – ${escapePostText(ed.attribution)}</a>` : 'Länk till primärkälla saknas.'}</p>
@@ -3226,10 +3227,10 @@ function renderPostView(post) {
 
   return `<article class="post-article ${post.media.type === 'youtube' ? 'youtube-post' : ''}" data-youtube-post>
     <header class="post-header"><div class="post-meta"><span>${escapePostText(post.category)}</span><time datetime="${post.date}">${formatPostDate(post.date)}</time></div><h1>${escapePostText(post.title)}</h1><div class="post-tags">${renderPostTags(post)}</div><p class="post-lead">${escapePostText(post.excerpt)}</p></header>
-    <div class="post-media">${renderPostMedia(post)}</div>
+    ${post.media.type === 'none' ? '' : `<div class="post-media">${renderPostMedia(post)}</div>`}
     ${post.content ? `<div class="post-content">${constrainPostMarkup(post.content)}</div>` : ''}
     <div class="post-actions">${post.media.externalUrl ? `<a class="secondary-btn" href="${safePostLink(post.media.externalUrl)}" target="_blank" rel="noopener noreferrer">Se på YouTube ↗</a>` : ''}${post.instagramUrl ? `<a class="secondary-btn" href="${safePostLink(post.instagramUrl)}" target="_blank" rel="noopener noreferrer">Ursprungligen publicerat på Instagram ↗</a>` : ''}<button type="button" class="secondary-btn" data-copy-link>Kopiera länk</button><span class="copy-feedback" data-copy-feedback role="status" aria-live="polite"></span></div>
-    ${summary}${editorial}${journey}
+    ${summary}${sources}${editorial}${journey}
   </article>`;
 }
 
