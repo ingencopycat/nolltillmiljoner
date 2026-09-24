@@ -46,3 +46,7 @@ P/S codes alone do not establish an exchange venue. None of the selected XML foo
 | CRWD | 0001778564-26-000155 | 2026-09-04 | [SEC XML](https://www.sec.gov/Archives/edgar/data/1535527/000177856426000155/form4-09042026_080901.xml) | `80989b3476ef8842b3a24b82a9c4b78a2a9ca7ca457a9430d47984ba5f6125d0` |
 | CRWD | 0001778564-26-000153 | 2026-09-02 | [SEC XML](https://www.sec.gov/Archives/edgar/data/1535527/000177856426000153/form4-09022026_080901.xml) | `159c79deebc7b87064097a2896f02ce1af822eb4bcf072d3c552693b08f13900` |
 | CRWD | 0001201326-26-000021 | 2026-09-02 | [SEC XML](https://www.sec.gov/Archives/edgar/data/1535527/000120132626000021/form4-09022026_080903.xml) | `b562b80c309c3379fc0e63e162a1727a63ad8d7d0c7d1c92e55e926c04a9a740` |
+
+## Daily source preservation
+
+New AUTO-ACCEPT Form 4 evidence must preserve its bounded official XML and selected submissions row in the same candidate. The parser verifies the stored UTF-8/LF source hash and entire normalized filing before publication. The bot transfers/stages this directory and validates the actual Git index before committing. See [the lifecycle audit](../../../docs/internal/sec-source-lifecycle-2026-09-24.md) for the eight 2026-09-24 repairs and verification hashes.

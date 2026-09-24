@@ -1,5 +1,6 @@
 import copy
 import json
+import shutil
 from pathlib import Path
 import sys
 import tempfile
@@ -34,6 +35,9 @@ class DailyTests(unittest.TestCase):
         (self.stocks / 'evidence').mkdir(parents=True)
         self.state = self.root / 'state.json'
         self.report = self.root / 'report.json'
+        self.fixtures = self.root / 'fixtures'
+        for folder in daily.FOLDERS:
+            shutil.copytree(ROOT / 'tests/fixtures' / folder, self.fixtures / folder)
         self.subs = {}
         state = dict(schema='ntm-sec-daily/1', issuers={})
         for ticker in daily.PILOT:
@@ -54,7 +58,7 @@ class DailyTests(unittest.TestCase):
         return {p.relative_to(self.stocks).as_posix(): p.read_bytes() for p in self.stocks.rglob('*.json')}
 
     def run_daily(self, tickers=('NVDA',)):
-        return daily.run(tickers, self.client, self.stocks, self.state, self.report)
+        return daily.run(tickers, self.client, self.stocks, self.state, self.report, self.fixtures)
 
     def new(self, **kwargs):
         cik = daily.IDENTITIES['NVDA']

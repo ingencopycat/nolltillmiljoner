@@ -82,6 +82,8 @@ jobs:
           path: artifacts/sec-refresh.json
           retention-days: 14
           if-no-files-found: error
+      - name: Validate complete offline evidence candidate before transfer
+        run: python -B scripts/evidence_sources.py --daily-report artifacts/sec-refresh.json
       - uses: actions/upload-artifact@v4
         with:
           name: validated-data
@@ -92,7 +94,12 @@ jobs:
             data/stocks/SOFI.json
             data/stocks/CRWD.json
             data/stocks/evidence/*.json
-            scripts/source_reviews/daily_state.json
+            scripts/source_reviews/*.json
+            tests/fixtures/company_insiders/**
+            tests/fixtures/company_evidence/**
+            tests/fixtures/company_observations/**
+            tests/fixtures/company_ownership/**
+            tests/fixtures/company_material_events/**
           if-no-files-found: error
   commit-data:
     needs: prepare-data
@@ -108,10 +115,21 @@ jobs:
         with:
           name: validated-data
           path: .
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate transferred candidate before any data commit
+        run: |
+          pip install -r requirements-browser.txt
+          python -B scripts/validate_release.py
       - id: commit
         shell: bash
         run: |
-          git add data/weekly-events.js data/stocks/NVDA.json data/stocks/SOFI.json data/stocks/CRWD.json data/stocks/evidence/*.json scripts/source_reviews/daily_state.json
+          git add data/weekly-events.js data/stocks/NVDA.json data/stocks/SOFI.json data/stocks/CRWD.json data/stocks/evidence/*.json scripts/source_reviews/*.json tests/fixtures/company_insiders tests/fixtures/company_evidence tests/fixtures/company_observations tests/fixtures/company_ownership tests/fixtures/company_material_events
+          python -B scripts/evidence_sources.py --staged
           if ! git diff --cached --quiet -- data; then
             echo "publish=true" >> "$GITHUB_OUTPUT"
           else

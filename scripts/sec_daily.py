@@ -7,6 +7,7 @@ import copy
 import hashlib
 import json
 import re
+import shutil
 import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
@@ -17,6 +18,8 @@ from company_insiders import metadata as insider_index, parse as parse_insider
 from company_ownership import index as ownership_index
 from stock_contract import IDENTITIES
 from update_stocks import update_stock, save_atomic_json
+from evidence_sources import (FOLDERS, SourceClosureError, validate_feed, validate_repository,
+                              preserve_insider, preserve_earnings, merge_index, write_json, digest)
 
 ROOT = Path(__file__).resolve().parents[1]
 STATE = ROOT / 'scripts/source_reviews/daily_state.json'
@@ -111,7 +114,8 @@ def insider_candidate(xml, meta):
     return parsed
 
 
-def refresh_issuer(ticker, client, stock_dir, previous_state, statistics=None):
+def refresh_issuer(ticker, client, stock_dir, previous_state, statistics=None, fixtures=None):
+    fixtures = Path(fixtures or ROOT / 'tests/fixtures')
     target = stock_dir / 'evidence' / (ticker + '.json')
     document = read(target)
     validate_evidence(document, ticker, IDENTITIES[ticker])
@@ -159,7 +163,9 @@ def refresh_issuer(ticker, client, stock_dir, previous_state, statistics=None):
         reason = None
         try:
             if form == '4':
-                parsed = insider_candidate(client.get_ownership_xml(meta['url']), meta)
+                xml = client.get_ownership_xml(meta['url'])
+                parsed = insider_candidate(xml, meta)
+                preserve_insider(fixtures, ticker, sub, meta, xml, parsed)
                 candidate['insiderEvidence']['filings'].append(parsed)
                 accepted += len(parsed['transactions']) + len(parsed['holdings'])
             elif form in ('10-K', '10-Q'):
@@ -196,6 +202,7 @@ def refresh_issuer(ticker, client, stock_dir, previous_state, statistics=None):
                 if not event['documents']:
                     raise ReviewRequired('Unsupported or ambiguous earnings exhibit relationship.')
                 event['documentStatus'] = 'verified'
+                preserve_earnings(fixtures, event, source)
                 candidate['events'].append(event)
                 accepted += 1
                 reason = review_reason(meta)
@@ -214,6 +221,17 @@ def refresh_issuer(ticker, client, stock_dir, previous_state, statistics=None):
     candidate['latestReportAccession'] = latest['accessionNumber'] if latest else None
     candidate['insiderEvidence']['filings'].sort(key=lambda e: (e['filingDate'], e['accessionNumber']), reverse=True)
     validate_evidence(candidate, ticker, IDENTITIES[ticker])
+    for event in candidate['events']:
+        if event['accessionNumber'] not in {e['accessionNumber'] for e in document['events']}:
+            merge_index(fixtures, 'company_evidence', ticker, sub, event['accessionNumber'])
+    # Refresh the existing fixture-manifest hash for the trimmed submissions index.
+    manifest_path = fixtures / 'company_evidence/manifest.json'
+    manifest = read(manifest_path)
+    for entry in manifest['fixtures']:
+        if entry['file'] == ticker + '.json':
+            entry['sha256'] = digest((fixtures / 'company_evidence' / entry['file']).read_text(encoding='utf-8'))
+    write_json(manifest_path, manifest)
+    validate_feed(candidate, fixtures)
     if candidate != document:
         candidate['verifiedAt'] = datetime.now(timezone.utc).isoformat()
         save_atomic_json(candidate, str(target))
@@ -225,15 +243,17 @@ def refresh_issuer(ticker, client, stock_dir, previous_state, statistics=None):
     return state, len(new), accepted
 
 
-def run(tickers, client, stock_dir=None, state_path=None, report_path=None):
+def run(tickers, client, stock_dir=None, state_path=None, report_path=None, fixtures_dir=None):
     stock_dir = Path(stock_dir or ROOT / 'data/stocks')
     state_path = Path(state_path or STATE)
     report_path = Path(report_path or ROOT / 'artifacts/sec-refresh.json')
+    fixtures_dir = Path(fixtures_dir or ROOT / 'tests/fixtures')
     if not tickers or any(t not in PILOT for t in tickers) or len(set(tickers)) != len(tickers):
         raise ValueError('Unsupported daily selection')
     state = read(state_path) if state_path.exists() else {'schema': 'ntm-sec-daily/1', 'issuers': {}}
     if state.get('schema') != 'ntm-sec-daily/1':
         raise ValueError('Unsupported refresh state')
+    original_state = copy.deepcopy(state)
     report = dict(issuersChecked=0, newFilings=0, acceptedObservationsEvents=0,
                   reviewRequired=0, rejectedFailed=0, productionDataChanged=False, issuers=[])
     # All issuer work is isolated. A failed issuer contributes no files or checkpoint.
@@ -244,37 +264,88 @@ def run(tickers, client, stock_dir=None, state_path=None, report_path=None):
         statistics = {'newFilings': 0}
         with tempfile.TemporaryDirectory() as temporary:
             staged = Path(temporary)
+            staged_fixtures = staged / 'fixtures'
+            for folder in FOLDERS:
+                shutil.copytree(fixtures_dir / folder, staged_fixtures / folder)
+            for destination, content in changes.items():
+                if destination.is_relative_to(fixtures_dir):
+                    (staged_fixtures / destination.relative_to(fixtures_dir)).write_bytes(content)
+            original_sources = {p.relative_to(staged_fixtures): p.read_bytes() for p in staged_fixtures.rglob('*') if p.is_file()}
             names = [Path(ticker + '.json'), Path('evidence') / (ticker + '.json'), Path('evidence') / (ticker + '.status.json')]
             original = {name: (stock_dir / name).read_bytes() for name in names}
             for name, content in original.items():
                 (staged / name).parent.mkdir(parents=True, exist_ok=True)
                 (staged / name).write_bytes(content)
             try:
-                updated, discovered, accepted = refresh_issuer(ticker, client, staged, state['issuers'].get(ticker, {}), statistics)
-                state['issuers'][ticker] = updated
-                report['acceptedObservationsEvents'] += accepted
-                report['reviewRequired'] += len(updated['review'])
+                updated, discovered, accepted = refresh_issuer(ticker, client, staged, state['issuers'].get(ticker, {}), statistics, staged_fixtures)
+                issuer_changes = {}
                 item.update(newFilings=discovered, accepted=accepted, reviewRequired=len(updated['review']),
                             review=list(updated['review'].values())[:100], omittedReview=max(0, len(updated['review']) - 100))
                 for name, content in original.items():
                     if (staged / name).read_bytes() != content:
-                        changes[stock_dir / name] = (staged / name).read_bytes()
+                        issuer_changes[stock_dir / name] = (staged / name).read_bytes()
+                for p in staged_fixtures.rglob('*'):
+                    if p.is_file() and original_sources.get(p.relative_to(staged_fixtures)) != p.read_bytes():
+                        destination = fixtures_dir / p.relative_to(staged_fixtures)
+                        issuer_changes[destination] = p.read_bytes()
+                changes.update(issuer_changes)
+                state['issuers'][ticker] = updated
+                report['acceptedObservationsEvents'] += accepted
+                report['reviewRequired'] += len(updated['review'])
                 item['outcome'] = 'AUTO-ACCEPT' if accepted else 'REVIEW REQUIRED' if updated['review'] else 'UNCHANGED'
+            except SourceClosureError:
+                report['reviewRequired'] += 1
+                item.update(outcome='REVIEW REQUIRED', accepted=0, reason='Offline source closure failed; issuer baseline retained; source/index review required.')
+                if 'currentSource' in statistics:
+                    item['failedSource'] = statistics['currentSource']
             except Exception as error:
                 report['rejectedFailed'] += 1
                 # Never copy arbitrary transport/source error text into an artifact.
-                item.update(outcome='REJECT/FAILED', reason=type(error).__name__ + ': issuer retained; inspect source/contract or retry.')
+                item.update(outcome='REJECT/FAILED', accepted=0, reason=type(error).__name__ + ': issuer retained; inspect source/contract or retry.')
                 if 'currentSource' in statistics:
                     item['failedSource'] = statistics['currentSource']
             report['newFilings'] += statistics['newFilings']
             report['issuers'].append(item)
     report['productionDataChanged'] = bool(changes)
+    # Validate the combined ALL candidate before ANY publication writes. This also
+    # protects unchanged issuers and review-only evidence classes from source loss.
+    with tempfile.TemporaryDirectory(prefix='ntm-sec-candidate-') as temporary:
+        candidate_root = Path(temporary)
+        shutil.copytree(stock_dir, candidate_root / 'data/stocks')
+        shutil.copytree(fixtures_dir, candidate_root / 'tests/fixtures')
+        shutil.copytree(ROOT / 'scripts/source_reviews', candidate_root / 'scripts/source_reviews')
+        for destination, content in changes.items():
+            relative = (Path('data/stocks') / destination.relative_to(stock_dir)) if destination.is_relative_to(stock_dir) else (Path('tests/fixtures') / destination.relative_to(fixtures_dir))
+            output = candidate_root / relative
+            output.parent.mkdir(parents=True, exist_ok=True)
+            output.write_bytes(content)
+        try:
+            validate_repository(candidate_root)
+        except (SourceClosureError, ValueError, OSError):
+            report.update(productionDataChanged=False, acceptedObservationsEvents=0)
+            report['reviewRequired'] += 1
+            report['publicationBlocked'] = 'Candidate offline source closure failed; no production or checkpoint writes.'
+            for item in report['issuers']:
+                if item.get('accepted'):
+                    item.update(outcome='REVIEW REQUIRED', accepted=0, reason='Combined candidate failed offline source validation; baseline retained.')
+            save_atomic_json(report, str(report_path))
+            return report
     # Roll back local writes if the filesystem fails. CI publishes one validated git revision.
     backups = {path: path.read_bytes() if path.exists() else None for path in [*changes, state_path]}
     try:
         for path, content in changes.items():
-            save_atomic_json(json.loads(content), str(path))
-        save_atomic_json(state, str(state_path))
+            path.parent.mkdir(parents=True, exist_ok=True)
+            # One multi-file candidate; rollback on I/O failure. Hosted publication
+            # is the single Git commit after offline working-tree AND index checks.
+            with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as staged_file:
+                staged_file.write(content)
+                name = Path(staged_file.name)
+            try:
+                name.replace(path)
+            finally:
+                name.unlink(missing_ok=True)
+        if state != original_state:
+            save_atomic_json(state, str(state_path))
     except Exception:
         for path, content in backups.items():
             if content is None:

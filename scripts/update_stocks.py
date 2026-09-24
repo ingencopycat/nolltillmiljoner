@@ -160,7 +160,7 @@ def main():
         from sec_daily import run
         from company_evidence import PILOT
         result = run(list(PILOT) if args.all else [args.ticker.upper()], SECClient())
-        if result['rejectedFailed']:
+        if result['rejectedFailed'] or result.get('publicationBlocked'):
             raise SystemExit(1)
         return
 

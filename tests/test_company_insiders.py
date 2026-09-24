@@ -15,8 +15,9 @@ def filing(t,a):return next(f for f in load(t)['filings'] if f['accessionNumber'
 
 class InsidersTests(unittest.TestCase):
  def test_real_fixtures_reproduce_published(self):
-  for t,count in [('NVDA',13),('SOFI',8),('CRWD',16)]:
-   data=load(t);self.assertEqual(len(data['filings']),count);self.assertEqual(data,json.loads((ROOT/'data/stocks/evidence'/(t+'.json')).read_text(encoding='utf-8'))['insiderEvidence'])
+  for t in CIKS:
+   published=json.loads((ROOT/'data/stocks/evidence'/(t+'.json')).read_text(encoding='utf-8'))['insiderEvidence']
+   data=load(t);self.assertEqual(len(data['filings']),len(published['filings']));self.assertEqual(data,published)
  def test_real_purchase_price_and_precision(self):
   f=filing('SOFI','0001613438-26-000016');r=f['transactions'][0];self.assertEqual(r['code'],'P');self.assertEqual(r['fields']['shares']['value'],'13888');self.assertEqual(r['fields']['price']['value'],'18.0578');self.assertTrue(r['classification']['weightedPrice']);self.assertEqual(r['classification']['venue'],'unspecified')
  def test_real_sales_with_multiple_rows_not_duplicated(self):
@@ -54,14 +55,15 @@ class InsidersTests(unittest.TestCase):
    self.assertEqual(target.read_bytes(),before);self.assertEqual(json.loads((Path(directory)/'NVDA.status.json').read_text())['status'],'unavailable')
  def test_offline_pipeline_is_explicitly_offline(self):
   with tempfile.TemporaryDirectory() as directory:
-   d=update_evidence('SOFI',None,offline=True,output_dir=directory,insiders=True);self.assertEqual(d['status'],'offline_fixture');self.assertEqual(len(d['insiderEvidence']['filings']),8)
+   d=update_evidence('SOFI',None,offline=True,output_dir=directory,insiders=True);self.assertEqual(d['status'],'offline_fixture');self.assertEqual(d['insiderEvidence'],load('SOFI'))
  def test_malformed_entity_or_wrong_issuer_fails_closed(self):
   m=next(iter(metadata(submission('SOFI'),'SOFI',CIKS['SOFI']).values()));xml=fetch(m['url'])
   for bad in ['not XML','<ownershipDocument>','<!DOCTYPE x [<!ENTITY secret SYSTEM "file:///secret">]>'+xml,xml.replace('<issuerCik>0001818874','<issuerCik>0001045810'),xml.replace('<documentType>4','<documentType>3')]:
    with self.assertRaises(ValueError):parse(bad,m)
  def test_unknown_numeric_text_and_dangling_footnotes_rejected(self):
-  m=next(iter(metadata(submission('SOFI'),'SOFI',CIKS['SOFI']).values()));xml=fetch(m['url'])
+  m=metadata(submission('SOFI'),'SOFI',CIKS['SOFI'])['0002032458-26-000026'];xml=fetch(m['url'])
   for bad in [xml.replace('<value>82643</value>','<value>unknown</value>'),xml.replace('id="F1"/>','id="MISSING"/>')]:
+   self.assertNotEqual(bad,xml)
    with self.assertRaises(ValueError):parse(bad,m)
  def test_provenance_and_url_boundaries(self):
   d=load('NVDA');self.assertEqual(len(d['filings'][0]['source']['sha256']),64);d['filings'][0]['renderedUrl']='javascript:alert(1)'

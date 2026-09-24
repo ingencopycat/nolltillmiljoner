@@ -3,8 +3,10 @@ import hashlib
 import json
 from pathlib import Path
 import unittest
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
 
 
 def read(path):
@@ -12,6 +14,10 @@ def read(path):
 
 
 class EvidenceFixtureInventoryTests(unittest.TestCase):
+    def test_production_publication_invariant(self):
+        from evidence_sources import validate_repository
+        validate_repository(ROOT)
+
     def source(self, folder, accession, suffix, digest=None):
         path = ROOT / 'tests/fixtures' / folder / (accession + suffix)
         self.assertTrue(path.is_file(), f'Missing offline source: {path.relative_to(ROOT)}')
