@@ -25,7 +25,8 @@ try:
     assert p.locator('#fundamentalProfile button:visible').count()==0
     assert p.locator('#companyEvidence .reporting-grid a:visible').count()>=2
     assert p.locator('#overviewRevenuePlot').is_visible()
-    assert p.locator('#companyEvidenceSince').is_visible()
+    assert p.locator('#companyEvidenceSince').is_hidden()
+    expect(p.locator('#researchSince')).to_contain_text('Inga nya granskade förändringar')
     assert p.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),key
     for name,selector in [('overview','#companyHeaderCard'),('numbers','#keyMetricsGrid'),('growth-profitability','#fundamentalProfile'),('revenue','#overviewRevenue'),('reporting-saved','#companyEvidence')]:
      p.locator(selector).screenshot(path=str(OUT/f'{key}-{name}.png'),animations='disabled')

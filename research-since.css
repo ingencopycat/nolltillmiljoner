@@ -1,0 +1,11 @@
+.research-since{margin:1rem 0;padding:1rem;border:1px solid var(--border-color,#64748b);border-radius:12px;min-width:0}
+/* The reviewed return view replaces the old raw snapshot-diff presentation. */
+body:has(#researchSince[data-reviewed-company=true]) #changeDetectionSection{display:none!important}
+.research-since h2{margin:0;font-size:1.2rem}.since-baseline,.since-change small{opacity:.75;font-size:.8rem}
+.since-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;margin:1rem 0}
+.since-group{min-width:0;border:1px solid var(--border-color,#64748b);border-radius:8px;padding:.7rem}
+.since-group summary{cursor:pointer;overflow-wrap:anywhere}.since-group summary strong{font-size:.9rem}.since-group summary>span{display:block;font-size:.85rem;margin-top:.35rem}
+.since-change{padding:.7rem 0;border-top:1px solid var(--border-color,#64748b);margin-top:.7rem;overflow-wrap:anywhere}.since-change h4{margin:0;font-size:.9rem}
+.since-values{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem;margin:.4rem 0;font-variant-numeric:tabular-nums}.since-change p{font-size:.85rem}.since-change a{display:block;margin:.5rem 0}.since-change details{margin-top:.5rem;font-size:.8rem}.since-method{margin-top:.8rem;font-size:.8rem}
+.since-more{margin:0 0 1rem;font-size:.85rem}.since-more>summary{cursor:pointer}.since-more .since-groups{margin-bottom:0}
+@media(max-width:600px){.since-groups{grid-template-columns:1fr}.research-since{padding:.8rem}.since-values{font-size:.95rem}}

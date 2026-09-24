@@ -208,7 +208,8 @@ function element() {
     classList: { add(name) { classes.add(name); }, remove(name) { classes.delete(name); }, contains(name) { return classes.has(name); } },
     appendChild(child) { this.children.push(child); },
     append(...children) { this.children.push(...children); }, after() {}, before() {}, scrollIntoView() {},
-    replaceChildren() { this.children = []; }, focus() {}, remove() {}, click() {},
+    replaceChildren(...children) { this.children = children; }, get firstChild() { return this.children[0]; },
+    querySelectorAll() { return []; }, focus() {}, remove() {}, click() {},
     addEventListener() {}, setAttribute() {}, closest() { return null; },
   };
 }

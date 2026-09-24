@@ -69,11 +69,12 @@
  }
  function renderBaseline(){
   const p=document.getElementById('companyEvidenceSince');if(!p||!current)return;
-  p.hidden=!baseline;p.replaceChildren();
-  if(baseline)p.append(node('h3','Sedan din analys'),node('p',`${since(current,baseline).length} nya rapporteringshändelser i urvalet`),node('small',`Efter ${baseline.slice(0,10)}`));
+  p.hidden=true;p.replaceChildren();
+  window.NTMResearchSinceUI?.render();
  }
  async function render(stock){
   const ticket=++generation;current=null;
+  window.NTMResearchSinceUI?.setStock(stock);
   const legacy=document.getElementById('filingsList');if(legacy)legacy.hidden=false;
   const legacySection=legacy?.closest('section');if(legacySection)legacySection.hidden=false;
   document.getElementById('companyEvidence')?.remove();
@@ -82,12 +83,12 @@
   document.getElementById('overviewRevenue')?.after(host);
   host.append(node('p','Hämtar officiell bolagsrapportering…'));
   try{
-   const [response,health]=await Promise.all([fetch(`data/stocks/evidence/${stock.symbol}.json`),fetch(`data/stocks/evidence/${stock.symbol}.status.json`)]);
-   if(!response.ok||!health.ok)throw Error('Unavailable');
-   const data=validate(await response.json(),stock.symbol),status=await health.json();
+   const [response,health]=await Promise.all([fetch(`data/stocks/evidence/${stock.symbol}.json`),fetch(`data/stocks/evidence/${stock.symbol}.status.json`).catch(()=>null)]);
+   if(!response.ok)throw Error('Unavailable');
+   const data=validate(await response.json(),stock.symbol),status=health?.ok?await health.json().catch(()=>({status:'unavailable'})):{status:'unavailable'};
    if(ticket!==generation)return;
    if(data.status!=='verified')throw Error('Unverified');
-   current=data;show(data,['verified','unavailable'].includes(status?.status)?status:{status:'unavailable'},host,stock);
+   current=data;window.NTMResearchSinceUI?.setEvidence(data,status);show(data,['verified','unavailable'].includes(status?.status)?status:{status:'unavailable'},host,stock);
    window.NTMCompanyObservationsUI?.render(data,host,status);
    window.NTMCompanySegmentsUI?.render(data,host,status);
    window.NTMCompanyCapitalUI?.render(data,host,status);
