@@ -63,5 +63,5 @@
  document.addEventListener('input',e=>{if(C.fieldIds.includes(e.target.id))capture();});
  window.addEventListener('storage',e=>{if(e.key===window.NTMThesisStorage.key)try{sessionStorage.removeItem(C.targetKey);}catch(_){}if(stock&&(e.key===window.NTMThesisStorage.key||e.key===C.prefix+stock.symbol)){error='Lokalt arbete ändrades i en annan flik. Ladda ner formuläret innan du laddar om.';message(error);update();}});
  window.addEventListener('beforeunload',e=>{if(stock&&(restore||error||currentThesisState.isDirty)){e.preventDefault();e.returnValue='';}});
- window.NTMContinuityUI={init,state,canSave,capture,saved,key:()=>C.reviewKey(latest().thesis,selected())};
+ window.NTMContinuityUI={init,state,canSave,capture,saved,saveError:()=>error||(restore?'Återställ eller kasta det väntande utkastet under ”Fortsätt ditt arbete” innan du sparar.':''),key:()=>C.reviewKey(latest().thesis,selected())};
 })();

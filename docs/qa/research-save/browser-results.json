@@ -1,0 +1,100 @@
+{
+  "cases": [
+    {
+      "width": 1440,
+      "theme": "dark",
+      "validation": true,
+      "save": true,
+      "doubleClick": true,
+      "reload": true,
+      "reopen": true,
+      "newRevision": true,
+      "baseline": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "validation": true,
+      "save": true,
+      "doubleClick": true,
+      "reload": true,
+      "reopen": true,
+      "newRevision": true,
+      "baseline": true
+    },
+    {
+      "width": 360,
+      "theme": "dark",
+      "validation": true,
+      "save": true,
+      "doubleClick": true,
+      "reload": true,
+      "reopen": true,
+      "newRevision": true,
+      "baseline": true
+    },
+    {
+      "width": 360,
+      "theme": "light",
+      "validation": true,
+      "save": true,
+      "doubleClick": true,
+      "reload": true,
+      "reopen": true,
+      "newRevision": true,
+      "baseline": true
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "validation": true,
+      "save": true,
+      "doubleClick": true,
+      "reload": true,
+      "reopen": true,
+      "newRevision": true,
+      "baseline": true
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "validation": true,
+      "save": true,
+      "doubleClick": true,
+      "reload": true,
+      "reopen": true,
+      "newRevision": true,
+      "baseline": true
+    },
+    {
+      "width": 430,
+      "theme": "dark",
+      "validation": true,
+      "save": true,
+      "doubleClick": true,
+      "reload": true,
+      "reopen": true,
+      "newRevision": true,
+      "baseline": true
+    },
+    {
+      "width": 430,
+      "theme": "light",
+      "validation": true,
+      "save": true,
+      "doubleClick": true,
+      "reload": true,
+      "reopen": true,
+      "newRevision": true,
+      "baseline": true
+    }
+  ],
+  "networkWrites": [],
+  "extra": [
+    "stale valuation",
+    "pending draft",
+    "quota",
+    "unexpected exception",
+    "committed save with UI exception"
+  ]
+}

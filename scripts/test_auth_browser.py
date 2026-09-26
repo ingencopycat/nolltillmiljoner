@@ -150,6 +150,20 @@ def main():
             page.locator('#cloudVerifyOtp').click()
             expect(page.locator('#cloudConnected')).to_be_visible()
 
+        def research_save(page, phase):
+            page.goto(base+'/research.html?ticker=NVDA')
+            expect(page.locator('#thesis-text')).to_be_visible()
+            before = page.evaluate("NTMThesisStorage.get('NVDA').thesis?.revisions||[]")
+            page.locator('#thesis-text').fill('Synthetic private save check: '+phase)
+            page.locator('#thesisForm [type=submit]').click()
+            expect(page.locator('#thesisStatusBanner')).to_contain_text('Analysen sparad.')
+            after = page.evaluate("NTMThesisStorage.get('NVDA').thesis.revisions")
+            assert len(after)==len(before)+1 and after[:-1]==before
+            page.reload()
+            assert page.evaluate("NTMThesisStorage.get('NVDA').thesis.revisions")==after
+            assert state['uploads']==0, 'Research save must not silently become account sync'
+            print('PASS Research save with session: '+phase, flush=True)
+
         context = launch()
         page = context.pages[0]
         login(page)
@@ -165,6 +179,8 @@ def main():
                 expect(page.locator('#main-content')).to_have_attribute('data-entry-state', 'COMPANY_SELECTED')
                 expect(page.locator('#companyName')).to_contain_text('NVIDIA')
             account(page)
+        research_save(page, 'signed in')
+        account(page)
         page.reload()
         expect(page.locator('#cloudConnected')).to_be_visible()
         context.new_cdp_session(page).send('Network.setCacheDisabled', {'cacheDisabled': True})
@@ -176,6 +192,8 @@ def main():
         context.close()
         context = launch()
         page = context.pages[0]
+        account(page)
+        research_save(page, 'restored after browser restart')
         account(page)
         # If expiry occurs in transit, retry once with an SDK-renewed token.
         previous_refreshes = state['refreshes']
@@ -198,6 +216,8 @@ def main():
         context.close()
         context = launch()
         page = context.pages[0]
+        account(page)
+        research_save(page, 'renewed after token expiry')
         account(page)
         other = context.new_page()
         account(other)
@@ -271,6 +291,7 @@ def main():
         expect(page.locator('#cloudLogin')).to_be_visible()
         assert not page.evaluate("Object.keys(localStorage).some(k=>/^sb-.*-auth-token$/.test(k))")
         assert state['uploads'] == 0, 'Session restoration must never upload private data'
+        research_save(page, 'signed out after expired offline session')
         assert not errors, errors
         context.close()
         server.shutdown()

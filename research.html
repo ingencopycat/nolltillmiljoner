@@ -206,9 +206,6 @@
                     Börja med vad du tror. Pröva vad som skulle ändra din slutsats.
                 </p>
 
-                <!-- Thesis Status Banner -->
-                <div id="thesisStatusBanner" class="calc-status-banner calc-status-neutral" role="status" aria-live="polite" style="display: none;"></div>
-
                 <div class="field-group" id="manualCompanyField" hidden><label for="manualCompanyName">Bolagsnamn eller egen beteckning</label><input id="manualCompanyName" type="text" maxlength="120" /></div>
                 <form id="thesisForm" class="calculator-form thesis-form" novalidate>
 
@@ -301,6 +298,7 @@
                         <button type="submit" class="thesis-submit-btn">Spara ny version</button>
                         <button type="button" id="researchPublishBtn" class="ghost-btn">Publicera analys</button>
                     </div>
+                    <div id="thesisStatusBanner" class="calc-status-banner calc-status-neutral" role="status" aria-live="polite" aria-atomic="true" tabindex="-1" style="display: none;"></div>
                 </form>
 
                 <!-- Thesis Saved Indicator -->

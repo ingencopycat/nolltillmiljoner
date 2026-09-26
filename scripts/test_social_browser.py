@@ -381,6 +381,15 @@ def main():
         expect(page.locator('#cloudStatus')).to_have_text('Synkfel')
         expect(page.locator('#cloudRetry')).to_be_visible()
         capture('sync-error')
+        # An explicit private-sync RLS denial must not erase canonical local saves
+        # or claim a successful account copy. This is separate from Research save.
+        local_before = page.evaluate("localStorage.getItem('investment-research-theses-v1')")
+        page.evaluate("""() => {const key=NTMCloudSync.PREFIX+'fixture-owner',q=JSON.parse(localStorage.getItem(key));q.ops.forEach(o=>o.nextAttempt=0);localStorage.setItem(key,JSON.stringify(q));}""")
+        state['failure']=(403,'42501')
+        page.locator('#cloudRetry').click()
+        expect(page.locator('#cloudAccount')).to_have_attribute('aria-busy','false')
+        expect(page.locator('#cloudStatus')).to_have_text('Synkfel')
+        assert page.evaluate("localStorage.getItem('investment-research-theses-v1')")==local_before
         # Advance only the fixture retry eligibility, not production clock/logic.
         page.evaluate("""() => {const key=NTMCloudSync.PREFIX+'fixture-owner',q=JSON.parse(localStorage.getItem(key));q.ops.forEach(o=>o.nextAttempt=0);localStorage.setItem(key,JSON.stringify(q));}""")
         page.locator('#cloudRetry').click()

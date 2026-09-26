@@ -1558,8 +1558,18 @@ function initThesisSection(data) {
     window.NTMReview?.init(data);
 }
 
+let thesisSaveInProgress = false;
 function saveThesis(data) {
-    if (window.NTMContinuityUI && !window.NTMContinuityUI.canSave()) return;
+    if (thesisSaveInProgress) return;
+    const button = document.getElementById('thesisForm')?.querySelector?.('[type=submit]');
+    let committed = null;
+    thesisSaveInProgress = true;
+    if (button) { button.disabled = true; button.setAttribute('aria-busy', 'true'); }
+    try {
+    if (window.NTMContinuityUI && !window.NTMContinuityUI.canSave()) {
+        showThesisError(window.NTMContinuityUI.saveError?.() || 'Analysen kunde inte sparas. Kontrollera det lokala utkastet och versionshistoriken innan du försöker igen.');
+        return;
+    }
     const ticker = data.symbol || '';
     const companyName = data.manual ? document.getElementById('manualCompanyName').value.trim() || data.symbol : data.company?.name || '';
 
@@ -1611,6 +1621,7 @@ function saveThesis(data) {
         showThesisError(result.error || 'Kunde inte spara analysen.');
         return;
     }
+    committed = result;
 
     window.NTMContinuityUI?.saved();
     if (result.created) {
@@ -1626,7 +1637,7 @@ function saveThesis(data) {
     currentThesisState.selectedRevisionId = result.revisionId;
 
     // Show success
-    showThesisSuccess(thesis.valuationSnapshot, result.created);
+    showThesisSuccess(thesis.valuationSnapshot, result.created, result.updatedAt);
     showThesisSavedIndicator(result.updatedAt);
     displayThesisSnapshotPreview(currentThesisState.thesis?.valuationSnapshot);
     renderRevisionHistory(data);
@@ -1640,6 +1651,16 @@ function saveThesis(data) {
     // Record in recent tools
     if (window.NTMRecentTools && typeof window.NTMRecentTools.record === 'function') {
         window.NTMRecentTools.record();
+    }
+    } catch (_) {
+        if (committed) {
+            showThesisStatus(`Analysen sparad på den här enheten · ${formatRevisionDate(committed.updatedAt)}. Vyn kunde inte uppdateras helt. Ladda om för att läsa den sparade versionen.`);
+        } else {
+            showThesisError('Kunde inte bekräfta att analysen sparades. Texten finns kvar i formuläret. Ladda ner texten innan du laddar om och kontrollera versionshistoriken.');
+        }
+    } finally {
+        thesisSaveInProgress = false;
+        if (button) { button.disabled = false; button.setAttribute('aria-busy', 'false'); }
     }
 }
 
@@ -1743,6 +1764,15 @@ function showThesisSavedIndicator(savedTimestamp) {
 function hideThesisSavedIndicator() {
     const indicator = document.getElementById('thesisSavedIndicator');
     if (indicator) indicator.style.display = 'none';
+    const banner = document.getElementById('thesisStatusBanner');
+    if (banner) banner.style.display = 'none';
+}
+
+function revealThesisStatus(banner) {
+    // Validation may originate in a collapsed editor or above the current viewport.
+    // Keep the result next to the action and bring it into view without a browser alert.
+    const rect = banner.getBoundingClientRect?.();
+    if (rect && (rect.top < 0 || rect.bottom > window.innerHeight)) banner.scrollIntoView({block:'nearest'});
 }
 
 function showThesisError(msg) {
@@ -1752,6 +1782,7 @@ function showThesisError(msg) {
         banner.setAttribute('data-ntm-status', 'error');
         banner.textContent = msg;
         banner.style.display = 'block';
+        revealThesisStatus(banner);
     }
 }
 
@@ -1769,6 +1800,7 @@ function showThesisStatus(message) {
         banner.setAttribute('data-ntm-status', 'saved');
     banner.textContent = message;
     banner.style.display = 'block';
+    revealThesisStatus(banner);
 }
 
 // Explicit allowlist: historical outputs and fundamentals never enter the editor.
@@ -1995,21 +2027,22 @@ function deleteSelectedRevision(data) {
         : 'Versionen raderad. Ingen sparad version återstår.');
 }
 
-function showThesisSuccess(snapshot, created = true) {
+function showThesisSuccess(snapshot, created = true, savedAt = null) {
     const banner = document.getElementById('thesisStatusBanner');
     if (banner) {
-        const msg = !created ? 'Inga ändringar att spara. Senaste versionen finns redan.' : snapshot
-            ? 'Ny version sparad med värdering. Tidigare versioner finns kvar.'
-            : 'Ny version sparad utan värdering. Tidigare versioner finns kvar.';
+        const msg = !created ? 'Analysen är redan sparad. Inga ändringar att spara; ingen ny version skapades.'
+            : `Analysen sparad. Ny version ${snapshot ? 'med' : 'utan'} värdering. Tidigare versioner finns kvar.`;
         banner.className = 'calc-status-banner calc-status-success';
         banner.setAttribute('data-ntm-status', 'saved');
-        banner.textContent = msg;
+        banner.textContent = `${msg} Sparat på den här enheten${savedAt ? ' · '+formatRevisionDate(savedAt) : ''}. `;
+        const historyLink = document.createElement('a');
+        historyLink.href = '#thesisHistorySection';
+        historyLink.textContent = 'Visa sparad version';
+        historyLink.onclick = () => { const depth = document.getElementById('thesisHistorySectionDepth'); if (depth) depth.open = true; };
+        banner.append(historyLink);
         banner.style.display = 'block';
+        revealThesisStatus(banner);
     }
-    // Auto-hide after 3 seconds
-    setTimeout(() => {
-        if (banner) banner.style.display = 'none';
-    }, 3000);
 }
 
 function displayThesisSnapshotPreview(snapshot, targetId = 'thesisSnapshotPreview') {
