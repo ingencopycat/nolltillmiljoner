@@ -1,6 +1,7 @@
 """Actual 100-object corpus, bounded help and local browser regression evidence."""
 import json,time,unittest
 from pathlib import Path
+from research_navigation import open_research_workspace
 from playwright.sync_api import expect
 import browser_smoke as smoke
 ROOT=Path(__file__).resolve().parents[1]
@@ -72,7 +73,7 @@ class Expansion(unittest.TestCase):
                 expect(p.locator('#knowledgeHelp')).to_contain_text('BLS')
             p.keyboard.press('Escape');expect(trigger).to_be_focused()
             self.assertEqual(before,p.locator('input').evaluate_all('(nodes)=>nodes.map(n=>[n.id,n.value])'))
-        self.go('research.html?ticker=NVDA');trigger=p.locator('[data-wave1-concept=fact-assumption]')
+        self.go('research.html?ticker=NVDA');open_research_workspace(p,'[data-wave1-concept=fact-assumption]');trigger=p.locator('[data-wave1-concept=fact-assumption]')
         trigger.locator('xpath=ancestor::details').locator('summary').click();trigger.click()
         expect(p.locator('#wave1Help')).to_contain_text('antaganden');p.keyboard.press('Escape');expect(trigger).to_be_focused()
 

@@ -3,6 +3,7 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 import unittest
+from research_navigation import open_research_workspace
 from playwright.sync_api import expect
 import browser_smoke as smoke
 
@@ -14,6 +15,7 @@ class Wave4(unittest.TestCase):
     tearDown=smoke.BrowserSmoke.tearDown
     go=smoke.BrowserSmoke.go
     wait_for=smoke.BrowserSmoke.wait_for
+    open_research_workspace = smoke.BrowserSmoke.open_research_workspace
     open_depth_for=smoke.BrowserSmoke.open_depth_for
 
     def test_profiles_mobile_themes_evidence_and_keyboard_help(self):
@@ -66,8 +68,8 @@ class Wave4(unittest.TestCase):
 
     def test_annual_source_correction_acknowledges_once_preserves_original_and_stays_out_of_queue(self):
         p=self.page;self.go('research.html?ticker=NVDA')
-        p.locator('#thesis-text').fill('Private original reasoning for source correction')
-        p.locator('#thesisForm [type=submit]').click()
+        open_research_workspace(p, '#thesis-text');p.locator('#thesis-text').fill('Private original reasoning for source correction')
+        open_research_workspace(p, '#thesisForm [type=submit]');p.locator('#thesisForm [type=submit]').click()
         self.wait_for("()=>NTMThesisStorage.get('NVDA').thesis?.revisionCount===1")
         original=p.evaluate("NTMThesisStorage.get('NVDA').thesis.revisions[0]")
         data=json.loads((OUT.parents[2]/'data/stocks/NVDA.json').read_text(encoding='utf-8'))
@@ -76,7 +78,7 @@ class Wave4(unittest.TestCase):
         self.go('research.html?ticker=NVDA')
         self.open_depth_for('#reviewReasons');expect(p.locator('#reviewReasons')).to_contain_text('annual:revenue')
         self.open_depth_for('#changeDetectionContent');expect(p.locator('#changeDetectionContent')).to_contain_text('wave4-corrected-accession')
-        self.open_depth_for('#review-keep');p.locator('#review-keep').click()
+        self.open_depth_for('#review-keep');open_research_workspace(p, '#review-keep');p.locator('#review-keep').click()
         self.wait_for("()=>NTMThesisStorage.get('NVDA').thesis.revisionCount===2")
         self.assertEqual(p.evaluate("NTMThesisStorage.get('NVDA').thesis.revisions[0]"),original)
         self.go('research.html?ticker=NVDA');expect(p.locator('#reviewReasons')).not_to_contain_text('annual:revenue')

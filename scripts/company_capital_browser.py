@@ -1,6 +1,7 @@
 """Two screenshot passes with real pilot data, keyboard and Research preservation."""
 import argparse,json
 from pathlib import Path
+from research_navigation import open_research_workspace
 from playwright.sync_api import expect
 from browser_smoke import BrowserSmoke
 parser=argparse.ArgumentParser();parser.add_argument('--pass-number',required=True);args=parser.parse_args()
@@ -9,11 +10,11 @@ BrowserSmoke.setUpClass();case=BrowserSmoke();case.setUp();p=case.page;records=[
 try:
  p.emulate_media(reduced_motion='reduce')
  for ticker in ('NVDA','SOFI','CRWD'):
-  case.go('research.html?ticker='+ticker);p.locator('#thesis-text').fill('Capital evidence review: preserve this saved Research revision.');p.locator('#thesisForm [type=submit]').click();case.wait_for('t=>NTMThesisStorage.get(t).thesis?.revisionCount>=1',arg=ticker);saved=p.evaluate('t=>NTMThesisStorage.get(t).thesis.revisions',ticker)
+  case.go('research.html?ticker='+ticker);open_research_workspace(p, '#thesis-text');p.locator('#thesis-text').fill('Capital evidence review: preserve this saved Research revision.');open_research_workspace(p, '#thesisForm [type=submit]');p.locator('#thesisForm [type=submit]').click();case.wait_for('t=>NTMThesisStorage.get(t).thesis?.revisionCount>=1',arg=ticker);saved=p.evaluate('t=>NTMThesisStorage.get(t).thesis.revisions',ticker)
   for width in (1440,360,390,430):
    for theme in ('dark','light'):
     p.set_viewport_size({'width':width,'height':960 if width==1440 else 844});case.go('research.html?ticker='+ticker);p.evaluate('applyTheme',theme)
-    section=p.locator('#companyCapital');expect(section).to_be_visible();key=f'{ticker}-{width}-{theme}'
+    open_research_workspace(p,'#companyCapital');section=p.locator('#companyCapital');expect(section).to_be_visible();key=f'{ticker}-{width}-{theme}'
     expect(p.locator('#capitalSources')).not_to_have_attribute('open','');assert section.locator('a:visible').count()==0
     assert section.locator('.capital-chart').count()==2;assert p.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),key
     expect(section).to_contain_text('Kostnad, inte utspädning.');assert section.evaluate("e=>!e.innerText.includes('0001045810-')&&!e.innerText.includes('0001818874-')&&!e.innerText.includes('0001535527-')")
@@ -29,7 +30,8 @@ try:
     summary.focus();p.keyboard.press('Enter');expect(summary).to_be_focused();assert p.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),key
     assert p.evaluate('t=>NTMThesisStorage.get(t).thesis.revisions',ticker)==saved
     records.append(dict(ticker=ticker,width=width,theme=theme,overflow=False,keyboard=True,charts=2,savedResearchUnchanged=True));print('PASS',key,flush=True)
- case.go('research.html?ticker=NVDA');p.evaluate("async()=>{const d=await(await fetch('data/stocks/evidence/NVDA.json')).json();document.querySelector('#companyCapital').remove();NTMCompanyCapitalUI.render(d,document.querySelector('#companyEvidence'),{status:'unavailable'});}")
+ case.go('research.html?ticker=NVDA');p.evaluate("async()=>{const d=await(await fetch('data/stocks/evidence/NVDA.json')).json();document.querySelector('#companyCapital').remove();NTMCompanyCapitalUI.render(d,document.querySelector('#evidenceCapital'),{status:'unavailable'});}")
+ open_research_workspace(p,'#companyCapital')
  expect(p.locator('#companyCapital')).to_contain_text('tidigare verifierade');assert p.locator('#companyCapital .capital-chart').count()==2
  case.go('research.html?ticker=TTMI');assert p.locator('#companyCapital').count()==0
  (OUT/'results.json').write_text(json.dumps(records,indent=2)+'\n',encoding='utf-8')

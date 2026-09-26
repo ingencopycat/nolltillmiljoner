@@ -8,7 +8,9 @@ ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'docs/qa/research-shell'
 BrowserSmoke.setUpClass();case=BrowserSmoke();case.setUp();p=case.page;records={}
 try:
     # Original tracked composition, same canonical data and browser, isolated local context.
-    original={name:subprocess.check_output(['git','show','HEAD:'+name],cwd=ROOT) for name in
+    # Fixed pre-shell baseline; HEAD now contains Wave 1 after its release.
+    baseline_ref='132f13d5eb7d99bc63f40471eecf6dc8c3c12d6e^'
+    original={name:subprocess.check_output(['git','show',baseline_ref+':'+name],cwd=ROOT) for name in
       ['research.html','research.js','company-evidence.js','research-since-ui.js','company-observations-ui.js',
        'company-capital-ui.js','company-insiders-ui.js','company-ownership-ui.js','company-material-events-ui.js','company-segments-ui.js']}
     old=case.context.new_page()

@@ -3,6 +3,7 @@ import json
 import sys
 from pathlib import Path
 from browser_smoke import BrowserSmoke
+from research_navigation import open_research_workspace
 
 ROOT = Path(__file__).resolve().parents[1]
 phase = sys.argv[1] if len(sys.argv) > 1 else 'after'
@@ -17,6 +18,7 @@ results = []
 
 def capture(name, target=None):
     if target:
+        open_research_workspace(p,target)
         p.locator(target).scroll_into_view_if_needed()
         p.evaluate('(s)=>window.scrollTo(0,document.querySelector(s).getBoundingClientRect().top+scrollY-24)', target)
     else:
@@ -37,13 +39,14 @@ try:
                 assert not p.locator('#thesisAdvanced').get_attribute('open')
                 capture(f'chart-{width}-{theme}', '#overviewRevenue')
             capture(f'thesis-new-{width}-{theme}', '#thesisSection')
-            p.locator('#thesis-text').fill('Efterfrågan på accelererad beräkning kan bära fortsatt tillväxt. Jag följer marginaler och kundernas investeringstakt.')
-            p.locator('#thesisForm button[type=submit]').click()
+            open_research_workspace(p,'#thesis-text');p.locator('#thesis-text').fill('Efterfrågan på accelererad beräkning kan bära fortsatt tillväxt. Jag följer marginaler och kundernas investeringstakt.')
+            open_research_workspace(p,'#thesisForm button[type=submit]');p.locator('#thesisForm button[type=submit]').click()
             capture(f'thesis-existing-{width}-{theme}', '#thesisSection')
             p.locator('#assumptionDetail1').evaluate('(e)=>{for(let n=e;n;n=n.parentElement)if(n.tagName==="DETAILS")n.open=true}')
             capture(f'thesis-deep-{width}-{theme}', '#assumptionDetail1')
             p.evaluate('localStorage.removeItem("investment-research-theses-v1")')
     if phase != 'before':
+        open_research_workspace(p, '#overviewRevenue')
         original = p.evaluate('JSON.stringify(currentStockData)')
         p.evaluate('''() => { const d=structuredClone(currentStockData); d.annual.splice(1,1); NTMVisualV3.revenue(d); }''')
         assert p.locator('#overviewRevenuePlot').inner_text().count('FY2025') == 1
@@ -65,9 +68,9 @@ try:
             capture(f'provenance-390-{theme}')
             p.locator('#provenanceDialog').screenshot(path=str(folder/f'provenance-dialog-{theme}.png'))
             p.keyboard.press('Escape')
-            p.locator('#thesis-text').fill('En sparad tes med eget datum för granskning. Jag följer efterfrågan och prövar marginalerna.')
-            p.locator('#thesis-review-date').fill('2020-01-01')
-            p.locator('#thesisForm button[type=submit]').click()
+            open_research_workspace(p,'#thesis-text');p.locator('#thesis-text').fill('En sparad tes med eget datum för granskning. Jag följer efterfrågan och prövar marginalerna.')
+            open_research_workspace(p,'#thesis-review-date');p.locator('#thesis-review-date').fill('2020-01-01')
+            open_research_workspace(p,'#thesisForm button[type=submit]');p.locator('#thesisForm button[type=submit]').click()
             p.locator('#companyResearchAction').click()
             capture(f'review-due-390-{theme}', '#thesisReview')
             p.evaluate('localStorage.removeItem("investment-research-theses-v1")')

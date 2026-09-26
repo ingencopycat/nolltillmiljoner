@@ -1,6 +1,7 @@
 """Disposable production-origin browser; synthetic local thesis, no hosted writes."""
 import json
 from pathlib import Path
+from research_navigation import open_research_workspace
 from playwright.sync_api import sync_playwright, expect
 
 OUT=Path(__file__).resolve().parents[1]/'docs/qa/research-save'
@@ -15,6 +16,7 @@ def main():
    else:r.continue_()
   context.route('**/*',route)
   page.goto('https://nolltillmiljoner.se/research.html?ticker=NVDA',wait_until='domcontentloaded')
+  open_research_workspace(page,'#thesisForm')
   button=page.locator('#thesisForm [type=submit]');expect(button).to_be_visible(timeout=30000)
   button.click();page.screenshot(path=str(OUT/'production-empty-click.png'))
   def state():return page.evaluate('''()=>({saved:NTMThesisStorage.get('NVDA').thesis?.revisionCount||0,
@@ -23,7 +25,7 @@ def main():
     buttonTop:document.querySelector('#thesisForm [type=submit]').getBoundingClientRect().top,
     indicatorTop:document.querySelector('#thesisSavedIndicator').getBoundingClientRect().top,
     viewport:innerHeight})''')
-  empty=state();page.locator('#thesis-text').fill('Disposable save-flow check; synthetic local text.');button.click()
+  empty=state();open_research_workspace(page, '#thesis-text');page.locator('#thesis-text').fill('Disposable save-flow check; synthetic local text.');button.click()
   page.screenshot(path=str(OUT/'production-saved-click.png'));saved=state()
   page.reload();expect(page.locator('#thesis-text')).to_have_value('Disposable save-flow check; synthetic local text.')
   reloaded=state();context.close();browser.close()

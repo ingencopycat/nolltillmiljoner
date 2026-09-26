@@ -1,6 +1,7 @@
 """Real SEC business-mix data, two screenshot review passes, no external writes."""
 import argparse,json
 from pathlib import Path
+from research_navigation import open_research_workspace
 from playwright.sync_api import expect
 from browser_smoke import BrowserSmoke
 parser=argparse.ArgumentParser();parser.add_argument('--pass-number',required=True);args=parser.parse_args()
@@ -9,11 +10,11 @@ BrowserSmoke.setUpClass();case=BrowserSmoke();case.setUp();p=case.page;records=[
 try:
  p.emulate_media(reduced_motion='reduce')
  for ticker in ('NVDA','SOFI','CRWD'):
-  case.go('research.html?ticker='+ticker);p.locator('#thesis-text').fill('Segment evidence review: preserve this Research revision.');p.locator('#thesisForm [type=submit]').click();case.wait_for('t=>NTMThesisStorage.get(t).thesis?.revisionCount>=1',arg=ticker);saved=p.evaluate('t=>NTMThesisStorage.get(t).thesis.revisions',ticker)
+  case.go('research.html?ticker='+ticker);open_research_workspace(p, '#thesis-text');p.locator('#thesis-text').fill('Segment evidence review: preserve this Research revision.');open_research_workspace(p, '#thesisForm [type=submit]');p.locator('#thesisForm [type=submit]').click();case.wait_for('t=>NTMThesisStorage.get(t).thesis?.revisionCount>=1',arg=ticker);saved=p.evaluate('t=>NTMThesisStorage.get(t).thesis.revisions',ticker)
   for width in (1440,360,390,430):
    for theme in ('dark','light'):
     p.set_viewport_size({'width':width,'height':960 if width==1440 else 844});case.go('research.html?ticker='+ticker);p.evaluate('applyTheme',theme)
-    section=p.locator('#companySegments');expect(section).to_be_visible()
+    open_research_workspace(p,'#companySegments');section=p.locator('#companySegments');expect(section).to_be_visible()
     groups=['market-platforms','accounting-segments','data-center-markets'] if ticker=='NVDA' else ['accounting-segments' if ticker=='SOFI' else 'revenue-categories']
     for group in groups:
      key=f'{ticker}-{group}-{width}-{theme}'
@@ -30,9 +31,11 @@ try:
      assert p.evaluate('t=>NTMThesisStorage.get(t).thesis.revisions',ticker)==saved
      records.append(dict(ticker=ticker,group=group,width=width,theme=theme,overflow=False,keyboard=True,savedResearchUnchanged=True));print('PASS',key,flush=True)
  # Retained data on source failure; malformed/incomplete latest mix must not create a partial chart.
- case.go('research.html?ticker=SOFI');p.evaluate("async()=>{const d=await(await fetch('data/stocks/evidence/SOFI.json')).json();document.querySelector('#companySegments').remove();NTMCompanySegmentsUI.render(d,document.querySelector('#companyEvidence'),{status:'unavailable'});}")
+ case.go('research.html?ticker=SOFI');p.evaluate("async()=>{const d=await(await fetch('data/stocks/evidence/SOFI.json')).json();document.querySelector('#companySegments').remove();NTMCompanySegmentsUI.render(d,document.querySelector('#evidenceSegments'),{status:'unavailable'});}")
+ open_research_workspace(p,'#companySegments')
  expect(p.locator('#companySegments')).to_contain_text('tidigare verifierade');expect(p.locator('#companySegments .segment-mix')).to_be_visible()
- p.evaluate("async()=>{const d=await(await fetch('data/stocks/evidence/SOFI.json')).json();d.reviewedEvidence.observations=d.reviewedEvidence.observations.filter(o=>!(o.kind==='business_mix'&&o.category.id==='lending'&&o.period.end==='2026-06-30'));document.querySelector('#companySegments').remove();NTMCompanySegmentsUI.render(d,document.querySelector('#companyEvidence'),{status:'verified'});}")
+ p.evaluate("async()=>{const d=await(await fetch('data/stocks/evidence/SOFI.json')).json();d.reviewedEvidence.observations=d.reviewedEvidence.observations.filter(o=>!(o.kind==='business_mix'&&o.category.id==='lending'&&o.period.end==='2026-06-30'));document.querySelector('#companySegments').remove();NTMCompanySegmentsUI.render(d,document.querySelector('#evidenceSegments'),{status:'verified'});}")
+ open_research_workspace(p,'#companySegments')
  expect(p.locator('#companySegments')).to_contain_text('Ofullständig');assert p.locator('#companySegments .segment-mix').count()==0
  # Unsupported issuer: no decorative empty section.
  case.go('research.html?ticker=TTMI');assert p.locator('#companySegments').count()==0

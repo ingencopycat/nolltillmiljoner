@@ -1,6 +1,7 @@
 """Batch 1B local reviewed pages and existing shared contextual surfaces."""
 from pathlib import Path
 import unittest
+from research_navigation import open_research_workspace
 from playwright.sync_api import expect
 import browser_smoke as smoke
 
@@ -64,6 +65,7 @@ class Batch1B(unittest.TestCase):
         p=self.page
         for page,id in [('research.html?ticker=NVDA','fcf-limitations'),('research.html?ticker=NVDA','pe-interpretation'),('aktievarderingskalkylator.html','pe-interpretation')]:
             self.go(page)
+            open_research_workspace(p,'[data-wave1-concept='+id+']')
             trigger=p.locator('[data-wave1-concept='+id+']')
             trigger.locator('xpath=ancestor::details').locator('summary').click()
             before=p.locator('input').evaluate_all('(nodes)=>nodes.map(n=>[n.id,n.value])')

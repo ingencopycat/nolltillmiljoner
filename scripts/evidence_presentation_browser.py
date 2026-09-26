@@ -1,6 +1,7 @@
 ﻿"""Two-pass owner presentation QA using unchanged production JSON, no live SEC calls."""
 import argparse,json
 from pathlib import Path
+from research_navigation import open_research_workspace
 from playwright.sync_api import expect
 from browser_smoke import BrowserSmoke
 
@@ -11,8 +12,8 @@ try:
  p.emulate_media(reduced_motion='reduce')
  for ticker in ('NVDA','SOFI','CRWD'):
   case.go('research.html?ticker='+ticker)
-  p.locator('#thesis-text').fill('Presentation review: saved analysis remains unchanged.')
-  p.locator('#thesisForm [type=submit]').click()
+  open_research_workspace(p, '#thesis-text');p.locator('#thesis-text').fill('Presentation review: saved analysis remains unchanged.')
+  open_research_workspace(p, '#thesisForm [type=submit]');p.locator('#thesisForm [type=submit]').click()
   case.wait_for('t=>NTMThesisStorage.get(t).thesis?.revisionCount>=1',arg=ticker)
   saved=p.evaluate('t=>NTMThesisStorage.get(t).thesis.revisions',ticker)
   for width in (1440,360,390,430):
@@ -23,14 +24,18 @@ try:
     expect(p.locator('#fundamentalSources')).not_to_have_attribute('open','')
     expect(p.locator('#reportingSources')).not_to_have_attribute('open','')
     assert p.locator('#fundamentalProfile button:visible').count()==0
+    open_research_workspace(p,'#companyEvidence')
     assert p.locator('#companyEvidence .reporting-grid a:visible').count()>=2
+    open_research_workspace(p,'#overviewRevenuePlot')
     assert p.locator('#overviewRevenuePlot').is_visible()
     assert p.locator('#companyEvidenceSince').is_hidden()
     expect(p.locator('#researchSince')).to_contain_text('Inga nya granskade förändringar')
     assert p.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),key
     for name,selector in [('overview','#companyHeaderCard'),('numbers','#keyMetricsGrid'),('growth-profitability','#fundamentalProfile'),('revenue','#overviewRevenue'),('reporting-saved','#companyEvidence')]:
+     open_research_workspace(p,selector)
      p.locator(selector).screenshot(path=str(OUT/f'{key}-{name}.png'),animations='disabled')
     for ident in ('fundamentalSources','reportingSources'):
+     open_research_workspace(p,'#'+ident)
      summary=p.locator('#'+ident+' > summary');summary.focus();p.keyboard.press('Enter')
      expect(p.locator('#'+ident)).to_have_attribute('open','')
      summary.scroll_into_view_if_needed();p.screenshot(path=str(OUT/f'{key}-{ident}-expanded.png'),animations='disabled')

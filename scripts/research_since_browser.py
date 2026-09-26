@@ -1,6 +1,7 @@
 """Two-pass saved-revision review using canonical pilot evidence in isolated contexts."""
 import argparse,json
 from pathlib import Path
+from research_navigation import open_research_workspace
 from playwright.sync_api import expect
 from browser_smoke import BrowserSmoke
 parser=argparse.ArgumentParser();parser.add_argument('--pass-number',required=True);args=parser.parse_args()
@@ -11,8 +12,8 @@ try:
  for ticker in ('NVDA','SOFI','CRWD'):
   case.go('research.html?ticker='+ticker)
   expect(p.locator('#researchSince')).to_contain_text('Spara en analys')
-  p.locator('#thesis-text').fill('PRIVATE_RESEARCH_SENTINEL: granska mina sparade antaganden.')
-  p.locator('#thesisForm [type=submit]').click()
+  open_research_workspace(p, '#thesis-text');p.locator('#thesis-text').fill('PRIVATE_RESEARCH_SENTINEL: granska mina sparade antaganden.')
+  open_research_workspace(p, '#thesisForm [type=submit]');p.locator('#thesisForm [type=submit]').click()
   case.wait_for('t=>NTMThesisStorage.get(t).thesis?.revisionCount>=1',arg=ticker)
   expect(p.locator('#researchSince')).to_contain_text('Inga nya granskade')
   # Fixture timestamps model a genuine returning user, not newly imported evidence.
@@ -21,7 +22,7 @@ try:
   for width in (1440,360,390,430):
    for theme in ('dark','light'):
     p.set_viewport_size({'width':width,'height':1000 if width==1440 else 844});case.go('research.html?ticker='+ticker);p.evaluate('applyTheme',theme)
-    host=p.locator('#researchSince');expect(host.locator('.since-group').first).to_be_visible()
+    open_research_workspace(p,'#researchSince');host=p.locator('#researchSince');expect(host.locator('.since-group').first).to_be_visible()
     assert host.locator('.since-group').count()<=7
     assert host.locator('details[open]').count()==0
     assert 'PRIVATE_RESEARCH_SENTINEL' not in host.inner_text()
@@ -45,7 +46,7 @@ try:
   host.get_by_role('link',name='Granska mot min tes',exact=True).click();expect(p.locator('#thesisReviewDepth')).to_have_attribute('open','')
   p.reload();expect(p.locator('#researchSince .since-group').first).to_be_attached()
   case.go('research.html?ticker=NVDA' if ticker!='NVDA' else 'research.html?ticker=SOFI');p.go_back();expect(p.locator('#researchSince .since-group').first).to_be_attached();p.go_forward();expect(p.locator('#researchSince')).to_be_attached()
-  case.go('research.html?ticker='+ticker);p.locator('#thesis-text').fill('Updated private assumptions after reviewing evidence.');p.locator('#thesisForm [type=submit]').click()
+  case.go('research.html?ticker='+ticker);open_research_workspace(p, '#thesis-text');p.locator('#thesis-text').fill('Updated private assumptions after reviewing evidence.');open_research_workspace(p, '#thesisForm [type=submit]');p.locator('#thesisForm [type=submit]').click()
   case.wait_for('t=>NTMThesisStorage.get(t).thesis?.revisionCount===2',arg=ticker)
   expect(p.locator('#researchSince')).to_contain_text('Inga nya granskade förändringar')
   assert p.evaluate('t=>NTMThesisStorage.get(t).thesis.revisions[0]',ticker)==saved[0]

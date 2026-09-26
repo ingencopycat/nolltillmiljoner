@@ -2,6 +2,7 @@
 import json,sys,html
 from pathlib import Path
 from browser_smoke import BrowserSmoke
+from research_navigation import open_research_workspace
 ROOT=Path(__file__).resolve().parents[1]
 phase=sys.argv[1] if len(sys.argv)>1 else 'final'
 OUT=ROOT/'docs/qa/visual-v3/sitewide'/phase;OUT.mkdir(parents=True,exist_ok=True)
@@ -24,7 +25,7 @@ try:
      if field.count():
       field.fill('Vad är P/E?');field.press('Enter');p.locator('#answer').scroll_into_view_if_needed();p.screenshot(path=str(OUT/('ask-'+name+'.png')))
     if route.startswith('research'):
-     p.locator('#thesisSection').scroll_into_view_if_needed();p.screenshot(path=str(OUT/('thesis-'+name+'.png')))
+     open_research_workspace(p,'#thesisSection');p.locator('#thesisSection').scroll_into_view_if_needed();p.screenshot(path=str(OUT/('thesis-'+name+'.png')))
  (OUT/'results.json').write_text(json.dumps(dict(states=results,errors=case.errors),indent=2),encoding='utf-8')
  parts=['<!doctype html><html lang="en"><meta charset="utf-8"><title>V3 site-wide '+phase+'</title><style>body{background:#101820;color:#eef4f8;font:16px Arial;margin:24px}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}img{width:100%;height:340px;object-fit:contain;object-position:top}a{color:#7cd6f2}</style><h1>Site-wide V3 '+phase+'</h1><p>Actual local routes. Cloud-disabled empty states are intentional. Populated social contract captures are in the social regression gallery.</p><main>']
  for f in sorted(OUT.glob('*.png')):parts.append(f'<figure><a href="{f.name}"><img loading="lazy" src="{f.name}" alt="{html.escape(f.stem)}"></a><figcaption>{html.escape(f.stem)}</figcaption></figure>')

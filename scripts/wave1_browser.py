@@ -3,6 +3,7 @@ import json
 import os
 from pathlib import Path
 import unittest
+from research_navigation import open_research_workspace
 from playwright.sync_api import expect
 import browser_smoke as smoke
 
@@ -28,13 +29,16 @@ class Wave1(unittest.TestCase):
     tearDown = smoke.BrowserSmoke.tearDown
     go = smoke.BrowserSmoke.go
     wait_for = smoke.BrowserSmoke.wait_for
+    open_research_workspace = smoke.BrowserSmoke.open_research_workspace
     open_depth_for = smoke.BrowserSmoke.open_depth_for
 
     def research(self):
         self.go('research.html?ticker=NVDA')
+        open_research_workspace(self.page,'#valuationSection')
         expect(self.page.locator('#val-eps')).to_have_value('7.91')
 
     def handoff(self):
+        open_research_workspace(self.page,'#valuationSection')
         with self.context.expect_page() as event:
             self.page.get_by_role('button', name='Pröva Base i värderingskalkylatorn').click()
         other = event.value
@@ -47,8 +51,8 @@ class Wave1(unittest.TestCase):
     def test_help_preserves_private_work_focus_and_full_article_return(self):
         self.research()
         p = self.page
-        p.locator('#thesis-text').fill('PRIVATE WAVE1 UNSAVED reasoning sentinel')
-        p.locator('#val-price').fill('133.37')
+        open_research_workspace(p, '#thesis-text');p.locator('#thesis-text').fill('PRIVATE WAVE1 UNSAVED reasoning sentinel')
+        open_research_workspace(p, '#val-price');p.locator('#val-price').fill('133.37')
         before = p.evaluate("localStorage.getItem('investment-research-theses-v1')")
         trigger = p.locator('#val-eps').locator('..').get_by_role('button')
         trigger.click()
@@ -74,10 +78,10 @@ class Wave1(unittest.TestCase):
     def test_preview_explicit_apply_provenance_and_calculation(self):
         self.research()
         p = self.page
-        p.locator('#val-price').fill('123.45')
-        p.locator('#sc-base-growth').fill('12')
-        p.locator('#sc-base-pe').fill('22')
-        p.locator('#thesis-text').fill('PRIVATE SOURCE ONLY')
+        open_research_workspace(p, '#val-price');p.locator('#val-price').fill('123.45')
+        open_research_workspace(p, '#sc-base-growth');p.locator('#sc-base-growth').fill('12')
+        open_research_workspace(p, '#sc-base-pe');p.locator('#sc-base-pe').fill('22')
+        open_research_workspace(p, '#thesis-text');p.locator('#thesis-text').fill('PRIVATE SOURCE ONLY')
         p.evaluate("sessionStorage.setItem('private-sentinel','DO-NOT-COPY')")
         before = p.evaluate("localStorage.getItem('investment-research-theses-v1')")
         dest = self.handoff()
@@ -140,10 +144,10 @@ class Wave1(unittest.TestCase):
         self.research()
         p=self.page
         for value in ['0','-1','']:
-            p.locator('#val-eps').fill(value)
+            open_research_workspace(p, '#val-eps');p.locator('#val-eps').fill(value)
             p.get_by_role('button',name='Pröva Base i värderingskalkylatorn').click()
             expect(p.locator('#valuationSection .wave1-context')).to_contain_text('positiv EPS')
-        p.locator('#val-eps').fill('4')
+        open_research_workspace(p, '#val-eps');p.locator('#val-eps').fill('4')
         p.evaluate('window.open=()=>null')
         p.get_by_role('button',name='Pröva Base i värderingskalkylatorn').click()
         expect(p.locator('#valuationSection .wave1-context')).to_contain_text('Tillåt en ny flik')
@@ -155,7 +159,7 @@ class Wave1(unittest.TestCase):
         p.evaluate("currentStockData.valuationBase.ttmDilutedEps.qualityStatus='unavailable'")
         p.get_by_role('button',name='Pröva Base i värderingskalkylatorn').click()
         expect(p.locator('#valuationSection .wave1-context')).to_contain_text('Användbar EPS saknas')
-        p.locator('#val-eps').fill('4')
+        open_research_workspace(p, '#val-eps');p.locator('#val-eps').fill('4')
         p.evaluate("""() => {const open=window.open.bind(window);window.open=(...args)=>{
           const child=open(...args);child.Storage.prototype.setItem=()=>{throw Error('Lagring blockerad i test');};return child;
         }}""")
@@ -177,6 +181,7 @@ class Wave1(unittest.TestCase):
                     p=self.page
                     p.set_viewport_size({'width':width,'height':900})
                     p.evaluate('applyTheme',theme)
+                    open_research_workspace(p,'#'+field)
                     trigger=p.locator('#'+field).locator('..').get_by_role('button')
                     trigger.click()
                     expect(p.locator('#wave1Help')).to_be_visible()
@@ -205,12 +210,17 @@ class Wave1(unittest.TestCase):
         self.go('aktievarderingskalkylator.html')
         self.research()
         p=self.page
-        p.locator('#thesis-text').fill('PRIVATE refresh protection')
+        open_research_workspace(p, '#thesis-text');p.locator('#thesis-text').fill('PRIVATE refresh protection')
         self.accept_dialogs=False
         try:p.reload(timeout=3000)
         except Exception:pass  # Dismissed beforeunload deliberately aborts navigation.
         self.assertEqual(self.dialogs,['beforeunload'])
         expect(p.locator('#thesis-text')).to_have_value('PRIVATE refresh protection')
+        # Back within mounted workspaces preserves the draft without a leave prompt.
+        p.go_back()  # thesis -> valuation
+        p.go_back()  # valuation -> overview
+        expect(p.locator('#thesis-text')).to_have_value('PRIVATE refresh protection')
+        self.assertEqual(self.dialogs,['beforeunload'])
         try:p.go_back(timeout=3000)
         except Exception:pass  # Back is also cancelled through the same leave guard.
         self.assertEqual(self.dialogs,['beforeunload','beforeunload'])

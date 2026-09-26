@@ -14,6 +14,7 @@ class Wave3(unittest.TestCase):
     tearDown=smoke.BrowserSmoke.tearDown
     go=smoke.BrowserSmoke.go
     wait_for=smoke.BrowserSmoke.wait_for
+    open_research_workspace = smoke.BrowserSmoke.open_research_workspace
     open_depth_for=smoke.BrowserSmoke.open_depth_for
 
     def competency(self,id):

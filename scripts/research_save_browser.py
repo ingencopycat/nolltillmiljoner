@@ -1,13 +1,14 @@
 """Real save clicks with synthetic local data and failure injection."""
 import json
 from pathlib import Path
+from research_navigation import open_research_workspace
 from playwright.sync_api import expect
 from browser_smoke import BrowserSmoke
 OUT=Path(__file__).resolve().parents[1]/'docs/qa/research-save'
 def main():
  BrowserSmoke.setUpClass();case=BrowserSmoke();case.setUp();p=case.page;requests=[];results=[]
  p.on('request',lambda r:requests.append((r.method,r.url)) if r.method not in ('GET','HEAD','OPTIONS') else None)
- def save():p.locator('#thesisForm [type=submit]').click()
+ def save():open_research_workspace(p, '#thesisForm [type=submit]');p.locator('#thesisForm [type=submit]').click()
  def revisions():return p.evaluate("NTMThesisStorage.get('NVDA').thesis?.revisions||[]")
  def visible():
   b=p.locator('#thesisStatusBanner');expect(b).to_be_visible()
@@ -21,28 +22,28 @@ def main():
     p.evaluate('applyTheme',theme)
     save();expect(p.locator('#thesisStatusBanner')).to_contain_text('Min tes är obligatorisk');visible();assert not revisions()
     p.screenshot(path=str(OUT/f'empty-{width}-{theme}.png'))
-    p.locator('#thesis-text').fill('PRIVATE_SAVE_SENTINEL: test assumptions, never a publication.')
+    open_research_workspace(p, '#thesis-text');p.locator('#thesis-text').fill('PRIVATE_SAVE_SENTINEL: test assumptions, never a publication.')
     save();expect(p.locator('#thesisStatusBanner')).to_contain_text('Analysen sparad.');visible()
     p.screenshot(path=str(OUT/f'saved-{width}-{theme}.png'))
-    p.locator('#thesisStatusBanner a').click();expect(p.locator('#thesisHistorySectionDepth')).to_have_attribute('open','')
-    p.locator('#thesisForm [type=submit]').dblclick()
+    open_research_workspace(p, '#thesisStatusBanner a');p.locator('#thesisStatusBanner a').click();expect(p.locator('#thesisHistorySectionDepth')).to_have_attribute('open','')
+    open_research_workspace(p, '#thesisForm [type=submit]');p.locator('#thesisForm [type=submit]').dblclick()
     expect(p.locator('#thesisStatusBanner')).to_contain_text('redan sparad');visible();assert len(revisions())==1
     p.wait_for_timeout(3100);visible()
     first=revisions()[0];p.reload();assert revisions()==[first]
     expect(p.locator('#researchSince')).to_contain_text('Inga nya granskade förändringar')
     case.go('min-ntm.html');case.go('research.html?ticker=NVDA');assert revisions()==[first]
-    p.locator('#thesis-text').fill('PRIVATE_SAVE_SENTINEL: revised assumptions.');save();visible()
+    open_research_workspace(p, '#thesis-text');p.locator('#thesis-text').fill('PRIVATE_SAVE_SENTINEL: revised assumptions.');save();visible()
     expect(p.locator('#thesisStatusBanner')).to_contain_text('Analysen sparad.');assert len(revisions())==2;assert revisions()[0]==first
     model=p.evaluate("async()=>NTMResearchSince.build({thesis:NTMThesisStorage.get('NVDA').thesis,stock:currentStockData,feed:await(await fetch('data/stocks/evidence/NVDA.json')).json()})")
     assert model['baseline']==revisions()[-1]['savedAt'];assert not model['groups']
     results.append(dict(width=width,theme=theme,validation=True,save=True,doubleClick=True,reload=True,reopen=True,newRevision=True,baseline=True))
-  p.locator('#val-price').fill('150');save();expect(p.locator('#thesisStatusBanner')).to_contain_text('Beräkna');visible();assert len(revisions())==2
+  open_research_workspace(p, '#val-price');p.locator('#val-price').fill('150');save();expect(p.locator('#thesisStatusBanner')).to_contain_text('Beräkna');visible();assert len(revisions())==2
   p.reload();save();expect(p.locator('#thesisStatusBanner')).to_contain_text('utkast');visible()
-  p.locator('#draftDiscard').click();p.locator('#thesis-text').fill('PRIVATE_SAVE_SENTINEL: storage failure.')
+  open_research_workspace(p, '#draftDiscard');p.locator('#draftDiscard').click();open_research_workspace(p, '#thesis-text');p.locator('#thesis-text').fill('PRIVATE_SAVE_SENTINEL: storage failure.')
   p.evaluate("()=>{window.originalSetItem=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(k===NTMThesisStorage.key)throw new DOMException('Full','QuotaExceededError');return originalSetItem.call(this,k,v)}}")
   save();expect(p.locator('#thesisStatusBanner')).to_contain_text('lagring är full');visible();assert len(revisions())==2
   p.evaluate('()=>{Storage.prototype.setItem=originalSetItem}');save();expect(p.locator('#thesisStatusBanner')).to_contain_text('Analysen sparad.');assert len(revisions())==3
-  p.locator('#thesis-text').fill('PRIVATE_SAVE_SENTINEL: exception.')
+  open_research_workspace(p, '#thesis-text');p.locator('#thesis-text').fill('PRIVATE_SAVE_SENTINEL: exception.')
   p.evaluate("()=>{window.originalSave=NTMThesisStorage.save;NTMThesisStorage.save=()=>{throw Error('synthetic failure')}}")
   save();expect(p.locator('#thesisStatusBanner')).to_contain_text('Kunde inte bekräfta');visible();assert len(revisions())==3
   p.evaluate("()=>{NTMThesisStorage.save=originalSave;window.originalSaved=NTMContinuityUI.saved;NTMContinuityUI.saved=()=>{throw Error('synthetic rendering failure')}}")
@@ -51,16 +52,17 @@ def main():
   # Real saves with a controlled clock: later reviewed evidence appears only
   # after publication, then a later saved revision becomes the new cutoff.
   p.clock.set_fixed_time('2026-07-01T12:00:00Z');case.go('research.html?ticker=SOFI')
-  p.locator('#thesis-text').fill('Synthetic dated baseline.');save()
+  open_research_workspace(p, '#thesis-text');p.locator('#thesis-text').fill('Synthetic dated baseline.');save()
   expect(p.locator('#researchSince')).to_contain_text('Inga nya granskade förändringar')
   prior=p.evaluate("NTMThesisStorage.get('SOFI').thesis.revisions[0]")
   p.clock.set_fixed_time('2026-09-26T12:00:00Z');p.reload()
+  open_research_workspace(p,'#researchSince')
   expect(p.locator('#researchSince .since-group').first).to_be_visible()
-  p.locator('#thesis-text').fill('Synthetic later revision.');save()
+  open_research_workspace(p, '#thesis-text');p.locator('#thesis-text').fill('Synthetic later revision.');save()
   expect(p.locator('#researchSince')).to_contain_text('Inga nya granskade förändringar')
   assert p.evaluate("NTMThesisStorage.get('SOFI').thesis.revisions[0]")==prior
   case.context.set_offline(True)
-  p.locator('#thesis-text').fill('Synthetic offline revision.');save()
+  open_research_workspace(p, '#thesis-text');p.locator('#thesis-text').fill('Synthetic offline revision.');save()
   expect(p.locator('#thesisStatusBanner')).to_contain_text('Analysen sparad.')
   assert p.evaluate("NTMThesisStorage.get('SOFI').thesis.revisionCount")==3
   case.context.set_offline(False)

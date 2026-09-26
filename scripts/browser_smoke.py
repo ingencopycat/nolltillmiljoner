@@ -17,6 +17,7 @@ import unittest
 import time
 
 from playwright.sync_api import sync_playwright, expect
+from research_navigation import open_research_workspace
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -101,26 +102,7 @@ class BrowserSmoke(unittest.TestCase):
             panels = target.locator('xpath=ancestor::details[not(@open)]')
 
     def open_research_workspace(self, selector):
-        """Reach mounted Research controls through the public workspace navigation."""
-        if '/research.html' not in self.page.url:
-            return
-        target = self.page.locator(selector).first
-        if not target.count():
-            return
-        route = target.evaluate("""n=>({view:n.closest('[data-workspace]')?.dataset.workspace,
-          topic:n.closest('[data-topic-panel]')?.dataset.topicPanel,
-          section:n.closest('[data-thesis-panel]')?.dataset.thesisPanel})""")
-        for dimension, nav in [('view','researchWorkspaceNav'),('topic','researchTopicNav'),('section','researchThesisNav')]:
-            if not route.get(dimension):
-                continue
-            host=self.page.locator('#'+nav)
-            if host.locator('select').is_visible():
-                if host.locator('select').input_value()!=route[dimension]:
-                    host.locator('select').select_option(route[dimension])
-            else:
-                link=host.locator('[data-'+dimension+'="'+route[dimension]+'"]')
-                if link.get_attribute('aria-current')!='page':
-                    link.click()
+        open_research_workspace(self.page, selector)
 
     def wait_for(self, expression, arg=None):
         # DevTools evaluation does not need page eval permission. Playwright's

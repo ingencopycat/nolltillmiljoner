@@ -2,6 +2,7 @@
 import json
 from pathlib import Path
 from browser_smoke import BrowserSmoke
+from research_navigation import open_research_workspace
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'docs/qa/visual-v3/production'
@@ -37,8 +38,9 @@ try:
                 assert p.locator('#companyName').inner_text() == expected
                 assert p.locator('#keyMetricsGrid .metric-box:visible').count() <= 3
                 verify(f'{ticker}-{width}-{theme}', width in (1440,390))
-                p.locator('[data-metrics-toggle]').click()
+                p.get_by_role('link', name='Alla nyckeltal i Bolagsdata').click()
                 verify(f'{ticker}-metrics-{width}-{theme}')
+                open_research_workspace(p, '#keyMetricsGrid')
                 if p.locator('#overviewRevenue').is_visible():
                     p.locator('.revenue-bar').first.focus(); p.keyboard.press('Enter')
                     assert p.locator('#provenanceDialog').is_visible()
@@ -51,15 +53,15 @@ try:
     assert p.locator('#companySearchStatus').inner_text()
     p.locator('#companySearch').press('Escape')
     assert p.locator('#companyPicker > summary').evaluate('(e)=>e===document.activeElement')
-    p.locator('#thesis-text').fill('Lång tes om efterfrågan och osäkerhet. '*65)
-    p.locator('#thesis-trigger').fill('Jag omprövar när underlaget förändras. '*30)
-    p.locator('#thesisForm button[type=submit]').click()
+    open_research_workspace(p,'#thesis-text');p.locator('#thesis-text').fill('Lång tes om efterfrågan och osäkerhet. '*65)
+    open_research_workspace(p,'#thesis-trigger');p.locator('#thesis-trigger').fill('Jag omprövar när underlaget förändras. '*30)
+    open_research_workspace(p,'#thesisForm button[type=submit]');p.locator('#thesisForm button[type=submit]').click()
     case.go('research.html?ticker=NVDA#thesisSection')
     assert len(p.locator('#thesis-text').input_value()) > 2000
     verify('long-saved-thesis',True)
-    p.locator('#thesisAdvanced > summary').click()
-    p.locator('#thesis-assumption-1').fill('Ett långt antagande med osäkra förutsättningar. '*30)
-    p.locator('#thesisForm button[type=submit]').click()
+    open_research_workspace(p,'#thesisAdvanced > summary');p.locator('#thesisAdvanced > summary').click()
+    open_research_workspace(p,'#thesis-assumption-1');p.locator('#thesis-assumption-1').fill('Ett långt antagande med osäkra förutsättningar. '*30)
+    open_research_workspace(p,'#thesisForm button[type=submit]');p.locator('#thesisForm button[type=submit]').click()
     case.go('research.html?ticker=NVDA')
     case.open_depth_for('#thesis-assumption-1')
     assert len(p.locator('#thesis-assumption-1').input_value()) > 1000

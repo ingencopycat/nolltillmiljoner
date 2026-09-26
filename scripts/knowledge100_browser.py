@@ -5,6 +5,7 @@ from pathlib import Path
 import subprocess
 import time
 import unittest
+from research_navigation import open_research_workspace
 from playwright.sync_api import expect
 import browser_smoke as smoke
 
@@ -124,6 +125,7 @@ class Knowledge100(unittest.TestCase):
         pending=[]
         p.route('**/data/knowledge/answers/eps.json',lambda route:pending.append(route))
         self.go('research.html?ticker=NVDA')
+        open_research_workspace(p,'#val-eps')
         trigger=p.locator('#val-eps').locator('..').get_by_role('button')
         trigger.click()
         expect(p.locator('#wave1Help')).to_contain_text('Öppnar granskat svar')
