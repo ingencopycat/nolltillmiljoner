@@ -26,7 +26,8 @@ FIXTURES_DIR = os.path.join(WORKSPACE_DIR, 'tests', 'fixtures')
 # Add scripts directory to module path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from sec_client import SECClient, SECClientError
-from stock_normalizer import StockNormalizer, COMPANY_PROFILES
+from stock_normalizer import StockNormalizer
+from issuer_registry import tickers as enrolled_tickers
 from stock_contract import validate, IDENTITIES
 
 
@@ -143,8 +144,8 @@ def main():
     parser.add_argument('--ticker', type=str, default='SOFI', help="Stock ticker symbol (default: SOFI)")
     parser.add_argument('--all', action='store_true', help="Process all configured stock tickers")
     parser.add_argument('--offline', action='store_true', help="Run in offline mode using fixtures")
-    parser.add_argument('--daily', action='store_true', help='Incremental pilot admission; same path for scheduled and owner runs')
-    parser.add_argument('--evidence', action='store_true', help='Refresh only the three-company filing evidence pilot')
+    parser.add_argument('--daily', action='store_true', help='Incremental enrolled-issuer admission; same path for scheduled and owner runs')
+    parser.add_argument('--evidence', action='store_true', help='Refresh enrolled filing evidence')
     parser.add_argument('--reviewed', action='store_true', help='Revalidate reviewed guidance and operating KPI passages')
     parser.add_argument('--insiders', action='store_true', help='Incrementally refresh SEC Form 4 ownership evidence')
     parser.add_argument('--ownership', action='store_true', help='Refresh reviewed Schedule 13D/G evidence and review queue')
@@ -158,17 +159,15 @@ def main():
         if args.offline or args.evidence or args.reviewed or args.insiders or args.ownership or args.material_events or args.reverify_insiders or args.reverify_ownership or args.reverify_material_events:
             parser.error('--daily uses its own admission policy; do not combine refresh modes')
         from sec_daily import run
-        from company_evidence import PILOT
-        result = run(list(PILOT) if args.all else [args.ticker.upper()], SECClient())
+        result = run(list(enrolled_tickers('daily')) if args.all else [args.ticker.upper()], SECClient())
         if result['rejectedFailed'] or result.get('publicationBlocked'):
             raise SystemExit(1)
         return
 
     if args.evidence:
-        from company_evidence import PILOT
         client = SECClient()
         failures = []
-        for ticker in (PILOT if args.all else [args.ticker.upper()]):
+        for ticker in (enrolled_tickers('evidence') if args.all else [args.ticker.upper()]):
             try:
                 update_evidence(ticker, client, offline=args.offline, reviewed=args.reviewed, insiders=args.insiders or args.reverify_insiders, reverify_insiders=args.reverify_insiders, ownership=args.ownership or args.reverify_ownership, reverify_ownership=args.reverify_ownership, material_events=args.material_events or args.reverify_material_events, reverify_material_events=args.reverify_material_events)
             except Exception as error:
@@ -178,7 +177,7 @@ def main():
             raise SystemExit(1)
         return
 
-    tickers_to_process = list(COMPANY_PROFILES.keys()) if args.all else [args.ticker.upper()]
+    tickers_to_process = list(enrolled_tickers('financial')) if args.all else [args.ticker.upper()]
 
     success_count = 0
     for t in tickers_to_process:
@@ -194,11 +193,11 @@ def main():
 
 def update_evidence(ticker, client, offline=False, output_dir=None, reviewed=False, insiders=False, reverify_insiders=False, ownership=False, reverify_ownership=False, material_events=False, reverify_material_events=False):
     """Independent refresh cadence; shares SEC transport, identities and atomic publication."""
-    from company_evidence import PILOT, refresh, validate_evidence
+    from company_evidence import refresh, validate_evidence
     from datetime import datetime, timezone
     from pathlib import Path
-    if ticker not in PILOT:
-        raise ValueError('Outside evidence pilot')
+    if ticker not in enrolled_tickers('evidence'):
+        raise ValueError('Outside evidence enrollment')
     directory = Path(output_dir or os.path.join(DATA_STOCKS_DIR, 'evidence'))
     target = directory / (ticker + '.json')
     previous = json.loads(target.read_text(encoding='utf-8')) if target.exists() else None

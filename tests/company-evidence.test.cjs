@@ -1,5 +1,5 @@
 ﻿const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
-const context={window:{},document:{}};vm.createContext(context);vm.runInContext(fs.readFileSync('company-evidence.js','utf8'),context);
+const context={window:{NTMIssuerRegistry:require('../ntm-product.js').registry,},document:{}};vm.createContext(context);vm.runInContext(fs.readFileSync('company-evidence.js','utf8'),context);
 const api=context.window.NTMCompanyEvidence;
 const read=t=>JSON.parse(fs.readFileSync(`data/stocks/evidence/${t}.json`,'utf8'));
 test('pilot sources validate and neutral revision comparison excludes same-day uncertainty',()=>{

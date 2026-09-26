@@ -1,0 +1,149 @@
+{
+  "schema": "ntm-issuer-registry/1",
+  "issuers": [
+    {
+      "ticker": "NVDA",
+      "name": "NVIDIA CORP",
+      "cik": "0001045810",
+      "profile": "standard_company",
+      "displayName": "NVIDIA",
+      "relationName": "Nvidia",
+      "catalogOrder": 1,
+      "financial": true,
+      "evidence": "verified",
+      "daily": true
+    },
+    {
+      "ticker": "SOFI",
+      "name": "SoFi Technologies, Inc.",
+      "cik": "0001818874",
+      "profile": "financial_services",
+      "displayName": "SoFi Technologies",
+      "relationName": "SoFi",
+      "catalogOrder": 0,
+      "financial": true,
+      "evidence": "verified",
+      "daily": true
+    },
+    {
+      "ticker": "CRWD",
+      "name": "CrowdStrike Holdings, Inc.",
+      "cik": "0001535527",
+      "profile": "software_saas",
+      "displayName": "CrowdStrike Holdings",
+      "relationName": "CrowdStrike",
+      "catalogOrder": 2,
+      "financial": true,
+      "evidence": "verified",
+      "daily": true
+    },
+    {
+      "ticker": "MU",
+      "name": "MICRON TECHNOLOGY INC",
+      "cik": "0000723125",
+      "profile": "standard_company",
+      "displayName": "Micron Technology",
+      "relationName": "Micron",
+      "catalogOrder": 3,
+      "financial": true,
+      "evidence": "unavailable",
+      "daily": false
+    },
+    {
+      "ticker": "MRVL",
+      "name": "Marvell Technology, Inc.",
+      "cik": "0001835632",
+      "profile": "standard_company",
+      "displayName": "Marvell Technology",
+      "relationName": "Marvell",
+      "catalogOrder": 4,
+      "financial": true,
+      "evidence": "unavailable",
+      "daily": false
+    },
+    {
+      "ticker": "VRT",
+      "name": "Vertiv Holdings Co",
+      "cik": "0001674101",
+      "profile": "standard_company",
+      "displayName": "Vertiv Holdings",
+      "relationName": "Vertiv",
+      "catalogOrder": 5,
+      "financial": true,
+      "evidence": "unavailable",
+      "daily": false
+    },
+    {
+      "ticker": "COHR",
+      "name": "COHERENT CORP.",
+      "cik": "0000820318",
+      "profile": "standard_company",
+      "displayName": "Coherent",
+      "relationName": "Coherent",
+      "catalogOrder": 6,
+      "financial": true,
+      "evidence": "unavailable",
+      "daily": false
+    },
+    {
+      "ticker": "RKLB",
+      "name": "Rocket Lab Corp",
+      "cik": "0001819994",
+      "profile": "standard_company",
+      "displayName": "Rocket Lab",
+      "relationName": "Rocket Lab",
+      "catalogOrder": 7,
+      "financial": true,
+      "evidence": "unavailable",
+      "daily": false
+    },
+    {
+      "ticker": "TTMI",
+      "name": "TTM TECHNOLOGIES INC",
+      "cik": "0001116942",
+      "profile": "standard_company",
+      "displayName": "TTM Technologies",
+      "relationName": "TTM Technologies",
+      "catalogOrder": 8,
+      "financial": true,
+      "evidence": "unavailable",
+      "daily": false
+    },
+    {
+      "ticker": "SNDK",
+      "name": "Sandisk Corp",
+      "cik": "0002023554",
+      "profile": "limited_history",
+      "displayName": "Sandisk",
+      "relationName": "Sandisk",
+      "catalogOrder": 9,
+      "financial": true,
+      "evidence": "unavailable",
+      "daily": false
+    },
+    {
+      "ticker": "FLY",
+      "name": "Firefly Aerospace Inc.",
+      "cik": "0001860160",
+      "profile": "limited_history",
+      "displayName": "Firefly Aerospace",
+      "relationName": "Firefly Aerospace",
+      "catalogOrder": 10,
+      "financial": true,
+      "evidence": "unavailable",
+      "daily": false
+    },
+    {
+      "ticker": "CRWV",
+      "name": "CoreWeave, Inc.",
+      "cik": "0001769628",
+      "profile": "financing_sensitive",
+      "displayName": "CoreWeave",
+      "relationName": "CoreWeave",
+      "catalogOrder": 11,
+      "financial": true,
+      "evidence": "unavailable",
+      "daily": false
+    }
+  ]
+}

@@ -95,6 +95,7 @@ const context = vm.createContext({ document: { getElementById() { return null; }
   querySelectorAll() { return []; }, addEventListener() {}, readyState: 'loading' },
   URL, URLSearchParams, location: { pathname: '/', search: '' }, console, setTimeout() {} });
 context.window = context;
+vm.runInContext(read('ntm-product.js'), context);
 vm.runInContext(read('posts.js'), context);
 vm.runInContext(read('academy-catalog.js'), context);
 vm.runInContext(read('academy-activities.js'), context);

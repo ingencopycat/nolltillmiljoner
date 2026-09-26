@@ -4,7 +4,7 @@ const fs=require('node:fs');
 const vm=require('node:vm');
 const path=require('node:path');
 const root=path.resolve(__dirname,'..');
-const context={window:{NTMFundamentalProfile:require('../fundamental-profile.js')}};
+const context={window:{NTMIssuerRegistry:require('../ntm-product.js').registry,NTMFundamentalProfile:require('../fundamental-profile.js')}};
 vm.runInNewContext(fs.readFileSync(path.join(root,'research-overview.js'),'utf8'),context);
 const rows=context.window.NTMResearchOverview.rows;
 const stock=t=>JSON.parse(fs.readFileSync(path.join(root,'data/stocks',t+'.json'),'utf8'));

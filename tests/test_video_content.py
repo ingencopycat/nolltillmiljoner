@@ -21,6 +21,7 @@ const context = vm.createContext({document: {
 }, URL, URLSearchParams, location:{search:''}, console, setTimeout(){}});
 context.window = context;
 vm.runInContext(fs.readFileSync('posts.js', 'utf8'), context);
+context.NTMIssuerRegistry = require('./ntm-product.js').registry;
 vm.runInContext(fs.readFileSync('ntm-relations.js', 'utf8'), context);
 vm.runInContext(fs.readFileSync('script.js', 'utf8'), context);
 const posts = vm.runInContext('NTM_POSTS', context);

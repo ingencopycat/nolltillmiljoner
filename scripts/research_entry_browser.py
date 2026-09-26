@@ -184,7 +184,7 @@ class Entry(unittest.TestCase):
         for count in [12,100,550]:
             if count != 12:
                 rows=[[f'T{i:04}',f'{chr(65+i%26)} Shared Company {i//2:04}'] for i in range(count)]
-                code=re.sub(r'const companies = \[.*?\]\.map', 'const companies = '+json.dumps(rows)+'.map',source,count=1,flags=re.S)
+                code=re.sub(r'const companies = .*?;', 'const companies = '+json.dumps(rows)+'.map(([ticker,name])=>({ticker,name}));',source,count=1,flags=re.S)
                 p.route('**/research-entry.js',lambda r,request,code=code:r.fulfill(content_type='application/javascript',body=code))
             requests=[]
             p.on('request',lambda r:requests.append(r.url) if '/data/stocks/' in r.url else None)

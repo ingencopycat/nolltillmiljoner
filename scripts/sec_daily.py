@@ -13,7 +13,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
-from company_evidence import PILOT, filing_events, earnings_documents, latest_report, validate_evidence
+from issuer_registry import tickers as enrolled_tickers, REGISTRY
+from company_evidence import filing_events, earnings_documents, latest_report, validate_evidence
 from company_insiders import metadata as insider_index, parse as parse_insider
 from company_ownership import index as ownership_index
 from stock_contract import IDENTITIES
@@ -248,7 +249,7 @@ def run(tickers, client, stock_dir=None, state_path=None, report_path=None, fixt
     state_path = Path(state_path or STATE)
     report_path = Path(report_path or ROOT / 'artifacts/sec-refresh.json')
     fixtures_dir = Path(fixtures_dir or ROOT / 'tests/fixtures')
-    if not tickers or any(t not in PILOT for t in tickers) or len(set(tickers)) != len(tickers):
+    if not tickers or any(t not in enrolled_tickers('daily') for t in tickers) or len(set(tickers)) != len(tickers):
         raise ValueError('Unsupported daily selection')
     state = read(state_path) if state_path.exists() else {'schema': 'ntm-sec-daily/1', 'issuers': {}}
     if state.get('schema') != 'ntm-sec-daily/1':
@@ -312,6 +313,7 @@ def run(tickers, client, stock_dir=None, state_path=None, report_path=None, fixt
     with tempfile.TemporaryDirectory(prefix='ntm-sec-candidate-') as temporary:
         candidate_root = Path(temporary)
         shutil.copytree(stock_dir, candidate_root / 'data/stocks')
+        shutil.copyfile(ROOT / REGISTRY, candidate_root / REGISTRY)
         shutil.copytree(fixtures_dir, candidate_root / 'tests/fixtures')
         shutil.copytree(ROOT / 'scripts/source_reviews', candidate_root / 'scripts/source_reviews')
         for destination, content in changes.items():

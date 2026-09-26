@@ -24,7 +24,7 @@ window.NTMWave1Research = function () {
          sourceMethod:manual?'manual':metric.methodVersion,shareBasis:manual?'manual':metric.shareBasisStatus === 'verified'?'verified':'unverified',sourceUrl:data.metadata.secCompanyFactsUrl});
 };
 
-const SUPPORTED_TICKERS = ['SOFI', 'NVDA', 'CRWD', 'MU', 'MRVL', 'VRT', 'COHR', 'RKLB', 'TTMI', 'SNDK', 'FLY', 'CRWV'];
+const SUPPORTED_TICKERS = window.NTMIssuerRegistry.tickers('financial');
 
 document.addEventListener('DOMContentLoaded', () => {
     initResearchApp();

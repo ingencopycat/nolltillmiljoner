@@ -1,6 +1,6 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 function setup(ticker='NVDA',date='2026-08-01'){
- const w={};w.window=w;vm.createContext(w);
+ const w={};w.window=w;w.NTMIssuerRegistry=require('../ntm-product.js').registry;vm.createContext(w);
  for(const f of ['company-capital','company-observations','company-segments','company-insiders','company-ownership','company-material-events','company-evidence','research-snapshot','change-detection','research-since'])vm.runInContext(fs.readFileSync(f+'.js','utf8'),w);
  const feed=JSON.parse(fs.readFileSync(`data/stocks/evidence/${ticker}.json`)),stock=JSON.parse(fs.readFileSync(`data/stocks/${ticker}.json`));
  const thesis={latestRevisionId:'saved',revisions:[{id:'saved',savedAt:date,text:'PRIVATE_SENTINEL'}]};

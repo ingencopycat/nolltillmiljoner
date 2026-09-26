@@ -9,7 +9,8 @@
     ...((academy?.lessons || []).map(l=>l.id).filter(id=>!['pe','eps','fcf','cagr','currency','compounding','fees','inflation','interest-rates','risk','thesis','dilution'].includes(id)))];
   const types = ['content', 'video', 'tool', 'calculator', 'research', 'learn', 'macro', 'workflow', 'community'];
   const relationTypes = ['learn', 'try', 'research', 'related', 'source', 'continue', 'discuss'];
-  const supportedTickers = ['NVDA', 'SOFI', 'CRWD', 'MU', 'MRVL', 'VRT', 'COHR', 'RKLB', 'TTMI', 'SNDK', 'FLY', 'CRWV'];
+  const registry = (typeof module !== 'undefined' ? require('./ntm-product.js').registry : root.NTMIssuerRegistry);
+  const supportedTickers = registry.tickers('financial');
   const postMetadata = {
     'aktier-och-fonder-vad-ar-skillnaden': {concepts: ['aktier', 'fonder', 'diversifiering', 'fees', 'risk']},
     'trump-xi-washington-ai-handel-taiwan': {tickers: ['NVDA'], concepts: ['ai', 'semiconductors', 'risk'], themes: ['macro']},
@@ -125,7 +126,7 @@
       entity('macro-calendar', 'macro', 'Makrokalender', 'makro.html', { concepts: ['inflation', 'interest-rates'], themes: ['macro'] }),
       entity('community', 'community', 'NTM Community', 'community.html'),
       ...supportedTickers.flatMap(ticker => {
-        const name = { NVDA: 'Nvidia', SOFI: 'SoFi', CRWD: 'CrowdStrike', MU: 'Micron', MRVL: 'Marvell', VRT: 'Vertiv', COHR: 'Coherent', RKLB: 'Rocket Lab', TTMI: 'TTM Technologies', SNDK: 'Sandisk', FLY: 'Firefly Aerospace', CRWV: 'CoreWeave' }[ticker];
+        const name = registry.get(ticker).relationName;
         return [entity('research-' + ticker.toLowerCase(), 'research', name + ' Research', 'research.html?ticker=' + ticker,
           { tickers: [ticker], companies: [name], concepts: ['valuation', 'thesis'] }),
         entity('workflow-' + ticker.toLowerCase() + '-thesis', 'workflow', 'Din tes om ' + name, 'research.html?ticker=' + ticker + '#thesisSection',

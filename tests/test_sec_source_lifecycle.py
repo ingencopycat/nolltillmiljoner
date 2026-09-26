@@ -38,6 +38,7 @@ class SourceLifecycleTests(unittest.TestCase):
         shutil.copytree(f.fixtures, repo / 'tests/fixtures')
         shutil.copytree(fixture.ROOT / 'scripts/source_reviews', repo / 'scripts/source_reviews')
         shutil.copyfile(fixture.ROOT / 'data/weekly-events.js', repo / 'data/weekly-events.js')
+        shutil.copyfile(fixture.ROOT / 'data/issuer-registry.json', repo / 'data/issuer-registry.json')
         def git(*args):
             return subprocess.run(['git', '-c', 'core.autocrlf=false', *args], cwd=repo, check=True, capture_output=True)
         git('init', '-q'); git('add', '.')  # isolated index only; no commit, push or credentials
@@ -88,10 +89,10 @@ class SourceLifecycleTests(unittest.TestCase):
         for t, acc in [('NVDA', '0001045810-26-999991'), ('NVDA', '0001045810-26-999992'), ('SOFI', '0001818874-26-999991'), ('CRWD', '0001535527-26-999991')]:
             documents[acc.replace('-', '')] = self.add_form4(t, acc)
         f.client.get_ownership_xml.side_effect = lambda url: documents[url.split('/')[-2]]
-        result = f.run_daily(fixture.daily.PILOT)
+        result = f.run_daily(fixture.daily.enrolled_tickers('daily'))
         self.assertEqual(result['rejectedFailed'], 0)
         self.assertEqual([i['outcome'] for i in result['issuers']], ['AUTO-ACCEPT'] * 3)
-        for t in fixture.daily.PILOT: sources.validate_feed(sources.read(f.stocks / 'evidence' / (t + '.json')), f.fixtures)
+        for t in fixture.daily.enrolled_tickers('daily'): sources.validate_feed(sources.read(f.stocks / 'evidence' / (t + '.json')), f.fixtures)
         self.assertEqual(len([p for p in (f.fixtures / 'company_insiders').glob('*99999*.xml')]), 4)
 
     def test_fetch_failure_and_persistence_failure_preserve_issuer_and_sources(self):
@@ -127,15 +128,15 @@ class SourceLifecycleTests(unittest.TestCase):
 
     def test_new_earnings_all_mode_preserves_bounded_fragments_and_manifest(self):
         f = self.f
-        for t in fixture.daily.PILOT:
+        for t in fixture.daily.enrolled_tickers('daily'):
             cik = fixture.daily.IDENTITIES[t]
             f.subs[cik] = fixture.add(f.subs[cik], acc=cik + '-26-999999', items='2.02,9.01')
         f.client.get_filing_html.return_value = '<html><p>Item 2.02 Results furnished in press release Exhibit 99.1.</p><p>Item 9.01</p><table><tr><td>99.1 Press release</td><td><a href="release.htm">Release</a></td></tr></table><p>SIGNATURE</p>' + ('irrelevant ' * 20000) + '</html>'
-        r = f.run_daily(fixture.daily.PILOT)
+        r = f.run_daily(fixture.daily.enrolled_tickers('daily'))
         self.assertEqual(r['rejectedFailed'], 0); self.assertNotIn('publicationBlocked', r)
         self.assertEqual(r['acceptedObservationsEvents'], 3)
         m = sources.read(f.fixtures / 'company_evidence/manifest.json')
-        for t in fixture.daily.PILOT:
+        for t in fixture.daily.enrolled_tickers('daily'):
             filename = fixture.daily.IDENTITIES[t] + '-26-999999.html'
             self.assertEqual(len([e for e in m['fixtures'] if e['file'] == filename]), 1)
             self.assertLess((f.fixtures / 'company_evidence' / filename).stat().st_size, 1000)

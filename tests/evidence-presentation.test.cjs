@@ -1,6 +1,6 @@
 ﻿const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const profile=require('../fundamental-profile.js');
-const c={window:{},document:{}};vm.createContext(c);
+const c={window:{NTMIssuerRegistry:require('../ntm-product.js').registry,},document:{}};vm.createContext(c);
 for(const file of ['fundamental-profile-ui.js','company-evidence.js'])vm.runInContext(fs.readFileSync(file,'utf8'),c);
 const ui=c.window.NTMFundamentalProfileUI,evidence=c.window.NTMCompanyEvidence;
 test('compact summaries use unchanged canonical calculations and preserve unavailable gates',()=>{

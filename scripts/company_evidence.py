@@ -7,7 +7,9 @@ from html.parser import HTMLParser
 from urllib.parse import urljoin
 
 SCHEMA = 'ntm-company-evidence/1'
-PILOT = ('NVDA', 'SOFI', 'CRWD')
+from issuer_registry import tickers
+# Compatibility name for callers; enrollment comes only from the registry.
+PILOT = tickers('evidence')
 FORMS = ('10-K', '10-Q', '10-K/A', '10-Q/A', '8-K', '8-K/A')
 
 

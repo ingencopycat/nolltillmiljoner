@@ -5,10 +5,8 @@ from datetime import date, datetime
 
 SCHEMA = 'ntm-stock-v1'
 METHOD = 'ntm-sec-normalizer/1'
-IDENTITIES = {'NVDA': '0001045810', 'SOFI': '0001818874', 'CRWD': '0001535527',
-    'MU': '0000723125', 'MRVL': '0001835632', 'VRT': '0001674101',
-    'COHR': '0000820318', 'RKLB': '0001819994',
-    'TTMI': '0001116942', 'SNDK': '0002023554', 'FLY': '0001860160', 'CRWV': '0001769628'}
+from issuer_registry import identities
+IDENTITIES = identities()
 
 
 def enrich(doc):

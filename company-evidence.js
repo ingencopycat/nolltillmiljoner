@@ -1,12 +1,13 @@
 ﻿/* SEC document access and neutral evidence context; never writes Research snapshots. */
 (() => {
  'use strict';
- const pilot={NVDA:'0001045810',SOFI:'0001818874',CRWD:'0001535527'};
+ const registry=window.NTMIssuerRegistry;
+ const eligible=ticker=>registry.has(ticker,'evidence');
  const labels={annual_report:'Årsrapport',quarterly_report:'Kvartalsrapport',results_disclosure:'Resultatrapportering',other_current_report:'Annan bolagsrapportering'};
  const node=(tag,text)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;return e;};
  const iso=s=>typeof s==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(s)&&Number.isFinite(Date.parse(s))&&new Date(s).toISOString().slice(0,10)===s;
  function validate(data,ticker){
-  if(data?.schema!=='ntm-company-evidence/1'||data.ticker!==ticker||data.cik!==pilot[ticker]||!Array.isArray(data.events)||data.events.length>24)throw Error('Invalid evidence');
+  if(data?.schema!=='ntm-company-evidence/1'||data.ticker!==ticker||(!eligible(ticker)||data.cik!==registry.get(ticker).cik)||!Array.isArray(data.events)||data.events.length>24)throw Error('Invalid evidence');
   const seen=new Set();
   for(const e of data.events){
    if(e.ticker!==ticker||e.cik!==data.cik||!/^\d{10}-\d{2}-\d{6}$/.test(e.accessionNumber)||seen.has(e.accessionNumber)||!iso(e.filingDate)||e.reportDate&&!iso(e.reportDate)||!Object.hasOwn(labels,e.classification)||!['10-K','10-Q','10-K/A','10-Q/A','8-K','8-K/A'].includes(e.form))throw Error('Invalid event');
@@ -81,8 +82,8 @@
   document.getElementById('companyEvidence')?.remove();
   document.querySelectorAll('[data-evidence-slot]').forEach(slot=>slot.replaceChildren());
   const target=id=>document.getElementById(id);
-  for(const id of ['evidenceSegments','evidenceKpis','evidenceCapital','evidenceInsiders','evidenceOwnership'])target(id)?.append(node('p',pilot[stock.symbol]?'Hämtar granskat underlag…':'Granskat underlag saknas för detta bolag.'));
-  if(stock.manual||!pilot[stock.symbol])return;
+  for(const id of ['evidenceSegments','evidenceKpis','evidenceCapital','evidenceInsiders','evidenceOwnership'])target(id)?.append(node('p',eligible(stock.symbol)?'Hämtar granskat underlag…':'Granskat underlag saknas för detta bolag.'));
+  if(stock.manual||!eligible(stock.symbol))return;
   const host=node('section');host.id='companyEvidence';host.setAttribute('aria-label','Officiell bolagsrapportering');
   if(target('evidenceReporting'))target('evidenceReporting').append(host);else document.getElementById('overviewRevenue')?.after(host);
   host.append(node('p','Hämtar officiell bolagsrapportering…'));

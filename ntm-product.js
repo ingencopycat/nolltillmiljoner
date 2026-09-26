@@ -1,3 +1,15 @@
+/* BEGIN GENERATED ISSUER REGISTRY: scripts/issuer_registry.py */
+(function(root) {
+  'use strict';
+  const issuers = Object.freeze([{"ticker":"NVDA","name":"NVIDIA CORP","cik":"0001045810","profile":"standard_company","displayName":"NVIDIA","relationName":"Nvidia","catalogOrder":1,"financial":true,"evidence":"verified","daily":true},{"ticker":"SOFI","name":"SoFi Technologies, Inc.","cik":"0001818874","profile":"financial_services","displayName":"SoFi Technologies","relationName":"SoFi","catalogOrder":0,"financial":true,"evidence":"verified","daily":true},{"ticker":"CRWD","name":"CrowdStrike Holdings, Inc.","cik":"0001535527","profile":"software_saas","displayName":"CrowdStrike Holdings","relationName":"CrowdStrike","catalogOrder":2,"financial":true,"evidence":"verified","daily":true},{"ticker":"MU","name":"MICRON TECHNOLOGY INC","cik":"0000723125","profile":"standard_company","displayName":"Micron Technology","relationName":"Micron","catalogOrder":3,"financial":true,"evidence":"unavailable","daily":false},{"ticker":"MRVL","name":"Marvell Technology, Inc.","cik":"0001835632","profile":"standard_company","displayName":"Marvell Technology","relationName":"Marvell","catalogOrder":4,"financial":true,"evidence":"unavailable","daily":false},{"ticker":"VRT","name":"Vertiv Holdings Co","cik":"0001674101","profile":"standard_company","displayName":"Vertiv Holdings","relationName":"Vertiv","catalogOrder":5,"financial":true,"evidence":"unavailable","daily":false},{"ticker":"COHR","name":"COHERENT CORP.","cik":"0000820318","profile":"standard_company","displayName":"Coherent","relationName":"Coherent","catalogOrder":6,"financial":true,"evidence":"unavailable","daily":false},{"ticker":"RKLB","name":"Rocket Lab Corp","cik":"0001819994","profile":"standard_company","displayName":"Rocket Lab","relationName":"Rocket Lab","catalogOrder":7,"financial":true,"evidence":"unavailable","daily":false},{"ticker":"TTMI","name":"TTM TECHNOLOGIES INC","cik":"0001116942","profile":"standard_company","displayName":"TTM Technologies","relationName":"TTM Technologies","catalogOrder":8,"financial":true,"evidence":"unavailable","daily":false},{"ticker":"SNDK","name":"Sandisk Corp","cik":"0002023554","profile":"limited_history","displayName":"Sandisk","relationName":"Sandisk","catalogOrder":9,"financial":true,"evidence":"unavailable","daily":false},{"ticker":"FLY","name":"Firefly Aerospace Inc.","cik":"0001860160","profile":"limited_history","displayName":"Firefly Aerospace","relationName":"Firefly Aerospace","catalogOrder":10,"financial":true,"evidence":"unavailable","daily":false},{"ticker":"CRWV","name":"CoreWeave, Inc.","cik":"0001769628","profile":"financing_sensitive","displayName":"CoreWeave","relationName":"CoreWeave","catalogOrder":11,"financial":true,"evidence":"unavailable","daily":false}].map(row => Object.freeze(row)));
+  const byTicker = new Map(issuers.map(row => [row.ticker, row]));
+  const get = ticker => byTicker.get(ticker) || null;
+  const tickers = capability => issuers.filter(row => capability === 'evidence' ? row.evidence === 'verified' : ['financial','daily'].includes(capability) && row[capability] === true).map(row => row.ticker);
+  root.NTMIssuerRegistry = Object.freeze({issuers, get, tickers,
+    has: (ticker, capability) => tickers(capability).includes(ticker),
+    catalog: () => issuers.filter(row => row.financial).slice().sort((a,b) => a.catalogOrder-b.catalogOrder).map(row => ({ticker:row.ticker, name:row.displayName}))});
+})(typeof window !== 'undefined' ? window : globalThis);
+/* END GENERATED ISSUER REGISTRY */
 /* Provider-neutral, bounded, memory-only events. Never pass user input to emit(). */
 (function (root) {
   'use strict';
@@ -51,7 +63,7 @@
   root.NTMStatus = Object.freeze({ set: status, labels });
   root.NTMEvents = Object.freeze({ emit, snapshot: () => queue.slice(),
     subscribe(fn) { if (typeof fn !== 'function') return () => {}; listeners.add(fn); return () => listeners.delete(fn); } });
-  if (typeof module !== 'undefined') module.exports = { events: root.NTMEvents, status: root.NTMStatus };
+  if (typeof module !== 'undefined') module.exports = { registry: root.NTMIssuerRegistry, events: root.NTMEvents, status: root.NTMStatus };
   if (!root.document?.addEventListener) return;
   // Submit handlers can run while later scripts still delay DOMContentLoaded.
   // Capture the canonical, allowlisted context before exposing those interactions.
@@ -80,7 +92,7 @@
       const next = event.target.closest?.('a[href]');
       if (next && ['research', 'local'].includes(category) && ['instagram', 'home', 'content'].includes(source) && fields.cta.includes(cta)) {
         const url = new URL(next.href, root.location.href);
-        if (url.origin === root.location.origin && url.pathname.endsWith('/research.html') && ['NVDA', 'SOFI', 'CRWD', 'MU', 'MRVL', 'VRT', 'COHR', 'RKLB', 'TTMI', 'SNDK', 'FLY', 'CRWV'].includes(url.searchParams.get('ticker'))) {
+        if (url.origin === root.location.origin && url.pathname.endsWith('/research.html') && root.NTMIssuerRegistry.tickers('financial').includes(url.searchParams.get('ticker'))) {
           url.searchParams.set('from', source); url.searchParams.set('via', cta);
           next.href = url.pathname + url.search + url.hash;
         }
@@ -94,7 +106,7 @@
       intro.textContent = copy[cta]; root.document.querySelector('main')?.prepend(intro);
       root.document.querySelectorAll('a[href^="research.html?ticker="]').forEach(link => {
         const url = new URL(link.href);
-        if (!['NVDA', 'SOFI', 'CRWD', 'MU', 'MRVL', 'VRT', 'COHR', 'RKLB', 'TTMI', 'SNDK', 'FLY', 'CRWV'].includes(url.searchParams.get('ticker'))) return;
+        if (!root.NTMIssuerRegistry.tickers('financial').includes(url.searchParams.get('ticker'))) return;
         url.searchParams.set('from', 'instagram'); url.searchParams.set('via', cta);
         url.hash = cta === 'counterevidence' ? 'thesis-trigger' : 'thesis-assumption-1';
         link.href = url.pathname + url.search + url.hash;

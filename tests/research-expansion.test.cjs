@@ -3,7 +3,8 @@ const tickers=['MU','MRVL','VRT','COHR','RKLB','TTMI','SNDK','FLY','CRWV'];
 test('B78 publication, route, review queue and connected catalog allowlists agree',()=>{
  const R=require('../ntm-relations.js');
  assert.deepEqual([...R.supportedTickers].sort(),['NVDA','SOFI','CRWD',...tickers].sort());
- for(const file of ['research.js','min-review.js','ntm-product.js'])for(const t of tickers)assert.ok(fs.readFileSync(file,'utf8').includes("'"+t+"'"),file+': '+t);
+ for(const file of ['research.js','min-review.js','ntm-product.js'])assert.ok(fs.readFileSync(file,'utf8').includes("NTMIssuerRegistry.tickers('financial')"),file);
+ assert.deepEqual(require('../ntm-product.js').registry.tickers('financial').slice().sort(),R.supportedTickers.slice().sort());
  const html=fs.readFileSync('research.html','utf8');
  for(const t of tickers) assert.ok(require('../research-entry.js').companies.some(c=>c.ticker===t));
  assert.ok(!html.includes('research-company-card'));

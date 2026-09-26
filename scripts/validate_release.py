@@ -14,6 +14,7 @@ def main():
     if not node:
         raise SystemExit('Node is required (or set NODE_BINARY).')
     commands = [
+        [sys.executable, '-B', 'scripts/issuer_registry.py', '--check'],
         [sys.executable, '-B', 'scripts/evidence_sources.py'],
         [sys.executable, '-B', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_*.py'],
         [node, '--test', *[str(p.relative_to(ROOT)) for p in sorted((ROOT/'tests').glob('*.test.cjs'))]],

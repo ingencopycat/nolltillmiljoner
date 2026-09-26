@@ -15,7 +15,7 @@
     const rows=await Promise.all(Object.values(store.theses).map(async thesis => {
       if (['close','abstain'].includes(thesis.review?.decision)) return {thesis,reasons:[],closed:true};
       let data=null, unavailable=false;
-      if (thesis.origin !== 'manual' && ['NVDA','SOFI','CRWD', 'MU', 'MRVL', 'VRT', 'COHR', 'RKLB', 'TTMI', 'SNDK', 'FLY', 'CRWV'].includes(thesis.ticker)) {
+      if (thesis.origin !== 'manual' && window.NTMIssuerRegistry.tickers('financial').includes(thesis.ticker)) {
         try { const response=await fetch(`data/stocks/${thesis.ticker}.json`);if(!response.ok)throw new Error('data');data=await response.json();if(data.symbol!==thesis.ticker)throw new Error('company'); }
         catch (_) {unavailable=true;data=null;}
       } else unavailable=thesis.origin !== 'manual';

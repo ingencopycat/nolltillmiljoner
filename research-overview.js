@@ -119,7 +119,7 @@
   if(!stock||data.symbol!==stock.symbol||!$('overviewBusiness'))return;
   const business=$('overviewBusiness'),outlook=$('overviewOutlook'),events=$('overviewEvents');
   business.replaceChildren(node('h2','Vad driver bolaget?'));outlook.replaceChildren(node('h2','Utsikter & senaste rapport'));events.replaceChildren();events.hidden=true;
-  if(!feed){const text=status?'Granskat underlag är inte tillgängligt just nu.':['NVDA','SOFI','CRWD'].includes(data.symbol)?'Hämtar granskat underlag…':'Granskat verksamhets- och guidningsunderlag saknas.';business.append(node('p',text,'note'),link('Verksamhet →','#data-business'));outlook.append(node('p',text,'note'));
+  if(!feed){const text=status?'Granskat underlag är inte tillgängligt just nu.':window.NTMIssuerRegistry.has(data.symbol,'evidence')?'Hämtar granskat underlag…':'Granskat verksamhets- och guidningsunderlag saknas.';business.append(node('p',text,'note'),link('Verksamhet →','#data-business'));outlook.append(node('p',text,'note'));
    const filing=data.filings?.find(f=>['10-Q','10-K'].includes(f.form));
    if(filing&&/^https:\/\/www.sec.gov\/Archives\//.test(filing.primaryDocUrl||''))outlook.append(node('h3','Senaste rapport'),node('p',`${filing.form} · periodslut ${filing.reportPeriod} · inlämnad ${filing.filingDate}`),link('Öppna officiell rapport ↗',filing.primaryDocUrl));
    outlook.append(link('Rapporter & källor →','#data-outlook'));return;}

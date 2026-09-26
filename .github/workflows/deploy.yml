@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       ticker:
-        description: 'Update now: SEC issuer (ALL runs all three)'
+        description: 'Update now: SEC issuer (ALL runs enrolled issuers)'
         type: choice
         default: ALL
         options: [ALL, NVDA, SOFI, CRWD]
@@ -30,6 +30,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: python -B scripts/issuer_registry.py --check
       - run: python -m unittest discover -s tests -p "test_*.py"
         if: github.event_name == 'push'
       - run: node scripts/check_calendar_coverage.cjs

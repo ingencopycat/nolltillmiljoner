@@ -2,8 +2,9 @@
 (function(root){
  'use strict';
  const ttl=15*60*1000,key='ntm-wave1-handoff-v1';
- const tickers=['NVDA','SOFI','CRWD','MU','MRVL','VRT','COHR','RKLB','TTMI','SNDK','FLY','CRWV'];
- const companies={"COHR":{"name":"COHERENT CORP.","sourceUrl":"https://data.sec.gov/api/xbrl/companyfacts/CIK0000820318.json"},"CRWD":{"name":"CrowdStrike Holdings, Inc.","sourceUrl":"https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json"},"CRWV":{"name":"CoreWeave, Inc.","sourceUrl":"https://data.sec.gov/api/xbrl/companyfacts/CIK0001769628.json"},"FLY":{"name":"Firefly Aerospace Inc.","sourceUrl":"https://data.sec.gov/api/xbrl/companyfacts/CIK0001860160.json"},"MRVL":{"name":"Marvell Technology, Inc.","sourceUrl":"https://data.sec.gov/api/xbrl/companyfacts/CIK0001835632.json"},"MU":{"name":"MICRON TECHNOLOGY INC","sourceUrl":"https://data.sec.gov/api/xbrl/companyfacts/CIK0000723125.json"},"NVDA":{"name":"NVIDIA CORP","sourceUrl":"https://data.sec.gov/api/xbrl/companyfacts/CIK0001045810.json"},"RKLB":{"name":"Rocket Lab Corp","sourceUrl":"https://data.sec.gov/api/xbrl/companyfacts/CIK0001819994.json"},"SNDK":{"name":"Sandisk Corp","sourceUrl":"https://data.sec.gov/api/xbrl/companyfacts/CIK0002023554.json"},"SOFI":{"name":"SoFi Technologies, Inc.","sourceUrl":"https://data.sec.gov/api/xbrl/companyfacts/CIK0001818874.json"},"TTMI":{"name":"TTM TECHNOLOGIES INC","sourceUrl":"https://data.sec.gov/api/xbrl/companyfacts/CIK0001116942.json"},"VRT":{"name":"Vertiv Holdings Co","sourceUrl":"https://data.sec.gov/api/xbrl/companyfacts/CIK0001674101.json"}};
+ const registry=(typeof module !== 'undefined' ? require('./ntm-product.js').registry : root.NTMIssuerRegistry);
+ const tickers=registry.tickers('financial');
+ const companies=Object.fromEntries(tickers.map(t => {const r=registry.get(t);return [t,{name:r.name,sourceUrl:'https://data.sec.gov/api/xbrl/companyfacts/CIK'+r.cik+'.json'}];}));
  const shape=(v,keys)=>v&&typeof v==='object'&&!Array.isArray(v)&&Object.keys(v).sort().join(',')===keys.slice().sort().join(',');
  const text=(v,max)=>typeof v==='string'&&v.length>0&&v.length<=max&&!/[<>\u0000-\u001f]/.test(v);
  const date=v=>v===null||typeof v==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(v)&&Number.isFinite(Date.parse(v))&&new Date(v).toISOString().slice(0,10)===v;

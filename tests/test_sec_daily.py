@@ -40,7 +40,7 @@ class DailyTests(unittest.TestCase):
             shutil.copytree(ROOT / 'tests/fixtures' / folder, self.fixtures / folder)
         self.subs = {}
         state = dict(schema='ntm-sec-daily/1', issuers={})
-        for ticker in daily.PILOT:
+        for ticker in daily.enrolled_tickers('daily'):
             for name in [ticker + '.json', 'evidence/' + ticker + '.json', 'evidence/' + ticker + '.status.json']:
                 (self.stocks / name).write_bytes((ROOT / 'data/stocks' / name).read_bytes())
             sub = baseline(ticker)
@@ -75,7 +75,7 @@ class DailyTests(unittest.TestCase):
 
     def test_first_run_bootstrap_uses_real_pilot_baselines(self):
         self.state.write_text(json.dumps(dict(schema='ntm-sec-daily/1', issuers={})), encoding='utf-8')
-        result = self.run_daily(daily.PILOT)
+        result = self.run_daily(daily.enrolled_tickers('daily'))
         self.assertEqual(result['rejectedFailed'], 0)
         self.assertEqual(result['newFilings'], 0)
         self.assertFalse(result['productionDataChanged'])

@@ -1,12 +1,7 @@
 /* Presentation-only entry and bounded selector. No account, journal or data writes. */
 (function (root) {
   'use strict';
-  const companies = [
-    ['SOFI', 'SoFi Technologies'], ['NVDA', 'NVIDIA'], ['CRWD', 'CrowdStrike Holdings'],
-    ['MU', 'Micron Technology'], ['MRVL', 'Marvell Technology'], ['VRT', 'Vertiv Holdings'],
-    ['COHR', 'Coherent'], ['RKLB', 'Rocket Lab'], ['TTMI', 'TTM Technologies'],
-    ['SNDK', 'Sandisk'], ['FLY', 'Firefly Aerospace'], ['CRWV', 'CoreWeave']
-  ].map(([ticker, name]) => ({ticker, name}));
+  const companies = (typeof module !== 'undefined' ? require('./ntm-product.js').registry : root.NTMIssuerRegistry).catalog();
   const pageSize = 20;
   const normalize = value => String(value || '').trim().toLocaleLowerCase('sv-SE');
   const collator = new Intl.Collator('sv-SE');

@@ -27,7 +27,7 @@
   if(!stock)return;
   const reviewLink=document.querySelector('#reviewEvidenceLinks a');if(reviewLink)reviewLink.href='#researchSince';
   let host=document.getElementById('researchSince');if(!host){host=node('section',undefined,'research-since');host.id='researchSince';host.setAttribute('aria-labelledby','researchSinceHeading');const review=document.getElementById('thesis-review');if(review)review.prepend(host);else document.getElementById('overviewRevenue')?.before(host);}
-  host.dataset.reviewedCompany=String(['NVDA','SOFI','CRWD'].includes(stock.symbol));
+  host.dataset.reviewedCompany=String(window.NTMIssuerRegistry.has(stock.symbol,'evidence'));
   const opened=new Set([...host.querySelectorAll('details[open][data-group]')].map(n=>n.dataset.group));host.replaceChildren(node('h2','Sedan din analys'));host.firstChild.id='researchSinceHeading';
   const saved=window.NTMThesisStorage.get(stock.symbol);let model;
   try{model=window.NTMResearchSince.build({stock,feed,thesis:saved.thesis,unavailable:health?.status!=='verified'});}catch{model={state:'unavailable'};}

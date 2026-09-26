@@ -13,7 +13,8 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from company_evidence import PILOT, Structure, earnings_documents, filing_events, validate_evidence
+from issuer_registry import load, tickers
+from company_evidence import Structure, earnings_documents, filing_events, validate_evidence
 from company_insiders import metadata, parse, refresh as insiders
 from stock_contract import IDENTITIES
 
@@ -186,7 +187,7 @@ def accession_from_url(url):
 
 def validate_repository(root=ROOT):
     root = Path(root)
-    for ticker in PILOT:
+    for ticker in tickers('evidence', load(root)):
         validate_feed(read(root / 'data/stocks/evidence' / (ticker + '.json')), root / 'tests/fixtures', root / 'scripts/source_reviews')
     # Include reviewed/excluded registry documents, even when not visibly published.
     for folder in ('company_observations', 'company_ownership', 'company_material_events'):
