@@ -28,6 +28,7 @@ try:
     if ticker=='SOFI':assert detail.locator('a').count()==2;expect(detail).to_contain_text('72');expect(detail).to_contain_text('600 miljoner')
     detail.evaluate('e=>e.scrollIntoView({block:"start"})');p.screenshot(path=str(OUT/f'{key}-evidence.png'),animations='disabled')
     passage=detail.locator('details').first;passage.locator('summary').click();expect(passage.locator('p')).to_be_visible();assert p.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
+    p.keyboard.press('Escape')
     method=p.locator('#materialSources');method.locator('summary').focus();p.keyboard.press('Enter');expect(method).to_have_attribute('open','');method.evaluate('e=>e.scrollIntoView({block:"start"})');p.screenshot(path=str(OUT/f'{key}-method.png'),animations='disabled')
     assert p.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),key
     assert p.evaluate('t=>NTMThesisStorage.get(t).thesis.revisions',ticker)==saved

@@ -1,0 +1,25 @@
+{
+  "baseline": "6aec46b5aeea9001167b939cb8e781e6c65e7f6d",
+  "results": {
+    "NVDA": {
+      "exactOutputsAndRevisions": true,
+      "sensitivityCells": 25
+    },
+    "SOFI": {
+      "exactOutputsAndRevisions": true,
+      "sensitivityCells": 25
+    },
+    "CRWD": {
+      "exactOutputsAndRevisions": true,
+      "sensitivityCells": 25
+    }
+  },
+  "unchangedFinancialAndEvidenceJSON": {
+    "data/stocks/NVDA.json": "37317a93c76c18b63e46fee9b586a634ed372bbca50ea47e2eaf72592bec1e9e",
+    "data/stocks/evidence/NVDA.json": "7ee55e160ed2336d884a7945164805c1b9e11fec6a45e83da250341e042878ef",
+    "data/stocks/SOFI.json": "3b22b78a4401f6058defb0c35b62160e859505a07d16741292da13639b8e4bc4",
+    "data/stocks/evidence/SOFI.json": "440349cc1555a005ad231a1e772eda52d5b08e51e0e34764cdeb394d60844f5d",
+    "data/stocks/CRWD.json": "398950b14ebc2fde6d664d4308c9ecc1964cfbda37dac4c30f95679d4d55fe45",
+    "data/stocks/evidence/CRWD.json": "8e91e2c5894116b6ea08334ca57535bf96f28a13dd1c44ddee48bae3d5e8ed4c"
+  }
+}

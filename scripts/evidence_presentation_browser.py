@@ -38,12 +38,13 @@ try:
      open_research_workspace(p,'#'+ident)
      summary=p.locator('#'+ident+' > summary');summary.focus();p.keyboard.press('Enter')
      expect(p.locator('#'+ident)).to_have_attribute('open','')
-     summary.scroll_into_view_if_needed();p.screenshot(path=str(OUT/f'{key}-{ident}-expanded.png'),animations='disabled')
+     p.locator('#provenance-heading' if ident=='reportingSources' else '#fundamentalSources > summary').scroll_into_view_if_needed();p.screenshot(path=str(OUT/f'{key}-{ident}-expanded.png'),animations='disabled')
      assert p.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),(key,ident)
      if ident=='fundamentalSources':
       trigger=p.locator('#fundamentalSources button').first;trigger.focus();p.keyboard.press('Enter')
       expect(p.locator('#provenanceDialog')).to_be_visible();p.keyboard.press('Escape');expect(trigger).to_be_focused()
-     summary.click()
+     if ident=='reportingSources':p.keyboard.press('Escape');expect(summary).to_be_focused()
+     else:summary.click()
     assert p.evaluate('t=>NTMThesisStorage.get(t).thesis.revisions',ticker)==saved
     records.append({'company':ticker,'width':width,'theme':theme,'overflow':False,'evidenceKeyboard':'passed','revisionUnchanged':True})
     print('PASS',key,flush=True)

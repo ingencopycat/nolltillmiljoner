@@ -205,12 +205,15 @@ class Entry(unittest.TestCase):
             p.locator('#companySearch').fill('')
             p.locator('#companyBrowse > summary').click()
             expect(p.locator('#companyLetters button').first).to_have_attribute('aria-pressed','true')
-            p.locator('#companyLetters button').last.click()
+            if count>20:p.locator('#companyLetters button').last.click()
+            else:
+                expect(p.locator('#companyLetters')).to_be_hidden()
+                expect(p.locator('#companyBrowseResults a')).to_have_count(12)
             self.assertLessEqual(p.locator('#companyBrowseResults a').count(),20)
             # All 26 groups must wrap at phone widths; a dense group also stays paginated.
             p.set_viewport_size({'width':360,'height':844})
             self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'),360)
-            self.assertLess(p.locator('#companyLetters').bounding_box()['height'],400)
+            if count>20:self.assertLess(p.locator('#companyLetters').bounding_box()['height'],400)
             self.metrics.append(dict(companies=count,initial_results=initial,initial_selector_dom=initial_dom,search_results=result_count,
                 search_render_median_ms=durations[50],search_render_p95_ms=durations[95],stock_requests=len(requests),
                 selector_bytes=len((code if count!=12 else source).encode('utf-8'))))

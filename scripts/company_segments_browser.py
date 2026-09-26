@@ -27,7 +27,7 @@ try:
      summary=p.locator('#segmentSources > summary');summary.focus();p.keyboard.press('Enter');expect(p.locator('#segmentSources')).to_have_attribute('open','');summary.evaluate('(e)=>e.scrollIntoView({block:"start"})');p.screenshot(path=str(OUT/f'{key}-sources.png'),animations='disabled')
      assert section.locator('a:visible').count()>3
      more=p.locator('#segmentSources td details').first;more.locator('summary').click();expect(more.locator('p').first).to_be_visible();p.locator('#segmentSources table').evaluate('(e)=>e.scrollIntoView({block:"start"})');p.screenshot(path=str(OUT/f'{key}-passage.png'),animations='disabled')
-     summary.focus();p.keyboard.press('Enter');expect(summary).to_be_focused();expect(p.locator('#segmentSources')).not_to_have_attribute('open','');assert p.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),key
+     p.keyboard.press('Escape');expect(summary).to_be_focused();expect(p.locator('#segmentSources')).not_to_have_attribute('open','');assert p.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),key
      assert p.evaluate('t=>NTMThesisStorage.get(t).thesis.revisions',ticker)==saved
      records.append(dict(ticker=ticker,group=group,width=width,theme=theme,overflow=False,keyboard=True,savedResearchUnchanged=True));print('PASS',key,flush=True)
  # Retained data on source failure; malformed/incomplete latest mix must not create a partial chart.

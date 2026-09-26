@@ -1,0 +1,54 @@
+/* Final Research coherence: preserve job-specific compositions and data qualifiers. */
+.company-picker-entry > summary { display:none; }
+.company-picker-entry .company-picker-body { padding:0; border:0; background:transparent; box-shadow:none; }
+.company-picker-entry .research-switcher-wrap { margin:0; }
+.company-picker-entry .research-switcher { padding:0; border:0; background:transparent; }
+.company-picker-entry #companySearch { min-height:3.25rem; font-size:1rem; }
+.company-picker-entry #companySearchHelp { margin:.65rem 0 1.25rem; }
+.company-picker-entry #companyRecent { margin:1.5rem 0; }
+.company-picker-entry #companyRecent h2 { font-size:1.4rem; }
+.company-picker-entry #manualThesisEntry { margin-top:1.5rem; padding:1rem 0; border:0; border-top:1px solid var(--border); background:transparent; }
+.company-results small { display:block; }
+#companyBrowseResults { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 1.5rem; }
+#companyBrowse summary, #manualThesisEntry > summary { min-height:44px; align-content:center; }
+[data-entry-state="NO_COMPANY"] .research-toolbar,
+[data-entry-state="RETURNING_RESEARCH"] .research-toolbar { display:flex; flex-direction:column; }
+[data-entry-state="NO_COMPANY"] .research-journeys,
+[data-entry-state="RETURNING_RESEARCH"] .research-journeys { order:3; margin-top:1.5rem; }
+#workspaceData [data-evidence-slot] > section { padding-block:1.75rem; margin-block:0; }
+#workspaceData [data-evidence-slot] + [data-evidence-slot] > section { border-top:1px solid var(--border); }
+#workspaceData h2 { font-size:clamp(1.4rem,2vw,1.8rem); line-height:1.25; margin-bottom:1rem; }
+#workspaceData :is(.financial-sources,.capital-more) { margin-top:1rem; }
+#workspaceData .financial-sources { border:0; border-top:1px solid var(--border); border-radius:0; background:transparent; padding:.5rem 0; }
+summary[aria-haspopup="dialog"] { min-height:44px; align-content:center; }
+#workspaceData :is(select,input,button) { min-height:44px; }
+#workspaceData :is(.observation-context,.segment-context,.capital-context,.insider-context,.ownership-context,.material-context) { line-height:1.55; }
+#provenanceDialog { width:min(58rem,calc(100vw - 2rem)); max-width:calc(100vw - 2rem); max-height:calc(100dvh - 2rem); overflow:auto; }
+#provenanceDialog .provenance-dialog-header { position:sticky; top:0; z-index:2; background:var(--panel); gap:1rem; }
+#provenanceDialog .provenance-dialog-inner, #provenanceDialog .provenance-dialog-body, #provenanceDialog .contextual-evidence { min-width:0; max-width:100%; }
+#provenanceDialog .provenance-dialog-body { grid-template-columns:minmax(0,1fr); }
+#provenanceDialog .close-dialog-btn { width:44px; min-width:44px; min-height:44px; flex:0 0 44px; }
+#provenanceDialog h3 { flex:1 1 auto; min-width:0; font-size:1.25rem; overflow-wrap:anywhere; }
+#provenanceDialog .contextual-evidence { margin:0; padding:0; border:0; background:transparent; }
+#provenanceDialog .contextual-evidence > summary { display:none; }
+#provenanceDialog :is(p,td,a) { overflow-wrap:anywhere; }
+#provenanceDialog :is(.observation-table-scroll,.segment-table-scroll,.capital-table-scroll) { max-width:100%; overflow-x:auto; }
+#provenanceDialog :is(.observation-history,.segment-table-scroll table,.capital-table-scroll table) { min-width:38rem; }
+#workspaceData .context-help { display:inline-block; font-size:.875rem; padding:.5rem 0; }
+#workspaceData .evidence-value { display:inline-block; min-height:44px; padding:0; border:0; border-radius:0; background:transparent; color:inherit; font:inherit; text-align:inherit; box-shadow:none; text-decoration:underline dotted; text-underline-offset:.2em; }
+#workspaceData .evidence-value:hover { text-decoration-style:solid; }
+#provenanceDialog tr:focus { outline:2px solid var(--primary); outline-offset:-2px; }
+.evidence-scroll-hint { display:none; }
+#provenanceDialog :is(.insider-row,.ownership-source) { max-width:100%; }
+#provenanceDialog::backdrop { background:rgb(0 0 0 / .65); }
+@media(max-width:700px) {
+ #companyBrowseResults { grid-template-columns:1fr; }
+ #workspaceData [data-evidence-slot] > section { padding-block:1.25rem; }
+ #provenanceDialog { width:calc(100vw - 1rem); max-height:calc(100dvh - 1rem); padding:.75rem; }
+ #provenanceDialog .provenance-dialog-body { padding:.5rem 0; }
+ #provenanceDialog .evidence-scroll-hint { display:block; margin:0 0 1rem; color:var(--muted); font-size:.875rem; }
+}
+@media(forced-colors:active) {
+ summary[aria-haspopup="dialog"]:focus-visible { outline:2px solid Highlight; }
+ #provenanceDialog { border:2px solid CanvasText; }
+}

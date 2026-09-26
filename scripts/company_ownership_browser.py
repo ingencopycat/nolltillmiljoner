@@ -27,11 +27,13 @@ try:
      changed=section.locator('.ownership-entry').filter(has=p.get_by_role('heading',name='The Vanguard Group',exact=True));expect(changed).to_contain_text('Ej jämförbart');assert changed.locator('svg line').count()==0
     detail=section.locator('.ownership-detail').last;detail.locator('summary').focus();p.keyboard.press('Enter');expect(detail.locator('a').first).to_be_visible();expect(detail).to_contain_text('Rösträtt:');assert detail.locator('a').first.get_attribute('href').startswith('https://www.sec.gov/Archives/')
     detail.evaluate('e=>e.scrollIntoView({block:"start"})');p.screenshot(path=str(OUT/f'{key}-evidence.png'),animations='disabled')
+    p.keyboard.press('Escape')
     if ticker=='SOFI':
      p.locator('#ownershipPeriod').select_option('history')
      assert section.locator('.ownership-entry').count()==1;expect(section).to_contain_text('SoftBank Group Corp.');expect(section).to_contain_text('Äldre 13D-historik från 2022');assert section.locator('svg line').count()==1
      section.evaluate('e=>e.scrollIntoView({block:"start"})');p.screenshot(path=str(OUT/f'{key}-history.png'),animations='disabled');section.locator('.ownership-detail > summary').click();expect(section).to_contain_text('I denna rapport uppgav parterna');expect(section).to_contain_text('13D · ändring 4')
     else:assert section.locator('#ownershipPeriod').count()==0
+    p.keyboard.press('Escape')
     method=p.locator('#ownershipSources');method.locator('summary').focus();p.keyboard.press('Enter');expect(method).to_have_attribute('open','');method.evaluate('e=>e.scrollIntoView({block:"start"})');p.screenshot(path=str(OUT/f'{key}-method.png'),animations='disabled')
     assert p.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),key
     assert p.evaluate('t=>NTMThesisStorage.get(t).thesis.revisions',ticker)==saved

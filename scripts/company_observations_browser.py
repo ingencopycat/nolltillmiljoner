@@ -25,10 +25,10 @@ try:
     p.locator('#companyKpis h2').first.evaluate('(e)=>e.scrollIntoView({block:"start"})');p.screenshot(path=str(OUT/f'{key}-kpis.png'),animations='disabled')
     open_research_workspace(p,'#companyObservations')
     section.locator('.observation-grid').first.locator('article').last.evaluate('(e)=>e.scrollIntoView({block:"start"})');p.screenshot(path=str(OUT/f'{key}-guidance-detail.png'),animations='disabled')
-    summary=p.locator('#observationSources > summary');summary.focus();p.keyboard.press('Enter');expect(p.locator('#observationSources')).to_have_attribute('open','');summary.scroll_into_view_if_needed();p.screenshot(path=str(OUT/f'{key}-sources.png'),animations='disabled');assert p.locator('#observationSources a:visible').count()>10
+    summary=p.locator('#observationSources > summary');summary.focus();p.keyboard.press('Enter');expect(p.locator('#observationSources')).to_have_attribute('open','');p.locator('#provenance-heading').scroll_into_view_if_needed();p.screenshot(path=str(OUT/f'{key}-sources.png'),animations='disabled');assert p.locator('#observationSources a:visible').count()>10
     detail=p.locator('#observationSources td details').first;detail.locator('summary').click();expect(detail.locator('p').first).to_be_visible()
     p.locator('#observationSources table').evaluate('(e)=>e.scrollIntoView({block:"start"})');p.screenshot(path=str(OUT/f'{key}-source-passage.png'),animations='disabled')
-    summary.focus();p.keyboard.press('Enter');expect(p.locator('#observationSources')).not_to_have_attribute('open','');expect(summary).to_be_focused()
+    p.keyboard.press('Escape');expect(p.locator('#observationSources')).not_to_have_attribute('open','');expect(summary).to_be_focused()
     assert p.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),key
     assert p.evaluate('t=>NTMThesisStorage.get(t).thesis.revisions',ticker)==saved
     records.append(dict(company=ticker,width=width,theme=theme,overflow=False,sourcesKeyboard=True,revisionUnchanged=True));print('PASS',key,flush=True)

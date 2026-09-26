@@ -69,6 +69,7 @@
       li.append(link);
       if (row.manual) li.append(node('small', 'Manuell tes · ingen automatisk SEC-data'));
       else if (row.saved) li.append(node('small', 'Sparad tes'));
+      if (row.time) li.append(node('small', (row.saved ? 'Senast använd ' : 'Besökt ') + new Date(row.time).toLocaleDateString('sv-SE')));
       list.append(li);
     }
   }
@@ -90,14 +91,17 @@
     $('companyRecent').hidden = !!q.trim() || !recentRows.length;
   }
   function renderBrowse() {
-    const rows = universe.filter(c => letter(c) === activeLetter).sort(compare), start = browsePage * pageSize;
+    const compact = universe.length <= pageSize;
+    const rows = (compact ? [...universe] : universe.filter(c => letter(c) === activeLetter)).sort(compare), start = browsePage * pageSize;
+    $('companyLetters').hidden = compact;
     renderRows($('companyBrowseResults'), rows.slice(start, start + pageSize));
-    $('companyBrowseStatus').textContent = `${activeLetter}: ${rows.length} bolag. Visar ${start + 1}–${Math.min(start + pageSize, rows.length)}.`;
+    $('companyBrowseStatus').textContent = `${compact ? 'Automatisk bolagsdata' : activeLetter}: ${rows.length} bolag. Visar ${start + 1}–${Math.min(start + pageSize, rows.length)}.`;
     $('companyLetters').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.textContent === activeLetter)));
     paginate('companyBrowsePages', rows.length, browsePage, page => { browsePage = page; renderBrowse(); });
   }
   function refreshRecent() {
     const saved = root.NTMThesisStorage?.all(), visits = root.NTMRecentTools?.read();
+    $('companyRecentError').hidden = !saved?.error;
     recentRows = recent(universe, saved?.theses, visits?.tools);
     renderRows($('companyRecentList'), recentRows);
     renderSearch();
@@ -123,6 +127,10 @@
     if (initialized) return;
     initialized = true;
     $('main-content').dataset.entryState = state;
+    const readError = node('p', 'Sparat arbete kunde inte läsas på den här enheten. ');
+    readError.id = 'companyRecentError'; readError.hidden = true; readError.setAttribute('role', 'status');
+    const recover = node('a', 'Öppna Min NTM för återställning och backup'); recover.href = 'min-ntm.html'; readError.append(recover);
+    $('companyBrowse').before(readError, $('companyRecent'));
     refreshRecent();
     const picker = $('companyPicker'), input = $('companySearch');
     input.addEventListener('input', () => { searchPage = 0; renderSearch(); });

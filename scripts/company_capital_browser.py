@@ -27,7 +27,7 @@ try:
     assert section.locator('a:visible').count()==4
     p.locator('#capitalMetric').select_option('sbc_expense');more=p.locator('#capitalSources td details').first;more.locator('summary').click();expect(more.locator('p').first).to_be_visible();expect(more).to_contain_text('XBRL:')
     if width==1440:p.locator('#capitalSources table').evaluate('(e)=>e.scrollIntoView({block:"start"})');p.screenshot(path=str(OUT/f'{key}-passage.png'),animations='disabled')
-    summary.focus();p.keyboard.press('Enter');expect(summary).to_be_focused();assert p.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),key
+    p.keyboard.press('Escape');expect(summary).to_be_focused();assert p.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),key
     assert p.evaluate('t=>NTMThesisStorage.get(t).thesis.revisions',ticker)==saved
     records.append(dict(ticker=ticker,width=width,theme=theme,overflow=False,keyboard=True,charts=2,savedResearchUnchanged=True));print('PASS',key,flush=True)
  case.go('research.html?ticker=NVDA');p.evaluate("async()=>{const d=await(await fetch('data/stocks/evidence/NVDA.json')).json();document.querySelector('#companyCapital').remove();NTMCompanyCapitalUI.render(d,document.querySelector('#evidenceCapital'),{status:'unavailable'});}")

@@ -64,7 +64,13 @@
   observer=new MutationObserver(refresh);
   for(const id of ['thesisStatusBanner','thesisSavedIndicator','valuationStatusBanner','sensitivityTable','researchSincePreview','revisionSelectionLabel'])if($(id))observer.observe($(id),{childList:true,subtree:true,attributes:true,characterData:true});
   observer.observe(thesis,{childList:true});
-  document.addEventListener('input',()=>queueMicrotask(refresh));document.addEventListener('change',()=>queueMicrotask(refresh));document.addEventListener('submit',()=>queueMicrotask(refresh));
+  document.addEventListener('input',()=>queueMicrotask(refresh));document.addEventListener('change',()=>queueMicrotask(refresh));
+  document.addEventListener('submit',event=>queueMicrotask(()=>{
+   refresh();
+   // A blocked save can disable its button and move focus to body. Keep its explanation in view.
+   const banner=$('thesisStatusBanner');
+   if(event.target===form&&banner.style.display!=='none')banner.scrollIntoView({block:'nearest'});
+  }));
   mobile.addEventListener('change',()=>{notebookMode(mode);assumptions.open=!mobile.matches;full.open=!mobile.matches;sensitivity.open=!mobile.matches;refresh();});
   window.addEventListener('hashchange',()=>reveal($(location.hash.slice(1))));
   notebookMode('editor');refresh();

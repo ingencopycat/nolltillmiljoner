@@ -26,6 +26,7 @@ try:
     section.evaluate('e=>e.scrollIntoView({block:"start"})');p.screenshot(path=str(OUT/f'{key}-filtered.png'),animations='disabled')
     detail=section.locator('.insider-detail').first;detail.locator('summary').focus();p.keyboard.press('Enter');expect(detail.locator('a')).to_be_visible();expect(detail).to_contain_text('SEC-kod');assert detail.locator('a').get_attribute('href').startswith('https://www.sec.gov/Archives/')
     detail.evaluate('e=>e.scrollIntoView({block:"start"})');p.screenshot(path=str(OUT/f'{key}-detail.png'),animations='disabled')
+    p.keyboard.press('Escape')
     p.locator('#insiderCategory').select_option('all');p.locator('#insiderPeriod').select_option('history')
     if ticker=='NVDA':assert section.locator('.insider-filing').count()==2;expect(section).to_contain_text('räknas inte som ny affär')
     elif ticker=='SOFI':assert section.locator('.insider-filing').count()==1;expect(section).to_contain_text('Köpte aktier');expect(section).to_contain_text('18,0578')
