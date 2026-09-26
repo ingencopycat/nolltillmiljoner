@@ -124,6 +124,7 @@
  }
  function go(state,hash='') {const next=normalize(state);history.pushState(null,'',url(next,hash));apply(next,true);}
  function since(model,error) {
+  if(window.NTMResearchOverview){window.NTMResearchOverview.since(model,error);return;}
   const host=$('researchSincePreview');if(!host)return;host.replaceChildren();
   host.hidden=model.state==='no_revision'&&!error;if(host.hidden)return;
   host.append(make('strong','Sedan din analys'));

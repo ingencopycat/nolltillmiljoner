@@ -47,11 +47,13 @@ try:
     assert p.evaluate('t=>NTMThesisStorage.get(t).thesis.revisions',ticker)==saved
     records.append({'company':ticker,'width':width,'theme':theme,'overflow':False,'evidenceKeyboard':'passed','revisionUnchanged':True})
     print('PASS',key,flush=True)
- # Ineligible source comparisons remain available as observations, never drawn as trends.
+ # Wave 2 leaves explicit gaps while retaining eligible observations and source access.
  case.go('research.html?ticker=NVDA')
  for edit in ("d.annual.at(-1).metrics.revenue.restated=true", "d.annual.at(-1).metrics.revenue.currency='EUR';d.annual.at(-1).metrics.revenue.unit='EUR'", "d.annual.at(-1).periodEnd='2026-01-01'", "d.annual.splice(1,1)"):
-  p.evaluate('()=>{const d=structuredClone(currentStockData);'+edit+';NTMVisualV3.revenue(d)}')
-  expect(p.locator('#overviewRevenuePlot')).not_to_be_visible();expect(p.locator('#revenueUnavailable')).to_be_visible()
+  p.evaluate('()=>{const d=structuredClone(currentStockData);'+edit+';NTMResearchOverview.render(d)}')
+  expect(p.locator('#revenueUnavailable')).to_be_visible()
+  assert p.locator('#overviewRevenuePlot .revenue-bar').count() < 3
+  expect(p.locator('#overviewRevenueValues')).to_contain_text('FY2026')
  (OUT/'results.json').write_text(json.dumps(records,indent=2),encoding='utf-8')
 finally:
  case.tearDown();BrowserSmoke.tearDownClass()

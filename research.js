@@ -250,8 +250,9 @@ function renderStockDetail(data) {
 
     // 3. Render Growth & Margins
     renderGrowthAndMargins(data);
-    window.NTMVisualV3?.revenue(data);
+    if (!window.NTMResearchOverview) window.NTMVisualV3?.revenue(data);
     window.NTMFundamentalProfileUI?.render(data);
+    window.NTMResearchOverview?.render(data);
 
     // 4. Initialize & Render Valuation Section
     initValuationSection(data);

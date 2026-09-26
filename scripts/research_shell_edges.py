@@ -20,8 +20,9 @@ try:
         else:route.continue_()
     old.route('**/*',baseline)
     def evidence(page):
+        # Compare the original detailed sources; Wave 2 adds duplicate preview links.
         return page.evaluate("""() => ({height:document.documentElement.scrollHeight,
-          sources:[...document.querySelectorAll('#researchDetail a[href]')].map(n=>n.href).filter(s=>s.startsWith('https://www.sec.gov/')).sort(),
+          sources:[...document.querySelectorAll('#researchDetail a[href]')].filter(n=>!n.closest('#overviewContext,#overviewEvents')).map(n=>n.href).filter(s=>s.startsWith('https://www.sec.gov/')).sort(),
           observations:[...document.querySelectorAll('.observation-history tbody tr')].map(n=>n.textContent).sort()})""")
     for ticker in ('NVDA','SOFI','CRWD'):
         old.goto(case.base+'/research.html?ticker='+ticker)

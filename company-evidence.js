@@ -74,6 +74,7 @@
  }
  async function render(stock){
   const ticket=++generation;current=null;
+  window.NTMResearchOverview?.evidence(stock,null,null);
   window.NTMResearchSinceUI?.setStock(stock);
   const legacy=document.getElementById('filingsList');if(legacy)legacy.hidden=false;
   const legacySection=legacy?.closest('section');if(legacySection)legacySection.hidden=false;
@@ -100,10 +101,12 @@
    renderAt('evidenceInsiders',window.NTMCompanyInsidersUI);
    renderAt('evidenceOwnership',window.NTMCompanyOwnershipUI);
    renderAt('evidenceEvents',window.NTMCompanyMaterialEventsUI);
+   window.NTMResearchOverview?.evidence(stock,data,status);
    window.NTMResearchShell?.refresh();
    if(legacy)legacy.hidden=true;
    if(legacySection)legacySection.hidden=true;
   }catch{if(ticket===generation){
+   window.NTMResearchOverview?.evidence(stock,null,{status:'unavailable'});
    host.replaceChildren(node('p','Officiell bolagsrapportering är inte tillgänglig just nu. Befintliga rapportlänkar visas i detta område.'));
    for(const id of ['evidenceSegments','evidenceKpis','evidenceCapital','evidenceInsiders','evidenceOwnership'])target(id)?.replaceChildren(node('p','Granskat underlag är inte tillgängligt just nu. Försök ladda om sidan.'));
   }}

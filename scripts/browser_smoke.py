@@ -134,8 +134,8 @@ class BrowserSmoke(unittest.TestCase):
         expect(p.locator('#scenarioGrid h3').last).to_contain_text('högt illustrativt scenario')
         self.go('research.html?ticker=NVDA')
         expect(p.locator('#valuationPriceInputStatus')).to_contain_text('Verifierat kursdatum saknas')
-        expect(p.locator('#keyMetricsGrid')).to_contain_text('Operativt kassaflöde TTM')
-        expect(p.locator('#keyMetricsGrid')).not_to_contain_text('operatingCashFlow')
+        expect(p.locator('#financialMetricsGrid')).to_contain_text('Operativt kassaflöde TTM')
+        expect(p.locator('#financialMetricsGrid')).not_to_contain_text('operatingCashFlow')
         for width in [390, 1440]:
             p.set_viewport_size({'width': width, 'height': 900})
             self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'), width)
@@ -1124,7 +1124,7 @@ class BrowserSmoke(unittest.TestCase):
     def test_premium_depth_keyboard_tables_and_reduced_motion(self):
         p = self.page
         self.go('research.html?ticker=NVDA')
-        expect(p.locator('#keyMetricsGrid .metric-box:visible')).to_have_count(3)
+        expect(p.locator('#keyMetricsGrid .overview-metric:visible')).to_have_count(5)
         p.get_by_role('link', name='Alla nyckeltal i Bolagsdata').click()
         self.assertGreater(p.locator('#financialMetricsGrid .metric-box:visible').count(), 4)
         expect(p.locator('#researchFinancials')).to_have_attribute('open', '')
