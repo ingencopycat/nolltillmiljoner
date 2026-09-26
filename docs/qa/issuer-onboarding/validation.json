@@ -1,0 +1,139 @@
+{
+  "release2": [
+    "PASS: canonical issuer registry, browser projection, profiles, published enrollment, checkpoints and workflow paths",
+    "PASS: published evidence has bounded, hashed, reproducible offline sources and index metadata",
+    "ℹ tests 9",
+    "ℹ pass 9",
+    "ℹ fail 0",
+    "ℹ skipped 0",
+    "Ran 324 tests in 224.458s",
+    "OK (skipped=1)",
+    "ℹ tests 439",
+    "ℹ pass 437",
+    "ℹ fail 0",
+    "ℹ skipped 2",
+    "PASS: weekly records, image reviews and homepage resolution; empty days are valid.",
+    "PASS credential-pattern scan/public configuration (working tree; not git history)",
+    "PASS credential-pattern scan/public configuration and staged CSP",
+    "PASS: release tests, generated artifacts, calendar/rules, staging and local references"
+  ],
+  "smoke": [
+    "Ran 43 tests in 131.289s",
+    "OK"
+  ],
+  "wave5": [
+    "Ran 4 tests in 11.440s",
+    "OK"
+  ],
+  "shell": [
+    "PASS 210 visual cases; state, routing, legacy links, export, manual, unavailable"
+  ],
+  "overview": [
+    "PASS NVDA",
+    "PASS SOFI",
+    "PASS CRWD",
+    "PASS overview controls, sources, history, deep links and saved/failure states"
+  ],
+  "since": [
+    "PASS NVDA 1440 dark",
+    "PASS NVDA 1440 light",
+    "PASS NVDA 360 dark",
+    "PASS NVDA 360 light",
+    "PASS NVDA 390 dark",
+    "PASS NVDA 390 light",
+    "PASS NVDA 430 dark",
+    "PASS NVDA 430 light",
+    "PASS SOFI 1440 dark",
+    "PASS SOFI 1440 light",
+    "PASS SOFI 360 dark",
+    "PASS SOFI 360 light",
+    "PASS SOFI 390 dark",
+    "PASS SOFI 390 light",
+    "PASS SOFI 430 dark",
+    "PASS SOFI 430 light",
+    "PASS CRWD 1440 dark",
+    "PASS CRWD 1440 light",
+    "PASS CRWD 360 dark",
+    "PASS CRWD 360 light",
+    "PASS CRWD 390 dark",
+    "PASS CRWD 390 light",
+    "PASS CRWD 430 dark",
+    "PASS CRWD 430 light"
+  ],
+  "workspaces": [
+    "PASS analytical journey NVDA",
+    "PASS analytical journey SOFI",
+    "PASS analytical journey CRWD"
+  ],
+  "edges": [
+    "PASS source/observation equivalence, shorter overview, keyboard, manual switch, missing coverage, storage error {'NVDA': {'beforeHeight': 14051, 'overviewHeight': 2721, 'identicalSECLinks': 68, 'identicalObservationRows': 14}, 'SOFI': {'beforeHeight': 15102, 'overviewHeight': 2629, 'identicalSECLinks': 87, 'identicalObservationRows': 21}, 'CRWD': {'beforeHeight': 14329, 'overviewHeight': 2594, 'identicalSECLinks': 77, 'identicalObservationRows': 28}}"
+  ],
+  "quality": [
+    "PASS accessibility/CSP: makro.html",
+    "PASS accessibility/CSP: fragor-svar-tolka-makroslapp.html",
+    "PASS accessibility/CSP: aktievarderingskalkylator.html",
+    "PASS accessibility/CSP: fragor-svar-ranta-pa-ranta.html",
+    "PASS accessibility/CSP: fragor-svar-arlig-avgift.html",
+    "PASS accessibility/CSP: konto.html",
+    "PASS accessibility/CSP: profil.html?u=reader_a",
+    "PASS accessibility/CSP: analys.html?id=11111111-1111-4111-8111-111111111111",
+    "PASS accessibility/CSP: upptack.html",
+    "PASS accessibility/CSP: index.html",
+    "PASS accessibility/CSP: ranta-pa-ranta.html",
+    "PASS accessibility/CSP: havstang.html",
+    "PASS accessibility/CSP: isk-skattkalkylator.html",
+    "PASS accessibility/CSP: bolanekalkylator.html",
+    "PASS accessibility/CSP: research.html?ticker=NVDA",
+    "PASS accessibility/CSP: min-ntm.html",
+    "PASS accessibility/CSP: post-jordi-visser-linjart-exponentiellt-ai-trading.html",
+    "PASS accessibility/CSP: fire-kalkylator.html",
+    "PASS accessibility/CSP: sparmalskalkylator.html",
+    "PASS accessibility/CSP: aktiekopskalkylator.html",
+    "PASS accessibility/CSP: valutajusterad-avkastning.html",
+    "PASS accessibility/CSP: rapporter.html",
+    "PASS accessibility/CSP: research.html?ticker=TTMI",
+    "PASS accessibility/CSP: research.html?ticker=SNDK",
+    "PASS accessibility/CSP: research.html?ticker=FLY",
+    "PASS accessibility/CSP: research.html?ticker=CRWV",
+    "PASS accessibility/CSP: academy.html",
+    "PASS accessibility/CSP: academy-cagr.html",
+    "PASS accessibility/CSP: academy-isk.html",
+    "PASS accessibility/CSP: academy.html?category=statements",
+    "PASS accessibility/CSP: academy-financial-statements.html",
+    "PASS accessibility/CSP: academy-enterprise-value.html",
+    "PASS accessibility/CSP: academy-forward-metrics.html",
+    "PASS accessibility/CSP: academy-position-sizing.html",
+    "PASS accessibility/CSP: academy-activity-recovery.html",
+    "PASS accessibility/CSP: academy-activity-analyse-company.html",
+    "PASS accessibility/CSP: academy-activity-cycle-study.html",
+    "PASS accessibility/CSP: fragor-svar.html",
+    "PASS accessibility/CSP: fragor-svar-pe-tal.html",
+    "PASS accessibility/CSP: fragor-svar-usd-sek-avkastning.html",
+    "PASS accessibility/CSP: fragor-svar-isk-grunder.html"
+  ],
+  "quality-new": [
+    "PASS accessibility/CSP: research.html?ticker=MU",
+    "PASS accessibility/CSP: research.html?ticker=VRT"
+  ],
+  "workflow": [
+    "PASS: actionlint 1.7.7 workflow syntax and expressions"
+  ],
+  "ui1": [
+    "PASS onboarding UI MU",
+    "PASS onboarding UI VRT"
+  ],
+  "ui2": [
+    "PASS onboarding UI MU",
+    "PASS onboarding UI VRT"
+  ],
+  "postgres-python": [
+    "Ran 5 tests in 5.877s",
+    "OK"
+  ],
+  "postgres-js": [
+    "ℹ tests 2",
+    "ℹ pass 2",
+    "ℹ fail 0",
+    "ℹ skipped 0"
+  ]
+}

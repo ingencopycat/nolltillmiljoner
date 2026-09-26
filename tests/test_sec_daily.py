@@ -13,7 +13,7 @@ import sec_daily as daily
 
 
 def baseline(ticker='NVDA'):
-    return daily.read(ROOT / 'tests/fixtures' / ('sec_' + ticker.lower() + '_submissions.json'))
+    return daily.read(ROOT / 'tests/fixtures/company_evidence' / (ticker + '.json')) if ticker in ('MU','VRT') else daily.read(ROOT / 'tests/fixtures' / ('sec_' + ticker.lower() + '_submissions.json'))
 
 
 def add(sub, form='8-K', items='8.01', acc='0001045810-26-999999', doc='new.htm'):
@@ -38,6 +38,10 @@ class DailyTests(unittest.TestCase):
         self.fixtures = self.root / 'fixtures'
         for folder in daily.FOLDERS:
             shutil.copytree(ROOT / 'tests/fixtures' / folder, self.fixtures / folder)
+        for name in [daily.FINANCIAL_MANIFEST, *[n for t in daily.IDENTITIES for n in daily.financial_names(t)]]:
+            shutil.copyfile(ROOT / 'tests/fixtures' / name, self.fixtures / name)
+        for ticker in daily.IDENTITIES:
+            shutil.copyfile(ROOT / 'data/stocks' / (ticker+'.json'), self.stocks / (ticker+'.json'))
         self.subs = {}
         state = dict(schema='ntm-sec-daily/1', issuers={})
         for ticker in daily.enrolled_tickers('daily'):

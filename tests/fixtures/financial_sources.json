@@ -1,0 +1,173 @@
+{
+  "schema": "ntm-financial-sources/1",
+  "sources": {
+    "sec_nvda_submissions.json": {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "url": "https://data.sec.gov/submissions/CIK0001045810.json",
+      "sha256": "c443b090094b21eaf237050c8a4ca869d0263da018dbf8d3d1faf290253264ce",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_nvda_companyfacts.json": {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001045810.json",
+      "sha256": "02260927ab6792a3f2492424cf6df6f69008de5eef9be86767842026ee0b3d03",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_sofi_submissions.json": {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "url": "https://data.sec.gov/submissions/CIK0001818874.json",
+      "sha256": "ef68b070219885728962e6c6db24d2ff608397a06a02c52264eb37d947989fa7",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_sofi_companyfacts.json": {
+      "ticker": "SOFI",
+      "cik": "0001818874",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001818874.json",
+      "sha256": "cab78e83f072a20af220766d5d0822617abd029536768b580b7f59987ec5d9f8",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_crwd_submissions.json": {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "url": "https://data.sec.gov/submissions/CIK0001535527.json",
+      "sha256": "fa8b7cca07ec1ed2f8278bceb7e5e873323e5b721d3f48d08ab5713de3566085",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_crwd_companyfacts.json": {
+      "ticker": "CRWD",
+      "cik": "0001535527",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
+      "sha256": "2f42052e421166eeef5ebfa10ed631a94861354b2f1906f1cc78e6f9af180e65",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_mu_submissions.json": {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "url": "https://data.sec.gov/submissions/CIK0000723125.json",
+      "sha256": "95bf97854b7d9861f34d61363a20d066dbd932014b3fa98cd6ab505ee6d321fe",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_mu_companyfacts.json": {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000723125.json",
+      "sha256": "0f12efe592a20a946b95616edf755c4f4f2ccc6227fb4b0252d084c9579ff7a7",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_mrvl_submissions.json": {
+      "ticker": "MRVL",
+      "cik": "0001835632",
+      "url": "https://data.sec.gov/submissions/CIK0001835632.json",
+      "sha256": "4cf5bc323195ef360925641b6c8c27f7525d039e045586b921021fa93936f4d9",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_mrvl_companyfacts.json": {
+      "ticker": "MRVL",
+      "cik": "0001835632",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001835632.json",
+      "sha256": "8492336da35529c45d005b78ced429bbee70b26a488ac06f4d3419fdb611e083",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_vrt_submissions.json": {
+      "ticker": "VRT",
+      "cik": "0001674101",
+      "url": "https://data.sec.gov/submissions/CIK0001674101.json",
+      "sha256": "55bf30e3535ab19825dea93bed53f379cb54f1d2039a92f8e59962d37185df1c",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_vrt_companyfacts.json": {
+      "ticker": "VRT",
+      "cik": "0001674101",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001674101.json",
+      "sha256": "c32a81159d759bba8a2ad40eb47a7d465ec3efd06c522dc8d0ec9859bb928c3e",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_cohr_submissions.json": {
+      "ticker": "COHR",
+      "cik": "0000820318",
+      "url": "https://data.sec.gov/submissions/CIK0000820318.json",
+      "sha256": "344e891c97a8361d4711bfcbaafc9b182ba192b424175323dd8a18609f3d84f6",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_cohr_companyfacts.json": {
+      "ticker": "COHR",
+      "cik": "0000820318",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000820318.json",
+      "sha256": "7b6eb478f27fe48c3b3ef5865d52595b69482f619d711aa6b71b52f9ee1c7408",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_rklb_submissions.json": {
+      "ticker": "RKLB",
+      "cik": "0001819994",
+      "url": "https://data.sec.gov/submissions/CIK0001819994.json",
+      "sha256": "4ca56b1d6858ab9031e8f567cf2a1ae8d86d62b66ddda02379ce455af4fca9bc",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_rklb_companyfacts.json": {
+      "ticker": "RKLB",
+      "cik": "0001819994",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001819994.json",
+      "sha256": "6cdf1bebb41c8c2fc3dc1246318085ff731b6d539c19d4003089aa535f20d275",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_ttmi_submissions.json": {
+      "ticker": "TTMI",
+      "cik": "0001116942",
+      "url": "https://data.sec.gov/submissions/CIK0001116942.json",
+      "sha256": "5ef8eb626e9952ad9750c2c77b0563c19ede720be52313d816982157711c4d2b",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_ttmi_companyfacts.json": {
+      "ticker": "TTMI",
+      "cik": "0001116942",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001116942.json",
+      "sha256": "6a2125267404a26cfbc0f7db643367262e88c975e744e94091b3a49ae16b6b9f",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_sndk_submissions.json": {
+      "ticker": "SNDK",
+      "cik": "0002023554",
+      "url": "https://data.sec.gov/submissions/CIK0002023554.json",
+      "sha256": "1664ef2e03c3ae2fb52bbcb6658f2135b6705f1e71c9e4990d51f7e9e17acc8a",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_sndk_companyfacts.json": {
+      "ticker": "SNDK",
+      "cik": "0002023554",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002023554.json",
+      "sha256": "fa2c97eb54a77a0f15368a0450c553b1212f696f3ac7fa3f76af696ea40325be",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_fly_submissions.json": {
+      "ticker": "FLY",
+      "cik": "0001860160",
+      "url": "https://data.sec.gov/submissions/CIK0001860160.json",
+      "sha256": "bbf85ee6aad974fade030c4c61664417783a3c2f67522fed8282eec02bd1c23b",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_fly_companyfacts.json": {
+      "ticker": "FLY",
+      "cik": "0001860160",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001860160.json",
+      "sha256": "bf5437d38d7f807fd7af953ac4596e145450bd1560148d9ef4317c013513ef01",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_crwv_submissions.json": {
+      "ticker": "CRWV",
+      "cik": "0001769628",
+      "url": "https://data.sec.gov/submissions/CIK0001769628.json",
+      "sha256": "06d953aae8f170977fa4fd2fe4a8cc4b1a6848f56c46f3b4e4bcf984dcd6cca0",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    },
+    "sec_crwv_companyfacts.json": {
+      "ticker": "CRWV",
+      "cik": "0001769628",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001769628.json",
+      "sha256": "7f01b14cd61ad835955920f1dca94ad618a136670f3ee8fb94cc12fd224907c5",
+      "disposition": "Existing SEC structured factual JSON; SHA-256 of UTF-8 text with LF newlines; no earnings-release archive"
+    }
+  }
+}

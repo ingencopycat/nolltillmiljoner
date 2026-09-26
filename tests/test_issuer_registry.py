@@ -25,8 +25,8 @@ class RegistryTests(unittest.TestCase):
     def test_current_membership_and_python_identity(self):
         financial = ('NVDA','SOFI','CRWD','MU','MRVL','VRT','COHR','RKLB','TTMI','SNDK','FLY','CRWV')
         self.assertEqual(registry.tickers('financial'), financial)
-        self.assertEqual(registry.tickers('evidence'), ('NVDA','SOFI','CRWD'))
-        self.assertEqual(registry.tickers('daily'), ('NVDA','SOFI','CRWD'))
+        self.assertEqual(registry.tickers('evidence'), ('NVDA','SOFI','CRWD','MU','VRT'))
+        self.assertEqual(registry.tickers('daily'), ('NVDA','SOFI','CRWD','MU','VRT'))
         self.assertEqual(company_evidence.PILOT, registry.tickers('evidence'))
         self.assertEqual(IDENTITIES, registry.identities())
         self.assertNotIn('UNKNOWN', IDENTITIES)
@@ -55,8 +55,8 @@ class RegistryTests(unittest.TestCase):
         self.assertEqual(generated['.github/workflows/deploy.yml'], (ROOT/'.github/workflows/deploy.yml').read_text(encoding='utf-8'))
         for stage in (False, True):
             paths = registry.workflow_paths(self.doc, stage)
-            for t in ('NVDA','SOFI','CRWD'): self.assertIn(f'data/stocks/{t}.json', paths)
-            for t in ('MU','VRT'): self.assertNotIn(f'data/stocks/{t}.json', paths)
+            for t in ('NVDA','SOFI','CRWD','MU','VRT'): self.assertIn(f'data/stocks/{t}.json', paths)
+            for t in ('MRVL','COHR'): self.assertNotIn(f'data/stocks/{t}.json', paths)
             self.assertIn('scripts/source_reviews/*.json', paths)
             self.assertIn('data/stocks/evidence/*.json', paths)
             for folder in registry.SOURCE_FOLDERS:
@@ -77,20 +77,20 @@ class RegistryTests(unittest.TestCase):
         doc['issuers'].append(row); registry.validate(doc)
         self.assertIn('TEST',registry.tickers('evidence',doc))
         generated=registry.generated_files(document=doc)
-        self.assertIn('options: [ALL, NVDA, SOFI, CRWD, TEST]',generated['.github/workflows/deploy.yml'])
+        self.assertIn('options: [ALL, NVDA, SOFI, CRWD, MU, VRT, TEST]',generated['.github/workflows/deploy.yml'])
         self.assertIn('data/stocks/TEST.json',registry.workflow_paths(doc))
         self.assertIn('data/stocks/TEST.json',registry.workflow_paths(doc,True))
         # Closure uses the candidate's enrollment, never an imported global tuple.
-        with patch.object(evidence_sources,'load',return_value=doc), patch.object(evidence_sources,'validate_feed') as validate_feed, patch.object(evidence_sources,'read',side_effect=lambda p: {'path':str(p),'documents':[]}):
+        with patch.object(evidence_sources,'load',return_value=doc), patch.object(evidence_sources,'validate_feed') as validate_feed, patch.object(evidence_sources,'read',side_effect=lambda p: {'path':str(p),'documents':[],'issuers':{}}):
             evidence_sources.validate_repository(ROOT)
-            self.assertEqual(validate_feed.call_count,4)
+            self.assertEqual(validate_feed.call_count,6)
             self.assertTrue(validate_feed.call_args.args[0]['path'].endswith('TEST.json'))
         # Missing enabled feeds fail, rather than falling back to the production registry.
         with patch.object(evidence_sources,'load',return_value=doc), patch.object(evidence_sources,'validate_feed'):
             with self.assertRaises(FileNotFoundError): evidence_sources.validate_repository(ROOT)
         with patch.object(registry,'load',return_value=doc), patch.object(sec_daily,'run',return_value={'rejectedFailed':0}) as run, patch.object(update_stocks,'SECClient'), patch.object(sys,'argv',['update_stocks.py','--daily','--all']):
             update_stocks.main()
-            self.assertEqual(run.call_args.args[0],['NVDA','SOFI','CRWD','TEST'])
+            self.assertEqual(run.call_args.args[0],['NVDA','SOFI','CRWD','MU','VRT','TEST'])
         self.assertNotIn('TEST',registry.tickers('daily'))
 
     def test_cli_modes_and_rejection_are_distinct(self):
@@ -100,7 +100,7 @@ class RegistryTests(unittest.TestCase):
             update_stocks.main(); self.assertEqual([c.args[0] for c in update.call_args_list],list(registry.tickers('evidence')))
         with patch.object(update_stocks,'update_stock',return_value=True) as update, patch.object(sys,'argv',['update_stocks.py','--all','--offline']):
             update_stocks.main(); self.assertEqual([c.args[0] for c in update.call_args_list],list(registry.tickers('financial')))
-        for ticker in ('MU','VRT','UNKNOWN'):
+        for ticker in ('MRVL','COHR','UNKNOWN'):
             with self.assertRaisesRegex(ValueError,'Unsupported daily'): sec_daily.run([ticker],None)
             with self.assertRaisesRegex(ValueError,'Outside evidence'): update_stocks.update_evidence(ticker,None)
 

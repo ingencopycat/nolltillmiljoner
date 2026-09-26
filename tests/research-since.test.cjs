@@ -17,3 +17,17 @@ test('many observations compress into seven or fewer unique areas without empty 
 test('definition breaks never manufacture a delta',()=>{const {args,run}=setup('SOFI','2026-01-01');const k=args.feed.reviewedEvidence.observations.filter(o=>o.kind==='kpi').at(-1);k.definitionVersion='changed';const r=run().groups.find(g=>g.id==='business').rows.find(r=>r.label===k.label&&r.date===k.publicationDate);assert.equal(r.comparison.comparable,false);assert.equal(r.comparison.changePercent,undefined);});
 test('financial changes require actual new publication dates and use snapshot gates',()=>{const {w,args,run}=setup();const snap=w.NTMResearchSnapshot.fromStockData(args.stock);snap.ticker='NVDA';snap.ttmMetrics.revenue*=.8;args.thesis.revisions[0].valuationSnapshot=snap;assert(run().groups.find(g=>g.id==='financials').rows.some(r=>r.label==='Intäkter · TTM'));args.thesis.revisions[0].savedAt='2026-09-24';assert(!run().groups.some(g=>g.id==='financials'));});
 test('adapter and UI cannot transmit private Research',()=>{for(const f of ['research-since.js','research-since-ui.js'])assert(!/fetch\(|XMLHttpRequest|sendBeacon|localStorage\.setItem|\.innerHTML\s*=/.test(fs.readFileSync(f,'utf8')));});
+
+for(const ticker of ['MU','VRT'])test(ticker+' import date does not manufacture changes; saved/publication boundaries remain conservative',()=>{
+ const {args,run}=setup(ticker,'2026-01-01');args.until='2026-09-26';
+ const before=JSON.stringify(run().groups);assert(run().groups.length);
+ args.feed.verifiedAt='2026-09-26T12:00:00Z';assert.equal(JSON.stringify(run().groups),before);
+ args.feed.reviewedEvidence.pendingReview.push({label:'NOT_ACCEPTED',publicationDate:'2026-09-25'});
+ assert.equal(JSON.stringify(run().groups),before);
+ args.thesis.revisions.push({id:'latest',savedAt:'2026-09-26T00:00:00Z'});args.thesis.latestRevisionId='latest';
+ assert.equal(run().groups.length,0);
+ args.thesis.latestRevisionId='saved';
+ const date=args.feed.reviewedEvidence.observations.at(-1).publicationDate;
+ args.thesis.revisions[0].savedAt=date;args.until=date;
+ assert.equal(run().groups.length,0);
+});

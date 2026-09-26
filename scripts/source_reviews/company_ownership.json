@@ -690,6 +690,130 @@
         "reason": "Första granskade observationen i detta urval."
       },
       "context": "Vanguard beskriver ändrad rapporteringsstruktur. Nollvärdet innebär inte att motsvarande aktier har sålts."
+    },
+    {
+      "ticker": "MU",
+      "accessionNumber": "0001422849-26-000099",
+      "metadata": {
+        "accessionNumber": "0001422849-26-000099",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2026-05-14",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000142284926000099/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/723125/000142284926000099/xslSCHEDULE_13G_X02/primary_doc.xml"
+      },
+      "sha256": "96aa29a3966e1e4360980ffafee1514d4b4b71bf8eea2573dd807d509fab70f4",
+      "reviewDate": "2026-09-26",
+      "displayPerson": 0,
+      "comparison": {
+        "state": "baseline",
+        "reason": "First independently reviewed snapshot; no inferred continuity."
+      },
+      "context": "Selected SEC disclosure, not a shareholder register or current ownership estimate.",
+      "relationships": "Reporting entities remain separate; no aggregation.",
+      "purposeContext": "See official Schedule for full certification and amendments.",
+      "persons": [
+        {
+          "name": "Capital World Investors",
+          "entityId": "sec:0001422849",
+          "cik": "0001422849"
+        }
+      ],
+      "seriesId": "sec:0001422849:0000723125"
+    },
+    {
+      "ticker": "MU",
+      "accessionNumber": "0002100119-26-000795",
+      "metadata": {
+        "accessionNumber": "0002100119-26-000795",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "SCHEDULE 13G",
+        "filingDate": "2026-04-30",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000210011926000795/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/723125/000210011926000795/xslSCHEDULE_13G_X02/primary_doc.xml"
+      },
+      "sha256": "280fb32330598c6ce5e6f0fbe272c915362019286cf3c71f3c6d6d077734160e",
+      "reviewDate": "2026-09-26",
+      "displayPerson": 0,
+      "comparison": {
+        "state": "baseline",
+        "reason": "First independently reviewed snapshot; no inferred continuity."
+      },
+      "context": "Selected SEC disclosure, not a shareholder register or current ownership estimate.",
+      "relationships": "Reporting entities remain separate; no aggregation.",
+      "purposeContext": "See official Schedule for full certification and amendments.",
+      "persons": [
+        {
+          "name": "Vanguard Capital Management",
+          "entityId": "sec:0002100119",
+          "cik": "0002100119"
+        }
+      ],
+      "seriesId": "sec:0002100119:0000723125"
+    },
+    {
+      "ticker": "VRT",
+      "accessionNumber": "0002100119-26-001190",
+      "metadata": {
+        "accessionNumber": "0002100119-26-001190",
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "SCHEDULE 13G",
+        "filingDate": "2026-04-30",
+        "url": "https://www.sec.gov/Archives/edgar/data/1674101/000210011926001190/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000210011926001190/xslSCHEDULE_13G_X02/primary_doc.xml"
+      },
+      "sha256": "b3374233f74408207d60fe50cfdf15d7fe2d92b6b8022eaca25d39a35f83f6b8",
+      "reviewDate": "2026-09-26",
+      "displayPerson": 0,
+      "comparison": {
+        "state": "baseline",
+        "reason": "First independently reviewed snapshot; no inferred continuity."
+      },
+      "context": "Selected SEC disclosure, not a shareholder register or current ownership estimate.",
+      "relationships": "Reporting entities remain separate; no aggregation.",
+      "purposeContext": "See official Schedule for full certification and amendments.",
+      "persons": [
+        {
+          "name": "Vanguard Capital Management",
+          "entityId": "sec:0002100119",
+          "cik": "0002100119"
+        }
+      ],
+      "seriesId": "sec:0002100119:0001674101"
+    },
+    {
+      "ticker": "VRT",
+      "accessionNumber": "0002012383-26-001474",
+      "metadata": {
+        "accessionNumber": "0002012383-26-001474",
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2026-04-24",
+        "url": "https://www.sec.gov/Archives/edgar/data/1674101/000201238326001474/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000201238326001474/xslSCHEDULE_13G_X02/primary_doc.xml"
+      },
+      "sha256": "656e75aef8778b3f6b9b9dcd15cacd375ff3ef0b00b6532b3fa8f9b703bf6830",
+      "reviewDate": "2026-09-26",
+      "displayPerson": 0,
+      "comparison": {
+        "state": "baseline",
+        "reason": "First independently reviewed snapshot; no inferred continuity."
+      },
+      "context": "Selected SEC disclosure, not a shareholder register or current ownership estimate.",
+      "relationships": "Reporting entities remain separate; no aggregation.",
+      "purposeContext": "See official Schedule for full certification and amendments.",
+      "persons": [
+        {
+          "name": "BlackRock, Inc.",
+          "entityId": "sec:0002012383",
+          "cik": "0002012383"
+        }
+      ],
+      "seriesId": "sec:0002012383:0001674101"
     }
   ]
 }

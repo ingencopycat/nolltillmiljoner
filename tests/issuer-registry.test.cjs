@@ -4,7 +4,7 @@ const canonical=JSON.parse(fs.readFileSync('data/issuer-registry.json','utf8'));
 test('browser projection and all catalogs preserve canonical identity and order',()=>{
  assert.deepEqual(R.issuers,canonical.issuers);
  assert.deepEqual(R.tickers('financial'),['NVDA','SOFI','CRWD','MU','MRVL','VRT','COHR','RKLB','TTMI','SNDK','FLY','CRWV']);
- assert.deepEqual(R.tickers('evidence'),['NVDA','SOFI','CRWD']);assert.deepEqual(R.tickers('daily'),R.tickers('evidence'));
+ assert.deepEqual(R.tickers('evidence'),['NVDA','SOFI','CRWD','MU','VRT']);assert.deepEqual(R.tickers('daily'),R.tickers('evidence'));
  assert.deepEqual(require('../research-entry.js').companies,R.catalog());
  assert.deepEqual(require('../ntm-relations.js').supportedTickers,R.tickers('financial'));
  const c={window:{NTMIssuerRegistry:R},document:{addEventListener(){}}};
@@ -12,8 +12,8 @@ test('browser projection and all catalogs preserve canonical identity and order'
  assert.deepEqual(Array.from(vm.runInContext('SUPPORTED_TICKERS',c)),R.tickers('financial'));
  assert(Object.isFrozen(R.issuers));assert(Object.isFrozen(R.get('SOFI')));
  assert.equal(R.get('UNKNOWN'),null);assert.equal(R.has('UNKNOWN','financial'),false);
- assert.equal(R.has('MU','financial'),true);assert.equal(R.has('MU','evidence'),false);assert.equal(R.has('MU','daily'),false);
- assert.equal(R.get('MU').evidence,'unavailable');assert.equal(R.get('SOFI').profile,'financial_services');
+ assert.equal(R.has('MU','financial'),true);assert.equal(R.has('MU','evidence'),true);assert.equal(R.has('MU','daily'),true);
+ assert.equal(R.get('MRVL').evidence,'unavailable');assert.equal(R.get('SOFI').profile,'financial_services');
  assert.equal(R.has('NVDA','evidence'),true);assert.equal(R.has('NVDA','daily'),true);
 });
 test('evidence eligibility derives from injected contract, with identity and health still validated',()=>{

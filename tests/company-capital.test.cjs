@@ -2,6 +2,16 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const C=require('../company-capital.js'),O=require('../company-observations.js');
 const data=t=>JSON.parse(fs.readFileSync(`data/stocks/evidence/${t}.json`)).reviewedEvidence;
 const clone=o=>structuredClone(o),last=(t,m)=>C.latest(data(t),m);
+for(const ticker of ['MU','VRT'])test(ticker+' bounded capital cannot manufacture complete debt or substitute weighted shares',()=>{
+ assert.equal(C.compare(last(ticker,'shares_outstanding'),last(ticker,'weighted_diluted')).comparable,false);
+ assert(!C.derive('cash_less_debt',[last(ticker,'cash'),last(ticker,'debt_noncurrent')]).available);
+ assert(!last(ticker,'debt_total'));
+ if(ticker==='MU'){
+  const cash=last(ticker,'repurchase_cash'),authorization=clone(cash);authorization.metricId='repurchase_remaining';
+  assert.equal(C.compare(cash,authorization).comparable,false);
+  const history=C.history(data(ticker),'repurchase_cash');assert.equal(C.compare(history[0],history[1]).comparable,false);
+ }
+});
 test('all issuers validate through existing observation API',()=>{for(const [t,cik] of [['NVDA','0001045810'],['SOFI','0001818874'],['CRWD','0001535527']])assert.equal(O.validate(data(t),t,cik).schema,'ntm-reviewed-observations/1');});
 test('shares have five-point industrial and bank history and real YoY',()=>{for(const t of ['NVDA','SOFI']){const v=C.view(data(t),'shares_outstanding');assert.equal(v.trend.length,5);assert.equal(v.yoy.comparable,true);assert.equal(v.yoy.inputs.length,2);}assert(C.view(data('NVDA'),'shares_outstanding').yoy.changePercent<0);assert(C.view(data('SOFI'),'shares_outstanding').yoy.changePercent>0);});
 test('split comparisons use issuer restated history without multiplying old observations',()=>{const v=C.view(data('CRWD'),'shares_outstanding');assert(v.yoy.comparable);assert(v.yoy.changePercent<3);assert(v.yoy.recast);assert.equal(v.trend.length,3);assert(v.historyBreak);const old=C.view(data('CRWD'),'shares_outstanding','2026-06-30');assert(old.latest.value.point<300e6);assert.equal(C.compare(old.latest,v.latest).comparable,false);});

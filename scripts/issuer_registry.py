@@ -78,7 +78,8 @@ def browser_projection(document):
 
 def workflow_paths(document, stage=False):
     paths = ['data/weekly-events.js', *['data/stocks/' + t + '.json' for t in tickers('daily', document)],
-             'data/stocks/evidence/*.json', 'scripts/source_reviews/*.json']
+             'data/stocks/evidence/*.json', 'scripts/source_reviews/*.json', 'tests/fixtures/financial_sources.json',
+             *['tests/fixtures/sec_' + t.lower() + '_' + kind + '.json' for t in tickers('daily', document) for kind in ('submissions', 'companyfacts')]]
     return paths + ['tests/fixtures/' + folder + ('' if stage else '/**') for folder in SOURCE_FOLDERS]
 
 

@@ -57,7 +57,15 @@ def parse_value(recipe):
                 value[key] = float(Decimal(number) * Decimal(str(recipe.get('scale', 1))))
         if 'tolerance' in value:
             tolerance = value.pop('tolerance') / recipe.get('scale', 1)
-            delta = value['point'] * tolerance / 100 if recipe['toleranceKind'] == 'relative_percent' else tolerance / 100
+            kind = recipe['toleranceKind']
+            if kind == 'relative_percent':
+                delta = value['point'] * tolerance / 100
+            elif kind == 'absolute':
+                delta = tolerance * recipe.get('toleranceScale', recipe.get('scale', 1))
+            elif kind == 'basis_points':
+                delta = tolerance / 100
+            else:
+                raise ValueError('Unsupported guidance tolerance basis')
             value.update(lower=round(value['point']-delta, 8), upper=round(value['point']+delta, 8))
     return value
 
@@ -81,7 +89,7 @@ def build(feed, fetch_html, reviews=None):
         text = visible(html)
         facts = numeric_facts(html) if any('xbrl' in r for r in review['observations']) else []
         sources.append(dict(accessionNumber=review['accessionNumber'], url=document['url'],
-                            documentSha256=digest(text), reviewDate=reviews['reviewDate']))
+                            documentSha256=digest(text), reviewDate=review.get('reviewDate', reviews['reviewDate'])))
         for recipe in review['observations']:
             if 'xbrl' in recipe:
                 fact = select_fact(facts, recipe['xbrl'], feed['cik'])
@@ -92,7 +100,7 @@ def build(feed, fetch_html, reviews=None):
                         cik=feed['cik'], publicationDate=review['publicationDate'], value=extract(recipe,text),
                         source=dict(url=document['url'], accessionNumber=review['accessionNumber'], exhibit=document['exhibit'],
                                     quote=recipe['quote'], quoteSha256=recipe['quoteSha256'], contexts=recipe['contexts']),
-                        review=dict(status='reviewed', method='pinned-passage-deterministic', date=reviews['reviewDate']))
+                        review=dict(status='reviewed', method='pinned-passage-deterministic', date=review.get('reviewDate', reviews['reviewDate'])))
             if recipe['kind'] == 'business_mix':
                 for key in ('category','group','recast'): item[key] = copy.deepcopy(recipe[key])
                 item['source']['documentType'] = document['documentType']

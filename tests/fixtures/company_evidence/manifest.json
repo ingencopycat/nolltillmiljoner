@@ -164,6 +164,88 @@
       "sourceUrl": "https://data.sec.gov/submissions/CIK0001818874.json",
       "sha256": "ac5286f325980338a56287983b9fe916086f2594cb264b7de91bbc40cbc4f54b",
       "transformation": "selected official metadata columns and rows"
+    },
+    {
+      "file": "MU.json",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0000723125.json",
+      "sha256": "5540f427b12326f1b478b65e98328f1e6ca2ab9bd21349458baf6051606012ea",
+      "transformation": "Bounded SEC recent submissions JSON; factual index; no document body"
+    },
+    {
+      "file": "0000723125-26-000013.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/mu-20260624.htm",
+      "sha256": "94e91dfc8b84c4583deabce0a268f50e55fe7e94d1bbaf58938edbad7c319526",
+      "sourceSha256": "2e47e0a5305dacc4e9e85710d59f01df867756ad80741c699aaf7699dc7c337d",
+      "transformation": "Bounded Item 2.02 text and exhibit rows; inert HTML wrappers"
+    },
+    {
+      "file": "0000723125-26-000004.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000004/mu-20260318.htm",
+      "sha256": "e11eea91fadfe87083e4f81f93293e5bcafdd5b90b164d96a5c2c3df84018fb6",
+      "sourceSha256": "e3a7fd24320184892b4e7d06d0b2ff169fddb0e70f60d014a6b1ce16641393e7",
+      "transformation": "Bounded Item 2.02 text and exhibit rows; inert HTML wrappers"
+    },
+    {
+      "file": "0000723125-25-000044.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000044/mu-20251217.htm",
+      "sha256": "9cfb0fdd5bd18325614b640ee81c0485f25b51ab8e43caa237758fc1daac43d9",
+      "sourceSha256": "2bd8a94efc46ebc093ae3cf214258f69b1baee83fe1ed083abd74bf2d936a862",
+      "transformation": "Bounded Item 2.02 text and exhibit rows; inert HTML wrappers"
+    },
+    {
+      "file": "0000723125-25-000024.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000024/mu-20250923.htm",
+      "sha256": "a0f0a34310f312ec562fed40bb2e6f70d90fe635a6a0b206b106002f1897072b",
+      "sourceSha256": "66e854c12ba3720608b342c9a26b9df3cfe6130caf498c50c683213912008e7f",
+      "transformation": "Bounded Item 2.02 text and exhibit rows; inert HTML wrappers"
+    },
+    {
+      "file": "0000723125-25-000019.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000019/mu-20250625.htm",
+      "sha256": "2159940f3a5f19bcd9c56dcddcaf5e82124d680878fc8f0841639e4a8f905a9c",
+      "sourceSha256": "c3546d1a287d59e0182186aef6c9486c32dfbea49b006653e217d2ab72eaf493",
+      "transformation": "Bounded Item 2.02 text and exhibit rows; inert HTML wrappers"
+    },
+    {
+      "file": "0000723125-25-000006.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000006/mu-20250320.htm",
+      "sha256": "db263a814d886e9dfc67e51a3d428b2983b7efbd1a143f529d36861b1aa6b0fe",
+      "sourceSha256": "9e2c421cd777e3069227546a0a40373daabb47b3a98d2e1a3fdb76a299c45835",
+      "transformation": "Bounded Item 2.02 text and exhibit rows; inert HTML wrappers"
+    },
+    {
+      "file": "VRT.json",
+      "sourceUrl": "https://data.sec.gov/submissions/CIK0001674101.json",
+      "sha256": "c0686fdeeeb035c6cb9d02826553a71250864fba3fa425bbc57ff6a6d6ff1d53",
+      "transformation": "Bounded SEC recent submissions JSON; factual index; no document body"
+    },
+    {
+      "file": "0001628280-26-050323.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026050323/vrt-20260729.htm",
+      "sha256": "bcf6f66d6f40581f2dc1449dc6bdb8fb2922c93515377dae45401d0996491b0d",
+      "sourceSha256": "39025c2609cc241fd4540e6ca36fdd0d9c082f0bf15a6d3f6ecf840e44130b7b",
+      "transformation": "Bounded Item 2.02 text and exhibit rows; inert HTML wrappers"
+    },
+    {
+      "file": "0001628280-26-026379.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026026379/vrt-20260422.htm",
+      "sha256": "15246618dab45af7c308be1b23500eb5423d31aae419dc3becd1e484f43b665a",
+      "sourceSha256": "5f537a3ca7397ef530ce91c8bec8413151c17e604a85015823c816688e7da6bf",
+      "transformation": "Bounded Item 2.02 text and exhibit rows; inert HTML wrappers"
+    },
+    {
+      "file": "0001674101-26-000006.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000167410126000006/vrt-20260211.htm",
+      "sha256": "ffb2f9da4bb9f2d45133f84f653dbca504aeacb6ddb8483620decf5622179deb",
+      "sourceSha256": "d3ad17d5753d48d02057abf658373413e7d9196669d13aae82503694b4041e58",
+      "transformation": "Bounded Item 2.02 text and exhibit rows; inert HTML wrappers"
+    },
+    {
+      "file": "0001674101-25-000020.html",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000167410125000020/vrt-20251022.htm",
+      "sha256": "99b79f2d3bcd9a556f77cd0c40e2e55315bcd5573413b057ae8fadca2eb2c124",
+      "sourceSha256": "ae396b13d7792d301dacc44ca5bddcb7057f85445f4c317d8f6830f52f1aae9d",
+      "transformation": "Bounded Item 2.02 text and exhibit rows; inert HTML wrappers"
     }
   ],
   "hashBasis": "SHA-256 of decoded UTF-8 fixture text with LF line endings; sourceSha256 pins the original complete document separately."

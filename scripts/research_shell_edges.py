@@ -47,7 +47,7 @@ try:
     assert p.locator('#annualChart').bounding_box()['width']>300
     # Empty and invalid route state safely selects the established overview.
     case.go('research.html?ticker=NVDA&view=invalid&topic=invalid');expect(p.locator('#workspaceOverview')).to_be_visible()
-    case.go('research.html?ticker=MU&view=data&topic=business');expect(p.locator('#data-business')).to_contain_text('Granskat underlag saknas')
+    case.go('research.html?ticker=MRVL&view=data&topic=business');expect(p.locator('#data-business')).to_contain_text('Granskat underlag saknas')
     # Existing inline manual entry still works after supported-company composition.
     case.go('research.html?ticker=NVDA');p.locator('#researchWorkspaceNav [data-view=thesis]').click()
     p.locator('#companyPicker > summary').click()

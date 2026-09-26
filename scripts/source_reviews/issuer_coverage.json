@@ -1,0 +1,81 @@
+{
+  "schema": "ntm-issuer-coverage/1",
+  "issuers": {
+    "MU": {
+      "checkedAt": "2026-09-26T19:20:54.301583+00:00",
+      "fullResearch": false,
+      "layers": {
+        "reporting": {
+          "state": "verified",
+          "scope": "24 supported recent filings; earnings exhibit relationships verified; source index captured 2026-09-26."
+        },
+        "guidance": {
+          "state": "verified",
+          "scope": "Two latest quarterly releases; revenue guidance only, explicit period and GAAP basis."
+        },
+        "kpi": {
+          "state": "partial",
+          "scope": "No standalone KPI admitted from the two selected earnings releases; broader issuer KPI/history review remains open."
+        },
+        "businessMix": {
+          "state": "verified",
+          "scope": "Two latest reported quarters; reconciled current business-unit/geographic taxonomy only."
+        },
+        "capital": {
+          "state": "partial",
+          "scope": "Cash, short-term investments and reported debt components; no complete debt/net debt inference. Share issuance, longer repurchase history, maturities and full liquidity reconciliation remain review-required. Actual outstanding and weighted diluted shares are separately reviewed. Actual program cash repurchases are reviewed, excluding employee withholding."
+        },
+        "insiders": {
+          "state": "verified",
+          "scope": "Complete Form 4/4-A selection in captured SEC recent index from 2026-08-01."
+        },
+        "ownership": {
+          "state": "partial",
+          "scope": "Two selected reviewed SEC XML snapshots, separate entities; no inferred history continuity. Other discovered filings remain pending."
+        },
+        "events": {
+          "state": "partial",
+          "scope": "Reviewed August 2026 appointments; other discovered events remain pending."
+        }
+      }
+    },
+    "VRT": {
+      "checkedAt": "2026-09-26T19:20:54.301600+00:00",
+      "fullResearch": false,
+      "layers": {
+        "reporting": {
+          "state": "verified",
+          "scope": "24 supported recent filings; earnings exhibit relationships verified; source index captured 2026-09-26."
+        },
+        "guidance": {
+          "state": "verified",
+          "scope": "Two latest quarterly releases; revenue guidance only, explicit period and GAAP basis."
+        },
+        "kpi": {
+          "state": "partial",
+          "scope": "No standalone KPI admitted from the two selected earnings releases; broader issuer KPI/history review remains open."
+        },
+        "businessMix": {
+          "state": "verified",
+          "scope": "Two latest reported quarters; reconciled current business-unit/geographic taxonomy only."
+        },
+        "capital": {
+          "state": "partial",
+          "scope": "Cash, short-term investments and reported debt components; no complete debt/net debt inference. Share issuance, buybacks, maturities and full liquidity reconciliation remain review-required. Actual outstanding and weighted diluted shares are separately reviewed."
+        },
+        "insiders": {
+          "state": "verified",
+          "scope": "Complete Form 4/4-A selection in captured SEC recent index from 2026-09-01."
+        },
+        "ownership": {
+          "state": "partial",
+          "scope": "Two selected reviewed SEC XML snapshots, separate entities; no inferred history continuity. Other discovered filings remain pending."
+        },
+        "events": {
+          "state": "partial",
+          "scope": "Reviewed completed senior-notes offering; other discovered events remain pending"
+        }
+      }
+    }
+  }
+}

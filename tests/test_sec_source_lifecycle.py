@@ -89,7 +89,7 @@ class SourceLifecycleTests(unittest.TestCase):
         for t, acc in [('NVDA', '0001045810-26-999991'), ('NVDA', '0001045810-26-999992'), ('SOFI', '0001818874-26-999991'), ('CRWD', '0001535527-26-999991')]:
             documents[acc.replace('-', '')] = self.add_form4(t, acc)
         f.client.get_ownership_xml.side_effect = lambda url: documents[url.split('/')[-2]]
-        result = f.run_daily(fixture.daily.enrolled_tickers('daily'))
+        result = f.run_daily(('NVDA','SOFI','CRWD'))
         self.assertEqual(result['rejectedFailed'], 0)
         self.assertEqual([i['outcome'] for i in result['issuers']], ['AUTO-ACCEPT'] * 3)
         for t in fixture.daily.enrolled_tickers('daily'): sources.validate_feed(sources.read(f.stocks / 'evidence' / (t + '.json')), f.fixtures)
@@ -134,7 +134,7 @@ class SourceLifecycleTests(unittest.TestCase):
         f.client.get_filing_html.return_value = '<html><p>Item 2.02 Results furnished in press release Exhibit 99.1.</p><p>Item 9.01</p><table><tr><td>99.1 Press release</td><td><a href="release.htm">Release</a></td></tr></table><p>SIGNATURE</p>' + ('irrelevant ' * 20000) + '</html>'
         r = f.run_daily(fixture.daily.enrolled_tickers('daily'))
         self.assertEqual(r['rejectedFailed'], 0); self.assertNotIn('publicationBlocked', r)
-        self.assertEqual(r['acceptedObservationsEvents'], 3)
+        self.assertEqual(r['acceptedObservationsEvents'], len(fixture.daily.enrolled_tickers('daily')))
         m = sources.read(f.fixtures / 'company_evidence/manifest.json')
         for t in fixture.daily.enrolled_tickers('daily'):
             filename = fixture.daily.IDENTITIES[t] + '-26-999999.html'

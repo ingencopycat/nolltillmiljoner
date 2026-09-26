@@ -16148,6 +16148,2416 @@
           "xbrlSha256": "f81d90dc23c79d00851b904e683937835f61499727a84c5744d252163fd7eaf0"
         }
       ]
+    },
+    {
+      "ticker": "MU",
+      "accessionNumber": "0000723125-26-000013",
+      "publicationDate": "2026-06-24",
+      "reviewDate": "2026-09-26",
+      "document": {
+        "exhibit": "99.1",
+        "documentType": "earnings_release",
+        "accessionNumber": "0000723125-26-000013",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/a2026q3ex991-pressrelease.htm",
+        "source": "SEC",
+        "relationship": "item_2_02_and_exhibit_table",
+        "legalStatus": "unspecified",
+        "relationshipSource": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/mu-20260624.htm",
+        "sourceSha256": "2e47e0a5305dacc4e9e85710d59f01df867756ad80741c699aaf7699dc7c337d"
+      },
+      "observations": [
+        {
+          "key": "revenue",
+          "kind": "guidance",
+          "metricId": "revenue",
+          "issuerLabel": "Revenue",
+          "label": "Revenue",
+          "quote": "FQ4-26 GAAP (1) Outlook Non-GAAP (2) Outlook Revenue $50.0 billion ± $1.0 billion $50.0 billion ± $1.0 billion",
+          "quoteSha256": "e5d2fe61307661d47dbb04bf1e4791d0f4486c87f5c90f1819fec4ccf01a47e6",
+          "contexts": [
+            "(In millions)",
+            "May 28, 2026"
+          ],
+          "pattern": "Revenue \\$(?P<point>[\\d.]+) billion \\u00b1 \\$(?P<tolerance>[\\d.]+) (?:million|billion)",
+          "period": {
+            "label": "Q4 FY2026",
+            "end": null,
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-revenue-2026-v1",
+          "definition": "Revenue",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "valueKind": "range",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "toleranceKind": "absolute",
+          "toleranceScale": 1000000000.0
+        },
+        {
+          "key": "cash",
+          "kind": "capital",
+          "metricId": "cash",
+          "issuerLabel": "Cash and equivalents",
+          "label": "Cash and equivalents",
+          "quote": "Cash and equivalents $ 24,995",
+          "quoteSha256": "bef3cdfdd644120d9b0f4278b11ee49a1f4b62521467ed6e9b3d92e4abaa5f3d",
+          "contexts": [
+            "(In millions)",
+            "May 28, 2026"
+          ],
+          "pattern": "Cash and (?:cash )?equivalents \\$ (?P<point>[\\d,.]+)",
+          "period": {
+            "label": "2026-05-28",
+            "start": null,
+            "end": "2026-05-28",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-cash-2026-v1",
+          "definition": "Cash and equivalents",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "debtScope": "reported-component-only",
+            "calculationBasis": "balance-sheet-carrying-amount"
+          }
+        },
+        {
+          "key": "investment_securities",
+          "kind": "capital",
+          "metricId": "investment_securities",
+          "issuerLabel": "Short-term investments",
+          "label": "Short-term investments",
+          "quote": "Short-term investments 1,027",
+          "quoteSha256": "fdcda9b90fc17c8b2273551df925f1830281fd7e92a769ddb09895b1df2d7d5e",
+          "contexts": [
+            "(In millions)",
+            "May 28, 2026"
+          ],
+          "pattern": "Short-term investments (?:\\$ )?(?P<point>[\\d,.]+)",
+          "period": {
+            "label": "2026-05-28",
+            "start": null,
+            "end": "2026-05-28",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-investment_securities-2026-v1",
+          "definition": "Short-term investments",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "debtScope": "reported-component-only",
+            "calculationBasis": "balance-sheet-carrying-amount"
+          }
+        },
+        {
+          "key": "debt_noncurrent",
+          "kind": "capital",
+          "metricId": "debt_noncurrent",
+          "issuerLabel": "Long-term debt",
+          "label": "Long-term debt",
+          "quote": "Long-term debt 5,140",
+          "quoteSha256": "b902a3976be24a65050c3bc8e6248d317d35a83f1ac5867ae4a6ba8837b981c7",
+          "contexts": [
+            "(In millions)",
+            "May 28, 2026"
+          ],
+          "pattern": "Long-term debt(?:, net)? (?P<point>[\\d,.]+)",
+          "period": {
+            "label": "2026-05-28",
+            "start": null,
+            "end": "2026-05-28",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-debt_noncurrent-2026-v1",
+          "definition": "Long-term debt",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Reported debt component only; completeness/lease scope not reconciled. No net-debt calculation.",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "debtScope": "reported-component-only",
+            "calculationBasis": "balance-sheet-carrying-amount"
+          }
+        },
+        {
+          "key": "debt_current",
+          "kind": "capital",
+          "metricId": "debt_current",
+          "issuerLabel": "Current debt",
+          "label": "Current debt",
+          "quote": "Current debt 582",
+          "quoteSha256": "7a6716a389ce185d1ec42a003a83ac80749e51a3c192fbc9c05460c676fe0bd3",
+          "contexts": [
+            "(In millions)",
+            "May 28, 2026"
+          ],
+          "pattern": "Current debt (?P<point>[\\d,.]+)",
+          "period": {
+            "label": "2026-05-28",
+            "start": null,
+            "end": "2026-05-28",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-debt_current-2026-v1",
+          "definition": "Current debt",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Reported debt component only; completeness/lease scope not reconciled. No net-debt calculation.",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "debtScope": "reported-component-only",
+            "calculationBasis": "balance-sheet-carrying-amount"
+          }
+        },
+        {
+          "key": "sbc_expense",
+          "kind": "capital",
+          "metricId": "sbc_expense",
+          "issuerLabel": "SBC cash-flow reconciliation",
+          "label": "SBC cash-flow reconciliation",
+          "quote": "Stock-based compensation 954 722",
+          "quoteSha256": "262ae8ef6182bd21e2be1b08f0742c7633aa9bcbb87a9bf51bde451632764aa4",
+          "contexts": [
+            "(In millions)",
+            "May 28, 2026"
+          ],
+          "pattern": "(?:compensation|expense) (?:\\$ )?(?P<point>[\\d,.]+)",
+          "period": {
+            "label": "YTD Q3 FY2026",
+            "start": "2025-08-29",
+            "end": "2026-05-28",
+            "type": "year_to_date"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-sbc_expense-2026-v1",
+          "definition": "SBC cash-flow reconciliation",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "capital": {
+            "section": "capital",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "calculationBasis": "cash-flow-sbc-addback-ytd"
+          }
+        }
+      ],
+      "sourceSha256": "ee6468bc88541fcadc129aa082851bb036e2670bb91ae7932ed92c01e3b13433",
+      "sha256": "2929154a3a25ba44df46a52f6cf0a6b897e00efcf4686edcfbeb70af7220009e",
+      "rights": "Bounded factual table excerpts and inert HTML; full release not retained in repository."
+    },
+    {
+      "ticker": "MU",
+      "accessionNumber": "0000723125-26-000004",
+      "publicationDate": "2026-03-18",
+      "reviewDate": "2026-09-26",
+      "document": {
+        "exhibit": "99.1",
+        "documentType": "earnings_release",
+        "accessionNumber": "0000723125-26-000004",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000004/a2026q2ex991-pressrelease.htm",
+        "source": "SEC",
+        "relationship": "item_2_02_and_exhibit_table",
+        "legalStatus": "unspecified",
+        "relationshipSource": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000004/mu-20260318.htm",
+        "sourceSha256": "e3a7fd24320184892b4e7d06d0b2ff169fddb0e70f60d014a6b1ce16641393e7"
+      },
+      "observations": [
+        {
+          "key": "revenue",
+          "kind": "guidance",
+          "metricId": "revenue",
+          "issuerLabel": "Revenue",
+          "label": "Revenue",
+          "quote": "FQ3-26 GAAP (1) Outlook Non-GAAP (2) Outlook Revenue $33.5 billion ± $750 million $33.5 billion ± $750 million",
+          "quoteSha256": "d87dd6b89991347264739b418dac098901fc38836758417f53633c699c40078f",
+          "contexts": [
+            "(In millions)",
+            "February 26, 2026"
+          ],
+          "pattern": "Revenue \\$(?P<point>[\\d.]+) billion \\u00b1 \\$(?P<tolerance>[\\d.]+) (?:million|billion)",
+          "period": {
+            "label": "Q3 FY2026",
+            "end": null,
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-revenue-2026-v1",
+          "definition": "Revenue",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "valueKind": "range",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "toleranceKind": "absolute",
+          "toleranceScale": 1000000.0
+        },
+        {
+          "key": "cash",
+          "kind": "capital",
+          "metricId": "cash",
+          "issuerLabel": "Cash and equivalents",
+          "label": "Cash and equivalents",
+          "quote": "Cash and equivalents $ 13,908",
+          "quoteSha256": "735ce6e84dec7f4fdb49493f6b216e3a05da58f50ab187a1d6fcd94177153445",
+          "contexts": [
+            "(In millions)",
+            "February 26, 2026"
+          ],
+          "pattern": "Cash and (?:cash )?equivalents \\$ (?P<point>[\\d,.]+)",
+          "period": {
+            "label": "2026-02-26",
+            "start": null,
+            "end": "2026-02-26",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-cash-2026-v1",
+          "definition": "Cash and equivalents",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "debtScope": "reported-component-only",
+            "calculationBasis": "balance-sheet-carrying-amount"
+          }
+        },
+        {
+          "key": "investment_securities",
+          "kind": "capital",
+          "metricId": "investment_securities",
+          "issuerLabel": "Short-term investments",
+          "label": "Short-term investments",
+          "quote": "Short-term investments 681",
+          "quoteSha256": "676ea88455c529eefa66c86884bbce9db0373728489d642a1cb25ae97ccedf06",
+          "contexts": [
+            "(In millions)",
+            "February 26, 2026"
+          ],
+          "pattern": "Short-term investments (?:\\$ )?(?P<point>[\\d,.]+)",
+          "period": {
+            "label": "2026-02-26",
+            "start": null,
+            "end": "2026-02-26",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-investment_securities-2026-v1",
+          "definition": "Short-term investments",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "debtScope": "reported-component-only",
+            "calculationBasis": "balance-sheet-carrying-amount"
+          }
+        },
+        {
+          "key": "debt_noncurrent",
+          "kind": "capital",
+          "metricId": "debt_noncurrent",
+          "issuerLabel": "Long-term debt",
+          "label": "Long-term debt",
+          "quote": "Long-term debt 9,557",
+          "quoteSha256": "b699859ea22eb147fa43e2d1cc36d21f444006d56b6c5979cfcc26e18b8faf9d",
+          "contexts": [
+            "(In millions)",
+            "February 26, 2026"
+          ],
+          "pattern": "Long-term debt(?:, net)? (?P<point>[\\d,.]+)",
+          "period": {
+            "label": "2026-02-26",
+            "start": null,
+            "end": "2026-02-26",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-debt_noncurrent-2026-v1",
+          "definition": "Long-term debt",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Reported debt component only; completeness/lease scope not reconciled. No net-debt calculation.",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "debtScope": "reported-component-only",
+            "calculationBasis": "balance-sheet-carrying-amount"
+          }
+        },
+        {
+          "key": "debt_current",
+          "kind": "capital",
+          "metricId": "debt_current",
+          "issuerLabel": "Current debt",
+          "label": "Current debt",
+          "quote": "Current debt 585",
+          "quoteSha256": "f8b69155f1f2e23fa77332c1cf947bcdda63c830429f55c5109c6befa4e9d06f",
+          "contexts": [
+            "(In millions)",
+            "February 26, 2026"
+          ],
+          "pattern": "Current debt (?P<point>[\\d,.]+)",
+          "period": {
+            "label": "2026-02-26",
+            "start": null,
+            "end": "2026-02-26",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-debt_current-2026-v1",
+          "definition": "Current debt",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Reported debt component only; completeness/lease scope not reconciled. No net-debt calculation.",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "debtScope": "reported-component-only",
+            "calculationBasis": "balance-sheet-carrying-amount"
+          }
+        },
+        {
+          "key": "sbc_expense",
+          "kind": "capital",
+          "metricId": "sbc_expense",
+          "issuerLabel": "SBC cash-flow reconciliation",
+          "label": "SBC cash-flow reconciliation",
+          "quote": "Stock-based compensation 599 469",
+          "quoteSha256": "678a6176cce5e9a22b561883e5e3143777aac1752c94dacb4eb61800f22569f9",
+          "contexts": [
+            "(In millions)",
+            "February 26, 2026"
+          ],
+          "pattern": "(?:compensation|expense) (?:\\$ )?(?P<point>[\\d,.]+)",
+          "period": {
+            "label": "YTD Q2 FY2026",
+            "start": "2025-08-29",
+            "end": "2026-02-26",
+            "type": "year_to_date"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-sbc_expense-2026-v1",
+          "definition": "SBC cash-flow reconciliation",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "capital": {
+            "section": "capital",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "calculationBasis": "cash-flow-sbc-addback-ytd"
+          }
+        }
+      ],
+      "sourceSha256": "7efb69b03acf497d6eeb9001ca05c37df5182ecb7d327853e00002f4640f55a2",
+      "sha256": "c80ec8e7b2a81d591ffeca55146d833c2879691e2259297317887433e6044933",
+      "rights": "Bounded factual table excerpts and inert HTML; full release not retained in repository."
+    },
+    {
+      "ticker": "VRT",
+      "accessionNumber": "0001628280-26-050323",
+      "publicationDate": "2026-07-29",
+      "reviewDate": "2026-09-26",
+      "document": {
+        "exhibit": "99.1",
+        "documentType": "earnings_release",
+        "accessionNumber": "0001628280-26-050323",
+        "url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026050323/q22026exhibit991vrt07292026.htm",
+        "source": "SEC",
+        "relationship": "item_2_02_and_exhibit_table",
+        "legalStatus": "furnished",
+        "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026050323/vrt-20260729.htm",
+        "sourceSha256": "39025c2609cc241fd4540e6ca36fdd0d9c082f0bf15a6d3f6ecf840e44130b7b"
+      },
+      "observations": [
+        {
+          "key": "revenue-quarter",
+          "kind": "guidance",
+          "metricId": "revenue",
+          "issuerLabel": "Net sales",
+          "label": "Net sales",
+          "quote": "Third Quarter 2026 Guidance Net sales $3,650M - $3,850M",
+          "quoteSha256": "c849883d07cd321ffd8e1f42da9efa6d0bd736f6c8b83f2e8652b774d93f6c9a",
+          "contexts": [
+            "(Dollars in millions)",
+            "June 30, 2026"
+          ],
+          "pattern": "\\$(?P<lower>[\\d,]+)M - \\$(?P<upper>[\\d,]+)M",
+          "period": {
+            "label": "Q3 FY2026",
+            "end": null,
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-revenue-quarter-2026-v1",
+          "definition": "Net sales",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "range",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i."
+        },
+        {
+          "key": "revenue-annual",
+          "kind": "guidance",
+          "metricId": "revenue",
+          "issuerLabel": "Net sales",
+          "label": "Net sales",
+          "quote": "Full Year 2026 Guidance Net sales $13,800M - $14,200M",
+          "quoteSha256": "ad959fa6e162a1619f02d28307f347bf75aa747bf47fdd9d0711d06791712a4d",
+          "contexts": [
+            "(Dollars in millions)",
+            "June 30, 2026"
+          ],
+          "pattern": "\\$(?P<lower>[\\d,]+)M - \\$(?P<upper>[\\d,]+)M",
+          "period": {
+            "label": "FY2026",
+            "end": "2026-12-31",
+            "type": "annual"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-revenue-annual-2026-v1",
+          "definition": "Net sales",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "range",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i."
+        },
+        {
+          "key": "revenue-americas",
+          "kind": "business_mix",
+          "metricId": "revenue-americas",
+          "issuerLabel": "Americas",
+          "label": "Americas",
+          "quote": "Americas: Products $ 1,666.1 $ 1,320.8 $ 345.3 26.1 % Services & spares 404.7 281.5 123.2 43.8 % $ 2,070.8 $ 1,602.3 $ 468.5 29.2 %",
+          "quoteSha256": "db19ac43ebd37ff1530477e806b4999f9f5c2aca7a583ddb816a02c38aebc92b",
+          "contexts": [
+            "(Dollars in millions)",
+            "June 30, 2026"
+          ],
+          "pattern": "% \\$ (?P<point>[\\d,.]+) \\$ [\\d,.]+ \\$ [\\d,.()]+ [\\d.()]+ %$",
+          "period": {
+            "label": "Q2 FY2026",
+            "start": "2026-04-01",
+            "end": "2026-06-30",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-revenue-americas-2026-v1",
+          "definition": "Americas",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "category": {
+            "id": "americas",
+            "label": "Americas",
+            "role": "category"
+          },
+          "group": {
+            "version": "2026-v1",
+            "parent": null,
+            "id": "vrt-reported-segments-2026",
+            "label": "Geographic net sales",
+            "type": "reportable_segment",
+            "members": [
+              "americas",
+              "asia-pacific",
+              "emea"
+            ],
+            "totalId": "total"
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "Only the current reporting taxonomy; no predecessor categories stitched."
+          }
+        },
+        {
+          "key": "revenue-asia-pacific",
+          "kind": "business_mix",
+          "metricId": "revenue-asia-pacific",
+          "issuerLabel": "Asia Pacific",
+          "label": "Asia Pacific",
+          "quote": "Asia Pacific: Products $ 562.4 $ 424.0 $ 138.4 32.6 % Services & spares 157.5 136.2 21.3 15.6 % $ 719.9 $ 560.2 $ 159.7 28.5 %",
+          "quoteSha256": "c8302732eff7ba2edcaeba4e54b51f485771b1de9488666c1f93604a1e9c779e",
+          "contexts": [
+            "(Dollars in millions)",
+            "June 30, 2026"
+          ],
+          "pattern": "% \\$ (?P<point>[\\d,.]+) \\$ [\\d,.]+ \\$ [\\d,.()]+ [\\d.()]+ %$",
+          "period": {
+            "label": "Q2 FY2026",
+            "start": "2026-04-01",
+            "end": "2026-06-30",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-revenue-asia-pacific-2026-v1",
+          "definition": "Asia Pacific",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "category": {
+            "id": "asia-pacific",
+            "label": "Asia Pacific",
+            "role": "category"
+          },
+          "group": {
+            "version": "2026-v1",
+            "parent": null,
+            "id": "vrt-reported-segments-2026",
+            "label": "Geographic net sales",
+            "type": "reportable_segment",
+            "members": [
+              "americas",
+              "asia-pacific",
+              "emea"
+            ],
+            "totalId": "total"
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "Only the current reporting taxonomy; no predecessor categories stitched."
+          }
+        },
+        {
+          "key": "revenue-emea",
+          "kind": "business_mix",
+          "metricId": "revenue-emea",
+          "issuerLabel": "Europe, Middle East & Africa",
+          "label": "Europe, Middle East & Africa",
+          "quote": "Europe, Middle East & Africa: Products $ 377.9 $ 374.1 $ 3.8 1.0 % Services & spares 105.7 101.5 4.2 4.1 % $ 483.6 $ 475.6 $ 8.0 1.7 %",
+          "quoteSha256": "66d5b36f98ba7a3a4d6cf811d525fac78c390cf60778b090ee409198ea2ce281",
+          "contexts": [
+            "(Dollars in millions)",
+            "June 30, 2026"
+          ],
+          "pattern": "% \\$ (?P<point>[\\d,.]+) \\$ [\\d,.]+ \\$ [\\d,.()]+ [\\d.()]+ %$",
+          "period": {
+            "label": "Q2 FY2026",
+            "start": "2026-04-01",
+            "end": "2026-06-30",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-revenue-emea-2026-v1",
+          "definition": "Europe, Middle East & Africa",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "category": {
+            "id": "emea",
+            "label": "Europe, Middle East & Africa",
+            "role": "category"
+          },
+          "group": {
+            "version": "2026-v1",
+            "parent": null,
+            "id": "vrt-reported-segments-2026",
+            "label": "Geographic net sales",
+            "type": "reportable_segment",
+            "members": [
+              "americas",
+              "asia-pacific",
+              "emea"
+            ],
+            "totalId": "total"
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "Only the current reporting taxonomy; no predecessor categories stitched."
+          }
+        },
+        {
+          "key": "revenue-total",
+          "kind": "business_mix",
+          "metricId": "revenue-total",
+          "issuerLabel": "Total",
+          "label": "Total",
+          "quote": "Total: Products $ 2,606.4 $ 2,118.9 $ 487.5 23.0 % Services & spares 667.9 519.2 148.7 28.6 % $ 3,274.3 $ 2,638.1 $ 636.2 24.1 %",
+          "quoteSha256": "f7287ba458a59ada542085dd6a0f951364a9f488cc528f1f842d2d3fdf80e0ba",
+          "contexts": [
+            "(Dollars in millions)",
+            "June 30, 2026"
+          ],
+          "pattern": "% \\$ (?P<point>[\\d,.]+) \\$ [\\d,.]+ \\$ [\\d,.()]+ [\\d.()]+ %$",
+          "period": {
+            "label": "Q2 FY2026",
+            "start": "2026-04-01",
+            "end": "2026-06-30",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-revenue-total-2026-v1",
+          "definition": "Total",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "category": {
+            "id": "total",
+            "label": "Total",
+            "role": "total"
+          },
+          "group": {
+            "version": "2026-v1",
+            "parent": null,
+            "id": "vrt-reported-segments-2026",
+            "label": "Geographic net sales",
+            "type": "reportable_segment",
+            "members": [
+              "americas",
+              "asia-pacific",
+              "emea"
+            ],
+            "totalId": "total"
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "Only the current reporting taxonomy; no predecessor categories stitched."
+          }
+        },
+        {
+          "key": "cash",
+          "kind": "capital",
+          "metricId": "cash",
+          "issuerLabel": "Cash and cash equivalents",
+          "label": "Cash and cash equivalents",
+          "quote": "Cash and cash equivalents $ 2,810.6",
+          "quoteSha256": "b762b1bab016cf2cfe51d1526ecc0e55d71f19f737adbb297ef3cf428842dd6b",
+          "contexts": [
+            "(Dollars in millions)",
+            "June 30, 2026"
+          ],
+          "pattern": "Cash and (?:cash )?equivalents \\$ (?P<point>[\\d,.]+)",
+          "period": {
+            "label": "2026-06-30",
+            "start": null,
+            "end": "2026-06-30",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-cash-2026-v1",
+          "definition": "Cash and cash equivalents",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "debtScope": "reported-component-only",
+            "calculationBasis": "balance-sheet-carrying-amount"
+          }
+        },
+        {
+          "key": "investment_securities",
+          "kind": "capital",
+          "metricId": "investment_securities",
+          "issuerLabel": "Short-term investments",
+          "label": "Short-term investments",
+          "quote": "Short-term investments 300.0",
+          "quoteSha256": "c1365babbf6c2f383e9a4e49c03ab2fa405d755260f3d349f27919ad78e3f7a0",
+          "contexts": [
+            "(Dollars in millions)",
+            "June 30, 2026"
+          ],
+          "pattern": "Short-term investments (?:\\$ )?(?P<point>[\\d,.]+)",
+          "period": {
+            "label": "2026-06-30",
+            "start": null,
+            "end": "2026-06-30",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-investment_securities-2026-v1",
+          "definition": "Short-term investments",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "debtScope": "reported-component-only",
+            "calculationBasis": "balance-sheet-carrying-amount"
+          }
+        },
+        {
+          "key": "debt_noncurrent",
+          "kind": "capital",
+          "metricId": "debt_noncurrent",
+          "issuerLabel": "Long-term debt, net",
+          "label": "Long-term debt, net",
+          "quote": "Long-term debt, net 2,939.8",
+          "quoteSha256": "b9b57a0d58c97ef11328f8e6097efc6d25cd81bd38d1becd49564405b65b18b1",
+          "contexts": [
+            "(Dollars in millions)",
+            "June 30, 2026"
+          ],
+          "pattern": "Long-term debt(?:, net)? (?P<point>[\\d,.]+)",
+          "period": {
+            "label": "2026-06-30",
+            "start": null,
+            "end": "2026-06-30",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-debt_noncurrent-2026-v1",
+          "definition": "Long-term debt, net",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Reported debt component only; completeness/lease scope not reconciled. No net-debt calculation.",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "debtScope": "reported-component-only",
+            "calculationBasis": "balance-sheet-carrying-amount"
+          }
+        },
+        {
+          "key": "sbc_expense",
+          "kind": "capital",
+          "metricId": "sbc_expense",
+          "issuerLabel": "SBC cash-flow reconciliation",
+          "label": "SBC cash-flow reconciliation",
+          "quote": "Stock-based compensation 13.8 13.3",
+          "quoteSha256": "3503d1225e4add3cd2d712232a0081a9ab235c5de7a5ee64bda66ecda8b3b1f8",
+          "contexts": [
+            "(Dollars in millions)",
+            "June 30, 2026"
+          ],
+          "pattern": "(?:compensation|expense) (?:\\$ )?(?P<point>[\\d,.]+)",
+          "period": {
+            "label": "Q2 FY2026",
+            "start": "2026-04-01",
+            "end": "2026-06-30",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-sbc_expense-2026-v1",
+          "definition": "Quarterly SBC cash-flow reconciliation",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "capital": {
+            "section": "capital",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "calculationBasis": "cash-flow-sbc-addback-quarter"
+          }
+        },
+        {
+          "kind": "capital",
+          "key": "shares_outstanding",
+          "metricId": "shares_outstanding",
+          "label": "Common shares outstanding",
+          "issuerLabel": "Common shares outstanding",
+          "unit": "count",
+          "currency": null,
+          "period": {
+            "label": "2026-06-30",
+            "start": null,
+            "end": "2026-06-30",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-shares_outstanding-2026-v1",
+          "definition": "Common shares outstanding",
+          "note": "Actual outstanding and weighted diluted denominators remain separate. No comparable EPS base inferred.",
+          "quote": "authorized, 384,936,985 and 382,553,680 shares issued and outstanding at June 30, 2026",
+          "quoteSha256": "c0a6485fe864bb6e3bd313fcb6dfd60e45970d83538f67705f1e53ae4319f4e8",
+          "contexts": [],
+          "pattern": "authorized, (?P<point>[\\d,]+)",
+          "scale": 1,
+          "valueKind": "point",
+          "approximate": false,
+          "capital": {
+            "section": "capital",
+            "scope": "consolidated-common",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported-no-split-reconciliation",
+            "recast": "as_reported"
+          }
+        },
+        {
+          "kind": "capital",
+          "key": "weighted_diluted",
+          "metricId": "weighted_diluted",
+          "label": "Weighted diluted shares",
+          "issuerLabel": "Weighted diluted shares",
+          "unit": "count",
+          "currency": null,
+          "period": {
+            "label": "Q2 FY2026",
+            "start": "2026-04-01",
+            "end": "2026-06-30",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-weighted_diluted-2026-v1",
+          "definition": "Weighted diluted shares",
+          "note": "Actual outstanding and weighted diluted denominators remain separate. No comparable EPS base inferred.",
+          "quote": "Weighted-average shares outstanding: Basic 384,555,346 381,482,996 383,742,935 381,166,015 Diluted 392,746,991 389,846,827 392,511,287 389,977,516 5",
+          "quoteSha256": "94bff96a75924f00dd1ec6172b43e29860ac1d00e8355ccaff09dcabd92fad02",
+          "contexts": [],
+          "pattern": "Diluted (?P<point>[\\d,]+)",
+          "scale": 1,
+          "valueKind": "point",
+          "approximate": false,
+          "capital": {
+            "section": "capital",
+            "scope": "consolidated-common",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported-no-split-reconciliation",
+            "recast": "as_reported"
+          }
+        },
+        {
+          "kind": "capital",
+          "key": "funding_context",
+          "metricId": "funding_context",
+          "label": "Reported liquidity context",
+          "issuerLabel": "Liquidity",
+          "unit": "text",
+          "currency": null,
+          "period": {
+            "label": "2026-06-30",
+            "start": null,
+            "end": "2026-06-30",
+            "type": "instant"
+          },
+          "basis": "issuer-reported",
+          "definitionVersion": "vrt-reported-liquidity-2026-v1",
+          "definition": "Issuer-reported liquidity; not cash alone.",
+          "note": "Reported context only; availability, commitments and maturities require source detail. No net-debt inference.",
+          "quote": "Vertiv ended the second quarter with $5.6 billion of liquidity",
+          "quoteSha256": "7115c738912b57031d1c4d01db54c97de61707cce0f801347cce6308237a960e",
+          "contexts": [],
+          "valueKind": "qualitative",
+          "approximate": false,
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "not-applicable",
+            "recast": "as_reported"
+          }
+        }
+      ],
+      "sourceSha256": "34e90909c69470116c2871e0f0df9417b9073957b028f60b1cbdb30b04cc712f",
+      "sha256": "570c85036ffcf29f6922515dd35709741b821922abc30eeb6d4af08c50c8a8bf",
+      "rights": "Bounded factual table excerpts and inert HTML; full release not retained in repository."
+    },
+    {
+      "ticker": "VRT",
+      "accessionNumber": "0001628280-26-026379",
+      "publicationDate": "2026-04-22",
+      "reviewDate": "2026-09-26",
+      "document": {
+        "exhibit": "99.1",
+        "documentType": "earnings_release",
+        "accessionNumber": "0001628280-26-026379",
+        "url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026026379/q12026exhibit991vrt04222026.htm",
+        "source": "SEC",
+        "relationship": "item_2_02_and_exhibit_table",
+        "legalStatus": "furnished",
+        "relationshipSource": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026026379/vrt-20260422.htm",
+        "sourceSha256": "5f537a3ca7397ef530ce91c8bec8413151c17e604a85015823c816688e7da6bf"
+      },
+      "observations": [
+        {
+          "key": "revenue-quarter",
+          "kind": "guidance",
+          "metricId": "revenue",
+          "issuerLabel": "Net sales",
+          "label": "Net sales",
+          "quote": "Second Quarter 2026 Guidance Net sales $3,250M - $3,450M",
+          "quoteSha256": "c42f491d8e0fdd5f3f619511c7f65efada2e3cd27083e69c0fed455c9004f658",
+          "contexts": [
+            "(Dollars in millions)",
+            "March 31, 2026"
+          ],
+          "pattern": "\\$(?P<lower>[\\d,]+)M - \\$(?P<upper>[\\d,]+)M",
+          "period": {
+            "label": "Q2 FY2026",
+            "end": null,
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-revenue-quarter-2026-v1",
+          "definition": "Net sales",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "range",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i."
+        },
+        {
+          "key": "revenue-annual",
+          "kind": "guidance",
+          "metricId": "revenue",
+          "issuerLabel": "Net sales",
+          "label": "Net sales",
+          "quote": "Full Year 2026 Guidance Net sales $13,500M - $14,000M",
+          "quoteSha256": "7e099ac7e3d00286021ecdeb072937c25aa36624d7b6d2ee84d2387c2490bce1",
+          "contexts": [
+            "(Dollars in millions)",
+            "March 31, 2026"
+          ],
+          "pattern": "\\$(?P<lower>[\\d,]+)M - \\$(?P<upper>[\\d,]+)M",
+          "period": {
+            "label": "FY2026",
+            "end": "2026-12-31",
+            "type": "annual"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-revenue-annual-2026-v1",
+          "definition": "Net sales",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "range",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i."
+        },
+        {
+          "key": "revenue-americas",
+          "kind": "business_mix",
+          "metricId": "revenue-americas",
+          "issuerLabel": "Americas",
+          "label": "Americas",
+          "quote": "Americas: Products $ 1,475.9 $ 958.3 $ 517.6 54.0 % Services & spares 338.5 227.0 111.5 49.1 % $ 1,814.4 $ 1,185.3 $ 629.1 53.1 %",
+          "quoteSha256": "0436214230f1bfda9dd1ed7d029fb218c2d3caaaebe85ef11c31787b72c6ba77",
+          "contexts": [
+            "(Dollars in millions)",
+            "March 31, 2026"
+          ],
+          "pattern": "% \\$ (?P<point>[\\d,.]+) \\$ [\\d,.]+ \\$ [\\d,.()]+ [\\d.()]+ %$",
+          "period": {
+            "label": "Q1 FY2026",
+            "start": "2026-01-01",
+            "end": "2026-03-31",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-revenue-americas-2026-v1",
+          "definition": "Americas",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "category": {
+            "id": "americas",
+            "label": "Americas",
+            "role": "category"
+          },
+          "group": {
+            "version": "2026-v1",
+            "parent": null,
+            "id": "vrt-reported-segments-2026",
+            "label": "Geographic net sales",
+            "type": "reportable_segment",
+            "members": [
+              "americas",
+              "asia-pacific",
+              "emea"
+            ],
+            "totalId": "total"
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "Only the current reporting taxonomy; no predecessor categories stitched."
+          }
+        },
+        {
+          "key": "revenue-asia-pacific",
+          "kind": "business_mix",
+          "metricId": "revenue-asia-pacific",
+          "issuerLabel": "Asia Pacific",
+          "label": "Asia Pacific",
+          "quote": "Asia Pacific: Products $ 381.1 $ 333.8 $ 47.3 14.2 % Services & spares 132.6 113.4 19.2 16.9 % $ 513.7 $ 447.2 $ 66.5 14.9 %",
+          "quoteSha256": "34a37354d88d24460bad08f41e82e17845e9a048a11af6ae5f3d75f7adc9ef13",
+          "contexts": [
+            "(Dollars in millions)",
+            "March 31, 2026"
+          ],
+          "pattern": "% \\$ (?P<point>[\\d,.]+) \\$ [\\d,.]+ \\$ [\\d,.()]+ [\\d.()]+ %$",
+          "period": {
+            "label": "Q1 FY2026",
+            "start": "2026-01-01",
+            "end": "2026-03-31",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-revenue-asia-pacific-2026-v1",
+          "definition": "Asia Pacific",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "category": {
+            "id": "asia-pacific",
+            "label": "Asia Pacific",
+            "role": "category"
+          },
+          "group": {
+            "version": "2026-v1",
+            "parent": null,
+            "id": "vrt-reported-segments-2026",
+            "label": "Geographic net sales",
+            "type": "reportable_segment",
+            "members": [
+              "americas",
+              "asia-pacific",
+              "emea"
+            ],
+            "totalId": "total"
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "Only the current reporting taxonomy; no predecessor categories stitched."
+          }
+        },
+        {
+          "key": "revenue-emea",
+          "kind": "business_mix",
+          "metricId": "revenue-emea",
+          "issuerLabel": "Europe, Middle East & Africa",
+          "label": "Europe, Middle East & Africa",
+          "quote": "Europe, Middle East & Africa: Products $ 234.2 $ 319.0 $ (84.8) (26.6) % Services & spares 87.2 84.5 2.7 3.2 % $ 321.4 $ 403.5 $ (82.1) (20.3) %",
+          "quoteSha256": "231d730b19350f1075a622621318ee46bc37b55f6d20401faff2f1a9657d758a",
+          "contexts": [
+            "(Dollars in millions)",
+            "March 31, 2026"
+          ],
+          "pattern": "% \\$ (?P<point>[\\d,.]+) \\$ [\\d,.]+ \\$ [\\d,.()]+ [\\d.()]+ %$",
+          "period": {
+            "label": "Q1 FY2026",
+            "start": "2026-01-01",
+            "end": "2026-03-31",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-revenue-emea-2026-v1",
+          "definition": "Europe, Middle East & Africa",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "category": {
+            "id": "emea",
+            "label": "Europe, Middle East & Africa",
+            "role": "category"
+          },
+          "group": {
+            "version": "2026-v1",
+            "parent": null,
+            "id": "vrt-reported-segments-2026",
+            "label": "Geographic net sales",
+            "type": "reportable_segment",
+            "members": [
+              "americas",
+              "asia-pacific",
+              "emea"
+            ],
+            "totalId": "total"
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "Only the current reporting taxonomy; no predecessor categories stitched."
+          }
+        },
+        {
+          "key": "revenue-total",
+          "kind": "business_mix",
+          "metricId": "revenue-total",
+          "issuerLabel": "Total",
+          "label": "Total",
+          "quote": "Total: Products $ 2,091.2 $ 1,611.1 $ 480.1 29.8 % Services & spares 558.3 424.9 133.4 31.4 % $ 2,649.5 $ 2,036.0 $ 613.5 30.1 %",
+          "quoteSha256": "4146b5e5515b522ca416db5a8e7fe1ab1bc3fb29dc83e9e33f3bcdb74bb1724c",
+          "contexts": [
+            "(Dollars in millions)",
+            "March 31, 2026"
+          ],
+          "pattern": "% \\$ (?P<point>[\\d,.]+) \\$ [\\d,.]+ \\$ [\\d,.()]+ [\\d.()]+ %$",
+          "period": {
+            "label": "Q1 FY2026",
+            "start": "2026-01-01",
+            "end": "2026-03-31",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-revenue-total-2026-v1",
+          "definition": "Total",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "category": {
+            "id": "total",
+            "label": "Total",
+            "role": "total"
+          },
+          "group": {
+            "version": "2026-v1",
+            "parent": null,
+            "id": "vrt-reported-segments-2026",
+            "label": "Geographic net sales",
+            "type": "reportable_segment",
+            "members": [
+              "americas",
+              "asia-pacific",
+              "emea"
+            ],
+            "totalId": "total"
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "Only the current reporting taxonomy; no predecessor categories stitched."
+          }
+        },
+        {
+          "key": "cash",
+          "kind": "capital",
+          "metricId": "cash",
+          "issuerLabel": "Cash and cash equivalents",
+          "label": "Cash and cash equivalents",
+          "quote": "Cash and cash equivalents $ 2,150.6",
+          "quoteSha256": "2296a8dc6e9d851d39d7d5bc871883e2745ae5d06802f91b5ac78db1a0854dc4",
+          "contexts": [
+            "(Dollars in millions)",
+            "March 31, 2026"
+          ],
+          "pattern": "Cash and (?:cash )?equivalents \\$ (?P<point>[\\d,.]+)",
+          "period": {
+            "label": "2026-03-31",
+            "start": null,
+            "end": "2026-03-31",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-cash-2026-v1",
+          "definition": "Cash and cash equivalents",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "debtScope": "reported-component-only",
+            "calculationBasis": "balance-sheet-carrying-amount"
+          }
+        },
+        {
+          "key": "investment_securities",
+          "kind": "capital",
+          "metricId": "investment_securities",
+          "issuerLabel": "Short-term investments",
+          "label": "Short-term investments",
+          "quote": "Short-term investments 349.9",
+          "quoteSha256": "c8db1957a8ca86e46ac547757b13d389217cb332d80296848b3d6a34f92b2fe4",
+          "contexts": [
+            "(Dollars in millions)",
+            "March 31, 2026"
+          ],
+          "pattern": "Short-term investments (?:\\$ )?(?P<point>[\\d,.]+)",
+          "period": {
+            "label": "2026-03-31",
+            "start": null,
+            "end": "2026-03-31",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-investment_securities-2026-v1",
+          "definition": "Short-term investments",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "debtScope": "reported-component-only",
+            "calculationBasis": "balance-sheet-carrying-amount"
+          }
+        },
+        {
+          "key": "debt_noncurrent",
+          "kind": "capital",
+          "metricId": "debt_noncurrent",
+          "issuerLabel": "Long-term debt, net",
+          "label": "Long-term debt, net",
+          "quote": "Long-term debt, net 2,922.2",
+          "quoteSha256": "c42de28aecc1ac494f4ccfbfc6eb74c468a71c4cc9d13c4dc4feda2207a4321e",
+          "contexts": [
+            "(Dollars in millions)",
+            "March 31, 2026"
+          ],
+          "pattern": "Long-term debt(?:, net)? (?P<point>[\\d,.]+)",
+          "period": {
+            "label": "2026-03-31",
+            "start": null,
+            "end": "2026-03-31",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-debt_noncurrent-2026-v1",
+          "definition": "Long-term debt, net",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Reported debt component only; completeness/lease scope not reconciled. No net-debt calculation.",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "debtScope": "reported-component-only",
+            "calculationBasis": "balance-sheet-carrying-amount"
+          }
+        },
+        {
+          "key": "sbc_expense",
+          "kind": "capital",
+          "metricId": "sbc_expense",
+          "issuerLabel": "SBC cash-flow reconciliation",
+          "label": "SBC cash-flow reconciliation",
+          "quote": "Stock-based compensation 17.0 11.2",
+          "quoteSha256": "6d39283047b27873d9c54b8a62da870d99813839cc267f2991db7baf7663e739",
+          "contexts": [
+            "(Dollars in millions)",
+            "March 31, 2026"
+          ],
+          "pattern": "(?:compensation|expense) (?:\\$ )?(?P<point>[\\d,.]+)",
+          "period": {
+            "label": "Q1 FY2026",
+            "start": "2026-01-01",
+            "end": "2026-03-31",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-sbc_expense-2026-v1",
+          "definition": "Quarterly SBC cash-flow reconciliation",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+          "capital": {
+            "section": "capital",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "calculationBasis": "cash-flow-sbc-addback-quarter"
+          }
+        },
+        {
+          "kind": "capital",
+          "key": "shares_outstanding",
+          "metricId": "shares_outstanding",
+          "label": "Common shares outstanding",
+          "issuerLabel": "Common shares outstanding",
+          "unit": "count",
+          "currency": null,
+          "period": {
+            "label": "2026-03-31",
+            "start": null,
+            "end": "2026-03-31",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-shares_outstanding-2026-v1",
+          "definition": "Common shares outstanding",
+          "note": "Actual outstanding and weighted diluted denominators remain separate. No comparable EPS base inferred.",
+          "quote": "authorized, 383,954,111 and 382,553,680 shares issued and outstanding at March 31, 2026",
+          "quoteSha256": "4c0eb1d203d7f9623fd9cf14ecaeec6207a90de36490eac004cc40c488ee5328",
+          "contexts": [],
+          "pattern": "authorized, (?P<point>[\\d,]+)",
+          "scale": 1,
+          "valueKind": "point",
+          "approximate": false,
+          "capital": {
+            "section": "capital",
+            "scope": "consolidated-common",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported-no-split-reconciliation",
+            "recast": "as_reported"
+          }
+        },
+        {
+          "kind": "capital",
+          "key": "weighted_diluted",
+          "metricId": "weighted_diluted",
+          "label": "Weighted diluted shares",
+          "issuerLabel": "Weighted diluted shares",
+          "unit": "count",
+          "currency": null,
+          "period": {
+            "label": "Q1 FY2026",
+            "start": "2026-01-01",
+            "end": "2026-03-31",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-weighted_diluted-2026-v1",
+          "definition": "Weighted diluted shares",
+          "note": "Actual outstanding and weighted diluted denominators remain separate. No comparable EPS base inferred.",
+          "quote": "Weighted-average shares outstanding: Basic 382,921,496 380,845,511 Diluted 392,128,170 390,109,650 5",
+          "quoteSha256": "24d68ea64bd1fa234df5c1d8a457e6bcfa49d9229ca139da21b5b26b4965b8f5",
+          "contexts": [],
+          "pattern": "Diluted (?P<point>[\\d,]+)",
+          "scale": 1,
+          "valueKind": "point",
+          "approximate": false,
+          "capital": {
+            "section": "capital",
+            "scope": "consolidated-common",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported-no-split-reconciliation",
+            "recast": "as_reported"
+          }
+        },
+        {
+          "kind": "capital",
+          "key": "funding_context",
+          "metricId": "funding_context",
+          "label": "Reported liquidity context",
+          "issuerLabel": "Liquidity",
+          "unit": "text",
+          "currency": null,
+          "period": {
+            "label": "2026-03-31",
+            "start": null,
+            "end": "2026-03-31",
+            "type": "instant"
+          },
+          "basis": "issuer-reported",
+          "definitionVersion": "vrt-reported-liquidity-2026-v1",
+          "definition": "Issuer-reported liquidity; not cash alone.",
+          "note": "Reported context only; availability, commitments and maturities require source detail. No net-debt inference.",
+          "quote": "Liquidity remained strong at $5.0 billion",
+          "quoteSha256": "3b2b75fb1e98411c45f8e94d5223de70a16af381c96cadb4b88520d4c8aed014",
+          "contexts": [],
+          "valueKind": "qualitative",
+          "approximate": false,
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "not-applicable",
+            "recast": "as_reported"
+          }
+        }
+      ],
+      "sourceSha256": "a49d1229de2dddfcf319dd214a2ac17ba4c0d00b45701f25c3acb163e3ae1d66",
+      "sha256": "4ae562464c1a804132e045d8b7d3e3986c732db465f9ffccc92f7ff9aca721ea",
+      "rights": "Bounded factual table excerpts and inert HTML; full release not retained in repository."
+    },
+    {
+      "ticker": "MU",
+      "accessionNumber": "0000723125-26-000015",
+      "publicationDate": "2026-06-25",
+      "reviewDate": "2026-09-26",
+      "document": {
+        "documentType": "periodic_filing",
+        "exhibit": null,
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+        "accessionNumber": "0000723125-26-000015",
+        "relationship": "primary_periodic_filing",
+        "relationshipSource": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm"
+      },
+      "observations": [
+        {
+          "key": "revenue-cloud-memory",
+          "kind": "business_mix",
+          "metricId": "revenue-cloud-memory",
+          "label": "Cloud Memory Business Unit",
+          "issuerLabel": "Cloud Memory Business Unit",
+          "unit": "USD",
+          "currency": "USD",
+          "period": {
+            "label": "Q3 FY2026",
+            "start": "2026-02-27",
+            "end": "2026-05-28",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-revenue-cloud-memory-fy2026",
+          "definition": "Cloud Memory Business Unit",
+          "note": "Current reported scope only; predecessor taxonomy is not joined.",
+          "quote": "Quarter Ended May 28, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 13,769 $ 11,524 $ 11,521 $ 4,634 $ 8 $ — $ 41,456",
+          "quoteSha256": "770c2f56ebce80fb63318bf5b2d6fd33988f7749311e287cac60763a8b41a072",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "pattern": "Revenue \\$ (?P<point>[\\d,]+) \\$ [\\d,]+ \\$ [\\d,]+ \\$ [\\d,]+ \\$ [\\d,]+ \\$ \\u2014 \\$ [\\d,]+",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "category": {
+            "id": "cloud-memory",
+            "label": "Cloud Memory Business Unit",
+            "role": "category"
+          },
+          "group": {
+            "id": "mu-reportable-segments-fy2026",
+            "label": "Reportable segments",
+            "version": "fy2026-v1",
+            "type": "reportable_segment",
+            "members": [
+              "cloud-memory",
+              "core-data-center",
+              "mobile-client",
+              "automotive-embedded",
+              "all-other"
+            ],
+            "totalId": "total",
+            "parent": null
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+          }
+        },
+        {
+          "key": "revenue-core-data-center",
+          "kind": "business_mix",
+          "metricId": "revenue-core-data-center",
+          "label": "Core Data Center Business Unit",
+          "issuerLabel": "Core Data Center Business Unit",
+          "unit": "USD",
+          "currency": "USD",
+          "period": {
+            "label": "Q3 FY2026",
+            "start": "2026-02-27",
+            "end": "2026-05-28",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-revenue-core-data-center-fy2026",
+          "definition": "Core Data Center Business Unit",
+          "note": "Current reported scope only; predecessor taxonomy is not joined.",
+          "quote": "Quarter Ended May 28, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 13,769 $ 11,524 $ 11,521 $ 4,634 $ 8 $ — $ 41,456",
+          "quoteSha256": "770c2f56ebce80fb63318bf5b2d6fd33988f7749311e287cac60763a8b41a072",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "pattern": "Revenue \\$ [\\d,]+ \\$ (?P<point>[\\d,]+) \\$ [\\d,]+ \\$ [\\d,]+ \\$ [\\d,]+ \\$ \\u2014 \\$ [\\d,]+",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "category": {
+            "id": "core-data-center",
+            "label": "Core Data Center Business Unit",
+            "role": "category"
+          },
+          "group": {
+            "id": "mu-reportable-segments-fy2026",
+            "label": "Reportable segments",
+            "version": "fy2026-v1",
+            "type": "reportable_segment",
+            "members": [
+              "cloud-memory",
+              "core-data-center",
+              "mobile-client",
+              "automotive-embedded",
+              "all-other"
+            ],
+            "totalId": "total",
+            "parent": null
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+          }
+        },
+        {
+          "key": "revenue-mobile-client",
+          "kind": "business_mix",
+          "metricId": "revenue-mobile-client",
+          "label": "Mobile and Client Business Unit",
+          "issuerLabel": "Mobile and Client Business Unit",
+          "unit": "USD",
+          "currency": "USD",
+          "period": {
+            "label": "Q3 FY2026",
+            "start": "2026-02-27",
+            "end": "2026-05-28",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-revenue-mobile-client-fy2026",
+          "definition": "Mobile and Client Business Unit",
+          "note": "Current reported scope only; predecessor taxonomy is not joined.",
+          "quote": "Quarter Ended May 28, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 13,769 $ 11,524 $ 11,521 $ 4,634 $ 8 $ — $ 41,456",
+          "quoteSha256": "770c2f56ebce80fb63318bf5b2d6fd33988f7749311e287cac60763a8b41a072",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "pattern": "Revenue \\$ [\\d,]+ \\$ [\\d,]+ \\$ (?P<point>[\\d,]+) \\$ [\\d,]+ \\$ [\\d,]+ \\$ \\u2014 \\$ [\\d,]+",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "category": {
+            "id": "mobile-client",
+            "label": "Mobile and Client Business Unit",
+            "role": "category"
+          },
+          "group": {
+            "id": "mu-reportable-segments-fy2026",
+            "label": "Reportable segments",
+            "version": "fy2026-v1",
+            "type": "reportable_segment",
+            "members": [
+              "cloud-memory",
+              "core-data-center",
+              "mobile-client",
+              "automotive-embedded",
+              "all-other"
+            ],
+            "totalId": "total",
+            "parent": null
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+          }
+        },
+        {
+          "key": "revenue-automotive-embedded",
+          "kind": "business_mix",
+          "metricId": "revenue-automotive-embedded",
+          "label": "Automotive and Embedded Business Unit",
+          "issuerLabel": "Automotive and Embedded Business Unit",
+          "unit": "USD",
+          "currency": "USD",
+          "period": {
+            "label": "Q3 FY2026",
+            "start": "2026-02-27",
+            "end": "2026-05-28",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-revenue-automotive-embedded-fy2026",
+          "definition": "Automotive and Embedded Business Unit",
+          "note": "Current reported scope only; predecessor taxonomy is not joined.",
+          "quote": "Quarter Ended May 28, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 13,769 $ 11,524 $ 11,521 $ 4,634 $ 8 $ — $ 41,456",
+          "quoteSha256": "770c2f56ebce80fb63318bf5b2d6fd33988f7749311e287cac60763a8b41a072",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "pattern": "Revenue \\$ [\\d,]+ \\$ [\\d,]+ \\$ [\\d,]+ \\$ (?P<point>[\\d,]+) \\$ [\\d,]+ \\$ \\u2014 \\$ [\\d,]+",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "category": {
+            "id": "automotive-embedded",
+            "label": "Automotive and Embedded Business Unit",
+            "role": "category"
+          },
+          "group": {
+            "id": "mu-reportable-segments-fy2026",
+            "label": "Reportable segments",
+            "version": "fy2026-v1",
+            "type": "reportable_segment",
+            "members": [
+              "cloud-memory",
+              "core-data-center",
+              "mobile-client",
+              "automotive-embedded",
+              "all-other"
+            ],
+            "totalId": "total",
+            "parent": null
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+          }
+        },
+        {
+          "key": "revenue-all-other",
+          "kind": "business_mix",
+          "metricId": "revenue-all-other",
+          "label": "All Other",
+          "issuerLabel": "All Other",
+          "unit": "USD",
+          "currency": "USD",
+          "period": {
+            "label": "Q3 FY2026",
+            "start": "2026-02-27",
+            "end": "2026-05-28",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-revenue-all-other-fy2026",
+          "definition": "All Other",
+          "note": "Current reported scope only; predecessor taxonomy is not joined.",
+          "quote": "Quarter Ended May 28, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 13,769 $ 11,524 $ 11,521 $ 4,634 $ 8 $ — $ 41,456",
+          "quoteSha256": "770c2f56ebce80fb63318bf5b2d6fd33988f7749311e287cac60763a8b41a072",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "pattern": "Revenue \\$ [\\d,]+ \\$ [\\d,]+ \\$ [\\d,]+ \\$ [\\d,]+ \\$ (?P<point>[\\d,]+) \\$ \\u2014 \\$ [\\d,]+",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "category": {
+            "id": "all-other",
+            "label": "All Other",
+            "role": "category"
+          },
+          "group": {
+            "id": "mu-reportable-segments-fy2026",
+            "label": "Reportable segments",
+            "version": "fy2026-v1",
+            "type": "reportable_segment",
+            "members": [
+              "cloud-memory",
+              "core-data-center",
+              "mobile-client",
+              "automotive-embedded",
+              "all-other"
+            ],
+            "totalId": "total",
+            "parent": null
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+          }
+        },
+        {
+          "key": "revenue-total",
+          "kind": "business_mix",
+          "metricId": "revenue-total",
+          "label": "Total revenue",
+          "issuerLabel": "Total revenue",
+          "unit": "USD",
+          "currency": "USD",
+          "period": {
+            "label": "Q3 FY2026",
+            "start": "2026-02-27",
+            "end": "2026-05-28",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-revenue-total-fy2026",
+          "definition": "Total revenue",
+          "note": "Current reported scope only; predecessor taxonomy is not joined.",
+          "quote": "Quarter Ended May 28, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 13,769 $ 11,524 $ 11,521 $ 4,634 $ 8 $ — $ 41,456",
+          "quoteSha256": "770c2f56ebce80fb63318bf5b2d6fd33988f7749311e287cac60763a8b41a072",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "pattern": "Revenue \\$ [\\d,]+ \\$ [\\d,]+ \\$ [\\d,]+ \\$ [\\d,]+ \\$ [\\d,]+ \\$ \\u2014 \\$ (?P<point>[\\d,]+)",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "category": {
+            "id": "total",
+            "label": "Total revenue",
+            "role": "total"
+          },
+          "group": {
+            "id": "mu-reportable-segments-fy2026",
+            "label": "Reportable segments",
+            "version": "fy2026-v1",
+            "type": "reportable_segment",
+            "members": [
+              "cloud-memory",
+              "core-data-center",
+              "mobile-client",
+              "automotive-embedded",
+              "all-other"
+            ],
+            "totalId": "total",
+            "parent": null
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+          }
+        },
+        {
+          "key": "shares_outstanding",
+          "kind": "capital",
+          "metricId": "shares_outstanding",
+          "label": "Common shares outstanding",
+          "issuerLabel": "Common shares outstanding",
+          "unit": "count",
+          "currency": null,
+          "period": {
+            "label": "2026-06-17",
+            "start": null,
+            "end": "2026-06-17",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-shares_outstanding-fy2026",
+          "definition": "Common shares outstanding",
+          "note": "Current reported scope only; predecessor taxonomy is not joined.",
+          "quote": "The number of outstanding shares of the registrant’s common stock as of June 17, 2026 was 1,129,393,151 .",
+          "quoteSha256": "fd8918f86d495e2db550179234349962b60e6c1e975867c3ae372ae00f8f93a5",
+          "contexts": [],
+          "pattern": "was (?P<point>[\\d,]+)",
+          "scale": 1,
+          "valueKind": "point",
+          "approximate": false,
+          "capital": {
+            "section": "capital",
+            "scope": "consolidated-common",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported-no-split-reconciliation",
+            "recast": "as_reported"
+          }
+        },
+        {
+          "key": "weighted_diluted",
+          "kind": "capital",
+          "metricId": "weighted_diluted",
+          "label": "Weighted diluted shares",
+          "issuerLabel": "Weighted diluted shares",
+          "unit": "count",
+          "currency": null,
+          "period": {
+            "label": "Q3 FY2026",
+            "start": "2026-02-27",
+            "end": "2026-05-28",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-weighted_diluted-fy2026",
+          "definition": "Weighted diluted shares",
+          "note": "Current reported scope only; predecessor taxonomy is not joined.",
+          "quote": "Number of shares used in per share calculations Basic 1,128 1,118 1,126 1,114 Diluted 1,145 1,125 1,142 1,123",
+          "quoteSha256": "3584c828b4332759502ffd2e7750dbe5c24763e8d3ead0f48add0e0e51b7b6fc",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "pattern": "Diluted (?P<point>[\\d,]+)",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "capital": {
+            "section": "capital",
+            "scope": "consolidated-common",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported-no-split-reconciliation",
+            "recast": "as_reported"
+          }
+        },
+        {
+          "key": "repurchase_cash",
+          "kind": "capital",
+          "metricId": "repurchase_cash",
+          "label": "Cash repurchases under repurchase program",
+          "issuerLabel": "Cash repurchases under repurchase program",
+          "unit": "USD",
+          "currency": "USD",
+          "period": {
+            "label": "YTD Q3 FY2026",
+            "start": "2025-08-29",
+            "end": "2026-05-28",
+            "type": "year_to_date"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-repurchase_cash-fy2026",
+          "definition": "Cash repurchases under repurchase program",
+          "note": "Actual cash outflow under the repurchase program, excluding employee withholding. Not authorization capacity.",
+          "quote": "Repurchases of common stock - repurchase program ( 650 ) —",
+          "quoteSha256": "b9e403bc803643b90ae4b322571c7d2cbf381ccc6b21626ee69c87d0b45ab7bd",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "pattern": "program \\( (?P<point>[\\d,]+) \\)",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "capital": {
+            "section": "capital",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported"
+          }
+        }
+      ],
+      "sha256": "f5c78dfd64ce4d3624faf9d2ba1a253e8fcd9f14ac31becc877276136db1b39f",
+      "sourceSha256": "581d1a3deaea1e86790c05923f2613f0dce42837fd230db06fe0ca1ca30442c4",
+      "rights": "Bounded factual rows and context; not full filing archive."
+    },
+    {
+      "ticker": "MU",
+      "accessionNumber": "0000723125-26-000006",
+      "publicationDate": "2026-03-19",
+      "reviewDate": "2026-09-26",
+      "document": {
+        "documentType": "periodic_filing",
+        "exhibit": null,
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000006/mu-20260226.htm",
+        "accessionNumber": "0000723125-26-000006",
+        "relationship": "primary_periodic_filing",
+        "relationshipSource": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000006/mu-20260226.htm"
+      },
+      "observations": [
+        {
+          "key": "revenue-cloud-memory",
+          "kind": "business_mix",
+          "metricId": "revenue-cloud-memory",
+          "label": "Cloud Memory Business Unit",
+          "issuerLabel": "Cloud Memory Business Unit",
+          "unit": "USD",
+          "currency": "USD",
+          "period": {
+            "label": "Q2 FY2026",
+            "start": "2025-11-28",
+            "end": "2026-02-26",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-revenue-cloud-memory-fy2026",
+          "definition": "Cloud Memory Business Unit",
+          "note": "Current reported scope only; predecessor taxonomy is not joined.",
+          "quote": "Quarter Ended February 26, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 7,749 $ 5,687 $ 7,711 $ 2,708 $ 5 $ — $ 23,860",
+          "quoteSha256": "26b6ed3e012cf9dde6cb56d2953e4ca15c6f6b25781b6c5d0a87818750ae40f5",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "pattern": "Revenue \\$ (?P<point>[\\d,]+) \\$ [\\d,]+ \\$ [\\d,]+ \\$ [\\d,]+ \\$ [\\d,]+ \\$ \\u2014 \\$ [\\d,]+",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "category": {
+            "id": "cloud-memory",
+            "label": "Cloud Memory Business Unit",
+            "role": "category"
+          },
+          "group": {
+            "id": "mu-reportable-segments-fy2026",
+            "label": "Reportable segments",
+            "version": "fy2026-v1",
+            "type": "reportable_segment",
+            "members": [
+              "cloud-memory",
+              "core-data-center",
+              "mobile-client",
+              "automotive-embedded",
+              "all-other"
+            ],
+            "totalId": "total",
+            "parent": null
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+          }
+        },
+        {
+          "key": "revenue-core-data-center",
+          "kind": "business_mix",
+          "metricId": "revenue-core-data-center",
+          "label": "Core Data Center Business Unit",
+          "issuerLabel": "Core Data Center Business Unit",
+          "unit": "USD",
+          "currency": "USD",
+          "period": {
+            "label": "Q2 FY2026",
+            "start": "2025-11-28",
+            "end": "2026-02-26",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-revenue-core-data-center-fy2026",
+          "definition": "Core Data Center Business Unit",
+          "note": "Current reported scope only; predecessor taxonomy is not joined.",
+          "quote": "Quarter Ended February 26, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 7,749 $ 5,687 $ 7,711 $ 2,708 $ 5 $ — $ 23,860",
+          "quoteSha256": "26b6ed3e012cf9dde6cb56d2953e4ca15c6f6b25781b6c5d0a87818750ae40f5",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "pattern": "Revenue \\$ [\\d,]+ \\$ (?P<point>[\\d,]+) \\$ [\\d,]+ \\$ [\\d,]+ \\$ [\\d,]+ \\$ \\u2014 \\$ [\\d,]+",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "category": {
+            "id": "core-data-center",
+            "label": "Core Data Center Business Unit",
+            "role": "category"
+          },
+          "group": {
+            "id": "mu-reportable-segments-fy2026",
+            "label": "Reportable segments",
+            "version": "fy2026-v1",
+            "type": "reportable_segment",
+            "members": [
+              "cloud-memory",
+              "core-data-center",
+              "mobile-client",
+              "automotive-embedded",
+              "all-other"
+            ],
+            "totalId": "total",
+            "parent": null
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+          }
+        },
+        {
+          "key": "revenue-mobile-client",
+          "kind": "business_mix",
+          "metricId": "revenue-mobile-client",
+          "label": "Mobile and Client Business Unit",
+          "issuerLabel": "Mobile and Client Business Unit",
+          "unit": "USD",
+          "currency": "USD",
+          "period": {
+            "label": "Q2 FY2026",
+            "start": "2025-11-28",
+            "end": "2026-02-26",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-revenue-mobile-client-fy2026",
+          "definition": "Mobile and Client Business Unit",
+          "note": "Current reported scope only; predecessor taxonomy is not joined.",
+          "quote": "Quarter Ended February 26, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 7,749 $ 5,687 $ 7,711 $ 2,708 $ 5 $ — $ 23,860",
+          "quoteSha256": "26b6ed3e012cf9dde6cb56d2953e4ca15c6f6b25781b6c5d0a87818750ae40f5",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "pattern": "Revenue \\$ [\\d,]+ \\$ [\\d,]+ \\$ (?P<point>[\\d,]+) \\$ [\\d,]+ \\$ [\\d,]+ \\$ \\u2014 \\$ [\\d,]+",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "category": {
+            "id": "mobile-client",
+            "label": "Mobile and Client Business Unit",
+            "role": "category"
+          },
+          "group": {
+            "id": "mu-reportable-segments-fy2026",
+            "label": "Reportable segments",
+            "version": "fy2026-v1",
+            "type": "reportable_segment",
+            "members": [
+              "cloud-memory",
+              "core-data-center",
+              "mobile-client",
+              "automotive-embedded",
+              "all-other"
+            ],
+            "totalId": "total",
+            "parent": null
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+          }
+        },
+        {
+          "key": "revenue-automotive-embedded",
+          "kind": "business_mix",
+          "metricId": "revenue-automotive-embedded",
+          "label": "Automotive and Embedded Business Unit",
+          "issuerLabel": "Automotive and Embedded Business Unit",
+          "unit": "USD",
+          "currency": "USD",
+          "period": {
+            "label": "Q2 FY2026",
+            "start": "2025-11-28",
+            "end": "2026-02-26",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-revenue-automotive-embedded-fy2026",
+          "definition": "Automotive and Embedded Business Unit",
+          "note": "Current reported scope only; predecessor taxonomy is not joined.",
+          "quote": "Quarter Ended February 26, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 7,749 $ 5,687 $ 7,711 $ 2,708 $ 5 $ — $ 23,860",
+          "quoteSha256": "26b6ed3e012cf9dde6cb56d2953e4ca15c6f6b25781b6c5d0a87818750ae40f5",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "pattern": "Revenue \\$ [\\d,]+ \\$ [\\d,]+ \\$ [\\d,]+ \\$ (?P<point>[\\d,]+) \\$ [\\d,]+ \\$ \\u2014 \\$ [\\d,]+",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "category": {
+            "id": "automotive-embedded",
+            "label": "Automotive and Embedded Business Unit",
+            "role": "category"
+          },
+          "group": {
+            "id": "mu-reportable-segments-fy2026",
+            "label": "Reportable segments",
+            "version": "fy2026-v1",
+            "type": "reportable_segment",
+            "members": [
+              "cloud-memory",
+              "core-data-center",
+              "mobile-client",
+              "automotive-embedded",
+              "all-other"
+            ],
+            "totalId": "total",
+            "parent": null
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+          }
+        },
+        {
+          "key": "revenue-all-other",
+          "kind": "business_mix",
+          "metricId": "revenue-all-other",
+          "label": "All Other",
+          "issuerLabel": "All Other",
+          "unit": "USD",
+          "currency": "USD",
+          "period": {
+            "label": "Q2 FY2026",
+            "start": "2025-11-28",
+            "end": "2026-02-26",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-revenue-all-other-fy2026",
+          "definition": "All Other",
+          "note": "Current reported scope only; predecessor taxonomy is not joined.",
+          "quote": "Quarter Ended February 26, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 7,749 $ 5,687 $ 7,711 $ 2,708 $ 5 $ — $ 23,860",
+          "quoteSha256": "26b6ed3e012cf9dde6cb56d2953e4ca15c6f6b25781b6c5d0a87818750ae40f5",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "pattern": "Revenue \\$ [\\d,]+ \\$ [\\d,]+ \\$ [\\d,]+ \\$ [\\d,]+ \\$ (?P<point>[\\d,]+) \\$ \\u2014 \\$ [\\d,]+",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "category": {
+            "id": "all-other",
+            "label": "All Other",
+            "role": "category"
+          },
+          "group": {
+            "id": "mu-reportable-segments-fy2026",
+            "label": "Reportable segments",
+            "version": "fy2026-v1",
+            "type": "reportable_segment",
+            "members": [
+              "cloud-memory",
+              "core-data-center",
+              "mobile-client",
+              "automotive-embedded",
+              "all-other"
+            ],
+            "totalId": "total",
+            "parent": null
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+          }
+        },
+        {
+          "key": "revenue-total",
+          "kind": "business_mix",
+          "metricId": "revenue-total",
+          "label": "Total revenue",
+          "issuerLabel": "Total revenue",
+          "unit": "USD",
+          "currency": "USD",
+          "period": {
+            "label": "Q2 FY2026",
+            "start": "2025-11-28",
+            "end": "2026-02-26",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-revenue-total-fy2026",
+          "definition": "Total revenue",
+          "note": "Current reported scope only; predecessor taxonomy is not joined.",
+          "quote": "Quarter Ended February 26, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 7,749 $ 5,687 $ 7,711 $ 2,708 $ 5 $ — $ 23,860",
+          "quoteSha256": "26b6ed3e012cf9dde6cb56d2953e4ca15c6f6b25781b6c5d0a87818750ae40f5",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "pattern": "Revenue \\$ [\\d,]+ \\$ [\\d,]+ \\$ [\\d,]+ \\$ [\\d,]+ \\$ [\\d,]+ \\$ \\u2014 \\$ (?P<point>[\\d,]+)",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "category": {
+            "id": "total",
+            "label": "Total revenue",
+            "role": "total"
+          },
+          "group": {
+            "id": "mu-reportable-segments-fy2026",
+            "label": "Reportable segments",
+            "version": "fy2026-v1",
+            "type": "reportable_segment",
+            "members": [
+              "cloud-memory",
+              "core-data-center",
+              "mobile-client",
+              "automotive-embedded",
+              "all-other"
+            ],
+            "totalId": "total",
+            "parent": null
+          },
+          "recast": {
+            "status": "as_reported",
+            "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+          }
+        },
+        {
+          "key": "shares_outstanding",
+          "kind": "capital",
+          "metricId": "shares_outstanding",
+          "label": "Common shares outstanding",
+          "issuerLabel": "Common shares outstanding",
+          "unit": "count",
+          "currency": null,
+          "period": {
+            "label": "2026-03-11",
+            "start": null,
+            "end": "2026-03-11",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-shares_outstanding-fy2026",
+          "definition": "Common shares outstanding",
+          "note": "Current reported scope only; predecessor taxonomy is not joined.",
+          "quote": "The number of outstanding shares of the registrant’s common stock as of March 11, 2026 was 1,127,734,051 .",
+          "quoteSha256": "2803bc9ca11da832a5e0cc3e3f5af83a729d61154bf93e106d967faa631c612f",
+          "contexts": [],
+          "pattern": "was (?P<point>[\\d,]+)",
+          "scale": 1,
+          "valueKind": "point",
+          "approximate": false,
+          "capital": {
+            "section": "capital",
+            "scope": "consolidated-common",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported-no-split-reconciliation",
+            "recast": "as_reported"
+          }
+        },
+        {
+          "key": "weighted_diluted",
+          "kind": "capital",
+          "metricId": "weighted_diluted",
+          "label": "Weighted diluted shares",
+          "issuerLabel": "Weighted diluted shares",
+          "unit": "count",
+          "currency": null,
+          "period": {
+            "label": "Q2 FY2026",
+            "start": "2025-11-28",
+            "end": "2026-02-26",
+            "type": "quarter"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-weighted_diluted-fy2026",
+          "definition": "Weighted diluted shares",
+          "note": "Current reported scope only; predecessor taxonomy is not joined.",
+          "quote": "Number of shares used in per share calculations Basic 1,126 1,115 1,125 1,113 Diluted 1,142 1,123 1,140 1,123",
+          "quoteSha256": "55d43a87cf7af334bbfcb6ecfd8a861d928a92820647f6b8c0c154f452fc6f2d",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "pattern": "Diluted (?P<point>[\\d,]+)",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "capital": {
+            "section": "capital",
+            "scope": "consolidated-common",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported-no-split-reconciliation",
+            "recast": "as_reported"
+          }
+        },
+        {
+          "key": "repurchase_cash",
+          "kind": "capital",
+          "metricId": "repurchase_cash",
+          "label": "Cash repurchases under repurchase program",
+          "issuerLabel": "Cash repurchases under repurchase program",
+          "unit": "USD",
+          "currency": "USD",
+          "period": {
+            "label": "YTD Q2 FY2026",
+            "start": "2025-08-29",
+            "end": "2026-02-26",
+            "type": "year_to_date"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-repurchase_cash-fy2026",
+          "definition": "Cash repurchases under repurchase program",
+          "note": "Actual cash outflow under the repurchase program, excluding employee withholding. Not authorization capacity.",
+          "quote": "Repurchases of common stock - repurchase program ( 650 ) —",
+          "quoteSha256": "b9e403bc803643b90ae4b322571c7d2cbf381ccc6b21626ee69c87d0b45ab7bd",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "pattern": "program \\( (?P<point>[\\d,]+) \\)",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "capital": {
+            "section": "capital",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported"
+          }
+        }
+      ],
+      "sha256": "c8679c08be40e0c2d88293fc68243f52b5287fbc141d2d64911bf483cb99ab3f",
+      "sourceSha256": "452dfcbc3a89c6bd47068f90eb089e05485cf47c26b4ccbb50ac492585fc9cb5",
+      "rights": "Bounded factual rows and context; not full filing archive."
     }
   ],
   "coverage": {
@@ -16180,6 +18590,28 @@
       ],
       "businessMix": "reviewed",
       "capital": "reviewed"
+    },
+    "MU": {
+      "guidance": "reviewed",
+      "kpi": "not_selected",
+      "businessMix": "reviewed",
+      "capital": "partial",
+      "note": "Two latest earnings releases reviewed. No standalone operating KPI admitted; further definitions/history remain review-required.",
+      "excluded": [
+        "Standalone KPI history not admitted",
+        "Debt completeness, maturities and issuance reconciliation require further review"
+      ]
+    },
+    "VRT": {
+      "guidance": "reviewed",
+      "kpi": "not_selected",
+      "businessMix": "reviewed",
+      "capital": "partial",
+      "note": "Two latest earnings releases reviewed. No standalone operating KPI admitted; further definitions/history remain review-required.",
+      "excluded": [
+        "Standalone KPI history not admitted",
+        "Debt completeness, maturities and issuance reconciliation require further review"
+      ]
     }
   }
 }

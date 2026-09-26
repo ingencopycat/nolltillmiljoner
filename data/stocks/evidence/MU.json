@@ -1,0 +1,5522 @@
+{
+  "schema": "ntm-company-evidence/1",
+  "ticker": "MU",
+  "cik": "0000723125",
+  "events": [
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "8-K",
+      "accessionNumber": "0001104659-26-101067",
+      "filingDate": "2026-08-26",
+      "reportDate": "2026-08-24",
+      "primaryDocument": "tm2624017d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926101067/tm2624017d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926101067/",
+      "items": [
+        "5.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "10-Q",
+      "accessionNumber": "0000723125-26-000015",
+      "filingDate": "2026-06-25",
+      "reportDate": "2026-05-28",
+      "primaryDocument": "mu-20260528.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "8-K",
+      "accessionNumber": "0000723125-26-000013",
+      "filingDate": "2026-06-24",
+      "reportDate": "2026-06-24",
+      "primaryDocument": "mu-20260624.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/mu-20260624.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0000723125-26-000013",
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/a2026q3ex991-pressrelease.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "unspecified",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/mu-20260624.htm",
+          "sourceSha256": "2e47e0a5305dacc4e9e85710d59f01df867756ad80741c699aaf7699dc7c337d"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "8-K",
+      "accessionNumber": "0001104659-26-071845",
+      "filingDate": "2026-06-09",
+      "reportDate": "2026-06-09",
+      "primaryDocument": "tm2617112d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926071845/tm2617112d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926071845/",
+      "items": [
+        "5.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "8-K",
+      "accessionNumber": "0001104659-26-038249",
+      "filingDate": "2026-04-01",
+      "reportDate": "2026-03-31",
+      "primaryDocument": "tm2610810d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926038249/tm2610810d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926038249/",
+      "items": [
+        "8.01",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "8-K",
+      "accessionNumber": "0001104659-26-034174",
+      "filingDate": "2026-03-25",
+      "reportDate": "2026-03-25",
+      "primaryDocument": "tm269755d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926034174/tm269755d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926034174/",
+      "items": [
+        "8.01",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "10-Q",
+      "accessionNumber": "0000723125-26-000006",
+      "filingDate": "2026-03-19",
+      "reportDate": "2026-02-26",
+      "primaryDocument": "mu-20260226.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000006/mu-20260226.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000006/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "8-K",
+      "accessionNumber": "0000723125-26-000004",
+      "filingDate": "2026-03-18",
+      "reportDate": "2026-03-18",
+      "primaryDocument": "mu-20260318.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000004/mu-20260318.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000004/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0000723125-26-000004",
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000004/a2026q2ex991-pressrelease.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "unspecified",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000004/mu-20260318.htm",
+          "sourceSha256": "e3a7fd24320184892b4e7d06d0b2ff169fddb0e70f60d014a6b1ce16641393e7"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "8-K",
+      "accessionNumber": "0001104659-26-005366",
+      "filingDate": "2026-01-21",
+      "reportDate": "2026-01-15",
+      "primaryDocument": "tm263707d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926005366/tm263707d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926005366/",
+      "items": [
+        "5.03",
+        "5.07",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "10-Q",
+      "accessionNumber": "0000723125-25-000046",
+      "filingDate": "2025-12-18",
+      "reportDate": "2025-11-27",
+      "primaryDocument": "mu-20251127.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000046/mu-20251127.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000046/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "8-K",
+      "accessionNumber": "0000723125-25-000044",
+      "filingDate": "2025-12-17",
+      "reportDate": "2025-12-17",
+      "primaryDocument": "mu-20251217.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000044/mu-20251217.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000044/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0000723125-25-000044",
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000044/a2026q1ex991-pressrelease.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "unspecified",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000044/mu-20251217.htm",
+          "sourceSha256": "2bd8a94efc46ebc093ae3cf214258f69b1baee83fe1ed083abd74bf2d936a862"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "8-K",
+      "accessionNumber": "0001104659-25-101237",
+      "filingDate": "2025-10-21",
+      "reportDate": "2025-10-15",
+      "primaryDocument": "tm2529116d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925101237/tm2529116d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925101237/",
+      "items": [
+        "5.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "10-K",
+      "accessionNumber": "0000723125-25-000028",
+      "filingDate": "2025-10-03",
+      "reportDate": "2025-08-28",
+      "primaryDocument": "mu-20250828.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000028/mu-20250828.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000028/",
+      "items": [],
+      "amendment": false,
+      "classification": "annual_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "8-K",
+      "accessionNumber": "0000723125-25-000024",
+      "filingDate": "2025-09-23",
+      "reportDate": "2025-09-23",
+      "primaryDocument": "mu-20250923.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000024/mu-20250923.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000024/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0000723125-25-000024",
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000024/a2025q4ex991-pressrelease.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "unspecified",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000024/mu-20250923.htm",
+          "sourceSha256": "66e854c12ba3720608b342c9a26b9df3cfe6130caf498c50c683213912008e7f"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "8-K",
+      "accessionNumber": "0001104659-25-075940",
+      "filingDate": "2025-08-11",
+      "reportDate": "2025-08-11",
+      "primaryDocument": "tm2522933d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925075940/tm2522933d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925075940/",
+      "items": [
+        "7.01",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "8-K",
+      "accessionNumber": "0001104659-25-069019",
+      "filingDate": "2025-07-18",
+      "reportDate": "2025-07-17",
+      "primaryDocument": "tm2521153d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925069019/tm2521153d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925069019/",
+      "items": [
+        "5.03",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "10-Q",
+      "accessionNumber": "0000723125-25-000021",
+      "filingDate": "2025-06-26",
+      "reportDate": "2025-05-29",
+      "primaryDocument": "mu-20250529.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000021/mu-20250529.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000021/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "8-K",
+      "accessionNumber": "0000723125-25-000019",
+      "filingDate": "2025-06-25",
+      "reportDate": "2025-06-25",
+      "primaryDocument": "mu-20250625.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000019/mu-20250625.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000019/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0000723125-25-000019",
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000019/a2025q3ex991-pressrelease.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "unspecified",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000019/mu-20250625.htm",
+          "sourceSha256": "c3546d1a287d59e0182186aef6c9486c32dfbea49b006653e217d2ab72eaf493"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "8-K",
+      "accessionNumber": "0001104659-25-058741",
+      "filingDate": "2025-06-12",
+      "reportDate": "2025-06-11",
+      "primaryDocument": "tm2517778d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925058741/tm2517778d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925058741/",
+      "items": [
+        "8.01",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "8-K",
+      "accessionNumber": "0001104659-25-041201",
+      "filingDate": "2025-04-29",
+      "reportDate": "2025-04-24",
+      "primaryDocument": "tm2513434d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925041201/tm2513434d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925041201/",
+      "items": [
+        "1.01",
+        "2.03",
+        "8.01",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "10-Q",
+      "accessionNumber": "0000723125-25-000009",
+      "filingDate": "2025-03-21",
+      "reportDate": "2025-02-27",
+      "primaryDocument": "mu-20250227.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000009/mu-20250227.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000009/",
+      "items": [],
+      "amendment": false,
+      "classification": "quarterly_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "8-K",
+      "accessionNumber": "0000723125-25-000006",
+      "filingDate": "2025-03-20",
+      "reportDate": "2025-03-20",
+      "primaryDocument": "mu-20250320.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000006/mu-20250320.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000006/",
+      "items": [
+        "2.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "results_disclosure",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [
+        {
+          "exhibit": "99.1",
+          "documentType": "earnings_release",
+          "accessionNumber": "0000723125-25-000006",
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000006/a2025q2ex991-pressrelease.htm",
+          "source": "SEC",
+          "relationship": "item_2_02_and_exhibit_table",
+          "legalStatus": "unspecified",
+          "relationshipSource": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000006/mu-20250320.htm",
+          "sourceSha256": "9e2c421cd777e3069227546a0a40373daabb47b3a98d2e1a3fdb76a299c45835"
+        }
+      ],
+      "documentStatus": "verified"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "8-K",
+      "accessionNumber": "0001104659-25-022973",
+      "filingDate": "2025-03-12",
+      "reportDate": "2025-03-12",
+      "primaryDocument": "tm258936d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925022973/tm258936d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925022973/",
+      "items": [
+        "1.01",
+        "1.02",
+        "2.03"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    },
+    {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "form": "8-K",
+      "accessionNumber": "0001104659-25-020878",
+      "filingDate": "2025-03-05",
+      "reportDate": "2025-03-05",
+      "primaryDocument": "tm258327d1_8k.htm",
+      "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925020878/tm258327d1_8k.htm",
+      "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925020878/",
+      "items": [
+        "5.02",
+        "9.01"
+      ],
+      "amendment": false,
+      "classification": "other_current_report",
+      "source": {
+        "provider": "SEC",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+      },
+      "documents": [],
+      "documentStatus": "not_applicable"
+    }
+  ],
+  "latestReportAccession": "0000723125-26-000015",
+  "coverage": "24 most recent supported filings in SEC recent submissions; not a complete archive",
+  "reviewedEvidence": {
+    "schema": "ntm-reviewed-observations/1",
+    "observations": [
+      {
+        "kind": "capital",
+        "metricId": "cash",
+        "issuerLabel": "Cash and equivalents",
+        "label": "Cash and equivalents",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "2026-02-26",
+          "start": null,
+          "end": "2026-02-26",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-cash-2026-v1",
+        "definition": "Cash and equivalents",
+        "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+        "id": "MU:0000723125-26-000004:cash",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-03-18",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 13908000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000004/a2026q2ex991-pressrelease.htm",
+          "accessionNumber": "0000723125-26-000004",
+          "exhibit": "99.1",
+          "quote": "Cash and equivalents $ 13,908",
+          "quoteSha256": "735ce6e84dec7f4fdb49493f6b216e3a05da58f50ab187a1d6fcd94177153445",
+          "contexts": [
+            "(In millions)",
+            "February 26, 2026"
+          ],
+          "documentType": "earnings_release"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "capital": {
+          "section": "liquidity",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported",
+          "debtScope": "reported-component-only",
+          "calculationBasis": "balance-sheet-carrying-amount"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "debt_current",
+        "issuerLabel": "Current debt",
+        "label": "Current debt",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "2026-02-26",
+          "start": null,
+          "end": "2026-02-26",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-debt_current-2026-v1",
+        "definition": "Current debt",
+        "note": "Reported debt component only; completeness/lease scope not reconciled. No net-debt calculation.",
+        "id": "MU:0000723125-26-000004:debt_current",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-03-18",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 585000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000004/a2026q2ex991-pressrelease.htm",
+          "accessionNumber": "0000723125-26-000004",
+          "exhibit": "99.1",
+          "quote": "Current debt 585",
+          "quoteSha256": "f8b69155f1f2e23fa77332c1cf947bcdda63c830429f55c5109c6befa4e9d06f",
+          "contexts": [
+            "(In millions)",
+            "February 26, 2026"
+          ],
+          "documentType": "earnings_release"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "capital": {
+          "section": "liquidity",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported",
+          "debtScope": "reported-component-only",
+          "calculationBasis": "balance-sheet-carrying-amount"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "debt_noncurrent",
+        "issuerLabel": "Long-term debt",
+        "label": "Long-term debt",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "2026-02-26",
+          "start": null,
+          "end": "2026-02-26",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-debt_noncurrent-2026-v1",
+        "definition": "Long-term debt",
+        "note": "Reported debt component only; completeness/lease scope not reconciled. No net-debt calculation.",
+        "id": "MU:0000723125-26-000004:debt_noncurrent",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-03-18",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 9557000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000004/a2026q2ex991-pressrelease.htm",
+          "accessionNumber": "0000723125-26-000004",
+          "exhibit": "99.1",
+          "quote": "Long-term debt 9,557",
+          "quoteSha256": "b699859ea22eb147fa43e2d1cc36d21f444006d56b6c5979cfcc26e18b8faf9d",
+          "contexts": [
+            "(In millions)",
+            "February 26, 2026"
+          ],
+          "documentType": "earnings_release"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "capital": {
+          "section": "liquidity",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported",
+          "debtScope": "reported-component-only",
+          "calculationBasis": "balance-sheet-carrying-amount"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "investment_securities",
+        "issuerLabel": "Short-term investments",
+        "label": "Short-term investments",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "2026-02-26",
+          "start": null,
+          "end": "2026-02-26",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-investment_securities-2026-v1",
+        "definition": "Short-term investments",
+        "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+        "id": "MU:0000723125-26-000004:investment_securities",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-03-18",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 681000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000004/a2026q2ex991-pressrelease.htm",
+          "accessionNumber": "0000723125-26-000004",
+          "exhibit": "99.1",
+          "quote": "Short-term investments 681",
+          "quoteSha256": "676ea88455c529eefa66c86884bbce9db0373728489d642a1cb25ae97ccedf06",
+          "contexts": [
+            "(In millions)",
+            "February 26, 2026"
+          ],
+          "documentType": "earnings_release"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "capital": {
+          "section": "liquidity",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported",
+          "debtScope": "reported-component-only",
+          "calculationBasis": "balance-sheet-carrying-amount"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "revenue",
+        "issuerLabel": "Revenue",
+        "label": "Revenue",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q3 FY2026",
+          "end": null,
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-revenue-2026-v1",
+        "definition": "Revenue",
+        "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+        "id": "MU:0000723125-26-000004:revenue",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-03-18",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "point": 33500000000.0,
+          "lower": 32750000000.0,
+          "upper": 34250000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000004/a2026q2ex991-pressrelease.htm",
+          "accessionNumber": "0000723125-26-000004",
+          "exhibit": "99.1",
+          "quote": "FQ3-26 GAAP (1) Outlook Non-GAAP (2) Outlook Revenue $33.5 billion ± $750 million $33.5 billion ± $750 million",
+          "quoteSha256": "d87dd6b89991347264739b418dac098901fc38836758417f53633c699c40078f",
+          "contexts": [
+            "(In millions)",
+            "February 26, 2026"
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "sbc_expense",
+        "issuerLabel": "SBC cash-flow reconciliation",
+        "label": "SBC cash-flow reconciliation",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "YTD Q2 FY2026",
+          "start": "2025-08-29",
+          "end": "2026-02-26",
+          "type": "year_to_date"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-sbc_expense-2026-v1",
+        "definition": "SBC cash-flow reconciliation",
+        "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+        "id": "MU:0000723125-26-000004:sbc_expense",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-03-18",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 599000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000004/a2026q2ex991-pressrelease.htm",
+          "accessionNumber": "0000723125-26-000004",
+          "exhibit": "99.1",
+          "quote": "Stock-based compensation 599 469",
+          "quoteSha256": "678a6176cce5e9a22b561883e5e3143777aac1752c94dacb4eb61800f22569f9",
+          "contexts": [
+            "(In millions)",
+            "February 26, 2026"
+          ],
+          "documentType": "earnings_release"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "capital": {
+          "section": "capital",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported",
+          "calculationBasis": "cash-flow-sbc-addback-ytd"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "repurchase_cash",
+        "issuerLabel": "Cash repurchases under repurchase program",
+        "label": "Cash repurchases under repurchase program",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "YTD Q2 FY2026",
+          "start": "2025-08-29",
+          "end": "2026-02-26",
+          "type": "year_to_date"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-repurchase_cash-fy2026",
+        "definition": "Cash repurchases under repurchase program",
+        "note": "Actual cash outflow under the repurchase program, excluding employee withholding. Not authorization capacity.",
+        "id": "MU:0000723125-26-000006:repurchase_cash",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-03-19",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 650000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000006/mu-20260226.htm",
+          "accessionNumber": "0000723125-26-000006",
+          "exhibit": null,
+          "quote": "Repurchases of common stock - repurchase program ( 650 ) —",
+          "quoteSha256": "b9e403bc803643b90ae4b322571c7d2cbf381ccc6b21626ee69c87d0b45ab7bd",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "capital": {
+          "section": "capital",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported"
+        }
+      },
+      {
+        "kind": "business_mix",
+        "metricId": "revenue-all-other",
+        "issuerLabel": "All Other",
+        "label": "All Other",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q2 FY2026",
+          "start": "2025-11-28",
+          "end": "2026-02-26",
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-revenue-all-other-fy2026",
+        "definition": "All Other",
+        "note": "Current reported scope only; predecessor taxonomy is not joined.",
+        "id": "MU:0000723125-26-000006:revenue-all-other",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-03-19",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 5000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000006/mu-20260226.htm",
+          "accessionNumber": "0000723125-26-000006",
+          "exhibit": null,
+          "quote": "Quarter Ended February 26, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 7,749 $ 5,687 $ 7,711 $ 2,708 $ 5 $ — $ 23,860",
+          "quoteSha256": "26b6ed3e012cf9dde6cb56d2953e4ca15c6f6b25781b6c5d0a87818750ae40f5",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "category": {
+          "id": "all-other",
+          "label": "All Other",
+          "role": "category"
+        },
+        "group": {
+          "id": "mu-reportable-segments-fy2026",
+          "label": "Reportable segments",
+          "version": "fy2026-v1",
+          "type": "reportable_segment",
+          "members": [
+            "cloud-memory",
+            "core-data-center",
+            "mobile-client",
+            "automotive-embedded",
+            "all-other"
+          ],
+          "totalId": "total",
+          "parent": null
+        },
+        "recast": {
+          "status": "as_reported",
+          "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+        }
+      },
+      {
+        "kind": "business_mix",
+        "metricId": "revenue-automotive-embedded",
+        "issuerLabel": "Automotive and Embedded Business Unit",
+        "label": "Automotive and Embedded Business Unit",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q2 FY2026",
+          "start": "2025-11-28",
+          "end": "2026-02-26",
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-revenue-automotive-embedded-fy2026",
+        "definition": "Automotive and Embedded Business Unit",
+        "note": "Current reported scope only; predecessor taxonomy is not joined.",
+        "id": "MU:0000723125-26-000006:revenue-automotive-embedded",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-03-19",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 2708000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000006/mu-20260226.htm",
+          "accessionNumber": "0000723125-26-000006",
+          "exhibit": null,
+          "quote": "Quarter Ended February 26, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 7,749 $ 5,687 $ 7,711 $ 2,708 $ 5 $ — $ 23,860",
+          "quoteSha256": "26b6ed3e012cf9dde6cb56d2953e4ca15c6f6b25781b6c5d0a87818750ae40f5",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "category": {
+          "id": "automotive-embedded",
+          "label": "Automotive and Embedded Business Unit",
+          "role": "category"
+        },
+        "group": {
+          "id": "mu-reportable-segments-fy2026",
+          "label": "Reportable segments",
+          "version": "fy2026-v1",
+          "type": "reportable_segment",
+          "members": [
+            "cloud-memory",
+            "core-data-center",
+            "mobile-client",
+            "automotive-embedded",
+            "all-other"
+          ],
+          "totalId": "total",
+          "parent": null
+        },
+        "recast": {
+          "status": "as_reported",
+          "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+        }
+      },
+      {
+        "kind": "business_mix",
+        "metricId": "revenue-cloud-memory",
+        "issuerLabel": "Cloud Memory Business Unit",
+        "label": "Cloud Memory Business Unit",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q2 FY2026",
+          "start": "2025-11-28",
+          "end": "2026-02-26",
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-revenue-cloud-memory-fy2026",
+        "definition": "Cloud Memory Business Unit",
+        "note": "Current reported scope only; predecessor taxonomy is not joined.",
+        "id": "MU:0000723125-26-000006:revenue-cloud-memory",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-03-19",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 7749000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000006/mu-20260226.htm",
+          "accessionNumber": "0000723125-26-000006",
+          "exhibit": null,
+          "quote": "Quarter Ended February 26, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 7,749 $ 5,687 $ 7,711 $ 2,708 $ 5 $ — $ 23,860",
+          "quoteSha256": "26b6ed3e012cf9dde6cb56d2953e4ca15c6f6b25781b6c5d0a87818750ae40f5",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "category": {
+          "id": "cloud-memory",
+          "label": "Cloud Memory Business Unit",
+          "role": "category"
+        },
+        "group": {
+          "id": "mu-reportable-segments-fy2026",
+          "label": "Reportable segments",
+          "version": "fy2026-v1",
+          "type": "reportable_segment",
+          "members": [
+            "cloud-memory",
+            "core-data-center",
+            "mobile-client",
+            "automotive-embedded",
+            "all-other"
+          ],
+          "totalId": "total",
+          "parent": null
+        },
+        "recast": {
+          "status": "as_reported",
+          "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+        }
+      },
+      {
+        "kind": "business_mix",
+        "metricId": "revenue-core-data-center",
+        "issuerLabel": "Core Data Center Business Unit",
+        "label": "Core Data Center Business Unit",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q2 FY2026",
+          "start": "2025-11-28",
+          "end": "2026-02-26",
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-revenue-core-data-center-fy2026",
+        "definition": "Core Data Center Business Unit",
+        "note": "Current reported scope only; predecessor taxonomy is not joined.",
+        "id": "MU:0000723125-26-000006:revenue-core-data-center",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-03-19",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 5687000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000006/mu-20260226.htm",
+          "accessionNumber": "0000723125-26-000006",
+          "exhibit": null,
+          "quote": "Quarter Ended February 26, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 7,749 $ 5,687 $ 7,711 $ 2,708 $ 5 $ — $ 23,860",
+          "quoteSha256": "26b6ed3e012cf9dde6cb56d2953e4ca15c6f6b25781b6c5d0a87818750ae40f5",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "category": {
+          "id": "core-data-center",
+          "label": "Core Data Center Business Unit",
+          "role": "category"
+        },
+        "group": {
+          "id": "mu-reportable-segments-fy2026",
+          "label": "Reportable segments",
+          "version": "fy2026-v1",
+          "type": "reportable_segment",
+          "members": [
+            "cloud-memory",
+            "core-data-center",
+            "mobile-client",
+            "automotive-embedded",
+            "all-other"
+          ],
+          "totalId": "total",
+          "parent": null
+        },
+        "recast": {
+          "status": "as_reported",
+          "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+        }
+      },
+      {
+        "kind": "business_mix",
+        "metricId": "revenue-mobile-client",
+        "issuerLabel": "Mobile and Client Business Unit",
+        "label": "Mobile and Client Business Unit",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q2 FY2026",
+          "start": "2025-11-28",
+          "end": "2026-02-26",
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-revenue-mobile-client-fy2026",
+        "definition": "Mobile and Client Business Unit",
+        "note": "Current reported scope only; predecessor taxonomy is not joined.",
+        "id": "MU:0000723125-26-000006:revenue-mobile-client",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-03-19",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 7711000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000006/mu-20260226.htm",
+          "accessionNumber": "0000723125-26-000006",
+          "exhibit": null,
+          "quote": "Quarter Ended February 26, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 7,749 $ 5,687 $ 7,711 $ 2,708 $ 5 $ — $ 23,860",
+          "quoteSha256": "26b6ed3e012cf9dde6cb56d2953e4ca15c6f6b25781b6c5d0a87818750ae40f5",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "category": {
+          "id": "mobile-client",
+          "label": "Mobile and Client Business Unit",
+          "role": "category"
+        },
+        "group": {
+          "id": "mu-reportable-segments-fy2026",
+          "label": "Reportable segments",
+          "version": "fy2026-v1",
+          "type": "reportable_segment",
+          "members": [
+            "cloud-memory",
+            "core-data-center",
+            "mobile-client",
+            "automotive-embedded",
+            "all-other"
+          ],
+          "totalId": "total",
+          "parent": null
+        },
+        "recast": {
+          "status": "as_reported",
+          "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+        }
+      },
+      {
+        "kind": "business_mix",
+        "metricId": "revenue-total",
+        "issuerLabel": "Total revenue",
+        "label": "Total revenue",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q2 FY2026",
+          "start": "2025-11-28",
+          "end": "2026-02-26",
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-revenue-total-fy2026",
+        "definition": "Total revenue",
+        "note": "Current reported scope only; predecessor taxonomy is not joined.",
+        "id": "MU:0000723125-26-000006:revenue-total",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-03-19",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 23860000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000006/mu-20260226.htm",
+          "accessionNumber": "0000723125-26-000006",
+          "exhibit": null,
+          "quote": "Quarter Ended February 26, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 7,749 $ 5,687 $ 7,711 $ 2,708 $ 5 $ — $ 23,860",
+          "quoteSha256": "26b6ed3e012cf9dde6cb56d2953e4ca15c6f6b25781b6c5d0a87818750ae40f5",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "category": {
+          "id": "total",
+          "label": "Total revenue",
+          "role": "total"
+        },
+        "group": {
+          "id": "mu-reportable-segments-fy2026",
+          "label": "Reportable segments",
+          "version": "fy2026-v1",
+          "type": "reportable_segment",
+          "members": [
+            "cloud-memory",
+            "core-data-center",
+            "mobile-client",
+            "automotive-embedded",
+            "all-other"
+          ],
+          "totalId": "total",
+          "parent": null
+        },
+        "recast": {
+          "status": "as_reported",
+          "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "shares_outstanding",
+        "issuerLabel": "Common shares outstanding",
+        "label": "Common shares outstanding",
+        "unit": "count",
+        "currency": null,
+        "period": {
+          "label": "2026-03-11",
+          "start": null,
+          "end": "2026-03-11",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-shares_outstanding-fy2026",
+        "definition": "Common shares outstanding",
+        "note": "Current reported scope only; predecessor taxonomy is not joined.",
+        "id": "MU:0000723125-26-000006:shares_outstanding",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-03-19",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 1127734051.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000006/mu-20260226.htm",
+          "accessionNumber": "0000723125-26-000006",
+          "exhibit": null,
+          "quote": "The number of outstanding shares of the registrant’s common stock as of March 11, 2026 was 1,127,734,051 .",
+          "quoteSha256": "2803bc9ca11da832a5e0cc3e3f5af83a729d61154bf93e106d967faa631c612f",
+          "contexts": [],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "capital": {
+          "section": "capital",
+          "scope": "consolidated-common",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported-no-split-reconciliation",
+          "recast": "as_reported"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "weighted_diluted",
+        "issuerLabel": "Weighted diluted shares",
+        "label": "Weighted diluted shares",
+        "unit": "count",
+        "currency": null,
+        "period": {
+          "label": "Q2 FY2026",
+          "start": "2025-11-28",
+          "end": "2026-02-26",
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-weighted_diluted-fy2026",
+        "definition": "Weighted diluted shares",
+        "note": "Current reported scope only; predecessor taxonomy is not joined.",
+        "id": "MU:0000723125-26-000006:weighted_diluted",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-03-19",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 1142000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000006/mu-20260226.htm",
+          "accessionNumber": "0000723125-26-000006",
+          "exhibit": null,
+          "quote": "Number of shares used in per share calculations Basic 1,126 1,115 1,125 1,113 Diluted 1,142 1,123 1,140 1,123",
+          "quoteSha256": "55d43a87cf7af334bbfcb6ecfd8a861d928a92820647f6b8c0c154f452fc6f2d",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "capital": {
+          "section": "capital",
+          "scope": "consolidated-common",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported-no-split-reconciliation",
+          "recast": "as_reported"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "cash",
+        "issuerLabel": "Cash and equivalents",
+        "label": "Cash and equivalents",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "2026-05-28",
+          "start": null,
+          "end": "2026-05-28",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-cash-2026-v1",
+        "definition": "Cash and equivalents",
+        "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+        "id": "MU:0000723125-26-000013:cash",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-06-24",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 24995000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/a2026q3ex991-pressrelease.htm",
+          "accessionNumber": "0000723125-26-000013",
+          "exhibit": "99.1",
+          "quote": "Cash and equivalents $ 24,995",
+          "quoteSha256": "bef3cdfdd644120d9b0f4278b11ee49a1f4b62521467ed6e9b3d92e4abaa5f3d",
+          "contexts": [
+            "(In millions)",
+            "May 28, 2026"
+          ],
+          "documentType": "earnings_release"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "capital": {
+          "section": "liquidity",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported",
+          "debtScope": "reported-component-only",
+          "calculationBasis": "balance-sheet-carrying-amount"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "debt_current",
+        "issuerLabel": "Current debt",
+        "label": "Current debt",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "2026-05-28",
+          "start": null,
+          "end": "2026-05-28",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-debt_current-2026-v1",
+        "definition": "Current debt",
+        "note": "Reported debt component only; completeness/lease scope not reconciled. No net-debt calculation.",
+        "id": "MU:0000723125-26-000013:debt_current",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-06-24",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 582000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/a2026q3ex991-pressrelease.htm",
+          "accessionNumber": "0000723125-26-000013",
+          "exhibit": "99.1",
+          "quote": "Current debt 582",
+          "quoteSha256": "7a6716a389ce185d1ec42a003a83ac80749e51a3c192fbc9c05460c676fe0bd3",
+          "contexts": [
+            "(In millions)",
+            "May 28, 2026"
+          ],
+          "documentType": "earnings_release"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "capital": {
+          "section": "liquidity",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported",
+          "debtScope": "reported-component-only",
+          "calculationBasis": "balance-sheet-carrying-amount"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "debt_noncurrent",
+        "issuerLabel": "Long-term debt",
+        "label": "Long-term debt",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "2026-05-28",
+          "start": null,
+          "end": "2026-05-28",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-debt_noncurrent-2026-v1",
+        "definition": "Long-term debt",
+        "note": "Reported debt component only; completeness/lease scope not reconciled. No net-debt calculation.",
+        "id": "MU:0000723125-26-000013:debt_noncurrent",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-06-24",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 5140000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/a2026q3ex991-pressrelease.htm",
+          "accessionNumber": "0000723125-26-000013",
+          "exhibit": "99.1",
+          "quote": "Long-term debt 5,140",
+          "quoteSha256": "b902a3976be24a65050c3bc8e6248d317d35a83f1ac5867ae4a6ba8837b981c7",
+          "contexts": [
+            "(In millions)",
+            "May 28, 2026"
+          ],
+          "documentType": "earnings_release"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "capital": {
+          "section": "liquidity",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported",
+          "debtScope": "reported-component-only",
+          "calculationBasis": "balance-sheet-carrying-amount"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "investment_securities",
+        "issuerLabel": "Short-term investments",
+        "label": "Short-term investments",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "2026-05-28",
+          "start": null,
+          "end": "2026-05-28",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-investment_securities-2026-v1",
+        "definition": "Short-term investments",
+        "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+        "id": "MU:0000723125-26-000013:investment_securities",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-06-24",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 1027000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/a2026q3ex991-pressrelease.htm",
+          "accessionNumber": "0000723125-26-000013",
+          "exhibit": "99.1",
+          "quote": "Short-term investments 1,027",
+          "quoteSha256": "fdcda9b90fc17c8b2273551df925f1830281fd7e92a769ddb09895b1df2d7d5e",
+          "contexts": [
+            "(In millions)",
+            "May 28, 2026"
+          ],
+          "documentType": "earnings_release"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "capital": {
+          "section": "liquidity",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported",
+          "debtScope": "reported-component-only",
+          "calculationBasis": "balance-sheet-carrying-amount"
+        }
+      },
+      {
+        "kind": "guidance",
+        "metricId": "revenue",
+        "issuerLabel": "Revenue",
+        "label": "Revenue",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q4 FY2026",
+          "end": null,
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-revenue-2026-v1",
+        "definition": "Revenue",
+        "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+        "id": "MU:0000723125-26-000013:revenue",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-06-24",
+        "value": {
+          "kind": "range",
+          "approximate": false,
+          "point": 50000000000.0,
+          "lower": 49000000000.0,
+          "upper": 51000000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/a2026q3ex991-pressrelease.htm",
+          "accessionNumber": "0000723125-26-000013",
+          "exhibit": "99.1",
+          "quote": "FQ4-26 GAAP (1) Outlook Non-GAAP (2) Outlook Revenue $50.0 billion ± $1.0 billion $50.0 billion ± $1.0 billion",
+          "quoteSha256": "e5d2fe61307661d47dbb04bf1e4791d0f4486c87f5c90f1819fec4ccf01a47e6",
+          "contexts": [
+            "(In millions)",
+            "May 28, 2026"
+          ]
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "sbc_expense",
+        "issuerLabel": "SBC cash-flow reconciliation",
+        "label": "SBC cash-flow reconciliation",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "YTD Q3 FY2026",
+          "start": "2025-08-29",
+          "end": "2026-05-28",
+          "type": "year_to_date"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-sbc_expense-2026-v1",
+        "definition": "SBC cash-flow reconciliation",
+        "note": "Avgränsat granskat underlag; saknad historik har inte fyllts i.",
+        "id": "MU:0000723125-26-000013:sbc_expense",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-06-24",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 954000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/a2026q3ex991-pressrelease.htm",
+          "accessionNumber": "0000723125-26-000013",
+          "exhibit": "99.1",
+          "quote": "Stock-based compensation 954 722",
+          "quoteSha256": "262ae8ef6182bd21e2be1b08f0742c7633aa9bcbb87a9bf51bde451632764aa4",
+          "contexts": [
+            "(In millions)",
+            "May 28, 2026"
+          ],
+          "documentType": "earnings_release"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "capital": {
+          "section": "capital",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported",
+          "calculationBasis": "cash-flow-sbc-addback-ytd"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "repurchase_cash",
+        "issuerLabel": "Cash repurchases under repurchase program",
+        "label": "Cash repurchases under repurchase program",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "YTD Q3 FY2026",
+          "start": "2025-08-29",
+          "end": "2026-05-28",
+          "type": "year_to_date"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-repurchase_cash-fy2026",
+        "definition": "Cash repurchases under repurchase program",
+        "note": "Actual cash outflow under the repurchase program, excluding employee withholding. Not authorization capacity.",
+        "id": "MU:0000723125-26-000015:repurchase_cash",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-06-25",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 650000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+          "accessionNumber": "0000723125-26-000015",
+          "exhibit": null,
+          "quote": "Repurchases of common stock - repurchase program ( 650 ) —",
+          "quoteSha256": "b9e403bc803643b90ae4b322571c7d2cbf381ccc6b21626ee69c87d0b45ab7bd",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "capital": {
+          "section": "capital",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported"
+        }
+      },
+      {
+        "kind": "business_mix",
+        "metricId": "revenue-all-other",
+        "issuerLabel": "All Other",
+        "label": "All Other",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q3 FY2026",
+          "start": "2026-02-27",
+          "end": "2026-05-28",
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-revenue-all-other-fy2026",
+        "definition": "All Other",
+        "note": "Current reported scope only; predecessor taxonomy is not joined.",
+        "id": "MU:0000723125-26-000015:revenue-all-other",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-06-25",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 8000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+          "accessionNumber": "0000723125-26-000015",
+          "exhibit": null,
+          "quote": "Quarter Ended May 28, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 13,769 $ 11,524 $ 11,521 $ 4,634 $ 8 $ — $ 41,456",
+          "quoteSha256": "770c2f56ebce80fb63318bf5b2d6fd33988f7749311e287cac60763a8b41a072",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "category": {
+          "id": "all-other",
+          "label": "All Other",
+          "role": "category"
+        },
+        "group": {
+          "id": "mu-reportable-segments-fy2026",
+          "label": "Reportable segments",
+          "version": "fy2026-v1",
+          "type": "reportable_segment",
+          "members": [
+            "cloud-memory",
+            "core-data-center",
+            "mobile-client",
+            "automotive-embedded",
+            "all-other"
+          ],
+          "totalId": "total",
+          "parent": null
+        },
+        "recast": {
+          "status": "as_reported",
+          "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+        }
+      },
+      {
+        "kind": "business_mix",
+        "metricId": "revenue-automotive-embedded",
+        "issuerLabel": "Automotive and Embedded Business Unit",
+        "label": "Automotive and Embedded Business Unit",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q3 FY2026",
+          "start": "2026-02-27",
+          "end": "2026-05-28",
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-revenue-automotive-embedded-fy2026",
+        "definition": "Automotive and Embedded Business Unit",
+        "note": "Current reported scope only; predecessor taxonomy is not joined.",
+        "id": "MU:0000723125-26-000015:revenue-automotive-embedded",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-06-25",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 4634000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+          "accessionNumber": "0000723125-26-000015",
+          "exhibit": null,
+          "quote": "Quarter Ended May 28, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 13,769 $ 11,524 $ 11,521 $ 4,634 $ 8 $ — $ 41,456",
+          "quoteSha256": "770c2f56ebce80fb63318bf5b2d6fd33988f7749311e287cac60763a8b41a072",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "category": {
+          "id": "automotive-embedded",
+          "label": "Automotive and Embedded Business Unit",
+          "role": "category"
+        },
+        "group": {
+          "id": "mu-reportable-segments-fy2026",
+          "label": "Reportable segments",
+          "version": "fy2026-v1",
+          "type": "reportable_segment",
+          "members": [
+            "cloud-memory",
+            "core-data-center",
+            "mobile-client",
+            "automotive-embedded",
+            "all-other"
+          ],
+          "totalId": "total",
+          "parent": null
+        },
+        "recast": {
+          "status": "as_reported",
+          "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+        }
+      },
+      {
+        "kind": "business_mix",
+        "metricId": "revenue-cloud-memory",
+        "issuerLabel": "Cloud Memory Business Unit",
+        "label": "Cloud Memory Business Unit",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q3 FY2026",
+          "start": "2026-02-27",
+          "end": "2026-05-28",
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-revenue-cloud-memory-fy2026",
+        "definition": "Cloud Memory Business Unit",
+        "note": "Current reported scope only; predecessor taxonomy is not joined.",
+        "id": "MU:0000723125-26-000015:revenue-cloud-memory",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-06-25",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 13769000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+          "accessionNumber": "0000723125-26-000015",
+          "exhibit": null,
+          "quote": "Quarter Ended May 28, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 13,769 $ 11,524 $ 11,521 $ 4,634 $ 8 $ — $ 41,456",
+          "quoteSha256": "770c2f56ebce80fb63318bf5b2d6fd33988f7749311e287cac60763a8b41a072",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "category": {
+          "id": "cloud-memory",
+          "label": "Cloud Memory Business Unit",
+          "role": "category"
+        },
+        "group": {
+          "id": "mu-reportable-segments-fy2026",
+          "label": "Reportable segments",
+          "version": "fy2026-v1",
+          "type": "reportable_segment",
+          "members": [
+            "cloud-memory",
+            "core-data-center",
+            "mobile-client",
+            "automotive-embedded",
+            "all-other"
+          ],
+          "totalId": "total",
+          "parent": null
+        },
+        "recast": {
+          "status": "as_reported",
+          "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+        }
+      },
+      {
+        "kind": "business_mix",
+        "metricId": "revenue-core-data-center",
+        "issuerLabel": "Core Data Center Business Unit",
+        "label": "Core Data Center Business Unit",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q3 FY2026",
+          "start": "2026-02-27",
+          "end": "2026-05-28",
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-revenue-core-data-center-fy2026",
+        "definition": "Core Data Center Business Unit",
+        "note": "Current reported scope only; predecessor taxonomy is not joined.",
+        "id": "MU:0000723125-26-000015:revenue-core-data-center",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-06-25",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 11524000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+          "accessionNumber": "0000723125-26-000015",
+          "exhibit": null,
+          "quote": "Quarter Ended May 28, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 13,769 $ 11,524 $ 11,521 $ 4,634 $ 8 $ — $ 41,456",
+          "quoteSha256": "770c2f56ebce80fb63318bf5b2d6fd33988f7749311e287cac60763a8b41a072",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "category": {
+          "id": "core-data-center",
+          "label": "Core Data Center Business Unit",
+          "role": "category"
+        },
+        "group": {
+          "id": "mu-reportable-segments-fy2026",
+          "label": "Reportable segments",
+          "version": "fy2026-v1",
+          "type": "reportable_segment",
+          "members": [
+            "cloud-memory",
+            "core-data-center",
+            "mobile-client",
+            "automotive-embedded",
+            "all-other"
+          ],
+          "totalId": "total",
+          "parent": null
+        },
+        "recast": {
+          "status": "as_reported",
+          "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+        }
+      },
+      {
+        "kind": "business_mix",
+        "metricId": "revenue-mobile-client",
+        "issuerLabel": "Mobile and Client Business Unit",
+        "label": "Mobile and Client Business Unit",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q3 FY2026",
+          "start": "2026-02-27",
+          "end": "2026-05-28",
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-revenue-mobile-client-fy2026",
+        "definition": "Mobile and Client Business Unit",
+        "note": "Current reported scope only; predecessor taxonomy is not joined.",
+        "id": "MU:0000723125-26-000015:revenue-mobile-client",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-06-25",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 11521000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+          "accessionNumber": "0000723125-26-000015",
+          "exhibit": null,
+          "quote": "Quarter Ended May 28, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 13,769 $ 11,524 $ 11,521 $ 4,634 $ 8 $ — $ 41,456",
+          "quoteSha256": "770c2f56ebce80fb63318bf5b2d6fd33988f7749311e287cac60763a8b41a072",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "category": {
+          "id": "mobile-client",
+          "label": "Mobile and Client Business Unit",
+          "role": "category"
+        },
+        "group": {
+          "id": "mu-reportable-segments-fy2026",
+          "label": "Reportable segments",
+          "version": "fy2026-v1",
+          "type": "reportable_segment",
+          "members": [
+            "cloud-memory",
+            "core-data-center",
+            "mobile-client",
+            "automotive-embedded",
+            "all-other"
+          ],
+          "totalId": "total",
+          "parent": null
+        },
+        "recast": {
+          "status": "as_reported",
+          "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+        }
+      },
+      {
+        "kind": "business_mix",
+        "metricId": "revenue-total",
+        "issuerLabel": "Total revenue",
+        "label": "Total revenue",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q3 FY2026",
+          "start": "2026-02-27",
+          "end": "2026-05-28",
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-revenue-total-fy2026",
+        "definition": "Total revenue",
+        "note": "Current reported scope only; predecessor taxonomy is not joined.",
+        "id": "MU:0000723125-26-000015:revenue-total",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-06-25",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 41456000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+          "accessionNumber": "0000723125-26-000015",
+          "exhibit": null,
+          "quote": "Quarter Ended May 28, 2026 CMBU CDBU MCBU AEBU All Other Unallocated Total Revenue $ 13,769 $ 11,524 $ 11,521 $ 4,634 $ 8 $ — $ 41,456",
+          "quoteSha256": "770c2f56ebce80fb63318bf5b2d6fd33988f7749311e287cac60763a8b41a072",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "category": {
+          "id": "total",
+          "label": "Total revenue",
+          "role": "total"
+        },
+        "group": {
+          "id": "mu-reportable-segments-fy2026",
+          "label": "Reportable segments",
+          "version": "fy2026-v1",
+          "type": "reportable_segment",
+          "members": [
+            "cloud-memory",
+            "core-data-center",
+            "mobile-client",
+            "automotive-embedded",
+            "all-other"
+          ],
+          "totalId": "total",
+          "parent": null
+        },
+        "recast": {
+          "status": "as_reported",
+          "note": "FY2026 current taxonomy. Includes All Other; no inferred residual."
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "shares_outstanding",
+        "issuerLabel": "Common shares outstanding",
+        "label": "Common shares outstanding",
+        "unit": "count",
+        "currency": null,
+        "period": {
+          "label": "2026-06-17",
+          "start": null,
+          "end": "2026-06-17",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-shares_outstanding-fy2026",
+        "definition": "Common shares outstanding",
+        "note": "Current reported scope only; predecessor taxonomy is not joined.",
+        "id": "MU:0000723125-26-000015:shares_outstanding",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-06-25",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 1129393151.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+          "accessionNumber": "0000723125-26-000015",
+          "exhibit": null,
+          "quote": "The number of outstanding shares of the registrant’s common stock as of June 17, 2026 was 1,129,393,151 .",
+          "quoteSha256": "fd8918f86d495e2db550179234349962b60e6c1e975867c3ae372ae00f8f93a5",
+          "contexts": [],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "capital": {
+          "section": "capital",
+          "scope": "consolidated-common",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported-no-split-reconciliation",
+          "recast": "as_reported"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "weighted_diluted",
+        "issuerLabel": "Weighted diluted shares",
+        "label": "Weighted diluted shares",
+        "unit": "count",
+        "currency": null,
+        "period": {
+          "label": "Q3 FY2026",
+          "start": "2026-02-27",
+          "end": "2026-05-28",
+          "type": "quarter"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-weighted_diluted-fy2026",
+        "definition": "Weighted diluted shares",
+        "note": "Current reported scope only; predecessor taxonomy is not joined.",
+        "id": "MU:0000723125-26-000015:weighted_diluted",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-06-25",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 1145000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+          "accessionNumber": "0000723125-26-000015",
+          "exhibit": null,
+          "quote": "Number of shares used in per share calculations Basic 1,128 1,118 1,126 1,114 Diluted 1,145 1,125 1,142 1,123",
+          "quoteSha256": "3584c828b4332759502ffd2e7750dbe5c24763e8d3ead0f48add0e0e51b7b6fc",
+          "contexts": [
+            "All tabular amounts in millions, except per share amounts"
+          ],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-26"
+        },
+        "capital": {
+          "section": "capital",
+          "scope": "consolidated-common",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported-no-split-reconciliation",
+          "recast": "as_reported"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "accessionNumber": "0000723125-26-000013",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/a2026q3ex991-pressrelease.htm",
+        "documentSha256": "290ba6ad186d1b2fdd22dbaa69f54ee45f3bc4b4f9e33e4ba75dfca45305c0e4",
+        "reviewDate": "2026-09-26"
+      },
+      {
+        "accessionNumber": "0000723125-26-000004",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000004/a2026q2ex991-pressrelease.htm",
+        "documentSha256": "dc65be1a8075eec3ef46d0d07761254b9ce49ecc48a8b5ff2bb875356e6d911a",
+        "reviewDate": "2026-09-26"
+      },
+      {
+        "accessionNumber": "0000723125-26-000015",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+        "documentSha256": "1dc3ec43a9dbfab01b1b7d957e6924b06121743b9d1582097add17004dc6ca2c",
+        "reviewDate": "2026-09-26"
+      },
+      {
+        "accessionNumber": "0000723125-26-000006",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000006/mu-20260226.htm",
+        "documentSha256": "2ad208f63dce8ed56ec01d93c81ae2274e4a895d48664a1fdc17c572552dcd92",
+        "reviewDate": "2026-09-26"
+      }
+    ],
+    "pendingReview": [],
+    "coverage": {
+      "guidance": "reviewed",
+      "kpi": "not_selected",
+      "businessMix": "reviewed",
+      "capital": "partial",
+      "note": "Two latest earnings releases reviewed. No standalone operating KPI admitted; further definitions/history remain review-required.",
+      "excluded": [
+        "Standalone KPI history not admitted",
+        "Debt completeness, maturities and issuance reconciliation require further review"
+      ]
+    },
+    "reviewRegistrySha256": "9e3b3ba2ea164b1e268289103637585a36a0ea24526b15c317e96141118dc956"
+  },
+  "insiderEvidence": {
+    "schema": "ntm-company-insiders/1",
+    "filings": [
+      {
+        "accessionNumber": "0001798757-26-000007",
+        "filingDate": "2026-08-28",
+        "form": "4",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000179875726000007/primarydocument.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/723125/000179875726000007/xslF345X06/primarydocument.xml",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "issuerName": "MICRON TECHNOLOGY INC",
+        "issuerTradingSymbol": "MU",
+        "periodOfReport": "2026-06-26",
+        "owners": [
+          {
+            "cik": "0001798757",
+            "name": "Bjorlin Alexis",
+            "isDirector": true,
+            "isOfficer": false,
+            "isTenPercentOwner": false,
+            "isOther": false,
+            "officerTitle": "",
+            "otherText": ""
+          }
+        ],
+        "transactions": [
+          {
+            "id": "0001798757-26-000007:nonDerivative:transaction:1",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-06-26",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "25.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "1132.33",
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "235.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "I",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": "Trust",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": false,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          }
+        ],
+        "holdings": [
+          {
+            "id": "0001798757-26-000007:nonDerivative:holding:1",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "price": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "63.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": []
+          }
+        ],
+        "footnotes": {
+          "F1": "Shares held in a Trust for the benefit of the Reporting Person and her family, with the Reporting Person as a co-trustee."
+        },
+        "remarks": "",
+        "planCheckbox": false,
+        "originalFiledDate": null,
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000179875726000007/primarydocument.xml",
+          "sha256": "ba68d81964125064825b00bdb608944002ab787dfc97647d4036700853a0a92f",
+          "format": "SEC ownership XML"
+        },
+        "parserVersion": 1
+      },
+      {
+        "accessionNumber": "0001242654-26-000015",
+        "filingDate": "2026-08-25",
+        "form": "4",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000124265426000015/primarydocument.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/723125/000124265426000015/xslF345X06/primarydocument.xml",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "issuerName": "MICRON TECHNOLOGY INC",
+        "issuerTradingSymbol": "MU",
+        "periodOfReport": "2026-08-21",
+        "owners": [
+          {
+            "cik": "0001242654",
+            "name": "MEHROTRA SANJAY",
+            "isDirector": true,
+            "isOfficer": true,
+            "isTenPercentOwner": false,
+            "isOther": false,
+            "officerTitle": "President and CEO",
+            "otherText": ""
+          }
+        ],
+        "transactions": [
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:1",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "144.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "959.14",
+                "footnoteIds": [
+                  "F2"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "304359.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F2"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:2",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "823.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "960.41",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "303536.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F3"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:3",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "1586.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "961.58",
+                "footnoteIds": [
+                  "F4"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "301950.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F4"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:4",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "4305.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "962.84",
+                "footnoteIds": [
+                  "F5"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "297645.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F5"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:5",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "4227.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "963.84",
+                "footnoteIds": [
+                  "F6"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "293418.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F6"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:6",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "3434.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "964.67",
+                "footnoteIds": [
+                  "F7"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "289984.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F7"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:7",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "2930.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "965.81",
+                "footnoteIds": [
+                  "F8"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "287054.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F8"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:8",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "2938.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "966.85",
+                "footnoteIds": [
+                  "F9"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "284116.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F9"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:9",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "5252.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "967.75",
+                "footnoteIds": [
+                  "F10"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "278864.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F10"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:10",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "2847.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "968.77",
+                "footnoteIds": [
+                  "F11"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "276017.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F11"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:11",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "862.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "970.08",
+                "footnoteIds": [
+                  "F12"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "275155.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F12"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:12",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "1023.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "970.71",
+                "footnoteIds": [
+                  "F13"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "274132.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F13"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:13",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "1047.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "971.78",
+                "footnoteIds": [
+                  "F14"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "273085.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F14"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:14",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "301.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "972.78",
+                "footnoteIds": [
+                  "F15"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "272784.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F15"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:15",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "337.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "974.17",
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "272447.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": false,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:16",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "863.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "975.75",
+                "footnoteIds": [
+                  "F16"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "271584.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F16"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:17",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "1127.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "976.80",
+                "footnoteIds": [
+                  "F17"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "270457.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F17"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:18",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "664.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "978.02",
+                "footnoteIds": [
+                  "F18"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "269793.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F18"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:19",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "1091.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "979.20",
+                "footnoteIds": [
+                  "F19"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "268702.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F19"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:20",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "458.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "980.00",
+                "footnoteIds": [
+                  "F20"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "268244.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F20"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:21",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "716.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "981.92",
+                "footnoteIds": [
+                  "F21"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "267528.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F21"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:22",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "1354.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "983.11",
+                "footnoteIds": [
+                  "F22"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "266174.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F22"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:23",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "637.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "984.12",
+                "footnoteIds": [
+                  "F23"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "265537.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F23"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:24",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "84.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "985.40",
+                "footnoteIds": [
+                  "F24"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "265453.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F24"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:25",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "341.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "986.24",
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "265112.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": false,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:26",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "351.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "988.10",
+                "footnoteIds": [
+                  "F25"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "264761.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F25"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          },
+          {
+            "id": "0001242654-26-000015:nonDerivative:transaction:27",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-21",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "258.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "989.59",
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "264503.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": false,
+              "planFootnote": true,
+              "currency": "USD"
+            }
+          }
+        ],
+        "holdings": [
+          {
+            "id": "0001242654-26-000015:nonDerivative:holding:1",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "price": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "607075.00",
+                "footnoteIds": []
+              },
+              "ownership": {
+                "value": "I",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": "GRAT",
+                "footnoteIds": [
+                  "F26"
+                ]
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F26"
+            ]
+          }
+        ],
+        "footnotes": {
+          "F1": "The sales reported on this Form 4 were effected pursuant to a Rule 10b5-1 trading plan adopted by the Reporting Person on January 30, 2026.",
+          "F10": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $967.38 to $968.3729 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F11": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $968.395 to $969.368 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F12": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $969.48 to $970.42 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F13": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $970.49 to $971.455 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F14": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $971.61 to $972.55 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F15": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $972.62 to $973.34 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F16": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $975.43 to $976.42 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F17": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $976.505 to $977.49 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F18": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $977.63 to $978.49 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F19": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $978.82 to $979.665 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F2": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $958.53 to $959.465 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F20": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $979.90 to $980.04 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F21": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $981.505 to $982.45 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F22": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $982.505 to $983.495 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F23": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $983.83 to $984.765 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F24": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $985.025 to $985.885 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F25": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $987.865 to $988.72 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F26": "Grantor retained annuity trusts are for the benefit of the Reporting Person and his family.",
+          "F3": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $959.99 to $960.93 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F4": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $961.08 to $962.0247 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F5": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $962.265 to $963.255 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F6": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $963.30 to $964.26 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F7": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $964.35 to $965.3166 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F8": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $965.35 to $966.34 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F9": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $966.38 to $967.3779 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+        },
+        "remarks": "",
+        "planCheckbox": true,
+        "originalFiledDate": null,
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000124265426000015/primarydocument.xml",
+          "sha256": "74d41d9fdf0cf3ad00465865b27c6ecffcf99ec376ac3bd4ca0b20be16deefdc",
+          "format": "SEC ownership XML"
+        },
+        "parserVersion": 1
+      },
+      {
+        "accessionNumber": "0001311079-26-000003",
+        "filingDate": "2026-08-20",
+        "form": "4",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000131107926000003/primarydocument.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/723125/000131107926000003/xslF345X06/primarydocument.xml",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "issuerName": "MICRON TECHNOLOGY INC",
+        "issuerTradingSymbol": "MU",
+        "periodOfReport": "2026-08-18",
+        "owners": [
+          {
+            "cik": "0001311079",
+            "name": "Sadana Sumit",
+            "isDirector": false,
+            "isOfficer": true,
+            "isTenPercentOwner": false,
+            "isOther": false,
+            "officerTitle": "EVP and Chief Business Officer",
+            "otherText": ""
+          }
+        ],
+        "transactions": [
+          {
+            "id": "0001311079-26-000003:nonDerivative:transaction:1",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": "2026-08-18",
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": "15000.00",
+                "footnoteIds": []
+              },
+              "price": {
+                "value": "934.29",
+                "footnoteIds": [
+                  "F1"
+                ]
+              },
+              "direction": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "191021.00",
+                "footnoteIds": [
+                  "F2"
+                ]
+              },
+              "ownership": {
+                "value": "D",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F1",
+              "F2"
+            ],
+            "code": "S",
+            "equitySwap": false,
+            "transactionFormType": "4",
+            "deemedExecutionDate": {
+              "value": null,
+              "footnoteIds": []
+            },
+            "classification": {
+              "category": "sale",
+              "venue": "unspecified",
+              "taxRelated": false,
+              "weightedPrice": true,
+              "planFootnote": false,
+              "currency": "USD"
+            }
+          }
+        ],
+        "holdings": [
+          {
+            "id": "0001311079-26-000003:nonDerivative:holding:1",
+            "table": "nonDerivative",
+            "fields": {
+              "security": {
+                "value": "Common Stock",
+                "footnoteIds": []
+              },
+              "date": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "shares": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "price": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "direction": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "ownedAfter": {
+                "value": "18000.00",
+                "footnoteIds": [
+                  "F2"
+                ]
+              },
+              "ownership": {
+                "value": "I",
+                "footnoteIds": []
+              },
+              "ownershipNature": {
+                "value": "GRAT",
+                "footnoteIds": [
+                  "F3"
+                ]
+              },
+              "exercisePrice": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "exerciseDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "expirationDate": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingSecurity": {
+                "value": null,
+                "footnoteIds": []
+              },
+              "underlyingShares": {
+                "value": null,
+                "footnoteIds": []
+              }
+            },
+            "footnoteIds": [
+              "F2",
+              "F3"
+            ]
+          }
+        ],
+        "footnotes": {
+          "F1": "The reported price in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $934.00 to $934.57 per share, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or to the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.",
+          "F2": "The number of shares held reflects the transfer, on July 21, 2026, of 18,000 shares of Common Stock from the Reporting Person to a grantor retained annuity trust, of which the Reporting Person serves as trustee.",
+          "F3": "Grantor retained annuity trust is for the benefit of the Reporting Person."
+        },
+        "remarks": "",
+        "planCheckbox": false,
+        "originalFiledDate": null,
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000131107926000003/primarydocument.xml",
+          "sha256": "e535438fcce4f7284556a5d9e740fb53bd3c01fa40eb3b75618fbaabfd90d769",
+          "format": "SEC ownership XML"
+        },
+        "parserVersion": 1
+      }
+    ],
+    "coverage": {
+      "startDate": "2026-08-01",
+      "historicalExamples": [],
+      "note": "Complete Form 4/4-A selection in the checked SEC recent index from startDate; older examples are not continuous coverage."
+    },
+    "amendmentReviews": []
+  },
+  "ownershipEvidence": {
+    "schema": "ntm-company-ownership/1",
+    "filings": [
+      {
+        "persons": [
+          {
+            "name": "Capital World Investors",
+            "shares": "42208309.00",
+            "percent": "3.7",
+            "personType": "IA",
+            "powers": {
+              "soleVotingPower": "42168690",
+              "sharedVotingPower": "0",
+              "soleDispositivePower": "42208309",
+              "sharedDispositivePower": "0"
+            },
+            "comments": "",
+            "locator": "formData/coverPageHeaderReportingPersonDetails[1]",
+            "entityId": "sec:0001422849",
+            "cik": "0001422849"
+          }
+        ],
+        "eventDate": "2026-03-31",
+        "security": "Common Stock",
+        "cusips": [
+          "595112103"
+        ],
+        "amendmentNumber": "2",
+        "reportedPreviousAccession": "0001422849-25-000059",
+        "filerCik": "0001422849",
+        "rules": [
+          "Rule 13d-1(b)"
+        ],
+        "statements": {
+          "relationships": "",
+          "group": "",
+          "onBehalfOf": "",
+          "certification": "By signing below I certify that, to the best of my knowledge and belief, the securities referred to above were acquired and are held in the ordinary course of business and were not acquired and are not held for the purpose of or with the effect of changing or influencing the control of the issuer of the securities and were not acquired and are not held in connection with or as a participant in any transaction having that purpose or effect, other than activities solely in connection with a nomination under ?? 240.14a-11.",
+          "purpose": ""
+        },
+        "accessionNumber": "0001422849-26-000099",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2026-05-14",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000142284926000099/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/723125/000142284926000099/xslSCHEDULE_13G_X02/primary_doc.xml",
+        "family": "13G",
+        "seriesId": "sec:0001422849:0000723125",
+        "displayPerson": 0,
+        "historyOnly": false,
+        "previousAccession": null,
+        "comparison": {
+          "state": "baseline",
+          "reason": "First independently reviewed snapshot; no inferred continuity."
+        },
+        "context": "Selected SEC disclosure, not a shareholder register or current ownership estimate.",
+        "relationships": "Reporting entities remain separate; no aggregation.",
+        "purposeContext": "See official Schedule for full certification and amendments.",
+        "reviewDate": "2026-09-26",
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000142284926000099/primary_doc.xml",
+          "sha256": "96aa29a3966e1e4360980ffafee1514d4b4b71bf8eea2573dd807d509fab70f4",
+          "format": "SEC Schedule XML"
+        }
+      },
+      {
+        "persons": [
+          {
+            "name": "Vanguard Capital Management",
+            "shares": "84297629",
+            "percent": "7.47",
+            "personType": "IA",
+            "powers": {
+              "soleVotingPower": "11160346",
+              "sharedVotingPower": "0",
+              "soleDispositivePower": "84297629",
+              "sharedDispositivePower": "0"
+            },
+            "comments": "In accordance with SEC Release No. 34-39538 (January 12, 1998), this Schedule 13G reflects the securities beneficially owned, or deemed to be beneficially owned, by Vanguard Capital Management LLC and the following affiliates of Vanguard Capital Management LLC or business divisions of such affiliates: Vanguard Asset Management Limited, Vanguard Fiduciary Trust Company, Vanguard Global Advisers, LLC and Vanguard Investments Australia Ltd. This Schedule 13G includes securities held by Vanguard funds, or sleeves thereof, over which Vanguard Capital Management LLC exercises dispositive power, in addition to securities held by clients over which the affiliates or business divisions of such affiliates indicated above exercise dispositive and/or voting power. This Schedule 13G does not include securities, if any, beneficially owned by other subsidiaries or affiliates of Vanguard Capital Management LLC, or business divisions of such subsidiaries, whose ownership of securities is disaggregated from that of the reporting business unit in accordance with such release.",
+            "locator": "formData/coverPageHeaderReportingPersonDetails[1]",
+            "entityId": "sec:0002100119",
+            "cik": "0002100119"
+          }
+        ],
+        "eventDate": "2026-03-31",
+        "security": "Common Stock",
+        "cusips": [
+          "595112103"
+        ],
+        "amendmentNumber": null,
+        "reportedPreviousAccession": null,
+        "filerCik": "0002100119",
+        "rules": [
+          "Rule 13d-1(b)"
+        ],
+        "statements": {
+          "relationships": "",
+          "group": "",
+          "onBehalfOf": "Vanguard Capital Management, including investment companies registered under the Investment Company Act of 1940 and other managed accounts, have the right to receive or the power to direct the receipt of dividends from, or the proceeds from the sale of, the securities reported herein.No one other person's interest in the securities reported herein is more than 5%.",
+          "certification": "By signing below I certify that, to the best of my knowledge and belief, the securities referred to above were acquired and are held in the ordinary course of business and were not acquired and are not held for the purpose of or with the effect of changing or influencing the control of the issuer of the securities and were not acquired and are not held in connection with or as a participant in any transaction having that purpose or effect, other than activities solely in connection with a nomination under &#167; 240.14a-11.",
+          "purpose": ""
+        },
+        "accessionNumber": "0002100119-26-000795",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "SCHEDULE 13G",
+        "filingDate": "2026-04-30",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000210011926000795/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/723125/000210011926000795/xslSCHEDULE_13G_X02/primary_doc.xml",
+        "family": "13G",
+        "seriesId": "sec:0002100119:0000723125",
+        "displayPerson": 0,
+        "historyOnly": false,
+        "previousAccession": null,
+        "comparison": {
+          "state": "baseline",
+          "reason": "First independently reviewed snapshot; no inferred continuity."
+        },
+        "context": "Selected SEC disclosure, not a shareholder register or current ownership estimate.",
+        "relationships": "Reporting entities remain separate; no aggregation.",
+        "purposeContext": "See official Schedule for full certification and amendments.",
+        "reviewDate": "2026-09-26",
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000210011926000795/primary_doc.xml",
+          "sha256": "280fb32330598c6ce5e6f0fbe272c915362019286cf3c71f3c6d6d077734160e",
+          "format": "SEC Schedule XML"
+        }
+      }
+    ],
+    "pendingReview": [
+      {
+        "accessionNumber": "0000102909-26-001910",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2026-03-27",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000010290926001910/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/723125/000010290926001910/xslSCHEDULE_13G_X02/primary_doc.xml",
+        "reason": "Unreviewed Schedule disclosure"
+      },
+      {
+        "accessionNumber": "0001422849-26-000035",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2026-02-13",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000142284926000035/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/723125/000142284926000035/xslSCHEDULE_13G_X01/primary_doc.xml",
+        "reason": "Unreviewed Schedule disclosure"
+      },
+      {
+        "accessionNumber": "0001422849-25-000059",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "SCHEDULE 13G",
+        "filingDate": "2025-08-13",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000142284925000059/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/723125/000142284925000059/xslSCHEDULE_13G_X01/primary_doc.xml",
+        "reason": "Unreviewed Schedule disclosure"
+      }
+    ],
+    "excluded": [],
+    "checkedThrough": "2026-05-14",
+    "coverage": {
+      "startDate": "2025-01-01",
+      "basis": "Selected reviewed disclosures; older examples are separate; not a complete shareholder register."
+    }
+  },
+  "materialEvents": {
+    "schema": "ntm-company-material-events/1",
+    "documents": {
+      "0001104659-26-101067": {
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "8-K",
+        "accessionNumber": "0001104659-26-101067",
+        "filingDate": "2026-08-26",
+        "reportDate": "2026-08-24",
+        "primaryDocument": "tm2624017d1_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926101067/tm2624017d1_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926101067/",
+        "items": [
+          "5.02",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "18ef062a886dc9f868bb52ef060f4f31029c260b4c7493f9fe7599e9664634be",
+        "passages": [
+          "On August 26, 2026, Micron Technology, Inc. (\"Micron\" or the “Company”) announced that Manish Bhatia, 54, the Company’s current Executive Vice President, Global Operations, has been appointed as President and Chief Operating Officer of the Company and that Dr. Scott DeBoer, 60, the Company’s current Executive Vice President, Chief Technology and Products Officer, has been appointed President and Chief Technology and Products Officer of the Company, effective immediately."
+        ],
+        "reviewDate": "2026-09-26"
+      }
+    },
+    "observations": [
+      {
+        "id": "MU:0001104659-26-101067/deboer:0001104659-26-101067",
+        "eventId": "MU:0001104659-26-101067/deboer",
+        "ticker": "MU",
+        "accessionNumber": "0001104659-26-101067",
+        "category": "leadership",
+        "template": "executive_appointed",
+        "eventDate": "2026-08-26",
+        "items": [
+          "5.02"
+        ],
+        "parameters": {
+          "person": "Scott DeBoer",
+          "role": "President and Chief Technology and Products Officer"
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-26",
+        "groupingBasis": "Separate disclosed appointment.",
+        "publicationDate": "2026-08-26",
+        "form": "8-K"
+      },
+      {
+        "id": "MU:0001104659-26-101067/bhatia:0001104659-26-101067",
+        "eventId": "MU:0001104659-26-101067/bhatia",
+        "ticker": "MU",
+        "accessionNumber": "0001104659-26-101067",
+        "category": "leadership",
+        "template": "executive_appointed",
+        "eventDate": "2026-08-26",
+        "items": [
+          "5.02"
+        ],
+        "parameters": {
+          "person": "Manish Bhatia",
+          "role": "President and Chief Operating Officer"
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-26",
+        "groupingBasis": "Separate disclosed appointment.",
+        "publicationDate": "2026-08-26",
+        "form": "8-K"
+      }
+    ],
+    "pendingReview": [
+      {
+        "accessionNumber": "0001104659-26-071845",
+        "filingDate": "2026-06-09",
+        "items": [
+          "5.02",
+          "9.01"
+        ],
+        "candidates": [
+          "leadership"
+        ],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": [
+          "9.01"
+        ]
+      },
+      {
+        "accessionNumber": "0001104659-26-038249",
+        "filingDate": "2026-04-01",
+        "items": [
+          "8.01",
+          "9.01"
+        ],
+        "candidates": [],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": [
+          "9.01"
+        ]
+      },
+      {
+        "accessionNumber": "0001104659-26-034174",
+        "filingDate": "2026-03-25",
+        "items": [
+          "8.01",
+          "9.01"
+        ],
+        "candidates": [],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": [
+          "9.01"
+        ]
+      },
+      {
+        "accessionNumber": "0001104659-26-005366",
+        "filingDate": "2026-01-21",
+        "items": [
+          "5.03",
+          "5.07",
+          "9.01"
+        ],
+        "candidates": [
+          "governance"
+        ],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": [
+          "9.01"
+        ]
+      },
+      {
+        "accessionNumber": "0001104659-25-101237",
+        "filingDate": "2025-10-21",
+        "items": [
+          "5.02",
+          "9.01"
+        ],
+        "candidates": [
+          "leadership"
+        ],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": [
+          "9.01"
+        ]
+      },
+      {
+        "accessionNumber": "0001104659-25-075940",
+        "filingDate": "2025-08-11",
+        "items": [
+          "7.01",
+          "9.01"
+        ],
+        "candidates": [],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": [
+          "9.01"
+        ]
+      },
+      {
+        "accessionNumber": "0001104659-25-069019",
+        "filingDate": "2025-07-18",
+        "items": [
+          "5.03",
+          "9.01"
+        ],
+        "candidates": [
+          "governance"
+        ],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": [
+          "9.01"
+        ]
+      },
+      {
+        "accessionNumber": "0001104659-25-058741",
+        "filingDate": "2025-06-12",
+        "items": [
+          "8.01",
+          "9.01"
+        ],
+        "candidates": [],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": [
+          "9.01"
+        ]
+      },
+      {
+        "accessionNumber": "0001104659-25-041201",
+        "filingDate": "2025-04-29",
+        "items": [
+          "1.01",
+          "2.03",
+          "8.01",
+          "9.01"
+        ],
+        "candidates": [
+          "agreement",
+          "financing"
+        ],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": [
+          "9.01"
+        ]
+      },
+      {
+        "accessionNumber": "0001104659-25-022973",
+        "filingDate": "2025-03-12",
+        "items": [
+          "1.01",
+          "1.02",
+          "2.03"
+        ],
+        "candidates": [
+          "agreement",
+          "financing",
+          "termination"
+        ],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": []
+      },
+      {
+        "accessionNumber": "0001104659-25-020878",
+        "filingDate": "2025-03-05",
+        "items": [
+          "5.02",
+          "9.01"
+        ],
+        "candidates": [
+          "leadership"
+        ],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": [
+          "9.01"
+        ]
+      },
+      {
+        "accessionNumber": "0001104659-25-004879",
+        "filingDate": "2025-01-21",
+        "items": [
+          "1.01",
+          "1.02",
+          "2.03",
+          "5.02",
+          "5.07",
+          "9.01"
+        ],
+        "candidates": [
+          "agreement",
+          "financing",
+          "leadership",
+          "termination"
+        ],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": [
+          "9.01"
+        ]
+      },
+      {
+        "accessionNumber": "0001104659-25-004100",
+        "filingDate": "2025-01-16",
+        "items": [
+          "1.01",
+          "2.03",
+          "8.01",
+          "9.01"
+        ],
+        "candidates": [
+          "agreement",
+          "financing"
+        ],
+        "earningsCanonical": false,
+        "needsReview": true,
+        "supportingItems": [
+          "9.01"
+        ]
+      }
+    ],
+    "checkedThrough": "2026-08-26",
+    "coverage": {
+      "startDate": "2025-01-01",
+      "basis": "Selected reviewed material events plus older examples; not a complete archive"
+    }
+  },
+  "status": "verified",
+  "verifiedAt": "2026-09-26T19:20:54.301583+00:00",
+  "coverageDecision": {
+    "checkedAt": "2026-09-26T19:20:54.301583+00:00",
+    "fullResearch": false,
+    "layers": {
+      "reporting": {
+        "state": "verified",
+        "scope": "24 supported recent filings; earnings exhibit relationships verified; source index captured 2026-09-26."
+      },
+      "guidance": {
+        "state": "verified",
+        "scope": "Two latest quarterly releases; revenue guidance only, explicit period and GAAP basis."
+      },
+      "kpi": {
+        "state": "partial",
+        "scope": "No standalone KPI admitted from the two selected earnings releases; broader issuer KPI/history review remains open."
+      },
+      "businessMix": {
+        "state": "verified",
+        "scope": "Two latest reported quarters; reconciled current business-unit/geographic taxonomy only."
+      },
+      "capital": {
+        "state": "partial",
+        "scope": "Cash, short-term investments and reported debt components; no complete debt/net debt inference. Share issuance, longer repurchase history, maturities and full liquidity reconciliation remain review-required. Actual outstanding and weighted diluted shares are separately reviewed. Actual program cash repurchases are reviewed, excluding employee withholding."
+      },
+      "insiders": {
+        "state": "verified",
+        "scope": "Complete Form 4/4-A selection in captured SEC recent index from 2026-08-01."
+      },
+      "ownership": {
+        "state": "partial",
+        "scope": "Two selected reviewed SEC XML snapshots, separate entities; no inferred history continuity. Other discovered filings remain pending."
+      },
+      "events": {
+        "state": "partial",
+        "scope": "Reviewed August 2026 appointments; other discovered events remain pending."
+      }
+    }
+  }
+}

@@ -187,8 +187,24 @@ def accession_from_url(url):
 
 def validate_repository(root=ROOT):
     root = Path(root)
+    from financial_sources import validate_repository as financial_closure
+    financial_closure(root)
+    coverage_path = root / 'scripts/source_reviews/issuer_coverage.json'
+    coverage = read(coverage_path)['issuers'] if coverage_path.exists() else {}
     for ticker in tickers('evidence', load(root)):
-        validate_feed(read(root / 'data/stocks/evidence' / (ticker + '.json')), root / 'tests/fixtures', root / 'scripts/source_reviews')
+        feed = read(root / 'data/stocks/evidence' / (ticker + '.json'))
+        if 'coverageDecision' in feed or ticker in coverage:
+            decision = coverage.get(ticker)
+            if not decision or feed.get('coverageDecision') != decision:
+                raise SourceClosureError('Coverage decision does not match reviewed policy: ' + ticker)
+            layers = decision.get('layers', {})
+            allowed = {'verified','checked_bounded_absence','not_applicable','partial','review_required','engineering_gap'}
+            if (set(layers) != {'reporting','guidance','kpi','businessMix','capital','insiders','ownership','events'}
+                    or any(r.get('state') not in allowed or not r.get('scope') for r in layers.values())
+                    or not isinstance(decision.get('fullResearch'), bool)
+                    or (decision['fullResearch'] and any(r['state'] in {'partial','review_required','engineering_gap'} for r in layers.values()))):
+                raise SourceClosureError('Invalid coverage decision: ' + ticker)
+        validate_feed(feed, root / 'tests/fixtures', root / 'scripts/source_reviews')
     # Include reviewed/excluded registry documents, even when not visibly published.
     for folder in ('company_observations', 'company_ownership', 'company_material_events'):
         for d in read(root / 'scripts/source_reviews' / (folder + '.json'))['documents']:

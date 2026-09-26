@@ -10,7 +10,7 @@ on:
         description: 'Update now: SEC issuer (ALL runs enrolled issuers)'
         type: choice
         default: ALL
-        options: [ALL, NVDA, SOFI, CRWD]
+        options: [ALL, NVDA, SOFI, CRWD, MU, VRT]
 concurrency:
   group: pages-and-macro
   cancel-in-progress: false
@@ -94,8 +94,21 @@ jobs:
             data/stocks/NVDA.json
             data/stocks/SOFI.json
             data/stocks/CRWD.json
+            data/stocks/MU.json
+            data/stocks/VRT.json
             data/stocks/evidence/*.json
             scripts/source_reviews/*.json
+            tests/fixtures/financial_sources.json
+            tests/fixtures/sec_nvda_submissions.json
+            tests/fixtures/sec_nvda_companyfacts.json
+            tests/fixtures/sec_sofi_submissions.json
+            tests/fixtures/sec_sofi_companyfacts.json
+            tests/fixtures/sec_crwd_submissions.json
+            tests/fixtures/sec_crwd_companyfacts.json
+            tests/fixtures/sec_mu_submissions.json
+            tests/fixtures/sec_mu_companyfacts.json
+            tests/fixtures/sec_vrt_submissions.json
+            tests/fixtures/sec_vrt_companyfacts.json
             tests/fixtures/company_insiders/**
             tests/fixtures/company_evidence/**
             tests/fixtures/company_observations/**
@@ -129,7 +142,7 @@ jobs:
       - id: commit
         shell: bash
         run: |
-          git add data/weekly-events.js data/stocks/NVDA.json data/stocks/SOFI.json data/stocks/CRWD.json data/stocks/evidence/*.json scripts/source_reviews/*.json tests/fixtures/company_insiders tests/fixtures/company_evidence tests/fixtures/company_observations tests/fixtures/company_ownership tests/fixtures/company_material_events
+          git add data/weekly-events.js data/stocks/NVDA.json data/stocks/SOFI.json data/stocks/CRWD.json data/stocks/MU.json data/stocks/VRT.json data/stocks/evidence/*.json scripts/source_reviews/*.json tests/fixtures/financial_sources.json tests/fixtures/sec_nvda_submissions.json tests/fixtures/sec_nvda_companyfacts.json tests/fixtures/sec_sofi_submissions.json tests/fixtures/sec_sofi_companyfacts.json tests/fixtures/sec_crwd_submissions.json tests/fixtures/sec_crwd_companyfacts.json tests/fixtures/sec_mu_submissions.json tests/fixtures/sec_mu_companyfacts.json tests/fixtures/sec_vrt_submissions.json tests/fixtures/sec_vrt_companyfacts.json tests/fixtures/company_insiders tests/fixtures/company_evidence tests/fixtures/company_observations tests/fixtures/company_ownership tests/fixtures/company_material_events
           python -B scripts/evidence_sources.py --staged
           if ! git diff --cached --quiet -- data; then
             echo "publish=true" >> "$GITHUB_OUTPUT"

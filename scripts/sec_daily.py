@@ -13,6 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
+from financial_sources import preserve as preserve_financials, names as financial_names, MANIFEST as FINANCIAL_MANIFEST
 from issuer_registry import tickers as enrolled_tickers, REGISTRY
 from company_evidence import filing_events, earnings_documents, latest_report, validate_evidence
 from company_insiders import metadata as insider_index, parse as parse_insider
@@ -188,6 +189,7 @@ def refresh_issuer(ticker, client, stock_dir, previous_state, statistics=None, f
                         required = {e['accessionNumber'] for e in new if e['form'] in ('10-K', '10-Q')}
                         if not required.issubset({r.get('accession') for r in normalized['annual'] + normalized['quarterly']}):
                             raise ValueError('Company facts not yet available for new periodic filing')
+                        preserve_financials(fixtures, ticker, normalized, sub, facts_cache[IDENTITIES[ticker]])
                         (stock_dir / (ticker + '.json')).write_bytes(temp.read_bytes())
                         accepted += count
                     financials_done = True
@@ -268,6 +270,8 @@ def run(tickers, client, stock_dir=None, state_path=None, report_path=None, fixt
             staged_fixtures = staged / 'fixtures'
             for folder in FOLDERS:
                 shutil.copytree(fixtures_dir / folder, staged_fixtures / folder)
+            for name in [FINANCIAL_MANIFEST, *[n for t in IDENTITIES for n in financial_names(t)]]:
+                shutil.copyfile(fixtures_dir / name, staged_fixtures / name)
             for destination, content in changes.items():
                 if destination.is_relative_to(fixtures_dir):
                     (staged_fixtures / destination.relative_to(fixtures_dir)).write_bytes(content)

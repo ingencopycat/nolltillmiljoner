@@ -1,5 +1,10 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),M=require('../company-material-events.js');
 const feed=t=>JSON.parse(fs.readFileSync(`data/stocks/evidence/${t}.json`)),data=t=>feed(t).materialEvents;
+test('new issuer events preserve appointment and nonconvertible financing semantics',()=>{
+ for(const ticker of ['MU','VRT'])M.validate(data(ticker),ticker,feed(ticker).cik);
+ for(const event of data('MU').observations){assert.match(M.describe(event),/utsågs till/);assert.doesNotMatch(M.describe(event),/efterträdare/);}
+ const event=data('VRT').observations[0];assert.match(M.describe(event),/slutförde/);assert.doesNotMatch(M.describe(event),/konvertibla/);
+});
 test('real pilot data validates',()=>{for(const t of ['NVDA','SOFI','CRWD'])assert.equal(M.validate(data(t),t,feed(t).cik).schema,'ntm-company-material-events/1');});
 test('eleven underlying events not twelve observations or thirteen documents',()=>{assert.equal(['NVDA','SOFI','CRWD'].reduce((n,t)=>n+M.latest(data(t)).length,0),11);});
 test('amendment updates exchange without double counting or replacing note issuance',()=>{const g=M.latest(data('SOFI'));assert.equal(g.length,4);const a=g.find(g=>g.event.template==='exchange_settled');assert.equal(a.history.length,2);assert(g.some(g=>g.event.template==='notes_issued'&&g.history.length===1));});

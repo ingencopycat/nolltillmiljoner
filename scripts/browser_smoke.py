@@ -87,7 +87,7 @@ class BrowserSmoke(unittest.TestCase):
         self.page.route('**/data/stocks/evidence/SOFI.json', lambda route: route.fulfill(status=503,body='unavailable'))
         self.go('research.html?ticker=SOFI')
         expect(self.page.locator('#companyEvidence')).to_contain_text('inte tillgänglig')
-        self.go('research.html?ticker=MU')
+        self.go('research.html?ticker=MRVL')
         expect(self.page.locator('#companyEvidence')).to_have_count(0)
 
     def open_depth_for(self, selector):
