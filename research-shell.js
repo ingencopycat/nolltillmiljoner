@@ -119,6 +119,7 @@
   $('shellValuationRequired').hidden=!window.NTMResearchShell.valuationStale();
   const target=$(location.hash.slice(1));
   if(target)for(let n=target;n;n=n.parentElement)if(n.tagName==='DETAILS')n.open=true;
+  window.NTMAnalyticalWorkspaces?.reveal(target);
   resize();
   if(focus){const destination=target||$(active.view==='data'?'data-'+active.topic:active.view==='thesis'?'thesis-'+active.section:'workspace'+active.view[0].toUpperCase()+active.view.slice(1));destination?.setAttribute('tabindex','-1');destination?.focus({preventScroll:true});destination?.scrollIntoView({block:'start'});}
  }

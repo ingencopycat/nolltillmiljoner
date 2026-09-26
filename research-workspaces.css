@@ -1,0 +1,76 @@
+/* Scoped analytical surfaces; overview and Bolagsdata retain their existing composition. */
+.visual-v3 #thesisSection.analytical-notebook { max-width: none; margin-top: 0; border: 0; }
+.analytical-notebook .thesis-intro-text { max-width: 65ch; }
+.visual-v3 .analytical-notebook #thesisForm { display: grid; width: 100%; max-width: none; grid-template-columns: minmax(0,2fr) minmax(250px,1fr); grid-template-areas: 'editor actions' 'editor context'; align-items: start; gap: 20px 40px; }
+#notebook-editor { grid-area: editor; min-width: 0; }
+#notebook-context { grid-area: context; min-width: 0; border-left: 1px solid var(--border); padding-left: 24px; }
+#notebook-actions { grid-area: actions; border-left: 1px solid var(--border); padding-left: 24px; }
+#notebook-context > a { display: block; padding: 8px 0; }
+#notebook-context p, #notebook-status { font-size: .9rem; line-height: 1.55; }
+#notebook-status { margin: 0 0 12px; }
+.visual-v3 .analytical-notebook .thesis-form-actions { display: grid; gap: 8px; }
+.visual-v3 #notebook-editor textarea { font-size: 1.1rem; line-height: 1.65; resize: vertical; }
+.visual-v3 #notebook-editor #thesis-text { font-family: var(--font-reading); font-size: 1.35rem; }
+.visual-v3 #notebook-editor .thesis-fieldset { margin-bottom: 24px; }
+.work-disclosure { border-top: 1px solid var(--border); padding: 12px 0; margin: 12px 0; min-width: 0; }
+.work-disclosure > summary { cursor: pointer; min-height: 44px; padding: 10px 0; }
+#notebook-tabs { display: none; }
+.analytical-notebook:has(#thesisStatusBanner[data-ntm-status=saved]:not([style*='none'])) #thesisSavedIndicator { display: none !important; }
+.analytical-notebook #workspaceState { margin: 12px 0; }
+.analytical-notebook #workspaceState a { margin-left: 0; display: block; padding: 6px 0; }
+#thesis-review { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 24px; align-items: start; }
+#thesis-review #thesisReviewDepth { margin-top: 0; }
+#thesis-review #changeDetectionSection { grid-column: 1 / -1; }
+.visual-v3 .analytical-valuation { border: 0 !important; padding-top: 16px; }
+.analytical-valuation .valuation-intro-text { max-width: 70ch; }
+#valuation-work { display: grid; grid-template-columns: minmax(0,2fr) minmax(290px,1fr); gap: 32px; align-items: start; margin-top: 24px; }
+#valuation-work > * { min-width: 0; }
+.visual-v3 #valuationAssumptions { margin: 0; padding-top: 0; }
+.visual-v3 #valuationAssumptions .form-grid { grid-template-columns: 1fr; }
+.visual-v3 #valuationAssumptions .scenario-assumption-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.visual-v3 #valuationAssumptions .scenario-assumption { border: 0; background: none; padding: 8px 0; }
+.visual-v3 #valuationAssumptions .field-help { font-size: .85rem; }
+.visual-v3 #valuationResults .reverse-valuation-card { background: none; border: 0; padding: 0; }
+.visual-v3 #valuationResults .reverse-results-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.visual-v3 #valuationResults .result-box { background: none; border: 0; padding: 0; box-shadow: none; min-height: 0; gap: 6px; }
+.visual-v3 #valuationResults .result-value { margin: 0; }
+.visual-v3 #valuationResults .reverse-results-grid > :first-child { grid-column: 1 / -1; padding: 12px 0 24px; }
+.visual-v3 #rev-cagr-result { font: 400 clamp(3.5rem,6vw,5.5rem)/1.1 var(--font-reading); color: var(--primary); font-variant-numeric: tabular-nums; }
+#valuation-tested-basis { line-height: 1.6; color: var(--muted); }
+.visual-v3 #scenariosAccordion { border: 0; border-top: 1px solid var(--border); margin-top: 28px; border-radius: 0; background: none; }
+.visual-v3 #scenariosAccordion > summary { background: none; }
+.visual-v3 #scenariosAccordion .valuation-accordion-content { padding: 12px 0; }
+#valuation-scenario-outcomes { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+#valuation-scenario-outcomes article { min-width: 0; }
+#valuation-scenario-outcomes h3 { margin: 0 0 8px; }
+#valuation-scenario-outcomes p[id$='-price'] { font: 400 clamp(1.6rem,2.5vw,2.5rem)/1.15 var(--font-reading); font-variant-numeric: tabular-nums; margin: 8px 0; }
+#valuation-scenario-outcomes p:not([id$='-price']) { font-size: .9rem; color: var(--muted); line-height: 1.55; }
+.analytical-valuation[data-result-state=stale] #valuationResults { border-left: 3px solid var(--manual); padding-left: 16px; }
+.analytical-valuation[data-result-state=setup] #valuationResults { display: none; }
+#valuationRecalculate { min-height: 44px; padding: 10px 20px; }
+#sensitivity-slice { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+#sensitivity-slice label { display: grid; gap: 6px; min-width: 0; }
+#sensitivity-selected, #sensitivity-row-values { grid-column: 1 / -1; }
+#sensitivity-row-values { display: flex; gap: 12px; font-size: .85rem; }
+#sensitivityTable .work-selected { outline: 2px solid var(--primary); outline-offset: -3px; }
+@media (max-width: 1000px) {
+ #valuation-work { grid-template-columns: minmax(0,1fr); }
+ .visual-v3 #valuationAssumptions .form-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+ .visual-v3 #valuationAssumptions .scenario-assumption-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+ .visual-v3 .analytical-notebook #thesisForm { gap: 16px; grid-template-columns: minmax(0,1.5fr) minmax(230px,1fr); }
+}
+@media (max-width: 700px) {
+ .visual-v3 .analytical-notebook #thesisForm { display: flex; flex-direction: column; gap: 16px; }
+ #notebook-actions, #notebook-editor, #notebook-context { width: 100%; padding: 0; border: 0; }
+ #notebook-tabs { display: flex; gap: 8px; margin-top: 16px; }
+ #notebook-tabs button { min-height: 44px; flex: 1; background: none; color: var(--text); border: 1px solid var(--border); }
+ #notebook-tabs button[aria-pressed=true] { border-bottom: 3px solid var(--primary); }
+ #thesis-review { display: block; }
+ .visual-v3 #valuationAssumptions .form-grid, .visual-v3 #valuationAssumptions .scenario-assumption-grid { grid-template-columns: 1fr; }
+ #valuation-scenario-outcomes { gap: 10px; }
+ #valuation-scenario-outcomes p[id$='-price'] { font-size: 1.5rem; overflow-wrap: anywhere; }
+ #valuation-scenario-outcomes p:not([id$='-price']) { font-size: .82rem; }
+ #sensitivity-row-values { flex-direction: column; gap: 0; }
+ .visual-v3 #valuationResults .reverse-results-grid { gap: 16px 10px; }
+ .visual-v3 #valuationResults .result-value:not(#rev-cagr-result) { font-size: 1.4rem; }
+}

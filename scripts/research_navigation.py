@@ -19,4 +19,13 @@ def open_research_workspace(page, selector):
             link=host.locator('[data-'+dimension+'="'+route[dimension]+'"]')
             if link.get_attribute('aria-current')!='page':
                 link.click()
+    pane=target.evaluate("n=>n.closest('[data-notebook-pane]')?.dataset.notebookPane")
+    if pane and not target.is_visible():
+        button=page.locator('#notebook-'+pane+'-button')
+        if button.is_visible(): button.click()
+    # Wave 3 assumption/editor disclosures are reached through their visible summaries.
+    for ident in target.evaluate("n=>{if(n.tagName==='SUMMARY')n=n.parentElement;const a=[];for(let p=n.parentElement;p;p=p.parentElement)if(p.tagName==='DETAILS'&&p.id)a.unshift(p.id);return a}"):
+        details=page.locator('#'+ident)
+        if details.get_attribute('open') is None:
+            details.locator(':scope > summary').click()
 

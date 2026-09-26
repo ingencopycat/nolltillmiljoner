@@ -49,6 +49,7 @@ class Wave2(unittest.TestCase):
                 self.research()
                 p.evaluate('localStorage.clear();sessionStorage.clear()')
                 p.reload()
+                self.open_depth_for('#researchContinuity')
                 expect(p.locator('#researchContinuity')).to_be_visible()
                 self.save(question=True)
                 original=p.evaluate("NTMThesisStorage.get('NVDA').thesis.revisions[0]")
@@ -188,6 +189,7 @@ class Wave2(unittest.TestCase):
                     self.research()
                     self.page.evaluate('(theme)=>{localStorage.clear();localStorage.setItem("investment-theme",theme)}',theme)
                     self.page.reload()
+                    self.open_depth_for('#researchContinuity')
                     expect(self.page.locator('#researchContinuity')).to_be_visible()
                     self.save();self.enter_review()
                     check=self.page.locator('#reviewReasons input[type=checkbox]').first
