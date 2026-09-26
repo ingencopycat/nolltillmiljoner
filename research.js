@@ -40,6 +40,7 @@ function initResearchApp() {
     if (!tickerParam || tickerParam.toUpperCase() === 'ALL') {
         showIndexView();
     } else {
+        if (SUPPORTED_TICKERS.includes(tickerParam.toUpperCase())) window.NTMResearchShell?.init();
         loadStockData(tickerParam.toUpperCase());
     }
 
@@ -84,6 +85,7 @@ function initManualThesisEntry() {
 
 function showManualThesis(ticker, label = '', identityType = 'ticker') {
     if(!/^[A-Z0-9.-]{1,80}$/.test(ticker)) {showError('Ogiltig bolagsnyckel','Ange en ticker eller öppna formuläret för en manuell tes.');return;}
+    window.NTMResearchShell?.manual();
     const saved=window.NTMThesisStorage.get(ticker).thesis;
     const data={symbol:ticker,manual:true,company:{name:saved?.companyName || label || ticker},
         companyIdentity:saved?.companyIdentity || {type:ticker.startsWith('MANUAL-') ? 'label' : identityType,key:ticker}};
@@ -181,6 +183,8 @@ async function loadStockData(ticker) {
 }
 
 function renderStockDetail(data) {
+    if (window.NTMResearchShell) window.NTMResearchShell.valuationStale = () => valuationState.stale;
+    if (window.NTMResearchShell) window.NTMResearchShell.ticker = () => currentStockData?.symbol;
     window.NTMResearchEntry?.show('COMPANY_SELECTED', data);
     document.getElementById('researchLoading').style.display = 'none';
     document.getElementById('researchError').style.display = 'none';
@@ -242,6 +246,7 @@ function renderStockDetail(data) {
 
     // 2. Render Key Metrics (TTM & Latest Balance Sheet)
     renderKeyMetrics(data);
+    if (document.getElementById('financialMetricsGrid')) renderKeyMetrics(data, 'financialMetricsGrid');
 
     // 3. Render Growth & Margins
     renderGrowthAndMargins(data);
@@ -267,6 +272,7 @@ function renderStockDetail(data) {
 
     // 9. Initialize Change Detection
     initChangeDetection(data);
+    window.NTMResearchShell?.refresh();
 }
 
 function formatFye(fye) {
@@ -349,8 +355,8 @@ function formatResearchPercent(val, decimals = 1, showPlus = false) {
 // Key Metrics Rendering
 // ============================================================================
 
-function renderKeyMetrics(data) {
-    const grid = document.getElementById('keyMetricsGrid');
+function renderKeyMetrics(data, gridId = 'keyMetricsGrid') {
+    const grid = document.getElementById(gridId);
     grid.innerHTML = '';
 
     const ttm = data.ttm || {};
@@ -1642,6 +1648,7 @@ function saveThesis(data) {
     displayThesisSnapshotPreview(currentThesisState.thesis?.valuationSnapshot);
     renderRevisionHistory(data);
     initChangeDetection(data);
+    window.NTMResearchShell?.refresh();
 
     // Show delete button
     window.NTMReview?.init(data);
@@ -2001,6 +2008,7 @@ function selectThesisRevision(revisionId, data) {
     currentThesisState.selectedRevisionId = revisionId;
     renderRevisionHistory(data);
     initChangeDetection(data);
+    window.NTMResearchShell?.refresh();
 }
 
 function deleteSelectedRevision(data) {
@@ -2021,6 +2029,7 @@ function deleteSelectedRevision(data) {
         renderRevisionHistory(data);
     }
     initChangeDetection(data);
+    window.NTMResearchShell?.refresh();
     showThesisStatus(currentThesisState.isDirty
         ? 'Versionen raderad. Dina osparade textändringar finns kvar i formuläret.'
         : currentThesisState.thesis ? 'Versionen raderad. Senaste kvarvarande version används för jämförelsen.'

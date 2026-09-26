@@ -26,11 +26,12 @@
  function render(){
   if(!stock)return;
   const reviewLink=document.querySelector('#reviewEvidenceLinks a');if(reviewLink)reviewLink.href='#researchSince';
-  let host=document.getElementById('researchSince');if(!host){host=node('section',undefined,'research-since');host.id='researchSince';host.setAttribute('aria-labelledby','researchSinceHeading');document.getElementById('overviewRevenue')?.before(host);}
+  let host=document.getElementById('researchSince');if(!host){host=node('section',undefined,'research-since');host.id='researchSince';host.setAttribute('aria-labelledby','researchSinceHeading');const review=document.getElementById('thesis-review');if(review)review.prepend(host);else document.getElementById('overviewRevenue')?.before(host);}
   host.dataset.reviewedCompany=String(['NVDA','SOFI','CRWD'].includes(stock.symbol));
   const opened=new Set([...host.querySelectorAll('details[open][data-group]')].map(n=>n.dataset.group));host.replaceChildren(node('h2','Sedan din analys'));host.firstChild.id='researchSinceHeading';
   const saved=window.NTMThesisStorage.get(stock.symbol);let model;
   try{model=window.NTMResearchSince.build({stock,feed,thesis:saved.thesis,unavailable:health?.status!=='verified'});}catch{model={state:'unavailable'};}
+  window.NTMResearchShell?.since(model,saved.error||saved.warning);
   if(saved.error||saved.warning){host.append(node('p','Sparad analys kunde inte läsas säkert. Öppna versionshistoriken.'));return;}
   if(model.state==='no_revision'){host.append(node('p','Spara en analys för att se granskade förändringar sedan din senaste revision.'));return;}
   if(model.state==='unavailable'){host.append(node('p','Jämförelseunderlaget är inte tillgängligt just nu.'));return;}

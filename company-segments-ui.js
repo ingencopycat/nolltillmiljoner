@@ -18,7 +18,7 @@
   if(ids.length>1){const label=make('label','Visa uppdelning','segment-selector');label.htmlFor='segmentGroup';const select=make('select');select.id='segmentGroup';for(const id of ids){const opt=make('option',S.rows(data).filter(o=>o.group.id===id).at(-1).group.label);opt.value=id;select.append(opt);}select.value=initial;select.addEventListener('change',()=>{selected=select.value;draw();});label.append(select);section.append(label);}
   if(status?.status!=='verified')section.append(make('p','Uppdateringen är otillgänglig; tidigare verifierade uppgifter visas.','segment-context'));
   if(data.pendingReview.length)section.append(make('p','Nyare rapportering väntar på granskning; tidigare granskad affärsmix visas.','segment-context'));
-  section.append(content);host.prepend(section);
+  section.append(content);host.append(section);
   function draw(){
    content.replaceChildren();let view;try{view=S.view(data,selected);}catch{view={available:false,reason:'Underlaget behöver granskas'};}
    if(!view.available){content.append(make('p',view.reason||'Uppdelning saknas.'));return;}

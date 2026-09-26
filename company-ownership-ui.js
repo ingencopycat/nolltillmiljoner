@@ -19,7 +19,7 @@
    el('p','13D innehåller bland annat uppgifter om syfte och planer. 13G följer andra rapporteringsförutsättningar. Formulär och angiven regel visas i underlaget; ingen investeringsavsikt härleds från formulärtypen.'),
    el('p','Varje rad visar en granskad rapporteringshistorik. Relaterade personer kan redovisa samma aktier. Deras belopp summeras inte, och separata juridiska personer slås inte ihop efter namn.'),
    el('p','Förändringar avser rapporterade tal, inte härledda köp eller försäljningar. Procenttalens nämnare kan förändras. Ändrad omfattning bryter jämförelsen. Referensdagen är den angivna händelsedagen, inte nödvändigtvis en exakt innehavstidpunkt.'),
-   el('p','Urvalet omfattar granskade rapporter från 2025 och separata äldre exempel. Avsaknad av underlag betyder inte att bolaget saknar stora ägare. Nya och oklara rapporter kräver granskning. SEC-källor och originaluppgifter finns under varje rapports underlag.'));section.append(sources);host.prepend(section);
+   el('p','Urvalet omfattar granskade rapporter från 2025 och separata äldre exempel. Avsaknad av underlag betyder inte att bolaget saknar stora ägare. Nya och oklara rapporter kräver granskning. SEC-källor och originaluppgifter finns under varje rapports underlag.'));section.append(sources);host.append(section);
  }
  function entry(g){
   const f=g.filing,p=O.person(f),article=el('article',undefined,'ownership-entry');article.append(el('h3',p.name));

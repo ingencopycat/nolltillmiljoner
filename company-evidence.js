@@ -78,9 +78,12 @@
   const legacy=document.getElementById('filingsList');if(legacy)legacy.hidden=false;
   const legacySection=legacy?.closest('section');if(legacySection)legacySection.hidden=false;
   document.getElementById('companyEvidence')?.remove();
+  document.querySelectorAll('[data-evidence-slot]').forEach(slot=>slot.replaceChildren());
+  const target=id=>document.getElementById(id);
+  for(const id of ['evidenceSegments','evidenceKpis','evidenceCapital','evidenceInsiders','evidenceOwnership'])target(id)?.append(node('p',pilot[stock.symbol]?'Hämtar granskat underlag…':'Granskat underlag saknas för detta bolag.'));
   if(stock.manual||!pilot[stock.symbol])return;
   const host=node('section');host.id='companyEvidence';host.setAttribute('aria-label','Officiell bolagsrapportering');
-  document.getElementById('overviewRevenue')?.after(host);
+  if(target('evidenceReporting'))target('evidenceReporting').append(host);else document.getElementById('overviewRevenue')?.after(host);
   host.append(node('p','Hämtar officiell bolagsrapportering…'));
   try{
    const [response,health]=await Promise.all([fetch(`data/stocks/evidence/${stock.symbol}.json`),fetch(`data/stocks/evidence/${stock.symbol}.status.json`).catch(()=>null)]);
@@ -89,15 +92,21 @@
    if(ticket!==generation)return;
    if(data.status!=='verified')throw Error('Unverified');
    current=data;window.NTMResearchSinceUI?.setEvidence(data,status);show(data,['verified','unavailable'].includes(status?.status)?status:{status:'unavailable'},host,stock);
-   window.NTMCompanyObservationsUI?.render(data,host,status);
-   window.NTMCompanySegmentsUI?.render(data,host,status);
-   window.NTMCompanyCapitalUI?.render(data,host,status);
-   window.NTMCompanyInsidersUI?.render(data,host,status);
-   window.NTMCompanyOwnershipUI?.render(data,host,status);
-   window.NTMCompanyMaterialEventsUI?.render(data,host,status);
+   const renderAt=(id,renderer,kind)=>{const slot=target(id)||host;if(slot!==host)slot.replaceChildren();renderer?.render(data,slot,status,kind);if(slot!==host&&!slot.children.length)slot.append(node('p','Granskat underlag saknas för detta bolag.'));};
+   renderAt('evidenceGuidance',window.NTMCompanyObservationsUI,'guidance');
+   renderAt('evidenceKpis',window.NTMCompanyObservationsUI,'kpi');
+   renderAt('evidenceSegments',window.NTMCompanySegmentsUI);
+   renderAt('evidenceCapital',window.NTMCompanyCapitalUI);
+   renderAt('evidenceInsiders',window.NTMCompanyInsidersUI);
+   renderAt('evidenceOwnership',window.NTMCompanyOwnershipUI);
+   renderAt('evidenceEvents',window.NTMCompanyMaterialEventsUI);
+   window.NTMResearchShell?.refresh();
    if(legacy)legacy.hidden=true;
    if(legacySection)legacySection.hidden=true;
-  }catch{if(ticket===generation)host.replaceChildren(node('p','Officiell bolagsrapportering är inte tillgänglig just nu. Befintliga rapportlänkar visas nedan.'));}
+  }catch{if(ticket===generation){
+   host.replaceChildren(node('p','Officiell bolagsrapportering är inte tillgänglig just nu. Befintliga rapportlänkar visas i detta område.'));
+   for(const id of ['evidenceSegments','evidenceKpis','evidenceCapital','evidenceInsiders','evidenceOwnership'])target(id)?.replaceChildren(node('p','Granskat underlag är inte tillgängligt just nu. Försök ladda om sidan.'));
+  }}
  }
  window.NTMCompanyEvidence={validate,since,render,reportLabel,materialSince(data,date,until){return window.NTMCompanyMaterialEvents?.changesSince(data?.materialEvents,date,until)||{events:[],count:0,newEvents:0,updates:0};},ownershipSince(data,date,until){return window.NTMCompanyOwnership?.changesSince(data?.ownershipEvidence,date,until)||{filings:[],count:0,amendments:0,changes:[]};},insidersSince(data,date,until){return window.NTMCompanyInsiders?.changesSince(data.insiderEvidence,date,until)||{filings:[],count:0,categories:{},corrections:0};},setBaseline(date){baseline=date||null;renderBaseline();}};
 })();

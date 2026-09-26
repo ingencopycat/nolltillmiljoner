@@ -1,0 +1,31 @@
+/* Structural navigation; visual redesign is intentionally deferred. */
+.has-company-shell [hidden] { display: none !important; }
+.research-shell-nav { margin: 1rem 0 1.5rem; }
+.research-shell-links { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; border-bottom: 1px solid var(--border-color, #687680); padding-bottom: .75rem; }
+.research-shell-links a { padding: .65rem .25rem; text-decoration: none; }
+.research-shell-links a[aria-current] { color: var(--accent, #00bcd4); text-decoration: underline; text-underline-offset: .5rem; font-weight: 700; }
+.research-shell-selector { display: none; }
+#researchCompanyShell > section { min-width: 0; }
+#researchCompanyShell [data-evidence-slot] > section { margin: 1.5rem 0 2.5rem; }
+#researchCompanyShell [data-workspace]:focus, #researchCompanyShell [data-topic-panel]:focus, #researchCompanyShell [data-thesis-panel]:focus { outline-offset: .3rem; }
+#researchSincePreview p { margin: .5rem 0; }
+#researchSincePreview a { display: block; margin-top: .65rem; }
+#researchTools { margin-top: 2rem; }
+#thesis-versions:has(#thesisHistorySection:not([hidden])) > #shellNoVersions,
+#thesis-outcomes:has(#outcomeSection:not([hidden])) > #shellNoOutcomes,
+#researchTools:has(#researchAI:not([hidden])) > #shellAiStatus { display: none; }
+#companyKpis { border-bottom: 1px solid var(--border); padding-bottom: 28px; margin-bottom: 32px; }
+#companyKpis h2 { margin: 28px 0 8px; }
+#researchCompanyShell .eps-input-wrap { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: .5rem; }
+#researchCompanyShell .eps-input-wrap input { min-width: 0; padding-right: .75rem !important; }
+#researchCompanyShell .eps-source-badge { position: static; }
+#researchCompanyShell .eps-input-wrap button { grid-column: 1 / -1; justify-self: start; }
+@media (max-width: 900px) {
+ .visual-v3 .metrics-dashboard-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+ .research-shell-links { display: none; }
+ .research-shell-selector { display: grid; gap: .4rem; font-weight: 600; }
+ .research-shell-selector select { width: 100%; min-height: 44px; font: inherit; }
+}
+@media (max-width: 640px) {
+ .visual-v3 .metrics-dashboard-grid { grid-template-columns: 1fr; }
+}

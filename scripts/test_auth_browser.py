@@ -151,7 +151,7 @@ def main():
             expect(page.locator('#cloudConnected')).to_be_visible()
 
         def research_save(page, phase):
-            page.goto(base+'/research.html?ticker=NVDA')
+            page.goto(base+'/research.html?ticker=NVDA&view=thesis')
             expect(page.locator('#thesis-text')).to_be_visible()
             before = page.evaluate("NTMThesisStorage.get('NVDA').thesis?.revisions||[]")
             page.locator('#thesis-text').fill('Synthetic private save check: '+phase)

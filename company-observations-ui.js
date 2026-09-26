@@ -11,13 +11,13 @@
   for(const o of history){const column=el('div');const bar=el('span',undefined,'observation-bar');bar.style.height=(o.value.point/max*64)+'px';column.append(el('small',A.valueLabel(o)),bar,el('small',o.period.label));plot.append(column);}
   return plot;
  }
- function render(feed,host,status){
+ function render(feed,host,status,onlyKind){
   const data=feed.reviewedEvidence;if(!data)return;
-  const section=el('section');section.id='companyObservations';section.setAttribute('aria-label','Bolagets guidning och operativa nyckeltal');
-  try{A.validate(data,feed.ticker,feed.cik);}catch{section.append(el('p','Granskade bolagsuppgifter är inte tillgängliga.'));host.prepend(section);return;}
+  const section=el('section');section.id=onlyKind==='kpi'?'companyKpis':'companyObservations';section.setAttribute('aria-label','Bolagets guidning och operativa nyckeltal');
+  try{A.validate(data,feed.ticker,feed.cik);}catch{section.append(el('p','Granskade bolagsuppgifter är inte tillgängliga.'));host.append(section);return;}
   if(status?.status!=='verified')section.append(el('p','Uppdateringen är otillgänglig; tidigare verifierade uppgifter visas.'));
-  const history=A.asOf(data,new Date().toISOString()).filter(o=>!['business_mix','capital'].includes(o.kind));
-  for(const kind of ['guidance','kpi']){
+  const history=A.asOf(data,new Date().toISOString()).filter(o=>!['business_mix','capital'].includes(o.kind)&&(!onlyKind||o.kind===onlyKind));
+  for(const kind of (onlyKind?[onlyKind]:['guidance','kpi'])){
    const all=history.filter(o=>o.kind===kind);section.append(el('h2',kind==='guidance'?'Bolagets guidning':'Operativa nyckeltal'));
    if(!all.length){section.append(el('p',data.coverage.note,'observation-context'));continue;}
    const latestDate=all.at(-1).publicationDate;
@@ -43,7 +43,7 @@
    for(const o of latest.filter(o=>o.value.kind==='qualitative'))section.append(el('p',`${o.period.label} · ${o.note||o.value.text}`,'observation-context'));
   }
   if(data.pendingReview.length)section.append(el('p','Nyare resultatmeddelande väntar på granskning. Tidigare verifierade uppgifter visas.'));
-  const details=el('details',undefined,'financial-sources');details.id='observationSources';details.append(el('summary','Källor & metod'));
+  const details=el('details',undefined,'financial-sources');details.id=onlyKind==='kpi'?'kpiSources':'observationSources';details.append(el('summary','Källor & metod'));
   details.append(el('p','Urval: fyra resultatmeddelanden per bolag. Värden läses deterministiskt från granskade, låsta textpassager. Nya dokument kräver ny granskning. Guidning är bolagets utsikter, inte ett utfall. Samma etikett innebär inte jämförbarhet mellan bolag.'));
   details.append(el('p','Historiken behåller uppgifternas ursprungliga publiceringsdatum, målperiod, definition och aktiebasis. Jämförelser görs bara inom samma bolag och jämförbar basis. Olika målkvartal jämförs inte som guidningsrevideringar.'));
   const learn=el('a','Förstå guidningsrevideringar · Fråga NTM');learn.href='fragor-svar-guidance-revision.html';details.append(learn);
@@ -54,7 +54,7 @@
    const row=el('tr');row.append(el('td',o.publicationDate+' · '+o.period.label),el('td',o.label+' · '+o.basis),el('td',A.valueLabel(o)+(o.status==='superseded'?' · ersatt':'')));
    const source=el('td'),a=el('a','SEC ↗');a.href=o.source.url;a.target='_blank';a.rel='noopener noreferrer';source.append(a);const passage=el('details');passage.append(el('summary','Text & definition'),el('p',o.source.quote),el('p',o.definition),el('p',`Basis: ${o.definitionVersion}`));for(const context of o.source.contexts)if(context!==o.definition)passage.append(el('p',context));source.append(passage);row.append(source);body.append(row);
   }
-  table.append(body);const scroll=el('div',undefined,'observation-table-scroll');scroll.append(table);details.append(scroll);section.append(details);host.prepend(section);
+  table.append(body);const scroll=el('div',undefined,'observation-table-scroll');scroll.append(table);details.append(scroll);section.append(details);host.append(section);
  }
  window.NTMCompanyObservationsUI={render};
 })();
