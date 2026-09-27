@@ -2,8 +2,8 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const feed=t=>JSON.parse(fs.readFileSync(`data/stocks/evidence/${t}.json`)),data=t=>feed(t).materialEvents;
 test('new issuer events preserve appointment and nonconvertible financing semantics',()=>{
  for(const ticker of ['MU','VRT'])M.validate(data(ticker),ticker,feed(ticker).cik);
- for(const event of data('MU').observations){assert.match(M.describe(event),/utsågs till/);assert.doesNotMatch(M.describe(event),/efterträdare/);}
- const event=data('VRT').observations[0];assert.match(M.describe(event),/slutförde/);assert.doesNotMatch(M.describe(event),/konvertibla/);
+ for(const event of data('MU').observations.filter(o=>o.template==='executive_appointed')){assert.match(M.describe(event),/utsågs till/);assert.doesNotMatch(M.describe(event),/efterträdare/);}
+ const event=data('VRT').observations.find(o=>o.template==='senior_notes_issued');assert.match(M.describe(event),/slutförde/);assert.doesNotMatch(M.describe(event),/konvertibla/);
 });
 test('real pilot data validates',()=>{for(const t of ['NVDA','SOFI','CRWD'])assert.equal(M.validate(data(t),t,feed(t).cik).schema,'ntm-company-material-events/1');});
 test('eleven underlying events not twelve observations or thirteen documents',()=>{assert.equal(['NVDA','SOFI','CRWD'].reduce((n,t)=>n+M.latest(data(t)).length,0),11);});

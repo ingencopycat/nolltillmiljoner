@@ -14,7 +14,7 @@ test('B78 actual data retains null EPS, source evidence, safe comparisons and ex
  const c={window:{}};vm.createContext(c);for(const f of ['research-snapshot.js','change-detection.js'])vm.runInContext(fs.readFileSync(f,'utf8'),c);
  for(const t of tickers){const data=JSON.parse(fs.readFileSync(`data/stocks/${t}.json`)),S=c.window.NTMResearchSnapshot;
  const snapshot=S.normalize({...S.fromStockData(data),ticker:t,capturedAt:'2026-09-15T23:00:00Z'});
- assert.equal(snapshot.ttmMetrics.eps,null);assert.ok(Number.isFinite(snapshot.ttmMetrics.revenue));
+ assert.equal(snapshot.ttmMetrics.eps,({MU:44.31,VRT:4.42})[t]??null);assert.ok(Number.isFinite(snapshot.ttmMetrics.revenue));
  assert.equal(S.comparable(snapshot,S.fromStockData(data),'dilutedShares').comparable,false);
  assert.equal(c.window.NTMChangeDetection.detect(snapshot,data).metrics.length,0);
  data.valuationBase.currency='SEK';assert.ok(c.window.NTMChangeDetection.detect(snapshot,data).blocked.length>0);

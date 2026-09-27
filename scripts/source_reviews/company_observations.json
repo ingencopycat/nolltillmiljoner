@@ -18119,11 +18119,153 @@
             "shareBasis": "as-reported",
             "recast": "as_reported"
           }
+        },
+        {
+          "key": "debt-total-reviewed",
+          "kind": "capital",
+          "metricId": "debt_total",
+          "issuerLabel": "Skuld inklusive finansiell leasing",
+          "label": "Skuld inklusive finansiell leasing",
+          "quote": "Note 9. Debt As of May 28, 2026 As of August 28, 2025 Net Carrying Amount Net Carrying Amount Stated Rate Effective Rate Current Long-Term Total Current Long-Term Total 2031 Notes 5.300 % 5.41 % $ — $ 261 $ 261 $ — $ 995 $ 995 2032 Green Bonds 2.703 % 2.77 % — 996 996 — 996 996 2032 Notes 5.650 % 5.79 % — 70 70 — 496 496 2033 A Notes 5.875 % 5.96 % — 175 175 — 746 746 2033 B Notes 5.875 % 6.01 % — 213 213 — 892 892 2035 A Notes 5.800 % 5.90 % — 135 135 — 992 992 2035 B Notes 6.050 % 6.14 % — 219 219 — 1,241 1,241 2041 Notes 3.366 % 3.41 % — 497 497 — 497 497 2051 Notes 3.477 % 3.52 % — 486 486 — 496 496 2028 Notes N/A N/A — — — — 540 540 2029 Term Loan A N/A N/A — — — — 982 982 2029 A Notes N/A N/A — — — — 698 698 2029 B Notes N/A N/A — — — — 1,168 1,168 2030 Notes N/A N/A — — — — 794 794 Finance lease obligations N/A 4.72 % 582 2,088 2,670 560 2,484 3,044 $ 582 $ 5,140 $ 5,722 $ 560 $ 14,017 $ 14,577",
+          "quoteSha256": "56d3fe926c381c0693ee0e3c65c10dafbf8bd1b548f7b9115341471bf4e1ec33",
+          "contexts": [],
+          "period": {
+            "label": "Q3 FY2026",
+            "end": "2026-05-28",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-debt_total-completion-v1",
+          "definition": "Total reported debt net carrying amount, including finance lease obligations; not the lease-excluding borrowing basis.",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "Inkluderar finansiell leasing. Ingen nettoskuldsberäkning.",
+          "pattern": "\\$ 582 \\$ 5,140 \\$ (?P<point>5,722)",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "debtScope": "including-finance-leases",
+            "calculationBasis": "carrying-including-finance-leases"
+          },
+          "reviewDate": "2026-09-27"
+        },
+        {
+          "key": "authorization-reviewed",
+          "kind": "capital",
+          "metricId": "repurchase_authorized",
+          "issuerLabel": "Återköpsmandat",
+          "label": "Återköpsmandat",
+          "quote": "Note 11. Equity Common Stock Repurchases Our Board of Directors has authorized the discretionary repurchase of up to $ 10 billion of our outstanding common stock through open-market purchases, block trades, privately-negotiated transactions, derivative transactions, and/or pursuant to Rule 10b5-1 trading plans. The repurchase authorization has no expiration date, does not obligate us to acquire any common stock, and is subject to market conditions, restrictions applicable under our CHIPS Act direct funding agreements, and our ongoing determination of the best use of available cash. No shares were repurchased in the third quarter of 2026. We repurchased 2.5 million shares of our common stock for $ 650 million in first nine months of 2026. Through May 28, 2026, we had repurchased an aggregate of $ 7.84 billion under the authorization. Amounts repurchased are included in treasury stock.",
+          "quoteSha256": "b62d3fa3542e22b242d76895b64ef0e463cfa1a2054d5f89cbd46744ceab0904",
+          "contexts": [],
+          "period": {
+            "label": "Q3 FY2026",
+            "end": "2026-05-28",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-repurchase_authorized-completion-v1",
+          "definition": "Board authorization, not actual repurchases; no expiration and subject to CHIPS restrictions.",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "",
+          "pattern": "up to \\$ (?P<point>10) billion",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "calculationBasis": "board-authorization"
+          },
+          "reviewDate": "2026-09-27"
+        },
+        {
+          "key": "authorization-remaining",
+          "kind": "capital",
+          "metricId": "repurchase_remaining",
+          "issuerLabel": "Kvar av återköpsmandat",
+          "label": "Kvar av återköpsmandat",
+          "quote": "Approximate dollar value of shares that may yet be purchased under publicly announced plans or programs (in millions) February 27, 2026 – March 26, 2026 — $ — — March 27, 2026 – April 23, 2026 912 465.66 — April 24, 2026 – May 28, 2026 — — — 912 $ 465.66 — $ 2,156",
+          "quoteSha256": "3160b28e90b880b40009dbaeeb413f25fe40e127a5484e35807dd0f29800d4b8",
+          "contexts": [],
+          "period": {
+            "label": "Q3 FY2026",
+            "end": "2026-05-28",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-repurchase_remaining-completion-v1",
+          "definition": "Kvar av återköpsmandat",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "",
+          "pattern": "\\$ (?P<point>2,156)",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "calculationBasis": "remaining-authorization"
+          },
+          "reviewDate": "2026-09-27"
+        },
+        {
+          "key": "funding-reviewed",
+          "kind": "capital",
+          "metricId": "funding_context",
+          "issuerLabel": "Finansiering och förfall",
+          "label": "Finansiering och förfall",
+          "quote": "Revolving Credit Facility On May 6, 2026, we reduced our borrowing capacity under the Revolving Credit Facility from $ 3.50 billion to $ 2.00 billion. As of May 28, 2026, no amounts were outstanding under the Revolving Credit Facility. Borrowing under the Revolving Credit Facility would generally bear interest at a rate equal to adjusted term SOFR plus 0.875 % to 1.50 %, depending on our corporate credit ratings. Any amounts outstanding under the Revolving Credit Facility would mature on March 12, 2030 and amounts borrowed may be prepaid without penalty. Any obligations under the Revolving Credit Facility would be unsecured. The Revolving Credit Facility requires us to maintain, on a consolidated basis, a net leverage ratio of total net indebtedness to adjusted EBITDA, as defined in the Revolving Credit Facility agreement and calculated as of the last day of each fiscal quarter, not to exceed 3.25 to 1.00, subject to a temporary four fiscal quarter increase in such maximum ratio to 3.75 to 1.00 following certain material acquisitions.",
+          "quoteSha256": "926daf5644da29c3417dd4c34523f198ceb440fad08a23be4e50e8debed8a199",
+          "contexts": [],
+          "period": {
+            "label": "Q3 FY2026",
+            "end": "2026-05-28",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "mu-funding_context-completion-v1",
+          "definition": "Reported revolver, maturities and lease scope; commitments are not cash.",
+          "unit": "text",
+          "currency": null,
+          "scale": 1,
+          "valueKind": "qualitative",
+          "approximate": false,
+          "note": "Källans lånevillkor och leasing hålls åtskilda från kassa.",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported"
+          },
+          "reviewDate": "2026-09-27"
         }
       ],
-      "sha256": "f5c78dfd64ce4d3624faf9d2ba1a253e8fcd9f14ac31becc877276136db1b39f",
+      "sha256": "5d16c91ac0cea8218e1ab8847bc6e866e137d4a758770193d20929fb18f9ceaa",
       "sourceSha256": "581d1a3deaea1e86790c05923f2613f0dce42837fd230db06fe0ca1ca30442c4",
-      "rights": "Bounded factual rows and context; not full filing archive."
+      "rights": "Bounded factual rows and context; not full filing archive.",
+      "artifactHistory": [
+        {
+          "file": "history/0000723125-26-000015-f5c78dfd64ce4d3624faf9d2ba1a253e8fcd9f14ac31becc877276136db1b39f.html",
+          "sha256": "f5c78dfd64ce4d3624faf9d2ba1a253e8fcd9f14ac31becc877276136db1b39f"
+        }
+      ],
+      "originalDocumentSha256": "1dc3ec43a9dbfab01b1b7d957e6924b06121743b9d1582097add17004dc6ca2c"
     },
     {
       "ticker": "MU",
@@ -18555,9 +18697,414 @@
           }
         }
       ],
-      "sha256": "c8679c08be40e0c2d88293fc68243f52b5287fbc141d2d64911bf483cb99ab3f",
+      "sha256": "a774a9d06729c17b4eb3d45bd3c0b34a29bed7f3babd91ee30afe88b3343d786",
       "sourceSha256": "452dfcbc3a89c6bd47068f90eb089e05485cf47c26b4ccbb50ac492585fc9cb5",
-      "rights": "Bounded factual rows and context; not full filing archive."
+      "rights": "Bounded factual rows and context; not full filing archive.",
+      "artifactHistory": [
+        {
+          "file": "history/0000723125-26-000006-c8679c08be40e0c2d88293fc68243f52b5287fbc141d2d64911bf483cb99ab3f.html",
+          "sha256": "c8679c08be40e0c2d88293fc68243f52b5287fbc141d2d64911bf483cb99ab3f"
+        }
+      ],
+      "originalDocumentSha256": "2ad208f63dce8ed56ec01d93c81ae2274e4a895d48664a1fdc17c572552dcd92"
+    },
+    {
+      "ticker": "MU",
+      "accessionNumber": "0000723125-25-000028",
+      "publicationDate": "2025-10-03",
+      "reviewDate": "2026-09-27",
+      "document": {
+        "exhibit": null,
+        "documentType": "periodic_filing",
+        "accessionNumber": "0000723125-25-000028",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000028/mu-20250828.htm",
+        "source": "SEC",
+        "relationship": "official_periodic_filing"
+      },
+      "observations": [],
+      "sourceSha256": "7ef65eb5622f02f58374f68557c66b51e2aaa1d6c7afafbf78a952139ba80ad8",
+      "rights": "Bounded factual financial-note excerpts in inert HTML; complete filing is not archived.",
+      "sha256": "3d47f6290dc86872ed43dec31bea2c73eb882c420cb14af2163c632f57d3bd43"
+    },
+    {
+      "ticker": "MU",
+      "accessionNumber": "0000723125-25-000046",
+      "publicationDate": "2025-12-18",
+      "reviewDate": "2026-09-27",
+      "document": {
+        "exhibit": null,
+        "documentType": "periodic_filing",
+        "accessionNumber": "0000723125-25-000046",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000046/mu-20251127.htm",
+        "source": "SEC",
+        "relationship": "official_periodic_filing"
+      },
+      "observations": [],
+      "sourceSha256": "972abfe55ee3326144e1fd9d990a85a72c50556809ec40126b097ed8c7662323",
+      "rights": "Bounded factual financial-note excerpts in inert HTML; complete filing is not archived.",
+      "sha256": "da85be7420a469b47d205d81bb248ae31abae13e53bc6ebc3cfe84da9d51e402"
+    },
+    {
+      "ticker": "VRT",
+      "accessionNumber": "0001674101-26-000008",
+      "publicationDate": "2026-02-13",
+      "reviewDate": "2026-09-27",
+      "document": {
+        "exhibit": null,
+        "documentType": "periodic_filing",
+        "accessionNumber": "0001674101-26-000008",
+        "url": "https://www.sec.gov/Archives/edgar/data/1674101/000167410126000008/vrt-20251231.htm",
+        "source": "SEC",
+        "relationship": "official_periodic_filing"
+      },
+      "observations": [
+        {
+          "key": "backlog-2024",
+          "kind": "kpi",
+          "metricId": "backlog",
+          "issuerLabel": "Orderstock",
+          "label": "Orderstock",
+          "quote": "Backlog Vertiv’s estimated combined order backlog was $15.0 billion and $7.2 billion as of December 31, 2025 and 2024, respectively, as continued strong demand has contributed to an increase in customer orders being placed in advance of our ability to fulfill them. The backlog consists of product and services for which a customer purchase order or purchase commitment has been received and which has not yet been delivered. Orders may be subject to cancellation or rescheduling by the customer. The majority of the combined backlog as of December 31, 2025 is considered firm and is expected to be shipped within the next 12 to 18 months.",
+          "quoteSha256": "d1a43cfb5a61898cce97c0e50db3e9e3975384d9fdf7fc305c2700c5bce19053",
+          "contexts": [],
+          "period": {
+            "label": "FY2024",
+            "end": "2024-12-31",
+            "type": "instant"
+          },
+          "basis": "issuer_defined",
+          "definitionVersion": "vrt-backlog-completion-v1",
+          "definition": "Estimated combined product/service purchase orders or commitments received, not delivered; includes acquired scope; cancellations/rescheduling possible.",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "valueKind": "point",
+          "approximate": true,
+          "note": "Årsuppgift, inte aktuell orderstock för 2026. Inkluderar förvärv; förändringen är inte organisk tillväxt.",
+          "pattern": "\\$(?P<point>7\\.2) billion",
+          "reviewDate": "2026-09-27"
+        },
+        {
+          "key": "backlog-2025",
+          "kind": "kpi",
+          "metricId": "backlog",
+          "issuerLabel": "Orderstock",
+          "label": "Orderstock",
+          "quote": "Backlog Vertiv’s estimated combined order backlog was $15.0 billion and $7.2 billion as of December 31, 2025 and 2024, respectively, as continued strong demand has contributed to an increase in customer orders being placed in advance of our ability to fulfill them. The backlog consists of product and services for which a customer purchase order or purchase commitment has been received and which has not yet been delivered. Orders may be subject to cancellation or rescheduling by the customer. The majority of the combined backlog as of December 31, 2025 is considered firm and is expected to be shipped within the next 12 to 18 months.",
+          "quoteSha256": "d1a43cfb5a61898cce97c0e50db3e9e3975384d9fdf7fc305c2700c5bce19053",
+          "contexts": [],
+          "period": {
+            "label": "FY2025",
+            "end": "2025-12-31",
+            "type": "instant"
+          },
+          "basis": "issuer_defined",
+          "definitionVersion": "vrt-backlog-completion-v1",
+          "definition": "Estimated combined product/service purchase orders or commitments received, not delivered; includes acquired scope; cancellations/rescheduling possible.",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "valueKind": "point",
+          "approximate": true,
+          "note": "Årsuppgift, inte aktuell orderstock för 2026. Inkluderar förvärv; förändringen är inte organisk tillväxt.",
+          "pattern": "\\$(?P<point>15\\.0) billion",
+          "reviewDate": "2026-09-27"
+        }
+      ],
+      "sourceSha256": "57a192b91b4f9aef1c3b6d7d379b7e9516297d6916f1cce48d2a8e3d8aae0cdf",
+      "rights": "Bounded factual financial-note excerpts in inert HTML; complete filing is not archived.",
+      "sha256": "0bf0a89a3aea945de4203eb55bf225c8bd317339f352b087ebd0fa24b20b9ed0"
+    },
+    {
+      "ticker": "VRT",
+      "accessionNumber": "0001674101-25-000024",
+      "publicationDate": "2025-10-22",
+      "reviewDate": "2026-09-27",
+      "document": {
+        "exhibit": null,
+        "documentType": "periodic_filing",
+        "accessionNumber": "0001674101-25-000024",
+        "url": "https://www.sec.gov/Archives/edgar/data/1674101/000167410125000024/vrt-20250930.htm",
+        "source": "SEC",
+        "relationship": "official_periodic_filing"
+      },
+      "observations": [],
+      "sourceSha256": "c534e51dedd96c9930ffdc5baef174077baf504e0c6142670d17bb85f9dbb732",
+      "rights": "Bounded factual financial-note excerpts in inert HTML; complete filing is not archived.",
+      "sha256": "0102378855a8f9c8c7ad54f844185fd9a0acf993859b68575494864d3570a4ef"
+    },
+    {
+      "ticker": "VRT",
+      "accessionNumber": "0001628280-26-026556",
+      "publicationDate": "2026-04-22",
+      "reviewDate": "2026-09-27",
+      "document": {
+        "exhibit": null,
+        "documentType": "periodic_filing",
+        "accessionNumber": "0001628280-26-026556",
+        "url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026026556/vrt-20260331.htm",
+        "source": "SEC",
+        "relationship": "official_periodic_filing"
+      },
+      "observations": [],
+      "sourceSha256": "a83f87962452b8ddfedc828e4b1099eaf962482a55cf1fa0dd1f092a0e8d1849",
+      "rights": "Bounded factual financial-note excerpts in inert HTML; complete filing is not archived.",
+      "sha256": "394d0901ec4a09ba88e20af0755dae88e66e9f5bbd1396c76e8b11c2a50f2c78"
+    },
+    {
+      "ticker": "VRT",
+      "accessionNumber": "0001628280-26-050609",
+      "publicationDate": "2026-07-29",
+      "reviewDate": "2026-09-27",
+      "document": {
+        "exhibit": null,
+        "documentType": "periodic_filing",
+        "accessionNumber": "0001628280-26-050609",
+        "url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026050609/vrt-20260630.htm",
+        "source": "SEC",
+        "relationship": "official_periodic_filing"
+      },
+      "observations": [
+        {
+          "key": "debt-total-reviewed",
+          "kind": "capital",
+          "metricId": "debt_total",
+          "issuerLabel": "Redovisad låneskuld",
+          "label": "Låneskuld exklusive leasing",
+          "quote": "(6) DEBT Long-term debt, net, consisted of the following as of June 30, 2026 and December 31, 2025: June 30, 2026 December 31, 2025 Term Loan due 2032 at 5.61 % at December 31, 2025 $ — $ 2,076.1 Senior Secured Notes due 2028 at 4.125 % at both June 30, 2026 and December 31, 2025 850.0 850.0 Senior Notes due 2036 at 4.850 % at June 30, 2026 600.0 — Senior Notes due 2046 at 5.650 % at June 30, 2026 500.0 — Senior Notes due 2056 at 5.800 % at June 30, 2026 500.0 — Senior Notes due 2066 at 5.950 % at June 30, 2026 500.0 — 0.55 % to 5.12 % notes (maturities ranging from 2027 to 2036) 17.2 — Unamortized discount and issuance costs ( 27.4 ) ( 13.1 ) 2,939.8 2,913.0 Less: current portion — ( 20.9 ) Total long-term debt, net of current portion $ 2,939.8 $ 2,892.1",
+          "quoteSha256": "4de3263cd50594e99f8915dda30c2119d49b3d00664fadc58ba9458bcbea287a",
+          "contexts": [],
+          "period": {
+            "label": "Q2 FY2026",
+            "end": "2026-06-30",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-debt_total-completion-v1",
+          "definition": "Reported carrying amount after discount/issuance costs; zero current portion in this table. Lease liabilities remain separate.",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "",
+          "pattern": "Total long-term debt, net of current portion \\$ (?P<point>2,939.8)",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "debtScope": "reported-notes-excluding-leases",
+            "calculationBasis": "reported-note-table"
+          },
+          "reviewDate": "2026-09-27"
+        },
+        {
+          "key": "authorization-reviewed",
+          "kind": "capital",
+          "metricId": "repurchase_authorized",
+          "issuerLabel": "Återköpsmandat",
+          "label": "Återköpsmandat",
+          "quote": "C) Repurchases of Shares or of Company Equity Securities On November 29, 2023, the Board of Directors of the Company approved a stock repurchase program, which authorizes the repurchase of shares of Company Class A common stock in an aggregate amount of up to $3.0 billion through December 31, 2027. The stock repurchase program does not obligate the Company to repurchase any specific dollar amount or number of shares of Class A common stock and the Board's authorization of the program may be modified, suspended or discontinued at any time. As of June 30, 2026, $2.4 billion shares were available for repurchase. During 2026, Vertiv made no share repurchases.",
+          "quoteSha256": "eb6af2b05a420e593e14889fdbfa2b75bb55ceca40746d00dc7df4de51ca6951",
+          "contexts": [],
+          "period": {
+            "label": "Q2 FY2026",
+            "end": "2026-06-30",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-repurchase_authorized-completion-v1",
+          "definition": "Återköpsmandat",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "",
+          "pattern": "up to \\$(?P<point>3.0) billion",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "calculationBasis": "board-authorization"
+          },
+          "reviewDate": "2026-09-27"
+        },
+        {
+          "key": "remaining-reviewed",
+          "kind": "capital",
+          "metricId": "repurchase_remaining",
+          "issuerLabel": "Kvar av återköpsmandat",
+          "label": "Kvar av återköpsmandat",
+          "quote": "C) Repurchases of Shares or of Company Equity Securities On November 29, 2023, the Board of Directors of the Company approved a stock repurchase program, which authorizes the repurchase of shares of Company Class A common stock in an aggregate amount of up to $3.0 billion through December 31, 2027. The stock repurchase program does not obligate the Company to repurchase any specific dollar amount or number of shares of Class A common stock and the Board's authorization of the program may be modified, suspended or discontinued at any time. As of June 30, 2026, $2.4 billion shares were available for repurchase. During 2026, Vertiv made no share repurchases.",
+          "quoteSha256": "eb6af2b05a420e593e14889fdbfa2b75bb55ceca40746d00dc7df4de51ca6951",
+          "contexts": [],
+          "period": {
+            "label": "Q2 FY2026",
+            "end": "2026-06-30",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-repurchase_remaining-completion-v1",
+          "definition": "Kvar av återköpsmandat",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "",
+          "pattern": "\\$(?P<point>2.4) billion",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "calculationBasis": "remaining-authorization"
+          },
+          "reviewDate": "2026-09-27"
+        },
+        {
+          "key": "repurchase-absence",
+          "kind": "capital",
+          "metricId": "repurchase_context",
+          "issuerLabel": "Faktiska återköp",
+          "label": "Faktiska återköp",
+          "quote": "C) Repurchases of Shares or of Company Equity Securities On November 29, 2023, the Board of Directors of the Company approved a stock repurchase program, which authorizes the repurchase of shares of Company Class A common stock in an aggregate amount of up to $3.0 billion through December 31, 2027. The stock repurchase program does not obligate the Company to repurchase any specific dollar amount or number of shares of Class A common stock and the Board's authorization of the program may be modified, suspended or discontinued at any time. As of June 30, 2026, $2.4 billion shares were available for repurchase. During 2026, Vertiv made no share repurchases.",
+          "quoteSha256": "eb6af2b05a420e593e14889fdbfa2b75bb55ceca40746d00dc7df4de51ca6951",
+          "contexts": [],
+          "period": {
+            "label": "Q2 FY2026",
+            "end": "2026-06-30",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-repurchase_context-completion-v1",
+          "definition": "Issuer explicitly reports no share repurchases during 2026 through June 30; authorization is not cash spent.",
+          "unit": "text",
+          "currency": null,
+          "scale": 1,
+          "valueKind": "qualitative",
+          "approximate": false,
+          "note": "",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported"
+          },
+          "reviewDate": "2026-09-27"
+        },
+        {
+          "key": "revolver-available",
+          "kind": "capital",
+          "metricId": "facility_available",
+          "issuerLabel": "Tillgänglig revolver",
+          "label": "Tillgänglig revolver",
+          "quote": "At June 30, 2026, Vertiv had $ 2,483.6 of availability (subject to customary conditions) under the Senior Unsecured Revolving Credit Facility, net of letters of credit outstanding in the aggregate principal amount of $ 16.4 .",
+          "quoteSha256": "bfb7749dc98ae2333ad9cee6c158720ade0cd232d56299d490a6ad5128697b24",
+          "contexts": [],
+          "period": {
+            "label": "Q2 FY2026",
+            "end": "2026-06-30",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-facility_available-completion-v1",
+          "definition": "Tillgänglig revolver",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "",
+          "pattern": "\\$ (?P<point>2,483.6)",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "calculationBasis": "facility-availability-not-cash"
+          },
+          "reviewDate": "2026-09-27"
+        },
+        {
+          "key": "funding-reviewed",
+          "kind": "capital",
+          "metricId": "funding_context",
+          "issuerLabel": "Finansiering och förfall",
+          "label": "Finansiering och förfall",
+          "quote": "Senior Notes On M arch 3, 2026, Vertiv Holdings Co (the “Issuer”) issued $ 2,100.0 in aggregate principal amount of senior unsecured notes consisting of $ 600.0 aggregate principal amount of 4.850 % Senior Notes due 2036 (the “2036 Notes”), $ 500.0 aggregate principal amount of 5.650 % Senior Notes due 2046 (the “2046 Notes”), $ 500.0 aggregate principal amount of 5.800 % Senior Notes due 2056 (the “2056 Notes”) and $ 500.0 aggregate principal amount of 5.950 % Senior Notes due 2066 (the “2066 Notes” and, together with the 2036 Notes, the 2046 Notes and the 2056 Notes, the “Senior Notes”). The Company used the net proceeds from the sale of the Senior Notes, together with cash on hand, to repay in full all outstanding indebtedness under its Term Loan Credit Agreement, dated as of March 2, 2020 (as amended, the “Term Loan Credit Agreement”), among Vertiv Group Corporation, as borrower, the guarantors party thereto, the lenders party thereto, and Citibank, N.A., as administrative agent and collateral agent and to pay related fees and expenses.",
+          "quoteSha256": "abec12af2e2f2252f4f0dbc222a131edcb2807292560ed11703445b4b2302f43",
+          "contexts": [],
+          "period": {
+            "label": "Q2 FY2026",
+            "end": "2026-06-30",
+            "type": "instant"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-funding_context-completion-v1",
+          "definition": "Notes, revolver conditions and refinancing; proceeds and contractual facilities are not debt balances or cash.",
+          "unit": "text",
+          "currency": null,
+          "scale": 1,
+          "valueKind": "qualitative",
+          "approximate": false,
+          "note": "Rapporterade villkor och förfall, inte en beräknad nettoskuld.",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported"
+          },
+          "reviewDate": "2026-09-27"
+        },
+        {
+          "key": "debt-proceeds-reviewed",
+          "kind": "capital",
+          "metricId": "debt_proceeds",
+          "issuerLabel": "Likvid från ny upplåning",
+          "label": "Likvid från ny upplåning",
+          "quote": "Cash flows from financing activities: Proceeds from the issuance of long-term debt 2,100.0 — Repayment of long-term debt ( 2,076.1 ) ( 10.5 ) Dividend payment ( 47.8 ) ( 28.4 ) Exercise of employee stock options 44.1 13.0 Employee taxes paid from shares withheld ( 23.2 ) ( 7.0 )",
+          "quoteSha256": "3ebc6759eb336d45e8c8896743dad410906d1416d5fe099a7524db2548ff7f67",
+          "contexts": [],
+          "period": {
+            "label": "YTD Q2 FY2026",
+            "start": "2026-01-01",
+            "end": "2026-06-30",
+            "type": "year_to_date"
+          },
+          "basis": "GAAP",
+          "definitionVersion": "vrt-debt_proceeds-completion-v1",
+          "definition": "Likvid från ny upplåning",
+          "unit": "USD",
+          "currency": "USD",
+          "scale": 1000000.0,
+          "valueKind": "point",
+          "approximate": false,
+          "note": "",
+          "pattern": "long-term debt (?P<point>2,100.0)",
+          "capital": {
+            "section": "liquidity",
+            "scope": "consolidated",
+            "sectorBasis": "industrial",
+            "shareBasis": "as-reported",
+            "recast": "as_reported",
+            "calculationBasis": "cash-proceeds-not-balance"
+          },
+          "reviewDate": "2026-09-27"
+        }
+      ],
+      "sourceSha256": "56f5cc1c9a5786eb05a891a05161d55d74121335bb8977baeb3748d068c78768",
+      "rights": "Bounded factual financial-note excerpts in inert HTML; complete filing is not archived.",
+      "sha256": "a0d6b65623b47e3f459d5d1b8bbd3ce50826217ac7a3e8c1468b365151150fbd"
     }
   ],
   "coverage": {
@@ -18596,7 +19143,7 @@
       "kpi": "not_selected",
       "businessMix": "reviewed",
       "capital": "partial",
-      "note": "Two latest earnings releases reviewed. No standalone operating KPI admitted; further definitions/history remain review-required.",
+      "note": "Granskade års- och kvartalsrapporter redovisar bitvolym och priser som ungefärliga förändringsintervall. Ingen separat, exakt KPI-serie har konstruerats; verksamhetsmixen behålls.",
       "excluded": [
         "Standalone KPI history not admitted",
         "Debt completeness, maturities and issuance reconciliation require further review"
@@ -18604,10 +19151,10 @@
     },
     "VRT": {
       "guidance": "reviewed",
-      "kpi": "not_selected",
+      "kpi": "reviewed",
       "businessMix": "reviewed",
       "capital": "partial",
-      "note": "Two latest earnings releases reviewed. No standalone operating KPI admitted; further definitions/history remain review-required.",
+      "note": "Granskad orderstock 2024–2025. Senaste årsvärdet är daterat; ingen orderstock för 2026 har uppskattats.",
       "excluded": [
         "Standalone KPI history not admitted",
         "Debt completeness, maturities and issuance reconciliation require further review"

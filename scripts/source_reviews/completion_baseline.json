@@ -1,0 +1,137 @@
+{
+  "baseline": "d44d070",
+  "hashEncoding": "canonical JSON, sorted keys, compact separators, UTF-8, no ASCII escaping",
+  "issuers": {
+    "MU": {
+      "reviewedEvidence": {
+        "MU:0000723125-26-000004:cash": "158a2943e37ecf76439ffb2ba6f61c670425fb0b1750fdf61e5e8708da5e6d5e",
+        "MU:0000723125-26-000004:debt_current": "e6c8d2d6c43bced19ec51851855a1e73538e5b7b060834ebbc029a986a3744a6",
+        "MU:0000723125-26-000004:debt_noncurrent": "756d23d0af7c3595b8a3cb9da073d5f0edfdc712526cb77633fe2b32b5f4528e",
+        "MU:0000723125-26-000004:investment_securities": "fcb4ed9076005b0b095a66f3d3b744aa874d2e393856fae70238b25ac08252fc",
+        "MU:0000723125-26-000004:revenue": "13024109f2b3e7059ead63c59d5de7295487ed105bc1f4060569307e1d49f6c7",
+        "MU:0000723125-26-000004:sbc_expense": "38a4fcb8b2b016fd61b1bec138db5404b3142c27c352abe1964a2057955edc9a",
+        "MU:0000723125-26-000006:repurchase_cash": "9e390b9653cb9e01c06146bf0f4f57b7942b3edf9fccc7136d3d37f053452ecc",
+        "MU:0000723125-26-000006:revenue-all-other": "9008b14f20bcecd9352511bc8e6643ba91f2a70e1734bc12a302129318261baf",
+        "MU:0000723125-26-000006:revenue-automotive-embedded": "697cd6a26a06644e82525adea2eb8b990fec63f34837853654ad8c4577fd1cb0",
+        "MU:0000723125-26-000006:revenue-cloud-memory": "646bec657013580549b83e5fe79452befa083148049959f9fd37e968d75b5082",
+        "MU:0000723125-26-000006:revenue-core-data-center": "f1f4e111de84c91ec48c7dbaf7bdde007cab600119865157c0e1cce940d01a86",
+        "MU:0000723125-26-000006:revenue-mobile-client": "b07865977329d23f49f65a0e4b920cbac5d8874a8862f46d8b67a2b8b095ea1e",
+        "MU:0000723125-26-000006:revenue-total": "9e49a4ad8394e1ac7abe20788ac35cdde5dbab4658b5122fba8aefd37bbe2d6f",
+        "MU:0000723125-26-000006:shares_outstanding": "da78655e98d62348695e3f7cb2ae69639fc5498df8cb7ffcb909ce8e7eb35dbf",
+        "MU:0000723125-26-000006:weighted_diluted": "a3e589ec5111a5f334ca020d6da5e16d0ab5c81a10979d5412f7e08a81ea6633",
+        "MU:0000723125-26-000013:cash": "70c908b03625fc22934ba541bf911cd1b332ea5bd39334f0ac30a6eb8b02d3f9",
+        "MU:0000723125-26-000013:debt_current": "bbd0fd6712930c5ded2325a5b3df8dc585d075a58c5e762d688417d00565bdcf",
+        "MU:0000723125-26-000013:debt_noncurrent": "3c0263a9dc4d9039511f3b9d56234d4ed45618b01e3807d194f287bc658fd581",
+        "MU:0000723125-26-000013:investment_securities": "4c5d2a82bcda0ef45085c28d330e5c99994f13b359640110244823d62a80f701",
+        "MU:0000723125-26-000013:revenue": "b47c8803567e8d2c2cc5488ebf4738be47fb0a66f193bdea2f57bdec4e5f1801",
+        "MU:0000723125-26-000013:sbc_expense": "332283538618823d7465f551ee2b7fe10e32115c926b0f1e8f6fe9a096a7df46",
+        "MU:0000723125-26-000015:repurchase_cash": "410c97b647999c47761c3d4226d375cb566473e2562d71924d6f160b98ae5b68",
+        "MU:0000723125-26-000015:revenue-all-other": "8ceea8a28e0859c6222e36296b43e1a2bc09483fdec96226dc9f18ddae0e277e",
+        "MU:0000723125-26-000015:revenue-automotive-embedded": "6a309df1efe8e5e8182a9e057dc22f2f967dee6a2c51e49f7eda30b49e46d681",
+        "MU:0000723125-26-000015:revenue-cloud-memory": "fe965da358a3a7cbc21cdfb49cbaaecdf4732dd1507ed6981e3ded55f705b2d2",
+        "MU:0000723125-26-000015:revenue-core-data-center": "118b841f77a9e3b8b0c4ed8732433b12d61841dc9cc9e4bca7ed02c4ce67a6c9",
+        "MU:0000723125-26-000015:revenue-mobile-client": "be0facffe91ab4029e7d458ea7710a5daf65f41d2a8ecc05e2507d45d53d1150",
+        "MU:0000723125-26-000015:revenue-total": "d9ba1b643160dd4342a7278fec58e1337b2c83825fa0f1834902116e2023ca49",
+        "MU:0000723125-26-000015:shares_outstanding": "ff3ca12187a4968231e8f49039178477c2b7e49afc3ff2293ee8d64a26356f36",
+        "MU:0000723125-26-000015:weighted_diluted": "52947e9432ab443c7a3ec659baed64424a282f66512088f650cfd2edecf030ce"
+      },
+      "materialEvents": {
+        "MU:0001104659-26-101067/deboer:0001104659-26-101067": "4b0636eb83cfeb53e4f1aa1454cb1c18449112929d4af2a015f49f282470cc8e",
+        "MU:0001104659-26-101067/bhatia:0001104659-26-101067": "5bec0b780bb1009b0b4755f10a1c71ab1f7a4d2b306880ae5cd4ff724650fd80"
+      },
+      "ownershipEvidence": {
+        "0001422849-26-000099": "1a6c49b566ea852f17808375c0b33618ca47ba6a83a718bff9456239a013ced3",
+        "0002100119-26-000795": "060cb40fbfbc5652c4d68087d74132eb35b01db9a2b8be7fa96d916ff5068590"
+      },
+      "reportingHash": "495d39306654584d5920231a8919ebf14cb2b15ed134725d8370044ecba19c10",
+      "insidersHash": "efeac8bfd96d8674618143e4de80f6a23251e59c193ed2493241f2fb30e465dc",
+      "sourcesHash": "8df008fa33011e3b5809c390a1c393eb383f12c6a375fead95a7dc290505a06a"
+    },
+    "VRT": {
+      "reviewedEvidence": {
+        "VRT:0001628280-26-026379:cash": "4f361b2f61dd4880a42347d10dc39925583047b407e9590f46e552ac2fb78783",
+        "VRT:0001628280-26-026379:debt_noncurrent": "9bcc26cb65821d1fe23438edffd8face9e7a179c8d0a56cd34e6b0cba3834cf4",
+        "VRT:0001628280-26-026379:funding_context": "9a5c22d6d262743dbba2b3914e437212c45411fa2c0e473f0227f7f6c5ecfc15",
+        "VRT:0001628280-26-026379:investment_securities": "798de3827caafac883a8ab66c2e72917bcda1afdb1d4b93a2094ccd1f6e5b399",
+        "VRT:0001628280-26-026379:revenue-americas": "45b91857c493854733ed448fe9dac8d1b5dbe786064ea09de14e8c6e14047e0f",
+        "VRT:0001628280-26-026379:revenue-annual": "34b420ed7094ec986739f3e4f9e2d86cc25d1ac35b13e08d74711e76e46f977a",
+        "VRT:0001628280-26-026379:revenue-asia-pacific": "f510f53a115cd835040683cc4ebd5444edb038a081909541520ac8445e670de7",
+        "VRT:0001628280-26-026379:revenue-emea": "fba5e0ab8133d2c9869814cc093940bc50dbb6cf3364a05b11c29d4ddf585786",
+        "VRT:0001628280-26-026379:revenue-quarter": "66597174f7ff6b1c8c56f4ca255298eaf4fa6de4402d0ea67409d3b616808b58",
+        "VRT:0001628280-26-026379:revenue-total": "922cbc0ed2ac673fe22d934772c168400751e9aca1089d3ada95cecceb3e3e3d",
+        "VRT:0001628280-26-026379:sbc_expense": "edad539af5bbbe12cf929e9c6cc9ad2ef3bfb02e2f4fc41a578929bad04239b1",
+        "VRT:0001628280-26-026379:shares_outstanding": "a84c37c0ac375645a618f01b6fff06a32b9d5782eba98f73251042c351d902c3",
+        "VRT:0001628280-26-026379:weighted_diluted": "85fbec0e76ec3aaf6c7a4c2363d2f66c58805e3682c38b7ab473b2b6a094c55c",
+        "VRT:0001628280-26-050323:cash": "5aae1b4244ec32de9b2f45c7b6370449ffcd5af56018ebf68c2d1c61c3c71762",
+        "VRT:0001628280-26-050323:debt_noncurrent": "1baf7a38411d9ad5fe56adca6b18881a1ca1d619514376aa8c6b7e3a0d1bd775",
+        "VRT:0001628280-26-050323:funding_context": "15d5ce48508bcbc31fce5b28f2166b8667338ce33fa50f66119912c0637ccbd3",
+        "VRT:0001628280-26-050323:investment_securities": "0b57fa6538371519fcdba33e5a5d9b29c21785ea3afcc4c61a5a40c35cd60690",
+        "VRT:0001628280-26-050323:revenue-americas": "bcf5233e71bc9c85c16e3d33e74d26dcb533f99356576d47a36e9c46ea0b5ccf",
+        "VRT:0001628280-26-050323:revenue-annual": "52de9980712c4266b1783b15a7da56465a8d6b0069d511822d02d537c2cfb7d4",
+        "VRT:0001628280-26-050323:revenue-asia-pacific": "521ec9c41d666ec5397224778c2b76b66a49ddda2e3e5e7602e718cb992672b1",
+        "VRT:0001628280-26-050323:revenue-emea": "d94ca1cae42de395d25f1abf4e719114737b1ed95a18c96f18c4ba4a45d770a2",
+        "VRT:0001628280-26-050323:revenue-quarter": "91d5275eb19ed3a4b6957c3d7ed4ebf79c951c6d8dc0042398ef7f7aa6e0fd83",
+        "VRT:0001628280-26-050323:revenue-total": "a73c9d46065da858a423704e9aa90e1c32f41d326da0fb273f387a89b3167411",
+        "VRT:0001628280-26-050323:sbc_expense": "cbb9f72f35c81d19480f264d83ad87909e8f589217e3bb3655827fcc10bd206d",
+        "VRT:0001628280-26-050323:shares_outstanding": "297b6203bbd4d808b2ed0f1b52e535f2bb9babf57e4d4a2db215a0eb8f378a91",
+        "VRT:0001628280-26-050323:weighted_diluted": "eabdf91bc3c9db861e5eb8428123614f5d4f58939c66b20fde092f8d0372091d"
+      },
+      "materialEvents": {
+        "VRT:0001193125-26-088484/notes:0001193125-26-088484": "a45b79659f44d27ebacf6402f2d94ab3033c2b9feda8ef806ada1941ecc6185c"
+      },
+      "ownershipEvidence": {
+        "0002100119-26-001190": "23e4996500c9537615b0c21c09e93ad710563dbd9254aa1abec0f66062470b6b",
+        "0002012383-26-001474": "47b97c36fa6989130e727b3cde6cba5dc06c29e786b1f70036df0740327b14fb"
+      },
+      "reportingHash": "d26fc80d59c7c4fac89aa99aee88c535bfbf5e9d3345153611dc4558690a7b17",
+      "insidersHash": "c920d11f0ad127365aad7212227fadb3f695fb81dcae3bf8c4f2160c04eb8893",
+      "sourcesHash": "b5bfe9ac493393a25717faef79cb0a94bd53569b12fe684187c1c362cb59cbe9"
+    }
+  },
+  "unchangedFiles": {
+    "data/issuer-registry.json": "cb11b09fff99e4c5a4c55e204e5c0b3794d4464259d5418c1df551b2ec15d3b0",
+    "scripts/source_reviews/daily_state.json": "68af3393e06154706a906ec0377c7087a3b145d653a08541328733d15d4bec7f",
+    "data/stocks/COHR.json": "868936647370ff25691ef026b4226b9b9a99cd1200654c0d7dcd5f4aaae556cf",
+    "data/stocks/CRWD.json": "4462f0f7b71b5841c8526dac001ac9da2d42c64cd694b9a34a6be7d93a4c7857",
+    "data/stocks/CRWV.json": "73464d8d7d7ba172a93f4bb3800ae18f6e3c3a483b1d0d4ce676f19f4eb22506",
+    "data/stocks/FLY.json": "10441ce941b020bf0bcc8bab2926b09b75416b6df59d45e14e0f5202d1293aa1",
+    "data/stocks/MRVL.json": "1a8abde19b494ecd699424667180aad8a3805c59400e633996ee8036a2f0f8c6",
+    "data/stocks/NVDA.json": "f2e33bd252e2db662e883cbc2f81e7d21f554bad93b381015241004e5b2b722d",
+    "data/stocks/RKLB.json": "c3fe256b7c708c26141094386faae87d5d5c28c3aa60196f542cc532ba6a2801",
+    "data/stocks/SNDK.json": "2062dee02fd8a8e50eb22a6b97554ee75eef0f56dcf323fa5290431e195d37d2",
+    "data/stocks/SOFI.json": "c9997272abf937e36333efb995125d7660527eaa03700b4ee6a7e96e5c8307f1",
+    "data/stocks/TTMI.json": "09abaea3e5e081c213cd8c87ca4af5b36eed847b6d3fcf8b0a65cd37911aac20",
+    "data/stocks/evidence/CRWD.json": "3d448717f050655a3ed9433fcaa75163b49fe98a627604112585a3f67578abec",
+    "data/stocks/evidence/CRWD.status.json": "2d5fa48ea80080ccd24b83fca0f426ef29c828e42530293d860c060c8edfe134",
+    "data/stocks/evidence/MU.status.json": "df9e8372d16bbb4e2da55bb48b94174f891396cd95ad1b4d78e97be567c53d99",
+    "data/stocks/evidence/NVDA.json": "d522316eb270bbc68cbc1aa5a614bd566fb682f3b3fc808ad8f0f329d245efa9",
+    "data/stocks/evidence/NVDA.status.json": "bb53a50c4b1aa7d61d0b61b5a2e32b107190cf8ae84d44f3f73eb939cdeac55e",
+    "data/stocks/evidence/SOFI.json": "8b588533da3d36cdaff2c49668f15b4de32b91f0e69cf691c1dcde850f773e89",
+    "data/stocks/evidence/SOFI.status.json": "3ba2f3884dbc38940787061d34ad8648efb0b1736c35597a2c74125f1fbe0239",
+    "data/stocks/evidence/VRT.status.json": "d7655f2726f5599160da8a3aaf5086121eb7a5ec2b3592962be58d092fa201bb"
+  },
+  "financialCorrection": {
+    "MU": {
+      "before": {
+        "data": "3ec88582022f2332b4c9a09ce6737c21e85b81eef5cff14c65a1b0904d070413",
+        "profile": "51c4e341ec1df74daab89ede954565832849f461893671cc2d64a0c6bc48760f"
+      },
+      "after": {
+        "data": "5e0c07e7b3598bac369f92ed5d0e4d8eb0b93bb0baba325f66cf397b9db01ff8",
+        "profile": "35ff208fe49eb3f87779845ad49e2ab674b961cddd46f04ec882ba031613ed1b"
+      },
+      "unaffected": "ada039c80dffeafa913de1e2a4d8f253808976873949d356f6893bd01b28dff5"
+    },
+    "VRT": {
+      "before": {
+        "data": "d2ea589de4256864668a8c4fe27df25d9294b33bde87d522f5204d69ae9bb8e6",
+        "profile": "5d2ad2ac94aebaa97799e7005e3dea3fe82c0dcde893e378c45f857b38f7eab8"
+      },
+      "after": {
+        "data": "42714c11c7c5d2aad44308147f27c3427bb7abe012d1eed889d2937bacf41855",
+        "profile": "e3ed9a81f0af2053b345ee47ab61ba0aa36fae5742c78c898cd57c5acb075f84"
+      },
+      "unaffected": "16d35c2c8f7fd83e3e838a126cb2c7aa8264463a0d529593050fdd2543d9fbd9"
+    }
+  }
+}

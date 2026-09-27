@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><edgarSubmission xmlns="http://www.sec.gov/edgar/schedule13g" xmlns:com="http://www.sec.gov/edgar/common">
+  <headerData>
+    <submissionType>SCHEDULE 13G/A</submissionType>
+    <previousAccessionNumber>0001422849-25-000059</previousAccessionNumber>
+    <filerInfo>
+      <filer>
+        <filerCredentials>
+          <cik>0001422849</cik>
+          <ccc>XXXXXXXX</ccc>
+        </filerCredentials>
+      </filer>
+      <liveTestFlag>LIVE</liveTestFlag>
+
+
+
+    </filerInfo>
+  </headerData>
+  <formData>
+    <coverPageHeader>
+      <amendmentNo>1</amendmentNo>
+      <securitiesClassTitle>Common Stock</securitiesClassTitle>
+      <eventDateRequiresFilingThisStatement>12/31/2025</eventDateRequiresFilingThisStatement>
+      <issuerInfo>
+        <issuerCik>0000723125</issuerCik>
+        <issuerName>Micron Technology, Inc.</issuerName>
+        <issuerCusip>595112103</issuerCusip>
+        <issuerPrincipalExecutiveOfficeAddress>
+          <com:street1>8000 S. Federal Way</com:street1>
+          <com:city>Boise</com:city>
+          <com:stateOrCountry>X1</com:stateOrCountry>
+          <com:zipCode>83716</com:zipCode>
+        </issuerPrincipalExecutiveOfficeAddress>
+      </issuerInfo>
+      <designateRulesPursuantThisScheduleFiled>
+        <designateRulePursuantThisScheduleFiled>Rule 13d-1(b)</designateRulePursuantThisScheduleFiled>
+      </designateRulesPursuantThisScheduleFiled>
+    </coverPageHeader>
+    <coverPageHeaderReportingPersonDetails>
+
+      <reportingPersonName>Capital World Investors</reportingPersonName>
+      <citizenshipOrOrganization>DE</citizenshipOrOrganization>
+      <reportingPersonBeneficiallyOwnedNumberOfShares>
+        <soleVotingPower>58426156</soleVotingPower>
+        <sharedVotingPower>0</sharedVotingPower>
+        <soleDispositivePower>58472522</soleDispositivePower>
+        <sharedDispositivePower>0</sharedDispositivePower>
+      </reportingPersonBeneficiallyOwnedNumberOfShares>
+      <reportingPersonBeneficiallyOwnedAggregateNumberOfShares>58472522.00</reportingPersonBeneficiallyOwnedAggregateNumberOfShares>
+      <classPercent>5.2</classPercent>
+      <typeOfReportingPerson>IA</typeOfReportingPerson>
+    </coverPageHeaderReportingPersonDetails>
+    <items>
+      <item1>
+        <issuerName>Micron Technology, Inc.</issuerName>
+        <issuerPrincipalExecutiveOfficeAddress>8000 S. Federal Way, Boise, ID 83716</issuerPrincipalExecutiveOfficeAddress>
+      </item1>
+      <item2>
+        <filingPersonName>Capital World Investors</filingPersonName>
+        <principalBusinessOfficeOrResidenceAddress>333 SOUTH HOPE STREET, 55TH FLOOR, LOS ANGELES, CALIFORNIA  90071
+</principalBusinessOfficeOrResidenceAddress>
+        <citizenship>N/A</citizenship>
+      </item2>
+      <item3>
+        <notApplicableFlag>N</notApplicableFlag>
+        <typeOfPersonFiling>IA</typeOfPersonFiling>
+      </item3>
+      <item4>
+        <amountBeneficiallyOwned>58,472,522 **
+
+**Capital World Investors ("CWI") is a division of Capital Research and Management Company ("CRMC"), as well as its investment management subsidiaries and affiliates Capital Bank and Trust Company, Capital International, Inc., Capital International Limited, Capital International Sarl, Capital International K.K., Capital Group Private Client Services, Inc., and Capital Group Investment Management Private Limited (together with CRMC, the "investment management entities"). CWI's divisions of each of the investment management entities collectively provide investment management services under the name "Capital World Investors." CWI is deemed to be the beneficial owner of 58,472,522 shares or 5.2% of the 1,125,509,261 shares believed to be outstanding.</amountBeneficiallyOwned>
+        <classPercent>5.2</classPercent>
+        <numberOfSharesPersonHas>
+          <solePowerOrDirectToVote>58,426,156</solePowerOrDirectToVote>
+          <sharedPowerOrDirectToVote>0</sharedPowerOrDirectToVote>
+          <solePowerOrDirectToDispose>58,472,522</solePowerOrDirectToDispose>
+          <sharedPowerOrDirectToDispose>0</sharedPowerOrDirectToDispose>
+        </numberOfSharesPersonHas>
+      </item4>
+      <item5>
+        <notApplicableFlag>Y</notApplicableFlag>
+      </item5>
+      <item6>
+        <notApplicableFlag>Y</notApplicableFlag>
+      </item6>
+      <item7>
+        <notApplicableFlag>Y</notApplicableFlag>
+      </item7>
+      <item8>
+        <notApplicableFlag>Y</notApplicableFlag>
+      </item8>
+      <item9>
+        <notApplicableFlag>Y</notApplicableFlag>
+      </item9>
+      <item10>
+        <notApplicableFlag>N</notApplicableFlag>
+        <certifications>By signing below I certify that, to the best of my knowledge and belief, the securities referred to above were acquired and are held in the ordinary course of business and were not acquired and are not held for the purpose of or with the effect of changing or influencing the control of the issuer of the securities and were not acquired and are not held in connection with or as a participant in any transaction having that purpose or effect, other than activities solely in connection with a nomination under ?? 240.14a-11.</certifications>
+      </item10>
+    </items>
+    <signatureInformation>
+      <reportingPersonName>Capital World Investors</reportingPersonName>
+      <signatureDetails>
+        <signature>Timothy J. Moon</signature>
+        <title>Vice President and Senior Counsel, Capital Research and Management Company</title>
+        <date>02/10/2026</date>
+      </signatureDetails>
+    </signatureInformation>
+  </formData>
+</edgarSubmission>

@@ -26,6 +26,7 @@
   section.append(primary);
   const shares=C.view(data,'shares_outstanding');
   if(shares.available){chart(section,shares,'Aktier utestående · miljoner');if(shares.yoy.recast)section.append(make('p','Jämförelsen använder bolagets splitjusterade historik.','capital-context'));if(shares.historyBreak)section.append(make('p','Ej jämförbart över äldre luckor eller ändrad aktiebas.','capital-context'));}
+  const repurchases=C.latest(data,'repurchase_context');if(repurchases)section.append(make('p',repurchases.definition,'capital-context'));
   const mandate=C.latest(data,'repurchase_remaining');if(mandate)section.append(make('p','Återstående återköpsmandat: ≈ '+value(mandate.value.point,mandate.unit)+'. Mandat är inte genomförda återköp.','capital-context'));
   const extras=make('details',undefined,'capital-more');extras.append(make('summary','Vägt aktieantal & emissioner'));
   for(const id of ['weighted_basic','weighted_diluted',...new Set(records.filter(o=>o.metricId.startsWith('issuance_')).map(o=>o.metricId))]){const o=C.latest(data,id);if(o){const row=make('div',undefined,'capital-detail-row');row.append(make('span',o.label),make('strong',value(o.value.point,o.unit)),make('small',period(o)));extras.append(row);}}
@@ -39,7 +40,7 @@
   if(options.length){const label=make('label','Historik','capital-selector');label.htmlFor='capitalLiquidityHistory';const select=make('select');select.id='capitalLiquidityHistory';for(const id of options){const opt=make('option',C.latest(data,id).label);opt.value=id;select.append(opt);}label.append(select);const canvas=make('div');const draw=()=>{canvas.replaceChildren();const v=C.view(data,select.value);chart(canvas,v,v.latest.label+' · USD');};select.addEventListener('change',draw);section.append(label,canvas);draw();}
   const funding=C.latest(data,'funding_context');
   const composition=make('details',undefined,'capital-more');composition.append(make('summary','Värdepapper, finansiering & förfall'));
-  for(const id of ['debt_current','debt_noncurrent','marketable_debt','marketable_equity','investment_securities','total_capital_bank','facility_capacity']){const o=C.latest(data,id);if(o){const row=make('div',undefined,'capital-detail-row');row.append(make('span',o.label),make('strong',value(o.value.point,o.unit)),make('small',o.definition));composition.append(row);}}
+  for(const id of ['debt_current','debt_noncurrent','marketable_debt','marketable_equity','investment_securities','total_capital_bank','facility_capacity','facility_available','debt_proceeds']){const o=C.latest(data,id);if(o){const row=make('div',undefined,'capital-detail-row');row.append(make('span',o.label),make('strong',value(o.value.point,o.unit)),make('small',o.definition));composition.append(row);}}
   if(funding)composition.append(make('p',funding.definition,'capital-context'));section.append(composition);
   const sources=make('details',undefined,'financial-sources');sources.id='capitalSources';sources.append(make('summary','Källor & metod'));
   sources.append(make('p','Senast publicerad granskad uppgift används per period. Ursprungliga uppgifter och bolagets omräkningar bevaras. Ingen automatisk omräkning av äldre aktier eller sammanfogning av ändrade definitioner.','capital-context'));

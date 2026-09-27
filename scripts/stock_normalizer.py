@@ -522,6 +522,20 @@ for _key in ('capex', 'freeCashFlow', 'debt'):
         'CoreWeave: cash PP&E purchases exclude non-cash additions and OEM/lease financing. A comparable comprehensive investment/debt scope is not verified; simple FCF is disabled.'}
 
 
+# Reviewed EPS-note reconciliation, not a fallback from consolidated earnings.
+# The annual and trailing-quarter notes in source_reviews/valuation_basis.json
+# explicitly identify NetIncomeLoss as the basic AND diluted numerator.
+for _ticker in ('MU', 'VRT'):
+    COMPANY_PROFILES[_ticker]['numeratorReviewRequired'] = True
+    COMPANY_PROFILES[_ticker]['metrics']['netIncomeToCommon'] = {
+        'concept': 'NetIncomeLoss', 'taxonomy': 'us-gaap', 'type': 'flow',
+        'unit': 'USD', 'isAdditive': True,
+        'label': 'Net income available to common shareholders',
+        'description': 'Reported basic/diluted EPS numerator; issuer EPS notes reconcile NetIncomeLoss without a numerator adjustment.',
+    }
+    COMPANY_PROFILES[_ticker]['description'] = _ticker + ': reviewed GAAP basic/diluted numerator and share basis; complete financial debt mapping remains unavailable.'
+
+
 def get_company_profile(ticker: str) -> Dict[str, Any]:
     """Retrieve the XBRL metric mapping profile for a given ticker."""
     ticker_upper = ticker.strip().upper()

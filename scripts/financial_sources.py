@@ -3,7 +3,7 @@ import hashlib
 import json
 from pathlib import Path
 from issuer_registry import identities
-from stock_normalizer import StockNormalizer
+from stock_normalizer import StockNormalizer, COMPANY_PROFILES
 
 MANIFEST = 'financial_sources.json'
 LIMIT = 32_000_000
@@ -49,6 +49,26 @@ def validate_repository(root):
     manifest = json.loads((fixtures / MANIFEST).read_text(encoding='utf-8'))
     if manifest.get('schema') != 'ntm-financial-sources/1':
         raise ValueError('Invalid financial source manifest')
+    required = {t for t,p in COMPANY_PROFILES.items() if p.get('numeratorReviewRequired')}
+    if required:
+        reviews = root / 'scripts/source_reviews'
+        basis = json.loads((reviews/'valuation_basis.json').read_text(encoding='utf-8'))
+        documents = json.loads((reviews/'company_observations.json').read_text(encoding='utf-8'))['documents']
+        if basis.get('schema') != 'ntm-valuation-basis-review/1' or set(basis.get('issuers',{})) != required:
+            raise ValueError('Missing EPS numerator review')
+        for ticker in required:
+            review = basis['issuers'][ticker]
+            if (review.get('concept') != COMPANY_PROFILES[ticker]['metrics']['netIncomeToCommon']['concept']
+                    or review.get('basis') != 'GAAP basic and diluted numerator'
+                    or not review.get('decision') or len(set(review.get('documents',[]))) < 4):
+                raise ValueError('Invalid EPS numerator review: '+ticker)
+            for accession in review['documents']:
+                matches = [d for d in documents if d['ticker']==ticker and d['accessionNumber']==accession]
+                if len(matches)!=1 or matches[0]['document']['documentType']!='periodic_filing':
+                    raise ValueError('Missing EPS note source: '+accession)
+                raw=(fixtures/'company_observations'/(accession+'.html')).read_text(encoding='utf-8')
+                if hashlib.sha256(raw.encode()).hexdigest()!=matches[0]['sha256']:
+                    raise ValueError('Changed EPS note source: '+accession)
     for ticker, cik in identities().items():
         stock_path = root / f'data/stocks/{ticker}.json'
         if not stock_path.exists():

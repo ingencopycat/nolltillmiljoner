@@ -31,7 +31,7 @@ class ExpansionTests(unittest.TestCase):
     self.assertEqual(len(d['ttm']['quarters']),4)
     actual=json.loads((ROOT/f'data/stocks/{t}.json').read_text())
     self.assertEqual(d['ttm'],actual['ttm'])
-    self.assertIsNone(d['valuationBase']['ttmDilutedEps']['value'])
+    self.assertEqual(d['valuationBase']['ttmDilutedEps']['value'], {'MU':44.31,'VRT':4.42}.get(t))
     self.assertIsNone(d['quarterly'][-1]['metrics']['debt']['value'])
     for m in d['ttm']['metrics'].values():self.assertIn(m['qualityStatus'],['available','unavailable']);self.assertIn('definition',m)
     self.assertIsNone(d['ttm']['metrics']['dilutedShares']['shareBasis'])

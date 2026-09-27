@@ -9,8 +9,8 @@ SCHEMA='ntm-company-material-events/1'
 # Item semantics suggest a review category; they do not establish an economic event.
 ITEMS={'1.01':'agreement','1.02':'termination','2.01':'acquisition','2.03':'financing','2.05':'restructuring','2.06':'impairment','3.01':'listing','3.02':'equity','3.03':'rights','4.01':'accounting','4.02':'accounting','5.02':'leadership','5.03':'governance','1.05':'cybersecurity'}
 CATEGORIES=set(ITEMS.values())|{'regulatory','operating_incident'}
-TEMPLATES={'executive_appointed':'leadership','senior_notes_issued':'financing','guarantees':'financing','notes_issued':'financing','notes_exchange':'financing','exchange_settled':'financing','executive_successor':'leadership','executive_advisor':'leadership','acquisition_agreed':'acquisition','agreement_terminated':'termination','export_license':'regulatory','workforce_plan':'restructuring','service_outage':'operating_incident','officer_liability':'governance'}
-PARAMETERS={'executive_appointed':{'person','role'},'senior_notes_issued':{'instrument'},'guarantees':{'counterparty','project'},'notes_issued':{'maturity'},'notes_exchange':{'maturity'},'executive_successor':{'incoming','outgoing'},'executive_advisor':{'person'},'acquisition_agreed':{'target'},'agreement_terminated':{'target'},'export_license':{'product'},'service_outage':{'product'}}
+TEMPLATES={'acquisition_completed':'acquisition','executive_appointed':'leadership','senior_notes_issued':'financing','guarantees':'financing','notes_issued':'financing','notes_exchange':'financing','exchange_settled':'financing','executive_successor':'leadership','executive_advisor':'leadership','acquisition_agreed':'acquisition','agreement_terminated':'termination','export_license':'regulatory','workforce_plan':'restructuring','service_outage':'operating_incident','officer_liability':'governance'}
+PARAMETERS={'acquisition_completed':{'target'},'executive_appointed':{'person','role'},'senior_notes_issued':{'instrument'},'guarantees':{'counterparty','project'},'notes_issued':{'maturity'},'notes_exchange':{'maturity'},'executive_successor':{'incoming','outgoing'},'executive_advisor':{'person'},'acquisition_agreed':{'target'},'agreement_terminated':{'target'},'export_license':{'product'},'service_outage':{'product'}}
 def digest(s):return hashlib.sha256(s.encode()).hexdigest()
 def classify(items):
  return dict(candidates=sorted({ITEMS[i] for i in items if i in ITEMS}),earningsCanonical='2.02' in items,
@@ -53,9 +53,20 @@ def refresh(submissions,ticker,cik,fetch,previous=None,policy=None,reverify=Fals
   signals=classify(m['items'])
   if a not in reviews and m['filingDate']>=policy['startDate'] and signals['needsReview']:
    pending[a]=dict(accessionNumber=a,filingDate=m['filingDate'],items=m['items'],**signals)
- for a in reviews:pending.pop(a,None)
+ decisions={a:r['decision'] for a,r in reviews.items() if 'decision' in r}
+ accepted={o['accessionNumber'] for o in observations.values()}
+ for a in reviews:
+  decision=decisions.get(a)
+  if decision:
+   if decision.get('state') not in ('rejected','review_required') or not decision.get('reason'):raise ValueError('Invalid event review decision')
+   if a in accepted:raise ValueError('Event cannot be accepted and rejected/pending')
+   if decision['state']=='review_required':
+    m=reviews[a]['metadata'];pending[a]=dict(accessionNumber=a,filingDate=m['filingDate'],items=m['items'],**classify(m['items']),reason=decision['reason'])
+   else:pending.pop(a,None)
+  else:pending.pop(a,None)
  data=dict(schema=SCHEMA,documents=docs,observations=sorted(observations.values(),key=lambda o:(o['publicationDate'],o['id']),reverse=True),pendingReview=list(pending.values()),
   checkedThrough=max(f['filingDate'] for f in index.values()),coverage=dict(startDate=policy['startDate'],basis='Selected reviewed material events plus older examples; not a complete archive'))
+ if decisions:data['reviewDecisions']=decisions
  validate(data,ticker,cik);return data
 def validate(data,ticker,cik):
  if data.get('schema')!=SCHEMA or not isinstance(data.get('observations'),list) or len(data['observations'])>5000 or len(data['documents'])>5000 or len(data['pendingReview'])>1000:raise ValueError('Invalid material event envelope')
@@ -64,12 +75,14 @@ def validate(data,ticker,cik):
   if not re.fullmatch(r'\d{10}-\d{2}-\d{6}',a) or d['accessionNumber']!=a or d['ticker']!=ticker or d['cik']!=cik or d['form'] not in ('8-K','8-K/A') or not d['primaryDocUrl'].startswith(base) or not re.fullmatch(r'[A-Za-z0-9_-]+\.html?',d['primaryDocUrl'][len(base):]) or not re.fullmatch(r'[a-f0-9]{64}',d['sha256']):raise ValueError('Invalid material event provenance')
   iso(d['filingDate'])
  seen={}
+ for a,decision in data.get('reviewDecisions',{}).items():
+  if a not in data['documents'] or decision.get('state') not in ('rejected','review_required') or not decision.get('reason'):raise ValueError('Invalid sourced event disposition')
  for o in data['observations']:
   d=data['documents'].get(o['accessionNumber'])
   if o['id'] in seen or o['id']!=o['eventId']+':'+o['accessionNumber'] or not d or o['ticker']!=ticker or o['category'] not in CATEGORIES or TEMPLATES.get(o['template'])!=o['category'] or o['publicationDate']!=d['filingDate'] or o['form']!=d['form']:raise ValueError('Invalid material event identity')
   seen[o['id']]=o
   if iso(o['eventDate'])>o['publicationDate'] or not o['items'] or not set(o['items']).issubset(d['items']) or '2.02' in o['items'] or set(o['items'])=={'9.01'}:raise ValueError('Invalid event item scope')
-  if not any(ITEMS.get(i)==o['category'] for i in o['items']) and not ('8.01' in o['items'] and o['category'] in ('regulatory','operating_incident')) and not ('1.01' in o['items'] and (o['category']=='acquisition' or o['template'] in ('notes_exchange','exchange_settled'))):raise ValueError('Category not supported by SEC items')
+  if not any(ITEMS.get(i)==o['category'] for i in o['items']) and not ('8.01' in o['items'] and o['category'] in ('regulatory','operating_incident')) and not ('7.01' in o['items'] and o['template'] in ('acquisition_agreed','acquisition_completed')) and not ('1.01' in o['items'] and (o['category']=='acquisition' or o['template'] in ('notes_exchange','exchange_settled'))):raise ValueError('Category not supported by SEC items')
   if not o['evidencePassages'] or any(not isinstance(i,int) or not 0<=i<len(d['passages']) for i in o['evidencePassages']):raise ValueError('Missing event evidence')
   if set(o['parameters'])!=PARAMETERS.get(o['template'],set()):raise ValueError('Invalid event template fields')
   for v in o['parameters'].values():
@@ -81,4 +94,8 @@ def validate(data,ticker,cik):
   if o.get('previousId'):
    prior=seen.get(o['previousId'])
    if not prior or prior['eventId']!=o['eventId'] or prior['publicationDate']>=o['publicationDate'] or prior['category']!=o['category']:raise ValueError('Invalid event amendment relationship')
+ accepted={o['accessionNumber'] for o in data['observations']}
+ pending={p['accessionNumber'] for p in data['pendingReview']}
+ for a,decision in data.get('reviewDecisions',{}).items():
+  if a in accepted or (decision['state']=='review_required')!=(a in pending):raise ValueError('Conflicting event disposition')
  return data

@@ -1787,6 +1787,198 @@
       },
       {
         "kind": "capital",
+        "metricId": "repurchase_remaining",
+        "issuerLabel": "Kvar av återköpsmandat",
+        "label": "Kvar av återköpsmandat",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q3 FY2026",
+          "end": "2026-05-28",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-repurchase_remaining-completion-v1",
+        "definition": "Kvar av återköpsmandat",
+        "note": "",
+        "id": "MU:0000723125-26-000015:authorization-remaining",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-06-25",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 2156000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+          "accessionNumber": "0000723125-26-000015",
+          "exhibit": null,
+          "quote": "Approximate dollar value of shares that may yet be purchased under publicly announced plans or programs (in millions) February 27, 2026 – March 26, 2026 — $ — — March 27, 2026 – April 23, 2026 912 465.66 — April 24, 2026 – May 28, 2026 — — — 912 $ 465.66 — $ 2,156",
+          "quoteSha256": "3160b28e90b880b40009dbaeeb413f25fe40e127a5484e35807dd0f29800d4b8",
+          "contexts": [],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-27"
+        },
+        "capital": {
+          "section": "liquidity",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported",
+          "calculationBasis": "remaining-authorization"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "repurchase_authorized",
+        "issuerLabel": "Återköpsmandat",
+        "label": "Återköpsmandat",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q3 FY2026",
+          "end": "2026-05-28",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-repurchase_authorized-completion-v1",
+        "definition": "Board authorization, not actual repurchases; no expiration and subject to CHIPS restrictions.",
+        "note": "",
+        "id": "MU:0000723125-26-000015:authorization-reviewed",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-06-25",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 10000000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+          "accessionNumber": "0000723125-26-000015",
+          "exhibit": null,
+          "quote": "Note 11. Equity Common Stock Repurchases Our Board of Directors has authorized the discretionary repurchase of up to $ 10 billion of our outstanding common stock through open-market purchases, block trades, privately-negotiated transactions, derivative transactions, and/or pursuant to Rule 10b5-1 trading plans. The repurchase authorization has no expiration date, does not obligate us to acquire any common stock, and is subject to market conditions, restrictions applicable under our CHIPS Act direct funding agreements, and our ongoing determination of the best use of available cash. No shares were repurchased in the third quarter of 2026. We repurchased 2.5 million shares of our common stock for $ 650 million in first nine months of 2026. Through May 28, 2026, we had repurchased an aggregate of $ 7.84 billion under the authorization. Amounts repurchased are included in treasury stock.",
+          "quoteSha256": "b62d3fa3542e22b242d76895b64ef0e463cfa1a2054d5f89cbd46744ceab0904",
+          "contexts": [],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-27"
+        },
+        "capital": {
+          "section": "liquidity",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported",
+          "calculationBasis": "board-authorization"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "debt_total",
+        "issuerLabel": "Skuld inklusive finansiell leasing",
+        "label": "Skuld inklusive finansiell leasing",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q3 FY2026",
+          "end": "2026-05-28",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-debt_total-completion-v1",
+        "definition": "Total reported debt net carrying amount, including finance lease obligations; not the lease-excluding borrowing basis.",
+        "note": "Inkluderar finansiell leasing. Ingen nettoskuldsberäkning.",
+        "id": "MU:0000723125-26-000015:debt-total-reviewed",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-06-25",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 5722000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+          "accessionNumber": "0000723125-26-000015",
+          "exhibit": null,
+          "quote": "Note 9. Debt As of May 28, 2026 As of August 28, 2025 Net Carrying Amount Net Carrying Amount Stated Rate Effective Rate Current Long-Term Total Current Long-Term Total 2031 Notes 5.300 % 5.41 % $ — $ 261 $ 261 $ — $ 995 $ 995 2032 Green Bonds 2.703 % 2.77 % — 996 996 — 996 996 2032 Notes 5.650 % 5.79 % — 70 70 — 496 496 2033 A Notes 5.875 % 5.96 % — 175 175 — 746 746 2033 B Notes 5.875 % 6.01 % — 213 213 — 892 892 2035 A Notes 5.800 % 5.90 % — 135 135 — 992 992 2035 B Notes 6.050 % 6.14 % — 219 219 — 1,241 1,241 2041 Notes 3.366 % 3.41 % — 497 497 — 497 497 2051 Notes 3.477 % 3.52 % — 486 486 — 496 496 2028 Notes N/A N/A — — — — 540 540 2029 Term Loan A N/A N/A — — — — 982 982 2029 A Notes N/A N/A — — — — 698 698 2029 B Notes N/A N/A — — — — 1,168 1,168 2030 Notes N/A N/A — — — — 794 794 Finance lease obligations N/A 4.72 % 582 2,088 2,670 560 2,484 3,044 $ 582 $ 5,140 $ 5,722 $ 560 $ 14,017 $ 14,577",
+          "quoteSha256": "56d3fe926c381c0693ee0e3c65c10dafbf8bd1b548f7b9115341471bf4e1ec33",
+          "contexts": [],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-27"
+        },
+        "capital": {
+          "section": "liquidity",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported",
+          "debtScope": "including-finance-leases",
+          "calculationBasis": "carrying-including-finance-leases"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "funding_context",
+        "issuerLabel": "Finansiering och förfall",
+        "label": "Finansiering och förfall",
+        "unit": "text",
+        "currency": null,
+        "period": {
+          "label": "Q3 FY2026",
+          "end": "2026-05-28",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "mu-funding_context-completion-v1",
+        "definition": "Reported revolver, maturities and lease scope; commitments are not cash.",
+        "note": "Källans lånevillkor och leasing hålls åtskilda från kassa.",
+        "id": "MU:0000723125-26-000015:funding-reviewed",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "publicationDate": "2026-06-25",
+        "value": {
+          "kind": "qualitative",
+          "approximate": false,
+          "text": "Revolving Credit Facility On May 6, 2026, we reduced our borrowing capacity under the Revolving Credit Facility from $ 3.50 billion to $ 2.00 billion. As of May 28, 2026, no amounts were outstanding under the Revolving Credit Facility. Borrowing under the Revolving Credit Facility would generally bear interest at a rate equal to adjusted term SOFR plus 0.875 % to 1.50 %, depending on our corporate credit ratings. Any amounts outstanding under the Revolving Credit Facility would mature on March 12, 2030 and amounts borrowed may be prepaid without penalty. Any obligations under the Revolving Credit Facility would be unsecured. The Revolving Credit Facility requires us to maintain, on a consolidated basis, a net leverage ratio of total net indebtedness to adjusted EBITDA, as defined in the Revolving Credit Facility agreement and calculated as of the last day of each fiscal quarter, not to exceed 3.25 to 1.00, subject to a temporary four fiscal quarter increase in such maximum ratio to 3.75 to 1.00 following certain material acquisitions."
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+          "accessionNumber": "0000723125-26-000015",
+          "exhibit": null,
+          "quote": "Revolving Credit Facility On May 6, 2026, we reduced our borrowing capacity under the Revolving Credit Facility from $ 3.50 billion to $ 2.00 billion. As of May 28, 2026, no amounts were outstanding under the Revolving Credit Facility. Borrowing under the Revolving Credit Facility would generally bear interest at a rate equal to adjusted term SOFR plus 0.875 % to 1.50 %, depending on our corporate credit ratings. Any amounts outstanding under the Revolving Credit Facility would mature on March 12, 2030 and amounts borrowed may be prepaid without penalty. Any obligations under the Revolving Credit Facility would be unsecured. The Revolving Credit Facility requires us to maintain, on a consolidated basis, a net leverage ratio of total net indebtedness to adjusted EBITDA, as defined in the Revolving Credit Facility agreement and calculated as of the last day of each fiscal quarter, not to exceed 3.25 to 1.00, subject to a temporary four fiscal quarter increase in such maximum ratio to 3.75 to 1.00 following certain material acquisitions.",
+          "quoteSha256": "926daf5644da29c3417dd4c34523f198ceb440fad08a23be4e50e8debed8a199",
+          "contexts": [],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-27"
+        },
+        "capital": {
+          "section": "liquidity",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported"
+        }
+      },
+      {
+        "kind": "capital",
         "metricId": "repurchase_cash",
         "issuerLabel": "Cash repurchases under repurchase program",
         "label": "Cash repurchases under repurchase program",
@@ -2360,6 +2552,18 @@
         "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000006/mu-20260226.htm",
         "documentSha256": "2ad208f63dce8ed56ec01d93c81ae2274e4a895d48664a1fdc17c572552dcd92",
         "reviewDate": "2026-09-26"
+      },
+      {
+        "accessionNumber": "0000723125-25-000028",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000028/mu-20250828.htm",
+        "documentSha256": "34d8b1fc2431098d903f75da78aade7c084b63aab6426e541f62aafc187a27ba",
+        "reviewDate": "2026-09-27"
+      },
+      {
+        "accessionNumber": "0000723125-25-000046",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000046/mu-20251127.htm",
+        "documentSha256": "ce47d3861105f1c564a0c925d8121aa19dc1cfc7dfc79b5d030ade7d932c032a",
+        "reviewDate": "2026-09-27"
       }
     ],
     "pendingReview": [],
@@ -2368,13 +2572,13 @@
       "kpi": "not_selected",
       "businessMix": "reviewed",
       "capital": "partial",
-      "note": "Two latest earnings releases reviewed. No standalone operating KPI admitted; further definitions/history remain review-required.",
+      "note": "Granskade års- och kvartalsrapporter redovisar bitvolym och priser som ungefärliga förändringsintervall. Ingen separat, exakt KPI-serie har konstruerats; verksamhetsmixen behålls.",
       "excluded": [
         "Standalone KPI history not admitted",
         "Debt completeness, maturities and issuance reconciliation require further review"
       ]
     },
-    "reviewRegistrySha256": "9e3b3ba2ea164b1e268289103637585a36a0ea24526b15c317e96141118dc956"
+    "reviewRegistrySha256": "47d9feaca04fc04126cd9dc2c1d969036b92f1f85ed2f613f4bbb9813602faa1"
   },
   "insiderEvidence": {
     "schema": "ntm-company-insiders/1",
@@ -5133,10 +5337,44 @@
           "sha256": "280fb32330598c6ce5e6f0fbe272c915362019286cf3c71f3c6d6d077734160e",
           "format": "SEC Schedule XML"
         }
-      }
-    ],
-    "pendingReview": [
+      },
       {
+        "persons": [
+          {
+            "name": "The Vanguard Group",
+            "shares": "0",
+            "percent": "0",
+            "personType": "IA",
+            "powers": {
+              "soleVotingPower": "0",
+              "sharedVotingPower": "0",
+              "soleDispositivePower": "0",
+              "sharedDispositivePower": "0"
+            },
+            "comments": "On January 12, 2026, The Vanguard Group, Inc. went through an internal realignment. In accordance with SEC Release No. 34-39538 (January 12, 1998), certain subsidiaries or business divisions of subsidiaries of The Vanguard Group, Inc., that formerly had, or were deemed to have, beneficial ownership with The Vanguard Group, Inc., will report beneficial ownership separately (on a disaggregated basis) from The Vanguard Group, Inc. in reliance on such release. These subsidiaries and/or business divisions pursue the same investment strategies as previously pursued by The Vanguard Group, Inc. prior to the realignment. Further in accordance with SEC Release No. 34-39538 (January 12, 1998), The Vanguard Group, Inc. no longer has, or is deemed to have, beneficial ownership over securities beneficially owned by such subsidiaries and/or business divisions.",
+            "locator": "formData/coverPageHeaderReportingPersonDetails[1]",
+            "entityId": "sec:0000102909",
+            "cik": "0000102909"
+          }
+        ],
+        "eventDate": "2026-03-13",
+        "security": "Common Stock",
+        "cusips": [
+          "595112103"
+        ],
+        "amendmentNumber": "12",
+        "reportedPreviousAccession": null,
+        "filerCik": "0000102909",
+        "rules": [
+          "Rule 13d-1(b)"
+        ],
+        "statements": {
+          "relationships": "",
+          "group": "",
+          "onBehalfOf": "The Vanguard Group, including investment companies registered under the Investment Company Act of 1940 and other managed accounts, have the right to receive or the power to direct the receipt of dividends from, or the proceeds from the sale of, the securities reported herein.No one other person's interest in the securities reported herein is more than 5%.",
+          "certification": "By signing below I certify that, to the best of my knowledge and belief, the securities referred to above were acquired and are held in the ordinary course of business and were not acquired and are not held for the purpose of or with the effect of changing or influencing the control of the issuer of the securities and were not acquired and are not held in connection with or as a participant in any transaction having that purpose or effect, other than activities solely in connection with a nomination under &#167; 240.14a-11.",
+          "purpose": ""
+        },
         "accessionNumber": "0000102909-26-001910",
         "ticker": "MU",
         "cik": "0000723125",
@@ -5144,9 +5382,62 @@
         "filingDate": "2026-03-27",
         "url": "https://www.sec.gov/Archives/edgar/data/723125/000010290926001910/primary_doc.xml",
         "renderedUrl": "https://www.sec.gov/Archives/edgar/data/723125/000010290926001910/xslSCHEDULE_13G_X02/primary_doc.xml",
-        "reason": "Unreviewed Schedule disclosure"
+        "family": "13G",
+        "seriesId": "sec:0000102909:0000723125",
+        "displayPerson": 0,
+        "historyOnly": true,
+        "previousAccession": null,
+        "comparison": {
+          "state": "not_comparable",
+          "reason": "Internal Vanguard realignment: disaggregated subsidiaries report separately; zero is not evidence of a sale."
+        },
+        "context": "2026 Vanguard internal realignment; not comparable to Vanguard Capital Management. The parent zero must not be treated as liquidation.",
+        "relationships": "Reporting entity and security preserved; no aggregation.",
+        "purposeContext": "See original statements and certification.",
+        "reviewDate": "2026-09-27",
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000010290926001910/primary_doc.xml",
+          "sha256": "e9861e27c75a39c0d919ba43ed2c76891684a8c3e36fa805244a71ab22e056a5",
+          "format": "SEC Schedule XML"
+        }
       },
       {
+        "persons": [
+          {
+            "name": "Capital World Investors",
+            "shares": "58472522.00",
+            "percent": "5.2",
+            "personType": "IA",
+            "powers": {
+              "soleVotingPower": "58426156",
+              "sharedVotingPower": "0",
+              "soleDispositivePower": "58472522",
+              "sharedDispositivePower": "0"
+            },
+            "comments": "",
+            "locator": "formData/coverPageHeaderReportingPersonDetails[1]",
+            "entityId": "sec:0001422849",
+            "cik": "0001422849"
+          }
+        ],
+        "eventDate": "2025-12-31",
+        "security": "Common Stock",
+        "cusips": [
+          "595112103"
+        ],
+        "amendmentNumber": "1",
+        "reportedPreviousAccession": "0001422849-25-000059",
+        "filerCik": "0001422849",
+        "rules": [
+          "Rule 13d-1(b)"
+        ],
+        "statements": {
+          "relationships": "",
+          "group": "",
+          "onBehalfOf": "",
+          "certification": "By signing below I certify that, to the best of my knowledge and belief, the securities referred to above were acquired and are held in the ordinary course of business and were not acquired and are not held for the purpose of or with the effect of changing or influencing the control of the issuer of the securities and were not acquired and are not held in connection with or as a participant in any transaction having that purpose or effect, other than activities solely in connection with a nomination under ?? 240.14a-11.",
+          "purpose": ""
+        },
         "accessionNumber": "0001422849-26-000035",
         "ticker": "MU",
         "cik": "0000723125",
@@ -5154,9 +5445,62 @@
         "filingDate": "2026-02-13",
         "url": "https://www.sec.gov/Archives/edgar/data/723125/000142284926000035/primary_doc.xml",
         "renderedUrl": "https://www.sec.gov/Archives/edgar/data/723125/000142284926000035/xslSCHEDULE_13G_X01/primary_doc.xml",
-        "reason": "Unreviewed Schedule disclosure"
+        "family": "13G",
+        "seriesId": "sec:0001422849:0000723125",
+        "displayPerson": 0,
+        "historyOnly": false,
+        "previousAccession": "0001422849-25-000059",
+        "comparison": {
+          "state": "comparable",
+          "reason": "Same Capital World Investors reporting entity, common stock/CUSIP and cover-page scope; each reference-date percentage uses its disclosed outstanding-share basis."
+        },
+        "context": "Bounded SEC Schedule history; not a shareholder register.",
+        "relationships": "Reporting entity and security preserved; no aggregation.",
+        "purposeContext": "See original statements and certification.",
+        "reviewDate": "2026-09-27",
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000142284926000035/primary_doc.xml",
+          "sha256": "2846b6c37b1a6fcf1ba7c647f336aa22ab86eab23ea261ba6695b38e9363adc5",
+          "format": "SEC Schedule XML"
+        }
       },
       {
+        "persons": [
+          {
+            "name": "Capital World Investors",
+            "shares": "71003502.00",
+            "percent": "6.3",
+            "personType": "IA",
+            "powers": {
+              "soleVotingPower": "70975601",
+              "sharedVotingPower": "0",
+              "soleDispositivePower": "71003502",
+              "sharedDispositivePower": "0"
+            },
+            "comments": "",
+            "locator": "formData/coverPageHeaderReportingPersonDetails[1]",
+            "entityId": "sec:0001422849",
+            "cik": "0001422849"
+          }
+        ],
+        "eventDate": "2025-06-30",
+        "security": "Common Stock",
+        "cusips": [
+          "595112103"
+        ],
+        "amendmentNumber": null,
+        "reportedPreviousAccession": null,
+        "filerCik": "0001422849",
+        "rules": [
+          "Rule 13d-1(b)"
+        ],
+        "statements": {
+          "relationships": "",
+          "group": "",
+          "onBehalfOf": "",
+          "certification": "By signing below I certify that, to the best of my knowledge and belief, the securities referred to above were acquired and are held in the ordinary course of business and were not acquired and are not held for the purpose of or with the effect of changing or influencing the control of the issuer of the securities and were not acquired and are not held in connection with or as a participant in any transaction having that purpose or effect, other than activities solely in connection with a nomination under ?? 240.14a-11.",
+          "purpose": ""
+        },
         "accessionNumber": "0001422849-25-000059",
         "ticker": "MU",
         "cik": "0000723125",
@@ -5164,9 +5508,27 @@
         "filingDate": "2025-08-13",
         "url": "https://www.sec.gov/Archives/edgar/data/723125/000142284925000059/primary_doc.xml",
         "renderedUrl": "https://www.sec.gov/Archives/edgar/data/723125/000142284925000059/xslSCHEDULE_13G_X01/primary_doc.xml",
-        "reason": "Unreviewed Schedule disclosure"
+        "family": "13G",
+        "seriesId": "sec:0001422849:0000723125",
+        "displayPerson": 0,
+        "historyOnly": false,
+        "previousAccession": null,
+        "comparison": {
+          "state": "baseline",
+          "reason": "First reviewed historical snapshot; no inferred cross-filer continuity."
+        },
+        "context": "Bounded SEC Schedule history; not a shareholder register.",
+        "relationships": "Reporting entity and security preserved; no aggregation.",
+        "purposeContext": "See original statements and certification.",
+        "reviewDate": "2026-09-27",
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000142284925000059/primary_doc.xml",
+          "sha256": "39088470289e860e84a163a448fe6549882443d9dbc4c73411cff3fb2e8ea7db",
+          "format": "SEC Schedule XML"
+        }
       }
     ],
+    "pendingReview": [],
     "excluded": [],
     "checkedThrough": "2026-05-14",
     "coverage": {
@@ -5204,6 +5566,380 @@
           "On August 26, 2026, Micron Technology, Inc. (\"Micron\" or the “Company”) announced that Manish Bhatia, 54, the Company’s current Executive Vice President, Global Operations, has been appointed as President and Chief Operating Officer of the Company and that Dr. Scott DeBoer, 60, the Company’s current Executive Vice President, Chief Technology and Products Officer, has been appointed President and Chief Technology and Products Officer of the Company, effective immediately."
         ],
         "reviewDate": "2026-09-26"
+      },
+      "0001104659-26-071845": {
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "8-K",
+        "accessionNumber": "0001104659-26-071845",
+        "filingDate": "2026-06-09",
+        "reportDate": "2026-06-09",
+        "primaryDocument": "tm2617112d1_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926071845/tm2617112d1_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926071845/",
+        "items": [
+          "5.02",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "0440c44e5c014827c71030966a460e91eebe0386ff13db05a49282c12fbd1606",
+        "passages": [
+          "Item 5.02. Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers; Compensatory Arrangements of Certain Officers. On June 9, 2026, the Board of Directors (“Board”) of Micron Technology, Inc. (the “Company”) appointed Alexis Black Björlin as a member of the Board. The Board has determined that Dr. Björlin is an independent director under the applicable rules of the Nasdaq Stock Market LLC (the “Independence Rules”). Following the appointment of Dr. Björlin, the Board will have a total of nine directors, of which eight are determined to be independent under the Independence Rules. Dr. Björlin has also been appointed to the Governance and Sustainability Committee of the Board. Dr. Björlin will participate in the Company’s 2025 Director Compensation Plan, which provides for cash and equity compensation for non-employee directors, including (i) pro rata portion of a cash retainer of $125,000 for her service as a member of the Board and (ii) a grant on the date of her appointment equal to the pro rata portion of the annual grant of restricted stock, valued at $250,000. Dr. Björlin will also enter into the Company’s standard form of indemnification agreement. There is no arrangement or understanding between Dr. Björlin and any other person pursuant to which she was selected as a director, and there is no family relationship between Dr. Björlin and any of the Company’s other directors or executive officers. Dr. Björlin does not have a direct or indirect material interest in any transaction required to be disclosed pursuant to Item 404(a) of Regulation S-K. On June 9, 2026, the Company issued a press release announcing the appointment of Dr. Björlin as director. The press release is attached as Exhibit 99.1 to this report. Item 9.01. Financial Statements and Exhibits. (d) Exhibits. Exhibit No. Description 99.1 Press Release dated June 9, 2026 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the Registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. MICRON"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001104659-26-038249": {
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "8-K",
+        "accessionNumber": "0001104659-26-038249",
+        "filingDate": "2026-04-01",
+        "reportDate": "2026-03-31",
+        "primaryDocument": "tm2610810d1_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926038249/tm2610810d1_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926038249/",
+        "items": [
+          "8.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "ba7e5eb25e73d74c4cb210deae46602c2a948ae8eddf3bc65c4a20e520da4eca",
+        "passages": [
+          "Item 8.01. Other Events. On March 31, 2026, Micron Technology, Inc. (the “Company”) issued a press release announcing the pricing of its cash tender offers for any and all of its outstanding 5.300% Senior Notes due 2031 (the “2031 Notes”), 5.650% Senior Notes due 2032 (the “2032 Notes”), 5.875% Senior Notes due 2033 (the “2033A Notes”), 5.875% Senior Notes due 2033 (the “2033B Notes”), 5.800% Senior Notes due 2035 (the “2035A Notes”), and 6.050% Senior Notes due 2035 (the “2023B Notes”, and, together with the 2031 Notes, the 2032 Notes, the 2033A Notes, the 2033B Notes and the 2035A Notes, the “Notes”), in connection with the Company’s previously announced cash tender offers commenced on March 25, 2026. On April 1, 2026, the Company issued a press release announcing the expiration of its previously announced cash tender offers to purchase any and all of the Notes. Copies of the press releases are attached hereto as Exhibit 99.1 and Exhibit 99.2, respectively, and incorporated herein by reference. Item 9.01. Financial Statements and Exhibits. (d) Exhibits. Exhibit No. Description 99.1 Press Release issued on March 31, 2026. 99.2 Press Release issued on April 1, 2026. 104 Cover Page Interactive Data File (embedded with the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the Registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. MICRON TECHNOLOGY, INC. Date: April 1, 2026 By: /s/ Mark Murphy Name: Mark Murphy Title: Executive Vice President and Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001104659-26-034174": {
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "8-K",
+        "accessionNumber": "0001104659-26-034174",
+        "filingDate": "2026-03-25",
+        "reportDate": "2026-03-25",
+        "primaryDocument": "tm269755d1_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926034174/tm269755d1_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926034174/",
+        "items": [
+          "8.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "1147754cf44bdb5bed1c8fd884386d03f3df64da1d768b5bb78f94aadebd8c72",
+        "passages": [
+          "Item 8.01. Other Events. On March 25, 2026, Micron Technology, Inc. issued a press release announcing that it has commenced cash tender offers to purchase any and all of its outstanding 5.300% Senior Notes due 2031, 5.650% Senior Notes due 2032, 5.875% Senior Notes due 2033, 5.875% Senior Notes due 2033, 5.800% Senior Notes due 2035, and 6.050% Senior Notes due 2035. A copy of this press release is attached as Exhibit 99.1 hereto and incorporated herein by reference . Item 9.01. Financial Statements and Exhibits. (d) Exhibits. Exhibit No. Description 99.1 Press Release issued on March 25, 2026. 104 Cover Page Interactive Data File (embedded with the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the Registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. MICRON TECHNOLOGY, INC. Date: March 25, 2026 By: /s/ Mark Murphy Name: Mark Murphy Title: Executive Vice President and Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001104659-26-005366": {
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "8-K",
+        "accessionNumber": "0001104659-26-005366",
+        "filingDate": "2026-01-21",
+        "reportDate": "2026-01-15",
+        "primaryDocument": "tm263707d1_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926005366/tm263707d1_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465926005366/",
+        "items": [
+          "5.03",
+          "5.07",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "0613c37d01f250d2b51c07bbd3ff631d575d3288c3158399e6e1de0663a831d6",
+        "passages": [
+          "Item 5.03. Amendments to Articles of Incorporation or Bylaws; Change in Fiscal Year. Micron Technology, Inc. (the “Company”) held its Fiscal 2025 Annual Meeting of Stockholders (the “Annual Meeting”) on January 15, 2026. At the Annual Meeting, as further described in Item 5.07 below, Company stockholders approved an amendment to the Company’s Restated Certificate of Incorporation (the “Company Charter”) to provide for the elimination of certain officers’ personal liability for monetary damages stemming from breaches of the duty of care as permitted by Section 102(b)(7) of the General Corporation Law of the State of Delaware (the “Exculpation Amendment”). A Certificate of Amendment to the Company Charter (the “Certificate of Amendment”) effecting the Exculpation Amendment was filed with the Secretary of State of the State of Delaware and became effective on January 21, 2026. A copy of the Certificate of Amendment is filed as Exhibit 3.1 to this Current Report on Form 8-K and incorporated by reference in this Item 5.03. Item 5.07. Submission of Matters to a Vote of Security Holders. At the Annual Meeting held on January 15, 2026, the following proposals were submitted to a vote of Company stockholders: Proposal 1 Each of the following nominees for Director were elected to serve on the Board of Directors of the Company. Each person elected as a Director will serve until the next annual meeting of stockholders or until such person’s successor is elected and qualified. FOR AGAINST ABSTAIN BROKER NON-VOTE Lynn A. Dugle 794,907,057 17,407,119 772,638 103,556,209 Steven J. Gomo 809,867,865 2,434,052 784,897 103,556,209 Linnie M. Haynesworth 808,992,978 3,314,129 779,707 103,556,209 T. Mark Liu 810,273,883 2,034,566 778,365 103,556,209 Sanjay Mehrotra 782,416,311 29,933,649 736,854 103,556,209 A. Christine Simons 811,411,550 896,002 779,262 103,556,209 Robert H. Swan 811,084,381 1,222,445 779,988 103,556,209 MaryAnn Wright 781,196,519 31,109,070 781,225 103,556,209 Proposal 2 The proposal by the Company to approve, on a non-binding basis, the compensation of its named executive officers was approved with 770,405,752 votes for, 39,292,984 votes against, 3,388,078"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001104659-25-101237": {
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "8-K",
+        "accessionNumber": "0001104659-25-101237",
+        "filingDate": "2025-10-21",
+        "reportDate": "2025-10-15",
+        "primaryDocument": "tm2529116d1_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925101237/tm2529116d1_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925101237/",
+        "items": [
+          "5.02",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "627e7e5192201ed9ef42046321fe08d922b818919238936aded0e71764b94f42",
+        "passages": [
+          "Item 5.02 Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers; Compensatory Arrangements of Certain Officers. On October 15, 2025, Richard M. Beyer and Mary Pat McCarthy provided notice to the Governance and Sustainability Committee of the Board of Directors (the “Board”) of Micron Technology, Inc. (the “Company”) that they have decided to retire from the Board and will not seek re-election at the Company’s fiscal 2025 annual shareholders meeting (the “Annual Meeting”). Mr. Beyer and Ms. McCarthy will continue to serve as directors through the end of their term at the Annual Meeting. The full text of the press release issued on October 21, 2025 is attached as Exhibit 99.1 to this report. Item 9.01. Financial Statements and Exhibits. (d) Exhibits. Exhibit No. Description 99.1 Press Release issued on October 21, 2025 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the Registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. MICRON TECHNOLOGY, INC. Date: October 21, 2025 By: /s/ Michael Ray Name: Michael Ray Title: Senior Vice President, Chief Legal Officer and Corporate"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001104659-25-075940": {
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "8-K",
+        "accessionNumber": "0001104659-25-075940",
+        "filingDate": "2025-08-11",
+        "reportDate": "2025-08-11",
+        "primaryDocument": "tm2522933d1_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925075940/tm2522933d1_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925075940/",
+        "items": [
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "70e8ccbf5a85be333dd8dcc1297c38ebde42651b0fd2d3a4a91bf7c2875bde6e",
+        "passages": [
+          "Item 7.01. Regulation FD Disclosure. On August 11, 2025, Micron Technology, Inc. issued a press release updating its guidance for the fourth fiscal quarter ending August 28, 2025. A copy of the press release is attached hereto as Exhibit 99.1 and incorporated herein by reference. The information set forth in this Item 7.01 is intended to be furnished under Item 7.01 of Form 8-K (Regulation FD Disclosure). This information shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934, as amended (the “Exchange Act”), or otherwise subject to the liabilities of that section. In addition, this information shall not be incorporated by reference into any registration statement filing under the Securities Act of 1933, as amended, or the Exchange Act, regardless of any general incorporation language in such filing, unless it is specifically incorporated by reference in such filing. Item 9.01. Financial Statements and Exhibits. (d) Exhibits. Exhibit No. Description 99.1 Press Release, dated August 11, 2025 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the Registrant has duly caused this report to be signed on its behalf by the undersigned, hereunto duly authorized. MICRON TECHNOLOGY, INC. Date: August 11, 2025 By: /s/ Mark Murphy Name: Mark Murphy Title: Executive Vice President and Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001104659-25-069019": {
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "8-K",
+        "accessionNumber": "0001104659-25-069019",
+        "filingDate": "2025-07-18",
+        "reportDate": "2025-07-17",
+        "primaryDocument": "tm2521153d1_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925069019/tm2521153d1_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925069019/",
+        "items": [
+          "5.03",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "aa38a85241b7fc46af347117a8abc3ec3b2d5ff649a165d1655be8a606f77b57",
+        "passages": [
+          "Item 5.03 Amendments to Articles of Incorporation or Bylaws; Changes in Fiscal Year On July 17, 2025, the Board of Directors (the “ Board ” ) of Micron Technology, Inc. (the “ Company ” ) approved the Company ’ s Amended and Restated Bylaws (the “ Amended Bylaws ” ), effective as of such date. The Amended Bylaws include an amendment to adjust the Company ’ s existing Delaware exclusive forum provision to reflect changes in the laws of the state of Delaware, and other ministerial, clarifying and conforming changes. This description of the amendment to the Company ’ s bylaws is qualified in its entirety by reference to the text of the Amended Bylaws filed as Exhibit 3.1 to this report. Item 9.01. Financial Statements and Exhibits. (d) Exhibits. Exhibit No. Description 3.1 Amended and Restated Bylaws as of July 17, 2025 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the Registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: July 18, 2025 MICRON TECHNOLOGY, INC. By: /s/ Michael Ray Name: Michael Ray Title: Senior Vice President, Chief Legal Officer and Corporate"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001104659-25-058741": {
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "8-K",
+        "accessionNumber": "0001104659-25-058741",
+        "filingDate": "2025-06-12",
+        "reportDate": "2025-06-11",
+        "primaryDocument": "tm2517778d1_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925058741/tm2517778d1_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925058741/",
+        "items": [
+          "8.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "c6c6229cdf5038d4f5a96decec6c2be26e7d0582b87cd1a4527fd327e15cf785",
+        "passages": [
+          "Item 8.01 Other Events. On June 12, 2025, Micron Technology, Inc. (the “Company”) issued a press release (the “Announcement”) announcing the Company’s plans for expanded U.S. investments in leading-edge DRAM manufacturing and research and development. A copy of the press release is filed herewith as Exhibit 99.1 to this Current Report on Form 8-K. In connection with the Announcement, on June 11, 2025, two wholly-owned subsidiaries of the Company, Micron Idaho Semiconductor Manufacturing (Triton) LLC, a Delaware limited liability company (“Micron Idaho”), and Micron New York Semiconductor Manufacturing LLC, a Delaware limited liability company (“Micron New York”), entered into amendments (each, an “Amendment” and, collectively, the “Amendments”) to their respective direct funding agreements, dated December 9, 2024, with the United States Department of Commerce (the “Department”) under the Department’s CHIPS Incentives Program established pursuant to the CHIPS and Science Act of 2022 (the “CHIPS Act”), which were previously disclosed. In addition, also on June 11, 2025, Micron Virginia Semiconductor Manufacturing LLC, a Delaware limited liability company and a wholly-owned subsidiary of the Company (“Micron Virginia”), entered into a direct funding agreement (the “Virginia Funding Agreement”) with the Department under the CHIPS Act as contemplated by the non-binding memorandum of terms previously disclosed by the Company. Micron Idaho, Micron New York, and Micron Virginia, are, collectively, referred to as the “Project Subsidiaries” and each direct funding agreement is referred to as a “Funding Agreement,” and such direct funding agreements are referred to collectively as the “Funding Agreements.” The aggregate CHIPS Act grants awarded under the Funding Agreements to Micron Idaho and Micron New York for the construction of fab facilities, as amended by the Amendments, is $6.1 billion, unchanged from the amount previously announced in December 2024. The Amendment to the Funding Agreement with Micron Idaho added the construction of a second fab facility in Boise, Idaho as a separate “project,” subject to the terms and conditions applicable to a project under such"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001104659-25-041201": {
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "8-K",
+        "accessionNumber": "0001104659-25-041201",
+        "filingDate": "2025-04-29",
+        "reportDate": "2025-04-24",
+        "primaryDocument": "tm2513434d1_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925041201/tm2513434d1_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925041201/",
+        "items": [
+          "1.01",
+          "2.03",
+          "8.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "7c062735b05b3f6f9fd157394f525eabccc8318cc676c1a0638ccbadcc46341b",
+        "passages": [
+          "Item 1.01. Entry into a Material Definitive Agreement. On April 29, 2025, Micron Technology, Inc. (\"Micron,\" \"we,\" \"us,\" or \"our\") settled its offering of (i) $500,000,000 aggregate principal amount of 5.65% senior notes due 2032 (the \"2032 Notes\"), and (ii) $1,250,000,000 aggregate principal amount of 6.05% senior notes due 2035 (the \"2035 Notes\" and, together with the 2032 Notes, the \"Notes\"). The Notes were issued and sold in a public offering pursuant to a registration statement on Form S-3 (File No. 333-275276), including the prospectus contained therein (the \"Base Prospectus\"), filed with the Securities and Exchange Commission under the Securities Act of 1933, as amended, a preliminary prospectus supplement dated April 24, 2025, a related final prospectus supplement dated April 24, 2025 (together with the Base Prospectus, the \"Prospectus\"), and a free writing prospectus dated April 24, 2025. Each series of Notes was issued pursuant to an indenture, dated as of February 6, 2019 (the \"Base Indenture\"), between Micron and U.S. Bank Trust Company, National Association (as successor in interest to U.S. Bank National Association), as trustee, as supplemented by a tenth supplemental indenture, dated as of April 29, 2025 (the \"Supplemental Indenture\" and, together with the Base Indenture, the \"Indenture\"). The Indenture contains certain covenants, events of default and other customary provisions. The 2032 Notes bear interest at a rate of 5.65% per year and will mature on November 1, 2032. The 2035 Notes bear interest at a rate of 6.05% per year and will mature on November 1, 2035. Interest on each series of Notes is payable on May 1 and November 1 of each year, beginning on November 1, 2025. Prior to the applicable Par Call Date (as defined below), we may redeem the Notes of any series at our option, in whole or in part, at any time and from time to time, at a redemption price equal to the greater of (i)(a) the sum of the present values of the remaining scheduled payments of principal and interest thereon discounted to the redemption date (assuming the Notes of such series matured on the applicable Par Call Date) on a semi-annual basis (assuming a 360-day year"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001104659-25-022973": {
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "8-K",
+        "accessionNumber": "0001104659-25-022973",
+        "filingDate": "2025-03-12",
+        "reportDate": "2025-03-12",
+        "primaryDocument": "tm258936d1_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925022973/tm258936d1_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925022973/",
+        "items": [
+          "1.01",
+          "1.02",
+          "2.03"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "bbb81233adb0ba7c071097da146a3cc2aa63613ebf859786ee89b86f8f33d6d8",
+        "passages": [
+          "Item 1.01. Entry into a Material Definitive Agreement. On March 12, 2025 (the “Closing Date”), Micron Technology, Inc. (the “Company”) entered into a revolving credit agreement and terminated its existing revolving credit agreement, as described below. Revolving Credit Agreement On the Closing Date, the Company entered into a Credit Agreement with HSBC Bank USA, N.A., as Administrative Agent, HSBC Securities (USA) Inc., as Sole Bookrunner and Lead Arranger, certain financial institutions as additional lead arrangers and certain financial institutions as lenders (the “Revolving Credit Agreement”). The Revolving Credit Agreement provides the Company with a committed $3.5 billion revolving credit facility (the “Revolving Credit Facility”). The Revolving Credit Facility includes a $250 million documentary credit sublimit for letters of credit and bank guarantees. The Revolving Credit Agreement also provides that, under certain circumstances, including compliance with the net leverage ratio covenant described below, the Company may, with the agreement of the lenders providing any such incremental facility, add one or more incremental revolving facilities to increase commitments under the Revolving Credit Facility in an aggregate amount not to exceed $1.5 billion. As of the date of the filing of this Current Report, there are no borrowings outstanding under the Revolving Credit Agreement, and no subsidiaries of the Company are guarantors under the Revolving Credit Agreement. The proceeds of borrowings under the Revolving Credit Facility will be used for general corporate purposes. The Revolving Credit Facility replaced the Company’s existing $2.5 billion revolving credit facility under the Company’s Credit Agreement dated as of May 14, 2021, by and among the Company, HSBC Bank USA, N.A., as Administrative Agent, HSBC Securities (USA) Inc., as Sole Bookrunner and Joint Lead Arranger, Credit Agricole Corporate and Investment Bank, as Sustainability Structuring Agent, certain financial institutions as additional joint lead arrangers and certain financial institutions as lenders (as previously amended, the “Existing Credit Agreement”), which was otherwise due to mature"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001104659-25-020878": {
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "8-K",
+        "accessionNumber": "0001104659-25-020878",
+        "filingDate": "2025-03-05",
+        "reportDate": "2025-03-05",
+        "primaryDocument": "tm258327d1_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925020878/tm258327d1_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925020878/",
+        "items": [
+          "5.02",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "6970cdc33bded0fc61a288a8d0e15dbcbbf1fa938bb92625743286d648e6eefe",
+        "passages": [
+          "Item 5.02. Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers; Compensatory Arrangements of Certain Officers. On March 5, 2025, the Board of Directors (“Board”) of Micron Technology, Inc. (the “Company”) appointed Anna Christine Simons and Teyin Mark Liu as members of the Board. The Board has determined that each of Ms. Simons and Dr. Liu are independent directors under the applicable rules of the Nasdaq Stock Market LLC (the “Independence Rules”). Following the appointment of Ms. Simons and Dr. Liu, the Board will have a total ten directors, of which nine are determined to be independent under the Independence Rules. Ms. Simons has been appointed to the Security Committee of the Board and Dr. Liu has been appointed to the Governance and Sustainability Committee and Finance Committee of the Board. Ms. Simons is also expected to be appointed to the Audit Committee of the Board. Ms. Simons and Dr. Liu will each participate in the Company’s non-employee director compensation program consistent with past practice, including (i) pro rata portion of a cash retainer of $125,000 for their service as a member of the Board and (ii) a grant on the date of their appointment equal to the pro rata portion of the annual grant of restricted stock, valued at $250,000, provided to non-employee directors under the Company’s director compensation plan. Ms. Simons and Dr. Liu will also enter into the Company’s standard form of indemnification agreement. There is no arrangement or understanding between Ms. Simons or Dr. Liu and any other person pursuant to which they were selected as a director, and there is no family relationship between Ms. Simons or Dr. Liu and any of the Company’s other directors or executive officers. Neither Ms. Simons nor Dr. Liu has a direct or indirect material interest in any transaction required to be disclosed pursuant to Item 404(a) of Regulation S-K. On March 5, 2025, the Company issued a press release announcing the appointment of Ms. Simons and Dr. Liu as directors. The press release is attached as Exhibit 99.1 to this report. Item 9.01. Financial Statements and Exhibits. (d) Exhibits. Exhibit No."
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001104659-25-004879": {
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "8-K",
+        "accessionNumber": "0001104659-25-004879",
+        "filingDate": "2025-01-21",
+        "reportDate": "2025-01-16",
+        "primaryDocument": "tm253757d1_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925004879/tm253757d1_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925004879/",
+        "items": [
+          "1.01",
+          "1.02",
+          "2.03",
+          "5.02",
+          "5.07",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "c7aa021752d1ffb83463488c7be23dab0f62cd7fafabaabb6d6e16ebf04c2e07",
+        "passages": [
+          "Item 1.01. Entry into a Material Definitive Agreement. On January 17, 2025 (the “Closing Date”), Micron Technology, Inc. (the “Company”), entered into a Term Loan Credit Agreement, by and among the Company, PNC Bank, National Association, as Administrative Agent, PNC Capital Markets LLC, as Sole Bookrunner and a Joint Lead Arranger, BNP Paribas Securities Corp., Canadian Imperial Bank of Commerce, New York Branch, DBS Bank Ltd., Manufacturers and Traders Trust Company, and Oversea-Chinese Banking Corporation Limited, New York Agency, as Co-Syndication Agents and Joint Lead Arrangers, Truist Bank, as a Co-Syndication Agent, and Truist Securities, Inc., as a Joint Lead Arranger, and certain financial institutions as lenders (the “Term Loan Agreement”). The Term Loan Agreement provides a committed term loan facility (the “Term Loan Facility”) consisting of one tranche of term loans. On the Closing Date, the Company borrowed $1.6835 billion in aggregate principal amount (the “Term Loan”). The Company will use the proceeds of such Term Loan to repay a portion of the outstanding principal balance under the Term Loan Credit Agreement dated as of November 3, 2022, as previously amended, by and among the Company, Wells Fargo Bank, National Association, as Administrative Agent, Wells Fargo Securities, LLC, Mizuho Bank, Ltd., and Truist Securities, Inc. as Joint Bookrunners and Joint Lead Arrangers and certain financial institutions as lenders. The Term Loan Agreement also provides that, under certain circumstances, the Company may add one or more incremental commitments in an aggregate principal amount not to exceed $750.0 million, and which may consist of additional Term Loan commitments. The Term Loan does not amortize and is scheduled to mature on January 17, 2029 (the “Term Loan Facility Maturity Date”). The Company must repay the outstanding principal amount of the Term Loan, together with all accrued but unpaid interest, fees and other obligations owing thereon, on the Term Loan Facility Maturity Date. Borrowings under the Term Loan Facility will bear interest, at the Company’s option, at adjusted term SOFR or at a “base rate”, plus in either case an applicable"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001104659-25-004100": {
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "8-K",
+        "accessionNumber": "0001104659-25-004100",
+        "filingDate": "2025-01-16",
+        "reportDate": "2025-01-13",
+        "primaryDocument": "tm2425615d5_8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925004100/tm2425615d5_8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/723125/000110465925004100/",
+        "items": [
+          "1.01",
+          "2.03",
+          "8.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0000723125.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "21e27de93892a1a9a6fc274e00dd9c2ae0bf63a254d69559dc3db30479c5d30c",
+        "passages": [
+          "Item 1.01. Entry into a Material Definitive Agreement. On January 16, 2025, Micron Technology, Inc. (\"Micron,\" \"we,\" \"us,\" or \"our\") settled its offering of $1,000,000,000 aggregate principal amount of 5.80% senior notes due 2035 (the \"Notes\"). The Notes were issued and sold in a public offering pursuant to a registration statement on Form S-3 (File No. 333-275276), including the prospectus contained therein (the \"Base Prospectus\"), filed with the Securities and Exchange Commission under the Securities Act of 1933, as amended, a preliminary prospectus supplement dated January 13, 2025, a related final prospectus supplement dated January 13, 2025 (together with the Base Prospectus, the \"Prospectus\"), and a free writing prospectus dated January 13, 2025. The Notes were issued pursuant to an indenture, dated as of February 6, 2019 (the \"Base Indenture\"), between Micron and U.S. Bank Trust Company, National Association (as successor in interest to U.S. Bank National Association), as trustee, as supplemented by a ninth supplemental indenture, dated as of January 16, 2025 (the \"Supplemental Indenture\" and, together with the Base Indenture, the \"Indenture\"). The Indenture contains certain covenants, events of default and other customary provisions. The Notes bear interest at a rate of 5.80% per year and will mature on January 15, 2035. Interest on the Notes is payable on January 15 and July 15 of each year, beginning on July 15, 2025. Prior to the Par Call Date (as defined below), we may redeem the Notes at our option, in whole or in part, at any time and from time to time, at a redemption price equal to the greater of (i)(a) the sum of the present values of the remaining scheduled payments of principal and interest thereon discounted to the redemption date (assuming the Notes matured on the Par Call Date) on a semi-annual basis (assuming a 360-day year consisting of twelve 30-day months) at the then current treasury rate plus 20 basis points, less (b) interest accrued to the date of redemption, and (ii) 100% of the principal amount of the Notes to be redeemed, and plus, in each case, accrued and unpaid interest, if any, on the amount being redeemed to, but excluding,"
+        ],
+        "reviewDate": "2026-09-27"
       }
     },
     "observations": [
@@ -5254,25 +5990,148 @@
         "groupingBasis": "Separate disclosed appointment.",
         "publicationDate": "2026-08-26",
         "form": "8-K"
+      },
+      {
+        "id": "MU:completion/bjorlin:0001104659-26-071845",
+        "eventId": "MU:completion/bjorlin",
+        "ticker": "MU",
+        "accessionNumber": "0001104659-26-071845",
+        "category": "leadership",
+        "template": "executive_appointed",
+        "eventDate": "2026-06-09",
+        "items": [
+          "5.02"
+        ],
+        "parameters": {
+          "person": "Alexis Black Björlin",
+          "role": "member of the Board"
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-27",
+        "groupingBasis": "Reviewed disclosed stage; agreement is distinct from completion. No inferred consideration or probability.",
+        "publicationDate": "2026-06-09",
+        "form": "8-K"
+      },
+      {
+        "id": "MU:completion/officer-liability:0001104659-26-005366",
+        "eventId": "MU:completion/officer-liability",
+        "ticker": "MU",
+        "accessionNumber": "0001104659-26-005366",
+        "category": "governance",
+        "template": "officer_liability",
+        "eventDate": "2026-01-15",
+        "items": [
+          "5.03"
+        ],
+        "parameters": {},
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-27",
+        "groupingBasis": "Reviewed disclosed stage; agreement is distinct from completion. No inferred consideration or probability.",
+        "publicationDate": "2026-01-21",
+        "form": "8-K"
+      },
+      {
+        "id": "MU:completion/notes-april:0001104659-25-041201",
+        "eventId": "MU:completion/notes-april",
+        "ticker": "MU",
+        "accessionNumber": "0001104659-25-041201",
+        "category": "financing",
+        "template": "senior_notes_issued",
+        "eventDate": "2025-04-24",
+        "items": [
+          "2.03"
+        ],
+        "parameters": {
+          "instrument": "Notes"
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-27",
+        "groupingBasis": "Reviewed disclosed stage; agreement is distinct from completion. No inferred consideration or probability.",
+        "publicationDate": "2025-04-29",
+        "form": "8-K"
+      },
+      {
+        "id": "MU:completion/simons:0001104659-25-020878",
+        "eventId": "MU:completion/simons",
+        "ticker": "MU",
+        "accessionNumber": "0001104659-25-020878",
+        "category": "leadership",
+        "template": "executive_appointed",
+        "eventDate": "2025-03-05",
+        "items": [
+          "5.02"
+        ],
+        "parameters": {
+          "person": "Anna Christine Simons",
+          "role": "members of the Board"
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-27",
+        "groupingBasis": "Reviewed disclosed stage; agreement is distinct from completion. No inferred consideration or probability.",
+        "publicationDate": "2025-03-05",
+        "form": "8-K"
+      },
+      {
+        "id": "MU:completion/liu:0001104659-25-020878",
+        "eventId": "MU:completion/liu",
+        "ticker": "MU",
+        "accessionNumber": "0001104659-25-020878",
+        "category": "leadership",
+        "template": "executive_appointed",
+        "eventDate": "2025-03-05",
+        "items": [
+          "5.02"
+        ],
+        "parameters": {
+          "person": "Teyin Mark Liu",
+          "role": "members of the Board"
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-27",
+        "groupingBasis": "Reviewed disclosed stage; agreement is distinct from completion. No inferred consideration or probability.",
+        "publicationDate": "2025-03-05",
+        "form": "8-K"
+      },
+      {
+        "id": "MU:completion/notes-january:0001104659-25-004100",
+        "eventId": "MU:completion/notes-january",
+        "ticker": "MU",
+        "accessionNumber": "0001104659-25-004100",
+        "category": "financing",
+        "template": "senior_notes_issued",
+        "eventDate": "2025-01-13",
+        "items": [
+          "2.03"
+        ],
+        "parameters": {
+          "instrument": "Notes"
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-27",
+        "groupingBasis": "Reviewed disclosed stage; agreement is distinct from completion. No inferred consideration or probability.",
+        "publicationDate": "2025-01-16",
+        "form": "8-K"
       }
     ],
     "pendingReview": [
-      {
-        "accessionNumber": "0001104659-26-071845",
-        "filingDate": "2026-06-09",
-        "items": [
-          "5.02",
-          "9.01"
-        ],
-        "candidates": [
-          "leadership"
-        ],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
       {
         "accessionNumber": "0001104659-26-038249",
         "filingDate": "2026-04-01",
@@ -5285,7 +6144,8 @@
         "needsReview": true,
         "supportingItems": [
           "9.01"
-        ]
+        ],
+        "reason": "Tender pricing/expiration follows 0001104659-26-034174; settlement amounts and stage grouping need exhibit review. Not a new issuance."
       },
       {
         "accessionNumber": "0001104659-26-034174",
@@ -5299,24 +6159,8 @@
         "needsReview": true,
         "supportingItems": [
           "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001104659-26-005366",
-        "filingDate": "2026-01-21",
-        "items": [
-          "5.03",
-          "5.07",
-          "9.01"
         ],
-        "candidates": [
-          "governance"
-        ],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
+        "reason": "Tender commencement, not completed repayment; reconcile pricing/expiration in 0001104659-26-038249 and settlement exhibit before acceptance."
       },
       {
         "accessionNumber": "0001104659-25-101237",
@@ -5332,7 +6176,8 @@
         "needsReview": true,
         "supportingItems": [
           "9.01"
-        ]
+        ],
+        "reason": "Announced future board retirements; effective departure and template mapping remain unresolved."
       },
       {
         "accessionNumber": "0001104659-25-075940",
@@ -5346,23 +6191,8 @@
         "needsReview": true,
         "supportingItems": [
           "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001104659-25-069019",
-        "filingDate": "2025-07-18",
-        "items": [
-          "5.03",
-          "9.01"
         ],
-        "candidates": [
-          "governance"
-        ],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
+        "reason": "FY2025 Q4 guidance revision; route to guidance history review, not an unrelated material event. Exhibit values remain unreviewed."
       },
       {
         "accessionNumber": "0001104659-25-058741",
@@ -5376,26 +6206,8 @@
         "needsReview": true,
         "supportingItems": [
           "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001104659-25-041201",
-        "filingDate": "2025-04-29",
-        "items": [
-          "1.01",
-          "2.03",
-          "8.01",
-          "9.01"
         ],
-        "candidates": [
-          "agreement",
-          "financing"
-        ],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
+        "reason": "CHIPS funding and expanded US investments: project commitments, conditional grants and agreement scope need exhibit-level reconciliation."
       },
       {
         "accessionNumber": "0001104659-25-022973",
@@ -5412,23 +6224,8 @@
         ],
         "earningsCanonical": false,
         "needsReview": true,
-        "supportingItems": []
-      },
-      {
-        "accessionNumber": "0001104659-25-020878",
-        "filingDate": "2025-03-05",
-        "items": [
-          "5.02",
-          "9.01"
-        ],
-        "candidates": [
-          "leadership"
-        ],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
+        "supportingItems": [],
+        "reason": "Replacement revolving facility: distinguish commitment, optional incremental capacity and borrowings; historical financing-event mapping remains unresolved."
       },
       {
         "accessionNumber": "0001104659-25-004879",
@@ -5451,38 +6248,62 @@
         "needsReview": true,
         "supportingItems": [
           "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001104659-25-004100",
-        "filingDate": "2025-01-16",
-        "items": [
-          "1.01",
-          "2.03",
-          "8.01",
-          "9.01"
         ],
-        "candidates": [
-          "agreement",
-          "financing"
-        ],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
+        "reason": "Term-loan replacement and additional compensation/voting disclosures: reconcile repayment/new principal and separate event identities."
       }
     ],
     "checkedThrough": "2026-08-26",
     "coverage": {
       "startDate": "2025-01-01",
       "basis": "Selected reviewed material events plus older examples; not a complete archive"
+    },
+    "reviewDecisions": {
+      "0001104659-26-038249": {
+        "state": "review_required",
+        "reason": "Tender pricing/expiration follows 0001104659-26-034174; settlement amounts and stage grouping need exhibit review. Not a new issuance.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001104659-26-034174": {
+        "state": "review_required",
+        "reason": "Tender commencement, not completed repayment; reconcile pricing/expiration in 0001104659-26-038249 and settlement exhibit before acceptance.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001104659-25-101237": {
+        "state": "review_required",
+        "reason": "Announced future board retirements; effective departure and template mapping remain unresolved.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001104659-25-075940": {
+        "state": "review_required",
+        "reason": "FY2025 Q4 guidance revision; route to guidance history review, not an unrelated material event. Exhibit values remain unreviewed.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001104659-25-069019": {
+        "state": "rejected",
+        "reason": "Ministerial/bylaw forum update excluded from selected material events after primary-report review; not an absence of a governance filing.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001104659-25-058741": {
+        "state": "review_required",
+        "reason": "CHIPS funding and expanded US investments: project commitments, conditional grants and agreement scope need exhibit-level reconciliation.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001104659-25-022973": {
+        "state": "review_required",
+        "reason": "Replacement revolving facility: distinguish commitment, optional incremental capacity and borrowings; historical financing-event mapping remains unresolved.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001104659-25-004879": {
+        "state": "review_required",
+        "reason": "Term-loan replacement and additional compensation/voting disclosures: reconcile repayment/new principal and separate event identities.",
+        "reviewDate": "2026-09-27"
+      }
     }
   },
   "status": "verified",
-  "verifiedAt": "2026-09-26T19:20:54.301583+00:00",
+  "verifiedAt": "2026-09-27T15:49:34.917453+00:00",
   "coverageDecision": {
-    "checkedAt": "2026-09-26T19:20:54.301583+00:00",
+    "checkedAt": "2026-09-27T15:49:34.917453+00:00",
     "fullResearch": false,
     "layers": {
       "reporting": {
@@ -5494,8 +6315,8 @@
         "scope": "Two latest quarterly releases; revenue guidance only, explicit period and GAAP basis."
       },
       "kpi": {
-        "state": "partial",
-        "scope": "No standalone KPI admitted from the two selected earnings releases; broader issuer KPI/history review remains open."
+        "state": "checked_bounded_absence",
+        "scope": "Reviewed FY2025 annual and FY2026 Q1-Q3 notes plus two earnings releases. Bit-volume/ASP ranges are approximate and not a stable exact standalone series; no KPI selected. Not an issuer-wide absence claim."
       },
       "businessMix": {
         "state": "verified",
@@ -5503,19 +6324,19 @@
       },
       "capital": {
         "state": "partial",
-        "scope": "Cash, short-term investments and reported debt components; no complete debt/net debt inference. Share issuance, longer repurchase history, maturities and full liquidity reconciliation remain review-required. Actual outstanding and weighted diluted shares are separately reviewed. Actual program cash repurchases are reviewed, excluding employee withholding."
+        "scope": "Latest debt carrying total includes finance leases; authorization/remaining buyback capacity distinct from actual repurchases; funding and maturity prose reviewed. Full issuance and longer repurchase/noncash financing history still need reconciliation."
       },
       "insiders": {
         "state": "verified",
         "scope": "Complete Form 4/4-A selection in captured SEC recent index from 2026-08-01."
       },
       "ownership": {
-        "state": "partial",
-        "scope": "Two selected reviewed SEC XML snapshots, separate entities; no inferred history continuity. Other discovered filings remain pending."
+        "state": "verified",
+        "scope": "All five discovered XML filings in retained index reviewed. Compatible Capital World 2025/2026 sequence for MU; Vanguard group realignment zeros explicitly non-comparable, not sales. BlackRock filer change not joined. Bounded disclosure history, not a shareholder register."
       },
       "events": {
-        "state": "partial",
-        "scope": "Reviewed August 2026 appointments; other discovered events remain pending."
+        "state": "review_required",
+        "scope": "13 prior candidates individually reviewed: five filings accepted (six events), one rejected, seven retained with source-backed reasons (tender stages, funding commitments, facility/loan changes, retirements and guidance history)."
       }
     }
   }

@@ -5,7 +5,8 @@ const clone=o=>structuredClone(o),last=(t,m)=>C.latest(data(t),m);
 for(const ticker of ['MU','VRT'])test(ticker+' bounded capital cannot manufacture complete debt or substitute weighted shares',()=>{
  assert.equal(C.compare(last(ticker,'shares_outstanding'),last(ticker,'weighted_diluted')).comparable,false);
  assert(!C.derive('cash_less_debt',[last(ticker,'cash'),last(ticker,'debt_noncurrent')]).available);
- assert(!last(ticker,'debt_total'));
+ assert.equal(last(ticker,'debt_total').value.point,ticker==='MU'?5722000000:2939800000);
+ assert(!C.derive('cash_less_debt',[last(ticker,'cash'),last(ticker,'debt_total')]).available);
  if(ticker==='MU'){
   const cash=last(ticker,'repurchase_cash'),authorization=clone(cash);authorization.metricId='repurchase_remaining';
   assert.equal(C.compare(cash,authorization).comparable,false);

@@ -2,7 +2,7 @@
   "schema": "ntm-issuer-coverage/1",
   "issuers": {
     "MU": {
-      "checkedAt": "2026-09-26T19:20:54.301583+00:00",
+      "checkedAt": "2026-09-27T15:49:34.917453+00:00",
       "fullResearch": false,
       "layers": {
         "reporting": {
@@ -14,8 +14,8 @@
           "scope": "Two latest quarterly releases; revenue guidance only, explicit period and GAAP basis."
         },
         "kpi": {
-          "state": "partial",
-          "scope": "No standalone KPI admitted from the two selected earnings releases; broader issuer KPI/history review remains open."
+          "state": "checked_bounded_absence",
+          "scope": "Reviewed FY2025 annual and FY2026 Q1-Q3 notes plus two earnings releases. Bit-volume/ASP ranges are approximate and not a stable exact standalone series; no KPI selected. Not an issuer-wide absence claim."
         },
         "businessMix": {
           "state": "verified",
@@ -23,24 +23,24 @@
         },
         "capital": {
           "state": "partial",
-          "scope": "Cash, short-term investments and reported debt components; no complete debt/net debt inference. Share issuance, longer repurchase history, maturities and full liquidity reconciliation remain review-required. Actual outstanding and weighted diluted shares are separately reviewed. Actual program cash repurchases are reviewed, excluding employee withholding."
+          "scope": "Latest debt carrying total includes finance leases; authorization/remaining buyback capacity distinct from actual repurchases; funding and maturity prose reviewed. Full issuance and longer repurchase/noncash financing history still need reconciliation."
         },
         "insiders": {
           "state": "verified",
           "scope": "Complete Form 4/4-A selection in captured SEC recent index from 2026-08-01."
         },
         "ownership": {
-          "state": "partial",
-          "scope": "Two selected reviewed SEC XML snapshots, separate entities; no inferred history continuity. Other discovered filings remain pending."
+          "state": "verified",
+          "scope": "All five discovered XML filings in retained index reviewed. Compatible Capital World 2025/2026 sequence for MU; Vanguard group realignment zeros explicitly non-comparable, not sales. BlackRock filer change not joined. Bounded disclosure history, not a shareholder register."
         },
         "events": {
-          "state": "partial",
-          "scope": "Reviewed August 2026 appointments; other discovered events remain pending."
+          "state": "review_required",
+          "scope": "13 prior candidates individually reviewed: five filings accepted (six events), one rejected, seven retained with source-backed reasons (tender stages, funding commitments, facility/loan changes, retirements and guidance history)."
         }
       }
     },
     "VRT": {
-      "checkedAt": "2026-09-26T19:20:54.301600+00:00",
+      "checkedAt": "2026-09-27T15:49:34.936732+00:00",
       "fullResearch": false,
       "layers": {
         "reporting": {
@@ -52,8 +52,8 @@
           "scope": "Two latest quarterly releases; revenue guidance only, explicit period and GAAP basis."
         },
         "kpi": {
-          "state": "partial",
-          "scope": "No standalone KPI admitted from the two selected earnings releases; broader issuer KPI/history review remains open."
+          "state": "verified",
+          "scope": "Reported year-end backlog 2024 and 2025, same issuer definition; cancellable/reschedulable orders and acquisition scope retained. Not a current 2026 backlog estimate."
         },
         "businessMix": {
           "state": "verified",
@@ -61,19 +61,19 @@
         },
         "capital": {
           "state": "partial",
-          "scope": "Cash, short-term investments and reported debt components; no complete debt/net debt inference. Share issuance, buybacks, maturities and full liquidity reconciliation remain review-required. Actual outstanding and weighted diluted shares are separately reviewed."
+          "scope": "Latest debt note total excludes leases; revolver availability net of letters of credit, notes proceeds and buyback authorization/no-2026-repurchase statement reviewed. Longer issuance/repurchase and noncash financing history remain partial. Neither generic net debt nor a maturity ladder is inferred."
         },
         "insiders": {
           "state": "verified",
           "scope": "Complete Form 4/4-A selection in captured SEC recent index from 2026-09-01."
         },
         "ownership": {
-          "state": "partial",
-          "scope": "Two selected reviewed SEC XML snapshots, separate entities; no inferred history continuity. Other discovered filings remain pending."
+          "state": "verified",
+          "scope": "All five discovered XML filings in retained index reviewed. Compatible Capital World 2025/2026 sequence for MU; Vanguard group realignment zeros explicitly non-comparable, not sales. BlackRock filer change not joined. Bounded disclosure history, not a shareholder register."
         },
         "events": {
-          "state": "partial",
-          "scope": "Reviewed completed senior-notes offering; other discovered events remain pending"
+          "state": "review_required",
+          "scope": "28 prior candidates individually reviewed: 11 accepted stages with three agreement/completion chains, 13 routine/reporting duplicates rejected, four retained for loan amendment, dividend increase and retirement/resignation mapping."
         }
       }
     }

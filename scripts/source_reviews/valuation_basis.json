@@ -1,0 +1,51 @@
+{
+  "schema": "ntm-valuation-basis-review/1",
+  "issuers": {
+    "MU": {
+      "concept": "NetIncomeLoss",
+      "basis": "GAAP basic and diluted numerator",
+      "reviewDate": "2026-09-27",
+      "documents": [
+        "0000723125-25-000028",
+        "0000723125-25-000046",
+        "0000723125-26-000006",
+        "0000723125-26-000015"
+      ],
+      "decision": "EPS notes explicitly use the reported net-income numerator for basic and diluted EPS. Reviewed annual and quarter notes reconcile the trailing four periods and duration-weighted diluted shares; no adjusted EPS or quarterly EPS substitution.",
+      "annualYears": [
+        2023,
+        2024,
+        2025
+      ],
+      "trailingPeriods": [
+        "2025Q4",
+        "2026Q1",
+        "2026Q2",
+        "2026Q3"
+      ]
+    },
+    "VRT": {
+      "concept": "NetIncomeLoss",
+      "basis": "GAAP basic and diluted numerator",
+      "reviewDate": "2026-09-27",
+      "documents": [
+        "0001674101-26-000008",
+        "0001674101-25-000024",
+        "0001628280-26-026556",
+        "0001628280-26-050609"
+      ],
+      "decision": "EPS notes explicitly use the reported net-income numerator for basic and diluted EPS. Reviewed annual and quarter notes reconcile the trailing four periods and duration-weighted diluted shares; no adjusted EPS or quarterly EPS substitution.",
+      "annualYears": [
+        2023,
+        2024,
+        2025
+      ],
+      "trailingPeriods": [
+        "2025Q3",
+        "2025Q4",
+        "2026Q1",
+        "2026Q2"
+      ]
+    }
+  }
+}

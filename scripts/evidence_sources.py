@@ -209,6 +209,18 @@ def validate_repository(root=ROOT):
     for folder in ('company_observations', 'company_ownership', 'company_material_events'):
         for d in read(root / 'scripts/source_reviews' / (folder + '.json'))['documents']:
             source(root / 'tests/fixtures', folder, d['accessionNumber'], '.xml' if d.get('metadata', {}).get('url', '').endswith('.xml') else '.html', d.get('sha256'))
+            history=d.get('artifactHistory',[])
+            for prior in history:
+                path=Path(prior['file'])
+                if path.is_absolute() or '..' in path.parts or path.parts[0]!='history':
+                    raise SourceClosureError('Invalid historical artifact path')
+                raw=(root/'tests/fixtures'/folder/path).read_text(encoding='utf-8')
+                if digest(raw)!=prior['sha256']:
+                    raise SourceClosureError('Historical source artifact changed')
+            if 'originalDocumentSha256' in d:
+                from reviewed_company_evidence import visible
+                if not history or digest(visible((root/'tests/fixtures'/folder/history[0]['file']).read_text(encoding='utf-8')))!=d['originalDocumentSha256']:
+                    raise SourceClosureError('Original source digest does not match retained history')
 
 
 def validate_git_index(root=ROOT):

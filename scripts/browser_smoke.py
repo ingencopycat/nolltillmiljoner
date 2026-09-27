@@ -434,8 +434,12 @@ class BrowserSmoke(unittest.TestCase):
         for ticker in ['MU', 'MRVL', 'VRT', 'COHR', 'RKLB', 'TTMI', 'SNDK', 'FLY', 'CRWV']:
             self.go('research.html?ticker=' + ticker)
             expect(p.locator('#companyName')).not_to_have_text('Bolagsnamn')
-            expect(p.locator('#val-eps-badge')).to_have_text('Manuell')
-            expect(p.locator('#val-eps-help')).to_contain_text('räkneexempel')
+            if ticker in ('MU','VRT'):
+                expect(p.locator('#val-eps-badge')).to_have_text('SEC TTM')
+                expect(p.locator('#val-eps')).to_have_value({'MU':'44.31','VRT':'4.42'}[ticker])
+            else:
+                expect(p.locator('#val-eps-badge')).to_have_text('Manuell')
+                expect(p.locator('#val-eps-help')).to_contain_text('räkneexempel')
             if ticker in ['TTMI', 'SNDK', 'FLY', 'CRWV']:
                 expect(p.locator('#companyCoverageNotice')).to_be_visible()
                 p.locator('#companyLimitationsDetails > summary').click()

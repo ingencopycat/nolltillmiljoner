@@ -89,7 +89,7 @@ def build(feed, fetch_html, reviews=None):
         text = visible(html)
         facts = numeric_facts(html) if any('xbrl' in r for r in review['observations']) else []
         sources.append(dict(accessionNumber=review['accessionNumber'], url=document['url'],
-                            documentSha256=digest(text), reviewDate=review.get('reviewDate', reviews['reviewDate'])))
+                            documentSha256=review.get('originalDocumentSha256',digest(text)), reviewDate=review.get('reviewDate', reviews['reviewDate'])))
         for recipe in review['observations']:
             if 'xbrl' in recipe:
                 fact = select_fact(facts, recipe['xbrl'], feed['cik'])
@@ -100,7 +100,7 @@ def build(feed, fetch_html, reviews=None):
                         cik=feed['cik'], publicationDate=review['publicationDate'], value=extract(recipe,text),
                         source=dict(url=document['url'], accessionNumber=review['accessionNumber'], exhibit=document['exhibit'],
                                     quote=recipe['quote'], quoteSha256=recipe['quoteSha256'], contexts=recipe['contexts']),
-                        review=dict(status='reviewed', method='pinned-passage-deterministic', date=review.get('reviewDate', reviews['reviewDate'])))
+                        review=dict(status='reviewed', method='pinned-passage-deterministic', date=recipe.get('reviewDate',review.get('reviewDate', reviews['reviewDate']))))
             if recipe['kind'] == 'business_mix':
                 for key in ('category','group','recast'): item[key] = copy.deepcopy(recipe[key])
                 item['source']['documentType'] = document['documentType']

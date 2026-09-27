@@ -609,6 +609,84 @@
     "schema": "ntm-reviewed-observations/1",
     "observations": [
       {
+        "kind": "kpi",
+        "metricId": "backlog",
+        "issuerLabel": "Orderstock",
+        "label": "Orderstock",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "FY2024",
+          "end": "2024-12-31",
+          "type": "instant"
+        },
+        "basis": "issuer_defined",
+        "definitionVersion": "vrt-backlog-completion-v1",
+        "definition": "Estimated combined product/service purchase orders or commitments received, not delivered; includes acquired scope; cancellations/rescheduling possible.",
+        "note": "Årsuppgift, inte aktuell orderstock för 2026. Inkluderar förvärv; förändringen är inte organisk tillväxt.",
+        "id": "VRT:0001674101-26-000008:backlog-2024",
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "publicationDate": "2026-02-13",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 7200000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1674101/000167410126000008/vrt-20251231.htm",
+          "accessionNumber": "0001674101-26-000008",
+          "exhibit": null,
+          "quote": "Backlog Vertiv’s estimated combined order backlog was $15.0 billion and $7.2 billion as of December 31, 2025 and 2024, respectively, as continued strong demand has contributed to an increase in customer orders being placed in advance of our ability to fulfill them. The backlog consists of product and services for which a customer purchase order or purchase commitment has been received and which has not yet been delivered. Orders may be subject to cancellation or rescheduling by the customer. The majority of the combined backlog as of December 31, 2025 is considered firm and is expected to be shipped within the next 12 to 18 months.",
+          "quoteSha256": "d1a43cfb5a61898cce97c0e50db3e9e3975384d9fdf7fc305c2700c5bce19053",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-27"
+        }
+      },
+      {
+        "kind": "kpi",
+        "metricId": "backlog",
+        "issuerLabel": "Orderstock",
+        "label": "Orderstock",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "FY2025",
+          "end": "2025-12-31",
+          "type": "instant"
+        },
+        "basis": "issuer_defined",
+        "definitionVersion": "vrt-backlog-completion-v1",
+        "definition": "Estimated combined product/service purchase orders or commitments received, not delivered; includes acquired scope; cancellations/rescheduling possible.",
+        "note": "Årsuppgift, inte aktuell orderstock för 2026. Inkluderar förvärv; förändringen är inte organisk tillväxt.",
+        "id": "VRT:0001674101-26-000008:backlog-2025",
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "publicationDate": "2026-02-13",
+        "value": {
+          "kind": "point",
+          "approximate": true,
+          "point": 15000000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1674101/000167410126000008/vrt-20251231.htm",
+          "accessionNumber": "0001674101-26-000008",
+          "exhibit": null,
+          "quote": "Backlog Vertiv’s estimated combined order backlog was $15.0 billion and $7.2 billion as of December 31, 2025 and 2024, respectively, as continued strong demand has contributed to an increase in customer orders being placed in advance of our ability to fulfill them. The backlog consists of product and services for which a customer purchase order or purchase commitment has been received and which has not yet been delivered. Orders may be subject to cancellation or rescheduling by the customer. The majority of the combined backlog as of December 31, 2025 is considered firm and is expected to be shipped within the next 12 to 18 months.",
+          "quoteSha256": "d1a43cfb5a61898cce97c0e50db3e9e3975384d9fdf7fc305c2700c5bce19053",
+          "contexts": []
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-27"
+        }
+      },
+      {
         "kind": "capital",
         "metricId": "cash",
         "issuerLabel": "Cash and cash equivalents",
@@ -2017,6 +2095,342 @@
           "shareBasis": "as-reported-no-split-reconciliation",
           "recast": "as_reported"
         }
+      },
+      {
+        "kind": "capital",
+        "metricId": "repurchase_authorized",
+        "issuerLabel": "Återköpsmandat",
+        "label": "Återköpsmandat",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q2 FY2026",
+          "end": "2026-06-30",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "vrt-repurchase_authorized-completion-v1",
+        "definition": "Återköpsmandat",
+        "note": "",
+        "id": "VRT:0001628280-26-050609:authorization-reviewed",
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "publicationDate": "2026-07-29",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 3000000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026050609/vrt-20260630.htm",
+          "accessionNumber": "0001628280-26-050609",
+          "exhibit": null,
+          "quote": "C) Repurchases of Shares or of Company Equity Securities On November 29, 2023, the Board of Directors of the Company approved a stock repurchase program, which authorizes the repurchase of shares of Company Class A common stock in an aggregate amount of up to $3.0 billion through December 31, 2027. The stock repurchase program does not obligate the Company to repurchase any specific dollar amount or number of shares of Class A common stock and the Board's authorization of the program may be modified, suspended or discontinued at any time. As of June 30, 2026, $2.4 billion shares were available for repurchase. During 2026, Vertiv made no share repurchases.",
+          "quoteSha256": "eb6af2b05a420e593e14889fdbfa2b75bb55ceca40746d00dc7df4de51ca6951",
+          "contexts": [],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-27"
+        },
+        "capital": {
+          "section": "liquidity",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported",
+          "calculationBasis": "board-authorization"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "debt_proceeds",
+        "issuerLabel": "Likvid från ny upplåning",
+        "label": "Likvid från ny upplåning",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "YTD Q2 FY2026",
+          "start": "2026-01-01",
+          "end": "2026-06-30",
+          "type": "year_to_date"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "vrt-debt_proceeds-completion-v1",
+        "definition": "Likvid från ny upplåning",
+        "note": "",
+        "id": "VRT:0001628280-26-050609:debt-proceeds-reviewed",
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "publicationDate": "2026-07-29",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 2100000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026050609/vrt-20260630.htm",
+          "accessionNumber": "0001628280-26-050609",
+          "exhibit": null,
+          "quote": "Cash flows from financing activities: Proceeds from the issuance of long-term debt 2,100.0 — Repayment of long-term debt ( 2,076.1 ) ( 10.5 ) Dividend payment ( 47.8 ) ( 28.4 ) Exercise of employee stock options 44.1 13.0 Employee taxes paid from shares withheld ( 23.2 ) ( 7.0 )",
+          "quoteSha256": "3ebc6759eb336d45e8c8896743dad410906d1416d5fe099a7524db2548ff7f67",
+          "contexts": [],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-27"
+        },
+        "capital": {
+          "section": "liquidity",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported",
+          "calculationBasis": "cash-proceeds-not-balance"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "debt_total",
+        "issuerLabel": "Redovisad låneskuld",
+        "label": "Låneskuld exklusive leasing",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q2 FY2026",
+          "end": "2026-06-30",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "vrt-debt_total-completion-v1",
+        "definition": "Reported carrying amount after discount/issuance costs; zero current portion in this table. Lease liabilities remain separate.",
+        "note": "",
+        "id": "VRT:0001628280-26-050609:debt-total-reviewed",
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "publicationDate": "2026-07-29",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 2939800000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026050609/vrt-20260630.htm",
+          "accessionNumber": "0001628280-26-050609",
+          "exhibit": null,
+          "quote": "(6) DEBT Long-term debt, net, consisted of the following as of June 30, 2026 and December 31, 2025: June 30, 2026 December 31, 2025 Term Loan due 2032 at 5.61 % at December 31, 2025 $ — $ 2,076.1 Senior Secured Notes due 2028 at 4.125 % at both June 30, 2026 and December 31, 2025 850.0 850.0 Senior Notes due 2036 at 4.850 % at June 30, 2026 600.0 — Senior Notes due 2046 at 5.650 % at June 30, 2026 500.0 — Senior Notes due 2056 at 5.800 % at June 30, 2026 500.0 — Senior Notes due 2066 at 5.950 % at June 30, 2026 500.0 — 0.55 % to 5.12 % notes (maturities ranging from 2027 to 2036) 17.2 — Unamortized discount and issuance costs ( 27.4 ) ( 13.1 ) 2,939.8 2,913.0 Less: current portion — ( 20.9 ) Total long-term debt, net of current portion $ 2,939.8 $ 2,892.1",
+          "quoteSha256": "4de3263cd50594e99f8915dda30c2119d49b3d00664fadc58ba9458bcbea287a",
+          "contexts": [],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-27"
+        },
+        "capital": {
+          "section": "liquidity",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported",
+          "debtScope": "reported-notes-excluding-leases",
+          "calculationBasis": "reported-note-table"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "funding_context",
+        "issuerLabel": "Finansiering och förfall",
+        "label": "Finansiering och förfall",
+        "unit": "text",
+        "currency": null,
+        "period": {
+          "label": "Q2 FY2026",
+          "end": "2026-06-30",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "vrt-funding_context-completion-v1",
+        "definition": "Notes, revolver conditions and refinancing; proceeds and contractual facilities are not debt balances or cash.",
+        "note": "Rapporterade villkor och förfall, inte en beräknad nettoskuld.",
+        "id": "VRT:0001628280-26-050609:funding-reviewed",
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "publicationDate": "2026-07-29",
+        "value": {
+          "kind": "qualitative",
+          "approximate": false,
+          "text": "Senior Notes On M arch 3, 2026, Vertiv Holdings Co (the “Issuer”) issued $ 2,100.0 in aggregate principal amount of senior unsecured notes consisting of $ 600.0 aggregate principal amount of 4.850 % Senior Notes due 2036 (the “2036 Notes”), $ 500.0 aggregate principal amount of 5.650 % Senior Notes due 2046 (the “2046 Notes”), $ 500.0 aggregate principal amount of 5.800 % Senior Notes due 2056 (the “2056 Notes”) and $ 500.0 aggregate principal amount of 5.950 % Senior Notes due 2066 (the “2066 Notes” and, together with the 2036 Notes, the 2046 Notes and the 2056 Notes, the “Senior Notes”). The Company used the net proceeds from the sale of the Senior Notes, together with cash on hand, to repay in full all outstanding indebtedness under its Term Loan Credit Agreement, dated as of March 2, 2020 (as amended, the “Term Loan Credit Agreement”), among Vertiv Group Corporation, as borrower, the guarantors party thereto, the lenders party thereto, and Citibank, N.A., as administrative agent and collateral agent and to pay related fees and expenses."
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026050609/vrt-20260630.htm",
+          "accessionNumber": "0001628280-26-050609",
+          "exhibit": null,
+          "quote": "Senior Notes On M arch 3, 2026, Vertiv Holdings Co (the “Issuer”) issued $ 2,100.0 in aggregate principal amount of senior unsecured notes consisting of $ 600.0 aggregate principal amount of 4.850 % Senior Notes due 2036 (the “2036 Notes”), $ 500.0 aggregate principal amount of 5.650 % Senior Notes due 2046 (the “2046 Notes”), $ 500.0 aggregate principal amount of 5.800 % Senior Notes due 2056 (the “2056 Notes”) and $ 500.0 aggregate principal amount of 5.950 % Senior Notes due 2066 (the “2066 Notes” and, together with the 2036 Notes, the 2046 Notes and the 2056 Notes, the “Senior Notes”). The Company used the net proceeds from the sale of the Senior Notes, together with cash on hand, to repay in full all outstanding indebtedness under its Term Loan Credit Agreement, dated as of March 2, 2020 (as amended, the “Term Loan Credit Agreement”), among Vertiv Group Corporation, as borrower, the guarantors party thereto, the lenders party thereto, and Citibank, N.A., as administrative agent and collateral agent and to pay related fees and expenses.",
+          "quoteSha256": "abec12af2e2f2252f4f0dbc222a131edcb2807292560ed11703445b4b2302f43",
+          "contexts": [],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-27"
+        },
+        "capital": {
+          "section": "liquidity",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "repurchase_remaining",
+        "issuerLabel": "Kvar av återköpsmandat",
+        "label": "Kvar av återköpsmandat",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q2 FY2026",
+          "end": "2026-06-30",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "vrt-repurchase_remaining-completion-v1",
+        "definition": "Kvar av återköpsmandat",
+        "note": "",
+        "id": "VRT:0001628280-26-050609:remaining-reviewed",
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "publicationDate": "2026-07-29",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 2400000000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026050609/vrt-20260630.htm",
+          "accessionNumber": "0001628280-26-050609",
+          "exhibit": null,
+          "quote": "C) Repurchases of Shares or of Company Equity Securities On November 29, 2023, the Board of Directors of the Company approved a stock repurchase program, which authorizes the repurchase of shares of Company Class A common stock in an aggregate amount of up to $3.0 billion through December 31, 2027. The stock repurchase program does not obligate the Company to repurchase any specific dollar amount or number of shares of Class A common stock and the Board's authorization of the program may be modified, suspended or discontinued at any time. As of June 30, 2026, $2.4 billion shares were available for repurchase. During 2026, Vertiv made no share repurchases.",
+          "quoteSha256": "eb6af2b05a420e593e14889fdbfa2b75bb55ceca40746d00dc7df4de51ca6951",
+          "contexts": [],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-27"
+        },
+        "capital": {
+          "section": "liquidity",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported",
+          "calculationBasis": "remaining-authorization"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "repurchase_context",
+        "issuerLabel": "Faktiska återköp",
+        "label": "Faktiska återköp",
+        "unit": "text",
+        "currency": null,
+        "period": {
+          "label": "Q2 FY2026",
+          "end": "2026-06-30",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "vrt-repurchase_context-completion-v1",
+        "definition": "Issuer explicitly reports no share repurchases during 2026 through June 30; authorization is not cash spent.",
+        "note": "",
+        "id": "VRT:0001628280-26-050609:repurchase-absence",
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "publicationDate": "2026-07-29",
+        "value": {
+          "kind": "qualitative",
+          "approximate": false,
+          "text": "C) Repurchases of Shares or of Company Equity Securities On November 29, 2023, the Board of Directors of the Company approved a stock repurchase program, which authorizes the repurchase of shares of Company Class A common stock in an aggregate amount of up to $3.0 billion through December 31, 2027. The stock repurchase program does not obligate the Company to repurchase any specific dollar amount or number of shares of Class A common stock and the Board's authorization of the program may be modified, suspended or discontinued at any time. As of June 30, 2026, $2.4 billion shares were available for repurchase. During 2026, Vertiv made no share repurchases."
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026050609/vrt-20260630.htm",
+          "accessionNumber": "0001628280-26-050609",
+          "exhibit": null,
+          "quote": "C) Repurchases of Shares or of Company Equity Securities On November 29, 2023, the Board of Directors of the Company approved a stock repurchase program, which authorizes the repurchase of shares of Company Class A common stock in an aggregate amount of up to $3.0 billion through December 31, 2027. The stock repurchase program does not obligate the Company to repurchase any specific dollar amount or number of shares of Class A common stock and the Board's authorization of the program may be modified, suspended or discontinued at any time. As of June 30, 2026, $2.4 billion shares were available for repurchase. During 2026, Vertiv made no share repurchases.",
+          "quoteSha256": "eb6af2b05a420e593e14889fdbfa2b75bb55ceca40746d00dc7df4de51ca6951",
+          "contexts": [],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-27"
+        },
+        "capital": {
+          "section": "liquidity",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported"
+        }
+      },
+      {
+        "kind": "capital",
+        "metricId": "facility_available",
+        "issuerLabel": "Tillgänglig revolver",
+        "label": "Tillgänglig revolver",
+        "unit": "USD",
+        "currency": "USD",
+        "period": {
+          "label": "Q2 FY2026",
+          "end": "2026-06-30",
+          "type": "instant"
+        },
+        "basis": "GAAP",
+        "definitionVersion": "vrt-facility_available-completion-v1",
+        "definition": "Tillgänglig revolver",
+        "note": "",
+        "id": "VRT:0001628280-26-050609:revolver-available",
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "publicationDate": "2026-07-29",
+        "value": {
+          "kind": "point",
+          "approximate": false,
+          "point": 2483600000.0
+        },
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026050609/vrt-20260630.htm",
+          "accessionNumber": "0001628280-26-050609",
+          "exhibit": null,
+          "quote": "At June 30, 2026, Vertiv had $ 2,483.6 of availability (subject to customary conditions) under the Senior Unsecured Revolving Credit Facility, net of letters of credit outstanding in the aggregate principal amount of $ 16.4 .",
+          "quoteSha256": "bfb7749dc98ae2333ad9cee6c158720ade0cd232d56299d490a6ad5128697b24",
+          "contexts": [],
+          "documentType": "periodic_filing"
+        },
+        "review": {
+          "status": "reviewed",
+          "method": "pinned-passage-deterministic",
+          "date": "2026-09-27"
+        },
+        "capital": {
+          "section": "liquidity",
+          "scope": "consolidated",
+          "sectorBasis": "industrial",
+          "shareBasis": "as-reported",
+          "recast": "as_reported",
+          "calculationBasis": "facility-availability-not-cash"
+        }
       }
     ],
     "sources": [
@@ -2031,21 +2445,45 @@
         "url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026026379/q12026exhibit991vrt04222026.htm",
         "documentSha256": "14299ccfafa0fa09eff09030839cff0d6f6e1dc4defbb9d23aa37bd0614892a7",
         "reviewDate": "2026-09-26"
+      },
+      {
+        "accessionNumber": "0001674101-26-000008",
+        "url": "https://www.sec.gov/Archives/edgar/data/1674101/000167410126000008/vrt-20251231.htm",
+        "documentSha256": "496241c230b3fc1eed2252dfbae045af957b57bd8dbc2b71aadccbbc491c42bd",
+        "reviewDate": "2026-09-27"
+      },
+      {
+        "accessionNumber": "0001674101-25-000024",
+        "url": "https://www.sec.gov/Archives/edgar/data/1674101/000167410125000024/vrt-20250930.htm",
+        "documentSha256": "817917ea9d44446cdf36a6bb0e7d4aff4f98b1724f2a37cb1511fa46b9d82a67",
+        "reviewDate": "2026-09-27"
+      },
+      {
+        "accessionNumber": "0001628280-26-026556",
+        "url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026026556/vrt-20260331.htm",
+        "documentSha256": "3bc548ed7e068f038d63da0ed638db8ca799063b996462a141c991cc0454dec2",
+        "reviewDate": "2026-09-27"
+      },
+      {
+        "accessionNumber": "0001628280-26-050609",
+        "url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026050609/vrt-20260630.htm",
+        "documentSha256": "dc535953d3f5b30d6e145fccf717ac306596db291a60bce9818145b639c94e49",
+        "reviewDate": "2026-09-27"
       }
     ],
     "pendingReview": [],
     "coverage": {
       "guidance": "reviewed",
-      "kpi": "not_selected",
+      "kpi": "reviewed",
       "businessMix": "reviewed",
       "capital": "partial",
-      "note": "Two latest earnings releases reviewed. No standalone operating KPI admitted; further definitions/history remain review-required.",
+      "note": "Granskad orderstock 2024–2025. Senaste årsvärdet är daterat; ingen orderstock för 2026 har uppskattats.",
       "excluded": [
         "Standalone KPI history not admitted",
         "Debt completeness, maturities and issuance reconciliation require further review"
       ]
     },
-    "reviewRegistrySha256": "9e3b3ba2ea164b1e268289103637585a36a0ea24526b15c317e96141118dc956"
+    "reviewRegistrySha256": "47d9feaca04fc04126cd9dc2c1d969036b92f1f85ed2f613f4bbb9813602faa1"
   },
   "insiderEvidence": {
     "schema": "ntm-company-insiders/1",
@@ -5697,10 +6135,44 @@
           "sha256": "656e75aef8778b3f6b9b9dcd15cacd375ff3ef0b00b6532b3fa8f9b703bf6830",
           "format": "SEC Schedule XML"
         }
-      }
-    ],
-    "pendingReview": [
+      },
       {
+        "persons": [
+          {
+            "name": "The Vanguard Group",
+            "shares": "0",
+            "percent": "0",
+            "personType": "IA",
+            "powers": {
+              "soleVotingPower": "0",
+              "sharedVotingPower": "0",
+              "soleDispositivePower": "0",
+              "sharedDispositivePower": "0"
+            },
+            "comments": "On January 12, 2026, The Vanguard Group, Inc. went through an internal realignment. In accordance with SEC Release No. 34-39538 (January 12, 1998), certain subsidiaries or business divisions of subsidiaries of The Vanguard Group, Inc., that formerly had, or were deemed to have, beneficial ownership with The Vanguard Group, Inc., will report beneficial ownership separately (on a disaggregated basis) from The Vanguard Group, Inc. in reliance on such release. These subsidiaries and/or business divisions pursue the same investment strategies as previously pursued by The Vanguard Group, Inc. prior to the realignment. Further in accordance with SEC Release No. 34-39538 (January 12, 1998), The Vanguard Group, Inc. no longer has, or is deemed to have, beneficial ownership over securities beneficially owned by such subsidiaries and/or business divisions.",
+            "locator": "formData/coverPageHeaderReportingPersonDetails[1]",
+            "entityId": "sec:0000102909",
+            "cik": "0000102909"
+          }
+        ],
+        "eventDate": "2026-03-13",
+        "security": "Common Stock",
+        "cusips": [
+          "92537N108"
+        ],
+        "amendmentNumber": "7",
+        "reportedPreviousAccession": null,
+        "filerCik": "0000102909",
+        "rules": [
+          "Rule 13d-1(b)"
+        ],
+        "statements": {
+          "relationships": "",
+          "group": "",
+          "onBehalfOf": "The Vanguard Group, including investment companies registered under the Investment Company Act of 1940 and other managed accounts, have the right to receive or the power to direct the receipt of dividends from, or the proceeds from the sale of, the securities reported herein.No one other person's interest in the securities reported herein is more than 5%.",
+          "certification": "By signing below I certify that, to the best of my knowledge and belief, the securities referred to above were acquired and are held in the ordinary course of business and were not acquired and are not held for the purpose of or with the effect of changing or influencing the control of the issuer of the securities and were not acquired and are not held in connection with or as a participant in any transaction having that purpose or effect, other than activities solely in connection with a nomination under &#167; 240.14a-11.",
+          "purpose": ""
+        },
         "accessionNumber": "0000102909-26-002519",
         "ticker": "VRT",
         "cik": "0001674101",
@@ -5708,9 +6180,62 @@
         "filingDate": "2026-03-27",
         "url": "https://www.sec.gov/Archives/edgar/data/1674101/000010290926002519/primary_doc.xml",
         "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000010290926002519/xslSCHEDULE_13G_X02/primary_doc.xml",
-        "reason": "Unreviewed Schedule disclosure"
+        "family": "13G",
+        "seriesId": "sec:0000102909:0001674101",
+        "displayPerson": 0,
+        "historyOnly": true,
+        "previousAccession": null,
+        "comparison": {
+          "state": "not_comparable",
+          "reason": "Internal Vanguard realignment: disaggregated subsidiaries report separately; zero is not evidence of a sale."
+        },
+        "context": "2026 Vanguard internal realignment; not comparable to Vanguard Capital Management. The parent zero must not be treated as liquidation.",
+        "relationships": "Reporting entity and security preserved; no aggregation.",
+        "purposeContext": "See original statements and certification.",
+        "reviewDate": "2026-09-27",
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1674101/000010290926002519/primary_doc.xml",
+          "sha256": "5d43b8c09d4ee2c7432a63fddd032eefed33e447bc0f4a235c5afa255e1d131e",
+          "format": "SEC Schedule XML"
+        }
       },
       {
+        "persons": [
+          {
+            "name": "The Vanguard Group",
+            "shares": "38198170",
+            "percent": "10",
+            "personType": "IA",
+            "powers": {
+              "soleVotingPower": "0",
+              "sharedVotingPower": "2441693",
+              "soleDispositivePower": "35022981",
+              "sharedDispositivePower": "3175189"
+            },
+            "comments": "",
+            "locator": "formData/coverPageHeaderReportingPersonDetails[1]",
+            "entityId": "sec:0000102909",
+            "cik": "0000102909"
+          }
+        ],
+        "eventDate": "2025-07-31",
+        "security": "Common Stock",
+        "cusips": [
+          "92537N108"
+        ],
+        "amendmentNumber": "6",
+        "reportedPreviousAccession": null,
+        "filerCik": "0000102909",
+        "rules": [
+          "Rule 13d-1(b)"
+        ],
+        "statements": {
+          "relationships": "",
+          "group": "",
+          "onBehalfOf": "The Vanguard Group, Inc.'s clients, including investment companies registered under the Investment Company Act of 1940 and other managed accounts, have the right to receive or the power to direct the receipt of dividends from, or the proceeds from the sale of, the securities reported herein. No one other person's interest in the securities reported herein is more than 5%.",
+          "certification": "By signing below I certify that, to the best of my knowledge and belief, the securities referred to above were acquired and are held in the ordinary course of business and were not acquired and are not held for the purpose of or with the effect of changing or influencing the control of the issuer of the securities and were not acquired and are not held in connection with or as a participant in any transaction having that purpose or effect, other than activities solely in connection with a nomination under &#167; 240.14a-11.",
+          "purpose": ""
+        },
         "accessionNumber": "0000932471-25-001116",
         "ticker": "VRT",
         "cik": "0001674101",
@@ -5718,9 +6243,62 @@
         "filingDate": "2025-08-07",
         "url": "https://www.sec.gov/Archives/edgar/data/1674101/000093247125001116/primary_doc.xml",
         "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000093247125001116/xslSCHEDULE_13G_X01/primary_doc.xml",
-        "reason": "Unreviewed Schedule disclosure"
+        "family": "13G",
+        "seriesId": "sec:0000102909:0001674101",
+        "displayPerson": 0,
+        "historyOnly": false,
+        "previousAccession": null,
+        "comparison": {
+          "state": "baseline",
+          "reason": "First reviewed historical snapshot; no inferred cross-filer continuity."
+        },
+        "context": "Bounded SEC Schedule history; not a shareholder register.",
+        "relationships": "Reporting entity and security preserved; no aggregation.",
+        "purposeContext": "See original statements and certification.",
+        "reviewDate": "2026-09-27",
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1674101/000093247125001116/primary_doc.xml",
+          "sha256": "47f7a973846663639cf8692f7df61696e55f2cec49de3236edf69bb01c280671",
+          "format": "SEC Schedule XML"
+        }
       },
       {
+        "persons": [
+          {
+            "name": "BlackRock, Inc.",
+            "shares": "21308858.00",
+            "percent": "5.6",
+            "personType": "HC",
+            "powers": {
+              "soleVotingPower": "19008092.00",
+              "sharedVotingPower": "0.00",
+              "soleDispositivePower": "21308858.00",
+              "sharedDispositivePower": "0.00"
+            },
+            "comments": "",
+            "locator": "formData/coverPageHeaderReportingPersonDetails[1]",
+            "entityId": "sec:0002012383",
+            "cik": "0002012383"
+          }
+        ],
+        "eventDate": "2025-03-31",
+        "security": "Class A Stock",
+        "cusips": [
+          "92537N108"
+        ],
+        "amendmentNumber": "2",
+        "reportedPreviousAccession": null,
+        "filerCik": "0002012383",
+        "rules": [
+          "Rule 13d-1(b)"
+        ],
+        "statements": {
+          "relationships": "See Exhibit 99",
+          "group": "",
+          "onBehalfOf": "Various persons have the right to receive or the power to direct the receipt of dividends from, or the proceeds from the sale of the common stock of Vertiv Holdings Co. No one person's interest in the common stock of Vertiv Holdings Co is more than five percent of the total outstanding common shares.",
+          "certification": "By signing below I certify that, to the best of my knowledge and belief, the securities referred to above were acquired and are held in the ordinary course of business and were not acquired and are not held for the purpose of or with the effect of changing or influencing the control of the issuer of the securities and were not acquired and are not held in connection with or as a participant in any transaction having that purpose or effect, other than activities solely in connection with a nomination under &#167; 240.14a-11.",
+          "purpose": ""
+        },
         "accessionNumber": "0001576419-25-000834",
         "ticker": "VRT",
         "cik": "0001674101",
@@ -5728,9 +6306,27 @@
         "filingDate": "2025-04-17",
         "url": "https://www.sec.gov/Archives/edgar/data/1674101/000157641925000834/primary_doc.xml",
         "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000157641925000834/xslSCHEDULE_13G_X01/primary_doc.xml",
-        "reason": "Unreviewed Schedule disclosure"
+        "family": "13G",
+        "seriesId": "sec:0002012383:0001674101",
+        "displayPerson": 0,
+        "historyOnly": false,
+        "previousAccession": null,
+        "comparison": {
+          "state": "baseline",
+          "reason": "First reviewed historical snapshot; no inferred cross-filer continuity."
+        },
+        "context": "Bounded SEC Schedule history; not a shareholder register.",
+        "relationships": "Reporting entity and security preserved; no aggregation.",
+        "purposeContext": "See original statements and certification.",
+        "reviewDate": "2026-09-27",
+        "source": {
+          "url": "https://www.sec.gov/Archives/edgar/data/1674101/000157641925000834/primary_doc.xml",
+          "sha256": "1c8da444091c1a3b227cea45407d2ae3938059bb7c9c9bbf7e69849bec18a1fa",
+          "format": "SEC Schedule XML"
+        }
       }
     ],
+    "pendingReview": [],
     "excluded": [],
     "checkedThrough": "2026-04-30",
     "coverage": {
@@ -5772,9 +6368,944 @@
           "On March 3, 2026, Vertiv Holdings Co (the “Company”) completed an underwritten public offering (the “Offering”) of $600,000,000 aggregate principal amount of its 4.850% Senior Notes due 2036 (the “2036 Notes”), $500,000,000 aggregate principal amount of its 5.650% Senior Notes due 2046 (the “2046 Notes”), $500,000,000 aggregate principal amount of its 5.800% Senior Notes due 2056 (the “2056 Notes”), and $500,000,000 aggregate principal amount of its 5.950% Senior Notes due 2066 (the “2066 Notes” and, together with the 2036 Notes, the 2046 Notes and the 2056 Notes, the “Notes”)."
         ],
         "reviewDate": "2026-09-26"
+      },
+      "0001628280-26-063311": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001628280-26-063311",
+        "filingDate": "2026-09-24",
+        "reportDate": "2026-09-24",
+        "primaryDocument": "vrt-20260924.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026063311/vrt-20260924.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026063311/",
+        "items": [
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "5e0da6e4978da1e0fd1f5e6dcc2b81be36b3058bc31fd1f556cee988fde84c2d",
+        "passages": [
+          "Item 7.01 Regulation FD On September 24, 2026, Vertiv Holdings Co., a Delaware corporation (the “Company”), issued a press release announcing the execution by one of its wholly-owned subsidiaries of a definitive agreement related to the acquisition of King Environmental Services Ltd. (the “Acquisition”). The Acquisition is expected to close in the fourth quarter of 2026. The press release describing the Acquisition is furnished as Exhibit 99.1 to this Form 8-K. The information set forth in Item 7.01, including Exhibit 99.1, is being furnished and shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934, as amended (the “Exchange Act”), or otherwise subject to the liabilities of that Section. The information in this Item 7.01, including Exhibit 99.1, shall not be deemed incorporated by reference into any filing under the Securities Act of 1933, as amended, or the Exchange Act, except as shall be expressly set forth by specific reference in such a filing. Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co, dated September 24, 2026 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: September 24, 2026 Vertiv Holdings Co /s/ Craig Chamberlin Name: Craig Chamberlin Title: Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-26-059961": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001628280-26-059961",
+        "filingDate": "2026-09-02",
+        "reportDate": "2026-09-02",
+        "primaryDocument": "vrt-20260902.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026059961/vrt-20260902.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026059961/",
+        "items": [
+          "8.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "2edd20f980f08aa18f318dc39d41f2955986225097b4ee0043d48e0453262bb6",
+        "passages": [
+          "Item 8.01 Other Events On September 2, 2026, Vertiv Holdings Co, a Delaware corporation (the “Company”), issued a press release announcing that its Board of Directors has declared a quarterly cash dividend of $0.0625 per share of Class A common stock. The dividend is payable to the Company’s stockholders of record as of the close of business on September 14, 2026, and is expected to be paid on September 24, 2026. A copy of the press release is attached to this report on Exhibit 99.1. Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co, dated September 2 , 2026 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: September 2, 2026 Vertiv Holdings Co /s/ Craig Chamberlin Name: Craig Chamberlin Title: Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001193125-26-379306": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001193125-26-379306",
+        "filingDate": "2026-09-02",
+        "reportDate": "2026-09-01",
+        "primaryDocument": "d472406d8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000119312526379306/d472406d8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000119312526379306/",
+        "items": [
+          "1.01",
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "cc4c4b75ac4e2bb18e38cb3bb7f23ec7ca3d6b750e995efbb1042591f4c9eb25",
+        "passages": [
+          "Item 1.01 Entry Into a Material Definitive Agreement Agreement and Plan of Merger Vertiv Corporation, an Ohio corporation (“Buyer”) and Vultra Merger Sub, Inc., a Delaware corporation (“Merger Sub”), a wholly-owned subsidiary of Buyer, and each an indirect wholly-owned subsidiary of Vertiv Holdings Co, a Delaware corporation (the “Company”), entered into an agreement and plan of merger, dated as of September 1, 2026 (the “Acquisition Agreement”), pursuant to which, subject to the terms of the Acquisition Agreement, Merger Sub shall be merged (the “Merger”) with and into Utility Innovation Holdings, Inc., a Delaware corporation (“Target”), with Target being the surviving corporation and becoming a wholly-owned subsidiary of Buyer following the Merger. Pursuant to the Acquisition Agreement and upon consummation of the Merger, the stockholders (and other equity holders, including holders of vested options and holders of outstanding warrants of Target) will receive aggregate consideration of: (i) approximately $1.45 billion in upfront cash at closing, subject to customary adjustments for working capital, indebtedness and transaction expenses, plus (ii) additional potential cash consideration of up to $1.15 billion in cash, payable in 2 tranches if earned, which potential additional consideration will be calculated based on the achievement of certain earnings before interest, depreciation, and amortization (EBITDA) targets of the acquired business, as set forth in the Acquisition Agreement. The closing of the Acquisition is subject to customary closing conditions, including, among others, the expiration or termination of the waiting period under the Hart-Scott-Rodino Antitrust Improvements Act of 1976, as amended. The Acquisition is expected to close in the fourth quarter of 2026. The parties to the Acquisition Agreement have made certain representations, warranties and covenants that are customary for a transaction of this nature. The Company expects to fund the Acquisition from existing resources. The foregoing summary of the Acquisition Agreement and the transactions contemplated thereby do not purport to be complete and are subject to, and qualified in their"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-26-050323": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001628280-26-050323",
+        "filingDate": "2026-07-29",
+        "reportDate": "2026-07-29",
+        "primaryDocument": "vrt-20260729.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026050323/vrt-20260729.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026050323/",
+        "items": [
+          "2.02",
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "results_disclosure",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "e2ef94332202a44346f06d7470464c7c04cd783055464f92114d20542dec8dcd",
+        "passages": [
+          "Item 2.02 Results of Operations and Financial Condition On July 29, 2026 , Vertiv Holdings Co (the “Company”) issued a press release announcing its financial results for the three and six months ended June 30, 2026. A copy of the press release is furnished herewith as Exhibit 99.1 and is incorporated herein by reference in its entirety. The information furnished pursuant to this Item 2.02 and Item 7.01, including Exhibit 99.1, shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934 (the “Exchange Act”) or otherwise subject to the liabilities under that Section and shall not be deemed to be incorporated by reference into any filing of the Company under the Securities Act of 1933 or the Exchange Act. Item 7.01 Regulation FD The information set forth under Item 2.02 is incorporated by reference into this Item 7.01. The Company will post a slide presentation in advance of the earnings call discussed in the press release to the Investor Relations section of the Company’s website, accessible at investors.vertiv.com . Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co dated July 29 , 2026 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: July 29, 2026 Vertiv Holdings Co /s/ Craig Chamberlin Name: Craig Chamberlin Title: Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-26-042641": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001628280-26-042641",
+        "filingDate": "2026-06-12",
+        "reportDate": "2026-06-12",
+        "primaryDocument": "vrt-20260612.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026042641/vrt-20260612.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026042641/",
+        "items": [
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "a5390fde1555c22888e429c18f96313e20062d8d7cb4931ccea176635b7c1ec0",
+        "passages": [
+          "Item 7.01 Regulation FD On June 12, 2026, Vertiv Holdings Co., a Delaware corporation (the “Company”), issued a press release announcing the closing, by one of its wholly-owned subsidiaries, of the acquisition of ThermoKey S.p.A. (the “Acquisition”). The press release announcing the closing of the Acquisition is furnished as Exhibit 99.1 to this Form 8-K. The information set forth in Item 7.01, including Exhibit 99.1, is being furnished and shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934, as amended (the “Exchange Act”), or otherwise subject to the liabilities of that Section. The information in this Item 7.01, including Exhibit 99.1, shall not be deemed incorporated by reference into any filing under the Securities Act of 1933, as amended, or the Exchange Act, except as shall be expressly set forth by specific reference in such a filing. Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co, dated June 1 2 , 2026 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: June 12, 2026 Vertiv Holdings Co /s/ Craig Chamberlin Name: Craig Chamberlin Title: Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-26-040031": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001628280-26-040031",
+        "filingDate": "2026-06-03",
+        "reportDate": "2026-06-03",
+        "primaryDocument": "vrt-20260603.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026040031/vrt-20260603.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026040031/",
+        "items": [
+          "8.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "16376bdd22ded00981ecdf600fbd71ce36d59a95cb85ae170a4130fcb2638fe3",
+        "passages": [
+          "Item 8.01 Other Events On June 3, 2026, Vertiv Holdings Co, a Delaware corporation (the “Company”), issued a press release announcing that its Board of Directors has declared a quarterly cash dividend of $0.0625 per share of Class A common stock. The dividend is payable to the Company’s stockholders of record as of the close of business on June 15, 2026, and is expected to be paid on June 25, 2026. A copy of the press release is attached to this report on Exhibit 99.1. Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co, dated June 3, 2026 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: June 3, 2026 Vertiv Holdings Co /s/ Craig Chamberlin Name: Craig Chamberlin Title: Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-26-027297": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001628280-26-027297",
+        "filingDate": "2026-04-27",
+        "reportDate": "2026-04-27",
+        "primaryDocument": "vrt-20260427.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026027297/vrt-20260427.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026027297/",
+        "items": [
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "28cb0cc9fb146c3e017770894d25db085dafbd89bd0bbe7b5190b92201f629cf",
+        "passages": [
+          "Item 7.01 Regulation FD On April 27, 2026, Vertiv Holdings Co., a Delaware corporation (the “Company”), issued a press release announcing the closing, by one of its wholly-owned subsidiaries, of the acquisition of Strategic Thermal Labs, LLC (the “Acquisition”). The press release announcing the closing of the Acquisition is furnished as Exhibit 99.1 to this Form 8-K. The information set forth in Item 7.01, including Exhibit 99.1, is being furnished and shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934, as amended (the “Exchange Act”), or otherwise subject to the liabilities of that Section. The information in this Item 7.01, including Exhibit 99.1, shall not be deemed incorporated by reference into any filing under the Securities Act of 1933, as amended, or the Exchange Act, except as shall be expressly set forth by specific reference in such a filing. Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co, dated April 27, 2026 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: April 27, 2026 Vertiv Holdings Co /s/ Craig Chamberlin Name: Craig Chamberlin Title: Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-26-026379": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001628280-26-026379",
+        "filingDate": "2026-04-22",
+        "reportDate": "2026-04-22",
+        "primaryDocument": "vrt-20260422.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026026379/vrt-20260422.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026026379/",
+        "items": [
+          "2.02",
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "results_disclosure",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "c926dcabe6bab9858235247789c2037268b4f0dc047609da0acf764217625514",
+        "passages": [
+          "Item 2.02 Results of Operations and Financial Condition On April 22, 2026 , Vertiv Holdings Co (the “Company”) issued a press release announcing its financial results for the three months ended March 31, 2026. A copy of the press release is furnished herewith as Exhibit 99.1 and is incorporated herein by reference in its entirety. The information furnished pursuant to this Item 2.02 and Item 7.01, including Exhibit 99.1, shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934 (the “Exchange Act”) or otherwise subject to the liabilities under that Section and shall not be deemed to be incorporated by reference into any filing of the Company under the Securities Act of 1933 or the Exchange Act. Item 7.01 Regulation FD The information set forth under Item 2.02 is incorporated by reference into this Item 7.01. The Company will post a slide presentation in advance of the earnings call discussed in the press release to the Investor Relations section of the Company’s website, accessible at investors.vertiv.com . Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co dated April 22, 202 6 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: April 22, 2026 Vertiv Holdings Co /s/ Craig Chamberlin Name: Craig Chamberlin Title: Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-26-024824": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001628280-26-024824",
+        "filingDate": "2026-04-13",
+        "reportDate": "2026-04-13",
+        "primaryDocument": "vrt-20260413.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026024824/vrt-20260413.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026024824/",
+        "items": [
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "72a9d83187addba249796c0d5e510153e779603cd459188c9ba157483bfdb830",
+        "passages": [
+          "Item 7.01 Regulation FD On April 13, 2026, Vertiv Holdings Co., a Delaware corporation (the “Company”), issued a press release announcing the closing, by one of its wholly-owned subsidiaries, of the acquisition of BMarko Structures, LLC (the “Acquisition”). The press release announcing the closing of the Acquisition is furnished as Exhibit 99.1 to this Form 8-K. The information set forth in Item 7.01, including Exhibit 99.1, is being furnished and shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934, as amended (the “Exchange Act”), or otherwise subject to the liabilities of that Section. The information in this Item 7.01, including Exhibit 99.1, shall not be deemed incorporated by reference into any filing under the Securities Act of 1933, as amended, or the Exchange Act, except as shall be expressly set forth by specific reference in such a filing. Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co, dated April 13, 2026 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: April 13, 2026 Vertiv Holdings Co /s/ Craig Chamberlin Name: Craig Chamberlin Title: Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001193125-26-120863": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001193125-26-120863",
+        "filingDate": "2026-03-24",
+        "reportDate": "2026-03-23",
+        "primaryDocument": "d94872d8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000119312526120863/d94872d8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000119312526120863/",
+        "items": [
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "ca1120b54436b8f5463b205cd8dd074e6ba4aeae125813c0e7f82333c31f601e",
+        "passages": [
+          "Item 7.01 Regulation FD On March 23, 2026, Vertiv Holdings Co., a Delaware corporation (the “Company”), issued a press release announcing the execution by one of its wholly-owned subsidiaries of a definitive agreement related to the acquisition of ThermoKey, S.p.A (the “Acquisition”). The closing of the Acquisition is subject to customary closing conditions. The Acquisition is expected to close in the second quarter of 2026. The press release announcing the Acquisition is furnished as Exhibit 99.1 to this Form 8-K. The information set forth in Item 7.01, including Exhibit 99.1, is being furnished and shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934, as amended (the “Exchange Act”), or otherwise subject to the liabilities of that Section. The information in this Item 7.01, including Exhibit 99.1, shall not be deemed incorporated by reference into any filing under the Securities Act of 1933, as amended, or the Exchange Act, except as shall be expressly set forth by specific reference in such a filing. Item 9.01 (d) Financial Statements and Exhibits 99.1 Press release of Vertiv Holdings Co, dated March 23, 2026 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: March 23, 2026 Vertiv Holdings Co /s/ Craig Chamberlin By: /s/ Craig Chamberlin Title: Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-26-015494": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001628280-26-015494",
+        "filingDate": "2026-03-06",
+        "reportDate": "2026-03-06",
+        "primaryDocument": "vrt-20260306.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026015494/vrt-20260306.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026015494/",
+        "items": [
+          "8.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "e7c70e3e6b38d2d9cc4884c9b7da990957243bb3a47ba24d49d56a9dda7e8036",
+        "passages": [
+          "Item 8.01 Other Events On March 6, 2026, Vertiv Holdings Co, a Delaware corporation (the “Company”), issued a press release announcing that its Board of Directors has declared a quarterly cash dividend of $0.0625 per share of Class A common stock. The dividend is payable to the Company’s stockholders of record as of the close of business on March 17, 2026, and is expected to be paid on March 26, 2026. A copy of the press release is attached to this report on Exhibit 99.1. Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co, dated March 6, 2026 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: March 6, 2026 Vertiv Holdings Co /s/ Craig Chamberlin Name: Craig Chamberlin Title: Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001674101-26-000006": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001674101-26-000006",
+        "filingDate": "2026-02-11",
+        "reportDate": "2026-02-11",
+        "primaryDocument": "vrt-20260211.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000167410126000006/vrt-20260211.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000167410126000006/",
+        "items": [
+          "2.02",
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "results_disclosure",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "9ca840191cc7ce9e07d87dd23dd53302702691c225079291a97321e8506b6239",
+        "passages": [
+          "Item 2.02 Results of Operations and Financial Condition On February 11, 2026 , Vertiv Holdings Co (the “Company”) issued a press release announcing its financial results for the three months and year ended December 31, 2025. A copy of the press release is furnished herewith as Exhibit 99.1 and is incorporated herein by reference in its entirety. The information furnished pursuant to this Item 2.02 and Item 7.01, including Exhibits 99.1, shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934 (the “Exchange Act”) or otherwise subject to the liabilities under that Section and shall not be deemed to be incorporated by reference into any filing of the Company under the Securities Act of 1933 or the Exchange Act. Item 7.01 Regulation FD The information set forth under 2.02 is incorporated into this Item 7.01 by reference. The Company will post a slide presentation in advance of the earnings call discussed in the press release, to the Investor Relations section of the Company’s website, accessible at investors.vertiv.com . Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co, dated February 1 1 , 202 6 , reporting Vertiv Holdings Co’s financial results for the quarter ended December 31, 202 5 . 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: February 11, 2026 Vertiv Holdings Co /s/ Craig Chamberlin Name: Craig Chamberlin Title: Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001674101-25-000031": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001674101-25-000031",
+        "filingDate": "2025-12-05",
+        "reportDate": "2025-12-04",
+        "primaryDocument": "vrt-20251204.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000167410125000031/vrt-20251204.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000167410125000031/",
+        "items": [
+          "2.01",
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "924830242f3ed6a031404d6dc8230648d72cc087529d10c41654eb2080bc3c6b",
+        "passages": [
+          "Item 2.01 Completion of Acquisition or Disposition of Assets On December 4, 2025 (the “Closing Date”) Vertiv Corporation, an Ohio corporation (“Buyer”) and subsidiary of Vertiv Holdings Co, a Delaware corporation (the “Company”) completed the acquisition (the “Acquisition”) of all of the outstanding interests in Purge Rite Intermediate, LLC, a Delaware limited liability company (“PurgeRite”), for approximately $1.0 billion in upfront cash consideration, subject to customary adjustments for target working capital, indebtedness and expenses, plus additional potential cash consideration of up to $250 million in cash, which additional consideration shall be calculated based on post-closing performance metrics of the acquired business, pursuant to the terms and conditions of that previously announced Securities Purchase Agreement, dated as of October 31, 2025, by and between Buyer, the Company, Purge Rite and Purge Rite Holdings, LLC, a Delaware limited liability company (the “Acquisition Agreement”). PurgeRite provides mechanical flushing, purging and filtration services for data centers and other facilities. The foregoing description of the Acquisition Agreement does not purport to be complete and is qualified in its entirety by reference to the full text of the Acquisition Agreement, which was previously filed as Exhibit 2.1 on the Company’s Current Report on Form 8-K filed on November 3, 2025 and incorporated herein by reference. The Acquisition Agreement governs the contractual rights between the parties in relation to the Acquisition. The Acquisition Agreement is not intended to provide, modify or supplement any information about the Company, Buyer, PurgeRite or any of their respective subsidiaries or affiliates, or their respective businesses. In particular, the Acquisition Agreement is not intended to be, and should not be relied upon as, disclosures regarding any facts and circumstances relating to the Company, Buyer or PurgeRite. The representations and warranties contained in the Acquisition Agreement have been negotiated with the principal purpose of allocating risk between the parties, rather than establishing matters as facts. The representations and"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001674101-25-000028": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001674101-25-000028",
+        "filingDate": "2025-11-14",
+        "reportDate": "2025-11-13",
+        "primaryDocument": "vrt-20251113.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000167410125000028/vrt-20251113.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000167410125000028/",
+        "items": [
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "82f6b352529bcb4213efb77792152df64ba25bcfa76ee4043cb0531e60ddc8fc",
+        "passages": [
+          "Item 7.01 Regulation FD Disclosure On November 14, 2025, Vertiv Holdings Co, a Delaware corporation (the “Company”), issued a press release announcing that its Board of Directors has raised its regular annual dividend from $0.15 to $0.25 per share, to be declared and paid quarterly. The increase will be effective starting with the fourth-quarter dividend of $0.0625 per share of Class A common stock, which was declared November 13, 2025 by the Board of Directors, and is payable on December 18, 2025, to shareholders of record of Class A common stock at the close of business on November 25, 2025. A copy of the press release is furnished herewith as Exhibit 99.1 and is incorporated herein by reference in its entirety. The information furnished pursuant to this Item 7.01, including Exhibit 99.1, shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934 (the “Exchange Act”) or otherwise subject to the liabilities under that Section and shall not be deemed to be incorporated by reference into any filing of the Company under the Securities Act of 1933 or the Exchange Act. Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co, dated November 14, 2025 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: November 14, 2025 Vertiv Holdings Co /s/ Craig Chamberlin Name: Craig Chamberlin Title: Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001193125-25-261623": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001193125-25-261623",
+        "filingDate": "2025-11-03",
+        "reportDate": "2025-10-31",
+        "primaryDocument": "d10924d8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000119312525261623/d10924d8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000119312525261623/",
+        "items": [
+          "1.01",
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "51ab3581116636d0f1d86e70b1650c38834c3f7a9850ce0d0f83bb2ecf6dcb2e",
+        "passages": [
+          "Item 1.01 Entry Into a Material Definitive Agreement Securities Purchase Agreement Vertiv Corporation, an Ohio corporation (“Buyer”) and subsidiary of Vertiv Holdings Co, a Delaware corporation (the “Company”), entered into a securities purchase agreement, dated as of October 31, 2025 (the “Acquisition Agreement”), to acquire (the “Acquisition”) the interests in Purge Rite Intermediate, LLC, a Delaware limited liability company (“Target”), from the party set forth in the Acquisition Agreement (the “Seller”). The aggregate purchase price payable by Buyer is approximately $1.0 billion in upfront cash consideration, subject to customary adjustments for target working capital, indebtedness and expenses, plus additional potential cash consideration of up to $250 million in cash, which additional consideration shall be calculated based on post-closing performance metrics of the acquired business, as set forth in the Acquisition Agreement. The closing of the Acquisition is subject to customary closing conditions, including, among others, the expiration or termination of the waiting period under the Hart-Scott-Rodino Antitrust Improvements Act of 1976, as amended, prior to January 29, 2026. The Acquisition is expected to close in the fourth quarter of 2025. The parties to the Acquisition Agreement have made certain representations, warranties and covenants that are customary for a transaction of this nature. The Company expects to fund the Acquisition from existing resources. The foregoing summary of the Acquisition Agreement and the transactions contemplated thereby do not purport to be complete and are subject to, and qualified in their entirety by, the full text of the Acquisition Agreement, which is filed as Exhibit 2.1 hereto and incorporated herein by reference. The Acquisition Agreement governs the contractual rights between the parties in relation to the Acquisition. The Acquisition Agreement is being filed as an exhibit to this Current Report on Form 8-K to provide information regarding its terms and is not intended to provide, modify or supplement any information about the Company, Buyer, Target or any of their respective subsidiaries or affiliates, or their"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001674101-25-000020": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001674101-25-000020",
+        "filingDate": "2025-10-22",
+        "reportDate": "2025-10-22",
+        "primaryDocument": "vrt-20251022.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000167410125000020/vrt-20251022.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000167410125000020/",
+        "items": [
+          "2.02",
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "results_disclosure",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "f1710fb558fa7efbbc7efefb04b3374a8e806c8a466214c9f039311c297b1a09",
+        "passages": [
+          "Item 2.02 Results of Operations and Financial Condition On October 22, 2025 , Vertiv Holdings Co (the “Company”) issued a press release announcing its financial results for the three and nine months ended September 30, 2025. A copy of the press release is furnished herewith as Exhibit 99.1 and is incorporated herein by reference in its entirety. The information furnished pursuant to this Item 2.02 and Item 7.01, including Exhibit 99.1, shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934 (the “Exchange Act”) or otherwise subject to the liabilities under that Section and shall not be deemed to be incorporated by reference into any filing of the Company under the Securities Act of 1933 or the Exchange Act. Item 7.01 Regulation FD The information set forth under Item 2.02 is incorporated by reference into this Item 7.01. The Company will post a slide presentation in advance of the earnings call discussed in the press release to the Investor Relations section of the Company’s website, accessible at investors.vertiv.com . Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co dated October 22 , 2025 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: October 22, 2025 Vertiv Holdings Co /s/ David Fallon Name: David Fallon Title: Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-25-044836": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001628280-25-044836",
+        "filingDate": "2025-10-14",
+        "reportDate": "2025-10-13",
+        "primaryDocument": "vrt-20251013.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828025044836/vrt-20251013.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828025044836/",
+        "items": [
+          "5.02",
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "fcbdca494cb8fa126fa371651559c986da58b1db6ae4fb08f7becbb85f3da77b",
+        "passages": [
+          "Item 5.02 Departure of Directors or Certain Officers; Election of Directors; Appointment of Principal Officers; Compensatory Arrangements of Certain Officers On October 13, 2025, Vertiv Holdings Co (the “Company”) announced the appointment of Craig Chamberlin as the Company’s next Chief Financial Officer (“CFO”) effective November 10, 2025. Mr. Chamberlin will report directly to the Company’s Chief Executive Officer, Giordano Albertazzi. Consistent with its announcement on May 21, 2025, the Company’s current CFO, David Fallon, will retire from his position as the CFO of the Company effective November 9, 2025. Pursuant to the terms of his Transition and Consulting Agreement, following his retirement as CFO, Mr. Fallon will serve as a consultant to the Company through December 31, 2026 to ensure an orderly transition of the role to Mr. Chamberlin. Mr. Chamberlin, age 45, brings over 20 years of finance and leadership experience to the Company’s financial executive team. He has served as Group Vice President and CFO of Wabtec Corporation’s (“Wabtec”) transit business since February 2022 and previously served as Group President and CFO of Wabtec’s global operations and engineering unit, a position he held from July 2019 to February 2022. He began his career at General Electric, where he served several roles throughout his career from 2005 to 2019, and eventually became Executive Director and CFO of global supply chain and engineering in 2017, where he served until its sale to Wabtec in 2019. Mr. Chamberlin received his Bachelor of Science in Electrical Engineering and his Master of Business Administration from Ohio University. There are no arrangements or understandings between Mr. Chamberlin and any other persons pursuant to which Mr. Chamberlin was selected as CFO of the Company. Mr. Chamberlin has no direct or indirect material interest in any transaction required to be disclosed pursuant to Item 404(a) of Regulation S-K promulgated under the Securities and Exchange Act of 1934, as amended (the “Exchange Act”), nor are any such transactions currently proposed. Mr. Chamberlin has no family relationships with any director, executive officer or person nominated or"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001674101-25-000014": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001674101-25-000014",
+        "filingDate": "2025-09-03",
+        "reportDate": "2025-09-03",
+        "primaryDocument": "vrt-20250903.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000167410125000014/vrt-20250903.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000167410125000014/",
+        "items": [
+          "8.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "4e4f8e2f3dccf92d2dcad04bc70c681619e2d8c4f50877c5c4389bdadbcc12e8",
+        "passages": [
+          "Item 8.01 Other Events On September 3, 2025, Vertiv Holdings Co, a Delaware corporation (the “Company”), issued a press release announcing that its Board of Directors has declared a quarterly cash dividend of $0.0375 per share of Class A common stock. The dividend is payable to the Company’s stockholders of record as of the close of business on September 15, 2025, and is expected to be paid on September 25, 2025. A copy of the press release is attached to this report on Exhibit 99.1. Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co, dated September 3 , 2025 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: September 3, 2025 Vertiv Holdings Co /s/ David Fallon Name: David Fallon Title: Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001674101-25-000011": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001674101-25-000011",
+        "filingDate": "2025-08-20",
+        "reportDate": "2025-08-20",
+        "primaryDocument": "vrt-20250820.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000167410125000011/vrt-20250820.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000167410125000011/",
+        "items": [
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "5f986da8ef9aeb1ae5202dec34e7e4a5480ac6c26f76acb5bfe0d7f1bf18d6e7",
+        "passages": [
+          "Item 7.01 Regulation FD On August 20, 2025, Vertiv Holdings Co, a Delaware corporation (the “Company”), issued a press release announcing the closing of its acquisition of the Great Lakes Data Rack and Cabinets family of companies (the “Acquisition”). The press release announcing the Acquisition is furnished as Exhibit 99.1 to this Form 8-K. The information set forth in Item 7.01, including Exhibit 99.1, is being furnished and shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934, as amended (the “Exchange Act”), or otherwise subject to the liabilities of that Section. The information in this Item 7.01, including Exhibit 99.1, shall not be deemed incorporated by reference into any filing under the Securities Exchange Act of 1933, as amended, or the Exchange Act, except as shall be expressly set forth by specific reference in such a filing. Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co, dated August 20, 2025 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: August 20, 2025 Vertiv Holdings Co /s/ Stephanie Gill Name: Stephanie Gill Title: Chief Legal Counsel and Corporate"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001193125-25-178982": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001193125-25-178982",
+        "filingDate": "2025-08-12",
+        "reportDate": "2025-08-12",
+        "primaryDocument": "d25970d8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000119312525178982/d25970d8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000119312525178982/",
+        "items": [
+          "1.01",
+          "2.03",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "ad7dfe9da5661fcd9aa700a99a5b5b1ee1a4561a5de71fa407d833c5ed8e390e",
+        "passages": [
+          "Item 1.01 Entry into a Material Definitive Agreement. On August 12, 2025, Vertiv Group Corporation, a Delaware corporation (the “Borrower”) and an indirect wholly-owned subsidiary of Vertiv Holdings Co (the “Company”), Vertiv Intermediate Holding II Corporation, a Delaware corporation (“Holdings”) and the direct parent of the Borrower, as a guarantor, and certain subsidiaries of the Borrower party thereto as guarantors entered into an Amendment No. 6 to Term Loan Credit Agreement (the “Amendment”) with Citibank, N.A., as administrative agent (in such capacity, the “Administrative Agent”) and the lenders party thereto. The Amendment amends the Term Loan Credit Agreement, dated as of March 2, 2020 (as amended by Amendment No. 1, dated as of March 10, 2021, Amendment No. 2, dated as of June 22, 2023, Amendment No. 3, dated as of December 13, 2023, Amendment No. 4, dated as of June 13, 2024, Amendment No. 5, dated as of December 13, 2024, and as amended by the Amendment, the “Credit Agreement”), by and among Holdings, the Borrower, the Administrative Agent and the lenders from time to time party thereto. The Amendment, among other modifications, (i) extends the maturity of the term loan by creating a new single 7-year term loan tranche with a maturity date of August 12, 2032 and (ii) increases the size of the debt basket for the ABL Credit Agreement (as such term is defined in the Credit Agreement). All other material provisions of the Credit Agreement remain materially unchanged, including but not limited to the pricing. As of August 12, 2025, the principal amount outstanding under the Credit Agreement was approximately $2,086,505,256.71. The foregoing description of the Amendment does not purport to be complete and is qualified in its entirety by reference to the Amendment, which is filed as Exhibit 10.1 hereto. The representations and warranties contained in the Amendment were made only for purposes of that amendment and as of the dates specified therein; were solely for the benefit of certain parties to the Amendment; and may be subject to standards of materiality applicable to the contracting parties that differ from those applicable to investors. Investors"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001674101-25-000006": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001674101-25-000006",
+        "filingDate": "2025-07-30",
+        "reportDate": "2025-07-30",
+        "primaryDocument": "vrt-20250730.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000167410125000006/vrt-20250730.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000167410125000006/",
+        "items": [
+          "2.02",
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "results_disclosure",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "500e4ffe15f0da534f911c196fdd8fef476b2e1ab092b5616914316383ced1a0",
+        "passages": [
+          "Item 2.02 Results of Operations and Financial Condition On July 30, 2025 , Vertiv Holdings Co (the “Company”) issued a press release announcing its financial results for the three and six months ended June 30, 2025. A copy of the press release is furnished herewith as Exhibit 99.1 and is incorporated herein by reference in its entirety. The information furnished pursuant to this Item 2.02 and Item 7.01, including Exhibit 99.1, shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934 (the “Exchange Act”) or otherwise subject to the liabilities under that Section and shall not be deemed to be incorporated by reference into any filing of the Company under the Securities Act of 1933 or the Exchange Act. Item 7.01 Regulation FD The information set forth under Item 2.02 is incorporated by reference into this Item 7.01. The Company will post a slide presentation in advance of the earnings call discussed in the press release to the Investor Relations section of the Company’s website, accessible at investors.vertiv.com . Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co dated July 30 , 2025 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: July 30, 2025 Vertiv Holdings Co /s/ David Fallon Name: David Fallon Title: Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-25-035130": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001628280-25-035130",
+        "filingDate": "2025-07-17",
+        "reportDate": "2025-07-17",
+        "primaryDocument": "vrt-20250717.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828025035130/vrt-20250717.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828025035130/",
+        "items": [
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "1f67f67a5c62ac1e19ae95b0e746c09d3f38a154dcfcbf6ca4fac9d929055ebc",
+        "passages": [
+          "Item 7.01 Regulation FD On July 17, 2025, Vertiv Holdings Co., a Delaware corporation (the “Company”), issued a press release announcing the execution by one of its wholly-owned subsidiaries of a definitive agreement related to the acquisition of the Great Lakes Data Rack and Cabinets family of companies (the “Acquisition”). The closing of the Acquisition is subject to customary closing conditions. The Acquisition is expected to close in the third quarter of 2025. The press release describing the transaction is furnished as Exhibit 99.1 to this Form 8-K. The information set forth in Item 7.01, including Exhibit 99.1, is being furnished and shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934, as amended (the “Exchange Act”), or otherwise subject to the liabilities of that Section. The information in this Item 7.01, including Exhibit 99.1, shall not be deemed incorporated by reference into any filing under the Securities Act of 1933, as amended, or the Exchange Act, except as shall be expressly set forth by specific reference in such a filing. Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co, dated July 17, 2025 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: July 17, 2025 Vertiv Holdings Co /s/ Stephanie Gill Name: Stephanie Gill Title: Chief Legal Counsel and Corporate"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-25-029224": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001628280-25-029224",
+        "filingDate": "2025-06-04",
+        "reportDate": "2025-06-04",
+        "primaryDocument": "vrt-20250604.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828025029224/vrt-20250604.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828025029224/",
+        "items": [
+          "8.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "c41ad9e7ee2cc61ffead45818a82146bc863801a589903b338fe7d8db9aa6223",
+        "passages": [
+          "Item 8.01 Other Events On June 4, 2025, Vertiv Holdings Co, a Delaware corporation (the “Company”), issued a press release announcing that its Board of Directors has declared a quarterly cash dividend of $0.0375 per share of Class A common stock. The dividend is payable to the Company’s stockholders of record as of the close of business on June 16, 2025, and is expected to be paid on June 26, 2025. A copy of the press release is attached to this report on Exhibit 99.1. Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co, dated June 4, 2025 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: June 4, 2025 Vertiv Holdings Co /s/ David Fallon Name: David Fallon Title: Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-25-028038": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001628280-25-028038",
+        "filingDate": "2025-05-28",
+        "reportDate": "2025-05-21",
+        "primaryDocument": "vrt-20250521.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828025028038/vrt-20250521.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828025028038/",
+        "items": [
+          "5.02",
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "4c05937f99c19756e95c3bc3b656f76762f2d10d322f4f4e07e34ca7ba22cb46",
+        "passages": [
+          "Item 5.02 Departure of Directors or Certain Officers; Election of Directors; Appointment of Principal Officers; Compensatory Arrangements of Certain Officers On May 21, 2025, David Fallon, Chief Financial Officer (“CFO”) of Vertiv Holdings Co (the “Company”) informed the Company’s Board of Directors that due to family reasons, he will retire from his position as the CFO of the Company effective once a successor has been named and assumes the role, which is anticipated to occur in the second half of 2025. Mr. Fallon’s advance notice of his retirement allows lead time for the Company to conduct a comprehensive search for his replacement and for Mr. Fallon to assist with the orderly transition of duties to his successor. Following his retirement as CFO, Mr. Fallon will serve as a consultant to the Company through December 31, 2026, and has entered into a Transition and Consulting Agreement, dated May 28, 2025, regarding the same to ensure an orderly transition to his successor. Mr. Fallon will remain eligible to receive a prorated incentive payment for 2025 based on the time he serves as CFO, in an amount depending on actual Company performance. He will remain eligible for vesting of stock options that are scheduled to vest in March 2026, and all of his vested options at that time will remain exercisable through December 31, 2028.. All other unvested equity, including the performance-based units, will be forfeited. These actions are expected to have no significant net impact to adjusted operating profit after factoring in the accounting for forfeitures of previously issued equity instruments. Mr. Fallon will also remain subject to restrictive covenants and provide the Company with a general release. The foregoing summary of the Transition and Consulting Agreement does not purport to be complete, and is qualified in its entirety by the full text of the Transition and Consulting Agreement, a copy of which will be attached to the Company’s next quarterly report on Form 10-Q. Item 7.01 Regulation FD On May 28, 2025, the Company issued a press release announcing the matters set forth under Item 5.02 above. The information set forth in Item 7.01, including Exhibit 99.1,"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-25-018915": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001628280-25-018915",
+        "filingDate": "2025-04-23",
+        "reportDate": "2025-04-23",
+        "primaryDocument": "vrt-20250423.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828025018915/vrt-20250423.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828025018915/",
+        "items": [
+          "2.02",
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "results_disclosure",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "874fe05d43dab8e9d19a70a49bb30060a20fb15357896c94cdd57a313a2892af",
+        "passages": [
+          "Item 2.02 Results of Operations and Financial Condition On April 23, 2025 , Vertiv Holdings Co (the “Company”) issued a press release announcing its financial results for the three months ended March 31, 2025. A copy of the press release is furnished herewith as Exhibit 99.1 and is incorporated herein by reference in its entirety. The information furnished pursuant to this Item 2.02 and Item 7.01, including Exhibit 99.1, shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934 (the “Exchange Act”) or otherwise subject to the liabilities under that Section and shall not be deemed to be incorporated by reference into any filing of the Company under the Securities Act of 1933 or the Exchange Act. Item 7.01 Regulation FD The information set forth under Item 2.02 is incorporated by reference into this Item 7.01. The Company will post a slide presentation in advance of the earnings call discussed in the press release to the Investor Relations section of the Company’s website, accessible at investors.vertiv.com . Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co dated April 23, 2025 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: April 23, 2025 Vertiv Holdings Co /s/ David Fallon Name: David Fallon Title: Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-25-011205": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001628280-25-011205",
+        "filingDate": "2025-03-07",
+        "reportDate": "2025-03-07",
+        "primaryDocument": "vrt-20250307.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828025011205/vrt-20250307.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828025011205/",
+        "items": [
+          "8.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "4a83ac984142d629f9001bbca731afb73471384fc1a37dabf49111821b451534",
+        "passages": [
+          "Item 8.01 Other Events On March 7, 2025, Vertiv Holdings Co, a Delaware corporation (the “Company”), issued a press release announcing that its Board of Directors has declared a quarterly cash dividend of $0.0375 per share of Class A common stock. The dividend is payable to the Company’s stockholders of record as of the close of business on March 18, 2025, and is expected to be paid on March 27, 2025. A copy of the press release is attached to this report on Exhibit 99.1. Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co, dated March 7 , 2025 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: March 7, 2025 Vertiv Holdings Co /s/ David Fallon Name: David Fallon Title: Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-25-005006": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001628280-25-005006",
+        "filingDate": "2025-02-12",
+        "reportDate": "2025-02-12",
+        "primaryDocument": "vrt-20250212.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828025005006/vrt-20250212.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000162828025005006/",
+        "items": [
+          "2.02",
+          "7.01",
+          "9.01"
+        ],
+        "amendment": false,
+        "classification": "results_disclosure",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "7dbd26d58bd5b927ffd6174e9a8b60e348d2df00c363ab60debb8e4a0ace61cb",
+        "passages": [
+          "Item 2.02 Results of Operations and Financial Condition On February 12, 2025 , Vertiv Holdings Co (the “Company”) issued a press release announcing its financial results for the three months and year ended December 31, 2024. A copy of the press release is furnished herewith as Exhibit 99.1 and is incorporated herein by reference in its entirety. The information furnished pursuant to this Item 2.02 and Item 7.01, including Exhibits 99.1, shall not be deemed “filed” for purposes of Section 18 of the Securities Exchange Act of 1934 (the “Exchange Act”) or otherwise subject to the liabilities under that Section and shall not be deemed to be incorporated by reference into any filing of the Company under the Securities Act of 1933 or the Exchange Act. Item 7.01 Regulation FD The information set forth under 2.02 is incorporated into this Item 7.01 by reference. The Company will post a slide presentation in advance of the earnings call discussed in the press release, to the Investor Relations section of the Company’s website, accessible at investors.vertiv.com . Item 9.01 (d) Financial Statements and Exhibits Exhibit No. Exhibit Description 99.1 Press release of Vertiv Holdings Co, dated February 12 , 2025, reporting Vertiv Holdings Co’s financial results for the quarter ended December 31, 2024. 104 Cover Page Interactive Data File (embedded within the Inline XBRL document) SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: February 12, 2025 Vertiv Holdings Co /s/ David Fallon Name: David Fallon Title: Chief Financial"
+        ],
+        "reviewDate": "2026-09-27"
+      },
+      "0001193125-25-022808": {
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "8-K",
+        "accessionNumber": "0001193125-25-022808",
+        "filingDate": "2025-02-07",
+        "reportDate": "2025-02-04",
+        "primaryDocument": "d934950d8k.htm",
+        "primaryDocUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000119312525022808/d934950d8k.htm",
+        "secFilingUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000119312525022808/",
+        "items": [
+          "5.02"
+        ],
+        "amendment": false,
+        "classification": "other_current_report",
+        "source": {
+          "provider": "SEC",
+          "url": "https://data.sec.gov/submissions/CIK0001674101.json"
+        },
+        "documents": [],
+        "documentStatus": "not_applicable",
+        "sha256": "5acbb8dcebc69ae718d79fa99f49d2ce4213abc9487353ad264c91a8b08da07f",
+        "passages": [
+          "Item 5.02 Departure of Directors or Certain Officers On February 4, 2025, Robin L. Washington notified the Board of Directors (the “Board”) of Vertiv Holdings Co (the “Company”) that she has decided to resign from the Board, effective as of March 31, 2025, in light of her recently announced appointment to serve as President and Chief Operating and Financial Officer of Salesforce, Inc. Ms. Washington’s decision to resign from the Board was not the result of any disagreement relating to the Company’s operations, policies or practices. The Company thanks Ms. Washington for her commitment and service. SIGNATURE Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized. Date: February 7, 2025 Vertiv Holdings Co /s/ Stephanie Gill Name: Stephanie Gill Title: Chief Legal"
+        ],
+        "reviewDate": "2026-09-27"
       }
     },
     "observations": [
+      {
+        "id": "VRT:completion/king:0001628280-26-063311",
+        "eventId": "VRT:completion/king",
+        "ticker": "VRT",
+        "accessionNumber": "0001628280-26-063311",
+        "category": "acquisition",
+        "template": "acquisition_agreed",
+        "eventDate": "2026-09-24",
+        "items": [
+          "7.01"
+        ],
+        "parameters": {
+          "target": "King Environmental Services Ltd."
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-27",
+        "groupingBasis": "Reviewed disclosed stage; agreement is distinct from completion. No inferred consideration or probability.",
+        "publicationDate": "2026-09-24",
+        "form": "8-K"
+      },
+      {
+        "id": "VRT:completion/utility:0001193125-26-379306",
+        "eventId": "VRT:completion/utility",
+        "ticker": "VRT",
+        "accessionNumber": "0001193125-26-379306",
+        "category": "acquisition",
+        "template": "acquisition_agreed",
+        "eventDate": "2026-09-01",
+        "items": [
+          "1.01"
+        ],
+        "parameters": {
+          "target": "Utility Innovation Holdings, Inc."
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-27",
+        "groupingBasis": "Reviewed disclosed stage; agreement is distinct from completion. No inferred consideration or probability.",
+        "publicationDate": "2026-09-02",
+        "form": "8-K"
+      },
+      {
+        "id": "VRT:completion/thermokey:0001628280-26-042641",
+        "eventId": "VRT:completion/thermokey",
+        "ticker": "VRT",
+        "accessionNumber": "0001628280-26-042641",
+        "category": "acquisition",
+        "template": "acquisition_completed",
+        "eventDate": "2026-06-12",
+        "items": [
+          "7.01"
+        ],
+        "parameters": {
+          "target": "ThermoKey S.p.A."
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-27",
+        "groupingBasis": "Reviewed disclosed stage; agreement is distinct from completion. No inferred consideration or probability.",
+        "previousId": "VRT:completion/thermokey:0001193125-26-120863",
+        "publicationDate": "2026-06-12",
+        "form": "8-K"
+      },
+      {
+        "id": "VRT:completion/thermal-labs:0001628280-26-027297",
+        "eventId": "VRT:completion/thermal-labs",
+        "ticker": "VRT",
+        "accessionNumber": "0001628280-26-027297",
+        "category": "acquisition",
+        "template": "acquisition_completed",
+        "eventDate": "2026-04-27",
+        "items": [
+          "7.01"
+        ],
+        "parameters": {
+          "target": "Strategic Thermal Labs, LLC"
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-27",
+        "groupingBasis": "Reviewed disclosed stage; agreement is distinct from completion. No inferred consideration or probability.",
+        "publicationDate": "2026-04-27",
+        "form": "8-K"
+      },
+      {
+        "id": "VRT:completion/bmarko:0001628280-26-024824",
+        "eventId": "VRT:completion/bmarko",
+        "ticker": "VRT",
+        "accessionNumber": "0001628280-26-024824",
+        "category": "acquisition",
+        "template": "acquisition_completed",
+        "eventDate": "2026-04-13",
+        "items": [
+          "7.01"
+        ],
+        "parameters": {
+          "target": "BMarko Structures, LLC"
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-27",
+        "groupingBasis": "Reviewed disclosed stage; agreement is distinct from completion. No inferred consideration or probability.",
+        "publicationDate": "2026-04-13",
+        "form": "8-K"
+      },
+      {
+        "id": "VRT:completion/thermokey:0001193125-26-120863",
+        "eventId": "VRT:completion/thermokey",
+        "ticker": "VRT",
+        "accessionNumber": "0001193125-26-120863",
+        "category": "acquisition",
+        "template": "acquisition_agreed",
+        "eventDate": "2026-03-23",
+        "items": [
+          "7.01"
+        ],
+        "parameters": {
+          "target": "ThermoKey, S.p.A"
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-27",
+        "groupingBasis": "Reviewed disclosed stage; agreement is distinct from completion. No inferred consideration or probability.",
+        "publicationDate": "2026-03-24",
+        "form": "8-K"
+      },
       {
         "id": "VRT:0001193125-26-088484/notes:0001193125-26-088484",
         "eventId": "VRT:0001193125-26-088484/notes",
@@ -5798,200 +7329,127 @@
         "groupingBasis": "One completed notes offering; four maturities remain in source passage. Not a total-debt calculation.",
         "publicationDate": "2026-03-03",
         "form": "8-K"
+      },
+      {
+        "id": "VRT:completion/purgerite:0001674101-25-000031",
+        "eventId": "VRT:completion/purgerite",
+        "ticker": "VRT",
+        "accessionNumber": "0001674101-25-000031",
+        "category": "acquisition",
+        "template": "acquisition_completed",
+        "eventDate": "2025-12-04",
+        "items": [
+          "2.01"
+        ],
+        "parameters": {
+          "target": "Purge Rite Intermediate, LLC"
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-27",
+        "groupingBasis": "Reviewed disclosed stage; agreement is distinct from completion. No inferred consideration or probability.",
+        "previousId": "VRT:completion/purgerite:0001193125-25-261623",
+        "publicationDate": "2025-12-05",
+        "form": "8-K"
+      },
+      {
+        "id": "VRT:completion/purgerite:0001193125-25-261623",
+        "eventId": "VRT:completion/purgerite",
+        "ticker": "VRT",
+        "accessionNumber": "0001193125-25-261623",
+        "category": "acquisition",
+        "template": "acquisition_agreed",
+        "eventDate": "2025-10-31",
+        "items": [
+          "1.01"
+        ],
+        "parameters": {
+          "target": "Purge Rite Intermediate, LLC"
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-27",
+        "groupingBasis": "Reviewed disclosed stage; agreement is distinct from completion. No inferred consideration or probability.",
+        "publicationDate": "2025-11-03",
+        "form": "8-K"
+      },
+      {
+        "id": "VRT:completion/cfo:0001628280-25-044836",
+        "eventId": "VRT:completion/cfo",
+        "ticker": "VRT",
+        "accessionNumber": "0001628280-25-044836",
+        "category": "leadership",
+        "template": "executive_successor",
+        "eventDate": "2025-10-13",
+        "items": [
+          "5.02"
+        ],
+        "parameters": {
+          "incoming": "Craig Chamberlin",
+          "outgoing": "David Fallon"
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-27",
+        "groupingBasis": "Reviewed disclosed stage; agreement is distinct from completion. No inferred consideration or probability.",
+        "publicationDate": "2025-10-14",
+        "form": "8-K"
+      },
+      {
+        "id": "VRT:completion/great-lakes:0001674101-25-000011",
+        "eventId": "VRT:completion/great-lakes",
+        "ticker": "VRT",
+        "accessionNumber": "0001674101-25-000011",
+        "category": "acquisition",
+        "template": "acquisition_completed",
+        "eventDate": "2025-08-20",
+        "items": [
+          "7.01"
+        ],
+        "parameters": {
+          "target": "Great Lakes Data Rack and Cabinets family of companies"
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-27",
+        "groupingBasis": "Reviewed disclosed stage; agreement is distinct from completion. No inferred consideration or probability.",
+        "previousId": "VRT:completion/great-lakes:0001628280-25-035130",
+        "publicationDate": "2025-08-20",
+        "form": "8-K"
+      },
+      {
+        "id": "VRT:completion/great-lakes:0001628280-25-035130",
+        "eventId": "VRT:completion/great-lakes",
+        "ticker": "VRT",
+        "accessionNumber": "0001628280-25-035130",
+        "category": "acquisition",
+        "template": "acquisition_agreed",
+        "eventDate": "2025-07-17",
+        "items": [
+          "7.01"
+        ],
+        "parameters": {
+          "target": "Great Lakes Data Rack and Cabinets family of companies"
+        },
+        "facts": [],
+        "evidencePassages": [
+          0
+        ],
+        "reviewDate": "2026-09-27",
+        "groupingBasis": "Reviewed disclosed stage; agreement is distinct from completion. No inferred consideration or probability.",
+        "publicationDate": "2025-07-17",
+        "form": "8-K"
       }
     ],
     "pendingReview": [
-      {
-        "accessionNumber": "0001628280-26-063311",
-        "filingDate": "2026-09-24",
-        "items": [
-          "7.01",
-          "9.01"
-        ],
-        "candidates": [],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001628280-26-059961",
-        "filingDate": "2026-09-02",
-        "items": [
-          "8.01",
-          "9.01"
-        ],
-        "candidates": [],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001193125-26-379306",
-        "filingDate": "2026-09-02",
-        "items": [
-          "1.01",
-          "7.01",
-          "9.01"
-        ],
-        "candidates": [
-          "agreement"
-        ],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001628280-26-050323",
-        "filingDate": "2026-07-29",
-        "items": [
-          "2.02",
-          "7.01",
-          "9.01"
-        ],
-        "candidates": [],
-        "earningsCanonical": true,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001628280-26-042641",
-        "filingDate": "2026-06-12",
-        "items": [
-          "7.01",
-          "9.01"
-        ],
-        "candidates": [],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001628280-26-040031",
-        "filingDate": "2026-06-03",
-        "items": [
-          "8.01",
-          "9.01"
-        ],
-        "candidates": [],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001628280-26-027297",
-        "filingDate": "2026-04-27",
-        "items": [
-          "7.01",
-          "9.01"
-        ],
-        "candidates": [],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001628280-26-026379",
-        "filingDate": "2026-04-22",
-        "items": [
-          "2.02",
-          "7.01",
-          "9.01"
-        ],
-        "candidates": [],
-        "earningsCanonical": true,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001628280-26-024824",
-        "filingDate": "2026-04-13",
-        "items": [
-          "7.01",
-          "9.01"
-        ],
-        "candidates": [],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001193125-26-120863",
-        "filingDate": "2026-03-24",
-        "items": [
-          "7.01",
-          "9.01"
-        ],
-        "candidates": [],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001628280-26-015494",
-        "filingDate": "2026-03-06",
-        "items": [
-          "8.01",
-          "9.01"
-        ],
-        "candidates": [],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001674101-26-000006",
-        "filingDate": "2026-02-11",
-        "items": [
-          "2.02",
-          "7.01",
-          "9.01"
-        ],
-        "candidates": [],
-        "earningsCanonical": true,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001674101-25-000031",
-        "filingDate": "2025-12-05",
-        "items": [
-          "2.01",
-          "7.01",
-          "9.01"
-        ],
-        "candidates": [
-          "acquisition"
-        ],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
       {
         "accessionNumber": "0001674101-25-000028",
         "filingDate": "2025-11-14",
@@ -6004,84 +7462,8 @@
         "needsReview": true,
         "supportingItems": [
           "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001193125-25-261623",
-        "filingDate": "2025-11-03",
-        "items": [
-          "1.01",
-          "7.01",
-          "9.01"
         ],
-        "candidates": [
-          "agreement"
-        ],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001674101-25-000020",
-        "filingDate": "2025-10-22",
-        "items": [
-          "2.02",
-          "7.01",
-          "9.01"
-        ],
-        "candidates": [],
-        "earningsCanonical": true,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001628280-25-044836",
-        "filingDate": "2025-10-14",
-        "items": [
-          "5.02",
-          "7.01",
-          "9.01"
-        ],
-        "candidates": [
-          "leadership"
-        ],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001674101-25-000014",
-        "filingDate": "2025-09-03",
-        "items": [
-          "8.01",
-          "9.01"
-        ],
-        "candidates": [],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001674101-25-000011",
-        "filingDate": "2025-08-20",
-        "items": [
-          "7.01",
-          "9.01"
-        ],
-        "candidates": [],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
+        "reason": "Annual dividend increase from 0.15 to 0.25 is a policy change; capital-distribution event mapping remains unresolved."
       },
       {
         "accessionNumber": "0001193125-25-178982",
@@ -6099,50 +7481,8 @@
         "needsReview": true,
         "supportingItems": [
           "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001674101-25-000006",
-        "filingDate": "2025-07-30",
-        "items": [
-          "2.02",
-          "7.01",
-          "9.01"
         ],
-        "candidates": [],
-        "earningsCanonical": true,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001628280-25-035130",
-        "filingDate": "2025-07-17",
-        "items": [
-          "7.01",
-          "9.01"
-        ],
-        "candidates": [],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001628280-25-029224",
-        "filingDate": "2025-06-04",
-        "items": [
-          "8.01",
-          "9.01"
-        ],
-        "candidates": [],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
+        "reason": "Term-loan amendment: reconcile maturity, refinancing and principal scope before financing-event acceptance."
       },
       {
         "accessionNumber": "0001628280-25-028038",
@@ -6159,51 +7499,8 @@
         "needsReview": true,
         "supportingItems": [
           "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001628280-25-018915",
-        "filingDate": "2025-04-23",
-        "items": [
-          "2.02",
-          "7.01",
-          "9.01"
         ],
-        "candidates": [],
-        "earningsCanonical": true,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001628280-25-011205",
-        "filingDate": "2025-03-07",
-        "items": [
-          "8.01",
-          "9.01"
-        ],
-        "candidates": [],
-        "earningsCanonical": false,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
-      },
-      {
-        "accessionNumber": "0001628280-25-005006",
-        "filingDate": "2025-02-12",
-        "items": [
-          "2.02",
-          "7.01",
-          "9.01"
-        ],
-        "candidates": [],
-        "earningsCanonical": true,
-        "needsReview": true,
-        "supportingItems": [
-          "9.01"
-        ]
+        "reason": "Conditional CFO retirement announcement precedes accepted October successor announcement; retirement-stage template/continuity remains unresolved."
       },
       {
         "accessionNumber": "0001193125-25-022808",
@@ -6216,19 +7513,107 @@
         ],
         "earningsCanonical": false,
         "needsReview": true,
-        "supportingItems": []
+        "supportingItems": [],
+        "reason": "Announced director resignation effective March 31; departure-date/template mapping remains unresolved."
       }
     ],
     "checkedThrough": "2026-09-24",
     "coverage": {
       "startDate": "2025-01-01",
       "basis": "Selected reviewed material events plus older examples; not a complete archive"
+    },
+    "reviewDecisions": {
+      "0001628280-26-059961": {
+        "state": "rejected",
+        "reason": "Routine quarterly distribution at the already announced rate; excluded from selected material events. Not an assertion of no dividend.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-26-050323": {
+        "state": "rejected",
+        "reason": "Results disclosure and incorporated earnings communication; retained in canonical reporting layer, not a second material event.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-26-040031": {
+        "state": "rejected",
+        "reason": "Routine quarterly distribution at the already announced rate; excluded from selected material events. Not an assertion of no dividend.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-26-026379": {
+        "state": "rejected",
+        "reason": "Results disclosure and incorporated earnings communication; retained in canonical reporting layer, not a second material event.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-26-015494": {
+        "state": "rejected",
+        "reason": "Routine quarterly distribution at the already announced rate; excluded from selected material events. Not an assertion of no dividend.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001674101-26-000006": {
+        "state": "rejected",
+        "reason": "Results disclosure and incorporated earnings communication; retained in canonical reporting layer, not a second material event.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001674101-25-000028": {
+        "state": "review_required",
+        "reason": "Annual dividend increase from 0.15 to 0.25 is a policy change; capital-distribution event mapping remains unresolved.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001674101-25-000020": {
+        "state": "rejected",
+        "reason": "Results disclosure and incorporated earnings communication; retained in canonical reporting layer, not a second material event.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001674101-25-000014": {
+        "state": "rejected",
+        "reason": "Routine quarterly distribution at the already announced rate; excluded from selected material events. Not an assertion of no dividend.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001193125-25-178982": {
+        "state": "review_required",
+        "reason": "Term-loan amendment: reconcile maturity, refinancing and principal scope before financing-event acceptance.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001674101-25-000006": {
+        "state": "rejected",
+        "reason": "Results disclosure and incorporated earnings communication; retained in canonical reporting layer, not a second material event.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-25-029224": {
+        "state": "rejected",
+        "reason": "Routine quarterly distribution at the already announced rate; excluded from selected material events. Not an assertion of no dividend.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-25-028038": {
+        "state": "review_required",
+        "reason": "Conditional CFO retirement announcement precedes accepted October successor announcement; retirement-stage template/continuity remains unresolved.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-25-018915": {
+        "state": "rejected",
+        "reason": "Results disclosure and incorporated earnings communication; retained in canonical reporting layer, not a second material event.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-25-011205": {
+        "state": "rejected",
+        "reason": "Routine quarterly distribution at the already announced rate; excluded from selected material events. Not an assertion of no dividend.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001628280-25-005006": {
+        "state": "rejected",
+        "reason": "Results disclosure and incorporated earnings communication; retained in canonical reporting layer, not a second material event.",
+        "reviewDate": "2026-09-27"
+      },
+      "0001193125-25-022808": {
+        "state": "review_required",
+        "reason": "Announced director resignation effective March 31; departure-date/template mapping remains unresolved.",
+        "reviewDate": "2026-09-27"
+      }
     }
   },
   "status": "verified",
-  "verifiedAt": "2026-09-26T19:20:54.301600+00:00",
+  "verifiedAt": "2026-09-27T15:49:34.936732+00:00",
   "coverageDecision": {
-    "checkedAt": "2026-09-26T19:20:54.301600+00:00",
+    "checkedAt": "2026-09-27T15:49:34.936732+00:00",
     "fullResearch": false,
     "layers": {
       "reporting": {
@@ -6240,8 +7625,8 @@
         "scope": "Two latest quarterly releases; revenue guidance only, explicit period and GAAP basis."
       },
       "kpi": {
-        "state": "partial",
-        "scope": "No standalone KPI admitted from the two selected earnings releases; broader issuer KPI/history review remains open."
+        "state": "verified",
+        "scope": "Reported year-end backlog 2024 and 2025, same issuer definition; cancellable/reschedulable orders and acquisition scope retained. Not a current 2026 backlog estimate."
       },
       "businessMix": {
         "state": "verified",
@@ -6249,19 +7634,19 @@
       },
       "capital": {
         "state": "partial",
-        "scope": "Cash, short-term investments and reported debt components; no complete debt/net debt inference. Share issuance, buybacks, maturities and full liquidity reconciliation remain review-required. Actual outstanding and weighted diluted shares are separately reviewed."
+        "scope": "Latest debt note total excludes leases; revolver availability net of letters of credit, notes proceeds and buyback authorization/no-2026-repurchase statement reviewed. Longer issuance/repurchase and noncash financing history remain partial. Neither generic net debt nor a maturity ladder is inferred."
       },
       "insiders": {
         "state": "verified",
         "scope": "Complete Form 4/4-A selection in captured SEC recent index from 2026-09-01."
       },
       "ownership": {
-        "state": "partial",
-        "scope": "Two selected reviewed SEC XML snapshots, separate entities; no inferred history continuity. Other discovered filings remain pending."
+        "state": "verified",
+        "scope": "All five discovered XML filings in retained index reviewed. Compatible Capital World 2025/2026 sequence for MU; Vanguard group realignment zeros explicitly non-comparable, not sales. BlackRock filer change not joined. Bounded disclosure history, not a shareholder register."
       },
       "events": {
-        "state": "partial",
-        "scope": "Reviewed completed senior-notes offering; other discovered events remain pending"
+        "state": "review_required",
+        "scope": "28 prior candidates individually reviewed: 11 accepted stages with three agreement/completion chains, 13 routine/reporting duplicates rejected, four retained for loan amendment, dividend increase and retirement/resignation mapping."
       }
     }
   }

@@ -44,7 +44,7 @@
   }
   if(data.pendingReview.length)section.append(el('p','Nyare resultatmeddelande väntar på granskning. Tidigare verifierade uppgifter visas.'));
   const details=el('details',undefined,'financial-sources');details.id=onlyKind==='kpi'?'kpiSources':'observationSources';details.append(el('summary','Källor & metod'));
-  details.append(el('p','Urval: fyra resultatmeddelanden per bolag. Värden läses deterministiskt från granskade, låsta textpassager. Nya dokument kräver ny granskning. Guidning är bolagets utsikter, inte ett utfall. Samma etikett innebär inte jämförbarhet mellan bolag.'));
+  details.append(el('p','Urval: granskade rapporter och resultatmeddelanden enligt bolagets källunderlag. Värden läses deterministiskt från granskade, låsta textpassager. Nya dokument kräver ny granskning. Guidning är bolagets utsikter, inte ett utfall. Samma etikett innebär inte jämförbarhet mellan bolag.'));
   details.append(el('p','Historiken behåller uppgifternas ursprungliga publiceringsdatum, målperiod, definition och aktiebasis. Jämförelser görs bara inom samma bolag och jämförbar basis. Olika målkvartal jämförs inte som guidningsrevideringar.'));
   const learn=el('a','Förstå guidningsrevideringar · Fråga NTM');learn.href='fragor-svar-guidance-revision.html';details.append(learn);
   if(feed.ticker==='NVDA')details.append(el('p','NVIDIA anger målkvartal, men inte exakta slutdatum i guidningspassagen. Inga slutdatum har beräknats. Ingen vald operativ KPI; intäktssegment hålls i separat datakategori.'));

@@ -1,0 +1,29 @@
+{
+  "baseline": "d44d070",
+  "python": 329,
+  "javascript": 442,
+  "browserSmoke": 43,
+  "publicationBrowser": 4,
+  "workspaceInteractionSuites": [
+    "research_shell_browser",
+    "research_overview_browser",
+    "research_workspaces_browser"
+  ],
+  "legacyInteractionCaptureOutput": "disabled; behavioral assertions retained",
+  "accessibilityCases": 43,
+  "completionScreenshotsInspected": 4,
+  "financialReproductionIssuers": 12,
+  "enrollment": {
+    "financial": 12,
+    "evidence": 5,
+    "daily": 5
+  },
+  "cadenceUTC": "06:35",
+  "fullResearch": {
+    "MU": false,
+    "VRT": false
+  },
+  "releaseValidation": "passed; terminal PASS release tests/generated artifacts/calendar/rules/staging/local references",
+  "hostedSchedulerAudited": false,
+  "committedPushedDeployed": false
+}

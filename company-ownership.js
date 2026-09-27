@@ -20,6 +20,7 @@
  const person=f=>f.persons[f.displayPerson];
  function change(f,filings){
   const p=filings.find(p=>p.accessionNumber===f.previousAccession);
+  if(!p&&f.comparison.state==='not_comparable')return {state:'not_comparable',kind:'reporting_basis',reason:f.comparison.reason};
   if(!p)return {state:'baseline',kind:'first_reviewed',reason:f.comparison.reason};
   const same=f.seriesId===p.seriesId&&f.family===p.family&&JSON.stringify(f.cusips)===JSON.stringify(p.cusips)&&JSON.stringify(f.persons.map(x=>x.entityId))===JSON.stringify(p.persons.map(x=>x.entityId))&&person(f).entityId===person(p).entityId&&f.eventDate>p.eventDate;
   if(f.comparison.state!=='comparable'||!same)return {state:'not_comparable',kind:'reporting_basis',reason:f.comparison.reason,previous:p};

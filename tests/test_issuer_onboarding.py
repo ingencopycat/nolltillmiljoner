@@ -24,13 +24,13 @@ class OnboardingTests(unittest.TestCase):
             saved=onboarding.read(ROOT/f'data/stocks/evidence/{t}.json')
             self.assertEqual(actual,saved)
             self.assertFalse(actual['coverageDecision']['fullResearch'])
-            self.assertEqual(len(actual['ownershipEvidence']['filings']),2)
+            self.assertEqual(len(actual['ownershipEvidence']['filings']),5)
             self.assertTrue(actual['materialEvents']['observations'])
             self.assertTrue(actual['materialEvents']['pendingReview'])
             observations=actual['reviewedEvidence']['observations']
             self.assertIn('shares_outstanding',{o['metricId'] for o in observations})
             self.assertIn('weighted_diluted',{o['metricId'] for o in observations})
-            self.assertNotIn('debt_total',{o['metricId'] for o in observations})
+            self.assertIn('debt_total',{o['metricId'] for o in observations})
 
     def test_absolute_guidance_and_missing_category_fail_closed(self):
         data=onboarding.read(ROOT/'data/stocks/evidence/MU.json')['reviewedEvidence']

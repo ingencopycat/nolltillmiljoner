@@ -814,6 +814,195 @@
         }
       ],
       "seriesId": "sec:0002012383:0001674101"
+    },
+    {
+      "ticker": "MU",
+      "accessionNumber": "0000102909-26-001910",
+      "metadata": {
+        "accessionNumber": "0000102909-26-001910",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2026-03-27",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000010290926001910/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/723125/000010290926001910/xslSCHEDULE_13G_X02/primary_doc.xml"
+      },
+      "sha256": "e9861e27c75a39c0d919ba43ed2c76891684a8c3e36fa805244a71ab22e056a5",
+      "reviewDate": "2026-09-27",
+      "displayPerson": 0,
+      "persons": [
+        {
+          "name": "The Vanguard Group",
+          "entityId": "sec:0000102909",
+          "cik": "0000102909"
+        }
+      ],
+      "seriesId": "sec:0000102909:0000723125",
+      "comparison": {
+        "state": "not_comparable",
+        "reason": "Internal Vanguard realignment: disaggregated subsidiaries report separately; zero is not evidence of a sale."
+      },
+      "context": "2026 Vanguard internal realignment; not comparable to Vanguard Capital Management. The parent zero must not be treated as liquidation.",
+      "relationships": "Reporting entity and security preserved; no aggregation.",
+      "purposeContext": "See original statements and certification.",
+      "historyOnly": true
+    },
+    {
+      "ticker": "MU",
+      "accessionNumber": "0001422849-26-000035",
+      "metadata": {
+        "accessionNumber": "0001422849-26-000035",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2026-02-13",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000142284926000035/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/723125/000142284926000035/xslSCHEDULE_13G_X01/primary_doc.xml"
+      },
+      "sha256": "2846b6c37b1a6fcf1ba7c647f336aa22ab86eab23ea261ba6695b38e9363adc5",
+      "reviewDate": "2026-09-27",
+      "displayPerson": 0,
+      "persons": [
+        {
+          "name": "Capital World Investors",
+          "entityId": "sec:0001422849",
+          "cik": "0001422849"
+        }
+      ],
+      "seriesId": "sec:0001422849:0000723125",
+      "comparison": {
+        "state": "comparable",
+        "reason": "Same Capital World Investors reporting entity, common stock/CUSIP and cover-page scope; each reference-date percentage uses its disclosed outstanding-share basis."
+      },
+      "context": "Bounded SEC Schedule history; not a shareholder register.",
+      "relationships": "Reporting entity and security preserved; no aggregation.",
+      "purposeContext": "See original statements and certification.",
+      "previousAccession": "0001422849-25-000059"
+    },
+    {
+      "ticker": "MU",
+      "accessionNumber": "0001422849-25-000059",
+      "metadata": {
+        "accessionNumber": "0001422849-25-000059",
+        "ticker": "MU",
+        "cik": "0000723125",
+        "form": "SCHEDULE 13G",
+        "filingDate": "2025-08-13",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000142284925000059/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/723125/000142284925000059/xslSCHEDULE_13G_X01/primary_doc.xml"
+      },
+      "sha256": "39088470289e860e84a163a448fe6549882443d9dbc4c73411cff3fb2e8ea7db",
+      "reviewDate": "2026-09-27",
+      "displayPerson": 0,
+      "persons": [
+        {
+          "name": "Capital World Investors",
+          "entityId": "sec:0001422849",
+          "cik": "0001422849"
+        }
+      ],
+      "seriesId": "sec:0001422849:0000723125",
+      "comparison": {
+        "state": "baseline",
+        "reason": "First reviewed historical snapshot; no inferred cross-filer continuity."
+      },
+      "context": "Bounded SEC Schedule history; not a shareholder register.",
+      "relationships": "Reporting entity and security preserved; no aggregation.",
+      "purposeContext": "See original statements and certification."
+    },
+    {
+      "ticker": "VRT",
+      "accessionNumber": "0000102909-26-002519",
+      "metadata": {
+        "accessionNumber": "0000102909-26-002519",
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2026-03-27",
+        "url": "https://www.sec.gov/Archives/edgar/data/1674101/000010290926002519/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000010290926002519/xslSCHEDULE_13G_X02/primary_doc.xml"
+      },
+      "sha256": "5d43b8c09d4ee2c7432a63fddd032eefed33e447bc0f4a235c5afa255e1d131e",
+      "reviewDate": "2026-09-27",
+      "displayPerson": 0,
+      "persons": [
+        {
+          "name": "The Vanguard Group",
+          "entityId": "sec:0000102909",
+          "cik": "0000102909"
+        }
+      ],
+      "seriesId": "sec:0000102909:0001674101",
+      "comparison": {
+        "state": "not_comparable",
+        "reason": "Internal Vanguard realignment: disaggregated subsidiaries report separately; zero is not evidence of a sale."
+      },
+      "context": "2026 Vanguard internal realignment; not comparable to Vanguard Capital Management. The parent zero must not be treated as liquidation.",
+      "relationships": "Reporting entity and security preserved; no aggregation.",
+      "purposeContext": "See original statements and certification.",
+      "historyOnly": true
+    },
+    {
+      "ticker": "VRT",
+      "accessionNumber": "0000932471-25-001116",
+      "metadata": {
+        "accessionNumber": "0000932471-25-001116",
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2025-08-07",
+        "url": "https://www.sec.gov/Archives/edgar/data/1674101/000093247125001116/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000093247125001116/xslSCHEDULE_13G_X01/primary_doc.xml"
+      },
+      "sha256": "47f7a973846663639cf8692f7df61696e55f2cec49de3236edf69bb01c280671",
+      "reviewDate": "2026-09-27",
+      "displayPerson": 0,
+      "persons": [
+        {
+          "name": "The Vanguard Group",
+          "entityId": "sec:0000102909",
+          "cik": "0000102909"
+        }
+      ],
+      "seriesId": "sec:0000102909:0001674101",
+      "comparison": {
+        "state": "baseline",
+        "reason": "First reviewed historical snapshot; no inferred cross-filer continuity."
+      },
+      "context": "Bounded SEC Schedule history; not a shareholder register.",
+      "relationships": "Reporting entity and security preserved; no aggregation.",
+      "purposeContext": "See original statements and certification."
+    },
+    {
+      "ticker": "VRT",
+      "accessionNumber": "0001576419-25-000834",
+      "metadata": {
+        "accessionNumber": "0001576419-25-000834",
+        "ticker": "VRT",
+        "cik": "0001674101",
+        "form": "SCHEDULE 13G/A",
+        "filingDate": "2025-04-17",
+        "url": "https://www.sec.gov/Archives/edgar/data/1674101/000157641925000834/primary_doc.xml",
+        "renderedUrl": "https://www.sec.gov/Archives/edgar/data/1674101/000157641925000834/xslSCHEDULE_13G_X01/primary_doc.xml"
+      },
+      "sha256": "1c8da444091c1a3b227cea45407d2ae3938059bb7c9c9bbf7e69849bec18a1fa",
+      "reviewDate": "2026-09-27",
+      "displayPerson": 0,
+      "persons": [
+        {
+          "name": "BlackRock, Inc.",
+          "entityId": "sec:0002012383",
+          "cik": "0002012383"
+        }
+      ],
+      "seriesId": "sec:0002012383:0001674101",
+      "comparison": {
+        "state": "baseline",
+        "reason": "First reviewed historical snapshot; no inferred cross-filer continuity."
+      },
+      "context": "Bounded SEC Schedule history; not a shareholder register.",
+      "relationships": "Reporting entity and security preserved; no aggregation.",
+      "purposeContext": "See original statements and certification."
     }
   ]
 }

@@ -37,8 +37,12 @@ class PhaseTwoTests(unittest.TestCase):
     def test_existing_eight_outputs_and_profiles_unchanged(self):
         baseline = json.loads((ROOT / 'docs/research-phase2-audit.json').read_text(encoding='utf-8'))['existingEightBaseline']
         self.assertEqual(len(baseline), 8)
+        corrections = json.loads((ROOT / 'scripts/source_reviews/completion_baseline.json').read_text(encoding='utf-8'))['financialCorrection']
         for ticker, hashes in baseline.items():
             with self.subTest(ticker=ticker):
+                if ticker in corrections:
+                    self.assertEqual(corrections[ticker]['before'], hashes)
+                    hashes = corrections[ticker]['after']
                 self.assertEqual(baseline_data_hash((ROOT / f'data/stocks/{ticker}.json').read_bytes()), hashes['data'])
                 self.assertEqual(hashlib.sha256(json.dumps(COMPANY_PROFILES[ticker], sort_keys=True).encode()).hexdigest(), hashes['profile'])
 
