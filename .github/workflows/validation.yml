@@ -27,6 +27,7 @@ jobs:
       - run: python -B scripts/validate_release.py
       - run: python -B scripts/check_workflows.py
       - run: python -B scripts/browser_smoke.py
+      - run: python -B scripts/weekly_template_browser.py
       - run: python -B scripts/quality_browser.py --output /tmp/ntm-performance.json
       - name: Check pull request whitespace
         if: github.event_name == 'pull_request'

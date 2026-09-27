@@ -19,3 +19,4 @@ jobs:
       - run: pip install -r requirements-browser.txt
       - run: python -m playwright install --with-deps chromium
       - run: python -B scripts/browser_smoke.py
+      - run: python -B scripts/weekly_template_browser.py

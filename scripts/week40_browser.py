@@ -7,7 +7,7 @@ from browser_smoke import BrowserSmoke
 class Week40Browser(BrowserSmoke):
     def test_week40(self):
         p = self.page
-        folder = Path(__file__).resolve().parents[1] / 'docs/qa/week40'
+        folder = Path(__file__).resolve().parents[1] / 'docs/qa/weekly-template/week40-detail'
         folder.mkdir(parents=True, exist_ok=True)
         p.add_init_script("document.addEventListener('securitypolicyviolation',e=>(window.__weekCsp ||= []).push(e.violatedDirective))")
         for width in [1440, 430, 390, 360]:
@@ -30,8 +30,9 @@ class Week40Browser(BrowserSmoke):
                     expect(p.locator('#earnings-readable a[href="research.html?ticker=MU"]')).to_have_text('MU · Micron Technology')
                     expect(p.locator('#earnings-readable')).to_contain_text('cirka 1 okt. 22:15')
                     expect(p.locator('#earnings-readable')).to_contain_text('1 okt. 12:00')
-                    expect(p.locator('#earnings-readable details')).to_have_count(20)
-                    summary=p.locator('#earnings-readable details').filter(has_text='Källa och tidpunkt · MU').locator('summary')
+                    expect(p.locator('#earnings-provenance details')).to_have_count(20)
+                    p.locator('#earnings-provenance > summary').click()
+                    summary=p.locator('#earnings-provenance details').filter(has_text='Källa och tidpunkt · MU').locator('summary')
                     summary.focus(); summary.press('Enter')
                     expect(summary.locator('..')).to_contain_text('30 sep. 22:30')
                     if width in [1440,360]:

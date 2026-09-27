@@ -383,6 +383,32 @@ function getInitialEarningsWeek(weeksData, currentWeekKey) {
   return nextWeek || keys.sort((first, second) => compareIsoWeekKeys(second, first))[0] || currentWeekKey;
 }
 
+// Content adapter: legacy image transcriptions and verified records share one renderer.
+// State affects navigation labels only; it never selects markup or styles.
+function getEarningsWeekContent(weekKey, item) {
+  const week = window.NTM_WEEKLY_EVENTS?.earningsWeeks?.[weekKey];
+  const reports = item.reviewed ? (week?.reports || []) : [];
+  const start = getIsoWeekStartDate(weekKey);
+  const days = item.reviewed ? Array.from({length: 5}, (_, day) => {
+    const date = new Date(start); date.setUTCDate(date.getUTCDate() + day);
+    const key = date.toISOString().slice(0, 10);
+    const rows = reports.filter(r => r.date === key).sort((a,b) => getPriorityValue(b.priority) - getPriorityValue(a.priority));
+    const parts = [{text: `${formatSwedishDayHeader(key)}: `}];
+    if (!rows.length) parts.push({text: 'Inga bolag listade.'});
+    rows.forEach((row, index) => {
+      const identity = getEarningsIdentity(row);
+      parts.push({text: `${row.ticker} · ${identity.name}`, url: identity.url});
+      parts.push({text: ` (${getEarningsTimingText(row)})${index < rows.length - 1 ? '; ' : '.'}`});
+    });
+    return parts;
+  }) : item.schedule.map(text => [{text}]);
+  return {
+    heading: item.reviewed ? `${formatIsoWeekLabel(weekKey)}: ${week?.dateRange || ''}` : `${item.title}: rapportkalender i text`,
+    note: item.reviewed ? (week?.reviewNote || 'Källgranskad rapportkalender. Se respektive bolags källa för tidpunkt.') : 'Avskrift av Earnings Whispers-bilden. Tickers och tidpunkter återges som publicerade, inte som liveverifierad kalender. Före/efter avser USA-börsens öppning/stängning. Kontrollera bolagets IR-sida för ändringar.',
+    days, reports
+  };
+}
+
 function renderEarningsWeek(weekKey, weeksData, currentWeekKey = getIsoWeekKeyForDate()) {
   const item = weeksData[weekKey];
   if (!item) return;
@@ -391,19 +417,30 @@ function renderEarningsWeek(weekKey, weeksData, currentWeekKey = getIsoWeekKeyFo
     visual.classList.remove('hidden');
     visual.style.background = 'none';
     visual.classList.add('week-report-image');
-    visual.innerHTML = `<picture><source type="image/webp" srcset="${item.preview} 1920w, ${item.image} 3840w" sizes="(max-width: 720px) 100vw, 1100px"><img src="${item.fallback}" width="3840" height="2160" loading="lazy" decoding="async" alt="Rapportkalender ${item.title}, Earnings Whispers. Samma bolag och tidpunkter finns i texten nedan."></picture>`;
+    visual.innerHTML = `<picture><source type="image/webp" srcset="${item.preview} 1920w, ${item.image} 3840w" sizes="(max-width: 720px) 100vw, 1100px"><img src="${item.fallback}" width="3840" height="2160" loading="lazy" decoding="async" alt="Rapportkalender ${item.title}, Earnings Whispers. Se veckans textkalender och källinformation intill bilden."></picture>`;
     let text = document.getElementById('earnings-readable');
-    if (!text) { text = document.createElement('section'); text.id = 'earnings-readable'; visual.after(text); }
+    if (!text) return; // The page owns the canonical layout; week data only fills its regions.
     text.replaceChildren();
-    const heading = document.createElement('h3'); heading.textContent = `${item.title}: rapportkalender i text`; text.append(heading);
-    const note = document.createElement('p'); note.textContent = 'Avskrift av Earnings Whispers-bilden. Tickers och tidpunkter återges som publicerade, inte som liveverifierad kalender. Före/efter avser USA-börsens öppning/stängning. Kontrollera bolagets IR-sida för ändringar.'; text.append(note);
+    const content = getEarningsWeekContent(weekKey, item);
+    const heading = document.createElement('h3'); heading.textContent = content.heading; text.append(heading);
+    const note = document.createElement('p'); note.textContent = content.note; text.append(note);
     if(window.NTMCalendarContext && !item.reviewed){const context=document.createElement('p');context.className='note';context.textContent=window.NTMCalendarContext.earnings(weekKey,getIsoWeekStartDate(weekKey));text.append(context);}
-    for (const row of item.schedule) { const paragraph = document.createElement('p'); paragraph.textContent = row; text.append(paragraph); }
-    if (item.reviewed) renderReviewedEarnings(text, heading, note, weekKey);
+    const days = document.createElement('div'); days.className = 'earnings-days';
+    for (const parts of content.days) {
+      const paragraph = document.createElement('p');
+      for (const part of parts) {
+        const node = document.createElement(part.url ? 'a' : 'span'); node.textContent = part.text;
+        if (part.url) node.href = part.url;
+        paragraph.append(node);
+      }
+      days.append(paragraph);
+    }
+    text.append(days);
+    if (content.reports.length) renderEarningsProvenance(text, content.reports);
     let referenceNote = document.getElementById('earnings-reference-note');
-    if (!referenceNote) { referenceNote = document.createElement('p'); referenceNote.id = 'earnings-reference-note'; referenceNote.className = 'note'; visual.before(referenceNote); }
+    if (!referenceNote) { referenceNote = document.createElement('p'); referenceNote.id = 'earnings-reference-note'; referenceNote.className = 'note'; text.prepend(referenceNote); }
     referenceNote.hidden = !item.reviewed;
-    referenceNote.textContent = item.reviewed ? 'Referensbild med obekräftade tidpunkter. Den källgranskade rapportlistan finns nedanför bilden.' : '';
+    referenceNote.textContent = item.reviewed ? 'Referensbild med obekräftade tidpunkter. Textkalendern bygger på källgranskade uppgifter och gäller vid avvikelser.' : '';
     visual.title = `Öppna bild för ${item.title}`;
     visual.onclick = () => openLightbox(item.image, item.title);
   }
@@ -434,36 +471,19 @@ function renderEarningsWeek(weekKey, weeksData, currentWeekKey = getIsoWeekKeyFo
   }
 }
 
-function renderReviewedEarnings(text, heading, note, weekKey) {
-  const week = window.NTM_WEEKLY_EVENTS?.earningsWeeks?.[weekKey];
-  heading.textContent = `${formatIsoWeekLabel(weekKey)}: ${week?.dateRange || ''}`;
-  note.textContent = week?.reviewNote || 'Källgranskad rapportkalender. Se respektive bolags källa för tidpunkt.';
-  visual.querySelector('img').alt = `Referensbild ${formatIsoWeekLabel(weekKey)}, Earnings Whispers. Den källgranskade listan nedan gäller vid avvikelser.`;
-  const reports = week?.reports || [];
-  const start = getIsoWeekStartDate(weekKey);
-  for (let day = 0; day < 5; day++) {
-    const date = new Date(start); date.setUTCDate(date.getUTCDate() + day);
-    const key = date.toISOString().slice(0, 10);
-    const dayHeading = document.createElement('h4'); dayHeading.textContent = formatSwedishDayHeader(key); text.append(dayHeading);
-    const rows = reports.filter(r => r.date === key).sort((a,b) => getPriorityValue(b.priority) - getPriorityValue(a.priority));
-    if (!rows.length) { const empty = document.createElement('p'); empty.textContent = 'Inga bolag listade.'; text.append(empty); }
-    for (const row of rows) {
-      const paragraph = document.createElement('p');
-      const identity = getEarningsIdentity(row);
-      const name = document.createElement(identity.url ? 'a' : 'strong');
-      name.textContent = `${row.ticker} · ${identity.name}`;
-      if (identity.url) name.href = identity.url;
-      paragraph.append(name, document.createTextNode(` — ${getEarningsTimingText(row)}`));
-      text.append(paragraph);
+function renderEarningsProvenance(text, reports) {
+  const provenance = document.createElement('details'); provenance.id = 'earnings-provenance';
+  const provenanceHeading = document.createElement('summary'); provenanceHeading.textContent = 'Källor och bekräftade tidpunkter'; provenance.append(provenanceHeading);
+  for (const row of reports) {
       const details = document.createElement('details');
       const summary = document.createElement('summary'); summary.textContent = `Källa och tidpunkt · ${row.ticker}`; details.append(summary);
       const source = document.createElement('a'); source.href = row.sourceUrl; source.textContent = 'Bolagets rapportmeddelande / IR'; details.append(source);
       if (row.verificationNote) { const p = document.createElement('p'); p.textContent = row.verificationNote; details.append(p); }
       if (row.referenceTiming) { const p = document.createElement('p'); p.textContent = `Referensbild: ${row.referenceTiming === 'before-open' ? 'före öppning' : 'efter stängning'} (ej separat bekräftad publiceringstid).`; details.append(p); }
       if (row.callAt) { const p = document.createElement('p'); p.textContent = `Bekräftat rapportsamtal: ${formatEarningsTimestamp(row.callAt)} svensk tid.`; details.append(p); }
-      text.append(details);
-    }
+      provenance.append(details);
   }
+  text.append(provenance);
 }
 
 if (visual) {
