@@ -188,6 +188,23 @@ def get_us_eastern_offset_hours(dt_utc):
         return -4
     return -5
 
+def clear_unreleased_actuals(macro_weeks, now_iso):
+    """A prior estimate for the same period is not a future release's actual."""
+    now = datetime.fromisoformat(now_iso.replace('Z', '+00:00'))
+    for week in macro_weeks.values():
+        for event in week.get('events', []):
+            zone = event.get('timezone') or week.get('sourceTimezone', 'America/New_York')
+            if zone not in ('America/New_York', 'UTC'):
+                continue
+            local_now = now + timedelta(hours=get_us_eastern_offset_hours(now) if zone == 'America/New_York' else 0)
+            release = event.get('date', '') + 'T' + (event.get('time') or '23:59')
+            if release > local_now.strftime('%Y-%m-%dT%H:%M'):
+                event['actual'] = None
+                event.pop('officialBaseline', None)
+                event.pop('isRevised', None)
+                complete_fields(event)
+
+
 def build_series_lookup_table(series_data):
     table = {}
     if not series_data or not isinstance(series_data.get('data'), list):
@@ -989,6 +1006,10 @@ def update_macro_data():
             bea_prefix = next((prefix for prefix in BEA_EVENT_DEFINITIONS if ev_id.startswith(prefix)), None)
             if bea_prefix and bea_prefix in bea_results:
                 spec = BEA_EVENT_DEFINITIONS[bea_prefix]
+                # Reviewed percentage releases cannot consume raw dollar/index levels.
+                # Keep their independent values until a matching-unit provider exists.
+                if event.get('providerUnit', spec['unit']) != spec['unit']:
+                    continue
                 period_type, period_number = parse_provider_period(event.get('period'))
                 year = int(event.get('refYear') or event.get('date', '2026-01-01').split('-')[0])
                 period_key = f'{year}M{period_number:02d}' if period_type == 'M' else f'{year}Q{period_number}' if period_type == 'Q' else None
@@ -1155,6 +1176,7 @@ def update_macro_data():
     for prefix in BEA_EVENT_DEFINITIONS:
         if requested(prefix):
             sources[f'BEA {prefix}'] = 'not_configured' if not bea_key else 'current' if bea_results.get(prefix) else 'failed'
+    clear_unreleased_actuals(macro_weeks, now_iso)
     for event in events:
         complete_fields(event)
     meta_block = status_meta(sources, now_iso, previous_meta)

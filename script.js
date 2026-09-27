@@ -2847,6 +2847,22 @@ function selectHomepageMacro(events,limit=3){
   return {selected:selected.sort((a,b)=>Number(b.hasTime)-Number(a.hasTime)||a.timestamp-b.timestamp),hidden:events.filter(e=>!keys.has(e)).sort((a,b)=>Number(b.hasTime)-Number(a.hasTime)||a.timestamp-b.timestamp)};
 }
 
+function groupHomepageMacroReleases(events) {
+  const groups = new Map();
+  const result = [];
+  for (const event of events) {
+    if (!event.releaseGroup) { result.push(event); continue; }
+    const key = `${event.swedishDate}|${event.swedishTime}|${event.releaseGroup}`;
+    if (!groups.has(key)) {
+      groups.set(key, result.length);
+      result.push({...event, eventName:event.releaseGroup});
+    } else if (homepageMacroPriority(event) > homepageMacroPriority(result[groups.get(key)])) {
+      result[groups.get(key)] = {...event, eventName:event.releaseGroup};
+    }
+  }
+  return result;
+}
+
 function formatMacroValue(val) {
   if (val === null || val === undefined || val === '') {
     return '–';
@@ -2882,6 +2898,7 @@ window.NTM_MACRO = {
   getAllNormalizedMacroEvents,
   homepageMacroPriority,
   selectHomepageMacro,
+  groupHomepageMacroReleases,
   formatMacroValue,
   getIsoWeekDateRange,
   getSourceDateTime,
@@ -2931,6 +2948,21 @@ function renderHomepageMacroItems(items) {
   return Object.entries(groups).map(([time, events]) => `<div class="ntm-macro-group"><span class="ntm-event-time">${escapePostText(time)}</span><div class="ntm-macro-events">${events.map(event => `<div class="ntm-macro-event-row"><div class="ntm-event-copy"><strong>${escapePostText(event.eventName || 'Makrohändelse')}</strong></div></div>`).join('')}</div></div>`).join('');
 }
 
+function formatEarningsTimestamp(timestamp) {
+  return new Intl.DateTimeFormat('sv-SE', {timeZone:'Europe/Stockholm', day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'}).format(new Date(timestamp));
+}
+
+function getEarningsIdentity(event) {
+  const issuer = window.NTMIssuerRegistry?.get(event.ticker);
+  return {name: issuer?.displayName || event.companyName || event.ticker || 'Bolag',
+    url: issuer?.financial ? `research.html?ticker=${encodeURIComponent(issuer.ticker)}` : null};
+}
+
+function getEarningsTimingText(event) {
+  const session = event.timing === 'before-open' ? 'Före öppning' : event.timing === 'after-close' ? 'Efter stängning' : 'Publiceringstid ej bekräftad';
+  return event.releaseAt ? `${session} · ${event.releaseTimeApproximate ? 'cirka ' : ''}${formatEarningsTimestamp(event.releaseAt)} svensk tid` : session;
+}
+
 function renderWeeklyEvents(now = getNtmNow()) {
   const macroList = document.getElementById('ntmMacroList');
   const earningsList = document.getElementById('ntmEarningsList');
@@ -2958,7 +2990,7 @@ function renderWeeklyEvents(now = getNtmNow()) {
     macroPanel?.classList.remove('is-empty');
     const previous = macroList.querySelector('.ntm-macro-more');
     const keepExpanded = previous?.open && previous.dataset.date === todayKey;
-    const {selected,hidden}=selectHomepageMacro(macroItems);
+    const {selected,hidden}=selectHomepageMacro(groupHomepageMacroReleases(macroItems));
     const remaining=hidden.length;
     macroList.innerHTML = renderHomepageMacroItems(selected) + (remaining > 0
       ? `<details class="ntm-macro-more" data-date="${todayKey}"${keepExpanded ? ' open' : ''}><summary class="text-link ntm-more-link">Visa ${remaining} ${remaining===1?'makrohändelse':'makrohändelser'} till</summary>${renderHomepageMacroItems(hidden)}</details>` : '');
@@ -2978,12 +3010,13 @@ function renderWeeklyEvents(now = getNtmNow()) {
   const previousDetails = earningsList.querySelector('.ntm-earnings-more');
   const keepExpanded = previousDetails?.open && previousDetails.dataset.date === todayKey;
   const renderEarningsItem = (event) => {
-    const timingText = event.timing === 'before-open' ? 'Före öppning' : event.timing === 'after-close' ? 'Efter stängning' : 'Tidpunkt ej angiven';
+    const timingText = getEarningsTimingText(event);
+    const identity = getEarningsIdentity(event);
     return `
       <div class="ntm-event-item">
         <span class="ntm-event-time">${escapePostText(event.ticker || 'BOL')}</span>
         <div class="ntm-event-copy">
-          <strong>${escapePostText(event.companyName || 'Bolag')}</strong>
+          <strong>${identity.url ? `<a href="${escapePostText(identity.url)}">${escapePostText(identity.name)}</a>` : escapePostText(identity.name)}</strong>
           <small>${timingText}</small>
         </div>
       </div>

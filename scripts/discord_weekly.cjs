@@ -42,6 +42,7 @@ function preview(model, kind, week) {
   const artifact = matches[0], records = model.data[kind + 'Weeks']?.[week]?.[kind === 'macro' ? 'events' : 'reports'];
   const reviews = model.review.artifacts.filter(a => a.kind === kind && a.week === week && a.image === artifact.image);
   if (!Array.isArray(records) || reviews.length !== 1 || model.review.version !== 1) fail('unreviewed_publication');
+  if (reviews[0].distributionBlockedReason) fail('reference_image_requires_corrected_distribution_artifact');
   const expected = `./images/${channels[kind]}/week-${Number(week.slice(6))}.png`;
   if (artifact.image !== expected) fail('invalid_artifact');
   let bytes;

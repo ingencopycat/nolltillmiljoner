@@ -1079,9 +1079,618 @@ const macroWeeks = {
     "year": 2026,
     "label": "Vecka 40",
     "title": "Vecka 40, 2026",
+    "dateRange": "28 september–2 oktober 2026",
     "sourceTimezone": "America/New_York",
-    "fallbackImage": null,
+    "fallbackImage": "./images/makro/week-40.png",
+    "reviewNote": "Verifierat urval. Referensbilden innehåller även ej publicerade kandidater. Bildens prognoser och tidigare värden är manuellt angivna, inte verifierad konsensus.",
     "events": [
+      {
+        "id": "us-consumer-confidence-2026-09-29",
+        "date": "2026-09-29",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "Consumer Confidence",
+        "period": "Sep.",
+        "forecast": "89.2",
+        "previous": "89.4",
+        "actual": null,
+        "priority": "medium",
+        "source": "The Conference Board",
+        "sourceUrl": "https://www.conference-board.org/topics/consumer-confidence/",
+        "scheduleVerifiedAt": "2026-09-27",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-jolts-job-openings-2026-09-29",
+        "date": "2026-09-29",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "JOLTS Job Openings",
+        "period": "Aug.",
+        "forecast": "7.2M",
+        "previous": "7.27M",
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Labor Statistics",
+        "sourceUrl": "https://www.bls.gov/schedule/2026/09_sched.htm",
+        "scheduleVerifiedAt": "2026-09-27",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "provider_derived",
+            "source": "U.S. Bureau of Labor Statistics",
+            "sourceUrl": "https://www.bls.gov/jlt/",
+            "fetchedAt": "2026-09-26T15:50:32Z",
+            "methodVersion": "ntm-macro/1",
+            "status": "available"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          }
+        },
+        "provenanceVersion": 1,
+        "calUid": "45aff633-36ac-4279-b455-92488fd7199c::us-jolts-job-openings",
+        "refYear": 2026
+      },
+      {
+        "id": "us-adp-employment-2026-09-30",
+        "date": "2026-09-30",
+        "time": "08:15",
+        "country": "USA",
+        "eventName": "ADP National Employment Report",
+        "period": "Sep.",
+        "forecast": null,
+        "previous": "38,000",
+        "actual": null,
+        "priority": "high",
+        "source": "ADP Research Institute",
+        "sourceUrl": "https://mediacenter.adp.com/2026-09-02-ADP-National-Employment-Report-Private-Sector-Employment-Increased-by-38%2C000-Jobs-in-August",
+        "scheduleVerifiedAt": "2026-09-27",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          },
+          "forecast": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-gdp-third-estimate-2026-09-30",
+        "date": "2026-09-30",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "GDP, third estimate",
+        "period": "Q2",
+        "forecast": "1.5%",
+        "previous": "1.5%",
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Economic Analysis",
+        "sourceUrl": "https://www.bea.gov/news/schedule/full",
+        "scheduleVerifiedAt": "2026-09-27",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          }
+        },
+        "provenanceVersion": 1,
+        "providerUnit": "Percent change"
+      },
+      {
+        "id": "us-advance-goods-trade-2026-09-30",
+        "date": "2026-09-30",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Advance International Trade in Goods",
+        "period": "Aug.",
+        "forecast": null,
+        "previous": "-118.8B",
+        "actual": null,
+        "priority": "low",
+        "source": "U.S. Census Bureau",
+        "sourceUrl": "https://www.census.gov/economic-indicators/calendar-listview.html",
+        "scheduleVerifiedAt": "2026-09-27",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          },
+          "forecast": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-advance-wholesale-inventories-2026-09-30",
+        "date": "2026-09-30",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Advance Wholesale Inventories",
+        "period": "Aug.",
+        "forecast": null,
+        "previous": "1.3%",
+        "actual": null,
+        "priority": "low",
+        "source": "U.S. Census Bureau",
+        "sourceUrl": "https://www.census.gov/economic-indicators/calendar-listview.html",
+        "scheduleVerifiedAt": "2026-09-27",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          },
+          "forecast": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-advance-retail-inventories-2026-09-30",
+        "date": "2026-09-30",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Advance Retail Inventories",
+        "period": "Aug.",
+        "forecast": null,
+        "previous": "0.7%",
+        "actual": null,
+        "priority": "low",
+        "source": "U.S. Census Bureau",
+        "sourceUrl": "https://www.census.gov/economic-indicators/calendar-listview.html",
+        "scheduleVerifiedAt": "2026-09-27",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          },
+          "forecast": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-personal-income-2026-09-30",
+        "date": "2026-09-30",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Personal Income, M/M%",
+        "period": "Aug.",
+        "forecast": "0.4%",
+        "previous": "0.4%",
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Economic Analysis",
+        "sourceUrl": "https://www.bea.gov/news/schedule/full",
+        "scheduleVerifiedAt": "2026-09-27",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          }
+        },
+        "provenanceVersion": 1,
+        "releaseGroup": "PCE / core PCE, inkomster och konsumtion",
+        "providerUnit": "Percent change"
+      },
+      {
+        "id": "us-consumer-spending-2026-09-30",
+        "date": "2026-09-30",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Consumer Spending, M/M%",
+        "period": "Aug.",
+        "forecast": "0.8%",
+        "previous": "0.2%",
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Economic Analysis",
+        "sourceUrl": "https://www.bea.gov/news/schedule/full",
+        "scheduleVerifiedAt": "2026-09-27",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          }
+        },
+        "provenanceVersion": 1,
+        "releaseGroup": "PCE / core PCE, inkomster och konsumtion",
+        "providerUnit": "Percent change"
+      },
+      {
+        "id": "us-pce-mm-2026-09-30",
+        "date": "2026-09-30",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PCE Price Index, M/M%",
+        "period": "Aug.",
+        "forecast": "0.3%",
+        "previous": "0.2%",
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Economic Analysis",
+        "sourceUrl": "https://www.bea.gov/news/schedule/full",
+        "scheduleVerifiedAt": "2026-09-27",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          }
+        },
+        "provenanceVersion": 1,
+        "releaseGroup": "PCE / core PCE, inkomster och konsumtion",
+        "providerUnit": "Percent change"
+      },
+      {
+        "id": "us-pce-yy-2026-09-30",
+        "date": "2026-09-30",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "PCE Price Index, Y/Y%",
+        "period": "Aug.",
+        "forecast": "3.6%",
+        "previous": "3.7%",
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Economic Analysis",
+        "sourceUrl": "https://www.bea.gov/news/schedule/full",
+        "scheduleVerifiedAt": "2026-09-27",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          }
+        },
+        "provenanceVersion": 1,
+        "releaseGroup": "PCE / core PCE, inkomster och konsumtion",
+        "providerUnit": "Percent change"
+      },
+      {
+        "id": "us-core-pce-mm-2026-09-30",
+        "date": "2026-09-30",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Core PCE Price Index, M/M%",
+        "period": "Aug.",
+        "forecast": "0.3%",
+        "previous": "0.2%",
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Economic Analysis",
+        "sourceUrl": "https://www.bea.gov/news/schedule/full",
+        "scheduleVerifiedAt": "2026-09-27",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          }
+        },
+        "provenanceVersion": 1,
+        "releaseGroup": "PCE / core PCE, inkomster och konsumtion",
+        "providerUnit": "Percent change"
+      },
+      {
+        "id": "us-core-pce-yy-2026-09-30",
+        "date": "2026-09-30",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Core PCE Price Index, Y/Y%",
+        "period": "Aug.",
+        "forecast": "3.2%",
+        "previous": "3.3%",
+        "actual": null,
+        "priority": "high",
+        "source": "U.S. Bureau of Economic Analysis",
+        "sourceUrl": "https://www.bea.gov/news/schedule/full",
+        "scheduleVerifiedAt": "2026-09-27",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          }
+        },
+        "provenanceVersion": 1,
+        "releaseGroup": "PCE / core PCE, inkomster och konsumtion",
+        "providerUnit": "Percent change"
+      },
+      {
+        "id": "us-jobless-claims-2026-10-01",
+        "date": "2026-10-01",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Weekly Jobless Claims",
+        "period": "Sept. 26",
+        "forecast": "200K",
+        "previous": "197K",
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Department of Labor",
+        "sourceUrl": "https://oui.doleta.gov/unemploy/claims_arch.asp",
+        "scheduleVerifiedAt": "2026-09-27",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-ism-manufacturing-2026-10-01",
+        "date": "2026-10-01",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "ISM Manufacturing PMI",
+        "period": "Sep.",
+        "forecast": "54.8",
+        "previous": "54.6",
+        "actual": null,
+        "priority": "high",
+        "source": "Institute for Supply Management",
+        "sourceUrl": "https://www.ismworld.org/supply-management-news-and-reports/reports/rob-report-calendar/",
+        "scheduleVerifiedAt": "2026-09-27",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-construction-spending-2026-10-01",
+        "date": "2026-10-01",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "Construction Spending",
+        "period": "Aug.",
+        "forecast": "0.1%",
+        "previous": "-0.5%",
+        "actual": null,
+        "priority": "low",
+        "source": "U.S. Census Bureau",
+        "sourceUrl": "https://www.census.gov/economic-indicators/calendar-listview.html",
+        "scheduleVerifiedAt": "2026-09-27",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          }
+        },
+        "provenanceVersion": 1
+      },
       {
         "id": "us-nonfarm-payrolls-2026-10-02",
         "date": "2026-10-02",
@@ -1114,7 +1723,10 @@ const macroWeeks = {
             "status": "unavailable"
           }
         },
-        "provenanceVersion": 1
+        "provenanceVersion": 1,
+        "scheduleSourceUrl": "https://www.bls.gov/schedule/2026/10_sched.htm",
+        "scheduleVerifiedAt": "2026-09-27",
+        "releaseGroup": "USA:s jobbrapport: sysselsättning, arbetslöshet och löner"
       },
       {
         "id": "us-unemployment-rate-2026-10-02",
@@ -1148,7 +1760,10 @@ const macroWeeks = {
             "status": "unavailable"
           }
         },
-        "provenanceVersion": 1
+        "provenanceVersion": 1,
+        "scheduleSourceUrl": "https://www.bls.gov/schedule/2026/10_sched.htm",
+        "scheduleVerifiedAt": "2026-09-27",
+        "releaseGroup": "USA:s jobbrapport: sysselsättning, arbetslöshet och löner"
       },
       {
         "id": "us-avg-hourly-earnings-mm-2026-10-02",
@@ -1182,7 +1797,10 @@ const macroWeeks = {
             "status": "unavailable"
           }
         },
-        "provenanceVersion": 1
+        "provenanceVersion": 1,
+        "scheduleSourceUrl": "https://www.bls.gov/schedule/2026/10_sched.htm",
+        "scheduleVerifiedAt": "2026-09-27",
+        "releaseGroup": "USA:s jobbrapport: sysselsättning, arbetslöshet och löner"
       },
       {
         "id": "us-avg-hourly-earnings-yy-2026-10-02",
@@ -1216,43 +1834,45 @@ const macroWeeks = {
             "status": "unavailable"
           }
         },
-        "provenanceVersion": 1
+        "provenanceVersion": 1,
+        "scheduleSourceUrl": "https://www.bls.gov/schedule/2026/10_sched.htm",
+        "scheduleVerifiedAt": "2026-09-27",
+        "releaseGroup": "USA:s jobbrapport: sysselsättning, arbetslöshet och löner"
       },
       {
-        "id": "us-jolts-job-openings-2026-09-29",
-        "date": "2026-09-29",
+        "id": "us-factory-orders-2026-10-02",
+        "date": "2026-10-02",
         "time": "10:00",
         "country": "USA",
-        "eventName": "JOLTS Job Openings",
-        "period": "Jul.",
-        "forecast": null,
-        "previous": "7.18M",
-        "actual": "7.27M",
-        "priority": "high",
-        "source": "U.S. Bureau of Labor Statistics",
-        "sourceUrl": "https://www.bls.gov/jlt/",
-        "isRevised": true,
-        "calUid": "45aff633-36ac-4279-b455-92488fd7199c::us-jolts-job-openings",
+        "eventName": "Factory Orders",
+        "period": "Aug.",
+        "forecast": "0.2%",
+        "previous": "0.9%",
+        "actual": null,
+        "priority": "low",
+        "source": "U.S. Census Bureau",
+        "sourceUrl": "https://www.census.gov/economic-indicators/calendar-listview.html",
+        "scheduleVerifiedAt": "2026-09-27",
         "fieldProvenance": {
-          "previous": {
-            "kind": "provider_derived",
-            "source": "U.S. Bureau of Labor Statistics",
-            "sourceUrl": "https://www.bls.gov/jlt/",
-            "fetchedAt": "2026-09-26T15:50:32Z",
-            "methodVersion": "ntm-macro/1",
-            "status": "available"
-          },
           "actual": {
-            "kind": "provider_derived",
-            "source": "U.S. Bureau of Labor Statistics",
-            "sourceUrl": "https://www.bls.gov/jlt/",
-            "fetchedAt": "2026-09-26T15:50:32Z",
-            "methodVersion": "ntm-macro/1",
-            "status": "available"
-          },
-          "forecast": {
             "kind": "unavailable",
             "status": "unavailable"
+          },
+          "previous": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-40.png",
+            "fetchedAt": "2026-09-27T00:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
           }
         },
         "provenanceVersion": 1
@@ -13577,6 +14197,234 @@ const macroWeeks = {
 };
 
 const earningsWeeks = {
+  "2026-W40": {
+    "weekNumber": 40,
+    "year": 2026,
+    "label": "Vecka 40",
+    "dateRange": "28 september–2 oktober 2026",
+    "sourceImage": "./images/rapporter/week-40.png",
+    "reviewed": true,
+    "reviewNote": "Datum kontrollerade mot bolagens källor den 27 september. Före/efter avser USA-börsen; klockslag visas i svensk tid. Rapportsamtal är inte publiceringstid. Originalbilden är referensmaterial: Inventivas session avviker och AtlasClear saknar bekräftad rapportdag och ingår inte i listan.",
+    "reports": [
+      {
+        "date": "2026-09-28",
+        "ticker": "GNS",
+        "timing": "before-open",
+        "priority": "low",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://ir.geniusgroup.net/news-events/press-releases/detail/258/genius-group-to-release-half-year-2026-results-on-september",
+        "scheduleVerifiedAt": "2026-09-27",
+        "companyName": "Genius Group"
+      },
+      {
+        "date": "2026-09-28",
+        "ticker": "MTN",
+        "timing": "after-close",
+        "priority": "medium",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://investors.vailresorts.com/news-releases/news-release-details/vail-resorts-announces-fiscal-2026-fourth-quarter-and-year-end",
+        "scheduleVerifiedAt": "2026-09-27",
+        "companyName": "Vail Resorts"
+      },
+      {
+        "date": "2026-09-28",
+        "ticker": "IVA",
+        "timing": "unknown",
+        "priority": "low",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://inventivapharma.com/wp-content/uploads/Inventiva-PR-Inventiva-LVLP-EN-09-02-2026.pdf",
+        "scheduleVerifiedAt": "2026-09-27",
+        "referenceTiming": "after-close",
+        "callAt": "2026-09-28T12:00:00Z",
+        "verificationNote": "Datum bekräftat. Bildens efter stängning stöds inte av IR; rapportsamtalet är 08:00 ET. Exakt publiceringstid ej bekräftad.",
+        "companyName": "Inventiva"
+      },
+      {
+        "date": "2026-09-28",
+        "ticker": "JEF",
+        "timing": "after-close",
+        "priority": "high",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://www.businesswire.com/news/home/20260914420732/en/",
+        "scheduleVerifiedAt": "2026-09-27",
+        "companyName": "Jefferies Financial Group"
+      },
+      {
+        "date": "2026-09-28",
+        "ticker": "SANG",
+        "timing": "after-close",
+        "priority": "low",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://sangoma.com/company/press-releases/sangoma-announces-date-of-fourth-quarter-fiscal-2026-financial-results-and-conference-call/",
+        "scheduleVerifiedAt": "2026-09-27",
+        "companyName": "Sangoma Technologies"
+      },
+      {
+        "date": "2026-09-29",
+        "ticker": "CCL",
+        "timing": "unknown",
+        "priority": "high",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://www.carnivalcorp.com/events/list/",
+        "scheduleVerifiedAt": "2026-09-27",
+        "referenceTiming": "before-open",
+        "callAt": "2026-09-29T14:00:00Z",
+        "verificationNote": "Rapportsamtal 10:00 ET bekräftat. Bildens före öppning är inte separat bekräftat i källan.",
+        "companyName": "Carnival"
+      },
+      {
+        "date": "2026-09-29",
+        "ticker": "KMX",
+        "timing": "before-open",
+        "priority": "high",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://investors.carmax.com/news-and-events/news/news-details/2026/CarMax-Announces-Second-Quarter-Conference-Call/default.aspx",
+        "scheduleVerifiedAt": "2026-09-27",
+        "companyName": "CarMax"
+      },
+      {
+        "date": "2026-09-29",
+        "ticker": "UEC",
+        "timing": "before-open",
+        "priority": "medium",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://www.uraniumenergy.com/news/releases/index.php?content_id=1140",
+        "scheduleVerifiedAt": "2026-09-27",
+        "companyName": "Uranium Energy"
+      },
+      {
+        "date": "2026-09-29",
+        "ticker": "CNXC",
+        "timing": "after-close",
+        "priority": "medium",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://ir.concentrix.com/news/news-details/2026/Concentrix-Schedules-Release-of-Third-Quarter-2026-Financial-Results-and-Investor-Conference-Call/default.aspx",
+        "scheduleVerifiedAt": "2026-09-27",
+        "companyName": "Concentrix"
+      },
+      {
+        "date": "2026-09-29",
+        "ticker": "AIR",
+        "timing": "after-close",
+        "priority": "medium",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://www.aarcorp.com/en/newsroom/press-releases/2026/aar-to-announce-first-quarter-fiscal-year-2027-results-on-september-29-2026/",
+        "scheduleVerifiedAt": "2026-09-27",
+        "companyName": "AAR"
+      },
+      {
+        "date": "2026-09-30",
+        "ticker": "CAG",
+        "timing": "before-open",
+        "priority": "medium",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://www.conagrabrands.com/news-room/news-conagra-brands-to-release-fiscal-2027-first-quarter-earnings-on-september-30-2026-prn-122962",
+        "scheduleVerifiedAt": "2026-09-27",
+        "companyName": "Conagra Brands"
+      },
+      {
+        "date": "2026-09-30",
+        "ticker": "JBL",
+        "timing": "before-open",
+        "priority": "high",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://investors.jabil.com/news/news-details/2026/Jabil-Announces-Date-for-Fourth-Quarter-and-Fiscal-Year-2026-Earnings-Release-and-Investor-Briefing/default.aspx",
+        "scheduleVerifiedAt": "2026-09-27",
+        "companyName": "Jabil"
+      },
+      {
+        "date": "2026-09-30",
+        "ticker": "FDS",
+        "timing": "before-open",
+        "priority": "medium",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://investor.factset.com/news-releases/news-release-details/factset-schedules-fourth-quarter-2026-earnings-call",
+        "scheduleVerifiedAt": "2026-09-27",
+        "companyName": "FactSet"
+      },
+      {
+        "date": "2026-09-30",
+        "ticker": "MU",
+        "timing": "unknown",
+        "priority": "high",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://investors.micron.com/news/press-release/2026/Micron-Technology-to-Report-Fiscal-Fourth-Quarter-Results-on-September-30-2026/default.aspx",
+        "scheduleVerifiedAt": "2026-09-27",
+        "referenceTiming": "after-close",
+        "callAt": "2026-09-30T20:30:00Z",
+        "verificationNote": "Datum och rapportsamtal 14:30 Mountain time bekräftade. Bilden anger efter stängning; separat publiceringstid är inte bekräftad i IR-meddelandet."
+      },
+      {
+        "date": "2026-09-30",
+        "ticker": "PRGS",
+        "timing": "after-close",
+        "priority": "medium",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://investors.progress.com/news-releases/news-release-details/progress-software-report-third-quarter-2026-financial-results",
+        "scheduleVerifiedAt": "2026-09-27",
+        "companyName": "Progress Software"
+      },
+      {
+        "date": "2026-09-30",
+        "ticker": "BSET",
+        "timing": "after-close",
+        "priority": "low",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://investors.bassettfurniture.com/news-releases/news-release-details/bassett-announces-third-quarter-conference-call-1",
+        "scheduleVerifiedAt": "2026-09-27",
+        "companyName": "Bassett Furniture"
+      },
+      {
+        "date": "2026-10-01",
+        "ticker": "ACN",
+        "timing": "unknown",
+        "priority": "high",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://investor.accenture.com/investor-resources/investor-faqs",
+        "scheduleVerifiedAt": "2026-09-27",
+        "referenceTiming": "before-open",
+        "callAt": "2026-10-01T12:00:00Z",
+        "verificationNote": "Rapportsamtal 08:00 ET bekräftat; separat publiceringstid ej angiven.",
+        "companyName": "Accenture"
+      },
+      {
+        "date": "2026-10-01",
+        "ticker": "AYI",
+        "timing": "before-open",
+        "priority": "medium",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://investors.acuityinc.com/node/23516/pdf",
+        "scheduleVerifiedAt": "2026-09-27",
+        "releaseAt": "2026-10-01T10:00:00Z",
+        "companyName": "Acuity"
+      },
+      {
+        "date": "2026-10-01",
+        "ticker": "MKC",
+        "timing": "unknown",
+        "priority": "medium",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://ir.mccormick.com/node/33971",
+        "scheduleVerifiedAt": "2026-09-27",
+        "referenceTiming": "before-open",
+        "callAt": "2026-10-01T12:00:00Z",
+        "verificationNote": "Rapportsamtal 08:00 ET bekräftat; separat publiceringstid ej angiven.",
+        "companyName": "McCormick"
+      },
+      {
+        "date": "2026-10-01",
+        "ticker": "NKE",
+        "timing": "after-close",
+        "priority": "high",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2026/NIKE-Inc--Announces-First-Quarter-Fiscal-2027-Earnings-and-Conference-Call/default.aspx",
+        "scheduleVerifiedAt": "2026-09-27",
+        "releaseAt": "2026-10-01T20:15:00Z",
+        "releaseTimeApproximate": true,
+        "companyName": "Nike"
+      }
+    ]
+  },
   "2026-W39": {
   "source": "Earnings Whispers — archived image transcription; company labels use published tickers",
   "sourceImage": "./images/rapporter/week-39.png",

@@ -1,6 +1,15 @@
 const isMakroPage = window.location.pathname.toLowerCase().includes('makro');
 
 const earningsWeekData = {
+  '2026-W40': {
+    title: 'Vecka 40, 2026',
+    label: 'Vecka 40',
+    image: './images/rapporter/week-40-3840.webp',
+    preview: './images/rapporter/week-40-1920.webp',
+    fallback: './images/rapporter/week-40.png',
+    reviewed: true,
+    schedule: []
+  },
   '2026-W39': {
     title: 'Vecka 39',
     label: 'Vecka 39',
@@ -206,6 +215,7 @@ function renderMacroWeek(weekKey, macroWeeks) {
           </div>
           ${updateInfo ? `<div class="macro-update-status">${escapeText(updateInfo)}</div>` : ''}
           <p class="note">Täckning: ett urval av främst amerikanska publiceringar från veckans angivna källor. Inte en fullständig global kalender. Tider visas i Europe/Stockholm; källans datum och tidszon finns under varje händelse. Saknad prognos betyder att underlag saknas.</p>
+          ${week.reviewNote ? `<p class="note">${escapeText(week.reviewNote)}</p>` : ''}
           ${meta.sources ? `<details><summary>Status per källa</summary>${Object.entries(meta.sources).map(([name, state]) => `<p>${escapeText(name)}: ${escapeText(({ current: 'Hämtad', failed: 'Hämtning misslyckades', cached: 'Tidigare kalender används; hämtning misslyckades', not_configured: 'Ej konfigurerad', unavailable: 'Ej tillgänglig' })[state] || 'Okänd status')}</p>`).join('')}</details>` : ''}
         </div>
         <div class="macro-days-list">
@@ -387,8 +397,13 @@ function renderEarningsWeek(weekKey, weeksData, currentWeekKey = getIsoWeekKeyFo
     text.replaceChildren();
     const heading = document.createElement('h3'); heading.textContent = `${item.title}: rapportkalender i text`; text.append(heading);
     const note = document.createElement('p'); note.textContent = 'Avskrift av Earnings Whispers-bilden. Tickers och tidpunkter återges som publicerade, inte som liveverifierad kalender. Före/efter avser USA-börsens öppning/stängning. Kontrollera bolagets IR-sida för ändringar.'; text.append(note);
-    if(window.NTMCalendarContext){const context=document.createElement('p');context.className='note';context.textContent=window.NTMCalendarContext.earnings(weekKey,getIsoWeekStartDate(weekKey));text.append(context);}
+    if(window.NTMCalendarContext && !item.reviewed){const context=document.createElement('p');context.className='note';context.textContent=window.NTMCalendarContext.earnings(weekKey,getIsoWeekStartDate(weekKey));text.append(context);}
     for (const row of item.schedule) { const paragraph = document.createElement('p'); paragraph.textContent = row; text.append(paragraph); }
+    if (item.reviewed) renderReviewedEarnings(text, heading, note, weekKey);
+    let referenceNote = document.getElementById('earnings-reference-note');
+    if (!referenceNote) { referenceNote = document.createElement('p'); referenceNote.id = 'earnings-reference-note'; referenceNote.className = 'note'; visual.before(referenceNote); }
+    referenceNote.hidden = !item.reviewed;
+    referenceNote.textContent = item.reviewed ? 'Referensbild med obekräftade tidpunkter. Den källgranskade rapportlistan finns nedanför bilden.' : '';
     visual.title = `Öppna bild för ${item.title}`;
     visual.onclick = () => openLightbox(item.image, item.title);
   }
@@ -416,6 +431,38 @@ function renderEarningsWeek(weekKey, weeksData, currentWeekKey = getIsoWeekKeyFo
         renderEarningsWeek(this.dataset.week, weeksData, currentWeekKey);
       });
     });
+  }
+}
+
+function renderReviewedEarnings(text, heading, note, weekKey) {
+  const week = window.NTM_WEEKLY_EVENTS?.earningsWeeks?.[weekKey];
+  heading.textContent = `${formatIsoWeekLabel(weekKey)}: ${week?.dateRange || ''}`;
+  note.textContent = week?.reviewNote || 'Källgranskad rapportkalender. Se respektive bolags källa för tidpunkt.';
+  visual.querySelector('img').alt = `Referensbild ${formatIsoWeekLabel(weekKey)}, Earnings Whispers. Den källgranskade listan nedan gäller vid avvikelser.`;
+  const reports = week?.reports || [];
+  const start = getIsoWeekStartDate(weekKey);
+  for (let day = 0; day < 5; day++) {
+    const date = new Date(start); date.setUTCDate(date.getUTCDate() + day);
+    const key = date.toISOString().slice(0, 10);
+    const dayHeading = document.createElement('h4'); dayHeading.textContent = formatSwedishDayHeader(key); text.append(dayHeading);
+    const rows = reports.filter(r => r.date === key).sort((a,b) => getPriorityValue(b.priority) - getPriorityValue(a.priority));
+    if (!rows.length) { const empty = document.createElement('p'); empty.textContent = 'Inga bolag listade.'; text.append(empty); }
+    for (const row of rows) {
+      const paragraph = document.createElement('p');
+      const identity = getEarningsIdentity(row);
+      const name = document.createElement(identity.url ? 'a' : 'strong');
+      name.textContent = `${row.ticker} · ${identity.name}`;
+      if (identity.url) name.href = identity.url;
+      paragraph.append(name, document.createTextNode(` — ${getEarningsTimingText(row)}`));
+      text.append(paragraph);
+      const details = document.createElement('details');
+      const summary = document.createElement('summary'); summary.textContent = `Källa och tidpunkt · ${row.ticker}`; details.append(summary);
+      const source = document.createElement('a'); source.href = row.sourceUrl; source.textContent = 'Bolagets rapportmeddelande / IR'; details.append(source);
+      if (row.verificationNote) { const p = document.createElement('p'); p.textContent = row.verificationNote; details.append(p); }
+      if (row.referenceTiming) { const p = document.createElement('p'); p.textContent = `Referensbild: ${row.referenceTiming === 'before-open' ? 'före öppning' : 'efter stängning'} (ej separat bekräftad publiceringstid).`; details.append(p); }
+      if (row.callAt) { const p = document.createElement('p'); p.textContent = `Bekräftat rapportsamtal: ${formatEarningsTimestamp(row.callAt)} svensk tid.`; details.append(p); }
+      text.append(details);
+    }
   }
 }
 

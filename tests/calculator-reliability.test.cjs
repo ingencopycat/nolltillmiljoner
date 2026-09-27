@@ -352,12 +352,22 @@ test('homepage earnings selects the date week, not insertion order, with no prio
   assert.doesNotMatch(a.nodes.get('ntmEarningsList').innerHTML,/ntm-earnings-more/);
 });
 
-test('latest published earnings image has matching structured records for every day',()=>{
+test('latest earnings publication has sourced review records or matching daily image transcription',()=>{
   const c=app().context;
   vm.runInContext(fs.readFileSync('data/weekly-events.js','utf8'),c);
   vm.runInContext(fs.readFileSync('week-pages.js','utf8').split('const archiveContainer')[0]+';window.imageWeeks=earningsWeekData;',c);
   const latest=Object.keys(c.imageWeeks).sort().at(-1),week=c.NTM_WEEKLY_EVENTS.earningsWeeks[latest];
   assert.ok(week && Array.isArray(week.reports),'Publish homepage earnings records with every new weekly image');
+  if(c.imageWeeks[latest].reviewed){
+    assert.equal(week.sourceImage,c.imageWeeks[latest].fallback);
+    assert.ok(week.reviewNote && week.reports.length,'Explain reference-image discrepancies');
+    assert.ok(week.reports.every(r=>r.scheduleVerifiedAt && /^https:\/\//.test(r.sourceUrl)));
+    const V=require('../scripts/check_weekly_events.cjs'),model=V.loadRepository();
+    const review=model.review.artifacts.find(a=>a.kind==='earnings'&&a.week===latest);
+    assert.deepEqual(review.records,V.recordsForReview('earnings',JSON.parse(JSON.stringify(week.reports))));
+    return;
+  }
+  assert.equal(c.imageWeeks[latest].schedule.length,5,'Legacy image transcription covers all weekdays');
   c.imageWeeks[latest].schedule.forEach((text,index)=>{
     const tickers=Array.from(text.matchAll(/(?<![\p{L}\p{N}])[A-Z][A-Z0-9.-]*(?![\p{L}\p{N}])/gu),m=>m[0].replace(/\.$/,''));
     const records=Array.from(week.reports.filter(r=>new Date(r.date+'T12:00:00Z').getUTCDay()===index+1),r=>r.ticker);

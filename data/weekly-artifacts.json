@@ -1013,6 +1013,233 @@
         }
       ],
       "reviewedAt": "2026-09-20"
+    },
+    {
+      "kind": "macro",
+      "week": "2026-W40",
+      "image": "./images/makro/week-40.png",
+      "sha256": "9ed0b10e3824b1c9467eff6f719ff1b65767e15adc8fc20ac413b7599b8bd1d0",
+      "reviewedAt": "2026-09-27",
+      "reviewNote": "Reference image reviewed against primary-source schedules; selected canonical records include documented corrections and omissions. See docs/weekly-publication-2026-W40.md.",
+      "distributionBlockedReason": "Reference image includes unconfirmed or excluded entries; distribute only a corrected artifact.",
+      "records": [
+        {
+          "id": "us-adp-employment-2026-09-30",
+          "date": "2026-09-30",
+          "time": "08:15"
+        },
+        {
+          "id": "us-advance-goods-trade-2026-09-30",
+          "date": "2026-09-30",
+          "time": "08:30"
+        },
+        {
+          "id": "us-advance-retail-inventories-2026-09-30",
+          "date": "2026-09-30",
+          "time": "08:30"
+        },
+        {
+          "id": "us-advance-wholesale-inventories-2026-09-30",
+          "date": "2026-09-30",
+          "time": "08:30"
+        },
+        {
+          "id": "us-avg-hourly-earnings-mm-2026-10-02",
+          "date": "2026-10-02",
+          "time": "08:30"
+        },
+        {
+          "id": "us-avg-hourly-earnings-yy-2026-10-02",
+          "date": "2026-10-02",
+          "time": "08:30"
+        },
+        {
+          "id": "us-construction-spending-2026-10-01",
+          "date": "2026-10-01",
+          "time": "10:00"
+        },
+        {
+          "id": "us-consumer-confidence-2026-09-29",
+          "date": "2026-09-29",
+          "time": "10:00"
+        },
+        {
+          "id": "us-consumer-spending-2026-09-30",
+          "date": "2026-09-30",
+          "time": "08:30"
+        },
+        {
+          "id": "us-core-pce-mm-2026-09-30",
+          "date": "2026-09-30",
+          "time": "08:30"
+        },
+        {
+          "id": "us-core-pce-yy-2026-09-30",
+          "date": "2026-09-30",
+          "time": "08:30"
+        },
+        {
+          "id": "us-factory-orders-2026-10-02",
+          "date": "2026-10-02",
+          "time": "10:00"
+        },
+        {
+          "id": "us-gdp-third-estimate-2026-09-30",
+          "date": "2026-09-30",
+          "time": "08:30"
+        },
+        {
+          "id": "us-ism-manufacturing-2026-10-01",
+          "date": "2026-10-01",
+          "time": "10:00"
+        },
+        {
+          "id": "us-jobless-claims-2026-10-01",
+          "date": "2026-10-01",
+          "time": "08:30"
+        },
+        {
+          "id": "us-jolts-job-openings-2026-09-29",
+          "date": "2026-09-29",
+          "time": "10:00"
+        },
+        {
+          "id": "us-nonfarm-payrolls-2026-10-02",
+          "date": "2026-10-02",
+          "time": "08:30"
+        },
+        {
+          "id": "us-pce-mm-2026-09-30",
+          "date": "2026-09-30",
+          "time": "08:30"
+        },
+        {
+          "id": "us-pce-yy-2026-09-30",
+          "date": "2026-09-30",
+          "time": "08:30"
+        },
+        {
+          "id": "us-personal-income-2026-09-30",
+          "date": "2026-09-30",
+          "time": "08:30"
+        },
+        {
+          "id": "us-unemployment-rate-2026-10-02",
+          "date": "2026-10-02",
+          "time": "08:30"
+        }
+      ]
+    },
+    {
+      "kind": "earnings",
+      "week": "2026-W40",
+      "image": "./images/rapporter/week-40.png",
+      "sha256": "f74db50265a811f9ee668e225a15b94acffb7f284fbce7e67db95329b4918af4",
+      "reviewedAt": "2026-09-27",
+      "reviewNote": "Reference image reviewed against primary-source schedules; selected canonical records include documented corrections and omissions. See docs/weekly-publication-2026-W40.md.",
+      "distributionBlockedReason": "Reference image includes unconfirmed or excluded entries; distribute only a corrected artifact.",
+      "records": [
+        {
+          "ticker": "ACN",
+          "date": "2026-10-01",
+          "timing": "unknown"
+        },
+        {
+          "ticker": "AIR",
+          "date": "2026-09-29",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "AYI",
+          "date": "2026-10-01",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "BSET",
+          "date": "2026-09-30",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "CAG",
+          "date": "2026-09-30",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "CCL",
+          "date": "2026-09-29",
+          "timing": "unknown"
+        },
+        {
+          "ticker": "CNXC",
+          "date": "2026-09-29",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "FDS",
+          "date": "2026-09-30",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "GNS",
+          "date": "2026-09-28",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "IVA",
+          "date": "2026-09-28",
+          "timing": "unknown"
+        },
+        {
+          "ticker": "JBL",
+          "date": "2026-09-30",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "JEF",
+          "date": "2026-09-28",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "KMX",
+          "date": "2026-09-29",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "MKC",
+          "date": "2026-10-01",
+          "timing": "unknown"
+        },
+        {
+          "ticker": "MTN",
+          "date": "2026-09-28",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "MU",
+          "date": "2026-09-30",
+          "timing": "unknown"
+        },
+        {
+          "ticker": "NKE",
+          "date": "2026-10-01",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "PRGS",
+          "date": "2026-09-30",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "SANG",
+          "date": "2026-09-28",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "UEC",
+          "date": "2026-09-29",
+          "timing": "before-open"
+        }
+      ]
     }
   ]
 }
