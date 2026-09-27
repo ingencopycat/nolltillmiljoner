@@ -42,7 +42,6 @@ function preview(model, kind, week) {
   const artifact = matches[0], records = model.data[kind + 'Weeks']?.[week]?.[kind === 'macro' ? 'events' : 'reports'];
   const reviews = model.review.artifacts.filter(a => a.kind === kind && a.week === week && a.image === artifact.image);
   if (!Array.isArray(records) || reviews.length !== 1 || model.review.version !== 1) fail('unreviewed_publication');
-  if (reviews[0].distributionBlockedReason) fail('reference_image_requires_corrected_distribution_artifact');
   const expected = `./images/${channels[kind]}/week-${Number(week.slice(6))}.png`;
   if (artifact.image !== expected) fail('invalid_artifact');
   let bytes;
@@ -55,6 +54,16 @@ function preview(model, kind, week) {
   const hash = require('node:crypto').createHash('sha256').update(bytes).digest('hex');
   if (reviews[0].sha256 !== hash || JSON.stringify(weekly.recordsForReview(kind, records)) !== JSON.stringify(reviews[0].records)
       || records.some(r => !/^\d{4}-\d{2}-\d{2}$/.test(r.date) || model.api.weekKey(r.date) !== week)) fail('review_mismatch');
+  if (reviews[0].distributionBlockedReason) {
+    // Owner-selected external references, separately reviewed for distribution.
+    // This does not change the canonical website review or authorize a live send.
+    let selection;
+    try { selection = JSON.parse(fs.readFileSync(path.join(model.root, 'docs/internal/week40-distribution.json'), 'utf8')); }
+    catch { fail('reference_image_requires_corrected_distribution_artifact'); }
+    const matches = selection.artifacts?.filter(a => a.kind === kind && a.week === week && a.image === artifact.image && a.sha256 === hash);
+    if (week !== '2026-W40' || selection.version !== 1 || selection.use !== 'owner-selected-original-reference-images'
+        || matches?.length !== 1) fail('reference_image_requires_corrected_distribution_artifact');
+  }
   return {channel: channels[kind], week, text: `${kind === 'macro' ? 'Makro' : 'Rapporter'} — Vecka ${Number(week.slice(6))}, ${week.slice(0, 4)}`,
     image: artifact.image, identity: `${kind}:${week}:${hash}`};
 }

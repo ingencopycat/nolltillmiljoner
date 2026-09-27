@@ -43,5 +43,5 @@ test('week 40 reports preserve verified sessions, unknowns, exact release versus
   assert.equal(rows.find(r=>r.ticker==='NKE').releaseAt,'2026-10-01T20:15:00Z');
   assert.ok(!rows.some(r=>r.ticker==='ATCH'||r.date==='2026-10-02'));
   assert.ok(rows.every(r=>/^https:\/\//.test(r.sourceUrl)));
-  for(const kind of ['macro','earnings'])assert.throws(()=>D.preview(m,kind,'2026-W40'),/reference_image_requires_corrected/);
+  for(const kind of ['macro','earnings'])assert.equal(D.preview(m,kind,'2026-W40').week,'2026-W40');
 });

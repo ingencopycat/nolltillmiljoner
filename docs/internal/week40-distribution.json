@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "use": "owner-selected-original-reference-images",
+  "reviewedAt": "2026-09-27",
+  "note": "Owner explicitly selected the unchanged supplied external calendar images for Discord. Differences from verified canonical website data are accepted for these references only. This selection supersedes the earlier image distribution block, not the website review. Live delivery still requires the existing workflow controls and owner environment approval.",
+  "artifacts": [
+    {
+      "kind": "earnings",
+      "week": "2026-W40",
+      "image": "./images/rapporter/week-40.png",
+      "sha256": "f74db50265a811f9ee668e225a15b94acffb7f284fbce7e67db95329b4918af4"
+    },
+    {
+      "kind": "macro",
+      "week": "2026-W40",
+      "image": "./images/makro/week-40.png",
+      "sha256": "9ed0b10e3824b1c9467eff6f719ff1b65767e15adc8fc20ac413b7599b8bd1d0"
+    }
+  ]
+}

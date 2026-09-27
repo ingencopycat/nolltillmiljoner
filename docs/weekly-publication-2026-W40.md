@@ -1,6 +1,10 @@
 # Week 40, 2026 — local publication review
 
 Reviewed 27 September 2026. Business dates: Monday 28 September–Friday 2 October.
+Subsequent owner decision: the original reference images are selected for Discord
+distribution. The distribution restrictions below describe the initial review and
+are superseded by [the separate distribution review](internal/week40-discord-distribution.md).
+The verified website data and this review's factual corrections remain unchanged.
 ISO week remains 28 September–4 October. Existing weekly schema, navigation,
 Stockholm resolver, responsive pages, source disclosures and archives are reused.
 No Research content or issuer registry changed. No commit, push, deployment or messages sent.
