@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "use": "owner-selected-original-reference-images",
+  "reviewedAt": "2026-10-05",
+  "note": "Owner explicitly selected the unchanged supplied Week 41 external reference images for Discord. Differences from verified canonical website data are accepted for these references only. Selection does not authorize a live send; preview, enable variable, protected environment, owner approval and duplicate ledger remain required.",
+  "artifacts": [
+    {
+      "kind": "macro",
+      "week": "2026-W41",
+      "image": "./images/makro/week-41.png",
+      "sha256": "040871f305df4fc27f1b19030457e95672dea6b931317bdbf228962336ab64de"
+    },
+    {
+      "kind": "earnings",
+      "week": "2026-W41",
+      "image": "./images/rapporter/week-41.png",
+      "sha256": "0c1eb9dc8dc52932654fb6dd8377c86923aac282b9d3091c4376fcf63a4ab969"
+    }
+  ]
+}

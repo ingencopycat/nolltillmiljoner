@@ -1,4 +1,351 @@
 const macroWeeks = {
+  "2026-W41": {
+    "weekNumber": 41,
+    "year": 2026,
+    "label": "Vecka 41",
+    "title": "Vecka 41, 2026",
+    "dateRange": "5–9 oktober 2026",
+    "sourceTimezone": "America/New_York",
+    "fallbackImage": "./images/makro/week-41.png",
+    "reviewNote": "Verifierat urval från originalbilden. S&P Services PMI och Musalems tal inväntar primärkälla och ingår inte. Logans programtid och Michigans föregående värde är korrigerade. Prognoserna är bildens manuella uppgifter, inte verifierad konsensus. ISM-utfallet är kontrollerat efter publiceringen den 5 oktober; framtida utfall är tomma.",
+    "events": [
+      {
+        "id": "us-ism-services-2026-10-05",
+        "date": "2026-10-05",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "ISM Services PMI",
+        "period": "Sep.",
+        "refYear": 2026,
+        "forecast": "55",
+        "previous": "55.4",
+        "actual": "54.9",
+        "priority": "high",
+        "source": "Institute for Supply Management",
+        "sourceUrl": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/services/september/",
+        "scheduleVerifiedAt": "2026-10-05",
+        "scheduleSourceUrl": "https://www.ismworld.org/supply-management-news-and-reports/reports/rob-report-calendar/",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "reported",
+            "status": "available",
+            "source": "Institute for Supply Management",
+            "sourceUrl": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/services/september/",
+            "fetchedAt": "2026-10-05T15:00:00Z",
+            "methodVersion": "ntm-primary-review/1"
+          },
+          "previous": {
+            "kind": "reported",
+            "status": "available",
+            "source": "Institute for Supply Management",
+            "sourceUrl": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/services/september/",
+            "fetchedAt": "2026-10-05T15:00:00Z",
+            "methodVersion": "ntm-primary-review/1"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-41.png",
+            "fetchedAt": "2026-10-05T15:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-trade-balance-2026-10-06",
+        "date": "2026-10-06",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "U.S. Trade Balance",
+        "period": "Aug.",
+        "refYear": 2026,
+        "forecast": "-102B",
+        "previous": "-88.6B",
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Bureau of Economic Analysis",
+        "sourceUrl": "https://www.bea.gov/news/schedule/full",
+        "scheduleVerifiedAt": "2026-10-05",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "reported",
+            "status": "available",
+            "source": "U.S. Bureau of Economic Analysis",
+            "sourceUrl": "https://www.bea.gov/news/2026/us-international-trade-goods-and-services-july-2026",
+            "fetchedAt": "2026-10-05T15:00:00Z",
+            "methodVersion": "ntm-primary-review/1"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-41.png",
+            "fetchedAt": "2026-10-05T15:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-fed-logan-global-perspectives-2026-10-06",
+        "date": "2026-10-06",
+        "time": "18:00",
+        "country": "USA",
+        "eventName": "Fed: Lorie Logan / Agustín Carstens – Global Perspectives",
+        "period": null,
+        "refYear": 2026,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "low",
+        "source": "Federal Reserve Bank of Dallas",
+        "sourceUrl": "https://www.dallasfed.org/research/perspectives/2026/26carstens",
+        "scheduleVerifiedAt": "2026-10-05",
+        "timezone": "America/Chicago",
+        "details": "Programstart 18:00 lokal tid i San Antonio (19:00 ET), den 7 oktober kl. 01:00 svensk tid. Referensbildens 18:00 ET motsvarar mottagningen, inte programstarten.",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "forecast": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-fomc-minutes-2026-10-07",
+        "date": "2026-10-07",
+        "time": "14:00",
+        "country": "USA",
+        "eventName": "FOMC meeting minutes",
+        "period": "15–16 sep. 2026",
+        "refYear": 2026,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "high",
+        "source": "Federal Reserve",
+        "sourceUrl": "https://www.federalreserve.gov/newsevents/2026-october.htm",
+        "scheduleVerifiedAt": "2026-10-05",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "forecast": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-consumer-credit-2026-10-07",
+        "date": "2026-10-07",
+        "time": "15:00",
+        "country": "USA",
+        "eventName": "Consumer Credit",
+        "period": "Aug.",
+        "refYear": 2026,
+        "forecast": "15B",
+        "previous": "18.1B",
+        "actual": null,
+        "priority": "low",
+        "source": "Federal Reserve",
+        "sourceUrl": "https://www.federalreserve.gov/newsevents/2026-october.htm",
+        "scheduleVerifiedAt": "2026-10-05",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "provider_derived",
+            "status": "available",
+            "source": "Federal Reserve",
+            "sourceUrl": "https://www.federalreserve.gov/releases/g19/current/default.htm",
+            "fetchedAt": "2026-10-05T15:00:00Z",
+            "methodVersion": "ntm-primary-review/1",
+            "note": "July minus June seasonally adjusted outstanding credit: 5,186.2 − 5,168.1 billion USD."
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-41.png",
+            "fetchedAt": "2026-10-05T15:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-jobless-claims-2026-10-08",
+        "date": "2026-10-08",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Weekly Jobless Claims",
+        "period": "3 okt.",
+        "refYear": 2026,
+        "forecast": "200K",
+        "previous": "197K",
+        "actual": null,
+        "priority": "medium",
+        "source": "U.S. Department of Labor",
+        "sourceUrl": "https://oui.doleta.gov/unemploy/claims_arch.asp",
+        "scheduleVerifiedAt": "2026-10-05",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "reported",
+            "status": "available",
+            "source": "U.S. Department of Labor",
+            "sourceUrl": "https://www.dol.gov/sites/dolgov/files/OPA/newsreleases/ui-claims/20261543.pdf",
+            "fetchedAt": "2026-10-05T15:00:00Z",
+            "methodVersion": "ntm-primary-review/1"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-41.png",
+            "fetchedAt": "2026-10-05T15:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-wholesale-trade-2026-10-08",
+        "date": "2026-10-08",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "Monthly Wholesale Trade – inventories (MoM)",
+        "period": "Aug.",
+        "refYear": 2026,
+        "forecast": null,
+        "previous": "1.3%",
+        "actual": null,
+        "priority": "low",
+        "source": "U.S. Census Bureau",
+        "sourceUrl": "https://www.census.gov/wholesale/release_schedule.html",
+        "scheduleVerifiedAt": "2026-10-05",
+        "details": "Samlat månadssläpp för grossisthandel. Visat mått är lager, månadsförändring; bildens 1,3 % avser juli. Försäljning och lager är inte samma mått.",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "reported",
+            "status": "available",
+            "source": "U.S. Census Bureau",
+            "sourceUrl": "https://www.census.gov/wholesale/current/index.html",
+            "fetchedAt": "2026-10-05T15:00:00Z",
+            "methodVersion": "ntm-primary-review/1"
+          },
+          "forecast": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-fed-schmid-economic-outlook-2026-10-09",
+        "date": "2026-10-09",
+        "time": "08:30",
+        "country": "USA",
+        "eventName": "Fed: Jeffrey Schmid – Kansas City Economic Outlook",
+        "period": null,
+        "refYear": 2026,
+        "forecast": null,
+        "previous": null,
+        "actual": null,
+        "priority": "low",
+        "source": "Federal Reserve Bank of Kansas City",
+        "sourceUrl": "https://www.kansascityfed.org/events/2026-kc-economic-outlook/",
+        "scheduleVerifiedAt": "2026-10-05",
+        "timezone": "America/Chicago",
+        "details": "Inledningsanförande kl. 08:30 i Kansas City (09:30 ET), kl. 15:30 svensk tid.",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "forecast": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          }
+        },
+        "provenanceVersion": 1
+      },
+      {
+        "id": "us-michigan-prelim-consumer-survey-2026-10-09",
+        "date": "2026-10-09",
+        "time": "10:00",
+        "country": "USA",
+        "eventName": "U. Michigan Preliminary Consumer Sentiment",
+        "period": "Oct.",
+        "refYear": 2026,
+        "forecast": "48",
+        "previous": "48.1",
+        "actual": null,
+        "priority": "high",
+        "source": "University of Michigan",
+        "sourceUrl": "https://www.sca.isr.umich.edu/",
+        "scheduleVerifiedAt": "2026-10-05",
+        "details": "Föregående värde är september månads slutliga 48,1. Referensbildens 47,8 ersätts med universitetets publicerade värde.",
+        "fieldProvenance": {
+          "actual": {
+            "kind": "unavailable",
+            "status": "unavailable"
+          },
+          "previous": {
+            "kind": "reported",
+            "status": "available",
+            "source": "University of Michigan",
+            "sourceUrl": "https://www.sca.isr.umich.edu/",
+            "fetchedAt": "2026-10-05T15:00:00Z",
+            "methodVersion": "ntm-primary-review/1"
+          },
+          "forecast": {
+            "kind": "manual",
+            "status": "available",
+            "source": "Owner-supplied weekly image transcription",
+            "sourceUrl": "./images/makro/week-41.png",
+            "fetchedAt": "2026-10-05T15:00:00Z",
+            "methodVersion": "ntm-weekly-image/1"
+          }
+        },
+        "provenanceVersion": 1
+      }
+    ]
+  },
   "2026-W37": {
     "weekNumber": 37,
     "year": 2026,
@@ -14197,6 +14544,248 @@ const macroWeeks = {
 };
 
 const earningsWeeks = {
+  "2026-W41": {
+    "weekNumber": 41,
+    "year": 2026,
+    "label": "Vecka 41",
+    "dateRange": "5–9 oktober 2026",
+    "sourceImage": "./images/rapporter/week-41.png",
+    "reviewed": true,
+    "reviewNote": "Datum kontrollerade mot bolagens källor den 5 oktober. Före/efter avser USA-börsen; klockslag visas i svensk tid. Rapportsamtal är inte publiceringstid. Originalbilden är referensmaterial: publiceringssessionen för PENG, LEVI och DAL är inte separat bekräftad.",
+    "reports": [
+      {
+        "date": "2026-10-06",
+        "ticker": "APOG",
+        "companyName": "Apogee Enterprises",
+        "timing": "before-open",
+        "priority": "medium",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://ir.apog.com/news-releases/news-release-details/apogee-enterprises-announces-date-fiscal-2027-second-quarter",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-06T13:00:00Z"
+      },
+      {
+        "date": "2026-10-06",
+        "ticker": "RPM",
+        "companyName": "RPM International",
+        "timing": "before-open",
+        "priority": "medium",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://www.businesswire.com/news/home/20260904046160/en/",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-06T14:00:00Z"
+      },
+      {
+        "date": "2026-10-06",
+        "ticker": "LW",
+        "companyName": "Lamb Weston",
+        "timing": "before-open",
+        "priority": "medium",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://investors.lambweston.com/news-releases/news-release-details/lamb-weston-announce-fiscal-year-2027-first-quarter-financial",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-06T13:00:00Z",
+        "releaseAt": "2026-10-06T12:00:00Z",
+        "releaseTimeApproximate": true
+      },
+      {
+        "date": "2026-10-06",
+        "ticker": "PENG",
+        "companyName": "Penguin Solutions",
+        "timing": "unknown",
+        "priority": "high",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://ir.penguinsolutions.com/news/news-details/2026/Penguin-Solutions-Sets-Conference-Call-for-Fourth-Quarter-and-Fiscal-2026-Results/default.aspx",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-06T20:30:00Z",
+        "referenceTiming": "after-close",
+        "verificationNote": "Datum och rapportsamtal 16:30 ET bekräftade. Resultatet publiceras före samtalet; detta bekräftar inte separat bildens efter stängning."
+      },
+      {
+        "date": "2026-10-06",
+        "ticker": "STZ",
+        "companyName": "Constellation Brands",
+        "timing": "after-close",
+        "priority": "high",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://www.cbrands.com/blogs/press-releases/constellation-brands-to-report-second-quarter-fiscal-2027-financial-results-on-october-6-2026-after-market-close-and-host-conference-call-on-october-7-2026-at-8-00-am-et-1",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-07T12:00:00Z"
+      },
+      {
+        "date": "2026-10-06",
+        "ticker": "WS",
+        "companyName": "Worthington Steel",
+        "timing": "after-close",
+        "priority": "medium",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://worthingtonsteel.sitefinity.cloud/company/news-events/worthington-steel-to-webcast-discussion-of-first-quarter-2027-results-on-october-7",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-07T12:30:00Z"
+      },
+      {
+        "date": "2026-10-06",
+        "ticker": "NEOG",
+        "companyName": "Neogen",
+        "timing": "after-close",
+        "priority": "medium",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://investors.neogen.com/news/news-details/2026/Neogen-Announces-First-Quarter-Earnings-Release-Date/default.aspx",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-06T20:30:00Z"
+      },
+      {
+        "date": "2026-10-06",
+        "ticker": "SAR",
+        "companyName": "Saratoga Investment",
+        "timing": "after-close",
+        "priority": "low",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://ir.saratogainvestmentcorp.com/news-releases/news-release-details/saratoga-investment-corp-report-fiscal-second-quarter-2027",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-07T14:00:00Z"
+      },
+      {
+        "date": "2026-10-07",
+        "ticker": "APLD",
+        "companyName": "Applied Digital",
+        "timing": "after-close",
+        "priority": "high",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://ir.applieddigital.com/news-events/press-releases/detail/160/applied-digital-sets-fiscal-first-quarter-2027-conference",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-07T21:00:00Z"
+      },
+      {
+        "date": "2026-10-07",
+        "ticker": "LEVI",
+        "companyName": "Levi Strauss & Co.",
+        "timing": "unknown",
+        "priority": "high",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://investors.levistrauss.com/news/financial-news/news-details/2026/Levi-Strauss--Co--to-Webcast-Third-Quarter-2026-Earnings-Conference-Call/default.aspx",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-07T21:00:00Z",
+        "referenceTiming": "after-close",
+        "verificationNote": "Datum och rapportsamtal 17:00 ET bekräftade. Bildens efter stängning är inte separat bekräftat i källan."
+      },
+      {
+        "date": "2026-10-07",
+        "ticker": "RELL",
+        "companyName": "Richardson Electronics",
+        "timing": "after-close",
+        "priority": "low",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://www.rell.com/press-news/richardson-electronics-announces-date-of-first-quarter-fiscal-year-2027-conference-call/",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-08T14:00:00Z"
+      },
+      {
+        "date": "2026-10-07",
+        "ticker": "RGP",
+        "companyName": "Resources Connection",
+        "timing": "after-close",
+        "priority": "low",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://rgp.com/press/resources-connection-to-announce-first-quarter-fiscal-2027-results-on-october-7-2026/",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-07T21:00:00Z"
+      },
+      {
+        "date": "2026-10-08",
+        "ticker": "PEP",
+        "companyName": "PepsiCo",
+        "timing": "before-open",
+        "priority": "high",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://www.pepsico.com/en/newsroom/press-releases/2026/pepsico-announces-timing-and-availability-of-third-quarter-2026-financial-results",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-08T12:15:00Z",
+        "releaseAt": "2026-10-08T10:00:00Z",
+        "releaseTimeApproximate": true
+      },
+      {
+        "date": "2026-10-08",
+        "ticker": "TLRY",
+        "companyName": "Tilray Brands",
+        "timing": "before-open",
+        "priority": "high",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://ir.tilray.com/news-releases/news-release-details/tilray-brands-announce-first-quarter-fiscal-year-2027-financial",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-08T12:30:00Z"
+      },
+      {
+        "date": "2026-10-08",
+        "ticker": "BYRN",
+        "companyName": "Byrna Technologies",
+        "timing": "before-open",
+        "priority": "medium",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://ir.byrna.com/news-events/press-releases/detail/258/byrna-technologies-to-report-fiscal-third-quarter-2026",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-08T13:00:00Z",
+        "verificationNote": "Resultatet ska publiceras före rapportsamtalet 09:00 ET, alltså före ordinarie börsöppning. 09:00 är samtalstid, inte exakt publiceringstid."
+      },
+      {
+        "date": "2026-10-08",
+        "ticker": "NG",
+        "companyName": "NOVAGOLD Resources",
+        "timing": "before-open",
+        "priority": "medium",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://novagold.com/save-the-date-novagold-2026-third-quarter-report-conference-call-and-video-webcast/",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-08T15:00:00Z"
+      },
+      {
+        "date": "2026-10-08",
+        "ticker": "HELE",
+        "companyName": "Helen of Troy",
+        "timing": "before-open",
+        "priority": "medium",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://investor.helenoftroy.com/press-releases/press-release-details/2026/Helen-of-Troy-Limited-Announces-Earnings-Release-Date-Conference-Call-and-Webcast-for-Second-Quarter-Fiscal-Year-2027-Results/default.aspx",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-08T13:00:00Z"
+      },
+      {
+        "date": "2026-10-08",
+        "ticker": "ANGO",
+        "companyName": "AngioDynamics",
+        "timing": "before-open",
+        "priority": "low",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://investors.angiodynamics.com/news-releases/news-release-details/angiodynamics-report-fiscal-2027-first-quarter-results-october-8",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-08T12:00:00Z"
+      },
+      {
+        "date": "2026-10-09",
+        "ticker": "DAL",
+        "companyName": "Delta Air Lines",
+        "timing": "unknown",
+        "priority": "high",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://ir.delta.com/news/news-details/2026/Delta-Air-Lines-Announces-Webcast-of-September-Quarter-2026-Financial-Results/default.aspx",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-09T14:00:00Z",
+        "referenceTiming": "before-open",
+        "verificationNote": "Rapportsamtal 10:00 ET bekräftat. Bildens före öppning är inte separat bekräftat i källan."
+      },
+      {
+        "date": "2026-10-09",
+        "ticker": "HOVR",
+        "companyName": "New Horizon Aircraft",
+        "timing": "before-open",
+        "priority": "low",
+        "source": "Issuer Investor Relations",
+        "sourceUrl": "https://www.accessnewswire.com/newsroom/en/industrial-and-manufacturing/horizon-aircraft-to-report-first-quarter-2027-results-and-provide-a-bu-1225530",
+        "scheduleVerifiedAt": "2026-10-05",
+        "callAt": "2026-10-09T12:30:00Z"
+      }
+    ]
+  },
   "2026-W40": {
     "weekNumber": 40,
     "year": 2026,

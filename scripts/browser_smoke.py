@@ -2105,7 +2105,8 @@ class BrowserSmoke(unittest.TestCase):
         p.screenshot(path=str(folder/'fx-depth.png'))
         for width in [390,1440]:
             p.set_viewport_size({'width':width,'height':900})
-            self.go('rapporter.html')
+            # This assertion covers the historical image transcription, not today's reviewed week.
+            self.go('rapporter.html?ntmDate=2026-09-21')
             img=p.locator('#weekVisual img');img.scroll_into_view_if_needed()
             self.wait_for('document.querySelector("#weekVisual img")?.naturalWidth > 0')
             self.assertIn('.webp', img.evaluate('el=>el.currentSrc'))

@@ -1,5 +1,6 @@
 """Structural weekly-template contract, independent of text and exact pixel values."""
 from pathlib import Path
+import os
 import unittest
 from playwright.sync_api import expect
 from browser_smoke import BrowserSmoke
@@ -7,15 +8,15 @@ from browser_smoke import BrowserSmoke
 class WeeklyTemplateBrowser(BrowserSmoke):
     def test_template(self):
         p = self.page
-        folder = Path(__file__).resolve().parents[1] / 'docs/qa/weekly-template'
+        folder = Path(__file__).resolve().parents[1] / os.getenv('NTM_WEEKLY_QA_DIR', 'docs/qa/weekly-template')
         folder.mkdir(parents=True, exist_ok=True)
         p.add_init_script("document.addEventListener('securitypolicyviolation',e=>(window.__templateCsp ||= []).push(e.violatedDirective))")
         baseline = None
         for width in [1440, 768, 430, 390, 360]:
             p.set_viewport_size({'width': width, 'height': 1000})
-            for date in ['2026-09-27', '2026-09-28', '2026-10-05']:
+            for date in ['2026-09-27', '2026-09-28', '2026-10-04', '2026-10-05', '2026-10-12']:
                 self.go('rapporter.html?ntmDate=' + date)
-                for week in ['2026-W38', '2026-W39', '2026-W40']:
+                for week in ['2026-W38', '2026-W39', '2026-W40', '2026-W41']:
                     p.locator(f'#weekArchive [data-week="{week}"]').click()
                     expect(p.locator('#earnings-week-layout > #weekVisual')).to_have_count(1)
                     expect(p.locator('#earnings-week-layout > #earnings-readable')).to_have_count(1)
@@ -42,24 +43,27 @@ class WeeklyTemplateBrowser(BrowserSmoke):
                     self.assertGreaterEqual(c['y'], max(a['y']+a['height'], b['y']+b['height']) - 1)
                     self.assertLessEqual(p.evaluate('document.documentElement.scrollWidth'), width)
                     expect(p.locator('#weekArchive .active')).to_have_attribute('data-week', week)
-                    status = 'Aktuell' if (date == '2026-09-27' and week == '2026-W39') or (date == '2026-09-28' and week == '2026-W40') else 'Kommande' if date == '2026-09-27' and week == '2026-W40' else 'Arkiv'
+                    current = p.evaluate('date => NTMWeekly.weekKey(date)', date)
+                    status = 'Aktuell' if week == current else 'Kommande' if week > current else 'Arkiv'
                     expect(p.locator('#weekArchive .active .archive-item-status')).to_have_text(status)
-                    if date == '2026-09-28':
+                    if date == '2026-10-05':
                         image.scroll_into_view_if_needed()
                         p.locator('#weekVisual img').evaluate('(i)=>i.decode()')
                         for theme in ['light', 'dark']:
                             p.evaluate('applyTheme', theme)
+                            p.evaluate('window.scrollTo({top:0,behavior:"instant"})')
                             p.evaluate('document.activeElement.blur()')
                             p.screenshot(path=str(folder/f'{week}-{width}-{theme}.png'), full_page=True, animations='disabled')
                     self.assertEqual(p.evaluate('window.__templateCsp || []'), [])
         # Week content changes while the shell stays identical. Sources are secondary.
+        p.locator('#weekArchive [data-week="2026-W40"]').click()
         expect(p.locator('.earnings-days')).to_contain_text('GNS')
         expect(p.locator('.earnings-days')).not_to_contain_text('ATCH')
         expect(p.locator('#earnings-provenance')).not_to_have_attribute('open', '')
         p.locator('#earnings-readable a[href="research.html?ticker=MU"]').click()
         expect(p.locator('#companyName')).to_contain_text('MICRON')
         # Macro shares one event renderer; status/week must not move its regions.
-        for date, week in [('2026-09-27','2026-W40'), ('2026-09-28','2026-W39'), ('2026-09-28','2026-W38')]:
+        for date, week in [('2026-09-27','2026-W40'), ('2026-09-28','2026-W39'), ('2026-09-28','2026-W38'), ('2026-10-04','2026-W41'), ('2026-10-05','2026-W41'), ('2026-10-12','2026-W41')]:
             self.go('makro.html?ntmDate=' + date)
             p.locator(f'button[data-week="{week}"]').click()
             expect(p.locator('#macroStructuredContent > .macro-week-header')).to_have_count(1)
@@ -68,7 +72,7 @@ class WeeklyTemplateBrowser(BrowserSmoke):
             expect(p.locator('#weekVisual')).to_be_hidden()
             expect(p.locator(f'button.active[data-week="{week}"]')).to_have_count(1)
         self.assertEqual(self.errors, [])
-        print('PASS: shared earnings regions across 3 weeks, 3 dates, 5 widths; Macro structure, Research and CSP', flush=True)
+        print('PASS: shared earnings regions across 4 weeks, 5 dates, 5 widths, both themes; Macro structure, Research and CSP', flush=True)
 
 if __name__ == '__main__':
     result = unittest.TextTestRunner(verbosity=2).run(unittest.TestSuite([WeeklyTemplateBrowser('test_template')]))

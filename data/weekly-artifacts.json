@@ -1240,6 +1240,173 @@
           "timing": "before-open"
         }
       ]
+    },
+    {
+      "kind": "macro",
+      "week": "2026-W41",
+      "image": "./images/makro/week-41.png",
+      "sha256": "040871f305df4fc27f1b19030457e95672dea6b931317bdbf228962336ab64de",
+      "reviewedAt": "2026-10-05",
+      "reviewNote": "Original external reference image; canonical dates, sessions and values independently reviewed. See docs/weekly-publication-2026-W41.md.",
+      "distributionBlockedReason": "Reference image requires a separate owner-selected-original-reference-images distribution review.",
+      "records": [
+        {
+          "id": "us-consumer-credit-2026-10-07",
+          "date": "2026-10-07",
+          "time": "15:00"
+        },
+        {
+          "id": "us-fed-logan-global-perspectives-2026-10-06",
+          "date": "2026-10-06",
+          "time": "18:00"
+        },
+        {
+          "id": "us-fed-schmid-economic-outlook-2026-10-09",
+          "date": "2026-10-09",
+          "time": "08:30"
+        },
+        {
+          "id": "us-fomc-minutes-2026-10-07",
+          "date": "2026-10-07",
+          "time": "14:00"
+        },
+        {
+          "id": "us-ism-services-2026-10-05",
+          "date": "2026-10-05",
+          "time": "10:00"
+        },
+        {
+          "id": "us-jobless-claims-2026-10-08",
+          "date": "2026-10-08",
+          "time": "08:30"
+        },
+        {
+          "id": "us-michigan-prelim-consumer-survey-2026-10-09",
+          "date": "2026-10-09",
+          "time": "10:00"
+        },
+        {
+          "id": "us-trade-balance-2026-10-06",
+          "date": "2026-10-06",
+          "time": "08:30"
+        },
+        {
+          "id": "us-wholesale-trade-2026-10-08",
+          "date": "2026-10-08",
+          "time": "10:00"
+        }
+      ]
+    },
+    {
+      "kind": "earnings",
+      "week": "2026-W41",
+      "image": "./images/rapporter/week-41.png",
+      "sha256": "0c1eb9dc8dc52932654fb6dd8377c86923aac282b9d3091c4376fcf63a4ab969",
+      "reviewedAt": "2026-10-05",
+      "reviewNote": "Original external reference image; canonical dates, sessions and values independently reviewed. See docs/weekly-publication-2026-W41.md.",
+      "distributionBlockedReason": "Reference image requires a separate owner-selected-original-reference-images distribution review.",
+      "records": [
+        {
+          "ticker": "ANGO",
+          "date": "2026-10-08",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "APLD",
+          "date": "2026-10-07",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "APOG",
+          "date": "2026-10-06",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "BYRN",
+          "date": "2026-10-08",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "DAL",
+          "date": "2026-10-09",
+          "timing": "unknown"
+        },
+        {
+          "ticker": "HELE",
+          "date": "2026-10-08",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "HOVR",
+          "date": "2026-10-09",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "LEVI",
+          "date": "2026-10-07",
+          "timing": "unknown"
+        },
+        {
+          "ticker": "LW",
+          "date": "2026-10-06",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "NEOG",
+          "date": "2026-10-06",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "NG",
+          "date": "2026-10-08",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "PENG",
+          "date": "2026-10-06",
+          "timing": "unknown"
+        },
+        {
+          "ticker": "PEP",
+          "date": "2026-10-08",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "RELL",
+          "date": "2026-10-07",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "RGP",
+          "date": "2026-10-07",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "RPM",
+          "date": "2026-10-06",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "SAR",
+          "date": "2026-10-06",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "STZ",
+          "date": "2026-10-06",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "TLRY",
+          "date": "2026-10-08",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "WS",
+          "date": "2026-10-06",
+          "timing": "after-close"
+        }
+      ]
     }
   ]
 }

@@ -756,7 +756,7 @@
       "contractRequired": "Needs verification",
       "id": "owner-weekly-image",
       "provider": "Owner-supplied weekly image transcription",
-      "dataset": "Week 39 macro image and manually transcribed schedule/values",
+      "dataset": "Owner-supplied macro images and manually transcribed schedule/forecast values",
       "currentUse": "Owner-supplied website publication input; Discord preview only, live delivery disabled.",
       "classification": "manual; underlying publisher not identified on supplied crop",
       "owner": "NTM founder (assignment pending)",
@@ -766,7 +766,8 @@
       "repositoryEvidence": [
         "images/makro/week-39.png",
         "data/weekly-artifacts.json",
-        "data/weekly-events.js"
+        "data/weekly-events.js",
+        "images/makro/week-41.png"
       ],
       "termsEvidence": []
     },
@@ -785,7 +786,7 @@
       "id": "issuer-ir-schedules",
       "provider": "Issuer Investor Relations",
       "dataset": "Issuer earnings release dates, session labels and separately identified call times",
-      "currentUse": "Week 40 factual schedule records with source links; no full release republication.",
+      "currentUse": "Weeks 40 and 41 factual schedule records with source links; no full release republication.",
       "classification": "Primary issuer announcements; schedule facts and attribution links",
       "owner": "NTM founder (assignment pending)",
       "reviewDate": null,
@@ -793,7 +794,62 @@
       "notesRisk": "Schedule verification is not a license determination; no fresh rights approval is recorded.",
       "repositoryEvidence": [
         "data/weekly-events.js",
-        "docs/weekly-publication-2026-W40.md"
+        "docs/weekly-publication-2026-W40.md",
+        "docs/weekly-publication-2026-W41.md"
+      ],
+      "termsEvidence": []
+    },
+    {
+      "id": "federal-reserve-bank-of-dallas",
+      "provider": "Federal Reserve Bank of Dallas",
+      "dataset": "Published event agendas and speaker schedules",
+      "currentUse": "Week 41 factual speaker schedules with links to the responsible Reserve Bank.",
+      "classification": "official",
+      "publicDisplay": "Needs verification",
+      "caching": "Needs verification",
+      "redistribution": "Needs verification",
+      "derivedData": "Needs verification",
+      "aiUse": "Needs verification",
+      "attribution": "Needs verification",
+      "geographicMarketRestrictions": "Needs verification",
+      "rateLimits": "Needs verification",
+      "pricingModel": "Needs verification",
+      "commercialUseStatus": "Needs verification",
+      "contractRequired": "Needs verification",
+      "owner": "NTM founder (assignment pending)",
+      "reviewDate": null,
+      "nextReview": null,
+      "notesRisk": "Schedule verification is not a license determination; no fresh rights approval is recorded.",
+      "repositoryEvidence": [
+        "data/weekly-events.js",
+        "docs/weekly-publication-2026-W41.md"
+      ],
+      "termsEvidence": []
+    },
+    {
+      "id": "federal-reserve-bank-of-kansas-city",
+      "provider": "Federal Reserve Bank of Kansas City",
+      "dataset": "Published event agendas and speaker schedules",
+      "currentUse": "Week 41 factual speaker schedules with links to the responsible Reserve Bank.",
+      "classification": "official",
+      "publicDisplay": "Needs verification",
+      "caching": "Needs verification",
+      "redistribution": "Needs verification",
+      "derivedData": "Needs verification",
+      "aiUse": "Needs verification",
+      "attribution": "Needs verification",
+      "geographicMarketRestrictions": "Needs verification",
+      "rateLimits": "Needs verification",
+      "pricingModel": "Needs verification",
+      "commercialUseStatus": "Needs verification",
+      "contractRequired": "Needs verification",
+      "owner": "NTM founder (assignment pending)",
+      "reviewDate": null,
+      "nextReview": null,
+      "notesRisk": "Schedule verification is not a license determination; no fresh rights approval is recorded.",
+      "repositoryEvidence": [
+        "data/weekly-events.js",
+        "docs/weekly-publication-2026-W41.md"
       ],
       "termsEvidence": []
     }

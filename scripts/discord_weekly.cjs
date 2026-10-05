@@ -58,10 +58,10 @@ function preview(model, kind, week) {
     // Owner-selected external references, separately reviewed for distribution.
     // This does not change the canonical website review or authorize a live send.
     let selection;
-    try { selection = JSON.parse(fs.readFileSync(path.join(model.root, 'docs/internal/week40-distribution.json'), 'utf8')); }
+    try { selection = JSON.parse(fs.readFileSync(path.join(model.root, `docs/internal/week${Number(week.slice(6))}-distribution.json`), 'utf8')); }
     catch { fail('reference_image_requires_corrected_distribution_artifact'); }
     const matches = selection.artifacts?.filter(a => a.kind === kind && a.week === week && a.image === artifact.image && a.sha256 === hash);
-    if (week !== '2026-W40' || selection.version !== 1 || selection.use !== 'owner-selected-original-reference-images'
+    if (selection.version !== 1 || selection.use !== 'owner-selected-original-reference-images'
         || matches?.length !== 1) fail('reference_image_requires_corrected_distribution_artifact');
   }
   return {channel: channels[kind], week, text: `${kind === 'macro' ? 'Makro' : 'Rapporter'} — Vecka ${Number(week.slice(6))}, ${week.slice(0, 4)}`,

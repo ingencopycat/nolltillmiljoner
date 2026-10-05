@@ -20,8 +20,8 @@ test('weekly content adapter accepts archived transcriptions and new verified we
   assert.ok(verified.days.flat().some(p => p.url === 'research.html?ticker=MU'));
   assert.equal(verified.reports.length, 20);
   // A future week needs data only, not a new renderer or a week-number condition.
-  m.data.earningsWeeks['2026-W41'] = {dateRange: 'new range', reports: []};
-  const future = c.getEarningsWeekContent('2026-W41', {reviewed: true});
+  m.data.earningsWeeks['2026-W42'] = {dateRange: 'new range', reports: []};
+  const future = c.getEarningsWeekContent('2026-W42', {reviewed: true});
   assert.equal(future.days.length, 5); assert.match(future.heading, /new range/);
   assert.deepEqual(Object.keys(future), Object.keys(verified));
 });

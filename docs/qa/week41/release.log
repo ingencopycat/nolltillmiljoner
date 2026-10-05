@@ -1,0 +1,754 @@
+RUN C:\Users\Mirne\AppData\Local\Programs\Python\Python314\python.exe -B scripts/issuer_registry.py --check
+PASS: canonical issuer registry, browser projection, profiles, published enrollment, checkpoints and workflow paths
+RUN C:\Users\Mirne\AppData\Local\Programs\Python\Python314\python.exe -B scripts/evidence_sources.py
+PASS: published evidence has bounded, hashed, reproducible offline sources and index metadata
+RUN C:\Users\Mirne\AppData\Local\Programs\Python\Python314\python.exe -B -m unittest discover -s tests -p test_*.py
+.......................................................s...................................................................................................................................................................................................................................................................................✔ week 39 earnings agrees with all image columns, reviewed hash and current/future resolution (72.0335ms)
+✔ week 39 macro image transcription preserves dates, ET timing and manual field provenance (7.8906ms)
+✔ homepage macro priority keeps major releases visible and counts every hidden event exactly (9.253ms)
+✔ published weekly artifacts and homepage resolve; honest partial/future statuses stay visible (29.7141ms)
+✔ shared Stockholm week resolution handles Monday/Sunday/year rollover and never substitutes another week (8.4874ms)
+✔ missing current weeks and image/structured mismatches fail for both feeds (172.9129ms)
+✔ malformed dates, wrong weeks, duplicate identities and false provenance are rejected (126.86ms)
+✔ partial upstream failure may not claim successful complete fetch (75.4346ms)
+✔ future authoritative unavailability has a dated explicit exception; current missing week does not (27.1217ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 617.9809
+.
+----------------------------------------------------------------------
+Ran 332 tests in 303.065s
+
+OK (skipped=1)
+Company evidence synthetic 10 + 100 issuers: 0.022s; metadata only, no network
+[Calendar Info] Live ICS fetch not accessible (offline). Using verified schedule cache.
+[Calendar] Loaded 1 events from verified cache C:\Users\Mirne\AppData\Local\Temp\tmpz8yzmz79\calendar.ics.
+[*] Processing stock fundamentals for NVDA...
+    [Offline mode] Loading SEC fixtures from C:\Users\Mirne\Desktop\investment-site\tests\fixtures
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[*] Processing stock fundamentals for NVDA...
+    [Offline mode] Loading SEC fixtures from C:\Users\Mirne\Desktop\investment-site\tests\fixtures
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[*] Processing stock fundamentals for NVDA...
+    [Offline mode] Loading SEC fixtures from C:\Users\Mirne\Desktop\investment-site\tests\fixtures
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[*] Processing stock fundamentals for NVDA...
+    [Offline mode] Loading SEC fixtures from C:\Users\Mirne\Desktop\investment-site\tests\fixtures
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[*] Processing stock fundamentals for NVDA...
+    [Offline mode] Loading SEC fixtures from C:\Users\Mirne\Desktop\investment-site\tests\fixtures
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[*] Processing stock fundamentals for NVDA...
+    [Offline mode] Loading SEC fixtures from C:\Users\Mirne\Desktop\investment-site\tests\fixtures
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[*] Processing stock fundamentals for NVDA...
+    [Offline mode] Loading SEC fixtures from C:\Users\Mirne\Desktop\investment-site\tests\fixtures
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[*] Processing stock fundamentals for NVDA...
+    [Offline mode] Loading SEC fixtures from C:\Users\Mirne\Desktop\investment-site\tests\fixtures
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[*] Processing stock fundamentals for NVDA...
+    Resolving CIK for NVDA via SEC company_tickers.json...
+    Verified CIK: 0001045810
+    Fetching SEC submissions metadata for CIK 0001045810...
+[*] Processing stock fundamentals for NVDA...
+    Resolving CIK for NVDA via SEC company_tickers.json...
+    Verified CIK: 0001045810
+    Fetching SEC submissions metadata for CIK 0001045810...
+    Fetching SEC XBRL company facts for CIK 0001045810...
+[*] Processing stock fundamentals for NVDA...
+    Resolving CIK for NVDA via SEC company_tickers.json...
+    Verified CIK: 0001045810
+    Fetching SEC submissions metadata for CIK 0001045810...
+    Fetching SEC XBRL company facts for CIK 0001045810...
+[*] Processing stock fundamentals for NVDA...
+    Resolving CIK for NVDA via SEC company_tickers.json...
+    Verified CIK: 0001045810
+    Fetching SEC submissions metadata for CIK 0001045810...
+    Fetching SEC XBRL company facts for CIK 0001045810...
+[2026-10-05T15:18:06Z] Starting robust macro data update...
+[Dynamic Scope] Fetching data for derived years: 2024..2026
+[BLS Query] Requesting 13 series in 1 batch request...
+[BLS Success] Received 1 series (1 with data points).
+[Actual Verified] us-unemployment-rate-test (Aug 2026): 4.0%
+[Result] Total events verified/updated: 1
+[2026-10-05T15:18:06Z] Successfully wrote C:\Users\Mirne\AppData\Local\Temp\tmpc59tx1sh\events.js (atomic replace).
+[*] Processing stock fundamentals for NVDA...
+    [Offline mode] Loading SEC fixtures from C:\Users\Mirne\Desktop\investment-site\tests\fixtures
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[OK] Successfully generated verified fundamentals: C:\Users\Mirne\AppData\Local\Temp\tmpugtq0fe0\NVDA.json
+[*] Processing stock fundamentals for SOFI...
+    [Offline mode] Loading SEC fixtures from C:\Users\Mirne\Desktop\investment-site\tests\fixtures
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[OK] Successfully generated verified fundamentals: C:\Users\Mirne\AppData\Local\Temp\tmpa_m2qtxs\SOFI.json
+[*] Processing stock fundamentals for CRWD...
+    [Offline mode] Loading SEC fixtures from C:\Users\Mirne\Desktop\investment-site\tests\fixtures
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[OK] Successfully generated verified fundamentals: C:\Users\Mirne\AppData\Local\Temp\tmppc815o0s\CRWD.json
+[*] Processing stock fundamentals for NVDA...
+    Resolving CIK for NVDA via SEC company_tickers.json...
+    Verified CIK: 0001045810
+    Fetching SEC submissions metadata for CIK 0001045810...
+    Fetching SEC XBRL company facts for CIK 0001045810...
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[OK] Successfully generated verified fundamentals: C:\Users\Mirne\AppData\Local\Temp\tmpbbj3if4t\NVDA.json
+[*] Processing stock fundamentals for NVDA...
+    Resolving CIK for NVDA via SEC company_tickers.json...
+    Verified CIK: 0001045810
+    Fetching SEC submissions metadata for CIK 0001045810...
+    Fetching SEC XBRL company facts for CIK 0001045810...
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[OK] Verified unchanged SEC evidence for NVDA; kept published file intact: C:\Users\Mirne\AppData\Local\Temp\tmpnla1nm2e\NVDA.json
+[*] Processing stock fundamentals for NVDA...
+    Resolving CIK for NVDA via SEC company_tickers.json...
+    Verified CIK: 0001045810
+    Fetching SEC submissions metadata for CIK 0001045810...
+    Fetching SEC XBRL company facts for CIK 0001045810...
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[OK] Successfully generated verified fundamentals: C:\Users\Mirne\AppData\Local\Temp\tmpnla1nm2e\NVDA.json
+[*] Processing stock fundamentals for MU...
+    Resolving CIK for MU via SEC company_tickers.json...
+    Verified CIK: 0000723125
+    Fetching SEC submissions metadata for CIK 0000723125...
+    Fetching SEC XBRL company facts for CIK 0000723125...
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[OK] Successfully generated verified fundamentals: C:\Users\Mirne\AppData\Local\Temp\tmp3txfyrn1\MU.json
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 15, "reviewRequired": 8, "rejectedFailed": 0, "productionDataChanged": true}
+{"issuersChecked": 1, "newFilings": 0, "acceptedObservationsEvents": 0, "reviewRequired": 8, "rejectedFailed": 0, "productionDataChanged": false}
+[*] Processing stock fundamentals for VRT...
+    Resolving CIK for VRT via SEC company_tickers.json...
+    Verified CIK: 0001674101
+    Fetching SEC submissions metadata for CIK 0001674101...
+    Fetching SEC XBRL company facts for CIK 0001674101...
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[OK] Successfully generated verified fundamentals: C:\Users\Mirne\AppData\Local\Temp\tmprld5bv3u\VRT.json
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 15, "reviewRequired": 5, "rejectedFailed": 0, "productionDataChanged": true}
+{"issuersChecked": 1, "newFilings": 0, "acceptedObservationsEvents": 0, "reviewRequired": 5, "rejectedFailed": 0, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 1, "reviewRequired": 7, "rejectedFailed": 0, "productionDataChanged": true}
+{"issuersChecked": 1, "newFilings": 0, "acceptedObservationsEvents": 0, "reviewRequired": 7, "rejectedFailed": 0, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 0, "reviewRequired": 8, "rejectedFailed": 0, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 1, "reviewRequired": 4, "rejectedFailed": 0, "productionDataChanged": true}
+{"issuersChecked": 1, "newFilings": 0, "acceptedObservationsEvents": 0, "reviewRequired": 4, "rejectedFailed": 0, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 0, "reviewRequired": 5, "rejectedFailed": 0, "productionDataChanged": false}
+[*] Processing stock fundamentals for NVDA...
+    Resolving CIK for NVDA via SEC company_tickers.json...
+    Verified CIK: 0001045810
+    Fetching SEC submissions metadata for CIK 0001045810...
+    Fetching SEC XBRL company facts for CIK 0001045810...
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[OK] Successfully generated verified fundamentals: C:\Users\Mirne\AppData\Local\Temp\tmpmhoga0f1\NVDA.json
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 17, "reviewRequired": 10, "rejectedFailed": 0, "productionDataChanged": true}
+{"issuersChecked": 2, "newFilings": 0, "acceptedObservationsEvents": 0, "reviewRequired": 11, "rejectedFailed": 0, "productionDataChanged": false}
+{"issuersChecked": 2, "newFilings": 0, "acceptedObservationsEvents": 0, "reviewRequired": 11, "rejectedFailed": 0, "productionDataChanged": false}
+{"issuersChecked": 2, "newFilings": 0, "acceptedObservationsEvents": 0, "reviewRequired": 0, "rejectedFailed": 2, "productionDataChanged": false}
+
+Completed 12/12 tickers successfully.
+[*] Processing stock fundamentals for MU...
+    Resolving CIK for MU via SEC company_tickers.json...
+    Verified CIK: 0000723125
+    Fetching SEC submissions metadata for CIK 0000723125...
+    Fetching SEC XBRL company facts for CIK 0000723125...
+[*] Processing stock fundamentals for MU...
+    Resolving CIK for MU via SEC company_tickers.json...
+    Verified CIK: 0000723125
+    Fetching SEC submissions metadata for CIK 0000723125...
+    Fetching SEC XBRL company facts for CIK 0000723125...
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[*] Processing stock fundamentals for MRVL...
+    Resolving CIK for MRVL via SEC company_tickers.json...
+    Verified CIK: 0001835632
+    Fetching SEC submissions metadata for CIK 0001835632...
+    Fetching SEC XBRL company facts for CIK 0001835632...
+[*] Processing stock fundamentals for MRVL...
+    Resolving CIK for MRVL via SEC company_tickers.json...
+    Verified CIK: 0001835632
+    Fetching SEC submissions metadata for CIK 0001835632...
+    Fetching SEC XBRL company facts for CIK 0001835632...
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[*] Processing stock fundamentals for VRT...
+    Resolving CIK for VRT via SEC company_tickers.json...
+    Verified CIK: 0001674101
+    Fetching SEC submissions metadata for CIK 0001674101...
+    Fetching SEC XBRL company facts for CIK 0001674101...
+[*] Processing stock fundamentals for VRT...
+    Resolving CIK for VRT via SEC company_tickers.json...
+    Verified CIK: 0001674101
+    Fetching SEC submissions metadata for CIK 0001674101...
+    Fetching SEC XBRL company facts for CIK 0001674101...
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[*] Processing stock fundamentals for COHR...
+    Resolving CIK for COHR via SEC company_tickers.json...
+    Verified CIK: 0000820318
+    Fetching SEC submissions metadata for CIK 0000820318...
+    Fetching SEC XBRL company facts for CIK 0000820318...
+[*] Processing stock fundamentals for COHR...
+    Resolving CIK for COHR via SEC company_tickers.json...
+    Verified CIK: 0000820318
+    Fetching SEC submissions metadata for CIK 0000820318...
+    Fetching SEC XBRL company facts for CIK 0000820318...
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[*] Processing stock fundamentals for RKLB...
+    Resolving CIK for RKLB via SEC company_tickers.json...
+    Verified CIK: 0001819994
+    Fetching SEC submissions metadata for CIK 0001819994...
+    Fetching SEC XBRL company facts for CIK 0001819994...
+[*] Processing stock fundamentals for RKLB...
+    Resolving CIK for RKLB via SEC company_tickers.json...
+    Verified CIK: 0001819994
+    Fetching SEC submissions metadata for CIK 0001819994...
+    Fetching SEC XBRL company facts for CIK 0001819994...
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[*] Processing stock fundamentals for TTMI...
+    Resolving CIK for TTMI via SEC company_tickers.json...
+    Verified CIK: 0001116942
+    Fetching SEC submissions metadata for CIK 0001116942...
+    Fetching SEC XBRL company facts for CIK 0001116942...
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[*] Processing stock fundamentals for SNDK...
+    Resolving CIK for SNDK via SEC company_tickers.json...
+    Verified CIK: 0002023554
+    Fetching SEC submissions metadata for CIK 0002023554...
+    Fetching SEC XBRL company facts for CIK 0002023554...
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[*] Processing stock fundamentals for FLY...
+    Resolving CIK for FLY via SEC company_tickers.json...
+    Verified CIK: 0001860160
+    Fetching SEC submissions metadata for CIK 0001860160...
+    Fetching SEC XBRL company facts for CIK 0001860160...
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+[*] Processing stock fundamentals for CRWV...
+    Resolving CIK for CRWV via SEC company_tickers.json...
+    Verified CIK: 0001769628
+    Fetching SEC submissions metadata for CIK 0001769628...
+    Fetching SEC XBRL company facts for CIK 0001769628...
+    Normalizing company profile, annual & quarterly fundamentals, TTM, and filings...
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 4, "reviewRequired": 9, "rejectedFailed": 0, "productionDataChanged": true}
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 0, "reviewRequired": 10, "rejectedFailed": 0, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 1, "reviewRequired": 9, "rejectedFailed": 0, "productionDataChanged": true}
+{"issuersChecked": 1, "newFilings": 0, "acceptedObservationsEvents": 0, "reviewRequired": 0, "rejectedFailed": 1, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 2, "acceptedObservationsEvents": 0, "reviewRequired": 0, "rejectedFailed": 1, "productionDataChanged": false}
+{"issuersChecked": 5, "newFilings": 0, "acceptedObservationsEvents": 0, "reviewRequired": 36, "rejectedFailed": 0, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 0, "reviewRequired": 0, "rejectedFailed": 1, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 0, "acceptedObservationsEvents": 0, "reviewRequired": 0, "rejectedFailed": 1, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 2, "acceptedObservationsEvents": 2, "reviewRequired": 9, "rejectedFailed": 0, "productionDataChanged": true}
+{"issuersChecked": 1, "newFilings": 0, "acceptedObservationsEvents": 0, "reviewRequired": 0, "rejectedFailed": 1, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 1, "reviewRequired": 10, "rejectedFailed": 0, "productionDataChanged": true}
+{"issuersChecked": 1, "newFilings": 0, "acceptedObservationsEvents": 0, "reviewRequired": 9, "rejectedFailed": 0, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 1, "reviewRequired": 9, "rejectedFailed": 0, "productionDataChanged": true}
+{"issuersChecked": 1, "newFilings": 0, "acceptedObservationsEvents": 0, "reviewRequired": 9, "rejectedFailed": 0, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 0, "reviewRequired": 10, "rejectedFailed": 0, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 0, "reviewRequired": 10, "rejectedFailed": 0, "productionDataChanged": false}
+{"issuersChecked": 2, "newFilings": 1, "acceptedObservationsEvents": 1, "reviewRequired": 9, "rejectedFailed": 1, "productionDataChanged": true}
+{"issuersChecked": 1, "newFilings": 0, "acceptedObservationsEvents": 0, "reviewRequired": 0, "rejectedFailed": 1, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 0, "reviewRequired": 10, "rejectedFailed": 0, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 0, "reviewRequired": 10, "rejectedFailed": 0, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 0, "reviewRequired": 0, "rejectedFailed": 1, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 0, "reviewRequired": 10, "rejectedFailed": 0, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 0, "acceptedObservationsEvents": 0, "reviewRequired": 10, "rejectedFailed": 0, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 4, "reviewRequired": 9, "rejectedFailed": 0, "productionDataChanged": true}
+{"issuersChecked": 1, "newFilings": 0, "acceptedObservationsEvents": 0, "reviewRequired": 9, "rejectedFailed": 0, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 0, "reviewRequired": 0, "rejectedFailed": 1, "productionDataChanged": false}
+{"issuersChecked": 1, "newFilings": 1, "acceptedObservationsEvents": 0, "reviewRequired": 1, "rejectedFailed": 0, "productionDataChanged": false}
+{"issuersChecked": 3, "newFilings": 4, "acceptedObservationsEvents": 25, "reviewRequired": 25, "rejectedFailed": 0, "productionDataChanged": true}
+{"issuersChecked": 5, "newFilings": 5, "acceptedObservationsEvents": 5, "reviewRequired": 41, "rejectedFailed": 0, "productionDataChanged": true}
+[*] Processing stock fundamentals for CRWD...
+    Resolving CIK for CRWD via SEC company_tickers.json...
+[2026-10-05T15:22:56Z] Starting robust macro data update...
+[Dynamic Scope] Fetching data for derived years: 2024..2026
+[BLS Query] Requesting 13 series in 1 batch request...
+[BLS Warning] Empty or unserviceable API response: status=REQUEST_SUCCEEDED, non_empty=0
+[BEA Success] Received 2 matched T10101 rows.
+[Result] Total events verified/updated: 0
+[2026-10-05T15:22:56Z] Successfully wrote C:\Users\Mirne\AppData\Local\Temp\tmpr36c0qcx\weekly.js (atomic replace).
+RUN C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\driver\node.exe --test tests\academy-evidence.test.cjs tests\academy-v3.test.cjs tests\academy.test.cjs tests\behavioral.test.cjs tests\calculator-reliability.test.cjs tests\cloud-config.test.cjs tests\cloud-sync.test.cjs tests\company-capital.test.cjs tests\company-evidence.test.cjs tests\company-insiders.test.cjs tests\company-material-events.test.cjs tests\company-observations.test.cjs tests\company-ownership.test.cjs tests\company-segments.test.cjs tests\continuity.test.cjs tests\discord-education.test.cjs tests\discord-news.test.cjs tests\discord-week40.test.cjs tests\discord-week41.test.cjs tests\discord-weekly.test.cjs tests\education-article.test.cjs tests\evidence-presentation.test.cjs tests\issuer-completion.test.cjs tests\issuer-registry.test.cjs tests\knowledge-batch1a.test.cjs tests\knowledge-batch1b.test.cjs tests\knowledge-expansion.test.cjs tests\knowledge.test.cjs tests\knowledge100.test.cjs tests\lifecycle.test.cjs tests\local-data.test.cjs tests\macro-noop.test.cjs tests\news-article.test.cjs tests\product-trust.test.cjs tests\public-report.test.cjs tests\publication-migration.test.cjs tests\relations.test.cjs tests\release-quality.test.cjs tests\report-v2-postgres.test.cjs tests\research-ai.test.cjs tests\research-entry.test.cjs tests\research-expansion.test.cjs tests\research-overview.test.cjs tests\research-since.test.cjs tests\research-workflow.test.cjs tests\social-core.test.cjs tests\valuation-core.test.cjs tests\wave1.test.cjs tests\wave4.test.cjs tests\week40.test.cjs tests\week41.test.cjs tests\weekly-events.test.cjs tests\weekly-template.test.cjs
+✔ encounter, legacy lessons/XP and old attempts never establish independent understanding (55.4725ms)
+✔ first wrong/right, helped, revealed, and retry after feedback have conservative eligibility (63.7921ms)
+✔ independent new example plus separately labelled application plus seven-day distinct check (20.4139ms)
+✔ too-early check, changed anchor, help and repeated delayed variant cannot establish delayed understanding (66.3564ms)
+✔ later delayed failure keeps the earlier immutable success and recommends honest repetition (24.977ms)
+✔ clock regression/future records and abandoned starts cannot be independent (82.5528ms)
+✔ missing, changed task/content/rubric versions and forged independence fail closed without deleting history (118.3543ms)
+✔ parallel conflicting starts do not become novel evidence after merging (18.795ms)
+✔ old backup roundtrip and new evidence merge preserve activity; same-ID conflict rejects all writes (62.6425ms)
+✔ answer/prose cannot be persisted in evidence or transferred, expiry/units/destination are checked (38.4634ms)
+✔ hundreds of synthetic learning objects retain three visible competency choices and one next task (12.3707ms)
+✔ all 18 answers and affected production formula adapters match independent Decimal oracles (12.7882ms)
+✔ V3 content counts, stable IDs, references and open tier metadata (7.4796ms)
+✔ publication rejects broken learning references and missing grading definitions (2.8962ms)
+✔ activity pages remain crawlable but are deliberately excluded from search indexing (7.2391ms)
+✔ empty and page-open ongoing history never earn XP (23.255ms)
+✔ lesson rewards and achievements survive repetition without duplication (1.7379ms)
+✔ incorrect attempts give no XP; successful retries and reloads award once (1.7965ms)
+✔ projects require every objective check and self-review before completion XP (1.7347ms)
+✔ shared questions cannot be farmed across activities (1.1493ms)
+✔ grade numeric, choice, true/false, multi-select and self-review explicitly (0.8169ms)
+✔ roadmap, skills, levels and all milestones are attainable (2.4131ms)
+✔ recommendations explain prerequisites and resume incomplete activities (3.4412ms)
+✔ legacy V2 migrates losslessly; malformed or forged reward fields are rejected (1.3862ms)
+✔ Academy catalog has complete, unique, published lessons, valid paths and explicit relation destinations (7.6631ms)
+✔ aliases, Swedish diacritics and category searches work without external search (3.5811ms)
+✔ each published lesson has original static content, unique SEO and crawlable links; drafts are not generated (23.7471ms)
+✔ published learn entities and concept hooks resolve through Connected Experience (74.9929ms)
+✔ progress reload, category totals, completion reversal and unknown future IDs stay consistent (34.5477ms)
+✔ backup V3 roundtrip, legacy V1/V2 merge, conflicts and failed writes preserve progress (63.2164ms)
+✔ Academy never enters current cloud rows or queue and a cloud restore preserves local learning (14.2237ms)
+✔ V3 attempts round-trip, merge once, migrate V2 Academy and reject conflicts atomically (29.1239ms)
+✔ optional checks have valid answers and explanations; no quiz or identity analytics payload (4.596ms)
+✔ ISK lesson delegates dated parameters to the verified rule registry (1.2817ms)
+✔ V2 publication rejects thin, unsourced, or disconnected lessons and invalid paths (12.4718ms)
+✔ V2 beginner aliases resolve actual catalog topics (3.4344ms)
+✔ path completion depends on all saved states and reverses after undo (1.2026ms)
+✔ worked financial examples agree with independent fixtures and shared valuation math (3.3485ms)
+✔ knowledge bank starts empty and publication requires real reviewed provenance (1.6611ms)
+✔ new analytics signals accept no search, quiz, or financial content (3.4023ms)
+✔ B70 voluntary pause preserves all review history and due dates without thesis mutations (29.4497ms)
+✔ B71 explicit groups link multiple immutable assumptions, rename, detach and tombstone (16.3112ms)
+✔ B74 factual transitions, deduplicated reviews, reopen, unresolved questions and separate outcomes (14.9387ms)
+✔ B74 counts criteria reviews and answered questions once while copied fields remain unchanged (8.5858ms)
+✔ B75 allowlisted blank templates never contain private data or IDs; malicious fields cannot enter output (22.9987ms)
+✔ new and legacy backup roundtrips, repeat imports, conflicting branches and no partial writes (37.1228ms)
+✔ corrupt storage, unknown fields and blocked writes fail closed (17.4187ms)
+✔ ticker deletion removes pause/link histories but preserves other groups, templates and thesis histories (14.2575ms)
+✔ cloud encoding and restore preserve compatibility without sending private behavioral history (21.9476ms)
+✔ behavioral runtime never emits private analytics or invokes model/network APIs (1.6644ms)
+✔ completion uses canonical provenance before DOMContentLoaded without exposing calculation inputs (54.7695ms)
+✔ failed and incomplete calculations emit no completion event (6.6001ms)
+✔ FIRE fixed purchasing-power withdrawals and nominal inflation linkage match independent oracles (8.6854ms)
+✔ comparison cards and chart use selected fees, month-end saving and nominal values in both modes (57.7248ms)
+✔ FIRE definition agrees across body, FAQ and structured data (1.2099ms)
+✔ yearly compound path: hand oracle, constant parity, contributions, fee and loss boundaries (7.8357ms)
+✔ yearly scenario records roundtrip and reject missing years; legacy scenarios remain valid (12.3487ms)
+✔ quality boundaries: recovery zero, impossible and non-finite values; error replaces success state (7.0518ms)
+✔ leverage explanation oracle: same returns reordered, volatility drag and zero absorption (17.5631ms)
+✔ content allows only inert formatting and HTTPS links; rule parameters match executable constants (15.5919ms)
+✔ independent monthly cash-flow oracle, fee monotonicity, FX identity and margins (9.0272ms)
+✔ loaded leverage callback submits through CalcState and renders real table/chart (15.9478ms)
+✔ loaded compound form uses finite chart series agreeing with the main result (12.8724ms)
+✔ scenario corruption and unsupported shapes block every write and retain raw recovery data (14.6083ms)
+✔ FIRE stress examples remain finite and reject zero/extreme rates (6.7203ms)
+✔ GAV optional conversion cost is included once and zero keeps the original result (11.4808ms)
+✔ FX teaching example compounds to eight percent and unchanged FX preserves asset return (5.5655ms)
+✔ homepage earnings selects the date week, not insertion order, with no priority exclusion (1237.6511ms)
+✔ latest earnings publication has sourced review records or matching daily image transcription (48.5924ms)
+✔ generated public config is isolated and grants CSP only to account and public social pages (547.7336ms)
+✔ invalid or privileged config fails before changing artifacts (19.0393ms)
+✔ secret scan reports category and path without exposing the matched value (36.8779ms)
+✔ anonymous/login never uploads; migration is explicit, idempotent and restores manual history and preferences (74.6661ms)
+✔ supported snapshots, archived outcomes, scenario plans/observations and envelope metadata round-trip (122.8605ms)
+✔ queue reload, bounded backoff, inspectable failures, no duplicate retry and cross-account separation (43.6277ms)
+✔ conflicting IDs and corrupt cloud/local data never overwrite history; receipts require confirmation (49.6317ms)
+✔ cloud deletion preserves local by default; explicit local removal and logout retain their boundaries (31.8815ms)
+✔ adapter delegates persistence/refresh to SDK and returns only verified identity (11.4305ms)
+✔ adapter rejects stale restored identity and delegates session removal to SDK (14.8575ms)
+✔ SDK OTP errors expose bounded product codes, never provider details (49.2503ms)
+✔ legacy IDs, empty scenario groups, additional histories and read-only local use survive cloud preparation (69.4468ms)
+✔ queue corruption, blocked writes and concurrent tab changes fail without replacing a queue or local source (22.0302ms)
+✔ server conflicts surface explicitly and logout prevents a late receipt being marked synced (49.0091ms)
+✔ account changes during authorization cannot write another owner queue or delete that other account (21.6984ms)
+✔ MU bounded capital cannot manufacture complete debt or substitute weighted shares (60.2951ms)
+✔ VRT bounded capital cannot manufacture complete debt or substitute weighted shares (24.8912ms)
+✔ all issuers validate through existing observation API (42.0922ms)
+✔ shares have five-point industrial and bank history and real YoY (35.8997ms)
+✔ split comparisons use issuer restated history without multiplying old observations (23.0818ms)
+✔ weighted shares cannot substitute for outstanding (22.1171ms)
+✔ actual cash buybacks and authorization cannot compare (39.912ms)
+✔ SBC expense is distinct from share issuance (20.5812ms)
+✔ cash-only net balance is defined and input-bound (41.2732ms)
+✔ bank, different dates, issuers, scopes and debt proceeds reject net calculation (42.9959ms)
+✔ same-quarter SBC revenue ratio, no missing or zero denominator (17.1376ms)
+✔ YTD six versus nine months are not a quarter trend (34.8587ms)
+✔ issuer SBC revision keeps original as-of and revised history (10.632ms)
+✔ changed concepts require reviewed semantic basis, not matching labels (11.8269ms)
+✔ missing latest or conflicting duplicate never falls back to older value (18.9075ms)
+✔ base validator rejects duplicate IDs and absent comparison metadata (21.25ms)
+✔ Research API exposes factual capital changes and restatements without writes (38.5686ms)
+✔ newer unsupported data remains outside reviewed history (6.134ms)
+✔ capital observations appear in existing as-of API (37.1749ms)
+✔ derived metrics require explicit reviewed calculation definitions (28.1227ms)
+✔ pilot sources validate and neutral revision comparison excludes same-day uncertainty (69.3556ms)
+✔ untrusted exhibit URLs and cross-company relationships fail closed (60.7596ms)
+✔ all real ownership feeds validate and keep file/row identity (36.3454ms)
+✔ P/S labels do not claim a venue from code alone (7.2206ms)
+✔ awards, exercises, tax and derivatives are not market purchases (26.5263ms)
+✔ price multiplication only for meaningful priced non-derivative trades (32.164ms)
+✔ missing price, zero price, other currency and swap produce no trade value (30.0483ms)
+✔ multirow summaries group only comparable legs within a filing (9.4366ms)
+✔ direct/indirect rows and securities do not merge (6.3606ms)
+✔ summary counts filings per type, not execution rows or sentiment (59.6074ms)
+✔ real amendment preserves original and does not double-count trades (11.3049ms)
+✔ as-of never exposes a later amendment (6.9987ms)
+✔ unreviewed amendment suppresses candidate original and correction from aggregates (8.6108ms)
+✔ amendment without original date holds possible originals for review (8.8986ms)
+✔ filters support category, reporting owner and explicit older examples (8.8023ms)
+✔ Research counts filings not rows and preserves saved-day boundary (15.3874ms)
+✔ existing company evidence API exposes read-only insider changes (12.731ms)
+✔ malformed values, duplicate IDs and unsafe source URLs are rejected (97.1061ms)
+✔ new issuer events preserve appointment and nonconvertible financing semantics (32.6848ms)
+✔ real pilot data validates (59.0596ms)
+✔ eleven underlying events not twelve observations or thirteen documents (44.8592ms)
+✔ amendment updates exchange without double counting or replacing note issuance (7.8325ms)
+✔ as-of view never leaks the later final share count (7.3382ms)
+✔ templates preserve acquisition, retirement and outage distinctions (21.6364ms)
+✔ timeline is chronological by publication, not source array order (7.3196ms)
+✔ category filters use verified underlying events (7.1813ms)
+✔ Research distinguishes amendment updates from new events and excludes same day (37.4393ms)
+✔ existing read-only evidence API exposes material changes (13.1657ms)
+✔ no invented events for unsupported data or invalid baseline (13.465ms)
+✔ earnings, exhibit-only, duplicate and unsafe event evidence reject (92.3533ms)
+✔ real generated evidence validates for all issuers (96.2137ms)
+✔ real point to range revision is raised and widened (8.205ms)
+✔ CRWD annual revenue range narrows while raised (16.2145ms)
+✔ NVDA annual tax guidance lowered then unchanged (19.5909ms)
+✔ different quarters are not guidance revisions (17.0342ms)
+✔ EPS split blocks comparison without silently restating history (15.6755ms)
+✔ members and ARR have four comparable quarters, products definition breaks (49.9988ms)
+✔ no cross issuer, currency or missing-quarter comparisons (12.3091ms)
+✔ as-of preserves history and does not reveal future supersession (61.7255ms)
+✔ Research availability is read-only, day boundary conservative (35.6583ms)
+✔ synthetic withdrawal preserved and never numerically compared (41.4332ms)
+✔ qualitative disclosure never receives numeric change labels (12.9326ms)
+✔ malformed values, duplicate and source injection rejected (101.8233ms)
+✔ decimal rounding does not invent a width revision (11.7164ms)
+✔ actual reviewed pilot feeds validate (68.0678ms)
+✔ latest deduplicates amendments by reviewed reporting series, not name (40.2765ms)
+✔ actual comparable ownership decrease and reported percentage change (6.0814ms)
+✔ synthetic comparable increase and unchanged shares with percentage change (5.7206ms)
+✔ reorganization never becomes sale-to-zero (9.4282ms)
+✔ source scope, entities, dates or security changes break comparison (25.8901ms)
+✔ multiple filers preserve overlapping reports without summed holdings (8.3183ms)
+✔ legacy 13D purpose and non-comparable final amendment remain available (25.925ms)
+✔ as-of excludes later filings and amendment knowledge (9.7272ms)
+✔ Research counts filings and amendments, never interprets thesis (9.7889ms)
+✔ existing evidence API exposes ownership read-only (21.1102ms)
+✔ missing supported records has no invented owner assertion (10.7712ms)
+✔ duplicate IDs, invalid percent, unsafe evidence and broken links reject (69.0398ms)
+✔ all reviewed groups reconcile and have distinct classification (85.7705ms)
+✔ SoFi shares use the segment denominator, retaining the corporate bridge (9.6791ms)
+✔ NVIDIA latest comparison uses actual issuer recast, never the original column (11.3839ms)
+✔ old platforms are preserved without stitching discontinued categories into Edge (13.4557ms)
+✔ reviewed rename uses identity/scope, never display label matching (15.6885ms)
+✔ missing category fails closed instead of renormalizing remaining shares (11.0662ms)
+✔ duplicates, negative categories, wrong currency and unreconciled totals fail closed (12.596ms)
+✔ Research gets new periods and changed historical evidence without changing saved data (23.403ms)
+✔ base evidence as-of does not supersede one category with another (42.1935ms)
+✔ no cross-issuer, scope, annual-quarter or missing-quarter comparisons (15.3504ms)
+✔ bounded chart history does not imply a comparability break (49.062ms)
+✔ derived states and exact overlap order; inactive does not create attention (29.881ms)
+✔ ack fingerprints ignore capture time/order, retain unanswered questions, reopen only changed evidence (13.6872ms)
+✔ legacy whole-report acknowledgements remain quiet without rewriting original storage (10.1619ms)
+✔ blocked/incomparable observations never become comparable-change lifecycle (10.0656ms)
+✔ exact target rejects deleted, replaced, mutated, expired, unknown-version and changed-evidence targets (31.4652ms)
+✔ draft validation, corruption, quota and optimistic concurrent writes preserve original bytes (11.9408ms)
+✔ snooze is scoped to exact evidence until the chosen local date, no journal mutation (11.9067ms)
+✔ keep, revise, close, decline preserve append-only history and acknowledgement through backup/import (137.1159ms)
+✔ drafts excluded from backup; import leaves drafts untouched; full deletion includes companions (14.0075ms)
+✔ filing accession deduplication distinguishes amendments and keeps unsupported forms out (7.8602ms)
+✔ draft quota failure and full-deletion failure preserve journal and companion (9.5303ms)
+✔ bounded workspaces, empty cleanup and explicitly reopened draft priority (10.1297ms)
+✔ education cannot use the news destination and workflow retains protected manual delivery (76.7915ms)
+✔ education preview uses canonical text-only article and stable identity, with no network/secrets (8.7798ms)
+✔ changed source/page, unreviewed article and unsafe caption fail closed (606.1066ms)
+✔ education sends text/link without attachments or embeds, reserves first and deduplicates (51.4399ms)
+✔ unpublished, stale or unavailable website cannot reserve or send (10.1647ms)
+✔ kill switch, missing education secret and tampered preview stop before network (10.5415ms)
+✔ ambiguous education delivery preserves reservation and redacts secrets; concurrent runs send once (21.7714ms)
+✔ news preview uses canonical text-only article and stable identity, with no network/secrets (12.4303ms)
+✔ changed source/page, unreviewed article and unsafe caption fail closed (519.69ms)
+✔ news sends text/link without attachments or embeds, reserves first and deduplicates (76.6743ms)
+✔ unpublished, stale or unavailable website cannot reserve or send (9.9258ms)
+✔ kill switch, missing news secret and tampered preview stop before network (8.3176ms)
+✔ ambiguous news delivery preserves reservation and redacts secrets; concurrent runs send once (22.0749ms)
+✔ Week 40 original selections preserve canonical review and reject mismatched approval (275.3852ms)
+✔ Week 40 dry-run never uses network even when live configuration is enabled (53.1223ms)
+✔ Week 40 mocked sends attach original bytes only, preserve Week 39 history and prevent duplicates (92.0255ms)
+✔ W41 references are independently selected; wrong scope, hash or review fails closed (396.2128ms)
+✔ W41 dry runs have no network access even with live enable variable (45.1469ms)
+✔ W41 mocked delivery attaches original bytes once and preserves previous ledger history (79.2789ms)
+✔ both dry-runs use reviewed canonical image, week, destination and bounded title (102.1645ms)
+✔ unknown week, malformed input, missing image, changed hash and records fail closed (115.2104ms)
+✔ successful delivery uploads only title and approved bytes, then skips all reruns (94.1886ms)
+✔ network, rate limit, rejected response and malformed acknowledgement stay reserved; no site mutation or duplicate (33.9749ms)
+✔ disabled/missing/untrusted configuration never sends; errors contain no secrets (26.232ms)
+✔ reservation persistence failure stops POST; post-send persistence failure prevents resending (29.3394ms)
+✔ GitHub ledger requires existing state and writes same branch with SHA; provider failures are redacted (2.8894ms)
+✔ concurrent workers cannot both reserve the same identity (32.2242ms)
+✔ adapter and webhook config stay outside public staging and deploy workflow (87.5049ms)
+✔ education uses canonical native article, semantic comparison, discovery, schema and real Academy links (35.4281ms)
+✔ compact summaries use unchanged canonical calculations and preserve unavailable gates (77.5721ms)
+✔ fiscal quarter labels require an exact period and accession match (58.364ms)
+✔ completion links acquisition stages without backdating completed status (35.236ms)
+✔ ownership reporting realignments never become sale-to-zero (43.7605ms)
+✔ annual backlog retains dates and approximate scope without quarterly growth inference (11.0728ms)
+✔ browser projection and all catalogs preserve canonical identity and order (128.8384ms)
+✔ evidence eligibility derives from injected contract, with identity and health still validated (16.4809ms)
+✔ Batch 1A keeps its six accepted objects without preventing future reviewed additions (79.2684ms)
+✔ Batch 1A arithmetic is independently checked with the approved scope (0.9959ms)
+✔ Batch 1A aliases preserve neutral limitations and abstain for adjacent unreviewed judgments (25.3618ms)
+✔ Batch 1A explanations use shared contexts and do not leak editorial approval text (9.3018ms)
+✔ Batch 1B accepted scope, evidence and prior 35 version integrity (33.3107ms)
+✔ Batch 1B arithmetic and shared denominator assumptions (1.1416ms)
+✔ Batch 1B curated intents are separated and personal decisions still abstain (34.1372ms)
+✔ Batch 1B shared contextual explanations and noindex publication boundary (4.0154ms)
+✔ Expansion preserves the starting 41 objects exactly and adds 59 distinct reviewed objects (34.4939ms)
+✔ Spread definition exception is complete-question only and requires its reviewed canonical object (24.856ms)
+✔ New tax answers suppress when overdue and unsupported formulas remain unavailable (21.1445ms)
+✔ All 100 exact questions survive both full and compact retrieval; bodies remain lazy (25.5283ms)
+✔ 26 original questions, two Wave 1 answers and one Wave 4 release answer have valid metadata (49.2575ms)
+✔ draft and needs-update content is excluded from catalog, search and generated pages (271.4996ms)
+✔ public projection excludes editorial notes, unknown keys and private source notes (140.7738ms)
+✔ search matches Swedish aliases, category, concepts and P/E punctuation (6.838ms)
+✔ reviewed question matching is deterministic and abstains on unknown input (30.8746ms)
+✔ direct definitions outrank shared concepts and preserve question intent (144.8346ms)
+✔ publication gate rejects malformed sources, thin text, IDs, dates and references (321.658ms)
+✔ canonical relationships link every answer to Academy and tools and return to questions (55.43ms)
+✔ each answer has unique metadata, status-appropriate indexing and safe static text (86.009ms)
+✔ ISK uses current rule registry with no copied annual amounts and fails on overdue review (12.7107ms)
+✔ worked examples match independent formulas and shared calculator math (1.9606ms)
+✔ knowledge analytics rejects search content and identifiers (3.2614ms)
+✔ Knowledge100 labeled retrieval benchmark has no wrong confident matches or other failures (104.9834ms)
+✔ V2 also preserves every positive Wave1 exact/alias fixture (19.3707ms)
+✔ formula is bounded, independently checked, unit/period explicit and never evaluated as code (0.8072ms)
+✔ safe projection excludes editorial history/private nested notes and bodies from compact index (87.9954ms)
+✔ stale policy suppresses rule answers at runtime without refreshing reviews (17.5363ms)
+✔ shared context modes accept public IDs only and do not expose full answer in compact/reminder (1.1228ms)
+✔ validator rejects missing references, unknown typed fields, alias collisions, source hazards and merge loops (330.9263ms)
+✔ new substantive draft requires actual claim evidence and explicit approval before public projection (100.4814ms)
+✔ draft-only retrieval aliases, pilot labels and concepts never enter a public index (11.4599ms)
+✔ typo ambiguity clarifies rather than selecting a nearby answer (35.4099ms)
+✔ substantive history audit detects edits but retrieval configuration changes do not alter content (60.3963ms)
+✔ all five local authoring examples validate as drafts and remain out of public pages (136.9955ms)
+✔ synthetic generation is explicitly test-only and pagination never embeds the inventory (143.0652ms)
+✔ seed migration preserves explicit future editorial metadata instead of resetting reviews or relationships (21.214ms)
+✔ explicit merge retains a navigable old URL while rejecting target chains (80.1043ms)
+✔ lazy load deduplicates requests, omits credentials and rejects mixed deployment versions (20.6232ms)
+✔ B55 shared Research reminders read latest storage, suppress inactive records and never write on display (53.2001ms)
+✔ B68/B69 immutable criteria, questions, IDs, dates and duplicate suppression (25.8809ms)
+✔ B69 zero, one, three questions; invalid lifecycle records block writes/import without discarding raw data (115.4892ms)
+✔ B72 Avstod is an inactive revision, preserved in history and explicitly reopenable (14.5194ms)
+✔ B73 user review dates only request reconsideration, never imply falsity; manual queue needs no data (9.6264ms)
+✔ B80 manual identity, exports, backup roundtrip, deletion and future support preserve history (31.3077ms)
+✔ legacy assumptions gain no invented criteria/dates on read, export or an unchanged save (10.4131ms)
+✔ B21 price outcomes cannot evaluate assumptions or process; dimensions remain separate (38.7887ms)
+✔ supported Outcome archives lifecycle evidence after source deletion and rejects malformed lifecycle imports (125.1123ms)
+✔ yearly return scenario survives backup/import and malformed series never overwrites storage (50.6941ms)
+✔ complete backup round trip, repeat merge, conflict rejection, legacy migration and privacy allowlist (733.5323ms)
+✔ single/history deletion retains checkpoints; deliberate full delete is isolated and corruption blocks it (275.3179ms)
+✔ write failure rolls back earlier keys; corrupt current store never gets replaced by valid import (70.656ms)
+✔ assumptions and explicit reviews survive immutable history, exports, merge and legacy reads (303.0639ms)
+✔ savings plan observations are append-only, merge by ID, and preserve immutable baseline (13.6818ms)
+✔ real savings follow-up uses the captured effective rate and rejects observations after the exact horizon (5.0892ms)
+✔ run timestamps alone do not publish; values and failed status still do (25.4272ms)
+✔ news source registry, static article, discovery and text fallback agree (57.7928ms)
+✔ events fail closed on private fields, arbitrary enum values and getters; provider failures are isolated (5.4546ms)
+✔ all status states expose words and live semantics; unknown states do not mutate UI (0.6427ms)
+✔ landing attribution strips query content and emits no private Research data (3.7182ms)
+✔ editorial metadata and original contextual journeys survive catalog migration (79.6497ms)
+✔ 2027 exchange dates match primary equity schedules and pending macro warnings expire (11.4444ms)
+✔ minimal immutable projection and selected section diff (6.9523ms)
+✔ reject private fields at every public boundary, unknown future providers and nulls (4.5649ms)
+✔ calculations preserve exact inputs; mismatched periods, definitions and prose rejected (36.3451ms)
+✔ chart gaps are explicit, currencies and unsupported series fail closed (2.7215ms)
+✔ frozen production annual observations yield bounded candidates with no copied private annotations (81.2592ms)
+✔ oversized prose/payload, missing dates and future method versions fail closed (0.9141ms)
+✔ known SEC projection drops nested annotations and rejects ambiguous rights (2.9615ms)
+✔ old snapshots never borrow issuer identity from current data (10.9465ms)
+✔ provider-neutral shape can represent restricted future observations without granting publication rights (0.6966ms)
+﹣ publication migration preserves deployed clients and authorization (1.2075ms) # SKIP
+✔ relation schema rejects corrupt IDs, references, vocabulary, metadata and unsupported routes (235.6243ms)
+✔ missing files and fragments fail validation, including the actual mode-link contract (142.5398ms)
+✔ queries are deterministic, bounded, explicit and suppress planned Academy links (35.9911ms)
+✔ one renderer produces escaped, descriptive, crawlable anchors in all generated placements (56.7666ms)
+✔ a future Learn publication slots in without changing the renderer or exposing placeholders now (85.209ms)
+✔ relation click analytics are coarse and reject IDs, tickers, URLs, values and unknown enums (4.8503ms)
+✔ rule reviews fail at their deadline and when a new ISK income year is unmaintained (9.1704ms)
+✔ CSP is deterministic, hashes executable inline code and forbids arbitrary script attributes (153.3097ms)
+﹣ V2 migration, public boundaries and immutable version lifecycle (1.2419ms) # SKIP
+✔ frozen evaluation: positive-growth (64.4241ms)
+✔ frozen evaluation: declining-revenue (12.9308ms)
+✔ frozen evaluation: negative-eps (13.4346ms)
+✔ frozen evaluation: missing-fcf (15.0236ms)
+✔ frozen evaluation: share-basis (24.3687ms)
+✔ frozen evaluation: currency (10.2409ms)
+✔ frozen evaluation: restatement (11.3415ms)
+✔ frozen evaluation: missing-source (12.3368ms)
+✔ frozen evaluation: unsupported-company (7.8382ms)
+✔ frozen evaluation: manual-thesis (6.8702ms)
+✔ frozen evaluation: vague-assumption (5.8075ms)
+✔ frozen evaluation: contradictory-evidence (12.3484ms)
+✔ frozen evaluation: no-meaningful-change (13.7651ms)
+✔ frozen evaluation: prompt-injection (14.4147ms)
+✔ frozen evaluation: ignore-rules (13.7525ms)
+✔ frozen evaluation: unsupported-factual-question (12.0747ms)
+✔ frozen evaluation: missing-citation (22.1047ms)
+✔ frozen evaluation: incorrect-confidence (17.738ms)
+✔ frozen evaluation: incorrect-assumption-mapping (16.5727ms)
+✔ frozen evaluation: hold-leakage (40.2175ms)
+✔ report minimization, unresolved questions and exact deterministic deltas (16.2455ms)
+✔ disabled and unknown live providers make zero network calls; mock deterministic and bounded (5.5033ms)
+✔ deterministic conflicts never call a provider and unknown conflicts abstain (2.9123ms)
+✔ selector catalog matches the supported Research registry without duplicate tickers (72.5091ms)
+✔ selector finds exact ticker first, names, partial names and normalized case (1.2099ms)
+✔ 100 and 550 companies retain all matches and only populated alphabetical groups (4.263ms)
+✔ recents are dated, bounded, deduplicated and do not invent manual coverage (1.166ms)
+✔ B78 publication, route, review queue and connected catalog allowlists agree (96.988ms)
+✔ B78 actual data retains null EPS, source evidence, safe comparisons and explicit manual fallback (159.9409ms)
+✔ overview selectors preserve normalized data and isolate annual from quarterly observations (31.48ms)
+✔ missing observations become labelled gaps, never synthetic zeroes (10.2585ms)
+✔ recasts, changed definitions, invalid units and periods cannot be plotted as comparable facts (30.8579ms)
+✔ financial-company eligibility and negative earnings are retained (7.637ms)
+✔ no revision and no new reviewed evidence are distinct (85.2563ms)
+✔ real reviewed reporting, guidance, segment, capital, Form 4, ownership and events (114.7994ms)
+✔ KPI changes use reviewed comparison API (79.5218ms)
+✔ late ingestion and same-day publication cannot create changes (59.1725ms)
+✔ pending evidence excluded and unreviewed canonical rows fail closed (99.9285ms)
+✔ updater failure preserves verified comparison; failed feed is not canonical (98.1459ms)
+✔ new saved revision is baseline, history is immutable and private prose absent (97.1469ms)
+✔ many observations compress into seven or fewer unique areas without empty groups (53.2201ms)
+✔ definition breaks never manufacture a delta (36.6314ms)
+✔ financial changes require actual new publication dates and use snapshot gates (61.8192ms)
+✔ adapter and UI cannot transmit private Research (0.9197ms)
+✔ MU import date does not manufacture changes; saved/publication boundaries remain conservative (32.5852ms)
+✔ VRT import date does not manufacture changes; saved/publication boundaries remain conservative (26.036ms)
+✔ standalone and Research valuation adapters agree with a hand-calculated oracle (107.5118ms)
+✔ comparability gate blocks incompatible evidence consistently in Change Detection and Outcomes (248.0787ms)
+✔ restore historical assumptions only; preserve storage, fundamentals, text, outputs and baseline (283.3448ms)
+✔ explicit historical manual EPS restores source and survives calculate/save (157.1813ms)
+✔ SEC restore cannot replace manual fallback when current positive SEC EPS is unavailable (283.5206ms)
+✔ legacy partial restore skips missing, invalid and unknown EPS assumptions (72.0826ms)
+✔ empty and unsupported revisions disable restore without writes or stale state (180.1129ms)
+✔ uncalculated edits prompt only when changed assumptions would actually be overwritten (122.8331ms)
+✔ equivalent numeric formatting and already-matching edits do not prompt (66.5922ms)
+✔ quality: NVDA complete load/render and cross-feature workflow without Chart CDN (138.9922ms)
+✔ quality: SOFI complete load/render and cross-feature workflow without Chart CDN (116.1159ms)
+✔ quality: CRWD complete load/render and cross-feature workflow without Chart CDN (117.241ms)
+✔ quality: entry does not fetch financial files for unselected companies (17.2517ms)
+✔ quality: loading, unsupported ticker, HTTP errors and wrong-company JSON fail safely (25.6533ms)
+✔ quality: incomplete metrics render safely and charts use gaps, not invented zeroes (27.5918ms)
+✔ quality: invalid horizons, infinities and overflow never replace results or become saved snapshots (249.7481ms)
+✔ quality: sensitivity center reflects valid low P/E and negative-growth Base scenario (19.4691ms)
+✔ quality: no-op Thesis refresh must not calculate an unsubmitted Outcome price (86.4901ms)
+✔ quality: provenance uses keyboard buttons and distinguishes derived, missing and limited data (17.4034ms)
+✔ Research editorial labels never expose metric keys and preserve values, units and source concepts (35.3726ms)
+✔ Research example, manual and restored price states disclose missing quote date and model basis (17.2426ms)
+✔ outcome: all eight fundamentals compare correctly using report dates and immutable inputs (22.1432ms)
+✔ outcome: zero, negative and incompatible bases never produce invalid CAGR (26.2071ms)
+✔ outcome: missing legacy fields, unknown currencies, and unsupported snapshots are not backfilled (21.6915ms)
+✔ outcome: horizon uses elapsed revision time, caps model paths, and never assigns a score (23.8435ms)
+✔ outcome: all scenario EPS paths use saved basis and annual growth; manual bases are distinguished (22.7847ms)
+✔ outcome: incompatible and overflowing model paths remain unavailable (21.9238ms)
+✔ outcome: manual price uses saved starting price and old targets, handles every interval boundary (29.2667ms)
+✔ outcome: selecting history, updating price and saving a checkpoint leave valuation, revisions and CD unchanged (66.5397ms)
+✔ outcome: multiple explicit checkpoints, stable IDs, duplicate suppression and revision linkage survive reload (80.9325ms)
+✔ outcome: deleted source revisions retain self-contained archival checkpoints, including after all-delete and reload (114.128ms)
+✔ outcome: corrupt and unsupported outcome storage blocks writes and preserves raw bytes (139.4406ms)
+✔ outcome: quota/access failure and invalid observations never alter existing checkpoint records (41.6695ms)
+✔ outcome: SOFI unavailable FCF and CRWD missing share basis remain unavailable in observations (42.7635ms)
+✔ outcome: invalid manual input blocks checkpoint save and legacy observation UI has no invalid numeric tokens (65.8906ms)
+✔ latest export uses saved thesis and outputs, excludes unsaved form changes, and cleans download URL (59.4944ms)
+✔ historical Markdown and print use exactly the selected saved revision, never current fundamentals (65.1886ms)
+✔ manual export labels valuation EPS separately from historical SEC EPS (61.8815ms)
+✔ legacy, missing and unsupported snapshots export safely without current-data backfills (250.8888ms)
+✔ export filename is deterministic, sanitized and bounded (18.9379ms)
+✔ Markdown escapes table delimiters and HTML; print renders user content as text (22.6272ms)
+✔ no saved analysis disables both exports and never autosaves (18.4381ms)
+✔ removed selected revision does not silently export latest, and download failures release URLs (86.3615ms)
+✔ print CSS isolates document, hides controls and provides white A4 layout and table pagination (0.8922ms)
+✔ capture -> real submit -> localStorage -> fresh context -> compare supported metrics and block unverified share basis (97.8725ms)
+✔ both legacy naming conventions normalize idempotently without persisting migration (33.0237ms)
+✔ actual old capture names with missing revenue never invent revenue, net income or margins (18.1666ms)
+✔ margins use percentage points, including a zero historical numerator (23.0796ms)
+✔ thresholds remain strictly >1 percent and >0.5 pp (41.9132ms)
+✔ zero/null/nonfinite baselines and zero revenue never produce NaN or Infinity (22.0181ms)
+✔ negative-to-positive earnings use absolute historical denominator (21.9267ms)
+✔ SOFI and CRWD unavailable metrics stay null through capture/storage/reload (129.9549ms)
+✔ new baseline save and delete immediately clear a visible old report (139.4449ms)
+✔ stale valuation blocks save; submit recalculates and stores edited assumptions (92.7455ms)
+✔ corrupt and future records do not crash reload, preview, or destroy other records (55.5967ms)
+✔ invalid envelopes and inaccessible/full storage fail explicitly without overwriting (72.7494ms)
+✔ period, filing filters/limit and old-analysis warning remain functional (18.1ms)
+✔ snapshot metadata survives updates; unrelated and unsupported records are preserved (113.1034ms)
+✔ explicit null/unsupported values are authoritative; manual EPS never fills missing SEC EPS (18.152ms)
+✔ both Research and Min NTM load the shared schema before storage and comparison (0.7581ms)
+✔ existing Min NTM list renders valid and partial migrated theses without numeric crashes (49.5506ms)
+✔ V1 becomes a stable first revision without changing text, dates or raw snapshot (75.9341ms)
+✔ second meaningful save preserves first revision verbatim and read results are immutable (87.0288ms)
+✔ reload defaults to latest; choosing history compares its baseline without changing editor (238.5478ms)
+✔ duplicate saves ignore capture timestamps and whitespace; renders create no revisions (119.6259ms)
+✔ valuation-only revisions append but manual prices are never company-data changes (110.7376ms)
+✔ single revision delete preserves others, latest deletion promotes predecessor, final hides baseline (210.3915ms)
+✔ cancelled single/all deletes do nothing and deleting latest retains unsaved editing (51.3735ms)
+✔ V2 malformed revisions, duplicate IDs and unsupported envelopes reject destructive writes (83.0985ms)
+✔ quota failure preserves every revision and selected baseline (54.4243ms)
+✔ Min NTM displays only the latest revision with its count and valuation (87.1503ms)
+✔ selected legacy baseline never backfills missing metrics and all-delete affects only its ticker (71.662ms)
+✔ publication copies only selected text; nested private data never crosses boundary (1.852ms)
+✔ strict text and minimum publication bounds (2.5381ms)
+✔ routes encode input and coarse metrics reject identities (10.194ms)
+✔ hand-calculated valuation fixtures and inverse identities (2.7571ms)
+✔ invalid and negative edge cases never leak non-finite numbers (0.8476ms)
+✔ year coverage is deterministic and never fabricates next-year dates (0.7947ms)
+✔ Wave 1 handoff preserves selected inputs and honest provenance without private fields (5.5584ms)
+✔ handoff rejects expired/future timestamps, unknown fields, company/currency/unit/method mismatches (2.7338ms)
+✔ manual EPS has no borrowed reported period or method (0.4202ms)
+✔ pinned company identities match every current supported dataset (27.3954ms)
+✔ 12 concepts resolve to 11 canonical answers, preserve overlap and route to existing practice (82.5747ms)
+✔ 30 labelled retrieval cases preserve exact definitions, reviewed typo aliases and abstention (106.3692ms)
+✔ new examples match independent arithmetic; reviewed additions stay out of sitemap (2.6078ms)
+✔ pilot datasets retain original data; all statements expose versioned evidence and all share bases remain unavailable (99.3023ms)
+✔ positive annual revenue and margin math agree with independent constants (7.3569ms)
+✔ adversarial evidence fails closed across period, definition, source, units, base and quality boundaries (108.6396ms)
+✔ R6 shows reproducible corresponding profit/EPS rates only with verified weighted share basis (44.004ms)
+✔ R12 source accession/value/version/correction changes are reconstructable and timestamp churn is ignored (100.5124ms)
+✔ calendar context distinguishes unknown/revised/first-reported and zero actual without manufacturing consensus (1.1492ms)
+✔ release grouping preserves strongest priority and never merges different dates (98.1377ms)
+✔ week 40 verified schedules, Swedish times, empty actuals and historical values (135.6764ms)
+✔ week 40 reports preserve verified sessions, unknowns, exact release versus call and identity (23.2901ms)
+✔ Week 41 release instants respect Central/Eastern DST and Swedish day rollover (113.9599ms)
+✔ Week 41 preserves all 20 image identities, verified dates and release/call semantics (33.7349ms)
+✔ W39/W40/W41 resolve independently at Stockholm ISO boundaries and retain reviewed artifacts (131.9017ms)
+✔ week 39 earnings agrees with all image columns, reviewed hash and current/future resolution (155.3725ms)
+✔ week 39 macro image transcription preserves dates, ET timing and manual field provenance (21.2481ms)
+✔ homepage macro priority keeps major releases visible and counts every hidden event exactly (20.6457ms)
+✔ published weekly artifacts and homepage resolve; honest partial/future statuses stay visible (61.7061ms)
+✔ shared Stockholm week resolution handles Monday/Sunday/year rollover and never substitutes another week (16.9819ms)
+✔ missing current weeks and image/structured mismatches fail for both feeds (235.9196ms)
+✔ malformed dates, wrong weeks, duplicate identities and false provenance are rejected (140.2658ms)
+✔ partial upstream failure may not claim successful complete fetch (75.9762ms)
+✔ future authoritative unavailability has a dated explicit exception; current missing week does not (29.3644ms)
+✔ weekly content adapter accepts archived transcriptions and new verified weeks without markup (51.4664ms)
+✔ page owns exactly one image/text/navigation shell and week renderer cannot insert grid siblings (1.6599ms)
+ℹ tests 456
+ℹ suites 0
+ℹ pass 454
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 2
+ℹ todo 0
+ℹ duration_ms 7479.6064
+RUN C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\driver\node.exe scripts/build_seo.cjs --check
+SEO: 87 canonical sitemap URLs, 9 existing articles; 0 files outdated.
+RUN C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\driver\node.exe scripts/knowledge_history.cjs
+Knowledge substantive version/history audit passed. No review dates changed.
+RUN C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\driver\node.exe scripts/knowledge_editorial.cjs validate
+{
+  "valid": true,
+  "answers": 100
+}
+RUN C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\driver\node.exe scripts/check_calendar_coverage.cjs
+::notice::Macro 2027: complete schedules not yet published at last check; recheck 2026-11-01
+RUN C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\driver\node.exe scripts/check_weekly_events.cjs
+::warning::[partial_update] Macro upstream update is partial; failed/unavailable sources remain explicit. No consensus values are inferred.
+::notice::[not_yet_published] Macro 2027: future authoritative schedule not yet published; recheck 2026-11-01.
+PASS: weekly records, image reviews and homepage resolution; empty days are valid.
+RUN C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\driver\node.exe scripts/check_rules.cjs
+Rule registry: 0 issues. Source verification remains an owner responsibility.
+RUN C:\Users\Mirne\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\driver\node.exe scripts/check_cloud_security.cjs
+PASS credential-pattern scan/public configuration (working tree; not git history)
+RUN git -c core.safecrlf=false diff --check
+PASS credential-pattern scan/public configuration and staged CSP
+PASS: release tests, generated artifacts, calendar/rules, staging and local references
