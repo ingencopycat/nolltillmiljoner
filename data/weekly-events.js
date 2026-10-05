@@ -436,7 +436,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Department of Labor",
             "sourceUrl": "https://www.dol.gov/ui/data.pdf",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -466,7 +466,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Census Bureau",
             "sourceUrl": "https://www.census.gov/wholesale/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -474,7 +474,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Census Bureau",
             "sourceUrl": "https://www.census.gov/wholesale/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -562,7 +562,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Department of the Treasury",
             "sourceUrl": "https://fiscaldata.treasury.gov/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -570,7 +570,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Department of the Treasury",
             "sourceUrl": "https://fiscaldata.treasury.gov/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -600,7 +600,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -608,7 +608,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -640,7 +640,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -648,7 +648,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -680,7 +680,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -688,7 +688,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -718,7 +718,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -726,7 +726,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -756,7 +756,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -764,7 +764,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -796,7 +796,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -804,7 +804,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -836,7 +836,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -844,7 +844,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -943,7 +943,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Census Bureau",
             "sourceUrl": "https://www.census.gov/construction/c30/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -951,7 +951,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Census Bureau",
             "sourceUrl": "https://www.census.gov/construction/c30/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -981,7 +981,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Census Bureau",
             "sourceUrl": "https://www.census.gov/manufacturing/m3/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -989,7 +989,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Census Bureau",
             "sourceUrl": "https://www.census.gov/manufacturing/m3/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -1076,7 +1076,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Department of Labor",
             "sourceUrl": "https://www.dol.gov/ui/data.pdf",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -1084,7 +1084,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Department of Labor",
             "sourceUrl": "https://www.dol.gov/ui/data.pdf",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -1116,7 +1116,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/lpc/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -1124,7 +1124,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/lpc/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -1155,7 +1155,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/lpc/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -1163,7 +1163,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/lpc/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -1252,7 +1252,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -1260,7 +1260,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -1291,7 +1291,7 @@ const macroWeeks = {
             "kind": "reported",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cps/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -1299,7 +1299,7 @@ const macroWeeks = {
             "kind": "reported",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cps/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -1330,7 +1330,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -1338,7 +1338,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -1369,7 +1369,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -1377,7 +1377,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -1492,7 +1492,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/jlt/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -2023,7 +2023,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Census Bureau",
             "sourceUrl": "https://www.census.gov/economic-indicators/calendar-listview.html",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -2057,7 +2057,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -2094,7 +2094,7 @@ const macroWeeks = {
             "kind": "reported",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cps/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -2131,7 +2131,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -2168,7 +2168,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -2209,7 +2209,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Census Bureau",
             "sourceUrl": "https://www.census.gov/economic-indicators/calendar-listview.html",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -2253,7 +2253,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -2287,7 +2287,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -2321,7 +2321,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -2355,7 +2355,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -2389,7 +2389,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -2423,7 +2423,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -2457,7 +2457,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -4585,7 +4585,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/jlt/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -4593,7 +4593,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/jlt/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -7978,7 +7978,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -7986,7 +7986,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8017,7 +8017,7 @@ const macroWeeks = {
             "kind": "reported",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cps/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8025,7 +8025,7 @@ const macroWeeks = {
             "kind": "reported",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cps/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8056,7 +8056,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8064,7 +8064,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8095,7 +8095,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8103,7 +8103,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8237,7 +8237,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8272,7 +8272,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8308,7 +8308,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8316,7 +8316,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8348,7 +8348,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8356,7 +8356,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8589,7 +8589,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8597,7 +8597,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8629,7 +8629,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8637,7 +8637,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8669,7 +8669,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8677,7 +8677,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8759,7 +8759,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8767,7 +8767,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8798,7 +8798,7 @@ const macroWeeks = {
             "kind": "reported",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cps/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8806,7 +8806,7 @@ const macroWeeks = {
             "kind": "reported",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cps/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8837,7 +8837,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8845,7 +8845,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8876,7 +8876,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8884,7 +8884,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8915,7 +8915,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8923,7 +8923,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8954,7 +8954,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8962,7 +8962,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -8994,7 +8994,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9002,7 +9002,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9034,7 +9034,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9042,7 +9042,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9123,7 +9123,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9131,7 +9131,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9163,7 +9163,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9171,7 +9171,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9203,7 +9203,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9211,7 +9211,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9252,7 +9252,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9260,7 +9260,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9291,7 +9291,7 @@ const macroWeeks = {
             "kind": "reported",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cps/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9299,7 +9299,7 @@ const macroWeeks = {
             "kind": "reported",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cps/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9330,7 +9330,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9338,7 +9338,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9369,7 +9369,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9377,7 +9377,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9480,7 +9480,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9488,7 +9488,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9519,7 +9519,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9527,7 +9527,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9559,7 +9559,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9567,7 +9567,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9599,7 +9599,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9607,7 +9607,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9679,7 +9679,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9687,7 +9687,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9719,7 +9719,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9727,7 +9727,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9759,7 +9759,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9767,7 +9767,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9878,7 +9878,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/jlt/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -9886,7 +9886,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/jlt/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10051,7 +10051,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10059,7 +10059,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10090,7 +10090,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10098,7 +10098,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10130,7 +10130,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10138,7 +10138,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10170,7 +10170,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10178,7 +10178,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10219,7 +10219,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10227,7 +10227,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10259,7 +10259,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10267,7 +10267,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10299,7 +10299,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10307,7 +10307,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10357,7 +10357,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10365,7 +10365,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10396,7 +10396,7 @@ const macroWeeks = {
             "kind": "reported",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cps/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10404,7 +10404,7 @@ const macroWeeks = {
             "kind": "reported",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cps/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10435,7 +10435,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10443,7 +10443,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10474,7 +10474,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10482,7 +10482,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10523,7 +10523,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/jlt/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10531,7 +10531,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/jlt/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10562,7 +10562,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10570,7 +10570,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10601,7 +10601,7 @@ const macroWeeks = {
             "kind": "reported",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cps/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10609,7 +10609,7 @@ const macroWeeks = {
             "kind": "reported",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cps/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10640,7 +10640,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10648,7 +10648,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10679,7 +10679,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10687,7 +10687,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10790,7 +10790,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10798,7 +10798,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10829,7 +10829,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10837,7 +10837,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10869,7 +10869,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10877,7 +10877,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10909,7 +10909,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10917,7 +10917,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10948,7 +10948,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10956,7 +10956,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10988,7 +10988,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -10996,7 +10996,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11028,7 +11028,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11036,7 +11036,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11156,7 +11156,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11164,7 +11164,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11195,7 +11195,7 @@ const macroWeeks = {
             "kind": "reported",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cps/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11203,7 +11203,7 @@ const macroWeeks = {
             "kind": "reported",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cps/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11234,7 +11234,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11242,7 +11242,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11273,7 +11273,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11281,7 +11281,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11415,7 +11415,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11423,7 +11423,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11454,7 +11454,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11462,7 +11462,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11494,7 +11494,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11502,7 +11502,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11534,7 +11534,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11542,7 +11542,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11573,7 +11573,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11581,7 +11581,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11613,7 +11613,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11621,7 +11621,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11653,7 +11653,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11661,7 +11661,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11781,7 +11781,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/jlt/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11789,7 +11789,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/jlt/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11820,7 +11820,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11828,7 +11828,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11859,7 +11859,7 @@ const macroWeeks = {
             "kind": "reported",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cps/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11867,7 +11867,7 @@ const macroWeeks = {
             "kind": "reported",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cps/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11898,7 +11898,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11906,7 +11906,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11937,7 +11937,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11945,7 +11945,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11986,7 +11986,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -11994,7 +11994,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12025,7 +12025,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12033,7 +12033,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12065,7 +12065,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12073,7 +12073,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12105,7 +12105,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12113,7 +12113,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12144,7 +12144,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12152,7 +12152,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12184,7 +12184,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12192,7 +12192,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12224,7 +12224,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12232,7 +12232,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12273,7 +12273,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/jlt/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12281,7 +12281,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/jlt/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12331,7 +12331,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/jlt/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12339,7 +12339,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/jlt/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12430,7 +12430,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12438,7 +12438,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12469,7 +12469,7 @@ const macroWeeks = {
             "kind": "reported",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cps/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12477,7 +12477,7 @@ const macroWeeks = {
             "kind": "reported",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cps/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12508,7 +12508,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12516,7 +12516,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12547,7 +12547,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12555,7 +12555,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ces/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12596,7 +12596,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12604,7 +12604,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12635,7 +12635,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12643,7 +12643,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12675,7 +12675,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12683,7 +12683,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12715,7 +12715,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12723,7 +12723,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/cpi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12754,7 +12754,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12762,7 +12762,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12794,7 +12794,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12802,7 +12802,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12834,7 +12834,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -12842,7 +12842,7 @@ const macroWeeks = {
             "kind": "provider_derived",
             "source": "U.S. Bureau of Labor Statistics",
             "sourceUrl": "https://www.bls.gov/ppi/",
-            "fetchedAt": "2026-09-27T18:05:16Z",
+            "fetchedAt": "2026-09-28T14:22:49Z",
             "methodVersion": "ntm-macro/1",
             "status": "available"
           },
@@ -15616,7 +15616,7 @@ const earningsWeeks = {
 window.NTM_WEEKLY_EVENTS = {
   meta: {
   "schemaVersion": 2,
-  "lastFetchAttempt": "2026-09-27T18:05:16Z",
+  "lastFetchAttempt": "2026-09-28T14:22:49Z",
   "lastSuccessfulUpdate": "2026-09-13T18:19:38Z",
   "lastCompleteFetch": null,
   "status": "partial",
@@ -15649,6 +15649,6 @@ window.NTM_WEEKLY_EVENTS = {
 },
   macroWeeks,
   earningsWeeks,
-  macro: macroWeeks['2026-W39'] ? macroWeeks['2026-W39'].events : [],
-  earnings: earningsWeeks['2026-W39'] ? earningsWeeks['2026-W39'].reports : []
+  macro: macroWeeks['2026-W40'] ? macroWeeks['2026-W40'].events : [],
+  earnings: earningsWeeks['2026-W40'] ? earningsWeeks['2026-W40'].reports : []
 };
