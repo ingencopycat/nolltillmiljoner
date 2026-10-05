@@ -1,5 +1,6 @@
 const test=require('node:test'),assert=require('node:assert/strict');
 const V=require('../scripts/check_weekly_events.cjs');
+const {assertActualLifecycle,assertVerifiedField}=require('./helpers/macro-lifecycle.cjs');
 function model(){return V.loadRepository();}
 const today=new Date('2026-09-14T12:00:00Z');
 const codes=m=>V.check(m,today).filter(i=>i.level==='error').map(i=>i.code);
@@ -23,8 +24,16 @@ test('week 39 macro image transcription preserves dates, ET timing and manual fi
   assert.deepEqual(w.events.map(r=>r.date),['2026-09-22','2026-09-23','2026-09-23','2026-09-24','2026-09-24','2026-09-24','2026-09-24','2026-09-25','2026-09-25']);
   assert.deepEqual(w.events.map(r=>r.time),['13:00','09:45','09:45','08:30','08:30','10:00','11:00','08:30','10:00']);
   for(const r of w.events){
-    assert.equal(r.actual,null); assert.equal(r.fieldProvenance.actual.kind,'unavailable');
-    for(const field of ['forecast','previous'])assert.equal(r.fieldProvenance[field].kind,r[field]===null?'unavailable':'manual');
+    assertActualLifecycle(r,w,m.macro);
+    for(const field of ['forecast','previous']) {
+      const p=r.fieldProvenance[field];
+      if(r[field]===null) assert.deepEqual(p,{kind:'unavailable',status:'unavailable'});
+      else if(field==='previous' && p.kind!=='manual') assertVerifiedField(r,field,new Date());
+      else {
+        assert.equal(p.kind,'manual');assert.equal(p.status,'available');
+        assert.equal(p.sourceUrl,'./images/makro/week-39.png');
+      }
+    }
   }
   const review=m.review.artifacts.find(a=>a.kind==='macro'&&a.week==='2026-W39');
   assert.equal(review.sha256,V.digest(m.root,w.fallbackImage));

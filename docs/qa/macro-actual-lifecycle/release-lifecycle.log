@@ -1,0 +1,67 @@
+✔ release grouping preserves strongest priority and never merges different dates (47.7252ms)
+✔ week 40 verified schedules, Swedish times and historical field lifecycle (78.1925ms)
+✔ week 40 reports preserve verified sessions, unknowns, exact release versus call and identity (11.0437ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 232.3929
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.386s
+
+OK
+[2026-09-29T13:59:59Z] Starting robust macro data update...
+[Dynamic Scope] Fetching data for derived years: 2024..2026
+[BLS Query] Requesting 13 series in 1 batch request...
+[BLS Success] Received 1 series (1 with data points).
+[Actual Verified] us-jolts-job-openings-2026-09-29 (Aug. 2026): 7.08M
+[Result] Total events verified/updated: 1
+[2026-09-29T13:59:59Z] Successfully wrote C:\Users\Mirne\AppData\Local\Temp\ntm-jolts-lifecycle-e0d12lc8\weekly.js (atomic replace).
+[2026-09-29T14:00:00Z] Starting robust macro data update...
+[Dynamic Scope] Fetching data for derived years: 2024..2026
+[BLS Query] Requesting 13 series in 1 batch request...
+[BLS Success] Received 1 series (1 with data points).
+[Actual Verified] us-jolts-job-openings-2026-09-29 (Aug. 2026): 7.08M
+[Result] Total events verified/updated: 1
+[2026-09-29T14:00:00Z] Successfully wrote C:\Users\Mirne\AppData\Local\Temp\ntm-jolts-lifecycle-2hy_8_4e\weekly.js (atomic replace).
+[2026-10-05T15:00:00Z] Starting robust macro data update...
+[Dynamic Scope] Fetching data for derived years: 2024..2026
+[BLS Query] Requesting 13 series in 1 batch request...
+[BLS Success] Received 1 series (1 with data points).
+[Result] Total events verified/updated: 0
+[2026-10-05T15:00:00Z] Successfully wrote C:\Users\Mirne\AppData\Local\Temp\ntm-jolts-lifecycle-ru88y5vf\weekly.js (atomic replace).
+[2026-10-05T15:00:00Z] Starting robust macro data update...
+[Dynamic Scope] Fetching data for derived years: 2024..2026
+[BLS Query] Requesting 13 series in 1 batch request...
+[BLS Success] Received 1 series (1 with data points).
+[Result] Total events verified/updated: 0
+[2026-10-05T15:00:00Z] Successfully wrote C:\Users\Mirne\AppData\Local\Temp\ntm-jolts-lifecycle-kfmxyo3p\weekly.js (atomic replace).
+[2026-10-05T15:00:00Z] Starting robust macro data update...
+[Dynamic Scope] Fetching data for derived years: 2024..2026
+[BLS Query] Requesting 13 series in 1 batch request...
+[BLS Warning] Empty or unserviceable API response: status=REQUEST_FAILED, non_empty=1
+[Result] Total events verified/updated: 0
+[2026-10-05T15:00:00Z] Successfully wrote C:\Users\Mirne\AppData\Local\Temp\ntm-jolts-lifecycle-be_2kiig\weekly.js (atomic replace).
+[2026-10-05T15:00:00Z] Starting robust macro data update...
+[Dynamic Scope] Fetching data for derived years: 2024..2026
+[BLS Query] Requesting 13 series in 1 batch request...
+[BLS Warning] Empty or unserviceable API response: status=REQUEST_SUCCEEDED, non_empty=0
+[Result] Total events verified/updated: 0
+[2026-10-05T15:00:00Z] Successfully wrote C:\Users\Mirne\AppData\Local\Temp\ntm-jolts-lifecycle-wbaoyp4b\weekly.js (atomic replace).
+[2026-10-05T15:00:00Z] Starting robust macro data update...
+[Dynamic Scope] Fetching data for derived years: 2024..2026
+[BLS Query] Requesting 13 series in 1 batch request...
+[BLS Warning] Empty or unserviceable API response: status=REQUEST_FAILED, non_empty=0
+[Result] Total events verified/updated: 0
+[2026-10-05T15:00:00Z] Successfully wrote C:\Users\Mirne\AppData\Local\Temp\ntm-jolts-lifecycle-66u_6s94\weekly.js (atomic replace).
+[2026-10-05T15:42:02Z] Starting robust macro data update...
+[Dynamic Scope] Fetching data for derived years: 2024..2026
+[BLS Query] Requesting 13 series in 1 batch request...
+[BLS Warning] Empty or unserviceable API response: status=REQUEST_SUCCEEDED, non_empty=0
+[BEA Success] Received 2 matched T10101 rows.
+[Result] Total events verified/updated: 0
+[2026-10-05T15:42:02Z] Successfully wrote C:\Users\Mirne\AppData\Local\Temp\tmp2j_3k6w6\weekly.js (atomic replace).

@@ -1,0 +1,24 @@
+✔ historical actual assertions accept verified updates and reject future or unverified values (49.2064ms)
+✔ release grouping preserves strongest priority and never merges different dates (48.9105ms)
+✔ week 40 verified schedules, Swedish times and historical field lifecycle (78.5529ms)
+✔ week 40 reports preserve verified sessions, unknowns, exact release versus call and identity (11.4671ms)
+✔ Week 41 release instants respect Central/Eastern DST and Swedish day rollover (48.9036ms)
+✔ Week 41 preserves all 20 image identities, verified dates and release/call semantics (13.9224ms)
+✔ W39/W40/W41 resolve independently at Stockholm ISO boundaries and retain reviewed artifacts (70.6504ms)
+✔ week 39 earnings agrees with all image columns, reviewed hash and current/future resolution (82.2821ms)
+✔ week 39 macro image transcription preserves dates, ET timing and manual field provenance (15.9604ms)
+✔ homepage macro priority keeps major releases visible and counts every hidden event exactly (11.5425ms)
+✔ published weekly artifacts and homepage resolve; honest partial/future statuses stay visible (35.9555ms)
+✔ shared Stockholm week resolution handles Monday/Sunday/year rollover and never substitutes another week (9.3719ms)
+✔ missing current weeks and image/structured mismatches fail for both feeds (175.8941ms)
+✔ malformed dates, wrong weeks, duplicate identities and false provenance are rejected (131.1292ms)
+✔ partial upstream failure may not claim successful complete fetch (72.8116ms)
+✔ future authoritative unavailability has a dated explicit exception; current missing week does not (32.9337ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 700.4012

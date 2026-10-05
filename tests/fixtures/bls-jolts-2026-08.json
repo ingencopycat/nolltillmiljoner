@@ -1,0 +1,14 @@
+{
+  "sourceUrl": "https://api.bls.gov/publicAPI/v1/timeseries/data/",
+  "releaseUrl": "https://www.bls.gov/news.release/jolts.t01.htm",
+  "retrievedOn": "2026-10-05",
+  "note": "Bounded BLS API response excerpt, retrieved read-only. Seasonally adjusted total nonfarm job openings, thousands; August is an official preliminary observation.",
+  "status": "REQUEST_SUCCEEDED",
+  "series": [{
+    "seriesID": "JTS000000000000000JOL",
+    "data": [
+      {"year": "2026", "period": "M08", "periodName": "August", "latest": "true", "value": "7079", "footnotes": [{"code": "P", "text": "preliminary"}]},
+      {"year": "2026", "period": "M07", "periodName": "July", "value": "7335", "footnotes": [{}]}
+    ]
+  }]
+}

@@ -18,7 +18,13 @@ class Week40Browser(BrowserSmoke):
                     expect(p.locator('.macro-event-card')).to_have_count(21)
                     expect(p.locator('#event-us-jolts-job-openings-2026-09-29')).to_contain_text('16:00')
                     expect(p.locator('#event-us-adp-employment-2026-09-30')).to_contain_text('14:15')
-                    expect(p.locator('.macro-metric-val.has-actual')).to_have_count(0)
+                    # Selecting an archived week is not a pre-release data snapshot.
+                    actuals = p.evaluate('NTM_WEEKLY_EVENTS.macroWeeks["2026-W40"].events.filter(e=>e.actual!==null)')
+                    expect(p.locator('.macro-metric-val.has-actual')).to_have_count(len(actuals))
+                    for event in actuals:
+                        self.assertEqual(event['fieldProvenance']['actual']['status'], 'available')
+                        self.assertIn(event['fieldProvenance']['actual']['kind'], ['reported', 'provider_derived'])
+                        expect(p.locator('#event-' + event['id'] + ' .has-actual')).to_have_text(event['actual'])
                     p.locator('#weekArchive [data-week="2026-W39"]').click()
                     expect(p.locator('.macro-event-card')).to_have_count(9)
                     p.locator('#currentWeekNavigation [data-week="2026-W40"]').click()

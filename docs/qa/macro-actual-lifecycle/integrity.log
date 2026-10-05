@@ -1,0 +1,3 @@
+PASS: git diff --check.
+PASS: canonical weekly data, images, registry and W41 tests/scripts/docs unchanged against HEAD.
+PASS: audit document local links resolve.
