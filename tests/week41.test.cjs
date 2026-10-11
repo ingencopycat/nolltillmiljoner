@@ -1,6 +1,7 @@
 const test = require('node:test'), assert = require('node:assert/strict');
 const fs = require('node:fs'), vm = require('node:vm');
 const W = require('../scripts/check_weekly_events.cjs');
+const {assertActualLifecycle}=require('./helpers/macro-lifecycle.cjs');
 
 test('Week 41 release instants respect Central/Eastern DST and Swedish day rollover', () => {
   const m = W.loadRepository(), w = m.data.macroWeeks['2026-W41'];
@@ -21,10 +22,7 @@ test('Week 41 release instants respect Central/Eastern DST and Swedish day rollo
     assert.equal(n.swedishDate,`2026-10-${day}`);assert.equal(n.swedishTime,time);
     assert.equal(n.dateTime.toISOString(),utc);
     assert.equal(e.scheduleVerifiedAt,'2026-10-05');
-    if (utc > '2026-10-05T15:00:00.000Z') {
-      assert.equal(e.actual,null);assert.equal(e.fieldProvenance.actual.kind,'unavailable');
-      assert.equal(e.officialBaseline,undefined);
-    }
+    assertActualLifecycle(e,w,m.macro);
     for (const field of ['actual','previous','forecast']) {
       if(e[field] !== null) assert.ok(e.fieldProvenance[field].sourceUrl);
       if(field==='forecast' && e[field] !== null) {
@@ -83,5 +81,6 @@ test('W39/W40/W41 resolve independently at Stockholm ISO boundaries and retain r
   }
   assert.equal(m.api.weekKey(m.api.dateKey(new Date('2026-10-04T21:59:59Z'))),'2026-W40');
   assert.equal(m.api.weekKey(m.api.dateKey(new Date('2026-10-04T22:00:00Z'))),'2026-W41');
-  assert.equal(m.api.resolve(m.data.earningsWeeks,'2026-10-12','reports').available,false,'never substitute W41 for missing W42');
+  const absent = {...m.data.earningsWeeks}; delete absent['2026-W42'];
+  assert.equal(m.api.resolve(absent,'2026-10-12','reports').available,false,'never substitute W41 for missing W42');
 });

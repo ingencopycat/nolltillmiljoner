@@ -1,0 +1,21 @@
+✔ W42 references are independently selected; wrong scope, hash or review fails closed (124.2116ms)
+✔ W42 dry runs have no network access even with live enable variable (25.3491ms)
+✔ W42 mocked delivery attaches original bytes once and preserves previous ledger history (49.6149ms)
+✔ historical actual assertions accept verified updates and reject future or unverified values (51.4191ms)
+✔ Week 41 release instants respect Central/Eastern DST and Swedish day rollover (55.9107ms)
+✔ Week 41 preserves all 20 image identities, verified dates and release/call semantics (15.7762ms)
+✔ W39/W40/W41 resolve independently at Stockholm ISO boundaries and retain reviewed artifacts (91.8355ms)
+✔ W42 macro preserves verified schedules, provider identities, grouping and actual lifecycle (66.6498ms)
+✔ W42 lifecycle accepts a later verified actual and rejects premature or unproven values (18.2954ms)
+✔ all 43 W42 image companies retain dates, separate calls and conservative release sessions (14.6848ms)
+✔ W42 resolves at Stockholm midnight; absent or malformed W42 never substitutes history (28.3241ms)
+✔ weekly content adapter accepts archived transcriptions and new verified weeks without markup (27.2378ms)
+✔ page owns exactly one image/text/navigation shell and week renderer cannot insert grid siblings (0.6907ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 303.8259

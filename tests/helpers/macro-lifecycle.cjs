@@ -14,7 +14,24 @@ function assertVerifiedField(event, field, now) {
 }
 
 function assertActualLifecycle(event, week, macro, now = new Date()) {
-  const release = macro.normalizeMacroEvent(event, week.sourceTimezone).dateTime.getTime();
+  const normalized = macro.normalizeMacroEvent(event, week.sourceTimezone);
+  if (!normalized.hasTime) {
+    // A verified date without a clock time must not acquire a fictitious instant.
+    const dateKey = date => new Intl.DateTimeFormat('en-CA', {
+      timeZone: normalized.timezone, year:'numeric', month:'2-digit', day:'2-digit'
+    }).format(date);
+    // The updater conservatively keeps unknown-time releases pending that day.
+    if (event.date >= dateKey(now) || event.actual === null) {
+      assert.equal(event.actual, null, `${event.id}: future actual`);
+      assert.deepEqual(event.fieldProvenance.actual, {kind:'unavailable', status:'unavailable'});
+    } else {
+      assert.equal(typeof event.actual, 'string');assert.ok(event.actual.trim());
+      const fetched = assertVerifiedField(event, 'actual', now);
+      assert.ok(dateKey(new Date(fetched)) >= event.date, `${event.id}: actual verified before release date`);
+    }
+    return;
+  }
+  const release = normalized.dateTime.getTime();
   assert.ok(Number.isFinite(release), `${event.id}: release instant`);
   if (release > now.getTime() || event.actual === null) {
     assert.equal(event.actual, null, `${event.id}: future actual`);

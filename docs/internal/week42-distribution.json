@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "use": "owner-selected-original-reference-images",
+  "reviewedAt": "2026-10-11",
+  "note": "Owner selected the unchanged supplied Week 42 PNGs for Discord. Canonical website corrections do not change these external references. This selection does not authorize sending: preview, enable variable, protected environment, owner approval and duplicate ledger remain required.",
+  "artifacts": [
+    {
+      "kind": "macro",
+      "week": "2026-W42",
+      "image": "./images/makro/week-42.png",
+      "sha256": "b32b977dd33567631e75b6eb6d713207b5848fd5e443b4ba2e4ec68bf8c92692"
+    },
+    {
+      "kind": "earnings",
+      "week": "2026-W42",
+      "image": "./images/rapporter/week-42.png",
+      "sha256": "5ce12d50988fba580ae2fbbf69559c9a6e0ec2470fc8130d5471f7da95dc8c41"
+    }
+  ]
+}

@@ -14,9 +14,9 @@ class WeeklyTemplateBrowser(BrowserSmoke):
         baseline = None
         for width in [1440, 768, 430, 390, 360]:
             p.set_viewport_size({'width': width, 'height': 1000})
-            for date in ['2026-09-27', '2026-09-28', '2026-10-04', '2026-10-05', '2026-10-12']:
+            for date in ['2026-09-27', '2026-09-28', '2026-10-04', '2026-10-05', '2026-10-12', '2026-10-19']:
                 self.go('rapporter.html?ntmDate=' + date)
-                for week in ['2026-W38', '2026-W39', '2026-W40', '2026-W41']:
+                for week in ['2026-W38', '2026-W39', '2026-W40', '2026-W41', '2026-W42']:
                     p.locator(f'#weekArchive [data-week="{week}"]').click()
                     expect(p.locator('#earnings-week-layout > #weekVisual')).to_have_count(1)
                     expect(p.locator('#earnings-week-layout > #earnings-readable')).to_have_count(1)
@@ -46,14 +46,16 @@ class WeeklyTemplateBrowser(BrowserSmoke):
                     current = p.evaluate('date => NTMWeekly.weekKey(date)', date)
                     status = 'Aktuell' if week == current else 'Kommande' if week > current else 'Arkiv'
                     expect(p.locator('#weekArchive .active .archive-item-status')).to_have_text(status)
-                    if date == '2026-10-05':
+                    if date == '2026-10-12' and week in ['2026-W41', '2026-W42']:
                         image.scroll_into_view_if_needed()
                         p.locator('#weekVisual img').evaluate('(i)=>i.decode()')
                         for theme in ['light', 'dark']:
                             p.evaluate('applyTheme', theme)
                             p.evaluate('window.scrollTo({top:0,behavior:"instant"})')
                             p.evaluate('document.activeElement.blur()')
-                            p.screenshot(path=str(folder/f'{week}-{width}-{theme}.png'), full_page=True, animations='disabled')
+                            capture = (width, theme) in [(1440, 'light'), (360, 'dark')] or (week == '2026-W42' and (width, theme) in [(768, 'dark'), (430, 'light'), (390, 'dark')])
+                            if capture:
+                                p.screenshot(path=str(folder/f'{week}-{width}-{theme}.png'), full_page=True, animations='disabled')
                     self.assertEqual(p.evaluate('window.__templateCsp || []'), [])
         # Week content changes while the shell stays identical. Sources are secondary.
         p.locator('#weekArchive [data-week="2026-W40"]').click()
@@ -63,7 +65,7 @@ class WeeklyTemplateBrowser(BrowserSmoke):
         p.locator('#earnings-readable a[href="research.html?ticker=MU"]').click()
         expect(p.locator('#companyName')).to_contain_text('MICRON')
         # Macro shares one event renderer; status/week must not move its regions.
-        for date, week in [('2026-09-27','2026-W40'), ('2026-09-28','2026-W39'), ('2026-09-28','2026-W38'), ('2026-10-04','2026-W41'), ('2026-10-05','2026-W41'), ('2026-10-12','2026-W41')]:
+        for date, week in [('2026-09-27','2026-W40'), ('2026-09-28','2026-W39'), ('2026-09-28','2026-W38'), ('2026-10-04','2026-W41'), ('2026-10-05','2026-W41'), ('2026-10-12','2026-W41'), ('2026-10-11','2026-W42'), ('2026-10-12','2026-W42'), ('2026-10-19','2026-W42')]:
             self.go('makro.html?ntmDate=' + date)
             p.locator(f'button[data-week="{week}"]').click()
             expect(p.locator('#macroStructuredContent > .macro-week-header')).to_have_count(1)
@@ -72,7 +74,7 @@ class WeeklyTemplateBrowser(BrowserSmoke):
             expect(p.locator('#weekVisual')).to_be_hidden()
             expect(p.locator(f'button.active[data-week="{week}"]')).to_have_count(1)
         self.assertEqual(self.errors, [])
-        print('PASS: shared earnings regions across 4 weeks, 5 dates, 5 widths, both themes; Macro structure, Research and CSP', flush=True)
+        print('PASS: shared earnings regions across 5 weeks, 6 dates, 5 widths, both themes; Macro structure, Research and CSP', flush=True)
 
 if __name__ == '__main__':
     result = unittest.TextTestRunner(verbosity=2).run(unittest.TestSuite([WeeklyTemplateBrowser('test_template')]))

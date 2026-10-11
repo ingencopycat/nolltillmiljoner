@@ -1,6 +1,15 @@
 const isMakroPage = window.location.pathname.toLowerCase().includes('makro');
 
 const earningsWeekData = {
+  '2026-W42': {
+    title: 'Vecka 42, 2026',
+    label: 'Vecka 42',
+    image: './images/rapporter/week-42-3840.webp',
+    preview: './images/rapporter/week-42-1920.webp',
+    fallback: './images/rapporter/week-42.png',
+    reviewed: true,
+    schedule: []
+  },
   '2026-W41': {
     title: 'Vecka 41, 2026',
     label: 'Vecka 41',

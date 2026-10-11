@@ -1407,6 +1407,343 @@
           "timing": "after-close"
         }
       ]
+    },
+    {
+      "kind": "macro",
+      "week": "2026-W42",
+      "image": "./images/makro/week-42.png",
+      "sha256": "b32b977dd33567631e75b6eb6d713207b5848fd5e443b4ba2e4ec68bf8c92692",
+      "reviewedAt": "2026-10-11",
+      "note": "Primary-source reviewed canonical schedule. Original external reference retained unchanged; see docs/weekly-publication-2026-W42.md.",
+      "distributionBlockedReason": "Reference image requires a separate owner-selected-original-reference-images distribution review.",
+      "records": [
+        {
+          "id": "us-beige-book-2026-10-14",
+          "date": "2026-10-14",
+          "time": "14:00"
+        },
+        {
+          "id": "us-business-inventories-2026-10-15",
+          "date": "2026-10-15",
+          "time": "10:00"
+        },
+        {
+          "id": "us-capacity-utilization-2026-10-16",
+          "date": "2026-10-16",
+          "time": "09:15"
+        },
+        {
+          "id": "us-core-cpi-mm-2026-10-14",
+          "date": "2026-10-14",
+          "time": "08:30"
+        },
+        {
+          "id": "us-cpi-2026-10-14",
+          "date": "2026-10-14",
+          "time": "08:30"
+        },
+        {
+          "id": "us-cpi-core-yy-2026-10-14",
+          "date": "2026-10-14",
+          "time": "08:30"
+        },
+        {
+          "id": "us-cpi-yy-2026-10-14",
+          "date": "2026-10-14",
+          "time": "08:30"
+        },
+        {
+          "id": "us-empire-state-2026-10-15",
+          "date": "2026-10-15",
+          "time": "08:30"
+        },
+        {
+          "id": "us-existing-home-sales-2026-10-13",
+          "date": "2026-10-13",
+          "time": "10:00"
+        },
+        {
+          "id": "us-fed-hammack-2026-10-15",
+          "date": "2026-10-15",
+          "time": "16:30"
+        },
+        {
+          "id": "us-fed-warsh-2026-10-15",
+          "date": "2026-10-15",
+          "time": "23:30"
+        },
+        {
+          "id": "us-import-prices-2026-10-16",
+          "date": "2026-10-16",
+          "time": "08:30"
+        },
+        {
+          "id": "us-industrial-production-2026-10-16",
+          "date": "2026-10-16",
+          "time": "09:15"
+        },
+        {
+          "id": "us-jobless-claims-2026-10-15",
+          "date": "2026-10-15",
+          "time": "08:30"
+        },
+        {
+          "id": "us-nfib-2026-10-13",
+          "date": "2026-10-13",
+          "time": null
+        },
+        {
+          "id": "us-philadelphia-fed-2026-10-15",
+          "date": "2026-10-15",
+          "time": "08:30"
+        },
+        {
+          "id": "us-ppi-2026-10-15",
+          "date": "2026-10-15",
+          "time": "08:30"
+        },
+        {
+          "id": "us-ppi-core-mm-2026-10-15",
+          "date": "2026-10-15",
+          "time": "08:30"
+        },
+        {
+          "id": "us-ppi-yy-2026-10-15",
+          "date": "2026-10-15",
+          "time": "08:30"
+        },
+        {
+          "id": "us-retail-sales-2026-10-15",
+          "date": "2026-10-15",
+          "time": "08:30"
+        }
+      ]
+    },
+    {
+      "kind": "earnings",
+      "week": "2026-W42",
+      "image": "./images/rapporter/week-42.png",
+      "sha256": "5ce12d50988fba580ae2fbbf69559c9a6e0ec2470fc8130d5471f7da95dc8c41",
+      "reviewedAt": "2026-10-11",
+      "note": "Primary-source reviewed canonical schedule. Original external reference retained unchanged; see docs/weekly-publication-2026-W42.md.",
+      "distributionBlockedReason": "Reference image requires a separate owner-selected-original-reference-images distribution review.",
+      "records": [
+        {
+          "ticker": "AA",
+          "date": "2026-10-15",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "ACI",
+          "date": "2026-10-13",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "ASML",
+          "date": "2026-10-14",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "AZZ",
+          "date": "2026-10-13",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "BAC",
+          "date": "2026-10-14",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "BLK",
+          "date": "2026-10-14",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "BNY",
+          "date": "2026-10-15",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "BSVN",
+          "date": "2026-10-15",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "C",
+          "date": "2026-10-13",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "CFG",
+          "date": "2026-10-16",
+          "timing": "unknown"
+        },
+        {
+          "ticker": "CMC",
+          "date": "2026-10-15",
+          "timing": "unknown"
+        },
+        {
+          "ticker": "CNS",
+          "date": "2026-10-15",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "DPZ",
+          "date": "2026-10-13",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "EQBK",
+          "date": "2026-10-14",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "ERIC",
+          "date": "2026-10-15",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "FAST",
+          "date": "2026-10-14",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "FBK",
+          "date": "2026-10-13",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "FHN",
+          "date": "2026-10-15",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "GS",
+          "date": "2026-10-13",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "HOMB",
+          "date": "2026-10-14",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "IBKR",
+          "date": "2026-10-15",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "INDB",
+          "date": "2026-10-15",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "JBHT",
+          "date": "2026-10-15",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "JNJ",
+          "date": "2026-10-13",
+          "timing": "unknown"
+        },
+        {
+          "ticker": "JPM",
+          "date": "2026-10-13",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "MAN",
+          "date": "2026-10-15",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "MRSH",
+          "date": "2026-10-15",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "MS",
+          "date": "2026-10-14",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "MTB",
+          "date": "2026-10-16",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "PGR",
+          "date": "2026-10-14",
+          "timing": "unknown"
+        },
+        {
+          "ticker": "PNC",
+          "date": "2026-10-15",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "RF",
+          "date": "2026-10-16",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "SCHW",
+          "date": "2026-10-15",
+          "timing": "unknown"
+        },
+        {
+          "ticker": "SFNC",
+          "date": "2026-10-15",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "SOTK",
+          "date": "2026-10-14",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "STT",
+          "date": "2026-10-14",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "TFC",
+          "date": "2026-10-16",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "TRV",
+          "date": "2026-10-16",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "TSM",
+          "date": "2026-10-15",
+          "timing": "unknown"
+        },
+        {
+          "ticker": "UNH",
+          "date": "2026-10-13",
+          "timing": "before-open"
+        },
+        {
+          "ticker": "WAFD",
+          "date": "2026-10-15",
+          "timing": "after-close"
+        },
+        {
+          "ticker": "WFC",
+          "date": "2026-10-13",
+          "timing": "unknown"
+        },
+        {
+          "ticker": "WSE",
+          "date": "2026-10-15",
+          "timing": "after-close"
+        }
+      ]
     }
   ]
 }

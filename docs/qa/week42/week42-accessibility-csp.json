@@ -1,0 +1,195 @@
+{
+  "version": 1,
+  "measuredAt": "2026-10-11T21:03:23.446168+00:00",
+  "method": "Headless Chromium; cold context per page; localhost without compression or CPU/network throttling; third parties and browser-scheduled favicon requests excluded; no timing pass/fail thresholds.",
+  "pages": [
+    {
+      "page": "makro.html?ntmDate=2026-10-12",
+      "requestCount": 19,
+      "transferBytes": 1224779,
+      "decodedBytes": 1219079,
+      "domContentLoadedMs": 287.8000000715256,
+      "loadMs": 295,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 111315,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 38404,
+          "kind": "link"
+        },
+        {
+          "path": "/wave1.css",
+          "bytes": 1092,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/data/weekly-events.js",
+          "bytes": 530129,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 12115,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 299237,
+          "kind": "script"
+        },
+        {
+          "path": "/calendar-context.js",
+          "bytes": 2378,
+          "kind": "script"
+        },
+        {
+          "path": "/week-pages.js",
+          "bytes": 27544,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-core.js",
+          "bytes": 15021,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-catalog.js",
+          "bytes": 102500,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-context.js",
+          "bytes": 6781,
+          "kind": "script"
+        },
+        {
+          "path": "/wave1-ui.js",
+          "bytes": 11497,
+          "kind": "script"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8663,
+          "kind": "script"
+        },
+        {
+          "path": "/knowledge-help.js",
+          "bytes": 2296,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 1020345,
+      "cssBytes": 154324,
+      "imageBytes": 34556,
+      "excludedExternalRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js"
+      ]
+    },
+    {
+      "page": "rapporter.html?ntmDate=2026-10-12",
+      "requestCount": 14,
+      "transferBytes": 1212284,
+      "decodedBytes": 1208084,
+      "domContentLoadedMs": 167.70000004768372,
+      "loadMs": 174.20000004768372,
+      "assets": [
+        {
+          "path": "/style.css",
+          "bytes": 111315,
+          "kind": "link"
+        },
+        {
+          "path": "/premium.css",
+          "bytes": 38404,
+          "kind": "link"
+        },
+        {
+          "path": "/visual-v3-tokens.css",
+          "bytes": 3513,
+          "kind": "link"
+        },
+        {
+          "path": "/images/ntm-logo.webp",
+          "bytes": 34556,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-product.js",
+          "bytes": 12115,
+          "kind": "script"
+        },
+        {
+          "path": "/valuation-core.js",
+          "bytes": 2047,
+          "kind": "script"
+        },
+        {
+          "path": "/script.js",
+          "bytes": 299237,
+          "kind": "script"
+        },
+        {
+          "path": "/calendar-context.js",
+          "bytes": 2378,
+          "kind": "script"
+        },
+        {
+          "path": "/data/weekly-events.js",
+          "bytes": 530129,
+          "kind": "script"
+        },
+        {
+          "path": "/week-pages.js",
+          "bytes": 27544,
+          "kind": "script"
+        },
+        {
+          "path": "/images/rapporter/week-42-1920.webp",
+          "bytes": 130202,
+          "kind": "img"
+        },
+        {
+          "path": "/ntm-ui.js",
+          "bytes": 8663,
+          "kind": "script"
+        },
+        {
+          "path": "/cloud-config.js",
+          "bytes": 137,
+          "kind": "script"
+        }
+      ],
+      "jsBytes": 882250,
+      "cssBytes": 153232,
+      "imageBytes": 164758,
+      "excludedExternalRequests": [
+        "https://static.cloudflareinsights.com/beacon.min.js"
+      ]
+    }
+  ],
+  "browser": "151.0.7922.34"
+}
