@@ -1,7 +1,7 @@
 const test = require('node:test'), assert = require('node:assert/strict');
 const fs = require('node:fs'), vm = require('node:vm');
 const W = require('../scripts/check_weekly_events.cjs');
-const {assertActualLifecycle}=require('./helpers/macro-lifecycle.cjs');
+const {assertActualLifecycle,assertVerifiedField}=require('./helpers/macro-lifecycle.cjs');
 
 test('Week 41 release instants respect Central/Eastern DST and Swedish day rollover', () => {
   const m = W.loadRepository(), w = m.data.macroWeeks['2026-W41'];
@@ -33,10 +33,39 @@ test('Week 41 release instants respect Central/Eastern DST and Swedish day rollo
   }
   assert.equal(w.events.find(e=>e.id.startsWith('us-ism')).actual,'54.9');
   assert.equal(w.events.find(e=>e.id.startsWith('us-michigan')).previous,'48.1');
-  assert.equal(w.events.find(e=>e.id.startsWith('us-wholesale')).previous,'1.3%');
-  assert.ok(w.events.find(e=>e.id.startsWith('us-wholesale')).eventName.includes('inventories'));
   assert.equal(m.macro.groupHomepageMacroReleases(w.events.map(e=>m.macro.normalizeMacroEvent(e,w.sourceTimezone))).length,9);
   assert.equal(m.macro.homepageMacroPriority(w.events.find(e=>e.id.startsWith('us-fomc'))),5);
+});
+
+test('W41 wholesale inventories retain identity and verified revision-capable observations', () => {
+  const m=W.loadRepository(), w=m.data.macroWeeks['2026-W41'];
+  const e=w.events.find(e=>e.id==='us-wholesale-trade-2026-10-08');
+  assert.ok(e);
+  assert.equal(e.eventName,'Monthly Wholesale Trade – inventories (MoM)');
+  assert.equal(e.date,'2026-10-08');assert.equal(e.time,'10:00');
+  assert.equal(e.period,'Aug.');assert.equal(e.refYear,2026);
+  assert.equal(w.sourceTimezone,'America/New_York');
+  assert.equal(e.source,'U.S. Census Bureau');
+  assert.equal(e.sourceUrl,'https://www.census.gov/wholesale/release_schedule.html');
+  assert.equal(e.forecast,null);
+  assert.deepEqual(e.fieldProvenance.forecast,{kind:'unavailable',status:'unavailable'});
+  assertActualLifecycle(e,w,m.macro);
+  // previous is July/June SA inventories, recomputed from Census levels on refresh.
+  // It is not the publication image's frozen 1.3%, nor August's actual.
+  for(const field of ['previous',...(e.actual===null?[]:['actual'])]) {
+    assert.match(e[field],/^-?\d+\.\d%$/);
+    const fetched=assertVerifiedField(e,field,new Date());
+    const p=e.fieldProvenance[field];
+    assert.equal(p.kind,'provider_derived');assert.equal(p.methodVersion,'ntm-macro/1');
+    assert.equal(p.source,e.source);assert.equal(p.sourceUrl,e.sourceUrl);
+    assert.ok(fetched>=Date.parse('2026-10-05T15:50:41Z'));
+  }
+  if(e.actual!==null) assert.equal(e.officialBaseline,e.actual);
+  else assert.equal(e.officialBaseline,undefined);
+  // isRevised describes a changed actual, not a revision of previous.
+  if(e.isRevised!==undefined) {
+    assert.equal(e.isRevised,true);assert.notEqual(e.actual,null);
+  }
 });
 
 test('Week 41 preserves all 20 image identities, verified dates and release/call semantics', () => {
